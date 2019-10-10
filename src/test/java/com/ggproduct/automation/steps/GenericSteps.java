@@ -3,6 +3,7 @@ package com.ggproduct.automation.steps;
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import eyethink.automation.bots.Register.EyeThink;
 import io.cucumber.java.en.*;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.springframework.context.annotation.Description;
@@ -216,5 +217,23 @@ public class GenericSteps {
                 EyeThink.saas().pageDetails().clickAnyTopRightButton("Save");
             }
         }
+    }
+
+    SoftAssertions softAssertions = new SoftAssertions();
+
+    @Given("I login")
+    public void iLogin() {
+        softAssertions.assertThat(false).isTrue();
+    }
+
+    @And("verify")
+    public void verify() {
+        System.out.println("In logout");
+        softAssertions.assertThat(true).isTrue();
+    }
+
+    @When("assert all")
+    public void assertmE(){
+        softAssertions.assertAll();
     }
 }
