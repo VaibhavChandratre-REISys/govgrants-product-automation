@@ -286,7 +286,7 @@ public class GenericSteps {
     }
 
     @Then("I see {string} image as {string}")
-    public void compareImages(String fieldLabel,String imageName) throws IOException, IOException {
-        projectManager.assertRiskLevelImage(fieldLabel,imageName);
+    public void compareImages(String fieldLabel,String imageName) throws IOException {
+        Assert.assertTrue(projectManager.assertRiskLevelImage(fieldLabel,imageName));
     }
 }
