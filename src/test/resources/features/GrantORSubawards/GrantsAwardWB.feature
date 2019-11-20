@@ -195,3 +195,37 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save and Continue"
     Then I see the following messages in the page details :
       | If you select Subrecipient Match Required setting as Yes then you need to set value for Required Match % |
+
+  @65084 @VerifyActiveGrantsOnSubportal @mahadev
+  Scenario: Verify SR user can view Active grant
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "Automation Permanent Award" in "---amendment:-:recipientActiveGrantsTableId---" panel
+    Then I see value "Automation Permanent Award" for title "Grant Title" inside table "---amendment:-:recipientActiveGrantsTableId---"
+
+  @64951 @VerifyPreviousReviewStepbuttonOnFDM @mahadev
+  Scenario: Verify when user click on Previous Review Step button it navigate to Management Review Page
+    Given I delete the record "Automation Desk Review" from the object "Desk Review"
+    When I delete the record "Automation Site Visit" from the object "Site Visit"
+    And I delete the record "Automation Announcement for FDM" from the object "FDM"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "Automation Announcement for FDM" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "Automation Announcement for FDM" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    And I click on "Previous Review Step" in the page details
+    Then I see field "Status" as "Completed"
+
+  @64950 @PreviousReviewStepButton  @keerti
+  Scenario: Verify Previous Review Step button is present on Funding Decision Memo Page.
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "Automation Announcement for FDM" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "Automation Announcement for FDM" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    Then I can see top right button "Previous Review Step" in page detail

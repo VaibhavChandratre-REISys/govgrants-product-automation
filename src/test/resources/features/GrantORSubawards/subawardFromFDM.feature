@@ -37,6 +37,16 @@ Feature: Validate all scenarios in the award created from FDM
     Then I softly see that "Progress Report" has been added in flextable with Id "---subAwardFromFDM:-:progressReportSchedulesTableId---"
     Then I collect all the soft asserts
 
+  @64947 @BusinessFormProgressReport @jitendra
+  Scenario: Verify Business Forms for Progress report on announcement is same on grant Attachments Tab.
+    When I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Automation Announcement for FDM" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "Automation Announcement for FDM" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
+    And I navigate to "Attachments" sub tab
+    And I see value "Progress Report" for title "Package Type" inside table "---subAwardFromFDM:-:grantPackagesTableId---"
+
   @awardApproverSelection
   Scenario: Validate the assignment of Approvers for the award
     When I navigate to "Responsibilities" sub tab
@@ -859,7 +869,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                      |
       | Automation Announcement for FDM |
 
-  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate  @keerti
+  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate  @keerti
     Scenario Outline: Verify Work Plan Required? field setting entered at announcement is same on grant which is created with application.
     When I navigate to "Announcements" tab
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
@@ -869,6 +879,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I save the field labeled "Program ID" as "ProgramID"
     And I save the field labeled "KPI" as "KPI"
     And I save the field labeled "Work Plan Required?" as "WPR"
+    And I save the field labeled "Program Income Allowed?" as "PIA"
     And I save the field labeled "Focus Area Required?" as "FAR"
     And I save the field labeled "Project Period Start Date" as "PPSD"
     And I save the field labeled "Project Period End Date" as "PPED"
@@ -884,6 +895,7 @@ Feature: Validate all scenarios in the award created from FDM
     Then I softly see field "Work Plan Required?" as "{SavedValue:WPR}"
     Then I softly see field "Focus Area Required?" as "{SavedValue:FAR}"
     Then I softly see field "Project Period Start Date" as "{SavedValue:PPSD}"
+    Then I softly see field "Program Income Allowed?" as "{SavedValue:PIA}"
     Then I softly see field "Project Period End Date" as "{SavedValue:PPED}"
     Then I softly see field "Created by" as "{SavedValue:CreatedBy}"
     Then I softly see field "KPI" as "{SavedValue:KPI}"
@@ -952,6 +964,31 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                      | Award Name                      |
       | Automation Announcement for FDM | Automation Announcement for FDM |
 
+  @64787  @verifyTotalSubawardAmountthisBudgetPeriod @mahadev
+  Scenario Outline: Verify Total Subaward Amount this Budget Period on subaward Budget Period Details table Budget tab is same as Estimated Total Funding field on announcement financial Tab
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Published Competitive Announcements"
+    When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:announcemetTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:announcemetTableId---"
+    When I navigate to "Financials" sub tab
+    And I save the field labeled "Estimated Total Funding" as "ETF"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Budget" sub tab
+    Then I see field "Total Subaward Amount this Budget Period" as "{SavedValue:ETF}"
+    Examples:
+      | Grant Name                      |
+      | Automation Announcement for FDM |
+
   @64790 @VerifyObjectivesFieldValueOnPerformanceTab  @keerti
   Scenario Outline: Verify Objectives field value Performance tab Subaward overview is same as announcement Objectives table setup Tab.
     When I navigate to "Announcements" tab
@@ -974,3 +1011,32 @@ Feature: Validate all scenarios in the award created from FDM
     Examples:
       | Grant Name                      | Award Name                      |
       | Automation Announcement for FDM | Automation Announcement for FDM |
+
+  @64722 @VerifyRelatedFocusAreasField  @keerti
+  Scenario Outline: Verify Related Focus Areas field value setup tab overview at announcement is same on grant which is created with application Overview Tab.
+    When I navigate to "Announcements" tab
+    When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Setup" sub tab
+    When I perform quick search for "Automation Permanent Focus Area" in "AnnouncementServiceArea1" panel
+    And I click on "View" icon for "Automation Permanent Focus Area" inside table
+    And I save the field labeled "Title" as "title"
+    And I close modal by clicking the top right x button
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Overview" sub tab
+    Then I see value "{SavedValue:title}" for title "Title" inside table "GrantFocusAreas"
+    Examples:
+      | Grant Name                      | Award Name                      |
+      | Automation Announcement for FDM | Automation Announcement for FDM |
+
+  @64793 @VerifyObjectivesFieldValueOnPerformanceTab  @keerti
+  Scenario: Verify SR user is not able to view the grant whose status is draft.
+    And I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    And I click toggle button to select "Grants - All"
+    And I perform quick search for "Record id" in "GrantsList" panel
+    Then I do not see value "Record id" for title "EGMS ID" inside table "GrantsList"

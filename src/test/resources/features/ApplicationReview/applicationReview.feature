@@ -41,8 +41,8 @@ Feature: Validate all scenarios in the Application Review
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
 
-  @51066 @38463 @38462 @38464 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke @jitendra
-  Scenario Outline: Enter Due in Days for all review forms in SME-review
+  @51066 @38463 @38462 @38464 @65082 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke @jitendra
+  Scenario Outline: Enter Due in Days for all review forms in SME-review | Verify Pending Task is created for Reviewer
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -68,6 +68,7 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see that "Record ID" has been added in flextable with Id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -824,7 +825,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
 
-  @51058 @managementReviewCompleteReviewForm
+  @51058 @64948 @managementReviewCompleteReviewForm
   Scenario Outline: Complete Review form as Various reviewers in Management Review
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -960,7 +961,9 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Logs" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    Then I see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I softly can see top right button "Funding Decision Memo" in page detail
+    Then I collect all the soft asserts
     Examples:
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
@@ -1108,8 +1111,8 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
 
-  @51056 @subAwardAbbreviationInFDM
-  Scenario Outline: Adding a sub-award abbreviation in FDM
+  @51056  @64949 @subAwardAbbreviationInFDM
+  Scenario Outline: Adding a sub-award abbreviation in FDM | Verify when user click on Funding Decision Memo button it navigate to Funding Decision Memo Page
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1247,10 +1250,12 @@ Feature: Validate all scenarios in the Application Review
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
+    Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     And I click on "Save" in the page details
-    Then I see that "Funding Decision Memo" is in "Created" status
+    Then I softly see that "Funding Decision Memo" is in "Created" status
+    Then I collect all the soft asserts
     Examples:
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
@@ -1884,6 +1889,47 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Approve" on the approval decision box
     Then I see status in Progress-bar is "Approved" and is "green"
+    Examples:
+      | Announcement Name                              | Application Name       |
+      | Automation Announcement for Application Review | Automation Application |
+
+  @65079 @VerifyAwardOwnerCanInitiateReviewProcess @keerti
+   Scenario Outline: Verify Award owner can Initiate the Review Process.
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    Then I see value "Review Initiated" for title "Status" inside table "RelatedFOApplications"
+    Examples:
+      | Announcement Name                              |
+      | Automation Announcement for Application Review |
+
+  @65083  @verifyValidationMessageOnSendForReview @mahadev
+  Scenario Outline: Verify Validation message is shown if application is not selected for submitting the review process
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Logs" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name  | Due in Days |
+      | Pre-Screen | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer      |
+      | Automation FO |
+    And I click on "Assign" icon for "Automation FO" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I close "Assign Applications" modal by clicking the top right x button
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    Then I see the following messages in the page details :
+      | Please select the reviews to send. |
     Examples:
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
