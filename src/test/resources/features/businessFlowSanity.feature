@@ -69,7 +69,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Add" after selection of "Automation EXE" in the table "---program:-:associateContactsTableId---"
+    When I click "Add" after selection of "{users:Automation_EXE}" in the table "---program:-:associateContactsTableId---"
     When I close "Contacts" modal by clicking the top right x button
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -83,9 +83,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click "Add" after selection of "Automation Permanent KPI for Regression" in the table "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
-      | Responsibility     | Name           | Description                 |
-      | Program Approver   | Automation PM  | Automation Test Description |
-      | Executive Approver | Automation EXE | Automation Test Description |
+      | Responsibility     | Name                   | Description                 |
+      | Program Approver   | {users:Automation_PM}  | Automation Test Description |
+      | Executive Approver | {users:Automation_EXE} | Automation Test Description |
     When I get the "EGMS ID"
     When I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -146,20 +146,20 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Overview" sub tab
     When I pause execution for "1" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Add" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Add" after selection of "{users:Automation_EXE}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
-      | Program Approver   | Automation PM  | Automation Test Description |
-      | Executive Approver | Automation EXE | Automation Test Description |
-      | Fiscal Approver    | Automation FO  | Automation Test Description |
+      | Role               | Name                   | Description                 |
+      | Program Approver   | {users:Automation_PM}  | Automation Test Description |
+      | Executive Approver | {users:Automation_EXE} | Automation Test Description |
+      | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "Automation FO" inside table
+      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -167,7 +167,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside table
     When I navigate to "Responsibilities" tab
-    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---announcement:-:reviewersTableId---"
+    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---announcement:-:reviewersTableId---"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
@@ -355,7 +355,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Overview" sub tab
     When I pause execution for "1" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Add" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Add" after selection of "{users:Automation_EXE}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
@@ -365,14 +365,14 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
-      | Fiscal Approver    | Automation FO  | Automation Test Description |
-      | Executive Approver | Automation EXE | Automation Test Description |
-      | Program Approver   | ---users:-:Automation_PM---  | Automation Test Description |
+      | Role               | Name                   | Description                 |
+      | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
+      | Executive Approver | {users:Automation_EXE} | Automation Test Description |
+      | Program Approver   | {users:Automation_PM}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      |  Name | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "Automation FO" inside table
+      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -380,7 +380,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside table
     When I navigate to "Responsibilities" tab
-    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---announcement:-:reviewersTableId---"
+    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---announcement:-:reviewersTableId---"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
@@ -560,20 +560,20 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Overview" sub tab
     When I pause execution for "1" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Add" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Add" after selection of "{users:Automation_EXE}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
-      | Program Approver   | Automation PM  | Automation Test Description |
-      | Executive Approver | Automation EXE | Automation Test Description |
-      | Fiscal Approver    | Automation FO  | Automation Test Description |
+      | Role               | Name                   | Description                 |
+      | Program Approver   | {users:Automation_PM}  | Automation Test Description |
+      | Executive Approver | {users:Automation_EXE} | Automation Test Description |
+      | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      |  Name | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "Automation FO" inside table
+      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -581,7 +581,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside table
     When I navigate to "Responsibilities" tab
-    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---announcement:-:reviewersTableId---"
+    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---announcement:-:reviewersTableId---"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
@@ -708,7 +708,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization                              | Allocated Amount |
+      | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -873,9 +873,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer      |
-      | Automation FO |
-    And I click on "Assign" icon for "Automation FO" inside flex table with id "---applicationReview:-:reviewersTableId---"
+      | Reviewer              |
+      | {users:Automation_FO} |
+    And I click on "Assign" icon for "{users:Automation_FO}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -907,26 +907,26 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Fiscal Review     | 5           |
       | Compliance Review | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer       |
-      | Automation EXE |
-      | Automation FO  |
-      | Automation PM  |
+      | Reviewer               |
+      | {users:Automation_EXE} |
+      | {users:Automation_FO}  |
+      | {users:Automation_PM}  |
     When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "Automation PM" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "Automation PM" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I perform quick search for "{users:Automation_PM} " in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{users:Automation_PM} " boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "Automation FO" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "Automation FO" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I perform quick search for "{users:Automation_FO}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{users:Automation_FO}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "Automation EXE" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "Automation EXE" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I perform quick search for "{users:Automation_EXE}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{users:Automation_EXE}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -970,9 +970,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Form Name         | Due in Days |
       | Management Review | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer      |
-      | Automation FO |
-    And I click on "Assign" icon for "Automation FO" inside flex table with id "---applicationReview:-:reviewersTableId---"
+      | Reviewer              |
+      | {users:Automation_FO} |
+    And I click on "Assign" icon for "{users:Automation_FO}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1088,9 +1088,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I get the "EGMS ID"
     And I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
-      | Program Approver | Automation PM | Automation Test Description |
-      | Fiscal Approver  | Automation FO | Automation Test Description |
+      | Responsibility   | Name                  | Description                 |
+      | Program Approver | {users:Automation_PM} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1115,10 +1115,10 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I get the "EGMS ID"
     And I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "Edit" :
-      | Responsibility     | Name           | Description                 |
-      | Program Approver   | Automation PM  | Automation Test Description |
-      | Executive Approver | Automation EXE | Automation Test Description |
-      | Fiscal Approver    | Automation FO  | Automation Test Description |
+      | Responsibility     | Name                   | Description                 |
+      | Program Approver   | {users:Automation_PM}  | Automation Test Description |
+      | Executive Approver | {users:Automation_EXE} | Automation Test Description |
+      | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1136,8 +1136,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | Automation FO | Fiscal Reviewer | Automation Description | 5        | No                   |
+      | Reviewer Name         | Role            | Description            | Due Date | Allow Record Editing |
+      | {users:Automation_FO} | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Created" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1145,7 +1145,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---"
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---"
+    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "20" seconds
@@ -1245,7 +1245,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Construction    | 1000           | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-      | Title                                 | Target |
+      | Title                                   | Target |
       | Automation Permanent KPI for Regression | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
@@ -1265,7 +1265,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
+      | Responsibility   | Name                        | Description                 |
       | Program Approver | ---users:-:Automation_PM--- | Automation Test Description |
       | Fiscal Approver  | ---users:-:Automation_FO--- | Automation Test Description |
     And I click on "Submit for Approval" in the page details
@@ -1293,17 +1293,17 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I pause execution
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name           | Project Role             | Is Key Personnel |
+      | Name                         | Project Role             | Is Key Personnel |
       | ---users:-:Automation_SPI--- | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                         | Description                 |
       | Program Approver   | ---users:-:Automation_PM---  | Automation Test Description |
       | Executive Approver | ---users:-:Automation_EXE--- | Automation Test Description |
       | Fiscal Approver    | ---users:-:Automation_FO---  | Automation Test Description |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description                 | Due Date | Allow Record Editing |
+      | Reviewer Name               | Role            | Description                 | Due Date | Allow Record Editing |
       | ---users:-:Automation_FO--- | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1389,7 +1389,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Then I see that "Subaward" is in "Activated" status
     Examples:
       | Award Name                 | Grant Name                 |
-      | Automation Permanent Award | Automation Permanent Award |
+      | Automation Execution Award | Automation Execution Award |
 
   @adhocReimbursementHappyPath
   Scenario Outline: Reimbursement Payment Request happy path
@@ -1431,8 +1431,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | {SavedValue:fundingAccount} | 10                    |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | Automation FO | Automation Test Description |
+      | Responsibility  | Name                  | Description                 |
+      | Fiscal Approver | {users:Automation_FO} | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I click on "Approve" on the approval decision box
     When I click on "Mark As Paid" in the page details
@@ -1485,8 +1485,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | {SavedValue:fundingAccount} | 10                            |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | Automation FO | Automation Test Description |
+      | Responsibility  | Name                  | Description                 |
+      | Fiscal Approver | {users:Automation_FO} | Automation Test Description |
     When I get the "EGMS ID"
     And I click on "Submit for Approval" in the page details
     When I click on "Approve" on the approval decision box
@@ -1528,8 +1528,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | {SavedValue:fundingAccount} | 20                    |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | Automation FO | Automation Test Description |
+      | Responsibility  | Name                  | Description                 |
+      | Fiscal Approver | {users:Automation_FO} | Automation Test Description |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit for Approval" in the page details
@@ -1585,8 +1585,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | Automation FO | Automation Test Description |
+      | Responsibility  | Name                  | Description                 |
+      | Fiscal Approver | {users:Automation_FO} | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     When I click on "Approve" on the approval decision box
     And I click on "Mark As Paid" in the page details
@@ -1629,9 +1629,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---progressReport:-:approversTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
-      | Program Approver | Automation PM | Automation Test Description |
-      | Fiscal Approver  | Automation FO | Automation Test Description |
+      | Responsibility   | Name                  | Description                 |
+      | Program Approver | {users:Automation_PM} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1666,13 +1666,13 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I get the "EGMS ID"
     Given I navigate to "Responsibilities" sub tab
     When I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Role             | Name           | Description                 |
-      | Program Approver | Automation EXE | Automation Test Description |
-      | Fiscal Approver  | Automation FO  | Automation Test Description |
+      | Role             | Name                   | Description                 |
+      | Program Approver | {users:Automation_EXE} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO}  | Automation Test Description |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation EXE" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "{users:Automation_EXE}" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
@@ -1768,13 +1768,13 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I get the "EGMS ID"
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Role             | Name           | Description                 |
-      | Program Approver | Automation EXE | Automation Test Description |
-      | Fiscal Approver  | Automation FO  | Automation Test Description |
+      | Role             | Name                   | Description                 |
+      | Program Approver | {users:Automation_EXE} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO}  | Automation Test Description |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation EXE" in the table "---deskreview:-:deskReviewContactsTableId---"
+    When I click "Associate" after selection of "{users:Automation_EXE}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---deskreview:-:awardDeskReviewTableId---"
     When I click on "Notify" in the page details
@@ -1868,9 +1868,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Responsibilities | Name          | Description                 |
-      | Program Approver | Automation FO | Automation Test Description |
-      | Fiscal Approver  | Automation PM | Automation Test Description |
+      | Responsibilities | Name                  | Description                 |
+      | Program Approver | {users:Automation_FO} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_PM} | Automation Test Description |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "Automation SPI" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
@@ -1972,9 +1972,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Responsibilities | Name          | Description                 |
-      | Program Approver | Automation FO | Automation Test Description |
-      | Fiscal Approver  | Automation PM | Automation Test Description |
+      | Responsibilities | Name                  | Description                 |
+      | Program Approver | {users:Automation_FO} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_PM} | Automation Test Description |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
     When I click "Associate" after selection of "Automation SPI" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
@@ -2086,9 +2086,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "Edit" :
-      | Role             | Name          | Description                 |
-      | Program Approver | Automation PM | Automation Test Description |
-      | Fiscal Approver  | Automation FO | Automation Test Description |
+      | Role             | Name                  | Description                 |
+      | Program Approver | {users:Automation_PM} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
@@ -2187,8 +2187,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | {SavedValue:fundingAccount} | 500                   |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | Automation FO | Automation Test Description |
+      | Responsibility  | Name                  | Description                 |
+      | Fiscal Approver | {users:Automation_FO} | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     When I click on "Approve" on the approval decision box
     When I click on "Mark As Paid" in the page details
@@ -2203,9 +2203,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "View" icon for "{SavedValue:CloseoutID}" inside flex table with id "ProjectPeriodCloseoutGrantor"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
-      | Program Approver | Automation PM | Automation Test Description |
-      | Fiscal Approver  | Automation FO | Automation Test Description |
+      | Responsibility   | Name                  | Description                 |
+      | Program Approver | {users:Automation_PM} | Automation Test Description |
+      | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -2261,12 +2261,12 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
-      | Fiscal Approver  | Automation FO | Automation Test Description |
-      | Program Approver | Automation PM | Automation Test Description |
+      | Responsibility   | Name                  | Description                 |
+      | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
+      | Program Approver | {users:Automation_PM} | Automation Test Description |
     And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
-      | Name          | Responsibility  | Description                 | Due Date | Allow Record Editing |
-      | Automation FO | Fiscal Reviewer | Automation Test Description | 7        | No                   |
+      | Name                  | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | {users:Automation_FO} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2274,7 +2274,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside table
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click modal button "Submit Review"
@@ -2304,16 +2304,16 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
     Then I see status in Progress-bar is "Active" and is "Green"
 
-  @activeOrgRiskAssessment @deepika
+  @activeOrgRiskAssessment @deepika @wip
   Scenario: Active Org Risk Assessment
-    Given I delete the record "Bayside Community Center" from the object "ORGANIZATION RISKASSESSMENT"
-    When I create a risk assessment record for organization "Bayside Community Center"
+    Given I delete the record "Central California Legal Services" from the object "ORGANIZATION RISKASSESSMENT"
+    When I create a risk assessment record for organization "Central California Legal Services"
     Given I am on "SUBPORTAL" portal
     When I login as "SA" user
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Bayside Community Center" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    When I perform quick search for "Central California Legal Services" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Central California Legal Services" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
@@ -2328,16 +2328,16 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Bayside Community Center" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---"
+    When I perform quick search for "Central California Legal Services" in "---orgRiskAssessment:-:activeOrgTableID---" panel
+    When I click on "View" icon for "Central California Legal Services" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---"
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I re-login as "SA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Bayside Community Center" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    When I perform quick search for "Central California Legal Services" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Central California Legal Services" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I click on "Save" in the page details
