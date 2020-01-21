@@ -58,10 +58,10 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "Salesforce_2019";
+                password = "sub@test7";
                 break;
             default:
-                password = "SALESFORCE2019";
+                password = "lsc@1234";
         }
         return password;
     }
@@ -95,11 +95,11 @@ public class UsersAndURL implements UsersController {
 
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "mayuresh.g@ggp.test7");
-        username.put("EXE", "test@gmaildemo.com");
-        username.put("PM", "donald_pm@ggp.test7");
-        username.put("FO", "auto.fm@auto.com");
-        username.put("SPI", "kyle.farrell@reisystems.com21");
+        username.put("ADMIN", "shambhavi.b@admin.test7.lsc");
+        username.put("EXE", "lynnj@yopmail.com.lsc");
+        username.put("PM", "joycem@yopmail.com.lsc");
+        username.put("FO", "georgeg@yopmail.com.lsc");
+        username.put("SPI", "fcastle@yopmail.com20.lsc");
         username.put("SPA", "spaautomation@yopmail.com");
 
         username.put("PO", "sdgdg45435dj@gmail.com");
