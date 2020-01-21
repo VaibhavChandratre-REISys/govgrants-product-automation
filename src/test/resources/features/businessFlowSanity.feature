@@ -368,7 +368,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Role               | Name           | Description                 |
       | Fiscal Approver    | Automation FO  | Automation Test Description |
       | Executive Approver | Automation EXE | Automation Test Description |
-      | Program Approver   | Automation PM  | Automation Test Description |
+      | Program Approver   | ---users:-:Automation_PM---  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       |  Name | Responsibility  | Description              | Due Date | Allow Record Editing |
       | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
