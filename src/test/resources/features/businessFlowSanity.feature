@@ -361,7 +361,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
+    When I click "Add" after selection of "Southside Community Criminal Justice Board" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
@@ -705,11 +705,11 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
+    When I click "Add" after selection of "Southside Community Criminal Justice Board" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization              | Allocated Amount |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+      | Applicant Organization                     | Allocated Amount |
+      | Southside Community Criminal Justice Board | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
@@ -816,8 +816,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name           | Project Role             | Is Key Contact |
-      | Automation SPI | Project Director/Manager | Checked        |
+      | Name                   | Project Role             | Is Key Contact |
+      | {users:Automation_SPI} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "Green"
 
@@ -839,8 +839,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name           | Project Role             | Is Key Contact |
-      | Automation SPI | Project Director/Manager | Checked        |
+      | Name                   | Project Role             | Is Key Contact |
+      | {users:Automation_SPI} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -1064,8 +1064,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Construction    | 1000           | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name           | Project Role             | Is Key Personnel |
-      | Automation SPI | Project Director/Manager | Checked          |
+      | Name                   | Project Role             | Is Key Personnel |
+      | {users:Automation_SPI} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                                   | Target |
@@ -1106,7 +1106,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Approve" on the approval decision box
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
@@ -1128,7 +1128,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
@@ -1152,7 +1152,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click modal button "Submit Review"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
@@ -1182,7 +1182,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Approve" on the approval decision box
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
@@ -1197,7 +1197,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
@@ -1290,7 +1290,6 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I get the "EGMS ID"
-    And I pause execution
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                         | Project Role             | Is Key Personnel |
@@ -1416,7 +1415,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
@@ -1470,7 +1469,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
@@ -1514,7 +1513,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
@@ -1569,7 +1568,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
@@ -1652,7 +1651,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I delete the record "Automation Site Visit" from the object "Site Visit"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     And I click on "View" icon for "Automation Permanent Award" inside flex table with id "ActiveGrants"
     When I navigate to "Subawards" sub tab
@@ -1725,18 +1724,18 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To    |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                               | Description            | Status      | Due Date | Assigned To            |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1754,7 +1753,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I delete the record "Automation Desk Review" from the object "Desk Review"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     And I click on "View" icon for "Automation Permanent Award" inside flex table with id "ActiveGrants"
     When I navigate to "Subawards" sub tab
@@ -1828,18 +1827,18 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To    |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                               | Description            | Status      | Due Date | Assigned To            |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1856,8 +1855,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
@@ -1873,7 +1872,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Fiscal Approver  | {users:Automation_PM} | Automation Test Description |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "Automation SPI" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "{users:Automation_SPI}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Add" after selection of "Automation Application" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
@@ -1887,8 +1886,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
@@ -1918,8 +1917,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
@@ -1932,18 +1931,18 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To    |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                               | Description            | Status      | Due Date | Assigned To            |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1960,8 +1959,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
@@ -1977,7 +1976,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Fiscal Approver  | {users:Automation_PM} | Automation Test Description |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
-    When I click "Associate" after selection of "Automation SPI" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
+    When I click "Associate" after selection of "{users:Automation_SPI}" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---orgLevelDeskReview:-:selectAwardId---"
     When I get the "EGMS ID"
@@ -1991,8 +1990,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
@@ -2022,8 +2021,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
+    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
@@ -2036,18 +2035,18 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To    |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                               | Description            | Status      | Due Date | Assigned To            |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To    |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+      | Title                           | Description            | Status      | Due Date | Assigned To            |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {users:Automation_SPI} |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2145,7 +2144,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I delete the record "Automation Permanent Award" from the object "Payment Request"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "Automation Permanent Award" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "Automation Permanent Award" inside flex table with id "---closeout:-:grantsTableId---"
@@ -2240,7 +2239,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I delete the record "Automation Award for Risk Assessment" from the object "Grant"
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
