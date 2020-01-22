@@ -157,7 +157,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Reviewer Name         | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
@@ -370,7 +370,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Program Approver   | {users:Automation_PM}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Reviewer Name         | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
@@ -571,7 +571,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Name                  | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Reviewer Name         | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
     And I get the "EGMS ID"
@@ -913,8 +913,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | {users:Automation_PM}  |
     When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "{users:Automation_PM} " in "---applicationReview:-:panelAppTableId---" panel
-    And I check "{users:Automation_PM} " boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I perform quick search for "{users:Automation_PM}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{users:Automation_PM}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     When I expand nested table containing column value "<Application Name>"
@@ -998,7 +998,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see field "Status" as "Created"
     Examples:
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
@@ -1019,7 +1019,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -1120,7 +1120,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
@@ -1189,7 +1189,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---"
     When I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
@@ -1370,7 +1370,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -1396,7 +1396,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I delete the record "Automation Payment Request" from the object "Payment Request"
     And I delete the record "Automation Permanent Award" from the object "Payment Request"
     And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI" user
+    When I login as "SPI" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -1449,7 +1449,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I delete the record "Automation Payment Request" from the object "Payment Request"
     And I delete the record "Automation Permanent Award" from the object "Payment Request"
     And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI" user
+    When I login as "SPI" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -1493,7 +1493,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I enter "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -1549,7 +1549,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I delete the record "Automation Payment Request" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "Automation Permanent Award" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI" user
+    When I login as "SPI" user
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -1716,7 +1716,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1819,7 +1819,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -1878,7 +1878,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
@@ -1923,7 +1923,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
     Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -1982,7 +1982,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
@@ -2027,7 +2027,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "DeskReview" panel
     And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
     Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
@@ -2090,7 +2090,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -2156,7 +2156,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
     Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI" user
+    When I login as "SPI" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -2206,7 +2206,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Program Approver | {users:Automation_PM} | Automation Test Description |
       | Fiscal Approver  | {users:Automation_FO} | Automation Test Description |
     Given I click on "Send To Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantee" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
