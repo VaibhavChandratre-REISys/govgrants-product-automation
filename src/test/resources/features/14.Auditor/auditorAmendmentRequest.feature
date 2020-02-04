@@ -17,6 +17,9 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
   @69174 @auditorViewAccessToAmendmentRequest
   Scenario: Validate Auditor should have view Amendment Request Record that is created by PM user - Budget Period Change
+    Given I delete the record "Automation Award for Amendment Request" from the object "Amendment Request"
+    And I delete the record "Automation Award for Amendment Request" from the object "Payment Request"
+    And I delete the record "Automation Award for Amendment Request" from the object "subaward"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
