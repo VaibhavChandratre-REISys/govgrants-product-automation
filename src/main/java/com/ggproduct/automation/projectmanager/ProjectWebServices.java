@@ -67,7 +67,7 @@ public class ProjectWebServices {
 
         switch (env) {
             case "QA":
-                this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9JamK_x9K2XKK99OwezxYd1S2fr1VT0gYdtcakUVGrTxUw.k5uAXJnYnKSD.HulN.Rw40AAQJDSPSZARc&client_secret=622D36B61306D840C419B19AF269AA226921297DA043CF4A11A45F5189A0789E&username=shambhavi.b@admin.test7.lsc&password=sub@test7";
+                this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9RezSyZYLh2tmg6NVBVP831DA4gHh2NARRYHMUYv3sbrGhNysMO1VlkrF59CX4WH.nIW3WNVO1nPurWi0&client_secret=065244CA42A409F1843CAEF064FE34F8FFA09B995BB3A8A26480F1182B7951B6&username=manu.admin@lsc.org.qa&password=Z2RzyE?w";
                 break;
             case "AUTO":
                 this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=manu.admin@ggp.test8.automation&password=GoProduct@1234";
