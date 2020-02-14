@@ -116,7 +116,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---"
     And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "green"
 
   @publishingCompetitiveAnnouncementCA @65077
   Scenario: Validate the activation of Competitive Announcement
@@ -127,7 +127,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
+    When I click on "Continue" in the page details
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
@@ -196,19 +196,19 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -230,7 +230,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on top right button "New" in flex table with id "ActiveFundingOpportunities"
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "20" seconds
-    And I click modal button "Continue"
+    When I click on "Continue" in the page details
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
@@ -242,6 +242,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -261,37 +262,13 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     When I click "Add" after selection of "Bayside Community Center" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
       | Role               | Name                   | Description                 |
       | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Program Approver   | {users:Automation_PM}  | Automation Test Description |
-    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Reviewer Name         | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
-    And I get the "EGMS ID"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    When I navigate to "Announcements" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record id" inside table
-    When I navigate to "Responsibilities" tab
-    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---announcement:-:reviewersTableId---"
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
-    When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Directed" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Directed Announcements - Draft"
-    And I perform quick search for "Record Id" in "ActiveFundingOpportunities" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "ActiveFundingOpportunities"
-    Given I click on "Complete Review" in the page details
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -303,19 +280,19 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
@@ -334,7 +311,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click toggle button to select "Formula Announcements - Draft"
     And I click on top right button "New" in flex table with id "ActiveFundingOpportunitiesFormula"
     And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
+    When I click on "Continue" in the page details
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -346,6 +323,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "SelectAnnFundingAccounts"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -364,31 +342,6 @@ Feature: The feature is only designed for ensuring all business flows are workin
       | Program Approver   | {users:Automation_PM}  | Automation Test Description |
       | Executive Approver | {users:Automation_EXE} | Automation Test Description |
       | Fiscal Approver    | {users:Automation_FO}  | Automation Test Description |
-    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
-      | Reviewer Name         | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | {users:Automation_FO} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "{users:Automation_FO}" inside table
-    And I get the "EGMS ID"
-    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    When I navigate to "Announcements" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record id" inside table
-    When I navigate to "Responsibilities" tab
-    When I click on "Enter Review" icon for "{users:Automation_FO}" inside flex table with id "---announcement:-:reviewersTableId---"
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
-    When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
-    And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    When I navigate to "Announcements" tab
-    And I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Formula Announcements - Draft"
-    When I perform quick search for "Automation Formula Announcement" in "ActiveFundingOpportunitiesFormula" panel
-    And I click on "View" icon for "Automation Formula Announcement" inside table
-    Given I click on "Complete Review" in the page details
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -397,6 +350,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "Bayside Community Center" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization   | Allocated Amount |
       | Bayside Community Center | 1000             |
@@ -411,19 +365,19 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -442,10 +396,9 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I am on "SUBPORTAL" portal
     And I login as "SPI" user
     When I navigate to "Opportunities" tab
-    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
     When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
-    When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I enter value "Automation Announcement for Application " into field "Title__c"
     When I click modal button "Save and Continue"
@@ -514,6 +467,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
   @applicationReviewHappyPath
   Scenario Outline: complete review process for an application
     Given I delete the record "Automation Announcement for Application Review" from the object "APPLICATION REVIEWS"
+    Given I delete the record "Automation Application" from the object "APPLICATION"
     And I delete the record "Automation Announcement for Application Review" from the object "Qualified Announcement"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI" user
@@ -554,7 +508,6 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Logs" sub tab
@@ -851,12 +804,11 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click on "Complete Review" in the page details
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+   And I navigate to "Budget" sub tab
+    When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 2000        |
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Grants" tab
@@ -1327,13 +1279,13 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "green"
 
   @siteVisitAcceptAndClose
@@ -1797,13 +1749,13 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1825,6 +1777,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Amended" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Automation Award for Amendment Request" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I refresh the page
     Then I see status in Progress-bar is "Amended" and is "Green"
 
   @completeCloseout
@@ -1920,7 +1873,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:CloseoutID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
 
   @activeRiskAssessment
