@@ -398,8 +398,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I click "Add" after selection of "Bayside Community Center" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization                     | Allocated Amount |
-      | Southside Community Criminal Justice Board | 1000             |
+      | Applicant Organization   | Allocated Amount |
+      | Bayside Community Center | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
@@ -1545,8 +1545,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
@@ -1576,8 +1576,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
@@ -1607,8 +1607,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
@@ -1649,8 +1649,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
@@ -1680,8 +1680,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
@@ -1711,8 +1711,8 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Southside Community Criminal Justice Board" in "ActiveAccount" panel
-    And I click on "View" icon for "Southside Community Criminal Justice Board" inside table
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST Partner User" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
