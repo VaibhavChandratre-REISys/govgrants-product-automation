@@ -229,7 +229,6 @@ Feature: The feature is only designed for ensuring all business flows are workin
     And I click toggle button to select "Directed Announcements - Draft"
     And I click on top right button "New" in flex table with id "ActiveFundingOpportunities"
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "20" seconds
     When I click on "Continue" in the page details
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -846,6 +845,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---"
     And I click on "Activate" in the page details
+    And I refresh the page
     Then I see status in Progress-bar is "Activated" and is "green"
     Examples:
       | Award Name                      | Grant Name                      |
@@ -1777,7 +1777,7 @@ Feature: The feature is only designed for ensuring all business flows are workin
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Amended" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Automation Award for Amendment Request" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    And I refresh the page
+    And I pause execution for "10" seconds
     Then I see status in Progress-bar is "Amended" and is "Green"
 
   @completeCloseout
