@@ -5,7 +5,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Given I delete the record "Automation Award for Risk Assessment" from the object "Award"
     Given I delete the record "Automation Award for Risk Assessment" from the object "Grant"
 
-  @58164 @58165 @58166 @65552 @creationOfRiskAssessmentddingApproversSubmitForApproval @deepika
+  @58164 @58165 @58166 @65552 @creationOfRiskAssessmentddingApproversSubmitForApproval @deepika @smoke
   Scenario: Validate the Creation of Risk Assessment from Draft Award and whether user is able to Add Approvers and submit Risk Assessment for Approval| Also New Button on peer review table is not availble once submit for approval
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -38,7 +38,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
-    Then I collect all the soft asserts
 
   @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @deepika
   Scenario: Validate the Approval process of Risk Assessment and whether the pending task is created for Program approver under Home Tab when the award owner submits the Risk Assessment for approval |Validate the System should capture field history post activation.
@@ -85,7 +84,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see that "EGMS ID" is in "Active" status
     When I navigate to "History" sub tab
     Then I softly see value "Active" for title "New Value" inside table "History"
-    Then I collect all the soft asserts
 
   @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika
   Scenario: Validate the field history after rejection of Risk Assessment and whether user is able to view the pending task once submitted for approval under Monitoring Tab and First Approver is able to reject the Risk Assessment then status in Progress bar is Rejected.
@@ -126,7 +124,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "History" sub tab
     Then I softly see value "Rejected" for title "New Value" inside table "History"
-    Then I collect all the soft asserts
 
   @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @deepika
   Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner
@@ -163,7 +160,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "Green"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -172,7 +168,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     And I "Reassign" to user "Automation EXE" in the approval decision
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
-    Then I collect all the soft asserts
 
   @58172 @58816 @riskAssesmentSetToNowhileAwardCreation @deepika
   Scenario: Validate Activation of Award Risk Assessment is not required and filling/creating risk assessment is not applicable if Grant has setting Risk Assessment=No.
@@ -196,7 +191,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:homePendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "Automation Award for Risk Assessment" inside table
-    Then I collect all the soft asserts
 
   @58173 @validationsBeforeSubmitForApproval @deepika
   Scenario: Validate whether system generates an error message if the user tries to proceed on the risk assessment without  entering all required fields before submitting for approval process
@@ -265,7 +259,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see that "Automation FO" has been added in flextable with Id "flexGridRiskAssessmentApproverRoles"
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles"
     Then I softly see that "Sent for Review" has been added in flextable with Id "flexGridRiskAssessmentApproverRoles"
-    Then I collect all the soft asserts
 
   @58176 @58819 @60342 @riskAssessmentOwnercompletesPeerReviewforRiskAssessment @deepika
   Scenario: Validate whether the complete Review Button is available for PM user to complete peer review process and is Reviewed for Award Risk Assessment
@@ -320,7 +313,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Complete Review" in page detail
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "green"
-    Then I collect all the soft asserts
 
   @58177 @58181 @viewDeletionOfRiskAssessmentstatusUnderMonitoring @deepika
   Scenario: Validate whether owner has the availability (permission) of View and delete icon across created Award Risk Assessment under Monitoring Tab
@@ -350,7 +342,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see row level action button "Delete" against "Record Id" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
     Then I softly see status in Progress-bar is "Created" and is "Green"
-    Then I collect all the soft asserts
 
   @58817 @59253 @activeRiskAssesmentRequiredToIssueAward @deepika
   Scenario Outline: Validate system generates a message to enforce the user to activate risk assessment before issuing an award or the system generates an error message when Risk Assessment Required =Yes.
@@ -526,7 +517,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @deepika
+  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @deepika @smoke
   Scenario: Validate Subrecipients can view the Active Risk Assessment and Award Owner is not allowed to Edit the Risk Assessment post submitting it for approval and Pending task is created for the Fiscal approver when Program approver approves the RA and completed task
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -541,6 +532,33 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    When I click "Add" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date | End Date |
+      | Automation Permanent Focus Area | 0          | 3650     |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
+      | Construction    | 1000           | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                                 | Target |
+      | Automation Permanent KPI for Regression | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -577,12 +595,91 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Automation Award for Risk Assessment" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "Edit" :
+      | Role               | Name           | Description                 |
+      | Program Approver   | Automation PM  | Automation Test Description |
+      | Executive Approver | Automation EXE | Automation Test Description |
+      | Fiscal Approver    | Automation FO  | Automation Test Description |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+      | Name           | Project Role             | Is Key Personnel |
+      | Automation SPI | Project Director/Manager | Checked          |
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "EGMS ID" as "AwardId"
+    And I click on "Send to Subrecipient" in the page details
+    And I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I click on "Accept" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Automation Award for Risk Assessment" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Automation Award for Risk Assessment" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardId}" inside table
+    And I click on "Accept after Approval" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "Automation Award for Risk Assessment" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Automation Award for Risk Assessment" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I click on "Activate" in the page details
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "{SavedValue:ActiveID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see "{SavedValue:ActiveID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    Then I collect all the soft asserts
 
   @58821 @validateEditionOfRiskAssessment @deepika
   Scenario: Validate whether user can Edit the created Risk Assessment
@@ -816,7 +913,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details :
       | Acknowledgement is Required to save. |
 
-  @58938 @58179 @initialRAIsExpiredandSucceedingAreActive @deepika
+  @58938 @58179 @initialRAIsExpiredandSucceedingAreActive @deepika @smoke
   Scenario: Initial Risk Assessment should be marked as Expired if succeeding Risk Assessments are made active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -935,7 +1032,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Submit for Approval" in page detail
-    Then I collect all the soft asserts
 
   @59628 @59626 @59706 @PMSendBackToOwnertaskIsNotCreatedToSecondApproverWhenPMRejectsfoUserCannotEditRA @deepika
   Scenario: Validate whether PM is to able to Send Risk Assessment Back to Owner and Pending task is not created to fiscal approver when program approver performs send to the owner and also cannot view Edit Button
@@ -977,7 +1073,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
-    Then I collect all the soft asserts
 
   @59613 @ownerToAddProgramReviewer @deepika
   Scenario: Validate owner is allowed to add a peer reviewer of type Program Reviewer in the peer reviewers table in Award Risk Assessment
@@ -1284,7 +1379,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "History" sub tab
     Then I see value "Created" for title "New Value" inside table "History"
 
-  @59810 @newbuttonHiddenWhenSubmittedforApproval @deepika
+  @59810 @newbuttonHiddenWhenSubmittedforApproval @deepika @smoke
   Scenario: Validate whether the record owner is not allowed to creating new risk assessment when only the Program approval is complete and risk assessment is in submit for approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1484,7 +1579,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "flexGridRiskAssessmentGridViewInternal" panel
     When I click on "View" icon for "Record Id" inside flex table with id "flexGridRiskAssessmentGridViewInternal"
     Then I softly see status in Progress-bar is "Active" and is "Green"
-    Then I collect all the soft asserts
 
   @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval @deepika
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
@@ -1662,7 +1756,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                           | Grant Name                           |
       | Automation Award for Risk Assessment | Automation Award for Risk Assessment |
 
-  @59876 @reviewerCanEditAssessmentFormWhenAllowRecordEditingIsSetAsYes @deepika
+  @59876 @reviewerCanEditAssessmentFormWhenAllowRecordEditingIsSetAsYes @deepika @smoke
   Scenario: Validate when Allow Record Editing is set to 'Yes' then reviewer can Edit the Risk Assessment form
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1771,9 +1865,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "flexGridRiskAssessmentGridViewInternal"
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "Automation FO" in flex table with id "flexGridRiskAssessmentApproverRoles"
-    Then I collect all the soft asserts
 
-  @59960 @intialRiskAssessmentMarkedAsExpired @deepika
+  @59960 @intialRiskAssessmentMarkedAsExpired @deepika @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2086,7 +2179,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     Then I see field "Created Date" is not editable
-    Then I collect all the soft asserts
 
   @60219 @addAttachmentToRiskAssessment @deepika
   Scenario: Add attachment to Risk Assessment
@@ -2200,7 +2292,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
     When I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "44.0%"
-    Then I collect all the soft asserts
 
   @60226 @submittedRAAtManagementTabOnAwardAtInternalSide @deepika
   Scenario: Validate Risk Assessment table on Management tab is getting updated with Risk Assessments whose status is Submitted to Approval at Award owner End
@@ -2343,7 +2434,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "Risk Level" inside page block
     Then I softly see field "OverAll Risk" inside page block
-    Then I collect all the soft asserts
 
   @59619 @60232 @deletionOfCreatedRiskAssessmentFromTable @deepika
   Scenario: Validate when the Record owner deletes the Created Risk Assessment then it gets deleted from Monitoring Table deleted record is removed/ not present in the table
@@ -2374,9 +2464,8 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly do not see values "Automation risk Assessment" and "Created" inside table
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
-    Then I collect all the soft asserts
 
-  @60566 @ViewActiveRAFromOrganizationProfilePage @deepika
+  @60566 @ViewActiveRAFromOrganizationProfilePage @deepika @smoke
   Scenario Outline: Validate Risk Assessment Active Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2570,7 +2659,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I see status in Progress-bar is "Expired" and is "Green"
 
-  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika
+  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika @bug-72469
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2694,12 +2783,13 @@ Feature: Validate all scenarios in the Risk Assessment
       | Program Approver   | Automation PM  | Automation Test Description |
       | Executive Approver | Automation EXE | Automation Test Description |
       | Fiscal Approver    | Automation FO  | Automation Test Description |
+    And I save the field labeled "EGMS ID" as "AwardID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I perform quick search for "{SavedValue:AwardID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     When I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2715,20 +2805,20 @@ Feature: Validate all scenarios in the Risk Assessment
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:AwardID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:AwardID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:AwardID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2742,8 +2832,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside table
+    And I perform quick search for "{SavedValue:AwardID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardID}" inside table
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2759,7 +2849,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "Expired" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    Then I collect all the soft asserts
 
   @60965 @fieldCompares @deepika @skipOnJenkins
   Scenario: Validate whether Record Owner user is able to view and Compare field values on UI and PDF match
@@ -2917,7 +3006,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    Then I see field "Overall Risk" as "46.00%"
+    Then I see field "Overall Risk" as "40.00%"
 
   @addAttachmentForRecordOnwerInTable @deepika
   Scenario: Validate attachment is added to the flex table after submiting the risk assessment for approval.
@@ -3148,7 +3237,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    Then I collect all the soft asserts
 
   @65878 @newButtonISNotAvilbaleforActiveRA @deepika
   Scenario Outline: Verify whether New button on Management is not available for active awards
@@ -3288,3 +3376,72 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
+  @72360 @activeRiskAssessment @productBusinessFlowSanity
+  Scenario: Validate the Activation of Risk Assessment and the status changes to Active
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "Edit" :
+      | Responsibility   | Name          | Description                 |
+      | Fiscal Approver  | Automation FO | Automation Test Description |
+      | Program Approver | Automation PM | Automation Test Description |
+    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+      | Name          | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | Automation FO | Fiscal Reviewer | Automation Test Description | 7        | No                   |
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I pause execution for "5" seconds
+    And I click modal button "Submit Review"
+    When I close "Review" modal by clicking the top right x button
+    When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I perform quick search for "Record Id" in "flexGridRiskAssessmentGridViewInternal" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "flexGridRiskAssessmentGridViewInternal"
+    And I click on "Complete Review" in the page details
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I see status in Progress-bar is "Active" and is "Green"

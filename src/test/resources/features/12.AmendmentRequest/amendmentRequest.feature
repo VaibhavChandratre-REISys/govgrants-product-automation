@@ -15,7 +15,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @53194 @creationOfSOWAmendmentRequest @smoke
+  @53194 @creationOfSOWAmendmentRequest
   Scenario: Creation of SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -36,7 +36,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "Green"
 
-  @53196 @associationOfKPIToSOWAmendmentRequest @smoke
+  @53196 @associationOfKPIToSOWAmendmentRequest
   Scenario: Association of KPI to Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -187,7 +187,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
 
-  @53204 @approvalOfSOWAmendmentRequest @smoke @wip
+  @53204 @approvalOfSOWAmendmentRequest
   Scenario: Approval of Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -314,7 +314,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Amend Subaward" in the page details
     Then I see that "Automation Award for Amendment Request" is in "Pending Activation" status
 
-  @53207 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @smoke @wip
+  @53207 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @wip
   Scenario: Activate SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -389,7 +389,6 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     Then I softly see status in Progress-bar is "Created" and is "Green"
-    And I collect all the soft asserts
 
   @53210 @editionOfFocusAreaDatesBPCAmendmentRequest
   Scenario: Validate the edition of FocusArea Dates to BPC
@@ -402,7 +401,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | 500      |
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
-  @53211 @associateFocusAreaToBPCAmendmentRequest @smoke @wip
+  @53211 @associateFocusAreaToBPCAmendmentRequest @wip
   Scenario Outline: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -434,7 +433,6 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     And I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "Green"
-    And I collect all the soft asserts
 
   @56844 @ValidateGranotrCanDecreaseAwardBudgetAmountInFundingchangeTypeRequest @mahadev
   Scenario: Verify Internal user can send request to Sub-recipient for increase in the award budget amount using Funding change option.
@@ -583,7 +581,7 @@ Feature: Validate all scenarios in the Amendment Request
 
   @56971 @56859  @56855 @VerifyAlertMessageIfSubRecipientSendbackAmendmentRequestToGrantorWithoutUpdated @mahadev
   Scenario: Verify alert message if sub-recipient send backs amendment request without update to grantor |  Verify SPI user is able to check
-   the funding change request submitted by award owner |
+  the funding change request submitted by award owner |
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -615,7 +613,6 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Submit to Grantor" in the page details
     Then I softly see the text containing :
       | You have a requested a change of $0.0, but the required change is $1000.00. |
-    Then I collect all the soft asserts
 
   @56973 @validateSubRecipientCanNotEditAmendmentRequestAfterSubmittingToGrantor @mahadev
   Scenario: Verify Sub-Recipient Can not edit funding type amendment request after submitting to Grantor
@@ -748,9 +745,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-    Then I collect all the soft asserts
 
-  @57135 @57125 @VerifyAmendSubawardButtonAfterApprovalProcess @mahadev
+  @57135 @57125 @VerifyAmendSubawardButtonAfterApprovalProcess @mahadev @smoke
   Scenario: Verify Once approval process is completed for Amendment Request then award owner can see Amend Subaward button |  Verify Internal user is able to check the funding change request submitted by Sub-recipient User
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -813,7 +809,6 @@ Feature: Validate all scenarios in the Amendment Request
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
     Then I softly can see top right button "Amend Subaward" in page detail
-    Then I collect all the soft asserts
 
   @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev
   Scenario: Verify once grantor click on Revise button Amendment request Status changes to Created | Verify Sub-recipient can check revise amendment request in pending task
@@ -870,9 +865,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-    Then I collect all the soft asserts
 
-  @57274 @57276 @VerifyRequestedChangeInBudgetFieldRemainsSameAfterReviseAmendmentRequest @mahadev
+  @57274 @57276 @VerifyRequestedChangeInBudgetFieldRemainsSameAfterReviseAmendmentRequest @mahadev @smoke
   Scenario: Verify When Grantor Revise the Amendment request the Budget Category amount updated by Sub-recipient is reflected the same | Verify when Grantor Revise the Amendment request the Requested Change in Budget field remains the same
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -920,7 +914,6 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see value "$500.00" for title "Difference" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I softly see value "$500.00" for title "Difference" against the value "Supplies" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see field "Requested Change in Budget" as "$1,000.00"
-    Then I collect all the soft asserts
 
   @57139 @awardOwnerActivateAmendedSubAward @jitendra
   Scenario: Verify that award owner can active the Amended sub-award
@@ -987,7 +980,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Activated" and is "green"
 
-  @57141 @differenceFieldAfterRevisedEncumberenceAmount @jitendra
+  @57141 @differenceFieldAfterRevisedEncumberenceAmount @jitendra @smoke
   Scenario: Verify Difference Field is getting Updated once Revised Encumbrance amount is entered by award owner.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1351,8 +1344,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
-      | Funding Account | Advance Requested This Action |
-      | {SavedValue:fundingAccount}          | 10                            |
+      | Funding Account             | Advance Requested This Action |
+      | {SavedValue:fundingAccount} | 10                            |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
       | Responsibility  | Name          | Description                 |
@@ -1451,8 +1444,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account | Net Spent This Action |
-      | {SavedValue:fundingAccount}          | 10                    |
+      | Funding Account             | Net Spent This Action |
+      | {SavedValue:fundingAccount} | 10                    |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
       | Responsibility  | Name          | Description                 |
@@ -1538,7 +1531,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                             |
       | Automation Award for Amendment Request |
 
-  @57580 @creationOfAdvancePaymentRequestAfterScopeOfWorkChangeAmendmentRequest @mahadev
+  @57580 @creationOfAdvancePaymentRequestAfterScopeOfWorkChangeAmendmentRequest @mahadev @smoke
   Scenario Outline: creation of advance payment request after scope of work change amendment request
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1930,7 +1923,6 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I navigate to "Overview" sub tab
     Then I softly see field "Payment Period End Date" as "{SavedValue:updatedBudgetPeriodDate}"
-    And I collect all the soft asserts
 
   @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev
   Scenario Outline: Verify Sub-recipient user can see the amended Budget Period on Reimbursement Payment Request Page
@@ -2083,7 +2075,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                             |
       | Automation Award for Amendment Request |
 
-  @62966 @SRUserCanViewRiskScoreForARACopiedToNewCreatedAndAmendmentTypeTermsAndConditionsAmendment
+  @62966 @SRUserCanViewRiskScoreForARACopiedToNewCreatedAndAmendmentTypeTermsAndConditionsAmendment @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
     And I navigate to "Management" sub tab
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -2101,8 +2093,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                   | Field                              |
-      | Automation Justification| fieldTncComments__c |
+      | Value                    | Field               |
+      | Automation Justification | fieldTncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I navigate to "Responsibilities" sub tab
@@ -2152,3 +2144,72 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Risk Assessment" sub tab
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
     Then I see field "Overall Risk" as "{SavedValue:OverAllRisk}"
+
+  @72358 @activationOfBudgetPeriodAmendmentRequest @productBusinessFlowSanity
+  Scenario: Validate the Budget period amendment activation
+    When I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the updated budget end date by offset "1" for award "Automation Award for Amendment Request"
+    When I click on "Edit" in the page details
+    And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
+    When I click on "Save" in the page details
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | End Date                             |
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "Edit" :
+      | Role             | Name          | Description                 |
+      | Program Approver | Automation PM | Automation Test Description |
+      | Fiscal Approver  | Automation FO | Automation Test Description |
+    When I get the "EGMS ID"
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+    And I click on "Acknowledge" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+    And I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "Automation Award for Amendment Request" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Amendment Request" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I get the "EGMS ID"
+    And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I navigate to "Management" sub tab
+    And I click on "View" icon for "Approved" inside flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I click on "Amend Subaward" in the page details
+    When I click on "Activate" in the page details
+    And I navigate to "Grants" tab
+    And I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "Automation Award for Amendment Request" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "Automation Award for Amendment Request" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    When I perform quick search for "Amended" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "Automation Award for Amendment Request" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    Then I see status in Progress-bar is "Amended" and is "Green"

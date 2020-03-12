@@ -26,7 +26,7 @@ Feature: Validate all scenarios in the home tab
       | Organization name                     |
       | Internal Automation Organization Test |
 
-  @56708 @56709 @56710 @internalOrganizationViewADMINEditPMView
+  @56708 @56709 @56710 @internalOrganizationViewADMINEditPMView @smoke
   Scenario Outline: Validate whether all users have view access to Internal Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -35,7 +35,6 @@ Feature: Validate all scenarios in the home tab
     Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -54,7 +53,6 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
     And I click on "View" icon for "{user:fullName}" inside flex table with id "---home:-:indActiveAccountId---"
     Then I softly see that "{user:fullName}" is in "Active" status
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -70,12 +68,11 @@ Feature: Validate all scenarios in the home tab
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---home:-:subrecipientActiveAccountId---"
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
     Then I softly can see row level action button "Edit" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
 
-  @56716 @56717 @56718 @internalContactsViewCreateEdit
+  @56716 @56717 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
     Given I delete the record "Automation PO" from the object "Contact"
     Given I login to "As a Grantor" app as "<User>" user
@@ -89,14 +86,13 @@ Feature: Validate all scenarios in the home tab
     And I click on "View" icon for "Automation PO" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
     Then I softly can see row level action button "Edit" against "Automation PO" in flex table with id "---home:-:internalContactTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
       | EXE   |
       | PM    |
 
-  @56720 @56721 @smeReviewersContactViewAndCreate
+  @56720 @56721 @smeReviewersContactViewAndCreate @smoke
   Scenario Outline: Verifying all Internal Users has View access to SME Reviewers Contact
     Given I delete the record "Automation SME" from the object "Contact"
     Given I login to "As a Grantor" app as "<User>" user
@@ -108,7 +104,6 @@ Feature: Validate all scenarios in the home tab
     Then I softly see values "Automation SME" and "New" inside table
     When I perform quick search for "Automation SME" in "---home:-:reviewersTableId---" panel
     Then I softly can see row level action button "View" against "Automation SME" in flex table with id "---home:-:reviewersTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -140,7 +135,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56724 @56725 @56726 @termsandConditionsViewCreateAdminEdit @bug-69291
+  @56724 @56725 @56726 @termsandConditionsViewCreateAdminEdit @bug-69291 @smoke
   Scenario Outline: Verifying all Internal Users has View, Create and Edit access to Terms and Conditions
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Planning" tab
@@ -150,10 +145,8 @@ Feature: Validate all scenarios in the home tab
     When I click modal button "Save"
     When I close "New" modal by clicking the top right x button
     When I perform quick search for "TC-598383" in "---home:-:termsAndConditionsTableId---" panel
-    Then I softly can see row level action button "View" against "TC-598383" in flex table with id "---home:-:termsAndConditionsTableId---"
-    Then I softly see value "Active" for title "Status" against the value "TC-598383" inside table "---home:-:termsAndConditionsTableId---"
+     Then I softly see value "Active" for title "Status" against the value "TC-598383" inside table "---home:-:termsAndConditionsTableId---"
     Then I softly can see row level action button "Edit" against "TC-598383" in flex table with id "---home:-:termsAndConditionsTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -222,7 +215,6 @@ Feature: Validate all scenarios in the home tab
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     Then I softly see value "New" for title "Status" inside table "---home:-:internalContactTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -244,7 +236,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56736 @56737 @additionalAddressesCreationEdition  @smoke
+  @56736 @56737 @additionalAddressesCreationEdition
   Scenario Outline: Validate whether ADMIN can Create and Edition of Additional Addresses
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -261,12 +253,11 @@ Feature: Validate all scenarios in the home tab
     And I enter "AdditioanlAddressesEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
     Then I softly see that "Test Automation Organization" is in "Active" status
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
 
-  @56739 @56907 @relatedContactsCreationEditionAnd
+  @56739 @56907 @relatedContactsCreationEdition
   Scenario Outline: The Internal Users should be able to Create and Edit Related Contacts
     Given I delete the record "Automation Contact" from the object "Contact"
     Given I login to "As a Grantor" app as "<User>" user
@@ -283,7 +274,6 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save"
     When I close "Edit" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
-    Then I collect all the soft asserts
     Examples:
       | User |
       | EXE  |
@@ -305,7 +295,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Automation Contact" in "---home:-:relatedContactsTableId---" panel
     Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
 
-  @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke  @bug-69292
+  @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke @bug-69292
   Scenario Outline: Validate whether ADMIN and DA users can Create, Edit and delete the DUNS Number
     Given I delete the record "Test Automation Organization" from the object "DUNS"
     Given I login to "As a Grantor" app as "ADMIN" user
@@ -314,15 +304,14 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Test Automation Organization" in "---home:-:internalOrganizationId---" panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     When I enter the following values into flex table with id "---home:-:dunsTableId---" by clicking "New" :
-      | DUNS Number | Registered Entity Name | Location |
-      | 138047990   | Test132                | HernNdon |
+      | DUNS Number | Entity Name as Registered | Location |
+      | 138047990   | Test132                   | HernNdon |
     Then I softly see values "138047990" and "HernNdon" inside table
     When I click on "Edit" icon for "138047990" inside flex table with id "---home:-:dunsTableId---"
     And I click on top right button "Save" in flex table with id "---home:-:dunsTableId---"
     Then I softly see values "138047990" and "HernNdon" inside table
     When I click on "delete" icon for "138047990" inside flex table with id "---home:-:dunsTableId---"
     Then I softly do not see values "138047990" and "DUNSNumber" inside table
-    Then I collect all the soft asserts
     Examples:
       | User |
       | PM   |
@@ -457,7 +446,6 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---home:-:completedAssignedToMe---" panel
     Then I softly see values "Approve Program" and "Completed" inside table
-    Then I collect all the soft asserts
 
   @57346 @subrecipientOrganizationDUNSandEINS
   Scenario Outline: Verify whether the Organization has at least one DUNS Numbers
@@ -465,7 +453,7 @@ Feature: Validate all scenarios in the home tab
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    Then I see values "953072483" and "148549041" inside table
+    Then I see values "567890980" and "345678908" inside table
     Examples:
       | User  |
       | ADMIN |
@@ -522,7 +510,6 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Related Log" sub tab
     When I perform quick search for "Automation Announcement for Application Intake" in "RecipientAppReviewList" panel
     Then I softly can see row level action button "View" against "Automation Announcement for Application Intake" in flex table with id "RecipientAppReviewList"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -542,7 +529,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @58245 @reassign
+  @58245 @reassign @smoke
   Scenario: The Reassign on the left Navigation allows the reassignment of tasks.
     Given I delete the record "Automation Execution Internal Program" from the object "Program"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -617,7 +604,6 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Overview" sub tab
     Then I softly can see page block "Related Contacts"
     And I softly can see page block "Indirect Cost Rates"
-    Then I collect all the soft asserts
     Examples:
       | User  |
       | ADMIN |
@@ -705,7 +691,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save and Close"
     Then I see the text containing "title"
 
-  @62254 @PerformGlobalSearchOnHomeTab @keerti
+  @62254 @PerformGlobalSearchOnHomeTab @keerti @bug-72220
   Scenario: Verify Global search on Home Tab
     Given I delete the record "Automation Execution Internal Program" from the object "Program"
     When I login to "As a Grantor" app as "dynamicUser" user

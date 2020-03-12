@@ -1,4 +1,4 @@
-@progressReportNew @regression @progressReport
+@progressReportNew @regression @progressReport @wip
 Feature: Validate all scenarios in Progress Report with respect to Amendment Request
 
   @60726 @60727 @60721 @60656 @60657 @validateReviewedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev
@@ -250,7 +250,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:PR2}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
     Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -663,7 +662,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -854,7 +852,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Sent Back to Subrecipient" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -1055,7 +1052,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62925 @62926 @62927 @BudgerPeriodFieldUpdateAfterFundingChangeAmendment @PercentageRemainSameAfterFundingChangeAmmendment @jitendra
+  @62925 @62926 @62927 @BudgerPeriodFieldUpdateAfterFundingChangeAmendment @PercentageRemainSameAfterFundingChangeAmmendment @jitendra @bugged
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I delete the record "Automation Execution1 Award" from the object "Amendment Request"
     And I delete the record "Automation Execution1 Award" from the object "Award"
@@ -1224,12 +1221,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     Then I softly see field "Perentage of Budget Remaining" as "100.00%"
     Then I softly see field "YTD Expenditures" as "$0.00"
     Then I softly see value "{SavedValue:awardedBudget}" is "Equals to" the value "{SavedValue:remainingBudget}"
-    And I collect all the soft asserts
     Examples:
       | Award Name                  | Grant Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
 
-  @61888 @validateSubmittedToGrantorPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev
+  @61888 @validateSubmittedToGrantorPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @bugged
   Scenario Outline: Validate Progress reports with Submitted to Grantor Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -1416,7 +1412,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @61889 @validateSubmittedforReviewPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev
+  @61889 @validateSubmittedforReviewPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @bugged
   Scenario Outline: Validate Progress reports with Submitted for Review Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -1612,7 +1608,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @61891 @validateSubmittedForApprovalPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra
+  @61891 @validateSubmittedForApprovalPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra @bugged
   Scenario Outline: Validate Submitted for approval Progress reports is not carried forward at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment.
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -1809,7 +1805,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @61892 @validateSentBackToSubrecipientPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra
+  @61892 @validateSentBackToSubrecipientPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra @bugged
   Scenario Outline: Validate Submitted for approval Progress reports is not carried forward at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment.
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -2001,7 +1997,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @61893 @validateAPPROVEDPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra
+  @61893 @validateAPPROVEDPRAfterPeriodicAmendmentIsCarryForwardedAonAward @jitendra @bugged
   Scenario Outline: Validate Progress reports with Approved Status is not carried forward at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment.
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -2213,12 +2209,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @61890 @validateReviewedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev
+  @61890 @validateReviewedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @bugged
   Scenario Outline: Validate Progress reports with Reviewed Status is not displayed at Performance Tab Subaward Overview at Award Owner end after periodic renewal Amendment
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -2434,7 +2429,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @60390 @NoCarryForwardSentBackToSubRecipient @jitendra
+  @60390 @NoCarryForwardSentBackToSubRecipient @jitendra @bugged
   Scenario Outline: Validate Progress reports with Sent Back to SR user Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     And I delete the record "<Award Name>" from the object "Award"
     And I delete the record "<Award Name>" from the object "Grant"
@@ -2633,7 +2628,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62268 @62266 @62269 @62267 @reportingPeriodStartDateSameAfterPeriodicRenewal @reportingPeriodEndDateSameAfterPeriodicRenewal @jitendra
+  @62268 @62266 @62269 @62267 @reportingPeriodStartDateSameAfterPeriodicRenewal @reportingPeriodEndDateSameAfterPeriodicRenewal @jitendra @bugged
   Scenario Outline: Validate Progress reports with Approved Status is not carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed periodic renewal Amendment.
     Given I delete the record "Automation Execution1 Award" from the object "Amendment Request"
     And I delete the record "Automation Execution1 Award" from the object "Award"
@@ -2817,12 +2812,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I expand nested table containing column value "Progress Report"
     Then I softly verify that the Schedule start date is matching with Reporting Period start Date
     Then I softly verify that the Schedule end date is matching with Reporting Period End Date
-    And I collect all the soft asserts
     Examples:
       | Award Name                  | Grant Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
 
-  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra
+  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @bugged
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I delete the record "Automation Execution1 Award" from the object "Amendment Request"
     And I delete the record "Automation Execution1 Award" from the object "Award"
@@ -2926,7 +2920,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Grant Name                  | Award Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
 
-  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra
+  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @bugged
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at Award Owner end.
     Given I delete the record "Automation Execution1 Award" from the object "Amendment Request"
     And I delete the record "Automation Execution1 Award" from the object "Award"
@@ -3125,7 +3119,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                  | Grant Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
 
-  @60391 @NoCarryForwardApprovedPR @jitendra
+  @60391 @NoCarryForwardApprovedPR @jitendra @bugged
   Scenario Outline: Validate Progress reports with Approved Status is not carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed periodic renewal Amendment.
     And I delete the record "<Award Name>" from the object "Award"
     And I delete the record "<Award Name>" from the object "Grant"
@@ -3340,7 +3334,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @60389 @NoCarryForwardSubmittedForApproval @jitendra
+  @60389 @NoCarryForwardSubmittedForApproval @jitendra @bugged
   Scenario Outline: Validate Progress reports with Submitted for approval Status is not carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed periodic renewal Amendment
     And I delete the record "<Award Name>" from the object "Award"
     And I delete the record "<Award Name>" from the object "Grant"
@@ -3763,7 +3757,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly do not see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -4157,7 +4150,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "Activated" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Sent back to sub-recipient" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -4551,7 +4543,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "Activated" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly do not see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -4702,7 +4693,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Reassign, Automation FO" in the approval decision
-    Then I collect all the soft asserts
     Examples:
       | Award Name                  | Grant Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
@@ -5511,7 +5501,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -5862,7 +5851,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62373 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAward @mahadev
+  @62373 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAward @mahadev @bugged @smoke
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Monthly at Award Owner end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -6026,7 +6015,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62376 @validateFrequencyAfterPeriodicAmendmentIsSameAsSemiAnnuallyOnAward @jitendra
+  @62376 @validateFrequencyAfterPeriodicAmendmentIsSameAsSemiAnnuallyOnAward @jitendra @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Semi-annual at Award Owner end.
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -6190,7 +6179,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62374 @validateFrequencyAfterPeriodicAmendmentIsSameAsBiMonthlyOnAward @mahadev
+  @62374 @validateFrequencyAfterPeriodicAmendmentIsSameAsBiMonthlyOnAward @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Bi-Monthly at Award Owner end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -6354,7 +6343,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62377 @validateFrequencyAfterPeriodicAmendmentIsSameAsAnnuallyOnAwardAtInternalPortal @mahadev
+  @62377 @validateFrequencyAfterPeriodicAmendmentIsSameAsAnnuallyOnAwardAtInternalPortal @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Annually at award Owner end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -6518,7 +6507,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62381 @validateFrequencyAfterPeriodicAmendmentIsSameAsAnnuallyOnAwardAtExternalPortal @mahadev
+  @62381 @validateFrequencyAfterPeriodicAmendmentIsSameAsAnnuallyOnAwardAtExternalPortal @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Annually at SPI end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -6688,7 +6677,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @60387 @validateReviewedPRAfterPeriodicAmendmentIsNotCarryForwardedAonAwardAtSubportal @mahadev
+  @60387 @validateReviewedPRAfterPeriodicAmendmentIsNotCarryForwardedAonAwardAtSubportal @mahadev @bugged
   Scenario Outline: Validate Progress reports with Reviewed Status is not displayed at Performance Tab Subaward Overview at subportal when Award owner performed periodic renewal Amendment
     Given I delete the record "Automation Execution Award" from the object "Progress Report"
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
@@ -7077,7 +7066,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                   | Grant Name                 |
       | Automation   Execution Award | Automation Execution Award |
@@ -7272,7 +7260,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for approval" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -7467,7 +7454,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Sent Back to Subrecipient" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -7663,12 +7649,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62375 @62380 @validateFrequencyAfterPeriodicAmendmentIsSameAsQuartelyOnAwardAtInternalPortal @mahadev
+  @62375 @62380 @validateFrequencyAfterPeriodicAmendmentIsSameAsQuartelyOnAwardAtInternalPortal @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Quarterly at Award Owner end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -7836,12 +7821,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Terms" sub tab
     Then I softly see value "Quarterly" for title "Frequency" inside table "---progressreport:-:progressReportsScheduleId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62379 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAwardAtSubPortal @mahadev
+  @62379 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAwardAtSubPortal @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Monthly at SPI end
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -8011,7 +7995,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62382 @62378 @validateFrequencyAfterPeriodicAmendmentIsSameAsNotApplicableOnAward @mahadev
+  @62382 @62378 @validateFrequencyAfterPeriodicAmendmentIsSameAsNotApplicableOnAward @mahadev @bugged
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Not-applicable at both portals
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -8175,12 +8159,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Terms" sub tab
     Then I softly see value "Not Applicable" for title "Frequency" inside table "---progressreport:-:progressReportsScheduleId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev
+  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev @smoke
   Scenario Outline: Verify Awarded Budget field value on Progress report should get updated after funding change amendment is done by award owner at Award owner end
     Given I delete the record "<Award Name>" from the object "Amendment Request"
     And I delete the record "<Award Name>" from the object "Award"
@@ -8361,7 +8344,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name              | Grant Name              |
       | Automation award for PR | Automation award for PR |
 
-  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev
+  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev @bugged
   Scenario Outline: Verify Report Frequency field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward and Frequency is updated
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -8727,7 +8710,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:ProgressReport1}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -9630,12 +9612,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Sent Back to Subrecipient" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra
+  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @bugged
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I delete the record "Automation Execution1 Award" from the object "Amendment Request"
     And I delete the record "Automation Execution1 Award" from the object "Award"
@@ -9814,7 +9795,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                  | Grant Name                  |
       | Automation Execution1 Award | Automation Execution1 Award |
 
-  @61887 @60384 @61894 @validateCreatedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @jitendra
+  @61887 @60384 @61894 @validateCreatedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @jitendra @bugged
   Scenario Outline: Validate Progress reports with Created Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     Given I delete the record "Automation Execution Award" from the object "Amendment Request"
     And I delete the record "Automation Execution Award" from the object "Award"
@@ -9992,7 +9973,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -10198,7 +10178,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -10393,7 +10372,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -10752,7 +10730,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name              | Grant Name              |
       | Automation award for PR | Automation award for PR |
 
-  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev
+  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev @smoke
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
     Given I delete the record "<Award Name>" from the object "Amendment Request"
     And I delete the record "<Award Name>" from the object "Award"
@@ -11115,7 +11093,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:CreatedPR}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -11279,7 +11256,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---"
     When I navigate to "Management" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -11696,7 +11672,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -11868,7 +11843,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "Activated" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |

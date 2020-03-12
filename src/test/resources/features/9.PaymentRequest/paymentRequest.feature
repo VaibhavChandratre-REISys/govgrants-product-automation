@@ -72,7 +72,6 @@ Feature: Validate all scenarios in Payment Request
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 20                    |
     Then I softly see value "$20.00" for title "Net Spent This Action" inside table "---paymentRequest:-:fundingAccountTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Permanent Award | Automation Permanent Award |
@@ -89,9 +88,9 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Advance Applied | Program Income Disbursed | Cash Match | Non-Cash Match |
-      | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 100000000              | 20                       | 100        | 100            |
+      | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 100000000       | 20                       | 100        | 100            |
     Then I softly see the following messages in the page details contains:
-      | Advance applied cannot be greater than the Net Payment. :|
+      | Advance applied cannot be greater than the Net Payment. : |
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Advance Applied | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 0               | 20                       | 100        | 100            |
@@ -110,7 +109,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 20                    |
+      | {SavedValue:fundingAccount} | 0                     |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
       | Responsibility  | Name          | Description                 |
@@ -119,7 +118,6 @@ Feature: Validate all scenarios in Payment Request
     And I refresh the page
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Permanent Award | Automation Permanent Award |
@@ -290,7 +288,6 @@ Feature: Validate all scenarios in Payment Request
     Then I softly cannot see top right button "Edit" in page detail
     When I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
-    Then I collect all the soft asserts
 
   @38742 @54587 @taskCreationforFOUser @validateFiscalApprovalCannotEditAdvancePRAfterSubmittingForApproval @mahadev
   Scenario: Validate fiscal approver can not edit advance payment request after submitting for approval |Validate task creation for fiscal user
@@ -391,7 +388,6 @@ Feature: Validate all scenarios in Payment Request
     And I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Acknowledgement" as "I Agree"
-    Then I collect all the soft asserts
 
   @53969 @advancePaymentRequestSubmitToGrantorBySPI @mahadev
   Scenario: verify that advance payment request should be able to submit by SPI user
@@ -491,9 +487,7 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
     And I "Send to Owner" in the approval decision
-    And I pause execution for "2" seconds
     Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
-    And I collect all the soft asserts
 
   @53982 @forwardAdvancePaymentRequest @mahadev
   Scenario: validate approver can forward advance payment request
@@ -526,7 +520,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Reassign" to user "Automation EXE" in the approval decision
     Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
-    And I collect all the soft asserts
 
   @53983 @rejectAdvancePaymentRequest @mahadev
   Scenario: validate Rejection of an advance payment request by approver
@@ -559,7 +552,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Disapprove" in the approval decision
     Then I can see the message "Successfully disapproved" in the approval decision
-    And I collect all the soft asserts
 
   @53985 @53984 @advancePaymentRequestShouldNotReceiveToEXE/PM  @mahadev
   Scenario: Advance Payment Request should not receive to Program Approver/Executive Approver
@@ -585,7 +577,6 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
-    Then I collect all the soft asserts
 
   @54175 @54177 @validateErrorOnEnteringAdvanceRequestedAmountGreaterThanBalance @mahadev
   Scenario: Advance Payment Request should not receive to Program Approver
@@ -607,7 +598,6 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 100                           |
     And I refresh the page
     Then I softly see field "Advance Requested This Action" as "$100.00"
-    And I collect all the soft asserts
 
   @38839 @54585 @approvalOfAdvancePaymentRequestByForwardedUser @mahadev
   Scenario: Advance Payment request should not be editable after submitting to grantor | Validate advance payment request approval by forwarded user
@@ -647,9 +637,8 @@ Feature: Validate all scenarios in Payment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "Green"
-    Then I collect all the soft asserts
 
-  @54593 @54352 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR @mahadev
+  @54593 @54352 @70816 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR @mahadev
   Scenario: Validate the paid button not displayed on reimbursement Payment request after rejection
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -657,6 +646,7 @@ Feature: Validate all scenarios in Payment Request
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    Then I softly see field "Program Income This action" as "$1,000.00"
     And I get the "EGMS ID"
     And I navigate to "Financials" sub tab
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
@@ -693,7 +683,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     And I "Disapprove" in the approval decision
     Then I softly cannot see top right button "Mark as Paid" in page detail
-    And I collect all the soft asserts
 
   @54589 @validatePaidButtonNotDisplayedAfterRejectingAdvancePR @mahadev
   Scenario: Validate the paid button not displayed on advance Payment request after rejection
@@ -990,7 +979,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     Then I can see the message "Successfully Approved" in the approval decision
-    And I collect all the soft asserts
 
   @54324 @validateSuccesfulReassignedmessageOnReimbursementPR @mahadev
   Scenario: Validate succesfully reassigned message on Reimbursement Payment Request
@@ -1024,7 +1012,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Reassign" to user "Automation EXE" in the approval decision
     Then I can see the message "Successfully Re-Assigned" in the approval decision
-    And I collect all the soft asserts
 
   @54325 @validateRejectedMessageOnReimbursementPR @mahadev
   Scenario: Validate succesfully rejected message on Reimbursement Payment Request
@@ -1058,7 +1045,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Disapprove" in the approval decision
     Then I can see the message "Successfully disapproved" in the approval decision
-    And I collect all the soft asserts
 
   @54326 @validateSendBackMessageOnReimbursementPR @mahadev
   Scenario: Validate succesfully send back payment request message on Reimbursement Payment Request
@@ -1092,7 +1078,6 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     And I "Send to Owner" in the approval decision
     Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
-    And I collect all the soft asserts
 
   @54368 @validateReimbursementPRSendBackToSubReceipient @mahadev
   Scenario: Validate task is getting created for SPI user after send back reimbursement payment request to subreceipient
@@ -1351,6 +1336,7 @@ Feature: Validate all scenarios in Payment Request
       | Responsibility  | Name          | Description                 |
       | Fiscal Approver | Automation FO | Automation Test Description |
     And I click on "Send Back to Subrecipient" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "EXTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Sent Back for Revisions |
 
@@ -1370,6 +1356,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Attachments" sub tab
     When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Invoice"
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Submitted |
 
@@ -1389,6 +1376,7 @@ Feature: Validate all scenarios in Payment Request
       | Extra Salary | The narrative | 10         | 1        | Feet        | 0                 | 0               | 0                        | 100        | 100            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Submitted |
 
@@ -1413,6 +1401,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     When I click on "Send Back to Subrecipient" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "EXTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Sent Back for Revisions |
 
@@ -1445,6 +1434,7 @@ Feature: Validate all scenarios in Payment Request
       | Responsibility  | Name          | Description                 |
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Submitted for Approval |
 
@@ -1490,6 +1480,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "EXTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Approved |
     Examples:
@@ -1532,6 +1523,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Submitted for Approval |
     Examples:
@@ -1568,6 +1560,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Reassign" to user "Automation EXE" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Forwarded |
 
@@ -1601,6 +1594,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "EXTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Approved |
 
@@ -1634,6 +1628,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Send to Owner" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Sent Back |
 
@@ -1673,6 +1668,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Send to Owner" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> from <subrecipient name> has been Sent Back |
     Examples:
@@ -1715,6 +1711,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Reassign" to user "Automation EXE" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Forwarded |
     Examples:
@@ -1757,6 +1754,7 @@ Feature: Validate all scenarios in Payment Request
       | Fiscal Approver | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     And I "Disapprove" in the approval decision
+    And I pause execution for "120" seconds
     Then I can see mail notification for "INTERNAL" user with following subject:
       | Payment Request <payment id> for <award id> has been Rejected |
     Examples:
@@ -2086,6 +2084,140 @@ Feature: Validate all scenarios in Payment Request
     And I select "Download As PDF" from dropdown
     And I download the file
     Then I see "Approved" on page "1" of "govgrants" pdf file
+    Examples:
+      | Award Name                 | Grant Name                 |
+      | Automation Permanent Award | Automation Permanent Award |
+
+  @72349 @adhocReimbursementHappyPath @productBusinessFlowSanity
+  Scenario Outline: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
+    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Advance Applied | Program Income Disbursed | Cash Match | Non-Cash Match |
+      | Extra Salary | The narrative | 10         | 1        | Feet        | 0                 | 0               | 0                        | 100        | 100            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---"
+    When I navigate to "Actuals" sub tab
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---paymentRequest:-:grantorPaymentRequestTableId---"
+    When I navigate to "Financials" sub tab
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Net Spent This Action |
+      | {SavedValue:fundingAccount} | 10                    |
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
+      | Responsibility  | Name          | Description                 |
+      | Fiscal Approver | Automation FO | Automation Test Description |
+    When I click on "Submit for Approval" in the page details
+    And I "Approve" in the approval decision
+    When I click on "Mark As Paid" in the page details
+    And I enter "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+    When I click modal button "Save"
+    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    Then I see status in Progress-bar is "Paid" and is "green"
+    Examples:
+      | Award Name                 | Grant Name                 |
+      | Automation Permanent Award | Automation Permanent Award |
+
+  @72350 @adhocAdvanceHappyPath @productBusinessFlowSanity
+  Scenario Outline: Validate the Advance Payment Request happy path and the status changes to 'Paid'
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Advance" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+      | Budget Category | Advance Requested This Action |
+      | Construction    | 10                            |
+    When I navigate to "Attachments" sub tab
+    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Invoice"
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---"
+    And I navigate to "Actuals" sub tab
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---paymentRequest:-:grantorPaymentRequestTableId---"
+    And I navigate to "Financials" sub tab
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:advanceFundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Advance Requested This Action |
+      | {SavedValue:fundingAccount} | 10                            |
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
+      | Responsibility  | Name          | Description                 |
+      | Fiscal Approver | Automation FO | Automation Test Description |
+    When I get the "EGMS ID"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    When I click on "Mark As Paid" in the page details
+    And I enter "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+    When I click modal button "Save"
+    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    And I click on "View" icon for "Automation Permanent Award" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter "Adhoc Reimbursement Creation" values from "PaymentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Financials" sub tab
+    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Advance Applied | Program Income Disbursed | Cash Match | Non-Cash Match |
+      | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 0               | 0                        | 10         | 10             |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---"
+    And I navigate to "Actuals" sub tab
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---paymentRequest:-:grantorPaymentRequestTableId---"
+    And I navigate to "Financials" sub tab
+    When I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Net Spent This Action |
+      | {SavedValue:fundingAccount} | 20                    |
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
+      | Responsibility  | Name          | Description                 |
+      | Fiscal Approver | Automation FO | Automation Test Description |
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    When I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    When I click on "Mark As Paid" in the page details
+    And I enter "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+    When I click modal button "Save"
+    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    Then I see status in Progress-bar is "Paid" and is "green"
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Permanent Award | Automation Permanent Award |

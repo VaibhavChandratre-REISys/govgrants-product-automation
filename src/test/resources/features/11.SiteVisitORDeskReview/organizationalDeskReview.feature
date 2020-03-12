@@ -9,7 +9,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
 
-  @54291 @54293 @54294 @organizationalDeskReviewCreationEditionAndParticipantAssociation @smoke @deepika
+  @54291 @54293 @54294 @organizationalDeskReviewCreationEditionAndParticipantAssociation @deepika
   Scenario: Validate the Creation and Edition and Participant Association for Org Level Desk Review
     Given I navigate to "Related log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -25,7 +25,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
     When I click "Associate" after selection of "Automation EXE" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     Then I softly see that "Automation EXE" has been added in flextable with Id "---orgLevelDeskReview:-:associateContactsId---"
-    Then I collect all the soft asserts
 
   @54210 @monitoringTypeFiscalDR @deepika
   Scenario: Validate the Monitoring type 'Fiscal' for Organizational Desk Review
@@ -101,7 +100,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---orgLevelDeskReview:-:selectAwardId---"
     And I click on "Notify" in the page details
     Then I softly see that "Automation Desk Review Org level" is in "Notified" status
-    Then I collect all the soft asserts
 
   @54462 @addingOutcomeDeskReviewOrgLevel @deepika
   Scenario: Adding outcomes to Desk Review OrgLevel
@@ -146,7 +144,6 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     Then I softly see that "Automation Finding" has been added in flextable with Id "---orgLevelDeskReview:-:correctiveTableId---"
-    Then I collect all the soft asserts
 
   @54572 @formFillingDeskReviewOrgLevel @smoke @deepika
   Scenario: Filling up of form in Desk Review Org Level
@@ -255,9 +252,8 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "green"
-    Then I collect all the soft asserts
 
-  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel @smoke @deepika
+  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel @deepika
   Scenario: Validate Org Level Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -348,9 +344,8 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
-    Then I collect all the soft asserts
 
-  @55415 @viewOrgDeskReviewAcceptButtonAfterSRecipientsSubmission @deepika
+  @55415 @viewOrgDeskReviewAcceptButtonAfterSRecipientsSubmission @deepika @smoke
   Scenario: Validate Submitted By field at Certification table should get updated on Org Desk Review at SR user end and User will be able to view the Desk Review Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -440,8 +435,6 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    And I navigate to "Overview" sub tab
-    Then I softly see field "Submitted By:" as "Automation SPI"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -514,7 +507,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     Then I softly see that "Automation Desk Review Org Level" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I collect all the soft asserts
 
   @55459 @54887 @deskReviewOrgLevelSendToSubrecipientWithOutAddingCorerctiveItems @deepika
   Scenario:  Validate User will not be able to submit the Desk Review Org Level to Grantor without adding corrective actions to findings.
@@ -593,7 +585,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
-    Then I collect all the soft asserts
 
   @55460 @approverForwardUserGetPendingTaskDeskReview @deepika
   Scenario: Validate when the Approver forward Org Level Desk Review to other user, the Pending Task will be created to the User
@@ -729,7 +720,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly can see top right button "Conduct" in page detail
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "green"
-    Then I collect all the soft asserts
 
   @55867 @55873 @54460 @NotifyTaskRecipientCannotCreateAndSeeReportAndOutcomesWhenInNotifiedStatusOrgDR @deepika
   Scenario: Validate whether the respective POC from the applicant organization will receive a pending task D will not be able to create / edit the Outcomes and cannot view the report or outcomes while in the Notified status.
@@ -760,7 +750,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:homePhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
     Then I softly see that "Automation Desk Review Org level" is in "Notified" status
-    Then I collect all the soft asserts
 
   @56001 @deskReviewWithoutFormFillingOrgLevel @deepika
   Scenario: User will not be able to submit the Desk Review for approval without completed forms
@@ -862,7 +851,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "Attachments" sub tab
     When I upload attachment "Announcement_Field_Values.xlsx" from workspace
     Then I softly see "Announcement_Field_Values.xlsx" has been added in "Attachments" flex table
-    Then I collect all the soft asserts
 
   @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @skipOnJenkins
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
@@ -997,7 +985,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Delete" icon for "Automation Desk Review Org level" inside flex table with id "DeskReview"
     And I perform quick search for "Automation Desk Review Org level" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
-    Then I collect all the soft asserts
 
   @65070 @historyOfOrgDeskReviewsendbacktoOwner @deepika
   Scenario: Validate History Field is getting Updated at Award owner End when Org Desk Review status is Submitted to Grantor.
@@ -1062,7 +1049,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "History" sub tab
     Then I see value "Active" for title "New Value" inside table "History"
 
-  @65071 @corerctiveActionsDueDate @deepika
+  @65071 @corerctiveActionsDueDate @deepika @smoke
   Scenario: Validate Org Level Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1141,8 +1128,8 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Title                               | Description            | Status      | Due Date | Assigned To    |
       | Automation Observation Subrecipient | Automation Description | In-Progress | -10      | Automation SPI |
     When I collapse nested table containing column value "Automation Observation"
-    Then I softly see the following messages in the page details :
-      | Due date must be past date |
+    Then I softly see the following messages in the page details contains:
+      | Due date must be future date |
 
   @65072 @foUserCannotDeleteCreatedOrgDesskReview @deepika
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and other than record onwer Fo user can delete the created Org Level Desk Review
@@ -1165,7 +1152,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "Related log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
-    Then I collect all the soft asserts
 
   @65073 @recordOwnerhasAccesstoDeleteassociatedContactand @deepika @wip
   Scenario: Validate whether record owner has access to delete the asoociated Contact and Award to Desk Review Org Level |
@@ -1186,7 +1172,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---orgLevelDeskReview:-:selectAwardId---"
     And I click on "Remove" icon for "Automation Award for Amendment Request" inside flex table with id "---orgLevelDeskReview:-:selectAwardId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelDeskReview:-:selectAwardId---"
-    Then I collect all the soft asserts
 
   @65150 @reviewerCanNotEditAfterSubmittingtheReviewOrgLevel @deepika
   Scenario: Validate after submitting the review comments for Org Level Desk Review, the Edit button should will be unavailable for the reviewer
@@ -1232,3 +1217,101 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click modal button "Submit Review"
     When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
+
+  @72357 @deskReviewAcceptAndCloseOrgLevel @productBusinessFlowSanity
+  Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
+    Given I navigate to "Related Log" sub tab
+    And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
+    And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    When I click on "Cancel" in the page details
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Organizational_DeskReview_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "Edit" :
+      | Responsibilities | Name          | Description                 |
+      | Program Approver | Automation FO | Automation Test Description |
+      | Fiscal Approver  | Automation PM | Automation Test Description |
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
+    When I click "Associate" after selection of "Automation SPI" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
+    When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---orgLevelDeskReview:-:selectAwardId---"
+    When I get the "EGMS ID"
+    And I click on "Notify" in the page details
+    When I click on "Conduct" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "DeskReview" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
+    And I navigate to "Reports and Outcomes" sub tab
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
+      | Title                  | Description            | Type        |
+      | Automation Finding     | Automation Description | Finding     |
+      | Automation Concern     | Automation Description | Concern     |
+      | Automation Observation | Automation Description | Observation |
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "DeskReview" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
+    Given I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    When I navigate to "Reports and Outcomes" sub tab
+    And I expand nested table containing column value "Automation Observation"
+    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+      | Title                               | Description            | Status      | Due Date | Assigned To    |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Observation"
+    And I expand nested table containing column value "Automation Concern"
+    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Concern"
+    And I expand nested table containing column value "Automation Finding"
+    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    And I collapse nested table containing column value "Automation Finding"
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    And I click on "Accept And Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "green"

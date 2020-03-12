@@ -1,4 +1,4 @@
-@regression @progressReport
+@regression @progressReport @wip
 Feature: Validate scenarios in Progress Report without background
 
   @37184 @ValidateScheduleFrequencyQuarterlyScheduleBaseAsCalendar @mahadev
@@ -137,7 +137,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @37228 @ValidateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev
+  @37228 @ValidateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev @smoke
   Scenario Outline: Validate User is allowed to change frequency as Annually, schedule base as calendar on progress report schedule when the award is active
     Given I delete the record "Automation Execution Award" from the object "Award"
     And I delete the record "Automation Execution Award" from the object "Grant"
@@ -6768,7 +6768,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @60109 @validatePendingTaskForFinalProgressReportForFiscalApproval @mahadev
+  @60109 @validatePendingTaskForFinalProgressReportForFiscalApproval @mahadev @smoke
   Scenario Outline: Validate pending task for Fiscal approver for the Final Progress report when the status is Submitted for Approval
     When I delete the record "<Award Name>" from the object "Award"
     And I delete the record "<Grant Name>" from the object "Grant"
@@ -7836,7 +7836,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -8056,7 +8055,6 @@ Feature: Validate scenarios in Progress Report without background
       | Fiscal Approver  | Automation FO | Automation Test Description |
     When I click on "Submit for Approval" in the page details
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -8225,7 +8223,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I can see the message "Successfully Approved" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -8371,7 +8368,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I can see the message "Successfully Approved" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -9377,7 +9373,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Reassign" to user "Automation EXE" in the approval decision
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -9562,7 +9557,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Send to Owner" in the approval decision
     Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -9747,7 +9741,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Send to Owner" in the approval decision
     Then I can see the message "Successfully sent to Owner. It may take few mintues to process record." in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -9935,7 +9928,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -10038,7 +10030,7 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Overview" sub tab
     Then I see field "Organization Name" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
-  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev
+  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
     Given I delete the record "Automation Execution Award" from the object "Award"
     And I delete the record "Automation Execution Award" from the object "Grant"
@@ -10216,7 +10208,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -10445,7 +10436,6 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Performance" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
     Then I softly see value "Automation Permanent Objective2" for title "Title" inside table "---progressReport:-:objectivesTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -10630,7 +10620,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I can see the message "<Error Message>" in the approval decision
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 | Error Message                                                                                                                                                              |
       | Automation Execution Award | Automation Execution Award | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -11036,7 +11025,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -11235,7 +11223,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
-    And I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -12536,7 +12523,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---"
     When I navigate to "Performance" sub tab
     Then I softly cannot see top right button "Submit to Grantor" in page detail
-    And I collect all the soft asserts
     Examples:
       | Award Name                    | Grant Name                    |
       | Automation award for Closeout | Automation award for Closeout |
@@ -13946,7 +13932,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                    | Grant Name                    |
       | Automation award for Closeout | Automation award for Closeout |
 
-  @62765 @VerifyYTDExpendituresFieldOnCreatedPR @keerti
+  @62765 @VerifyYTDExpendituresFieldOnCreatedPR @keerti @smoke
   Scenario Outline: Verify YTD Expenditures field get updated on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status.
     Given I delete the record "Automation award for PR" from the object "Award"
     And I delete the record "Automation award for PR" from the object "Grant"
@@ -15685,7 +15671,6 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see field "YTD Expenditures" as "$0.00"
     Then I softly see field "Awarded Budget" as "$1,000.00"
     Then I softly see field "Remaining Budget" as "$1,000.00"
-    Then I collect all the soft asserts
     Examples:
       | Award Name              | Grant Name              |
       | Automation award for PR | Automation award for PR |
@@ -15860,7 +15845,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Performance" sub tab
     Then I softly see field "Perentage of Budget Remaining" as "98.00%"
     Then I softly see field "YTD Expenditures" as "$20.00"
-    Then I collect all the soft asserts
     Examples:
       | Award Name              | Grant Name              |
       | Automation award for PR | Automation award for PR |
@@ -16023,7 +16007,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Performance" sub tab
     Then I softly see field "Remaining Budget" as "$1,000.00"
     Then I softly see field "Awarded Budget" as "$1,000.00"
-    Then I collect all the soft asserts
     Examples:
       | Award Name              | Grant Name              |
       | Automation award for PR | Automation award for PR |

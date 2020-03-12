@@ -85,10 +85,10 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "GoProduct@1234";
+                password = "GoProduct@12345";
                 break;
             default:
-                password = "SALESFORCE2019";
+                password = "SALESFORCE2020";
         }
         return password;
     }
@@ -123,12 +123,12 @@ public class UsersAndURL implements UsersController {
         username.put("EXE", "test@gmaildemo.com.atm.automation");
         username.put("PM", "donald_pm@ggp.test7.atm.automation");
         username.put("FO", "auto.fm@auto.com.atm.automation");
-        username.put("SPI", "automationspi@yopmail.com");
-        username.put("SPA", "automationspa@yopmail.com");
-        username.put("IND", "automationind123@yopmail.com");
-        username.put("SA", "christopher.sa@yopmail.com");
-        username.put("SPI2", "david.schim@yopmail.com");
-        username.put("SPI3", "automation.patricksa@yopmail.com");
+        username.put("SPI", "spiauto@yopmail.com");
+        username.put("SPA", "spaauto@yopmail.com");
+        username.put("IND", "ind.automation@yopmail.com");
+        username.put("SA", "saautomation@yopmail.com");
+        username.put("SPI2", "automationspi2@yopmail.com");
+        username.put("SPI3", "autopatricksa@yopmail.com");
         username.put("AUDITOR", "automationauditor@yopmail.com");
 
         username.put("SIMON PM", "simon_pm@ggp.test7.automation");

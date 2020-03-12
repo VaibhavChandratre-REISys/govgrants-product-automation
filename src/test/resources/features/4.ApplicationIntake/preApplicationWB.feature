@@ -1,8 +1,11 @@
 @preAplicationWB @regression @app
 Feature: Pre-Application scenarios without background
 
-  @70252 @70254 @verifyCreateApplicationandQualifyButtons
+  @70252 @70254 @71410 @71411 @71412 @verifyCreateApplicationandQualifyButtons
   Scenario: Verify whether SPI user is able to qualify opportunity a Pre-Application| Verify Create Pre- Application button is displayed to SR User when User click on Qualify Button.
+  Validate whether user is able to view the qualify button and qualify the opportunity before creating the pre-application
+  Validate the user is able to create Pre Application only when the Opportunity setting for Pre Applciation Required (Yes)
+  Validate whether User will be able to enter the required information for the creation on Pre Application before the Due date
     Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
     When I delete the record "Automation Announcement for Application" from the object "PreApplication"
     And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
@@ -13,13 +16,15 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "Automation Announcement for Pre-Application" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    Then I softly see field "Pre-Application Required?" as "Yes"
+    Then I save the field labeled "Application Due Date" as "AppDueDate"
+    Then I softly can see top right button "Qualify" in page detail
     When I click on "Qualify" in the page details
     Then I softly see that "Automation Announcement for Pre-Application" is in "Qualified" status
     Then I softly can see top right button "Create Pre-Application" in page detail
-    Then I collect all the soft asserts
 
-  @70253 @spaUserCannotSubmitanPre-application
-  Scenario: Validate the SPA users should not be able to Submit the Pre Application
+  @70253 @72575 @spaUserCannotSubmitanPre-application
+  Scenario: Validate the SPA users should not be able to Submit the Pre Application | Validate whether SPI user can continue to proceed without providing application title while creating a pre-application
     Given I am on "SUBPORTAL" portal
     And I login as "SPA" user
     When I navigate to "Opportunities" tab
@@ -27,6 +32,10 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Automation Announcement for Pre-Application" in "---applicationIntake:-:qualifiedTableId---" panel
     When I click on "View" icon for "Automation Announcement for Pre-Application" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
     And I click on "Create Pre-Application" in the page details
+    When I clear the value from field "Title__c"
+    When I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Pre-Application Title is Required to save. |
     When I enter value "Automation Announcement for Application" into field "Title__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -40,10 +49,10 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70660 @70661 @70662 @preApplRequiredIsYesAnnouncementCreation @deepika
+  @70660 @70661 @70662 @72623 @preApplRequiredIsYesAnnouncementCreation @deepika @smoke
   Scenario: Validate whether the User is able to create a Pre Application only when the Opportunity setting for Pre Applciation Required (Yes) |
   Validate whether User is able to view the following error message "Reached the Maximum number of Applications" when the limit has been reached.
-  Validate whether User is able to view the Leverage column in the budget grid when the value set as Yes.
+  Validate whether User is able to view the Leverage column in the budget grid when the value set as Yes. |Validate the user  will be able to view the the Program Income field on the overview tab when the value set as Yes.
     Given I delete the record "Automation Pre-App Announcement" from the object "Announcement"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -137,6 +146,10 @@ Feature: Pre-Application scenarios without background
     Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I save the field containing "Program Income Allowed?" as "Yes"
+    Then I softly see field "Estimated Program Income For Project Period" inside page block
+    And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -148,7 +161,6 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Automation Pre-App Announcement" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "Automation Pre-App Announcement" inside table
     Then I softly cannot see top right button "Create Pre-Application" in page detail
-    Then I collect all the soft asserts
 
   @70663 @preApplRequiredIsNoAnnouncementCreation @deepika
   Scenario: Validate whether the User is able to create Pre Application only when the Opportunity setting for Pre Application (No)
@@ -241,7 +253,6 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Opportunities" tab
     And I perform quick search for "Automation Competitive Announcement" in "---applicationIntake:-:publishedOpputunityTableId---" panel
     Then I softly do not see "Automation Competitive Announcement" has been added in "---applicationIntake:-:publishedOpputunityTableId---" flex table
-    Then I collect all the soft asserts
 
   @71114 @71115 @preappDueDateValidation @deepika
   Scenario: Validate whether User will be able to submit the pre- application on the last date for submission.
@@ -344,5 +355,207 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Automation Competitive Announcement" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "Automation Competitive Announcement" inside table
     Then I softly cannot see top right button "Submit to Grantor" in page detail
-    Then I collect all the soft asserts
+
+  @71413 @userCannotCreatePreAppWhenSettingIsNo @deepika
+  Scenario: Validate whether User is able to create Pre Application only when the Opportunity setting for Pre Application (No)
+    Given I delete the record "Automation Announcement for Application Intake" from the object "Application"
+    And I delete the record "Automation Announcement for Application Intake" from the object "Qualified Announcement"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Application Intake" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "Automation Announcement for Application Intake" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    Then I softly see field "Pre-Application Required?" as "No"
+    When I click on "Qualify" in the page details
+    Then I softly cannot see top right button "Create Pre-Application" in page detail
+
+  @72515 @72516 @72518 @72519 @72520 @preapplicationInformationCopiedToApplication @deepika
+  Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able toa cknowledge the application submission by entering the mandatory details.
+  Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
+  Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
+    Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
+    When I delete the record "Automation Announcement for Application" from the object "PreApplication"
+    And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
+    And I delete the record "Automation Announcement for Application" from the object "Qualified Announcement"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I enter value "Automation Announcement for Application" into field "Title__c"
+    When I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I save the field labeled "Subaward Floor" as "subawardfloor"
+    And I save the field labeled "Subaward Ceiling" as "subawardcieling"
+    And I save the field labeled "Match Required?" as "matchrequired"
+    And I save the field containing "Match Required?" as "No"
+    And I get the "EGMS ID"
+    Given I click on "Edit" in the page details
+    And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Attachments" sub tab
+    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Other"
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
+    When I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    And I enter value "Checked" into field "Agreement5__c"
+    And I click on "Save" in the page details
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Requested Amount should be greater than or equal to Subaward Floor Amount.                         |
+      | Budget Tab - Enter budget details for the first budget period before submitting a Pre-Application to the Grantor. |
+    When I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    Then I softly see "Record Id" has been added in "---preApplication:-:pendingTaskTableId---" flex table
+    And I click on "Start" icon for "Record Id" inside table
+    When I click on "Accept" in the page details
+    And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
+    Then I softly see "Record Id" has been added in "---preApplication:-:preappCompletedTasksTableId---" flex table
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI" user
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - Submitted"
+    And I perform quick search for "Automation Announcement for Application" in "RecipientPreApplications" panel
+    When I click on "View" icon for "Automation Announcement for Application" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    Then I softly see selected element "{SavedValue:subawardfloor}"
+    Then I softly see selected element "{SavedValue:subawardcieling}"
+    Then I softly see selected element "{SavedValue:matchrequired}"
+
+  @72522 @preapplicationQualifiedIsAddedToTheTable @deepika @smoke
+  Scenario: Validate once Application is qualified then user can view the Qualified Application from Qualfied Table and it is removed from Non -yet qualified table
+    Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
+    When I delete the record "Automation Announcement for Application" from the object "PreApplication"
+    And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
+    And I delete the record "Automation Announcement for Application" from the object "Qualified Announcement"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    When I click on "Qualify" in the page details
+    And I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    When I perform quick search for "Automation Announcement for Pre-Application" in "---applicationIntake:-:qualifiedTableId---" panel
+    Then I softly see value "Automation Announcement for Pre-Application" for title "Opportunity Name" against the value "Qualified" inside table "---applicationIntake:-:qualifiedTableId---"
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    Then I softly do not see "Automation Announcement for Pre-Application" has been added in "---preApplication:-:notYetQualifiedTable---" flex table
+
+  @72576 @72344 @preApplicationSubmittedToGrantorPendingTask @productBusinessFlowSanity
+  Scenario: Validate once the Grantor accepts the submitted pre-application then the changes status to Accepted | Validate whether user can change the pre-application due date while creating the pre-application
+    Validate whether pre-application title field is editable while creating the pre-application
+    Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
+    When I delete the record "Automation Announcement for Application" from the object "PreApplication"
+    And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
+    And I delete the record "Automation Announcement for Application" from the object "Qualified Announcement"
+    When I am on "SUBPORTAL" portal
+    And I login as "SPI" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    When I click on "Qualify" in the page details
+    Then I softly see field "Pre-Application Due Date" is not editable
+    And I click on "Create Pre-Application" in the page details
+    When I enter value "Automation Announcement for Application" into field "Title__c"
+    When I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    Given I click on "Edit" in the page details
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When  I navigate to "Overview" sub tab
+    When I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I navigate to "Attachments" sub tab
+    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Other"
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record id" inside table
+    When I click on "Accept" in the page details
+    Then I see status in Progress-bar is "Accepted" and is "Green"
+
+  @72523 @SPIUserCannotdeleteTheCreatedPreApplication
+  Scenario Outline: Validate whether SPI/SPA user has the ability to delete the created pre-Application
+    Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
+    When I delete the record "Automation Announcement for Application" from the object "PreApplication"
+    And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
+    And I delete the record "Automation Announcement for Application" from the object "Qualified Announcement"
+    When I am on "SUBPORTAL" portal
+    And I login as "<User>" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I enter value "Automation Announcement for Application" into field "Title__c"
+    When I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    Given I click on "Edit" in the page details
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "Automation Announcement for Application" in "RecipientPreApplications" panel
+    Then I cannot see row level action button "Delete" against "Automation Announcement for Application" in flex table with id "RecipientPreApplications"
+    Examples:
+      | User |
+      | SPI  |
+      | SPA  |
+
+  @72524 @OppurtunityFieldsARENOtEditableInDraftStatus
+  Scenario: Validate whether user can edit the Opportunity Overview page block fields when the pre-application is in draft status
+    Given I delete the record "Automation Announcement for Pre-Application" from the object "Application"
+    When I delete the record "Automation Announcement for Application" from the object "PreApplication"
+    And I delete the record "Automation Announcement for Pre-Application" from the object "Qualified Announcement"
+    And I delete the record "Automation Announcement for Application" from the object "Qualified Announcement"
+    When I am on "SUBPORTAL" portal
+    And I login as "SPI" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Pre-Application" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Automation Announcement for Pre-Application" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I enter value "Automation Announcement for Application" into field "Title__c"
+    When I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    Given I click on "Edit" in the page details
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    Then I softly see field "Opportunity Title" is not editable
+    Then I softly see field "Opportunity Type" is not editable
+    Then I softly see field "Pre-Application Due Date" is not editable
+
 

@@ -35,9 +35,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Financials" sub tab
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
-    And I collect all the soft asserts
 
-  @70290 @70298 @70302 @70799 @userAllowToEnterDataInQualityAndAvailibility @aashish
+  @70290 @70298 @70302 @70799 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -83,9 +82,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
       | Overview Tab: The Answer submission deadline cannot be earlier than Question submission deadline. |
-    And I collect all the soft asserts
 
-  @70479 @70722 @70481 @70819 @70503 @70422 @70507 @70542 @70543 @userDeleteSupportingDocument @aashish
+  @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @userDeleteSupportingDocument @aashish
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement | To Verify that user can preview business forms while creating Announcement
     When I navigate to "Announcements" tab
@@ -113,16 +111,34 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Mandatory | Automation test description02 | Award      | Active |
     Then I softly see value "Automation test description02" for title "Description" inside table "---announcement:-:annChecklist---"
     When I click on "Delete" icon for "Automation test description02" inside flex table with id "---announcement:-:annChecklist---"
-    Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
+    And I softly do not see "Automation test description02" inside flex table with id "---announcement:-:annChecklist---"
     And I navigate to "Setup" sub tab
     When I click on "Preview" icon for "Organization Desk Review" inside flex table with id "---announcement:-:businessFormlistTableId---"
     Then I softly see field "Package Name" as "Organization Desk Review"
+    And I close "Preview Package" modal by clicking the top right x button
     And I navigate to "Attachments" sub tab
     When I add notes records
     And I close "Add Notes" modal by clicking the top right x button
     Then I softly see table with header "Notes" contains records "Notes Record"
-    And I collect all the soft asserts
+    And I edit the notes
+    And I click modal button "Save"
+    And I close "Edit Notes" modal by clicking the top right x button
+    Then I softly see table with header "Notes" contains records "Updated Notes Record"
+    Then I softly see table with header "Notes" contains records "Updated Automation Notes"
+    And I click on top right button "Add" in notes flex table having header "Notes"
+    And I enter title in Notes
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details :
+      | Please enter Required fields |
+    When I upload attachment "Announcement_Field_Values.xlsx" from workspace
+    Then I softly see "Announcement_Field_Values.xlsx" has been added in "Attachments" flex table
+    When I navigate to "Attachments" sub tab
+    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Funding Opportunity Announcement"
+    Then I softly see "Funding Opportunity Announcement" has been added in "Attachments" flex table
+    When I click on "Download" icon under attachment flex table
+    Then I softly verify that the file "InternalOrganization_Field_Values.xlsx" is downloaded
+    And I click on "Delete" icon under attachment flex table
+    Then I softly do not see "InternalOrganization_Field_Values.xlsx" has been added in "Attachments" flex table
 
   @70483 @userDeleteSupportingDocumentViewHyperlink @aashish @wip
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
@@ -166,7 +182,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
     When I click on "View" icon for "Automation Permanent Objective" inside flex table with id "---announcement:-:objectivesTableId---"
     Then I softly see field "Objective" as "Automation Permanent Objective"
-    And I collect all the soft asserts
 
   @70163 @70166 @70197 @userAllowToSelectEligibilityDetails @aashish
   Scenario: To Verify that user is  allowed  to select the Eligibility Details while creating Announcement
@@ -191,7 +206,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
       | Overview Tab - Select applicant types. |
-    Then I collect all the soft asserts
 
   @70211 @70216 @70217 @userAbletoAssociateActiveRelatedProgram @aashish
   Scenario: To Verify that user is able to associate active Related Federal/NGO Program | To Verify that user is able to view active Related Federal/NGO Program
@@ -214,7 +228,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I click on "Remove" icon for "Cal Fires" inside flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly do not see value "Cal Fires" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
-    And I collect all the soft asserts
 
   @70727 @70723 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
@@ -420,12 +433,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click toggle button to select "Draft Competitive Announcements"
     When I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I collect all the soft asserts
     Examples:
       | Announcement Type |
       | Competitive       |
 
-  @70894 @verifyReviseUnderRevision @aashish
+  @70894 @71722 @72471 @72324 @verifyReviseUnderRevision @aashish @smoke
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -597,7 +609,23 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I navigate to "History" sub tab
+    And I see "Automation PM" against "Initial Submitter" in approval history
     And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Reassign" to user "Automation PM" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    And I navigate to "History" sub tab
+    Then I see "Automation PM" against "Program Office Approval" in approval history
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -610,17 +638,17 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
+    Then I softly can see top right button "Revise" in page detail
     And I click on "Revise" in the page details
     Then I softly see status in Progress-bar is "Created" and is "green"
     Then I softly see field "Status" as "Under Revision"
-    And I collect all the soft asserts
     Examples:
       | Announcement Type |
       | Competitive       |
 
   @70803 @70817 @70893 @34768 @70898 @announcementApprovalCA @verifyApproverCanNotEdit @aashish
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
-   | To Verify that after submitting for approval, approver can not edit anything on announcement
+  | To Verify that after submitting for approval, approver can not edit anything on announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -821,10 +849,224 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "Record Id" in "---announcement:-:opportunityNotQtableId---" panel
     Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---announcement:-:opportunityNotQtableId---"
-    And I collect all the soft asserts
     Examples:
       | Announcement Type |
       | Competitive       |
+
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish
+  Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I refresh the page
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Add" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
+      | Role               | Name           | Description                 |
+      | Program Approver   | Automation PM  | Automation Test Description |
+      | Executive Approver | Automation EXE | Automation Test Description |
+      | Fiscal Approver    | Automation FO  | Automation Test Description |
+    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "Automation FO" inside table
+    And I get the "EGMS ID"
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    When I navigate to "Responsibilities" tab
+    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---"
+    And I enter values into fields
+      | Value  | Field             |
+      | Passed | Rating__c         |
+      | Passed | ReviewComments__c |
+    When I click modal button "Save"
+    When I close "Enter Review" modal by clicking the top right x button
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    Given I click on "Complete Review" in the page details
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+      | Completeness   | 50                 |
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+      | Environment    | 30                 |
+      | Permits        | 40                 |
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+      | Match          | 40                 |
+      | Program Income | 30                 |
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+      | Approach       | 30                 |
+      | Impact         | 40                 |
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "SME Review"
+    And I expand nested table containing column value "Management Review"
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+      | Strategic Alignment        | 50                 |
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Management Review"
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I click on "Edit" in the page details
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    When I get the "EGMS ID"
+    When I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | End Date |
+      | BP03               | 550      |
+    And I click on "Save" in the page details
+    And I save the value from row "3" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
+    And I save the value from row "3" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see field "Estimated Project Period Start Date" as "{SavedValue:startDate}"
+    Then I softly see field "Estimated Project Period End Date" as "{SavedValue:endDate}"
+    And I click on "Remove" icon for "BP03" inside flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date |
+      | BP03               | 250        |
+    And I click on top right button "Save" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    Then I softly see the following messages in the page details :
+      | Budget Period dates should not overlap. Adjust the end date ofBP02 and start date ofBP03 to proceed further. |
+    And I click on "Remove" icon for "BP02" inside flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I click on "Remove" icon for "BP03" inside flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I navigate to "History" sub tab
+    Then I softly see value "Approved" for title "Status" inside table "History"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Disapprove" in the approval decision
+    When I navigate to "History" sub tab
+    Then I softly see value "Rejected" for title "Status" inside table "History"
+    Then I softly see status in Progress-bar is "Rejected" and is "red"
+    Examples:
+      | Announcement Type |
+      | Competitive       |
+
 
   @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA
   Scenario Outline: Validate that after approval of an Announcement task get deleted from pending task table | Validate that after approval of an Announcement task get added to its completed task table ||
@@ -1010,12 +1252,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "Automation Competitive Announcement" inside table
-    And I collect all the soft asserts
     Examples:
       | Announcement Type |
       | Competitive       |
 
-  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA
+  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
   Scenario Outline: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1195,7 +1436,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "Automation Competitive Announcement" inside table
-    And I collect all the soft asserts
     Examples:
       | Announcement Type |
       | Competitive       |
@@ -1566,7 +1806,198 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click toggle button to select "Rejected Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:competitiveAnnouncementTableId---"
-    And I collect all the soft asserts
     Examples:
       | Announcement Type | Active Funding Opportunities id                     |
       | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
+
+  @65077 @publishingCompetitiveAnnouncementCA @productBusinessFlowSanity
+  Scenario: Validate the activation of Competitive Announcement
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I close "Associate" modal by clicking the top right x button
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 20000           |
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I navigate to "Overview" sub tab
+    When I pause execution for "1" seconds
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Add" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
+      | Role               | Name           | Description                 |
+      | Program Approver   | Automation PM  | Automation Test Description |
+      | Executive Approver | Automation EXE | Automation Test Description |
+      | Fiscal Approver    | Automation FO  | Automation Test Description |
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
+      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "Automation FO" inside table
+    And I get the "EGMS ID"
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record id" inside table
+    When I navigate to "Responsibilities" tab
+    When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---announcement:-:reviewersTableId---"
+    And I enter values into fields
+      | Value  | Field             |
+      | Passed | Rating__c         |
+      | Passed | ReviewComments__c |
+    When I click modal button "Save"
+    And I click modal button "Submit Review"
+    When I close "Enter Review" modal by clicking the top right x button
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    Given I click on "Complete Review" in the page details
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+      | Completeness   | 50                 |
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+      | Environment    | 30                 |
+      | Permits        | 40                 |
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+      | Match          | 40                 |
+      | Program Income | 30                 |
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+      | Approach       | 30                 |
+      | Impact         | 40                 |
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "SME Review"
+    And I expand nested table containing column value "Management Review"
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+      | Strategic Alignment        | 50                 |
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Management Review"
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I click on "Edit" in the page details
+    When I navigate to "Financials" sub tab
+    When I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    And I "Approve" in the approval decision
+    And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "Record Id" inside table
+    Then I softly can see top right button "Publish" in page detail
+    And I click on "Publish" in the page details
+    Then I softly see status in Progress-bar is "Published" and is "green"

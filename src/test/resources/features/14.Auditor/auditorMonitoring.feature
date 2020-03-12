@@ -13,22 +13,22 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69179 @69942 @auditorOrgRiskAssessment
+  @69179 @69942 @auditorOrgRiskAssessment @smoke @smoke
   Scenario Outline: Validate Auditor should have view / read  only access to Organizational Risk Assessment |Validate Auditor should not be  able to Provide revision access
-    Given I delete the record "Bayside Community Center" from the object "ORGANIZATION RISKASSESSMENT"
-    When I create a risk assessment record for organization "Bayside Community Center"
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When I login as "SA" user
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Bayside Community Center" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I get the "EGMS ID"
+    When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -37,14 +37,13 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---auditor:-:subrecipientOrgTableId---" panel
-    When I click on "View" icon for "Bayside Community Center" inside flex table with id "---auditor:-:subrecipientOrgTableId---"
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---auditor:-:subrecipientOrgTableId---" panel
+    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---auditor:-:subrecipientOrgTableId---"
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---auditor:-:orgRiskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---auditor:-:orgRiskAssessmentTableId---"
     Then I softly see status in Progress-bar is "Active" and is "green"
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -55,13 +54,13 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Monitoring" tab
     And I navigate to "Monitoring Schedules" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Scheduled Activities - All"
-    When I perform quick search for "SC-02317" in "---auditor:-:scheduledactivtiesTableId---" panel
-    Then I can see row level action button "View" against "SC-02317" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
+    When I perform quick search for "Automation Grant For PR" in "---auditor:-:scheduledactivtiesTableId---" panel
+    Then I can see row level action button "View" against "Automation Grant For PR" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
     Examples:
       | User    |
       | AUDITOR |
 
-  @69181 @auditorCannotCreateOrgSiteVisitDeskReview
+  @69181 @auditorCannotCreateOrgSiteVisitDeskReview @smoke
   Scenario Outline: Validate Auditor should have view / read  only access to Organizational level Site Visit
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -71,7 +70,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Related Log" sub tab
     Then I softly cannot see top right button "Initiate Site Visit" in flex table with id "---auditor:-:siteVisitTableId---"
     Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "---auditor:-:deskreviewTableId---"
-    And I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -87,7 +85,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Then I softly verify that "xls" file is downloaded
     When I perform quick search for "Automation Permanent Award" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I softly can see row level action button "View" against "Automation Direct Award" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
-    Then I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -129,7 +126,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Automation Site Visit  | View    |
     And I click on "View" icon for "Automation Site Visit" inside flex table with id "---auditor:-:sitevisitMonitoringTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
-    And I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -171,7 +167,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Automation Desk Review | View    |
     And I click on "View" icon for "Automation Desk Review" inside flex table with id "---auditor:-:deskreviewMonitoringTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
-    And I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -192,8 +187,8 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Risk Assessments - All"
     When I perform quick search for "Automation Permanent Award" in "---auditor:-:monitoringtableid---" panel
+    Then I softly see value "Active" for title "<string>" inside table "<string>"
     Then I softly see that "Active" has been added in flextable with Id "---auditor:-:monitoringtableid---"
-    And I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -236,7 +231,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Then I softly can see row level action button "View" against "{SavedValue:Record Id}" in flex table with id "---auditor:-:progressreportTableId---"
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---auditor:-:progressreportTableId---"
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I collect all the soft asserts
 
   @70075 @auditorCannotBeAnApprover
   Scenario: Validate approver user is not allowed to reassign tasks their tasks to Auditor.

@@ -310,7 +310,6 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "GrantorAwardOwnerRoles"
     Then I softly do not see value "Automation FO" for title "Reviewer Name" inside table "flexGridGrantorAwardReviewer"
-    Then I collect all the soft asserts
     Examples:
       | Announcement Name         | Application Name          |
       | Automation  Announcement1 | Automation  Announcement1 |
@@ -492,7 +491,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
 
-  @59956 @awardActivatedSecondRiskAssessmentIsinSubmittedForReviewStatus @deepika
+  @59956 @awardActivatedSecondRiskAssessmentIsinSubmittedForReviewStatus @deepika @smoke
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in submitted for review state should not get submitted for approval
     Given I delete the record "Automation Execution Award" from the object "Award"
     And I delete the record "Automation Execution Award" from the object "Grant"
@@ -686,7 +685,6 @@ Feature: Risk Assessment scenarios without background
     And I click on "View" icon for "{SavedValue:RiskId}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly cannot see top right button "Submit for approval" in page detail
     Then I softly cannot see top right button "Complete Review" in page detail
-    Then I collect all the soft asserts
     Examples:
       | Award Name                 | Grant Name                 |
       | Automation Execution Award | Automation Execution Award |
@@ -822,7 +820,6 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "{SavedValue:RISKID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
-    Then I collect all the soft asserts
 
   @60967 @60336 @60334 @60333 @FundingChangeAmendmentRiskScore @deepika @bug-ticketNumber-68419
   Scenario: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type - Funding Change
@@ -923,7 +920,6 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "{SavedValue:RISKID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
-    Then I collect all the soft asserts
 
   @62956 @62957 @62958 @awardRACopiedToperiodicRenewalOverallRisk @deepika @bug-ticketNumber-64367
   Scenario: Validate The Risk assessment is not carried forward to new active award and new button to risk assessmnet is avialble for old award owner-  Periodic Renewal Amendment
@@ -1022,7 +1018,7 @@ Feature: Risk Assessment scenarios without background
     And I click on "View" icon for "Automation Grant/Award for Risk Assessment" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
-    Then I softly do not see value "Active" for title "Status" against the value "{SavedValue:RiskAssessmentID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RiskAssessmentID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -1030,7 +1026,6 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:Risk1ID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---"
-    Then I collect all the soft asserts
 
   @62964 @62963 @riskScoreWhenCopiedToTermsAndConditionsAmendment @deepika
   Scenario: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type -Terms and Conditions Amendment
@@ -1128,9 +1123,8 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "{SavedValue:RISKID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
-    Then I collect all the soft asserts
 
-  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @deepika
+  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @deepika @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type-Budget Period Change
     Given I delete the record "Automation Grant/Award for Risk Assessment" from the object "Amendment Request"
     And I delete the record "Automation Grant/Award for Risk Assessment" from the object "Payment Request"
@@ -1222,7 +1216,6 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
-    Then I collect all the soft asserts
 
   @58824 @validateRiskScoreAndRiskAssessment @mahadev @wip
   Scenario Outline: Validate Award Risk Assessment is copied to new created award after - BPC Amendment
