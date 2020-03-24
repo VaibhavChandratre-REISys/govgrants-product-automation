@@ -1,7 +1,7 @@
 @createTestData
 Feature: Validate creation of data in new Org
 
-  @automationPermanentFocusArea               
+  @focusArea           
   Scenario: Validate the creation and Activation of Permanent Focus Area
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
