@@ -50,7 +50,7 @@ Feature: Validate creation of data in new Org
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "Green"
 
-  @automationPermanentKPIForRegression    
+  @abc
   Scenario: Validate the creation and Activation of Permanent KPI
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1191,7 +1191,7 @@ Feature: Validate creation of data in new Org
       | Award Name                  | Grant Name                  |
       | Automation Permanent Award  | Automation Permanent Award  |
 
-  @competitiveAnnouncementCreatedPastDate
+  @competitiveAnnouncementCreatedPastDate @wip
   Scenario: Validate the create of permanent record of Competitive Announcement with past application date
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

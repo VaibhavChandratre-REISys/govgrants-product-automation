@@ -72,7 +72,7 @@ public class ProjectWebServices {
 
         switch (env) {
             case "QA":
-                this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9dZJodJWITSuFoeXeOau_jPysAF1tDTnpScZyZwXUGhS_ZudVpjPfvLFrO78TVtOgK6flv6R5a4OV8QnR&client_secret=1408645120361878326&username=mayuresh.g@ggp.test7&password=Salesforce_2019";
+                this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9_4NR96cWRpH1trnW0fHTVHQ_kN9MtRSvVQ0VcvdMvesahv_YAHs.8WmMlgzLDtpzhPShDnT6jqFcvDoe&client_secret=2B5D247030DE327A5D259053F93DDF3F18FD11E42B5CFAAD99237FF265B41E51&username=manu.admin@nfwf.org.dev&password=NFWF2020";
                 break;
             case "AUTO":
                 this.defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9sLbBxQYwWqtI3hcR1Odn12iee2XPlRpoUlUxJJ24SitxxxtbEKchcu7W27NvdP5NmywAris4lAyF478z&client_secret=6FCEC6C5EC6DCCDD639A30AC629578DD4EA035157204B20EF945201074973D37&username=nakul@admin.test8.masterdemo&password=GoProduct@123";

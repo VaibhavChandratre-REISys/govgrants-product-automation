@@ -5,7 +5,7 @@ Feature: Validate all scenarios in the Application Review
     Given I delete the record "Automation Announcement for Application Review" from the object "APPLICATION REVIEWS"
     Given I delete the record "Automation Application" from the object "APPLICATION"
     And I delete the record "Automation Announcement for Application Review" from the object "Qualified Announcement"
-    When I am on "SUBPORTAL" portal
+    When I am on "SUBPORTAL" portalz
     When I login to "Grants Portal" app as "SPI" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
