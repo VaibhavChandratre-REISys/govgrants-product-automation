@@ -431,4 +431,16 @@ public class GenericSteps {
             Assert.assertTrue(projectManager.isFieldDateGreaterThanOrLessThanTodaysDate(fieldLabel,lessORgreater));
         }
     }
+
+    @And("^I click on modal button$")
+    public void iClickOnModalButton(String btn) {
+        try {
+            By aa = By.xpath("//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review']");
+            EyeThink.core().click().on(aa);
+        } catch (Exception ee) {
+            EyeThink.core().WaitFor().makeThreadSleep(5000);
+            By aa = By.xpath("//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review']");
+            EyeThink.core().click().on(aa);
+        }
+    }
 }

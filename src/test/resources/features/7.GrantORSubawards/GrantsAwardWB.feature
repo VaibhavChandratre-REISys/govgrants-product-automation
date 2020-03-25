@@ -349,7 +349,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "<user>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -545,7 +545,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1605,7 +1605,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1888,7 +1888,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2153,7 +2153,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2501,7 +2501,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2656,7 +2656,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2862,7 +2862,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     And I close "Grantor Subaward Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3059,7 +3059,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     And I close "Grantor Subaward Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3351,7 +3351,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
-    And I click modal button "Submit Review"
+    And I click on modal button
     And I close "Grantor Subaward Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab

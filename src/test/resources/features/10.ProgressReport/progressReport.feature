@@ -2401,7 +2401,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---progressReport:-:peerReviewersTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2493,7 +2493,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Enter Review" icon for "Automation FO" inside flex table with id "---subAwardStandAlone:-:peerReviewersMonitoringTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2936,7 +2936,7 @@ Feature: Validate all scenarios in Progress Report
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     Then I see value "Submitted" for title "Status" inside table "---progressReport:-:peerReviewersTableId---"
 
@@ -3048,7 +3048,7 @@ Feature: Validate all scenarios in Progress Report
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab

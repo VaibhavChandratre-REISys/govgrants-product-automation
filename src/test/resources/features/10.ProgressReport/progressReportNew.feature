@@ -161,7 +161,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2352,7 +2352,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4838,7 +4838,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5241,7 +5241,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6817,7 +6817,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -9205,7 +9205,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -11595,7 +11595,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Cannot Rate | Rating__c         |
       | Passed      | ReviewComments__c |
     When I click modal button "Save"
-    And I click modal button "Submit Review"
+    And I click on modal button
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
