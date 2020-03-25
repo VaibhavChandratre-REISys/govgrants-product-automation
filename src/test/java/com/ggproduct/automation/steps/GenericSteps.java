@@ -433,7 +433,7 @@ public class GenericSteps {
     }
 
     @And("^I click on modal button$")
-    public void iClickOnModalButton(String btn) {
+    public void iClickOnModalButton() {
         try {
             By aa = By.xpath("//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review']");
             EyeThink.core().click().on(aa);
