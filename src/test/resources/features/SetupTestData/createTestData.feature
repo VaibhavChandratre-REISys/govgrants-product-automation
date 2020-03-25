@@ -1,7 +1,7 @@
 @createTestData
 Feature: Validate creation of data in new Org
 
-  @automationPermanentFocusArea               
+  @focusAreaPermanent
   Scenario: Validate the creation and Activation of Permanent Focus Area
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -31,7 +31,7 @@ Feature: Validate creation of data in new Org
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "Green"
 
-  @automationPermanentFundingAccount        
+  @automationPermanentFundingAccount
   Scenario: Validate the creation and Activation of Permanent Funding Account
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -59,8 +59,9 @@ Feature: Validate creation of data in new Org
     And I click on top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     And I enter "CreationKPI" values from "PermanentRecordSetup_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Activate" in the page details
+    And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "Green"
 
   @automationPermanentKPIForRegression2
@@ -72,8 +73,9 @@ Feature: Validate creation of data in new Org
     And I click on top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     And I enter "CreationKPI1" values from "PermanentRecordSetup_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Activate" in the page details
+    And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "Green"
 
   @automationPermanentStrategicPlan
@@ -208,6 +210,7 @@ Feature: Validate creation of data in new Org
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 20000           |
@@ -277,6 +280,7 @@ Feature: Validate creation of data in new Org
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 20000           |
@@ -346,6 +350,7 @@ Feature: Validate creation of data in new Org
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 20000           |
@@ -395,7 +400,7 @@ Feature: Validate creation of data in new Org
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "green"
 
-  @automationAnnouncementforPre-Application
+  @automationAnnouncementforPreApplication
   Scenario: Validate the activation of permanent record of Competitive Automation Announcement for Pre-Application   
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -415,6 +420,7 @@ Feature: Validate creation of data in new Org
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate" modal by clicking the top right x button
+    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 20000           |
@@ -584,8 +590,6 @@ Feature: Validate creation of data in new Org
     When I click on "Back" in the page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    Given I am on "Internal" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -621,7 +625,7 @@ Feature: Validate creation of data in new Org
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -686,7 +690,7 @@ Feature: Validate creation of data in new Org
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -718,17 +722,17 @@ Feature: Validate creation of data in new Org
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "Green"
     Examples:
       | Announcement Name               | Application Name                |
       | Automation Announcement for FDM | Automation Announcement for FDM |
 
-  @automationGrant/AwardforRiskAssessment
+  @automationGrantAwardforRiskAssessment
   Scenario Outline: Validate Creation and Activation of Automation Grant/Award for Risk Assessment Award
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1034,7 +1038,7 @@ Feature: Validate creation of data in new Org
       | Award Name                             | Grant Name                             |
       | Automation Award for Amendment Request | Automation Award for Amendment Request |
 
-  @automationPermanentAward 
+  @permanentAward
   Scenario Outline: Validate the creation and Activation of Automation Permanent Award 
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

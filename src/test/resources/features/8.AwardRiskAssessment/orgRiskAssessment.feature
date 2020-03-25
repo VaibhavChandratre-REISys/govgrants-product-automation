@@ -1994,7 +1994,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I see field "Effective Date" is not editable
     Then I see field "Expiration Date" is not editable
 
-  @72361 @activeOrgRiskAssessment @productBusinessFlowSanity
+  @72361 @activeOrgRiskAssessment @productBusinessFlowSanity @wip
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"

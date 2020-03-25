@@ -2554,7 +2554,7 @@ Feature: Validate all scenarios of grants and award without background
       | Budget Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
 
   @66096 @defaultPackageAssociateWithSubaward @aashish
-  Scenario: To Verify that the Default package associated with subaward should be displayed correctly |
+  Scenario Outline: : To Verify that the Default package associated with subaward should be displayed correctly |
   To verify that Initiate Desk review button appear on site visit table of management tab of Award owner after Subaward is activated
     Given I delete the record "Automation Execution Award" from the object "Award"
     And I delete the record "Automation Execution Award" from the object "Grant"
@@ -3270,6 +3270,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
     When I click "Add" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
