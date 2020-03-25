@@ -3352,7 +3352,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on modal button
-    And I close "Grantor Subaward Review" modal by clicking the top right x button
+    #And I close "Grantor Subaward Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
