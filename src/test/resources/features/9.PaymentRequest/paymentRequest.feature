@@ -2133,7 +2133,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Financials" sub tab
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Advance Requested This Action |
+      | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 10                            |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
@@ -2191,6 +2191,7 @@ Feature: Validate all scenarios in Payment Request
     And I pause execution for "5" seconds
     And I click on "Submit for Approval" in the page details
     And I pause execution for "10" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
     When I "Approve" in the approval decision
     When I click on "Mark As Paid" in the page details
     And I enter "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
