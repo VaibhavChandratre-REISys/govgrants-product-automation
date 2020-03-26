@@ -2133,8 +2133,8 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Financials" sub tab
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 10                    |
+      | Funding Account             | Advance Requested This Action |
+      | {SavedValue:fundingAccount} | 10                            |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
       | Responsibility  | Name          | Description                 |
