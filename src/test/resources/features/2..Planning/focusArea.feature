@@ -147,7 +147,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "View" icon for "Automation Execution Focus Area" inside table
     Then I see status in Progress-bar is "Closed" and is "Green"
 
-  @72335 @activationOfFocusArea @productBusinessFlowSanity
+  @72335 @add @activationOfFocusArea @productBusinessFlowSanity
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
