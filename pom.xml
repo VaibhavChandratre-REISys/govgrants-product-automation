@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>rei.saas.automation</groupId>
 			<artifactId>govgrants-library</artifactId>
-			<version>${saas.version}</version>
+			<version>2.4.0</version>
 		</dependency>
 	</dependencies>
 
