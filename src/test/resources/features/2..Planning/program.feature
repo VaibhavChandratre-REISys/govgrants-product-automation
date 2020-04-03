@@ -88,6 +88,7 @@ Feature: Validate all scenarios for program
       | Fiscal Review     | 25              |
       | Program Review    | 25              |
       | Compliance Review | 50              |
+    And I pause execution for "10" seconds
     Then I softly see value "25%" for title "Form Weight (%)" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "25%" for title "Form Weight (%)" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "50%" for title "Form Weight (%)" inside table "---program:-:reviewStepTableId---"
