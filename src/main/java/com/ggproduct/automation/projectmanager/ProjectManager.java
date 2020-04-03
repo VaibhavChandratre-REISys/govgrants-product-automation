@@ -233,14 +233,14 @@ public class ProjectManager extends ProjectWebServices {
                 subject = subject.replace("<subrecipient name>", "Automation SPI");
             }
         }
-
+        System.out.println("This is the email check"+subject);
         String subjectString = EyeThink.core().email().accessEmail(
                 credentials.get("username"),
                 credentials.get("password"),
                 Emails.HostName.GMAIL,
                 Emails.MailClient.GMAIL,
                 Emails.EmailFolder.INBOX).getSubjectOfLatestMessage();
-
+        System.out.println("This is the email check2"+subjectString);
         if (subjectString.contains(subject)) {
             return true;
         }
