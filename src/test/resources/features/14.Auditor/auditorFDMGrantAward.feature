@@ -1,7 +1,7 @@
 @auditorGrant/Award @auditor
 Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
-  @69168 @auditorCannotCreateGrantandSubaward
+  @69168 @auditorCannotCreateGrantandSubaward @smoke
   Scenario: Validate Auditor should not be able to  Create/Edit Grant/subaward
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
@@ -11,7 +11,6 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click on "View" icon for "Automation Permanent Award" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I navigate to "Subawards" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    Then I collect all the soft asserts
 
   @69169 @auditorCannotEDitActiveGrantAward
   Scenario: Validate Auditor do not have Edit permission for Grant/Subaward
@@ -24,7 +23,6 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I navigate to "Subawards" sub tab
     And I perform quick search for "Automation Permanent Award" in "---subAwardStandAlone:-:subawardsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Award" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    Then I collect all the soft asserts
 
   @69170 @auditorCanViewActiveGrantAward
   Scenario: Validate Auditor should have view / read  only access to Active Grant/Award
@@ -38,7 +36,6 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I perform quick search for "Automation Permanent Award" in "---subAwardStandAlone:-:subawardsTableId---" panel
     When I click on "View" icon for "Automation Permanent Award" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     Then I softly see status in Progress-bar is "Activated" and is "green"
-    Then I collect all the soft asserts
 
   @69304 @auditorCandownloadasPDF @skipOnJenkins
   Scenario: Validate Verify User with Auditor profile has ability to download PDF files of record.
@@ -46,53 +43,53 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I navigate to "Grants" tab
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search for "Automation Permanent Award" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Award" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     When I click on "View" icon for "Automation Permanent Award" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I click on "Menu" in the page details
     And I select "Download As PDF" from dropdown
     And I download the file
-    Then I verify that "pdf" file is downloaded
+    Then I see "Active" on page "1" of "govgrants" pdf file
 
   @69939 @auditorCannotEditorApproveFDM
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
     Given I delete the record "Automation Announcement for Application Review" from the object "APPLICATION REVIEWS"
-    Given I delete the record "Automation Application" from the object "APPLICATION"
     And I delete the record "Automation Announcement for Application Review" from the object "Qualified Announcement"
     When I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "Automation Announcement for Application Review" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "Automation Announcement for Application Review" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I login as "SPI" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "Automation Announcement for Application Review" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "Automation Announcement for Application Review" inside table
+    Then I softly can see top right button "Qualify" in page detail
     When I click on "Qualify" in the page details
+    Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
-    When I enter value "Automation Application" into field "Title__c"
     And I click modal button "Save and Continue"
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "Automation SPI" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                                 | Target |
       | Automation Permanent KPI for Regression | 10     |
     And I navigate to "Attachments" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    Given I click on "Back" in the page details
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I get the "EGMS ID"
+    Given I click on "Back" in the page details
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+      | Name           | Project Role             | Is Key Contact |
+      | Automation SPI | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -100,7 +97,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
@@ -129,7 +126,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -194,7 +191,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -226,7 +223,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Logs" sub tab
+    And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
@@ -255,4 +252,3 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     Examples:
       | Announcement Name                              | Application Name       |
       | Automation Announcement for Application Review | Automation Application |
-

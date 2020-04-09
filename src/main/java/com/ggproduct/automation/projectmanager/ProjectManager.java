@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -490,7 +492,7 @@ public class ProjectManager extends ProjectWebServices {
     }
 
     /**
-     * @param usage            softly or not
+     * @param usage softly or not
      * @param iniBudgetBalance
      * @param decreasedBy
      * @param currentBalance
@@ -511,6 +513,29 @@ public class ProjectManager extends ProjectWebServices {
         }
     }
 
+    /**
+     * @param usage    - softly or not
+     * @param cellName - MultiCell value
+     * @param options -List of selected option
+     * @author aashish pardeshi
+     */
+    public void verifyMultipleSelectedOption(String usage, String cellName, List<String> options) {
+        List<String> selectedOptions = new ArrayList<>();
+        List<WebElement> ll = EyeThink.core().select().from(By.xpath("//td[@class='"+cellName+"']//following::td/select")).getOptions();
+        for (WebElement e : ll) {
+            selectedOptions.add(e.getText().trim());
+        }
+        System.out.println(selectedOptions);
+        if (usage.contains("softly")) {
+            EyeThink.core().assertion().assertThat(
+                    options.containsAll(selectedOptions)
+            ).isTrue();
+        } else {
+            Assert.assertTrue(
+                    options.containsAll(selectedOptions)
+            );
+        }
+    }
     public void validateModalEnlargeAndGrantDetails(String usage) {
         By modalEnlarge = By.xpath("//div[@id='editDiv']/div[2]");
         List<String> ids = List.of(
@@ -569,6 +594,27 @@ public class ProjectManager extends ProjectWebServices {
             return true;
         } catch (Exception ee) {
             return false;
+        }
+    }
+
+    public boolean isFieldDateGreaterThanOrLessThanTodaysDate(String fieldLabel, String lessOrGreater) throws ParseException {
+        String currentDate = EyeThink.saas().pageDetails().getFieldValue(fieldLabel, true);
+        String todayDate = EyeThink.core().get().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("M/d/yyyy"));
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date actualDate = sdf.parse(currentDate);
+        Date today = sdf.parse(todayDate);
+        if (lessOrGreater.equalsIgnoreCase("less")) {
+            if (actualDate.before(today)){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (actualDate.after(today)){
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }

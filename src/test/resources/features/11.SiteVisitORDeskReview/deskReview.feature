@@ -38,15 +38,16 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see that "Automation EXE" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
     Given I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
-    Then I collect all the soft asserts
 
-  @51014 @51015 @66147 @notifySubrecipientPendingTaskDeskReview @smoke
+  @51014 @51015 @66147 @75859 @notifySubrecipientPendingTaskDeskReview @smoke
   Scenario: Notify Subrecipient about the respective POC from the applicant organization will receive a pending task about the Desk Review
+  Validate the external user will receive an email notification when the desk review is in notified status
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
       | Role             | Name           | Description                 |
       | Program Approver | Automation EXE | Automation Test Description |
       | Fiscal Approver  | Automation FO  | Automation Test Description |
+    And I save the field labeled "EGMS ID" as "DeskReviewId"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "Automation EXE" in the table "---deskreview:-:deskReviewContactsTableId---"
@@ -54,6 +55,9 @@ Feature: Validate all scenarios in Desk Review
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Then I softly see that "Automation Desk Review" is in "Notified" status
+    When I pause execution for "120" seconds
+    Then I softly can see mail notification for "EXTERNAL" user with following subject:
+      | Desk Review for {SavedValue:DeskReviewId} has been scheduled |
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -66,7 +70,6 @@ Feature: Validate all scenarios in Desk Review
     And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see that "Automation Desk Review" is in "Notified" status
-    Then I collect all the soft asserts
 
   @51016 @51017 @conductAddingOutcomeDeskReview
   Scenario: Conduct and Adding outcomes to Desk Review
@@ -80,6 +83,7 @@ Feature: Validate all scenarios in Desk Review
     When I click "Associate" after selection of "Automation EXE" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I refresh the page
     And I click on "Notify" in the page details
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -101,9 +105,8 @@ Feature: Validate all scenarios in Desk Review
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     Then I softly see that "Automation Finding" has been added in flextable with Id "---deskreview:-:correctiveTableId---"
-    Then I collect all the soft asserts
 
-  @51018 @51019 @66481 @66468 @66483 @66472 @formFillingSubmittingForApprovalDeskReview
+  @51018 @51019 @66481 @66468 @66483 @66472 @formFillingSubmittingForApprovalDeskReview @smoke
   Scenario: Filling up of form and Submitting Desk Review for approval in Desk Review | To verify that program review form can be filled successfully in reports and outcomes tab | Validate Notified status and pending task after submitting for approval
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -151,9 +154,8 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---deskreview:-:homePendingTasksTableId---"
-    Then I collect all the soft asserts
 
-  @51020 @66145 @66269 @approvalOfDeskReview @smoke
+  @51020 @66145 @66269 @approvalOfDeskReview
   Scenario: Approval of Desk Review | Validate Non award owner does not have permission to Submit the Desk Review for Approval |Validate whether user is able to view the Completed task once approved under Monitoring Tab
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -218,9 +220,8 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "green"
-    Then I collect all the soft asserts
 
-  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient
+  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient
   Scenario: Send Desk Review to Subrecipient, Corrective Actions and Submit to Grantor by Subrecipient |Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Desk Review for approval
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -307,14 +308,13 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "Automation Permanent Award" in "---deskreview:-:internalActiveGrants---" panel
-    Then I softly see value "Automation Permanent Award" for title "Grant Title" inside table "---deskreview:-:internalActiveGrants---"
     And I click on "View" icon for "Automation Permanent Award" inside flex table with id "---deskreview:-:internalActiveGrants---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Automation Permanent Award" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
     And I click on "View" icon for "Automation Desk Review" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I collect all the soft asserts
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
 
   @55279 @66469 @66148 @approverSendBackToUserDeskReview @deepika
   Scenario: Validate whether the approver will be able to SendBack to Owner |Validate Pending task is not created to fiscal approver when program approver performs send to the owner.
@@ -367,7 +367,6 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @55280 @55281 @approverForwardUserReceivePendingTaskDeskReview @deepika
   Scenario: Validate when the approver forward Site Visit to other user, the Pending Task will be created to the User
@@ -425,9 +424,8 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
-  @55282 @deskReviewWithoutFormFilling @deepika
+  @55282 @deskReviewWithoutFormFilling @deepika @smoke
   Scenario: User will not be able to submit the Desk Review for approval without completed forms
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -522,9 +520,8 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
-    Then I collect all the soft asserts
 
-  @55364 @deskReviewDeleteAccesstoOwner @smoke @deepika
+  @55364 @deskReviewDeleteAccesstoOwner @deepika
   Scenario Outline: Verify that record owner can delete created state desk review from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -589,7 +586,6 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     Then I softly see that "Automation Desk Review" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I collect all the soft asserts
 
   @55366 @detailsOnDeskReviewBeforeNotification @deepika
   Scenario: Verify user is not able to delete desk review record if it is not in Created state (Negative TC)
@@ -613,7 +609,6 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I collect all the soft asserts
 
   @55369 @submittedToGrantorOptionallySendBackToSubrecipientDeskReview @deepika
   Scenario: Verify other than record owner can FO user would be able to conduct created desk review
@@ -668,7 +663,6 @@ Feature: Validate all scenarios in Desk Review
     And I navigate to "Reports and Outcomes" sub tab
     When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "General Review Form" in flex table with id "---deskreview:-:reportsTableId---"
-    Then I collect all the soft asserts
 
   @55791 @internalUserParticipantAssociationDeskReview @deepika
   Scenario Outline: Internal User participant Association of Desk Review
@@ -702,7 +696,7 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56017 @62112 @eerReviewIntiationfFDeskReview @deepika
+  @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke
   Scenario: Validate whether user is to able to initiate the peer review on their process for Desk Review
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -745,9 +739,8 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "green"
-    Then I collect all the soft asserts
 
-  @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika
+  @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika @smoke
   Scenario: Validate the supporting document checklist submitted by the subrecipient and record sent back to Recipients when outcomes are not properly addressed and recipients receive a pending task
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
@@ -760,9 +753,6 @@ Feature: Validate all scenarios in Desk Review
     When I click "Associate" after selection of "Automation EXE" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---deskreview:-:awardDeskReviewTableId---"
-    When I navigate to "Attachments" sub tab
-    And I upload attachment "InternalOrganization_Field_Values.xlsx" from workspace
-    Then I softly see "InternalOrganization_Field_Values.xlsx" has been added in "Attachment" flex table
     And I click on "Notify" in the page details
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -850,7 +840,6 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @61053 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
@@ -955,6 +944,7 @@ Feature: Validate all scenarios in Desk Review
 
   @69411 @61057 @61055 @55370 @66139 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
+  Validate whether external user will receive an email notification when desk review is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
       | Role             | Name           | Description                 |
@@ -1050,6 +1040,7 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I save the field labeled "EGMS ID" as "DeskReviewId"
     Then I softly can see top right button "Accept and Close" in page detail
     And I click on "Accept And Close" in the page details
     And I click on "Menu" in the page details
@@ -1064,7 +1055,9 @@ Feature: Validate all scenarios in Desk Review
     And I perform quick search for "Automation Desk Review" in "---deskreview:-:monitoringTabDeskReviewTableId---" panel
     When I click on "View" icon for "Automation Desk Review" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
     Then I softly see status in Progress-bar is "Closed" and is "Green"
-    Then I collect all the soft asserts
+    When I pause execution for "120" seconds
+    Then I softly can see mail notification for "EXTERNAL" user with following subject:
+      | Desk Review Closed |
 
   @67834 @validateDownloadDeskReviewInCSV @deepika @skipOnJenkins
   Scenario: Validate Internal User can Download the Desk Review associated in CSV format
@@ -1088,7 +1081,6 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Delete" icon for "Automation Desk Review" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
     And I perform quick search for "Automation Desk Review" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
-    Then I collect all the soft asserts
 
   @65245 @historyOfDeskReviewsendbacktoOwner @deepika
   Scenario: Validate History Field is getting Updated at Award owner End when Desk Review status is Submitted to Grantor.
@@ -1205,8 +1197,8 @@ Feature: Validate all scenarios in Desk Review
       | Title                               | Description            | Status      | Due Date | Assigned To    |
       | Automation Observation Subrecipient | Automation Description | In-Progress | -10      | Automation SPI |
     When I collapse nested table containing column value "Automation Observation"
-    Then I softly see the following messages in the page details :
-      | Due date must be past date |
+    Then I softly see the following messages in the page details contains:
+      | Due date must be future date |
 
   @65247 @foUserCannotDeleteCreatedDeskReview @deepika
   Scenario: Validate whether other than record owner can Fo user view the created Desk Review by PM
@@ -1221,3 +1213,88 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I see that "Automation Desk Review" has been added in flextable with Id "---deskreview:-:managementInitiateDRtableid---"
 
+  @72354 @deskReviewAcceptAndClose @productBusinessFlowSanity
+  Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
+    Given I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
+      | Role             | Name           | Description                 |
+      | Program Approver | Automation EXE | Automation Test Description |
+      | Fiscal Approver  | Automation FO  | Automation Test Description |
+    When I get the "EGMS ID"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation EXE" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---deskreview:-:awardDeskReviewTableId---"
+    When I click on "Notify" in the page details
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I click on "Conduct" in the page details
+    And I navigate to "Reports and Outcomes" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
+      | Title                  | Description            | Type        |
+      | Automation Finding     | Automation Description | Finding     |
+      | Automation Concern     | Automation Description | Concern     |
+      | Automation Observation | Automation Description | Observation |
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    And I get the "EGMS ID"
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    When I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    When I navigate to "Reports and Outcomes" sub tab
+    And I expand nested table containing column value "Automation Observation"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                               | Description            | Status      | Due Date | Assigned To    |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Observation"
+    And I expand nested table containing column value "Automation Concern"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Concern"
+    And I expand nested table containing column value "Automation Finding"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    And I collapse nested table containing column value "Automation Finding"
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I click on "Accept And Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "green"

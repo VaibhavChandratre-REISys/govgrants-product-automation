@@ -1,7 +1,7 @@
 @auditorPlanning @auditor
 Feature: Validate all scenarios for Auditor Profile in Planning Module
 
-  @67762 @auditorCannotCreateEditFocusArea
+  @67762 @auditorCannotCreateEditFocusArea @smoke
   Scenario Outline: Validate Auditor should not be able to  Create/Edit Focus area
     Given I login to "As a Grantor" app as "AUDITOR" user
     When I navigate to "Planning" tab
@@ -10,7 +10,6 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see row level action button "Edit" against "<FocusArea>" in flex table with id "---focusarea:-:focusAreaTableId---"
     And I click on "View" icon for "<FocusArea>" inside flex table with id "---focusarea:-:focusAreaTableId---"
     Then I softly cannot see top right button "Activate" in page detail
-    Then I collect all the soft asserts
     Examples:
       | User    | FocusArea                       |
       | AUDITOR | Automation Permanent Focus Area |
@@ -29,8 +28,8 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
 
   @67761 @auditorCannotCreatefocusArea @deepika
   Scenario Outline: Verify that Auditor user cannot create a Focus Area
-    When I login to "As a Grantor" app as "<User>" user
-    And I navigate to "Planning" tab
+    Given I login to "As a Grantor" app as "<User>" user
+    When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then I cannot see top right button "New" for "---focusarea:-:focusAreaTableId---" flex table
     Examples:
@@ -61,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | EXE   |
       | ADMIN |
 
-  @67766 @auditorProfileCannotCReateEditReviewApproveProgram
+  @67766 @auditorProfileCannotCReateEditReviewApproveProgram @smoke
   Scenario Outline: Validate Auditor user should not be able to Create/Edit/ Review/Approve internal program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -80,7 +79,6 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see top right button "Add" for "---program:-:approverTableId---" flex table
     Then I softly cannot see top right button "Submit For Approval" in page detail
     Then I softly cannot see top right button "Activate" in page detail
-    Then I collect all the soft asserts
     Examples:
       | User    | Program                               |
       | AUDITOR | Automation Permanent Internal Program |
@@ -92,7 +90,6 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" for "---fundingsource:-:fundingSourceTableId---" flex table
     Then I softly cannot see top right button "New" for "---auditor:-:fundingSourceExternalTableId---" flex table
-    Then I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
@@ -109,7 +106,6 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I navigate to "Overview" sub tab
     Then I softly cannot see top right button "New" for "---fundingsource:-:fundingAccountTableId---" flex table
     Then I softly cannot see top right button "Activate" in page detail
-    Then I collect all the soft asserts
     Examples:
       | User    | FundingSource                       |
       | AUDITOR | Automation Permanent Funding Source |
@@ -147,20 +143,18 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see row level action button "Edit" against "<KPI>" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     And I click on "View" icon for "<KPI>" inside flex table with id "---keyperformanceindicator:-:kpiTableId---"
     Then I softly cannot see top right button "Activate" in page detail
-    Then I collect all the soft asserts
     Examples:
       | User    | KPI                                     |
       | AUDITOR | Automation Permanent KPI for Regression |
 
   @67849 @otherUsersCanCreateKPI
-  Scenario Outline: Verify that other than Auditor user all other users can create a KPI's
+  Scenario Outline: Verify that other than Auditor user other users EXE and ADMIN can create a KPI's
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    Then I see top right button "New" for "---keyperformanceindicator:-:kpiTableId---" flex table
+    Then I can see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     Examples:
       | User  |
-      | PM    |
       | EXE   |
       | ADMIN |
 
@@ -181,7 +175,6 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I click on "Back To Strategic Plan" in the page details
     Then I softly cannot see top right button "Activate" in page detail
     Then I softly cannot see top right button "Deactivate" in page detail
-    Then I collect all the soft asserts
     Examples:
       | User    | StrategicPlan                       |
       | Auditor | Automation Permanent Strategic Plan |
@@ -197,7 +190,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
- @69149 @auditorCannotCreateTermsAndConditions @deepika
+  @69149 @auditorCannotCreateTermsAndConditions @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new Terms and Conditions
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -215,32 +208,21 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I perform quick search for "Active" in "---auditor:-:termsandconditionstableID---" panel
     Then I softly can see row level action button "View" against "Active" in flex table with id "---auditor:-:termsandconditionstableID---"
     Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---auditor:-:termsandconditionstableID---"
-    Then I collect all the soft asserts
     Examples:
       | User    |
       | AUDITOR |
 
-  @69151 @auditorCannotCreateFormsandPackages @deepika
-  Scenario Outline: Verify Auditor profile user cannot create a new Forms and Packages
+  @69151 @69153 @auditorViewCannotCreateEditFormsandPackages  @deepika
+  Scenario Outline: Verify Auditor profile user cannot create a new Forms and Packages |Validate Auditor should have view / read  only access to Forms and Packages|
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" for "---auditor:-:formsflextableID---" flex table
     Then I softly cannot see top right button "New" for "---auditor:-:packagesFlextableID---" flex table
-    Then I collect all the soft asserts
-    Examples:
-      | User    |
-      | AUDITOR |
-
-  @69153 @auditorViewCannotEditFormsandPackages  @deepika
-  Scenario Outline: Auditor should have view / read  only access to Forms and Packages
-    When I login to "As a Grantor" app as "<User>" user
-    And I navigate to "Planning" tab
-    When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
-    When I perform quick search for "PSAF - 001" in "---auditor:-:termsandconditionstableID---" panel
-    Then I softly can see row level action button "View" against "PSAF - 001" in flex table with id "---auditor:-:termsandconditionstableID---"
-    Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---auditor:-:termsandconditionstableID---"
-    Then I collect all the soft asserts
+    When I perform quick search for "PSAF - 001" in "---auditor:-:formsflextableID---" panel
+    Then I see the following rows under the following headers in table with id "---auditor:-:formsflextableID---" :
+      | Form Number | Actions |
+      | PSAF - 001  | Preview |
     Examples:
       | User    |
       | AUDITOR |
@@ -251,11 +233,10 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     Then I softly cannot see top right button "New" for "---auditor:-:externalProgramTableID---" flex table
-    When I perform quick search for "BBG" in "---auditor:-:federalProgramFlexTableId---" panel
-    Then I softly can see row level action button "View" against "BBG" in flex table with id "---auditor:-:federalProgramFlexTableId---"
+    When I perform quick search for "Wildlife Services" in "---auditor:-:federalProgramFlexTableId---" panel
+    Then I softly can see row level action button "View" against "Wildlife Services" in flex table with id "---auditor:-:federalProgramFlexTableId---"
     When I perform quick search for "NGO Program 2" in "---auditor:-:nonfederaltableId---" panel
-    Then I softly can see row level action button "View" against "NGO Program 2" in flex table with id "---auditor:-:nonfederaltableId---"
-    Then I collect all the soft asserts
+    Then I softly see "No Records Found" inside flex table with id "---auditor:-:nonfederaltableId---"
     Examples:
       | User    |
       | AUDITOR |

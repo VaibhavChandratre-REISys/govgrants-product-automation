@@ -1,7 +1,7 @@
 @auditorAmendmentRequest @auditor
 Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
-  @69172 @auditorCannotCreateAmendmentRequest
+  @69172 @auditorCannotCreateAmendmentRequest @smoke
   Scenario: Validate Auditor should not be  able to  Create Amendment request
     Given I login to "As a Grantor" app as "Auditor" user
     And I navigate to "Grants" tab
@@ -44,13 +44,13 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     And I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Created" in "---auditor:-:amendmentRequestTableId---" panel
-    Then I can see row level action button "View" against "Craeted" in flex table with id "---auditor:-:amendmentRequestTableId---"
+    Then I can see row level action button "View" against "Created" in flex table with id "---auditor:-:amendmentRequestTableId---"
 
   @69871 @audiorCanViewAmendmentRecordsofAllStatus
   Scenario: Validate whether Audior Profile all the amendment records created by PM profile
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I perform quick search for "Funding Change" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    Then I see values "	Funding Change" and "State" inside table
-
+    When I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "Sent to Subrecipient" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    Then I see values "Funding Change" and "State" inside table

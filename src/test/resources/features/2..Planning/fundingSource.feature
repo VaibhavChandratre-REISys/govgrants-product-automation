@@ -4,7 +4,7 @@ Feature: Validate all scenarios in Funding Source
   Background: To setup data
     Given I delete the record "Automation Execution Funding Source" from the object "Funding Source"
 
-  @51034 @creationOfFundingSource @smoke
+  @51034 @creationOfFundingSource
   Scenario: Creation of Funding Source
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "green"
 
-  @52661 @creationFSFOUser @smoke
+  @52661 @creationFSFOUser
   Scenario Outline:Verify that users (other than Admin/PM/EXE)are not able to create funding account &  funding source
     When I am on "INTERNAL" portal
     When I login as "<User>" user
@@ -103,7 +103,7 @@ Feature: Validate all scenarios in Funding Source
       | User |
       | PM   |
 
-  @52662 @deactivateFundingSource @smoke
+  @52662 @deactivateFundingSource
   Scenario: Verify that  user can  deactivate  Funding Source
     When I am on "INTERNAL" portal
     When I login as "EXE" user
@@ -125,7 +125,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "Green"
 
-  @52663 @deactivateFundingSourcePMUser @smoke
+  @52663 @deactivateFundingSourcePMUser
   Scenario: Verify that  PM user can  deactivate  Funding Source
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
@@ -153,7 +153,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "View" icon for "Automation Execution Funding Source" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @52666 @reactivateFundingSource @smoke @mahadev
+  @52666 @reactivateFundingSource @mahadev
   Scenario Outline: Verify that  user can  reactivate the deactivated  Funding Source
     When I am on "INTERNAL" portal
     When I login as "EXE" user
@@ -190,3 +190,22 @@ Feature: Validate all scenarios in Funding Source
     Examples:
       | Funding Source                      |
       | Automation Execution Funding Source |
+
+  @72337 @activationOFFundingSource @productBusinessFlowSanity
+  Scenario: Validate the activation of Funding Source HappyPath and the status is Active
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
+    And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "Green"

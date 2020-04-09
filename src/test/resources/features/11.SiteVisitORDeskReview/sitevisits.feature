@@ -19,7 +19,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate @smoke
+  @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate
   Scenario: Validate the creation, edition, created date and ParticipantAsociation
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -33,10 +33,9 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see that "Automation EXE" has been added in flextable with Id "---sitevisits:-:participantsTableId---"
     When I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
-    Then I collect all the soft asserts
 
-  @51084 @66229 @66232 @51085 @51086 @66283 @notifyPendingTaskForSubrecipientSiteVisit @smoke
-  Scenario: Notify Subrecipient and the respective POC from the applicant organization will receive a pending task about the Site Visit
+  @51084 @66229 @66232 @51085 @51086 @66283 @75869 @notifyPendingTaskForSubrecipientSiteVisit @smoke @bugged-73739
+  Scenario: Notify Subrecipient and the respective POC from the applicant organization will receive a pending task about the Site Visit|Validate the external user will receive an email notification when the site visit is in notified status
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
       | Role             | Name           | Description                 |
@@ -48,20 +47,19 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+   And I refresh the page
     And I click on "Notify" in the page details
     And I save the field labeled "EGMS ID" as "SiteVisitId"
     Then I softly see that "Automation Site Visit" is in "Notified" status
     Then I softly see status in Progress-bar is "Notified" and is "green"
+    When I pause execution for "120" seconds
     Then I softly can see mail notification for "EXTERNAL" user with following subject:
-      | Site Visit for {SavedValue:SiteVisitId} has been scheduled |
-    Then I softly can see mail notification for "INTERNAL" user with following subject:
-      | Site Visit Approval Requested |
+      | Site Visit for has been scheduled |
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @51087 @51088 @51090 @addingOutcomeSiteVisitAndSubmittingForApprovalSiteVisit
   Scenario: Validate conduct, adding outcomes and submitting site visits for approval
@@ -101,9 +99,8 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see that "Automation Finding" has been added in flextable with Id "---sitevisits:-:correctiveTableId---"
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
-    Then I collect all the soft asserts
 
-  @51089 @56010 @formFillingSiteVisitUploadAttachment @smoke
+  @51089 @56010 @formFillingSiteVisitUploadAttachment
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient and Filling up of form in Site Visit
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -137,7 +134,6 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Save" in the page details
     When I click on "Back" in the page details
     Then I softly see that "100%" has been added in flextable with Id "---sitevisits:-:reportsTableId---"
-    Then I collect all the soft asserts
 
   @51091 @51092  @66314 @approvalOfSiteVisit
   Scenario: Approval of Site Visit and Send Site Visit to Subrecipient | validate task for program approver
@@ -195,7 +191,6 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Automation Site Visit" inside table
     Given I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
-    Then I collect all the soft asserts
 
   @51093 @51094 @siteVisitCorrectiveActionsBySubrecipientAndSubmitToGrantor @smoke
   Scenario: Site Visit Corrective Actions By Subrecipient and Submit to Grantor by Subrecipient
@@ -274,9 +269,8 @@ Feature: Validate all scenarios in the Site Visit
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
-    Then I collect all the soft asserts
 
-  @39180 @siteVisitAddCorrectiveActionsByFOUser @smoke @deepika
+  @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -336,7 +330,7 @@ Feature: Validate all scenarios in the Site Visit
       | Site Visit Name       |
       | Automation Site Visit |
 
-  @39159 @siteVisitDeleteAccesstoOwner @smoke @deepika
+  @39159 @siteVisitDeleteAccesstoOwner @deepika
   Scenario Outline: Verify that record owner can delete created state site visit from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -400,7 +394,6 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Conduct" in page detail
-    And I collect all the soft asserts
 
   @54221 @siteVisitNotifiedByFOuser @deepika
   Scenario: Verify user (record owner only) is able to plan and notify created site visit to subrecipient and other user cannot notify  - Award Level
@@ -482,7 +475,6 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
-    Then I collect all the soft asserts
 
   @55209 @55208 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatus @deepika
   Scenario:  Applicant is not able to view the report or outcomes while in the Notified status and User will not be able to submit the Site Visit for approval without completed forms
@@ -513,7 +505,6 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Fill all the required data in the form before submitting. |
-    Then I collect all the soft asserts
 
   @55275 @approverPendingTaskUnderMonitoringAward @deepika
   Scenario: Validate whether the approver will be able to view the Pending task under Monitoring
@@ -611,7 +602,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Site Visit" has been added in flextable with Id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @61861 @55278 @55210 @pmUserCanFOuserCannotViewAcceptandCloseSiteVisits @deepika
   Scenario: Validate the Infomation send to the subrecipients other than record owner, Fo user cannot accept and close the site visits and PM can accept and close
@@ -701,7 +691,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Accept and Close" in page detail
-    Then I collect all the soft asserts
 
   @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @deepika
   Scenario: Validate Validate Approvers Table is not editable for record owner and Reports and Outcome Tab visibility after Notified Status
@@ -719,7 +708,6 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     Then I softly can see top right button "Conduct" in page detail
-    Then I collect all the soft asserts
 
   @55792 @internalParticipantAssociationSiteVisit @deepika
   Scenario Outline: Internal Participant Association of Site Visit
@@ -729,7 +717,6 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see that "<Internal>" has been added in flextable with Id "---sitevisits:-:participantsTableId---"
     When I click on "Remove" icon for "<Internal>" inside flex table with id "---sitevisits:-:participantsTableId---"
     Then I softly do not see value "<Internal>" for title "Name" inside table "---sitevisits:-:participantsTableId---"
-    Then I collect all the soft asserts
     Examples:
       | Internal       |
       | Automation EXE |
@@ -755,7 +742,6 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
-    Then I collect all the soft asserts
 
   @56009 @55212 @sendBacktoOwnerReceivePendingTaskSV @deepika
   Scenario: Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
@@ -811,7 +797,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     Then I softly see that "Automation Site Visit" has been added in flextable with Id "---sitevisits:-:manageSiteVisitTableId---"
-    Then I collect all the soft asserts
 
   @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti
   Scenario:  To Validate field history update post Award level Site Visit is send back to owner by program approver and Submit for Approval button
@@ -859,7 +844,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "History" sub tab
     When I perform quick search for "{SavedValue:Record Id}" in "History" panel
     Then I softly see value "Active" for title "New Value" inside table "History"
-    Then I collect all the soft asserts
 
   @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient @keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Send to Subrecipient
@@ -922,8 +906,9 @@ Feature: Validate all scenarios in the Site Visit
     When I download the file
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
-  @60832 @65385 @theSnapshotAfterSubmitForApproval @deepika @skipOnJenkins
+  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @deepika @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Accepted and Closed | Also whether the Subrecipient can view the site viist that is accepted and closed by record owner
+  Validate whether external user will receive an email notification when Site Visit is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
       | Role             | Name           | Description                 |
@@ -1004,6 +989,9 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Automation Site Visit" inside table
     And I click on "Accept And Close" in the page details
     Then I softly see status in Progress-bar is "Closed" and is "Green"
+    When I pause execution for "120" seconds
+    Then I softly can see mail notification for "EXTERNAL" user with following subject:
+      | Site Visit Closed |
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
@@ -1016,7 +1004,6 @@ Feature: Validate all scenarios in the Site Visit
     And I perform quick search for "Automation Site Visit" in "ApplicantSiteVisitReports" panel
     When I click on "View" icon for "Automation Site Visit" inside flex table with id "ApplicantSiteVisitReports"
     Then I softly see status in Progress-bar is "Closed" and is "Green"
-    Then I collect all the soft asserts
 
   @60834 @AdditionOfAttachmentForAwardSiteVisits @keerti
   Scenario: Validating addition of attachment to Award Site Visits
@@ -1024,7 +1011,7 @@ Feature: Validate all scenarios in the Site Visit
     When I upload attachment "Announcement_Field_Values.xlsx" from workspace
     Then I see "Announcement_Field_Values.xlsx" has been added in "Attachments" flex table
 
-  @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @keerti
+  @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @keerti @smoke
   Scenario: Validate system does not allow the peer reviewer to edit/Enter review comments and Edit button hidden if the Site Visits marked as complete review
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -1075,7 +1062,6 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "Automation FO" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
-    Then I collect all the soft asserts
 
   @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner @keerti
   Scenario: To Validate  Approvers Table is not editable and field history update Award Level Site Visits  is send back to owner by Fiscal Approver
@@ -1127,7 +1113,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @61178 @addAttachmentToSiteVisit @deepika @wip
   Scenario: Validate whether PM will be able to add any specific docuements required along with the supporting documents details under the attachments section
@@ -1266,9 +1251,8 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly see status in Progress-bar is "Created" and is "Green"
     Then I softly cannot see top right button "Submit for Approval" in page detail
-    Then I collect all the soft asserts
 
-  @61866 @validatePendingTaskCreationforSiteVisits @deepika
+  @61866 @validatePendingTaskCreationforSiteVisits @deepika@smoke
   Scenario: Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Site Visits for approval
     Given I navigate to "Responsibilities" sub tab
     When I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -1341,9 +1325,8 @@ Feature: Validate all scenarios in the Site Visit
       | Automation FO | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "Automation FO" inside table
     Then I softly see that "Sent for Review" has been added in flextable with Id "---sitevisits:-:reviewersFlexTableId---"
-    Then I collect all the soft asserts
 
-  @61868  @66305 @taskIsNotCreatedToSecondApproverWhenPORejectsInSiteVisits @deepika
+  @61868  @66305 @taskIsNotCreatedToSecondApproverWhenPORejectsInSiteVisits @deepika @smoke
   Scenario: Validate Pending task is not created to fiscal approver when program approver performs send to the owner | To verify that program review form can be filled successfully in reports and outcomes tab when filled by award owner(PM profile) in site review
     Given I navigate to "Responsibilities" sub tab
     When I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
@@ -1392,7 +1375,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    Then I collect all the soft asserts
 
   @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
   Scenario: Validate whether Pm user can create second Site Visits when first is created status
@@ -1436,7 +1418,6 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Delete" icon for "Automation Site Visit" inside flex table with id "GrantorSiteVisitsAward"
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
-    Then I collect all the soft asserts
 
   @65240 @historyOfSiteVisitsendbacktoOwner @deepika
   Scenario: Validate History Field is getting Updated at Award owner End when Site Visit status is Submitted to Grantor.
@@ -1555,8 +1536,8 @@ Feature: Validate all scenarios in the Site Visit
       | Title                               | Description            | Status      | Due Date | Assigned To    |
       | Automation Observation Subrecipient | Automation Description | In-Progress | -10      | Automation SPI |
     When I collapse nested table containing column value "Automation Observation"
-    Then I see the following messages in the page details :
-      | Due date must be past date |
+    Then I see the following messages in the page details contains:
+      | Due date must be future date |
 
   @65242 @foUserCannotDeleteCreatedSiteVisit @deepika
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
@@ -1648,19 +1629,101 @@ Feature: Validate all scenarios in the Site Visit
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
+    When I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Record Id" has been added in flextable with Id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    And I collect all the soft asserts
+
+  @72353 @siteVisitAcceptAndClose @productBusinessFlowSanity
+  Scenario Outline: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
+    Given I navigate to "Responsibilities" sub tab
+    When I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
+      | Role             | Name           | Description                 |
+      | Program Approver | Automation EXE | Automation Test Description |
+      | Fiscal Approver  | Automation FO  | Automation Test Description |
+    When I get the "EGMS ID"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation EXE" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "Automation Award for Amendment Request" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I click on "Notify" in the page details
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    When I click on "Conduct" in the page details
+    And I navigate to "Reports and Outcomes" sub tab
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                  | Description            | Type        |
+      | Automation Finding     | Automation Description | Finding     |
+      | Automation Concern     | Automation Description | Concern     |
+      | Automation Observation | Automation Description | Observation |
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Given I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I navigate to "Reports and Outcomes" sub tab
+    And I expand nested table containing column value "Automation Observation"
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                               | Description            | Status      | Due Date | Assigned To    |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Observation"
+    And I expand nested table containing column value "Automation Concern"
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    When I collapse nested table containing column value "Automation Concern"
+    And I expand nested table containing column value "Automation Finding"
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To    |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | Automation SPI |
+    And I collapse nested table containing column value "Automation Finding"
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I click on "View" icon for "<Site Visit Name>" inside table
+    And I click on "Accept And Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "green"
+    Examples:
+      | Site Visit Name       |
+      | Automation Site Visit |

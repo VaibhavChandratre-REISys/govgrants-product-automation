@@ -4,7 +4,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
   Background: To setup data
     Given I delete the record "Automation Execution KPI" from the object "KPI"
 
-  @34735 @creationOfKPI @smoke
+  @34735 @creationOfKPI
   Scenario Outline: Creation of KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -75,7 +75,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
       | ADMIN |
       | EXE   |
 
-  @kpiCreationPM @smoke
+  @kpiCreationPM
   Scenario: Negative Case - Verify that other users (Other than Admin/EXE) are not able to create KPI
     Given I am on "INTERNAL" portal
     Given I login as "PM" user
@@ -83,7 +83,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @52625 @userFOEditKPI @smoke
+  @52625 @userFOEditKPI
   Scenario: Negative Case-Verfiy that PM user cannot Edit the record
     Given I am on "INTERNAL" portal
     Given I login as "EXE" user
@@ -101,7 +101,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I perform quick search for "Automation Execution KPI" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I cannot see row level action button "Edit" against "Automation Execution KPI" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @52622 @userFODeelteKPI @smoke
+  @52622 @userFODeelteKPI
   Scenario: Negative Case-Verfiy that PM user cannot Delete the record
     Given I am on "INTERNAL" portal
     Given I login as "EXE" user
@@ -180,3 +180,16 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I perform quick search for "Automation Execution KPI" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "Automation Execution KPI" inside table
     Then I see status in Progress-bar is "Inactive" and is "Green"
+
+  @72340 @activateKPI @productBusinessFlowSanity
+  Scenario: Validate the activation of KPI and the status changes to Active
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
+    And I enter "Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "Green"

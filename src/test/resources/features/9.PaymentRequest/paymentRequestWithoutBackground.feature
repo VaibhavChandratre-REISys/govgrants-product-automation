@@ -1,7 +1,7 @@
 @regression @paymentRequest
 Feature: Payment Request scenarios without background
 
-  @53910 @ValidateAdvancePaymentRequestButton @mahadev
+  @53910 @ValidateAdvancePaymentRequestButton @mahadev @smoke
   Scenario Outline: validate advance button not displayed to SPI user when Advance Payment Allowed selected as NO
     Given I delete the record "Automation Grant For PR" from the object "Award"
     And I delete the record "Automation Grant For PR" from the object "Grant"
@@ -23,6 +23,7 @@ Feature: Payment Request scenarios without background
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Add" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -520,7 +521,7 @@ Feature: Payment Request scenarios without background
       | Award Name              | Grant Name              |
       | Automation Grant For PR | Automation Grant For PR |
 
-  @53965 @validateProgramIncomeFieldIsDisplayedOnReimbursementPaymentRequest @mahadev
+  @53965 @validateProgramIncomeFieldIsDisplayedOnReimbursementPaymentRequest @mahadev @smoke
   Scenario Outline: Validate user can enter Program Income On Reimbursement Payment Request when program Income Allowed is Yes at Grant
     When I delete the record "Automation Grant For PR" from the object "Award"
     And I delete the record "Automation Grant For PR" from the object "Grant"
@@ -2201,7 +2202,7 @@ Feature: Payment Request scenarios without background
       | Award Name              | Grant Name              |
       | Automation Grant For PR | Automation Grant For PR |
 
-  @54707 @ValidateAdvanceRequestedAmountFieldOnAwardAtInternalPortalUpdatedAfterAdvancePRApproval @mahadev
+  @54707 @ValidateAdvanceRequestedAmountFieldOnAwardAtInternalPortalUpdatedAfterAdvancePRApproval @mahadev @smoke
   Scenario Outline: validate Advance Requested Amount field at Internal portal gets updated after Advance payment request approval
     When I delete the record "Automation Grant For PR" from the object "Award"
     And I delete the record "Automation Grant For PR" from the object "Grant"
@@ -2224,6 +2225,7 @@ Feature: Payment Request scenarios without background
     And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
     When I click "Add" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -2677,9 +2679,10 @@ Feature: Payment Request scenarios without background
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Add" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I perform quick search for "{SavedValue:fundingAccount}" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -3197,13 +3200,13 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---"
     And I navigate to "Terms" sub tab
     When I expand nested table containing column value "Payment Request"
-    Then I can see "1" record value is checked for field name "TaskCreated__c"
+    Then I can see "2" record value is checked for field name "TaskCreated__c"
     Examples:
       | Award Name              | Grant Name              | User |
       | Automation Grant For PR | Automation Grant For PR | SPI  |
       | Automation Grant For PR | Automation Grant For PR | SPA  |
 
-  @55809 @PRReimbursement2ndIsFinalPayment1stPRShouldShowValidMsg @jitendra
+  @55809 @PRReimbursement2ndIsFinalPayment1stPRShouldShowValidMsg @jitendra @smoke
   Scenario Outline: Verify that once final payment request is approved then Created status Payment should show validation message on Submit to Grantor Button.
     When I delete the record "Automation Grant For PR" from the object "Award"
     And I delete the record "Automation Grant For PR" from the object "Grant"
@@ -3275,6 +3278,7 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I refresh the page
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3640,7 +3644,7 @@ Feature: Payment Request scenarios without background
       | Automation Permanent Award |
 
   @55689 @canNotCreateAnotherPaymentRequestAfterFinalPaymentRequest @jitendra
-  Scenario Outline: Verify that once User select Is final Payment request option then User cannot create New Payment request .
+  Scenario Outline: Verify that once User select Is final Payment request option then User cannot create New Payment request.
     When I delete the record "Automation Grant For PR" from the object "Award"
     And I delete the record "Automation Grant For PR" from the object "Grant"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3779,7 +3783,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
+    And I click on "Start" icon for "Automation SPI" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
