@@ -27,8 +27,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Overview" sub tab
     And I click on parallel menu button in flex table title "Contacts"
     And I select "Download as PDF" from parallel lines dropdown of "Contacts"
-    And I download the file
-    Then I see "Contacts" on page "1" of "govgrants" pdf file
+    And I see "Contacts" on page 1
+    #And I download the file
+    #Then I see "Contacts" on page "1" of "govgrants" pdf file
 
   @73958 @pdfDownloadRelatedFederal @jitendra
   Scenario: To verify system allow to download PDF for Related Federal/NGO program in overview tab of announcement

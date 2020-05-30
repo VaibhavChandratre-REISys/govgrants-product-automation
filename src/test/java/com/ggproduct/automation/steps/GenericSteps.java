@@ -1,6 +1,7 @@
 package com.ggproduct.automation.steps;
 
 import com.automation.rei.handlers.govgrants;
+import com.ggproduct.automation.projectmanager.PDFReader;
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import com.testingblaze.objects.Elements;
 import com.testingblaze.register.I;
@@ -23,9 +24,11 @@ import java.util.Map;
 
 public class GenericSteps {
     ProjectManager projectManager;
+    PDFReader pdfReader;
 
     public GenericSteps() {
         projectManager = new ProjectManager();
+        pdfReader = new PDFReader();
     }
 
     @Given("^I delete the record \"([^\"]*)\" from the object \"([^\"]*)\"$")
@@ -535,5 +538,15 @@ public class GenericSteps {
     public void iClickOnMenuIconPresentOnTopRightCornerOfThePage() {
         By menu = By.xpath("//*[contains(@class,'overview-header')]//*[@title='Menu' or (contains(@class,'menu') and (@class='bars'))]");
         I.amPerforming().click().on(menu);
+    }
+
+    @And("I see {string} on page {int}")
+    public void iSeeOnPage(String content, int page) throws IOException {
+        I.amPerforming().assertionsTo().assertThat(pdfReader.getPdfContent(page)).contains(content);
+        try{
+            pdfReader.deletePDFile("govgrants");
+        } catch (Exception ee){
+
+        }
     }
 }
