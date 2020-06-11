@@ -125,18 +125,18 @@ Feature: Contacts related scenarios
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
     When I click on "View" icon for "Automation Federal Contact" inside table
-    And I pause execution for "2" seconds
+    And I pause execution for "4" seconds
     When I hover mouse on lookup link "{SavedValue:GRANTEE ADMIN Username}"
     Then I see "<miniPageLayout_Text>" shown inside mini page layout on hover
 
     Examples:
-      | miniPageLayout_Text         |
+      | miniPageLayout_Text                 |
       | {SavedValue:GRANTEE ADMIN Username} |
 
   @61905 @validateAddingOfContactForFederalOrganizationUnderExternalContact  @needToCheckWithParallelExecution  @positive
   Scenario Outline: Validate addition of contact for federal organization to check maximum length at external federal contact table
     When I delete the record "<contactName>" from the object "Contact"
-    When I login as "<userType>" user
+    Given I login to "As a Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalFederalContacts}"
@@ -168,7 +168,7 @@ Feature: Contacts related scenarios
   @61917 @validateAddingOfContactForNonFederalOrganizationUnderExternalContact @needToCheckWithParallelExecution  @positive
   Scenario Outline: Validate addition of contact for non federal organization to check maximum length at external non federal contact table
     When I delete the record "<contactName>" from the object "Contact"
-    When I login as "<userType>" user
+    Given I login to "As a Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
@@ -278,8 +278,7 @@ Feature: Contacts related scenarios
     And I refresh the page
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
-    When I click on "Edit" icon for "Automation External Federal Contact" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
-    When I enter value "Migratory Birds" into field "fieldAccountId"
+    When I click on "Edit" icon for "Automation External Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
     When I enter value "Automation Address Test" into field "fieldMailingStreet"
     And I click on "Save" in the page details
     Then I softly see field "Last Modified By" as "<userName>"
@@ -287,7 +286,7 @@ Feature: Contacts related scenarios
     Then I softly see field "{SavedValue:ModifiedDate}" contains todays date withTime
 
     Examples:
-      | userType      | userName                    |
+      | userType      | userName                            |
       | GRANTEE ADMIN | {SavedValue:GRANTEE ADMIN Username} |
       | GRANTEE PM    | {SavedValue:GRANTEE PM Username}    |
       | GRANTEE PO    | {SavedValue:GRANTEE PO Username}    |
@@ -329,7 +328,7 @@ Feature: Contacts related scenarios
     Then I softly see field "About Me" as "Admin Address"
 
     Examples:
-      | userType      | userName                    |
+      | userType      | userName                            |
       | GRANTEE ADMIN | {SavedValue:GRANTEE ADMIN Username} |
       | GRANTEE EXE   | {SavedValue:GRANTEE EXE Username}   |
       | GRANTEE PM    | {SavedValue:GRANTEE PM Username}    |
@@ -357,7 +356,7 @@ Feature: Contacts related scenarios
     Then I softly see field "About Me" as "Admin Address"
 
     Examples:
-      | userType    | userName                  |
+      | userType    | userName                          |
       | GRANTEE EXE | {SavedValue:GRANTEE EXE Username} |
       | GRANTEE PM  | {SavedValue:GRANTEE PM Username}  |
 
@@ -401,7 +400,7 @@ Feature: Contacts related scenarios
     And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "Edit" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "Edit" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
     When I enter value "Department of Health" into field "fieldAccountId"
     When I enter value "Automation Address Test" into field "fieldMailingStreet"
     And I click on "Save" in the page details
@@ -432,7 +431,7 @@ Feature: Contacts related scenarios
     And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "view" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "view" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
     When I click "{SavedValue:GRANTEE ADMIN Username}" lookup link
     When I click on "Edit" in the page details
     And I see the text :
@@ -453,7 +452,7 @@ Feature: Contacts related scenarios
     When I re-login as "<userType>" user on "default" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "view" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "view" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
     When I click "<userName>" lookup link
     When I click on "Edit" in the page details
     When I enter value "Admin Address" into field "fieldAboutMe__c"
@@ -461,7 +460,7 @@ Feature: Contacts related scenarios
     Then I softly see field "About Me" as "Admin Address"
 
     Examples:
-      | userType      | userName                    |
+      | userType      | userName                            |
       | GRANTEE ADMIN | {SavedValue:GRANTEE ADMIN Username} |
       | GRANTEE EXE   | {SavedValue:GRANTEE EXE Username}   |
       | GRANTEE PM    | {SavedValue:GRANTEE PM Username}    |
@@ -477,17 +476,18 @@ Feature: Contacts related scenarios
     When I enter value "automationtest@yopmail.com" into field "fieldEmail"
     When I click on "Save" in the page details
     And I save the contact name as "Automation Runtime Contact"
+    And I refresh the page
     And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "view" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "view" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
     When I click "<userName>" lookup link
     When I click on "Edit" in the page details
     When I enter value "Admin Address" into field "fieldAboutMe__c"
     When I click on "Save" in the page details
     Then I softly see field "About Me" as "Admin Address"
     Examples:
-      | userType    | userName                  |
+      | userType    | userName                          |
       | GRANTEE EXE | {SavedValue:GRANTEE EXE Username} |
       | GRANTEE PM  | {SavedValue:GRANTEE PM Username}  |
 
@@ -505,10 +505,7 @@ Feature: Contacts related scenarios
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
-    When I click on "Delete" icon for "Automation External Federal Contact" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
-    And I see the text :
-      | Record deleted successfully. |
-    And I refresh the page
+    When I click on "Delete" icon for "Automation External Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
     Then I do not see value "{SavedValue:firstName}" for title "Full Name" inside table "{grantee_tableId:ExternalFederalContacts}"
 
@@ -523,7 +520,7 @@ Feature: Contacts related scenarios
 
   @62011 @validateDeletionOfContactUsingLoggedInUser @smoke  @positive
   Scenario: Validate deletion of contact from external federal contact table using logged in user but not with record owner
-    Given I login as "PM" user
+    Given I login to "As a Grantee" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalFederalContacts}"
@@ -535,7 +532,7 @@ Feature: Contacts related scenarios
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
-    When I click on "Delete" icon for "Automation External Federal Contact" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
+    When I click on "Delete" icon for "Automation External Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalFederalContacts}"
     And I see the text :
       | Record deleted successfully. |
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalFederalContacts}" panel
@@ -543,7 +540,7 @@ Feature: Contacts related scenarios
 
   @62011 @validateImpactOfDeletionOfContactFromExternalFederalContacts  @positive
   Scenario: Validate after deletion of contact from external federal contact table it should not displayed under respective organization
-    Given I login as "PM" user
+    Given I login to "As a Grantee" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalFederalContacts}"
@@ -578,9 +575,9 @@ Feature: Contacts related scenarios
     And I refresh the page
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "Delete" icon for "Automation External Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
-    When I perform quick search for "Automation External Federal Contact" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    Then I do not see value "Automation External Federal Contact" for title "Title" inside table "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "Delete" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I perform quick search for "Automation External Non Federal Contact Test" in "{grantee_tableId:ExternalNonFederalContacts}" panel
+    Then I do not see value "Automation External Non Federal Contact Test" for title "Title" inside table "{grantee_tableId:ExternalNonFederalContacts}"
 
     Examples:
       | userType      |
@@ -593,7 +590,7 @@ Feature: Contacts related scenarios
 
   @62010 @validateDeletionOfContactUsingLoggedInUserForNonFederalContact @smoke
   Scenario: Validate deletion of contact from external non federal contact table using logged in user but not with record owner
-    Given I login as "PM" user
+    Given I login to "As a Grantee" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
@@ -606,13 +603,13 @@ Feature: Contacts related scenarios
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "Delete" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
-    When I perform quick search for "Automation External Non Federal Contact" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    Then I do not see value "Automation External Federal Contact" for title "Title" inside table "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "Delete" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I perform quick search for "Automation External Non Federal Contact Test" in "{grantee_tableId:ExternalNonFederalContacts}" panel
+    Then I do not see value "Automation External Federal Contact Test" for title "Title" inside table "{grantee_tableId:ExternalNonFederalContacts}"
 
   @62010 @validateImpactOfDeletionOfContactFromExternalNonFederalContacts
   Scenario: Validate after deletion of contact from external non federal contact table it should not displayed under respective organization
-    Given I login as "PM" user
+    Given I login to "As a Grantee" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
@@ -625,12 +622,12 @@ Feature: Contacts related scenarios
     And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "{grantee_sidebar:ExternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:ExternalNonFederalContacts}" panel
-    When I click on "Delete" icon for "Automation External Non Federal Contact" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
+    When I click on "Delete" icon for "Automation External Non Federal Contact Test" inside flex table with id "{grantee_tableId:ExternalNonFederalContacts}"
     When I navigate to "{grantee_sidebar:ExternalOrganization}" content inside "{grantee_sidebar:OrganizationSubheaderName}" subheader on left panel
     When I perform quick search for "Department of Health" in "{grantee_tableId:NonFederalOrganizations}" panel
     When I click on "View" icon for "Department of Health" inside table
     When I perform quick search for "{SavedValue:firstName}" in "{grantee_tableId:RelatedContacts}" panel
-    Then I do not see value "Automation External Non Federal Contact" for title "Title" inside table "{grantee_tableId:RelatedContacts}"
+    Then I do not see value "Automation External Non Federal Contact Test" for title "Title" inside table "{grantee_tableId:RelatedContacts}"
 
   @62129 @validateDefaultEntriesAtInternalContactsTable-myOrganizationContact  @positive
   Scenario: Validate default count of records at internal my organization contacts table Under Internal Contact
@@ -676,7 +673,7 @@ Feature: Contacts related scenarios
     And I click toggle button to select "All Contacts"
     When I enter advance filter values inside id "advfStateContacts"
       | Title | contains | Automation Internal |
-    Then I softly see value "Automation Internal Contacts" for title "Title" inside table "{grantee_tableId:InternalContacts}"
+    Then I softly see value "Automation Internal Contacts Records" for title "Title" inside table "{grantee_tableId:InternalContacts}"
     When I navigate to "{grantee_sidebar:InternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     When I click on advance filter "#advfStateContacts" of table id "{grantee_tableId:InternalContacts}"
     When I enter advance filter values inside id "advfStateContacts"
@@ -776,6 +773,7 @@ Feature: Contacts related scenarios
     When I enter "InternalContactCorrectData" values from "Field_Values.xlsx"
     When I enter value "Test Automation Organization" into field "fieldAccountId"
     When I click on "Save" in the page details
+    And I refresh the page
     And I save the contact name as "Automation Runtime Contact"
     When I navigate to "{grantee_sidebar:InternalContact}" content inside "{grantee_sidebar:ContactSubheaderName}" subheader on left panel
     And I click toggle button to select "All Contacts"
@@ -785,7 +783,7 @@ Feature: Contacts related scenarios
     Then I see "<miniPageLayout_Text>" shown inside mini page layout on hover
 
     Examples:
-      | miniPageLayout_Text         |
+      | miniPageLayout_Text                 |
       | {SavedValue:GRANTEE ADMIN Username} |
 
   @62019 @validateInternalContactsFunctionalityUsingMultipleUsers-myOrganizationContact @smoke    @positive @wip @waitingForchange
@@ -894,7 +892,7 @@ Feature: Contacts related scenarios
     Then I softly see field "{SavedValue:ModifiedDate}" contains todays date withTime
 
     Examples:
-      | userType      | userName                    |
+      | userType      | userName                            |
       | GRANTEE ADMIN | {SavedValue:GRANTEE ADMIN Username} |
       | GRANTEE PM    | {SavedValue:GRANTEE PM Username}    |
       | GRANTEE PO    | {SavedValue:GRANTEE PO Username}    |
@@ -945,7 +943,7 @@ Feature: Contacts related scenarios
     Then I softly see field "About Me" as "Admin Address"
 
     Examples:
-      | userType      | userName                    |
+      | userType      | userName                            |
       | GRANTEE ADMIN | {SavedValue:GRANTEE ADMIN Username} |
       | GRANTEE EXE   | {SavedValue:GRANTEE EXE Username}   |
       | GRANTEE PM    | {SavedValue:GRANTEE PM Username}    |
@@ -968,11 +966,11 @@ Feature: Contacts related scenarios
     When I click on "View" icon for "AutomationUser" inside flex table with id "{grantee_tableId:InternalContacts}"
     When I click "<userName>" lookup link
     When I click on "Edit" in the page details
-    When I enter value "Admin Address" into field "fieldAboutMe__c"
+    When I enter value "Admin Address" into field "fieldMailingStreet"
     When I click on "Save" in the page details
-    Then I softly see field "About Me" as "Admin Address"
+    Then I softly see field "Street" as "Admin Address"
 
     Examples:
-      | userType    | userName                  |
+      | userType    | userName                          |
       | GRANTEE EXE | {SavedValue:GRANTEE EXE Username} |
       | GRANTEE PM  | {SavedValue:GRANTEE PM Username}  |

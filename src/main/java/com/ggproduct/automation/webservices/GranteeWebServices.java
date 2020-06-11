@@ -202,7 +202,7 @@ public class GranteeWebServices extends ProjectWebServices {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Grant");
             }
             if (StringUtils.containsIgnoreCase(record, "lead")) {
-                deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Foa Lead");
+                deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "FOA LEAD");
             }
             if (StringUtils.containsIgnoreCase(record, "lead")) {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Qualified Lead");
