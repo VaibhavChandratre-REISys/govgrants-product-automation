@@ -804,7 +804,7 @@ Feature: Award amendment through People soft related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1718,7 +1718,7 @@ Feature: Award amendment through People soft related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 

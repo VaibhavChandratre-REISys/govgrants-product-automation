@@ -22,7 +22,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -134,7 +134,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -268,7 +268,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -357,7 +357,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -482,7 +482,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -613,7 +613,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -696,7 +696,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -994,7 +994,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1021,7 +1021,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1049,7 +1049,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1093,7 +1093,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1122,7 +1122,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1152,7 +1152,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1197,7 +1197,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1217,7 +1217,7 @@ Feature: Grants related scenarios
       | GRANTEE ADMIN | Total funding anticipated across the entire project period. |
       | GRANTEE PM    | Total funding anticipated across the entire project period. |
       | GRANTEE PO    | Total funding anticipated across the entire project period. |
-      | GRANTEE DD    | Total funding anticipated across the entire project period. |
+      | GRANTEE FD    | Total funding anticipated across the entire project period. |
       | GRANTEE FO    | Total funding anticipated across the entire project period. |
       | GRANTEE EXE   | Total funding anticipated across the entire project period. |
 
@@ -1397,7 +1397,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -1415,7 +1415,7 @@ Feature: Grants related scenarios
       | userType      |
       | GRANTEE ADMIN |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 

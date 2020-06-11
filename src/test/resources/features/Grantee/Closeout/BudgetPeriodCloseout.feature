@@ -877,7 +877,7 @@ Feature: Budget Period Closeout related scenarios
     Then I can see the comment box in the approval decision
     And I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When  I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:BPCloseoutEgmsId}" in "---prdoh_tableId:-:PendingTask---" panel
     Then I softly see value "Approve Budget Period Closeout Request" for title "Task Type" inside table "{prdoh_tableId:PendingTask}"
@@ -1280,7 +1280,7 @@ Feature: Budget Period Closeout related scenarios
     And I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see field "Status" as "Submitted for Approval"
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When  I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:BPCloseoutEgmsId}" in "---prdoh_tableId:-:PendingTask---" panel
     Then I softly see value "Approve Budget Period Closeout Request" for title "Task Type" inside table "{prdoh_tableId:PendingTask}"
@@ -3084,7 +3084,7 @@ Feature: Budget Period Closeout related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
       | PM1      |
@@ -3103,7 +3103,7 @@ Feature: Budget Period Closeout related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
       | PM1      |
@@ -3121,7 +3121,7 @@ Feature: Budget Period Closeout related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
       | PM1      |
@@ -3139,7 +3139,7 @@ Feature: Budget Period Closeout related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
       | PM1      |

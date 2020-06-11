@@ -1493,7 +1493,7 @@ Feature: Financial Reports related scenarios
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     Then I softly see value "Approve Financial Report" for title "Task Type" inside table "{prdoh_tableId:PendingTask}"
@@ -1582,7 +1582,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -1850,7 +1850,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -1954,7 +1954,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -2058,7 +2058,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -2162,7 +2162,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -2264,7 +2264,7 @@ Feature: Financial Reports related scenarios
       | Executive Approver | Automation Exe | Automation Approval required |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:egmsid}" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"
@@ -2286,7 +2286,7 @@ Feature: Financial Reports related scenarios
     And I click on "Revise Financial Report" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Approve Financial Report" in "{prdoh_tableId:PendingTask}" panel
     When I click on "Start" icon for "Approve Financial Report" inside flex table with id "{prdoh_tableId:PendingTask}"

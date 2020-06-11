@@ -33,7 +33,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -410,7 +410,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -584,7 +584,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1093,7 +1093,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1202,7 +1202,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1287,7 +1287,7 @@ Feature: Award KPI and Objective and special condition related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 

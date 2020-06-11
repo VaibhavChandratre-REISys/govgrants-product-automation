@@ -16,7 +16,7 @@ Feature: PDF download and validate scenarios from all modules
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -194,7 +194,7 @@ Feature: PDF download and validate scenarios from all modules
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 

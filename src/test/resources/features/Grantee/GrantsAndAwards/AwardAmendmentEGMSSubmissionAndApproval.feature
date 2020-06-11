@@ -1212,7 +1212,7 @@ Feature: Award amendment through EGMS related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1437,7 +1437,7 @@ Feature: Award amendment through EGMS related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -1529,7 +1529,7 @@ Feature: Award amendment through EGMS related scenarios
       | GRANTEE ADMIN    |
       | GRANTEE PM       |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -2479,7 +2479,7 @@ Feature: Award amendment through EGMS related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 

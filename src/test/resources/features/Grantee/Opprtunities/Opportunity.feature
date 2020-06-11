@@ -84,7 +84,7 @@ Feature: Opportunities related scenarios
       | GRANTEE ADMIN     |
       | GRANTEE PM        |
       | GRANTEE PO        |
-      | GRANTEE DD        |
+      | GRANTEE FD        |
       | GRANTEE EXE       |
       | GRANTEE FO        |
       | GRANTEE PM1       |
@@ -571,7 +571,7 @@ Feature: Opportunities related scenarios
       | userType |
       | GRANTEE PO       |
       | GRANTEE EXE      |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE FO       |
       | GRANTEE ADMIN    |
 
@@ -2593,7 +2593,7 @@ Feature: Opportunities related scenarios
     When I enter comment "Automation testing" in the approval decision
     And I select user "Automation FD" in the approval decision
     And I submit the approval in the approval decision without processing
-    And I re-login to "As a Grantee" app as "GRANTEE DD" user on "INTERNAL" portal
+    And I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "DC - {SavedValue:Automation Runtime Lead}" in "{grantee_tableId:PendingTask}" panel
@@ -2657,6 +2657,6 @@ Feature: Opportunities related scenarios
       | GRANTEE PM       |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       | GRANTEE EXE      |
       | GRANTEE FO       |

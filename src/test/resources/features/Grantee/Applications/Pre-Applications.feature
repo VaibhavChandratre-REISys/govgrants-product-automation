@@ -2028,7 +2028,7 @@ Feature: Pre-Applications related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -2629,7 +2629,7 @@ Feature: Pre-Applications related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -2713,7 +2713,7 @@ Feature: Pre-Applications related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -2863,7 +2863,7 @@ Feature: Pre-Applications related scenarios
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 

@@ -25,7 +25,7 @@ Feature: Award approver association and Award submission for approval and Award 
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 
@@ -201,7 +201,7 @@ Feature: Award approver association and Award submission for approval and Award 
       | userType |
       | GRANTEE ADMIN    |
       | GRANTEE PO       |
-      | GRANTEE DD       |
+      | GRANTEE FD       |
       |GRANTEE FO       |
       | GRANTEE EXE      |
 

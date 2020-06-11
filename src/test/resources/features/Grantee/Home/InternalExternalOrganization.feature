@@ -11,7 +11,7 @@ Feature:Internal organization related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -204,7 +204,7 @@ Feature:Internal organization related scenarios
       | userType    |
       | GRANTEE PM  |
       | GRANTEE PO  |
-      | GRANTEE DD  |
+      | GRANTEE FD  |
       | GRANTEE FO  |
       | GRANTEE EXE |
 
@@ -267,7 +267,7 @@ Feature:Internal organization related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -481,7 +481,7 @@ Feature:Internal organization related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -595,7 +595,7 @@ Feature:Internal organization related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
@@ -705,7 +705,7 @@ Feature:Internal organization related scenarios
       | GRANTEE ADMIN |
       | GRANTEE PM    |
       | GRANTEE PO    |
-      | GRANTEE DD    |
+      | GRANTEE FD    |
       | GRANTEE FO    |
       | GRANTEE EXE   |
 
