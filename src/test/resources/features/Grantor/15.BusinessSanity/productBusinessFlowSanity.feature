@@ -124,7 +124,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    When I enter "Competitive Creation Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -168,8 +168,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I enter values into fields
       | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+      | Passed | fieldRating__c         |
+      | Passed | fieldReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
     When I close "Enter Review" modal by clicking the top right x button
@@ -380,8 +380,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I enter values into fields
       | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+      | Passed | fieldRating__c         |
+      | Passed | fieldReviewComments__c |
     When I click modal button "Save"
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -581,8 +581,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I enter values into fields
       | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+      | Passed | fieldRating__c         |
+      | Passed | fieldReviewComments__c |
     When I click modal button "Save"
     When I close "Enter Review" modal by clicking the top right x button
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1080,8 +1080,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction    | 1000           | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                      | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI2 Username} | Project Director/Manager | Checked          |
+      | Project Role             | Name                      |  Is Key Personnel |
+      | Project Director/Manager | {SavedValue:SPI2 Username}  | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                                   | Target |
@@ -1532,7 +1532,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    When I enter value "Automation Runtime Payment Request" into field "fieldTitle__c"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1584,7 +1584,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    When I enter value "Automation Runtime Payment Request" into field "fieldTitle__c"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2253,8 +2253,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+      | Title                           | End Date                             |Start Date|
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |0         |
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "Edit" :
       | Role             | Name                     | Description                 |
@@ -2334,7 +2334,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Payment Request" into field "Title__c"
+    When I enter value "Automation Payment Request" into field "fieldTitle__c"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I get the "EGMS ID"

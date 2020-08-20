@@ -34,8 +34,8 @@ public class GrantorPayloads {
 
     public JsonObject defaultPayloadApplicationReview(String applicationName, String announcementName){
 
-        String ownerName = "Automation SPI";
-        String contactName = "Automation SPI";
+        String ownerName = "Automation SPI2";
+        String contactName = "Automation SPI2";
         String kpiName = "Automation Permanent KPI for Regression";
 
         JsonObject parent = new JsonObject();
@@ -869,7 +869,7 @@ public class GrantorPayloads {
         JsonObject keyContacts = new JsonObject();
         JsonArray keyContactsArray = new JsonArray();
         keyContacts.addProperty("ProjectRole","Project Director/Manager");
-        keyContacts.addProperty("Contact",ProjectWebServices.getIdOf("Contact","Automation Primary")); // Automation SPI id
+        keyContacts.addProperty("Contact",ProjectWebServices.getIdOf("Contact","Automation SPI2")); // Automation SPI id
         keyContacts.addProperty("IsKeyContact",true);
         keyContactsArray.add(keyContacts);
         parent.add("KeyContacts",keyContactsArray);
