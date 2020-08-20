@@ -18,8 +18,10 @@ public class UsersAndURL implements UsersController {
         I.amPerforming().propertiesFileOperationsTo().saveValue("PM Username", "Automation PM");
         I.amPerforming().propertiesFileOperationsTo().saveValue("AUDITOR Username", "Automation AUDITOR");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI Username", "Automation SPI");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI2 Username", "Automation SPI2");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPA Username", "Automation SPA");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "Grantee ADMIN");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTOR ADMIN Username", "Grantor ADMIN");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE PO Username", "Grantee PO");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE FD Username", "Grantee FD");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE PM Username", "Grantee PM");
@@ -103,19 +105,19 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "GoProduct@1235";
+                password = "salesforce2020";
                 break;
             case "FD":
-                password = "GoProduct@12";
+                password = "lahsa@aug2020";
                 break;
             case "PO":
-                password = "GoProduct@12";
+                password = "lahsa@aug2020";
                 break;
             case "SPI":
-                password = "SALESFORCE2021";
+                password = "salesforce2020";
                 break;
             case "SPI2":
-                password = "SALESFORCE2021";
+                password = "salesforce2021";
                 break;
             case "SPI3":
                 password = "SALESFORCE2021";
@@ -123,8 +125,11 @@ public class UsersAndURL implements UsersController {
             case "IND":
                 password = "GoProduct@12";
                 break;
+            case "SA":
+                password = "salesforce2020";
+                break;
             default:
-                password = "SALESFORCE2020";
+                password = "lahsa@aug2020";
         }
         return password;
     }
@@ -155,17 +160,17 @@ public class UsersAndURL implements UsersController {
 
     private String getAUTOEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "nakul@admin.test8.automation");
-        username.put("EXE", "test@gmaildemo.com.atm.automation");
-        username.put("PM", "donald_pm@ggp.test7.atm.automation");
-        username.put("FO", "auto.fm@auto.com.atm.automation");
-        username.put("FD", "automationfd@yopmail.com");
-        username.put("PO", "automationpo@yopmail.com");
-        username.put("SPI", "automation.spi@yopmail.com.automation");
+        username.put("ADMIN", "chinmay.singh@reisystems.com");
+        username.put("EXE", "automation.exe.lahsa@yopmail.com");
+        username.put("PM", "automation.pm.lahsa@yopmail.com");
+        username.put("FO", "automation.fo.lahsa@yopmail.com");
+        username.put("FD", "automation.fd.lahsa@yopmail.com");
+        username.put("PO", "automation.po.lahsa@yopmail.com");
+        username.put("SPI", "automation.spi.lahsa@yopmail.com");
         username.put("SPA", "automation.spa@yopmail.com.automation");
         username.put("IND", "ind.automation@yopmail.com");
-        username.put("SA", "automationspi@yopmail.com");  // need to check this user.
-        username.put("SPI2", "automationspi2@yopmail.com");
+        username.put("SA", "automation.sa.lahsa@yopmail.com");  // need to check this user.
+        username.put("SPI2", "automation.spi2.lahsa@yopmail.com");
         username.put("SPI3", "automationspi3@yopmail.com");
         username.put("AUDITOR", "automationauditor@yopmail.com");
 

@@ -756,7 +756,7 @@ public class GrantorPayloads {
         grant.addProperty("BudgetCategoryPackage","Construction");
         grant.addProperty("GrantType","Formula Grant");
         grant.addProperty("GrantDescription","API Testing For Award Activation From Direct Grant");
-        grant.addProperty("ExternalOrganization",ProjectWebServices.getIdOf("Account","Test Automation Organization"));
+        grant.addProperty("ExternalOrganization",ProjectWebServices.getIdOf("Account","Automation Internal Org"));
         grant.addProperty("InternalOrganization",ProjectWebServices.getIdOf("Account","SAN DIEGO ELECTRICAL TRAINING TRUST"));
         grant.addProperty("Program",ProjectWebServices.getIdOf("Program__c","Automation Permanent Internal Program"));
         grant.addProperty("DoesGrantAllowIndirect","Yes");
@@ -869,7 +869,7 @@ public class GrantorPayloads {
         JsonObject keyContacts = new JsonObject();
         JsonArray keyContactsArray = new JsonArray();
         keyContacts.addProperty("ProjectRole","Project Director/Manager");
-        keyContacts.addProperty("Contact",ProjectWebServices.getIdOf("Contact","Automation SPI")); // Automation SPI id
+        keyContacts.addProperty("Contact",ProjectWebServices.getIdOf("Contact","Automation Primary")); // Automation SPI id
         keyContacts.addProperty("IsKeyContact",true);
         keyContactsArray.add(keyContacts);
         parent.add("KeyContacts",keyContactsArray);
