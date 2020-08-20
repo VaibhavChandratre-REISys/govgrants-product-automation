@@ -7,7 +7,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
     Then I see status in Progress-bar is "Created" and is "Green"
 
@@ -17,9 +17,9 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "Description__c"
+    When I enter value "Automation Test Description" into field "fieldDescription__c"
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "green"
 
@@ -29,7 +29,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I navigate to "Attachments" sub tab
@@ -48,7 +48,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
@@ -67,7 +67,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -83,7 +83,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -99,9 +99,9 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "Description__c"
+    When I enter value "Automation Test Description" into field "fieldDescription__c"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
@@ -113,9 +113,9 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "Description__c"
+    When I enter value "Automation Test Description" into field "fieldDescription__c"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -132,9 +132,9 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter value "Automation Runtime Focus Area" into field "fieldTitle__c"
     When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "Description__c"
+    When I enter value "Automation Test Description" into field "fieldDescription__c"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
