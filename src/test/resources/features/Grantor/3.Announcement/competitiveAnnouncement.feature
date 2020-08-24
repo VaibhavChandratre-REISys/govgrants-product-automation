@@ -95,7 +95,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Owner" for title "Responsibility" against the value "{SavedValue:EXE Username}" inside table "---announcement:-:announcementOwner---"
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
@@ -114,7 +114,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   Scenario: To verify system allow to download pdf for Review Steps section in setup tab of announcement
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility   | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer  | Review Financial details | 10       | No                   |
       | {SavedValue:PM Username} | Program Reviewer | Review Financial details | 10       | No                   |
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -222,7 +222,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "Announcements - Draft"
     Then I softly see value "Created" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly see value "Reviewed" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -253,16 +252,35 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
-      | Overview Tab: The Question submission deadline cannot be greater than Application due date. |
-      | Overview Tab: The Answer submission deadline cannot be greater than Application due date.   |
+      | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                                              |
+      | Financial Tab - Enter Estimated Funding Amount.                                                                                                 |
+      | Financial Tab - Correct Budget Periods Start Date and End Dates. Budget Periods should be continuous and together should form a Project Period. |
+      | Financial Tab - Enter at least one Budget Period.                                                                                               |
+      | Overview Tab - Enter description for the Announcement.                                                                                          |
+      | Overview Tab - Select applicant types.                                                                                                          |
+      | Responsibilities Tab - An Executive Approver must exist to submit this Announcement.                                                            |
+      | Responsibilities Tab - A Fiscal Approver must exist to submit this Announcement.                                                                |
+      | Responsibilities Tab - A Program Approver must exist to submit this Announcement.                                                               |
+      | Overview Tab: The Question submission deadline cannot be greater than Application due date.                                                     |
+      | Overview Tab: The Answer submission deadline cannot be greater than Application due date.                                                       |
     And I click on "Edit" in the page details
     And I enter value "20" into field "fieldApplicationDueDate__c"
     And I enter value "15" into field "QSubmissionDeadline__c"
     And I enter value "10" into field "AResponseDeadline__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "10" seconds
     Then I softly see the following messages in the page details :
-      | Overview Tab: The Answer submission deadline cannot be earlier than Question submission deadline. |
+      | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                                              |
+      | Financial Tab - Enter Estimated Funding Amount.                                                                                                 |
+      | Financial Tab - Correct Budget Periods Start Date and End Dates. Budget Periods should be continuous and together should form a Project Period. |
+      | Financial Tab - Enter at least one Budget Period.                                                                                               |
+      | Overview Tab - Enter description for the Announcement.                                                                                          |
+      | Overview Tab - Select applicant types.                                                                                                          |
+      | Responsibilities Tab - An Executive Approver must exist to submit this Announcement.                                                            |
+      | Responsibilities Tab - A Fiscal Approver must exist to submit this Announcement.                                                                |
+      | Responsibilities Tab - A Program Approver must exist to submit this Announcement.                                                               |
+      | Overview Tab: The Answer submission deadline cannot be earlier than Question submission deadline.                                               |
 
   @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument @aashish
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
@@ -325,15 +343,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click modal button "Save"
     Then I softly see the following messages in the page details :
       | Please enter Required fields |
-    When I upload attachment "Announcement_Field_Values.xlsx" from workspace
-    Then I softly see "Announcement_Field_Values.xlsx" has been added in "Attachments" flex table
-    When I navigate to "Attachments" sub tab
-    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Funding Opportunity Announcement"
-    Then I softly see "Funding Opportunity Announcement" has been added in "Attachments" flex table
+    And I click on top right button "Add Files" in flex table with id "---program:-:AnnouncementAttachmentTableId---"
+    And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    Then I softly see "Attachment.pdf" has been added in "Announcement Files" flex table
+    Then I softly see "Funding Opportunity Announcement" has been added in "Announcement Files" flex table
     When I click on "Download" icon under attachment flex table
-    Then I softly verify that the file "InternalOrganization_Field_Values.xlsx" is downloaded
+    Then I softly verify that the file "Attachment.pdf" is downloaded
     And I click on "Delete" icon under attachment flex table
-    Then I softly do not see "InternalOrganization_Field_Values.xlsx" has been added in "Attachments" flex table
+    Then I softly do not see "Attachment.pdf" has been added in "Announcement Files" flex table
 
   @70483 @userDeleteSupportingDocumentViewHyperlink @aashish @wip
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
@@ -387,9 +404,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter advance filter values inside id "advfAnnouncementKeyOutcomes"
       | Title | Contains | Automation Permanent KPI for Regression |
     Then I softly see value "Automation Permanent KPI for Regression" for title "Title" inside table "---announcement:-:kpiflextableid---"
-    Then I softly see value "KPI-0043" for title "EGMS ID" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "KPI-0001" for title "EGMS ID" inside table "---announcement:-:kpiflextableid---"
     When I click on "View" icon for "Automation Permanent KPI for Regression" inside flex table with id "---announcement:-:kpiflextableid---" without waiting for record
-    Then I softly see field "Key Performance Indicator" as "Automation Permanent KPI for Regression"
+    Then I see the header is "Key Performance Indicator" in the page details
+    Then I see the sub-header is "Key Performance Indicator" in the page details
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
@@ -406,7 +424,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on advance filter "#advfAnnouncementGranteeStrategicGoalsObjectives" of table id "---announcement:-:objectivesTableId---"
     When I enter advance filter values inside id "advfAnnouncementGranteeStrategicGoalsObjectives"
       | Title | Contains | Automation Permanent Objective |
-    Then I softly see value "SPO-0025" for title "EGMS ID" inside table "---announcement:-:objectivesTableId---"
+    Then I softly see value "SPO-0002" for title "EGMS ID" inside table "---announcement:-:objectivesTableId---"
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
     When I click on "View" icon for "Automation Permanent Objective" inside flex table with id "---announcement:-:objectivesTableId---" without waiting for record
     Then I softly see field "Objective" as "Automation Permanent Objective"
@@ -485,10 +503,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
     When I click on advance filter "#advfAnnouncementFundingAccountGrantor" of table id "---announcement:-:fundingAccountsTableId---"
-    When I enter advance filter values inside id "#advfAnnouncementFundingAccountGrantor"
+    When I enter advance filter values inside id "advfAnnouncementFundingAccountGrantor"
       | Pre-Encumbrance | equals to | 2000 |
     Then I softly see value "$2,000.00" for title "Pre-Encumbrance" inside table "---announcement:-:fundingAccountsTableId---"
-    When I enter advance filter values inside id "#advfAnnouncementFundingAccountGrantor"
+    When I click on advance filter "#advfAnnouncementFundingAccountGrantor" of table id "---announcement:-:fundingAccountsTableId---"
+    When I enter advance filter values inside id "advfAnnouncementFundingAccountGrantor"
       | Pre-Encumbrance | equals to | 3000 |
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:fundingAccountsTableId---"
     And I click on "Save" in the page details
@@ -549,7 +568,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
@@ -558,7 +577,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Responsibility | equals to | Program Approver |
     Then I softly see value "Program Approver" for title "Responsibility" inside table "---announcement:-:approversTableId---"
     When I enter the following values into flex table with id "---announcement:-:ApproverRolesGrantorgridTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -750,12 +769,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -985,12 +1004,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -1161,13 +1180,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:pendingTaskTableId---"
-    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I click on "Publish" in the page details
     When I navigate to "History" sub tab
     Then I softly see value "Published" for title "New Value" inside table "History"
     Then I softly see value "Approved" for title "Old Value" inside table "History"
     And I click on "Unpublish" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Draft" and is "green"
     And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -1202,12 +1221,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -1345,12 +1364,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | End Date |
       | BP03               | 550      |
     And I click on "Save" in the page details
-    And I save the value from row "3" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
+    And I save the value from row "2" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I save the value from row "3" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
     Then I softly see field "Estimated Project Period Start Date" as "{SavedValue:startDate}"
     Then I softly see field "Estimated Project Period End Date" as "{SavedValue:endDate}"
@@ -1361,7 +1379,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | BP03               | 250        |
     And I click on top right button "Save" in flex table with id "---announcement:-:budgetPeriodTableId---"
     Then I softly see the following messages in the page details :
-      | Budget Period dates should not overlap. Adjust the end date ofBP02 and start date ofBP03 to proceed further. |
+      | Budget Period dates should not overlap. Adjust the end date of BP02 and start date of BP03 to proceed further. |
     And I click on "Remove" icon for "BP02" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
     And I click on "Remove" icon for "BP03" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
     And I click on "Save" in the page details
@@ -1417,12 +1435,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -1607,12 +1625,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -1757,9 +1775,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Draft" and is "green"
     When I navigate to "History" sub tab
-    Then I softly see that "Announcement" is in "Created" status
+    Then I softly see that "Announcement" is in "Draft" status
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1793,12 +1811,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -1969,12 +1987,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Add" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-      | Name          | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
@@ -2141,7 +2159,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type | Active Funding Opportunities id                     |
       | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
 
-  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility @aashish @skipOnJenkins
+  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1 @aashish @skipOnJenkins
   Scenario: To verify user allow to remove budget category when Budget type is Non functional in financial tab for announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -2184,7 +2202,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:approversTableId---" by clicking "Edit" :
-      | Role               | Name           | Description                 |
+      | Role               | Name                      | Description                 |
       | Program Approver   | {SavedValue:PM Username}  | Automation Test Description |
       | Executive Approver | {SavedValue:EXE Username} | Automation Test Description |
       | Fiscal Approver    | {SavedValue:FO Username}  | Automation Test Description |

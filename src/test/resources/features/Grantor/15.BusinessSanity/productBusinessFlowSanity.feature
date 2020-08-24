@@ -92,7 +92,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Upload Template" modal by clicking the top right x button
     And I navigate to "Attachments" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I upload the attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload the attachment "Announcement_Field_Values.xlsx" of type "Program Artifacts" from computer
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1230,8 +1230,8 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario Outline: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    #When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsPhaseTableId---"
     And I enter "Grant_Creation" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
@@ -1410,8 +1410,8 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    #When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsPhaseTableId---"
     And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
@@ -1591,7 +1591,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
-      | Construction    | 10                            |
+      | Construction    | 0                            |
     When I navigate to "Attachments" sub tab
     When I upload attachment "Attachment.pdf" of type "Invoice"
     And I pause execution for "3" seconds
@@ -1986,246 +1986,246 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "green"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel
-  Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI2" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 1000   | 100        | 100            | 100            |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                                 | Target |
-      | Automation Permanent KPI for Regression | 10     |
-    And I navigate to "Attachments" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                      | Project Role             | Is Key Contact |
-      | {SavedValue:SPI2 Username} | Project Director/Manager | Checked        |
-    When I click on "Submit Application" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
-    And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "Organizational_SiteVisit_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Responsibilities | Name                     | Description                 |
-      | Program Approver | {SavedValue:FO Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:PM Username} | Automation Test Description |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "{SavedValue:SPI2 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement Application Intake}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
-    When I get the "EGMS ID"
-    And I click on "Notify" in the page details
-    When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "SiteVisit" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
-    And I navigate to "Reports and Outcomes" sub tab
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "SiteVisit" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
-    Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
-    When I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
-    When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
-    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To               |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    When I collapse nested table containing column value "Automation Observation"
-    And I expand nested table containing column value "Automation Concern"
-    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To               |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    When I collapse nested table containing column value "Automation Concern"
-    And I expand nested table containing column value "Automation Finding"
-    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To               |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    And I collapse nested table containing column value "Automation Finding"
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
-    And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "green"
+#  @72355 @siteVisitAcceptAndCloseOrgLevel
+#  Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
+#    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
+#    Given I am on "SUBPORTAL" portal
+#    When I login to "Grants Portal" app as "SPI2" user
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+#    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+#    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+#    When I click on "Qualify" in the page details
+#    When I click on "Create Application" in the page details
+#    And I click modal button "Save and Continue"
+#    When I click on "Save" in the page details
+#    When I click on "Edit" in the page details
+#    And I enter "Edition" values from "Application_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I navigate to "Budget" sub tab
+#    Given I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+#      | Construction  | 1000   | 100        | 100            | 100            |
+#    When I navigate to "Proposal" sub tab
+#    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
+#      | EGMS ID                                 | Target |
+#      | Automation Permanent KPI for Regression | 10     |
+#    And I navigate to "Attachments" sub tab
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+#      | Name                      | Project Role             | Is Key Contact |
+#      | {SavedValue:SPI2 Username} | Project Director/Manager | Checked        |
+#    When I click on "Submit Application" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related log" sub tab
+#    And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
+#    And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "Organizational_SiteVisit_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Responsibilities" sub tab
+#    And I edit the following rows inline in flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "Edit" :
+#      | Responsibilities | Name                     | Description                 |
+#      | Program Approver | {SavedValue:FO Username} | Automation Test Description |
+#      | Fiscal Approver  | {SavedValue:PM Username} | Automation Test Description |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
+#    When I click "Associate" after selection of "{SavedValue:SPI2 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement Application Intake}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
+#    When I get the "EGMS ID"
+#    And I click on "Notify" in the page details
+#    When I click on "Conduct" in the page details
+#    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related Log" sub tab
+#    When I perform quick search for "Record Id" in "SiteVisit" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
+#    And I navigate to "Reports and Outcomes" sub tab
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:correctiveTableId---" by clicking "New" :
+#      | Title                  | Description            | Type        |
+#      | Automation Finding     | Automation Description | Finding     |
+#      | Automation Concern     | Automation Description | Concern     |
+#      | Automation Observation | Automation Description | Observation |
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related Log" sub tab
+#    When I perform quick search for "Record Id" in "SiteVisit" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "SiteVisit"
+#    Given I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
+#    When I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside table
+#    When I navigate to "Reports and Outcomes" sub tab
+#    And I expand nested table containing column value "Automation Observation"
+#    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
+#      | Title                               | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    When I collapse nested table containing column value "Automation Observation"
+#    And I expand nested table containing column value "Automation Concern"
+#    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    When I collapse nested table containing column value "Automation Concern"
+#    And I expand nested table containing column value "Automation Finding"
+#    When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    And I collapse nested table containing column value "Automation Finding"
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside table
+#    And I click on "Accept And Close" in the page details
+#    Then I see status in Progress-bar is "Closed" and is "green"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel
-  Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
-    Given I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
-    And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "Organizational_DeskReview_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Responsibilities | Name                     | Description                 |
-      | Program Approver | {SavedValue:FO Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:PM Username} | Automation Test Description |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
-    When I click "Associate" after selection of "{SavedValue:SPI2 Username}" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---orgLevelDeskReview:-:selectAwardId---"
-    When I get the "EGMS ID"
-    And I click on "Notify" in the page details
-    When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "DeskReview" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
-    And I navigate to "Reports and Outcomes" sub tab
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "DeskReview" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
-    Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
-    When I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
-    When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To               |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    When I collapse nested table containing column value "Automation Observation"
-    And I expand nested table containing column value "Automation Concern"
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To               |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    When I collapse nested table containing column value "Automation Concern"
-    And I expand nested table containing column value "Automation Finding"
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To               |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
-    And I collapse nested table containing column value "Automation Finding"
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
-    And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "green"
+#  @72357 @deskReviewAcceptAndCloseOrgLevel
+#  Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
+#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
+#    Given I login to "As a Grantor" app as "dynamicUser" user
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related Log" sub tab
+#    And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
+#    And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "Organizational_DeskReview_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Responsibilities" sub tab
+#    And I edit the following rows inline in flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---" by clicking "Edit" :
+#      | Responsibilities | Name                     | Description                 |
+#      | Program Approver | {SavedValue:FO Username} | Automation Test Description |
+#      | Fiscal Approver  | {SavedValue:PM Username} | Automation Test Description |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateContactsId---"
+#    When I click "Associate" after selection of "{SavedValue:SPI2 Username}" in the table "---orgLevelDeskReview:-:deskReviewContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---orgLevelDeskReview:-:selectAwardId---"
+#    When I get the "EGMS ID"
+#    And I click on "Notify" in the page details
+#    When I click on "Conduct" in the page details
+#    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related Log" sub tab
+#    When I perform quick search for "Record Id" in "DeskReview" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
+#    And I navigate to "Reports and Outcomes" sub tab
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
+#      | Title                  | Description            | Type        |
+#      | Automation Finding     | Automation Description | Finding     |
+#      | Automation Concern     | Automation Description | Concern     |
+#      | Automation Observation | Automation Description | Observation |
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+#    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+#    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+#    Given I navigate to "Related Log" sub tab
+#    When I perform quick search for "Record Id" in "DeskReview" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "DeskReview"
+#    Given I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI2" user on "SUBPORTAL" portal
+#    When I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside table
+#    When I navigate to "Reports and Outcomes" sub tab
+#    And I expand nested table containing column value "Automation Observation"
+#    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+#      | Title                               | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    When I collapse nested table containing column value "Automation Observation"
+#    And I expand nested table containing column value "Automation Concern"
+#    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    When I collapse nested table containing column value "Automation Concern"
+#    And I expand nested table containing column value "Automation Finding"
+#    When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To               |
+#      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI2 Username} |
+#    And I collapse nested table containing column value "Automation Finding"
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside table
+#    And I click on "Accept And Close" in the page details
+#    Then I see status in Progress-bar is "Closed" and is "green"
 
   @72358 @activationOfBudgetPeriodAmendmentRequest
   Scenario: Validate the Budget period amendment activation
