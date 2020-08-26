@@ -92,7 +92,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Upload Template" modal by clicking the top right x button
     And I navigate to "Attachments" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I upload the attachment "Permanent Records.xlsx" of type "Program Artifacts" from computer
+    And I upload the attachment "FundingSource_Field_Values.xlsx" of type "Program Artifacts" from computer
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -761,6 +761,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    When I pause execution for "2" seconds
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     Given I click on "Edit" in the page details
@@ -798,6 +799,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    When I pause execution for "2" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
@@ -861,10 +863,12 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I pause execution for "2" seconds
     When I click on "Back" in the page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I pause execution for "2" seconds
     When I click on "Back" in the page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
