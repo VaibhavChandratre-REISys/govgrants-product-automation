@@ -92,7 +92,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Upload Template" modal by clicking the top right x button
     And I navigate to "Attachments" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I upload the attachment "PreApplication_Field_Values.xlsx" of type "Program Artifacts" from computer
+    And I upload the attachment "TermsandConditions_Field_Values.xlsx" of type "Program Artifacts" from computer
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1598,7 +1598,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
-      | Construction    | 0                            |
+      | Construction    | 10                            |
     When I navigate to "Attachments" sub tab
     When I upload attachment "Attachment.pdf" of type "Invoice"
     And I pause execution for "3" seconds

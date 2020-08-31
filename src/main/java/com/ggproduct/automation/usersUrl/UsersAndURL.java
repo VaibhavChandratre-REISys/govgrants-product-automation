@@ -105,13 +105,13 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "salesforce2020";
+                password = "Lahsa123";
                 break;
             case "FD":
-                password = "lahsa@aug2020";
+                password = "salesforce@2020";
                 break;
             case "PO":
-                password = "lahsa@aug2020";
+                password = "salesforce@2020";
                 break;
             case "SPI":
                 password = "salesforce2020";
@@ -129,7 +129,7 @@ public class UsersAndURL implements UsersController {
                 password = "salesforce2020";
                 break;
             default:
-                password = "lahsa@aug2020";
+                password = "salesforce@2020";
         }
         return password;
     }
@@ -160,17 +160,17 @@ public class UsersAndURL implements UsersController {
 
     private String getAUTOEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "chinmay.singh@reisystems.com");
-        username.put("EXE", "automation.exe.lahsa@yopmail.com");
-        username.put("PM", "automation.pm.lahsa@yopmail.com");
-        username.put("FO", "automation.fo.lahsa@yopmail.com");
-        username.put("FD", "automation.fd.lahsa@yopmail.com");
-        username.put("PO", "automation.po.lahsa@yopmail.com");
+        username.put("ADMIN", "admin@lahsa.org.cs");
+        username.put("EXE", "automation.exe.lahsa@yopmail.com.cs");
+        username.put("PM", "automation.pm.lahsa@yopmail.com.cs");
+        username.put("FO", "automation.fo.lahsa@yopmail.com.cs");
+        username.put("FD", "automation.fd.lahsa@yopmail.com.cs");
+        username.put("PO", "automation.po.lahsa@yopmail.com.cs");
         username.put("SPI", "automation.spi.lahsa@yopmail.com");
         username.put("SPA", "automation.spa@yopmail.com.automation");
         username.put("IND", "ind.automation@yopmail.com");
         username.put("SA", "automation.sa.lahsa@yopmail.com");  // need to check this user.
-        username.put("SPI2", "automation.spi2.lahsa@yopmail.com");
+        username.put("SPI2", "automation.spi2.lahsa@yopmail.com.cs");
         username.put("SPI3", "automationspi3@yopmail.com");
         username.put("AUDITOR", "automationauditor@yopmail.com");
 
