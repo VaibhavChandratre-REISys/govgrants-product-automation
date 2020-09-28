@@ -77,10 +77,34 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "Salesforce_2019";
+                password = "salesforce2020";
+                break;
+            case "FD":
+                password = "lahsa@aug2020";
+                break;
+            case "PM":
+                password = "lahsa@aug2021";
+                break;
+            case "PO":
+                password = "lahsa@aug2020";
+                break;
+            case "SPI":
+                password = "salesforce2020";
+                break;
+            case "SPI2":
+                password = "salesforce2021";
+                break;
+            case "SPI3":
+                password = "SALESFORCE2021";
+                break;
+            case "IND":
+                password = "GoProduct@12";
+                break;
+            case "SA":
+                password = "salesforce2020";
                 break;
             default:
-                password = "SALESFORCE2019";
+                password = "lahsa@aug2020";
         }
         return password;
     }
@@ -109,6 +133,9 @@ public class UsersAndURL implements UsersController {
             case "FD":
                 password = "lahsa@aug2020";
                 break;
+            case "PM":
+                password = "lahsa@aug2021";
+                break;
             case "PO":
                 password = "lahsa@aug2020";
                 break;
@@ -135,12 +162,12 @@ public class UsersAndURL implements UsersController {
 
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "mayuresh.g@ggp.test7");
-        username.put("EXE", "test@gmaildemo.com");
-        username.put("PM", "donald_pm@ggp.test7");
-        username.put("FO", "auto.fm@auto.com");
-        username.put("SPI", "kyle.farrell@reisystems.com21");
-        username.put("SPA", "spaautomation@yopmail.com");
+        username.put("ADMIN", "nakulkadam@lahsa.admin.qa");
+        username.put("EXE", "automation.exe.lahsa@yopmail.com.qa");
+        username.put("PM", "automation.pm.lahsa@yopmail.com.qa");
+        username.put("FO", "automation.fo.lahsa@yopmail.com.qa");
+        username.put("FD", "automation.fd.lahsa@yopmail.com.qa");
+        username.put("PO", "automation.po.lahsa@yopmail.com.qa");
 
         username.put("PO", "sdgdg45435dj@gmail.com");
         username.put("SIMON PM", "simon_pm@ggp.test7");
@@ -159,12 +186,12 @@ public class UsersAndURL implements UsersController {
 
     private String getAUTOEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "chinmay.singh@reisystems.com");
-        username.put("EXE", "automation.exe.lahsa@yopmail.com");
-        username.put("PM", "automation.pm.lahsa@yopmail.com");
-        username.put("FO", "automation.fo.lahsa@yopmail.com");
-        username.put("FD", "automation.fd.lahsa@yopmail.com");
-        username.put("PO", "automation.po.lahsa@yopmail.com");
+        username.put("ADMIN", "nakulkadam@lahsa.admin.qa");
+        username.put("EXE", "automation.exe.lahsa@yopmail.com.qa");
+        username.put("PM", "automation.pm.lahsa@yopmail.com.qa");
+        username.put("FO", "automation.fo.lahsa@yopmail.com.qa");
+        username.put("FD", "automation.fd.lahsa@yopmail.com.qa");
+        username.put("PO", "automation.po.lahsa@yopmail.com.qa");
         username.put("SPI", "automation.spi.lahsa@yopmail.com");
         username.put("SPA", "automation.spa@yopmail.com.automation");
         username.put("IND", "ind.automation@yopmail.com");

@@ -152,7 +152,7 @@ public class ProjectWebServices {
         String defaultEndPointGetToken = "";
 
         if (EnvironmentFactory.getEnvironmentName().contains("QA"))
-            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9dZJodJWITSuFoeXeOau_jPysAF1tDTnpScZyZwXUGhS_ZudVpjPfvLFrO78TVtOgK6flv6R5a4OV8QnR&client_secret=1408645120361878326&username=mayuresh.g@ggp.test7&password=Salesforce_2019";
+            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9ic.6IFhNpPpl4rB4t2aE74ohCWNeWFCM_mKFf63UqhVG1NaMXtnub4Fgn2jEWaM9AuW6kYP229ZjiBGF&client_secret=D3AA7B49F563FCE10CA47528F6E13DFCAC70DB5156C7823E42713BCA264A9B9A&username=nakulkadam@lahsa.admin.qa&password=Test@123";
         else if (EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             if (EnvironmentFactory.getEnvironmentName().contains("GRANTEE")) {
                 defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG92DxHaawSd0luAabE5ir8xlXoKuHsm5noVyqnHFUOo829AX1MfWuFpJhCDn0__e7EWt_DixBbuY2yy1.H&client_secret=BAAC6A7374660FC52DFAF43304D80F6E4EF17DA8C3F9503F6E3380EEEEF20784&username=autoadmingrantee@yopmail.com&password=SALESFORCE2020";
