@@ -77,7 +77,7 @@ public class UsersAndURL implements UsersController {
                 password = "test72018";
                 break;
             case "ADMIN":
-                password = "salesforce2020";
+                password = "Test@123";
                 break;
             case "FD":
                 password = "lahsa@aug2020";
