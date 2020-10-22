@@ -115,7 +115,7 @@ public class UsersAndURL implements UsersController {
                 password = "GoProduct@12";
                 break;
             case "EXE":
-                password = "GoProduct@13";
+                password = "SALESFORCE2019";
                 break;
             case "FD":
                 password = "GoProduct@12";
@@ -179,7 +179,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPI", "automation.spi@yopmail.com.automation");
         username.put("SPA", "automation.spa@yopmail.com.automation");
         username.put("IND", "ind.automation@yopmail.com");
-        username.put("SA", "automation.sa.ospi@yopmail.com.qa");  // need to check this user.
+        username.put("SA", "automation.sa.ospi@yopmail.com");  // need to check this user.
         username.put("SPI2", "automationspi2@yopmail.com");
         username.put("SPI4", "automationspi2@yopmail.com");
         username.put("SPI3", "automation.spi3@yopmail.com");
