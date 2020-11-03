@@ -33,11 +33,6 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.mouseHoverAtTableRowLevelIcon(flexTableId, iconName, uniqueColumnValues);
     }
 
-    @When("^I hovering mouse on help text icon inside page block detail \"([^\"]*)\"$")
-    public void getHelpTextIconsAtPageBlockDetail(String pageBlockDetailTitle) {
-        internalOrganizationPage.mouseHoverAtPageBlockFieldsIcon(pageBlockDetailTitle);
-    }
-
     @When("^I close alertbox$")
     public void closeAlertBox() {
         internalOrganizationPage.closeAlertBoxFromPage();
