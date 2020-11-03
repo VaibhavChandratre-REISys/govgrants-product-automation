@@ -43,11 +43,6 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.enterValueForOpportunityNumber(fieldValue, fieldApiName);
     }
 
-    @And("^I click on \"([^\"]*)\" column header inside table with id \"([^\"]*)\"$")
-    public void ClickOnSpecificTableHeaderColumn(String titleName, String tableId) {
-        internalOrganizationPage.performClickOnSpecificTableColumnHeader(tableId, titleName);
-    }
-
     @And("^I click on page navigation arrow \"([^\"]*)\" for table id \"([^\"]*)\"$")
     public void clickOnPaginationArrow(String flexTableId, String NextPrevious) {
         internalOrganizationPage.performClickOnPaginationArrow(flexTableId, NextPrevious);
@@ -285,8 +280,4 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.assertDateAccortingToNumberOfDaysPassed(columnName, savedDate, tableId);
     }
 
-    @Then("^I (see|softly see) \"([^\"]*)\" opens in overLay window$")
-    public void assertEditOpensInOverLayWindow(String usage, String titleName) {
-        internalOrganizationPage.asserTextInOverLayIframe(usage, titleName);
-    }
 }
