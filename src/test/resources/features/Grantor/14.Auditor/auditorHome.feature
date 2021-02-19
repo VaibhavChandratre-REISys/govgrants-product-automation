@@ -18,6 +18,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I pause execution for "10" seconds
     When I perform quick search for "Test Automation Organization" in "---home:-:internalOrganizationId---" panel
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
@@ -73,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69125 @auditorCannotCreateEditContact
+  @69125 @auditorCannotCreateEditContact @namrata
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -92,7 +93,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69126 @auditorCanViewCreatedContact
+  @69126 @auditorCanViewCreatedContact @namrata
   Scenario: Validate Auditor should have view / read  only access to record.
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
@@ -110,15 +111,15 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
 
-  @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
+  @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails @namrata
   Scenario Outline: Verify Auditor  Cannot create SME conatct and do not have access to send invitation (Bulk or single clicking paper aeroplane icon)/ Verify Auditor can view / read  only access to SME Reviewers Contact details
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---home:-:reviewersTableId---"
-    When I perform quick search for "Test User" in "---home:-:reviewersTableId---" panel
-    Then I softly can see row level action button "View" against "Test User" in flex table with id "---home:-:reviewersTableId---"
-    Then I softly cannot see row level action button "Send Invitation" against "Test User" in flex table with id "---home:-:reviewersTableId---"
+    When I perform quick search for "Automation User" in "---home:-:reviewersTableId---" panel
+    Then I softly can see row level action button "View" against "Automation User" in flex table with id "---home:-:reviewersTableId---"
+    Then I softly cannot see row level action button "Send Invitation" against "Automation User" in flex table with id "---home:-:reviewersTableId---"
     Examples:
       | User    |
       | AUDITOR |
@@ -147,12 +148,15 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedByMe---"
 
-  @69142 @auditorCannotCreateEditSubrecipientContact @smoke
+  @69142 @auditorCannotCreateEditSubrecipientContact @smoke @namrata1
+
+
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+ #   When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+#    new button is not available on page
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
@@ -168,7 +172,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:subrecipientcontactTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:subrecipientcontactTableId---"
 
-  @69143 @auditorViewSubrecipientContacts @buglogged101030
+  @69143 @auditorViewSubrecipientContacts @buglogged101030 @namrata1
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab

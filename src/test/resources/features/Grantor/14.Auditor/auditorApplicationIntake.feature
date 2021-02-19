@@ -140,9 +140,9 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @69301 @auditorCannotAddAttachmentsAndNotes
+  @69301 @auditorCannotAddAttachmentsAndNotes @namrata
   Scenario Outline: Verify User with Auditor profile has no ability to add attachments and notes.
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab

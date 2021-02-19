@@ -29,9 +29,9 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Closeout Activities Due Date" as "{SavedValue:CloseoutActivitiesDueDate}"
     Then I softly see field "Closeout Effective Date" as "{SavedValue:CloseoutEffectiveDate}"
 
-  @93457 @ValidatePendingAmendmentRequestInOpenItemsForCloseout @meenakshi
+  @93457 @ValidatePendingAmendmentRequestInOpenItemsForCloseout @meenakshi @done
   Scenario Outline: Verify user can view pending amendment requests in Open Items for Closeout request
-    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST"
+    And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -108,7 +108,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi
+  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi @done
   Scenario: To verify Email notification should be received to Closeout Owner when Closeout has created for closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -147,10 +147,13 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---closeout:-:closeoutTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -223,7 +226,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - Completed"
     Then I softly see value "Completed" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi
+  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @done
   Scenario: To verify Email notification should be received to SPI user when closeout Request has Sent to Subrecipient in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -265,10 +268,13 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     When I click on "Edit" in the page details
     And I enter "Override" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -367,7 +373,7 @@ Feature: Validate all scenarios in Closeout
     When I close "Closeout Review" modal by clicking the top right x button
     Then I softly see that "Submitted" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
 
-  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
+  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi @done
   Scenario: To verify status changed as : created when Program Approver send Back the closeout Request in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -388,10 +394,13 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -422,7 +431,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "Green"
 
-  @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi
+  @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi @done
   Scenario: Verify the values on fields Awarded amount and Balance on closeout view page if the payment request is not processed
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "NO_ADVANCE_PERMISSION"
     When I login to "As a Grantor" app as "PM" user
@@ -443,10 +452,13 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -467,7 +479,7 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "No"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu
+  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @done
   Scenario: Validate user is able to see Approved status of closeout request in chevron diagram and inside Approval history table with EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -488,10 +500,13 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -570,7 +585,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---closeout:-:CloseoutDetailsTableId---"
 
-  @95599 @95609 @95607 @VerifySubrecipientAbleToAddAttachmentForTerminationCloseoutRequest-EXEUser @monu
+  @95599 @95609 @95607 @VerifySubrecipientAbleToAddAttachmentForTerminationCloseoutRequest-EXEUser @monu @done
   Scenario: Validate subrecipient user is able to see Add files button on under closeout details while creating termination closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -590,10 +605,13 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     When I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -617,7 +635,7 @@ Feature: Validate all scenarios in Closeout
     Then I see the following messages in the page details :
       | File Attachment.pdf deleted successfully. |
 
-  @96201 @96202 @VerifyCloseoutDeobligatedAmountForCloseout-Scheduled @monu
+  @96201 @96202 @VerifyCloseoutDeobligatedAmountForCloseout-Scheduled @monu @done
   Scenario: Validate user can see closeout deobligated amount for created scheduled closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -633,7 +651,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     #96202 #monu
     Then I softly see value "Created" for title "Status" inside table "---closeout:-:RequestTabCloseoutRequestTableId---"
-    Then I can see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
+    Then I can see row level action button "Delete" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     Then I can see row level action button "View" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     And I pause execution for "10" seconds
@@ -733,9 +751,10 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "{SavedValue:SiteVisitID}" for title "EGMS ID" inside table "---siteVisits:-:PendingSiteVisitDeskReviewTableId---"
     When I click on "Override" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Provide justification for overriding open items to closure and proceeding with the closeout.|
+      |Overview Tab - Provide justification for overriding open items to closure and proceeding with the closeout.|
 
-  @96511 @validateVisibilityOfEditAndOverrideButtonWithNonAwardOwner @monu
+
+  @96511 @validateVisibilityOfEditAndOverrideButtonWithNonAwardOwner @monu @done
   Scenario: Verify non award owner cannot override or edit pending items of closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -756,10 +775,13 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -803,10 +825,13 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -830,7 +855,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see top right button "Override" in page detail
     When I click on "Edit" in the page details
 
-  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu
+  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @done
   Scenario: Validate user can see approval decision fields and button at approval decision box
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -845,10 +870,13 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
     And I enter value "Automation Test Reason" into field "fieldReason__c"
@@ -875,7 +903,7 @@ Feature: Validate all scenarios in Closeout
     Then I can see the comment box in the approval decision
     Then I can see user "{SavedValue:EXE Username}" in the user lookup in the approval decision
 
-  @96200 @VerifyEditDeleteActionIconsAtAdhocCloseout @buglogged93860
+  @96200 @VerifyEditDeleteActionIconsAtAdhocCloseout @buglogged93860 @done
   Scenario: Validate user other than owner is not able to see Edit and delete row level icon
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default"
     When I login to "As a Grantor" app as "PO" user
@@ -901,4 +929,3 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
-    Then I softly cannot see row level action button "Delete" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"

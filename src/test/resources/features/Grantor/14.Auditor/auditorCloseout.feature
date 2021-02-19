@@ -13,7 +13,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I navigate to "Requests" sub tab
     Then I cannot see top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
 
-  @69176 @auditorCannotViewOverriddenCloseout
+  @69176 @auditorCannotViewOverriddenCloseout @namrata
   Scenario: Validate Auditor cannot have view access to "Submitted for Approval Status" Closeout Record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -43,7 +43,6 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
-
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
@@ -61,9 +60,14 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 500                   |
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
-      | Responsibility  | Name          | Description                 |
-      | Fiscal Approver | {SavedValue:FO Username} | Automation Test Description |
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:approversTableId---" by clicking "Edit" :
+#      | Responsibility  | Name          | Description                 |
+#      | Fiscal Approver | {SavedValue:FO Username} | Automation Test Description |
+
+    When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 1   |
+
     When I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     When I click on "Mark As Paid" in the page details
@@ -77,10 +81,19 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I perform quick search for "{SavedValue:closeoutID}" in "ProjectPeriodCloseoutGrantor" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "ProjectPeriodCloseoutGrantor"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name          | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+#    And I edit the following rows inline in flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "Edit" :
+#      | Responsibility   | Name          | Description                 |
+#      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
+#      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
+
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab

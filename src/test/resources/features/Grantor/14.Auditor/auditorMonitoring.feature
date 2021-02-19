@@ -27,10 +27,10 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69179 @69942 @auditorOrgRiskAssessment @smoke
+  @69179 @69942 @auditorOrgRiskAssessment @smoke @namrata1
   Scenario Outline: Validate Auditor should have view / read  only access to Organizational Risk Assessment |Validate Auditor should not be  able to Provide revision access
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
+    #When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When I login as "SA" user
     And I navigate to "Home" tab
@@ -105,7 +105,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69869 @auditorCannotCreateAwardLevelSiteVisit
+  @69869 @auditorCannotCreateAwardLevelSiteVisit @namrata1
   Scenario: Validate Auditor should not be able to Create, Edit, Delete and Accept and Close the Award Level Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -131,7 +131,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---auditor:-:sitevisitMonitoringTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
 
-  @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
+  @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview @namrata
   Scenario Outline: Validate Auditor should not be able to delete the  created state Award Level Desk Review | Validate Auditor should not be able to Create, Accept and Close the Award Level Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default"
     Given I login to "As a Grantor" app as "<User>" user
@@ -164,6 +164,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---auditor:-:deskreviewMonitoringTableId---" panel
     Then I softly cannot see row level action button "Delete" against "{SavedValue:Automation Runtime Award Desk Review}" in flex table with id "---auditor:-:deskreviewMonitoringTableId---"
+#    Then I softly cannot see row level action button "Delete" against Value "Automation Desk Review" inside "GrantorDeskReviewAward" flex table
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime Award Desk Review}" in flex table with id "---auditor:-:sitevisitMonitoringTableId---"
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---auditor:-:deskreviewMonitoringTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
@@ -171,7 +172,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69872 @69979 @auditorCannotCreateAwardLevelRiskAssessment @buglogged94976
+  @69872 @69979 @auditorCannotCreateAwardLevelRiskAssessment @buglogged94976 @namrata
   Scenario Outline: Validate Auditor should not be able to Create Award Level Risk Assessment/ Validate whether Auditor can View the active Risk assessment from Monitoring Tab
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -196,10 +197,18 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "Edit" :
-      | Responsibility   | Name                     | Description                 |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "Edit" :
+#      | Responsibility   | Name                     | Description                 |
+#      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+#      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
+
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -271,7 +280,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---auditor:-:progressreportTableId---"
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
 
-  @70075 @auditorCannotBeAnApprover
+  @70075 @auditorCannotBeAnApprover @namrata
   Scenario: Validate approver user is not allowed to reassign tasks their tasks to Auditor.
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
@@ -291,10 +300,18 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     Given I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
-      | Role             | Name                     | Description                 |
-      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
-      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+#    And I edit the following rows inline in flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "Edit" :
+#      | Role             | Name                     | Description                 |
+#      | Program Approver | {SavedValue:PM Username} | Automation Test Description |
+#      | Fiscal Approver  | {SavedValue:FO Username} | Automation Test Description |
+
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -317,7 +334,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I select radio button "Forward" in the approval decision
     Then I cannot see user "{SavedValue:AUDITOR Username}" in the user lookup in the approval decision
 
-  @70324 @auditorCannotEdit/CompletePeerReviewProcess
+  @70324 @auditorCannotEdit/CompletePeerReviewProcess @namrata
   Scenario: Validate whether the complete Review Button is available for Auditor user to complete peer review process
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -341,7 +358,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :

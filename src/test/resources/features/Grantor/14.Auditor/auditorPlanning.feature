@@ -108,7 +108,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see top right button "Activate" in page detail
     Examples:
       | User    | FundingSource                         |
-      | AUDITOR | Automation Permanent Funding Account1 |
+      | AUDITOR | Automation Permanent Funding Source 1 |
 
   @67846 @auditorCanViewActiveFundingSource
   Scenario Outline: Validate Auditor should have view / read  only access to Active Funding Source
@@ -120,7 +120,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly can see row level action button "View" against "<FundingSource>" in flex table with id "---fundingsource:-:fundingSourceTableId---"
     Examples:
       | User    | FundingSource                         |
-      | AUDITOR | Automation Permanent Funding Account1 |
+      | AUDITOR | Automation Permanent Funding Source 1 |
 
 
   @67847 @auditorCannotCreateKPI @deepika
@@ -236,8 +236,8 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see top right button "New" for "---auditor:-:externalProgramTableID---" flex table
     When I perform quick search for "Wildlife Services" in "---auditor:-:federalProgramFlexTableId---" panel
     Then I softly can see row level action button "View" against "Wildlife Services" in flex table with id "---auditor:-:federalProgramFlexTableId---"
-    When I perform quick search for "NGO Program 2" in "---auditor:-:nonfederaltableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---auditor:-:nonfederaltableId---"
+    When I perform quick search for "NGO Program 2" in "---auditor:-:NGOProgramsForGranatorTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---auditor:-:NGOProgramsForGranatorTableId---"
     Examples:
       | User    |
       | AUDITOR |
