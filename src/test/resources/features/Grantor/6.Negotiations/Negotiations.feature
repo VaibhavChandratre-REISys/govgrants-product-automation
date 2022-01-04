@@ -1406,10 +1406,8 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "toggleFlexTableFormEnhancedTable"
     When  I enter "Standard_Assur_Form" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     Then I cannot see row level action button "Edit" against "Program Application Form" in flex table with id "toggleFlexTableFormEnhancedTable"
     Then I cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "toggleFlexTableFormEnhancedTable"
-
-
