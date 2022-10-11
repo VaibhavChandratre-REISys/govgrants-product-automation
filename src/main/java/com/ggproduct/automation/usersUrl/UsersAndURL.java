@@ -90,9 +90,8 @@ public class UsersAndURL implements UsersController {
     private String getTest8EnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-
             default:
-                password = "Salesforce@2024";
+                password = "Salesforce@2025";
         }
         return password;
     }
