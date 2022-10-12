@@ -4317,7 +4317,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @mk @223677 @ValidateStep2ApproverOnFDMAndannouncementBehaviourAfterReassignment @sprint-12-US-218319 @komal @reassignment
+  @223677 @ValidateStep2ApproverOnFDMAndannouncementBehaviourAfterReassignment @sprint-12-US-218319 @komal @reassignment
   Scenario: Validate step2 approver is inserted for FDM column on Announcement and validate functionality of an Announcement after approver reassignment is done on FDM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4386,6 +4386,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
+    And I get the "EGMS ID"
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
