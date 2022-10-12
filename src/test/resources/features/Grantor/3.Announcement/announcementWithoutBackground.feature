@@ -4519,8 +4519,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation Test Description | fieldJustification__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" by clicking "Edit" :
-      | Application Title                                | Recommended Budget | Recommend for Funding | Comments    |
-      | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended |
+      | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    |
+      | {SavedValue:Automation Runtime Announcement Application Review} | 500                | Yes                   | Recommended |
     And I navigate to "Responsibilities" sub tab
     Then I see the following rows under the following headers in table with id "---subAwardFromFDM:-:fdmApproverTableId---" :
       | Name                      | FDM    |
