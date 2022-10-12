@@ -90,7 +90,7 @@ public class ProjectManager extends ProjectWebServices {
      */
     public void navigateToCurrentOrgUrlWithGivenRecordId(String recordId) {
         try {
-            String urlWithRecordId= I.amPerforming().browserOperationsTo().getCurrentUrl().split(".com")[0]+".com/"+recordId;
+            String urlWithRecordId= I.amPerforming().browserOperationsTo().getCurrentUrl().split("apex")[0]+recordId;
             I.amPerforming().browserOperationsTo().navigateToUrl(urlWithRecordId);
         }catch (Exception e)
         {
