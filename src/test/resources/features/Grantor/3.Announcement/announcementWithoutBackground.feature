@@ -4393,6 +4393,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
@@ -4559,8 +4560,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:approversTableId---" :
       | Name                     | Announcement | FDM    |
-      | Automation EXE           | Step 1       | Step 1  |
-      | Automation FO            | Step 2       | Step 2  |
+      | Automation EXE           | Step 1       | Step 1 |
+      | Automation FO            | Step 2       | Step 2 |
       | {SavedValue:FD Username} | NA           | Step 3 |
       | {SavedValue:PO Username} | NA           | Step 4 |
     And I navigate to "Applications" tab
