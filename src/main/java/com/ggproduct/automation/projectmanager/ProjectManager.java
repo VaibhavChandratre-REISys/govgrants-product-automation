@@ -82,4 +82,21 @@ public class ProjectManager extends ProjectWebServices {
         }
         return flag;
     }
+
+    /**
+     * Method to navigate to the current org URL by appending given record-ID
+     * @param recordId
+     * @author- komal.mukhekar
+     */
+    public void navigateToCurrentOrgUrlWithGivenRecordId(String recordId) {
+        try {
+            String urlWithRecordId= I.amPerforming().browserOperationsTo().getCurrentUrl().split(".com")[0]+".com/"+recordId;
+            I.amPerforming().browserOperationsTo().navigateToUrl(urlWithRecordId);
+        }catch (Exception e)
+        {
+            //Handled exception to continue execution
+        }
+    }
+
+
 }

@@ -54,4 +54,9 @@ public class CommonSteps {
     public void validateImageinPageDetail(String usage, String imageName) {
         projectManager.validateImage(usage, imageName);
     }
+
+    @Then("^I navigate to current org URL with Record ID \"([^\"]*)\"$")
+    public void navigateToCurrentOrgUrlWithRecordId(String recordID) {
+        projectManager.navigateToCurrentOrgUrlWithGivenRecordId(recordID);
+    }
 }

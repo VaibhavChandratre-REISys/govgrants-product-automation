@@ -1,7 +1,7 @@
-@organizationRegistrationPage @userRegistration @parallel-regression @regression @grantor-regression @regression
+@userRegistration @parallel-regression @regression @grantor-regression @regression
 Feature: Validate all User registration related scenarios
 
-  @223510 @224224 @AdminUserverifiesMessageOnTaskReassignmentPage @komal @sprint-10-US-223893 @komal @reassignment
+  @223510 @224224 @AdminUserverifiesMessageOnTaskReassignmentPage @sprint-10-US-223893 @komal @reassignment
   Scenario:Verify Admin user is able to see the message on task re-assignment page
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -9,7 +9,7 @@ Feature: Validate all User registration related scenarios
     Then I softly see the text containing :
       | Pre-Application and Applications Tasks which are assigned to the internal user will not be visible in the Task Reassignment page. These tasks are associated with Announcement Owner. To reassign these tasks, go to the Ownership Reassignment page and transfer the ownership of desired announcement. Queue based tasks(Related to User registration and Organizational Risk assessment) which are assigned to this user will not be shown here. Please check the Pending Tasks table for such tasks. |
 
-  @223048 @PMUserverifiesMessageOnTaskReassignmentPage @komal @sprint-10-US-223893 @komal @reassignment
+  @223048 @PMUserverifiesMessageOnTaskReassignmentPage @sprint-10-US-223893 @komal @reassignment
   Scenario:Verify PM user is able to see the message on task re-assignment page
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -17,7 +17,7 @@ Feature: Validate all User registration related scenarios
     Then I softly see the text containing :
       | Pre-Application and Applications Tasks which are assigned to the internal user will not be visible in the Task Reassignment page. These tasks are associated with Announcement Owner. To reassign these tasks, go to the Ownership Reassignment page and transfer the ownership of desired announcement. Queue based tasks(Related to User registration and Organizational Risk assessment) which are assigned to this user will not be shown here. Please check the Pending Tasks table for such tasks. |
 
-  @223512 @PMUser-VerifyTaskRelatedToOrganizationRiskAssessmentAreNotAvailableToPMUserForReassignment @komal @sprint-10-US-223893 @komal @reassignment
+  @223512 @PMUser-VerifyTaskRelatedToOrganizationRiskAssessmentAreNotAvailableToPMUserForReassignment @sprint-10-US-223893 @komal @reassignment
   Scenario: PM User- Validate Task Related to Organization Risk Assessment are not available for Reassignment for PM User in User Registration approval Queue
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
@@ -47,7 +47,7 @@ Feature: Validate all User registration related scenarios
     When I perform quick search for "Provide or Decline Risk Assessment Access" in "---home:-:grantorTaskReassignTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:grantorTaskReassignTableId---"
 
-  @223512 @AdminUser-VerifyUserApprovalQueueMemberShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @komal @sprint-10-US-223893 @komal @reassignment
+  @223512 @AdminUser-VerifyUserApprovalQueueMemberShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @sprint-10-US-223893 @komal @reassignment
   Scenario: Admin User- Validate Task Related to Organization Risk Assessment are not available for Reassignment for ADMIN user
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
@@ -76,7 +76,7 @@ Feature: Validate all User registration related scenarios
     When I perform quick search for "Provide or Decline Risk Assessment Access" in "---home:-:adminTaskReassignmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:adminTaskReassignmentTableId---"
 
-  @223512 @VerifyUserApprovalQueueShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @komal @sprint-12-US-226646 @komal @reassignment
+  @223512 @VerifyUserApprovalQueueShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @sprint-12-US-226646 @komal @reassignment
   Scenario: Validate Task Related to Individual Registration Approval are not available for Reassignment for PM user
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
@@ -108,3 +108,39 @@ Feature: Validate all User registration related scenarios
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I perform quick search for "{SavedValue:UserFullName}" in "---home:-:grantorTaskReassignTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:grantorTaskReassignTableId---"
+
+  @224236 @verifyNewTaskTypeAsQueueBasedForProvideRiskAssessmentAccessTask @sprint-10-US-223893 @komal @reassignment
+  Scenario:Verify ADMIN is able to see new task  type as "Queue Based" for "Task: Provide Risk Assessment Access"
+    Given I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to current org URL with Record ID "a1O4T000000gkhz"
+    Then I softly see the text containing :
+      | Task: Provide Risk Assessment Access |
+    Then I see the following options in dropdown field:
+      | --None-- | Approval Process | Non-Ownership | Ownership | Peer Review | Queue Based |
+
+  @223050 @verifyNewTaskTypeAsQueueBasedForReviewIndividualUserRegistrationTask @sprint-10-US-223893 @komal @reassignment
+  Scenario:Verify ADMIN is able to see new task  type as "Queue Based" for "Task: Review Individual User Registration"
+    Given I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to current org URL with Record ID "a1O4T000000gkhZ"
+    Then I softly see the text containing :
+      | Task: Review Individual User Registration |
+    Then I see the following options in dropdown field:
+      | --None-- | Approval Process | Non-Ownership | Ownership | Peer Review | Queue Based |
+
+  @223051 @verifyNewTaskTypeAsQueueBasedForReviewOrganizationUserRegistrationTask @sprint-10-US-223893 @komal @reassignment
+  Scenario:Verify ADMIN is able to see new task  type as "Queue Based" for "Task: Review Organization User Registration"
+    Given I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to current org URL with Record ID "a1O4T000000gkg6"
+    Then I softly see the text containing :
+      | Task: Review Organization User Registration |
+    Then I see the following options in dropdown field:
+      | --None-- | Approval Process | Non-Ownership | Ownership | Peer Review | Queue Based |
+
+  @223052 @verifyNewTaskTypeAsQueueBasedForReviewParent/ChildOrganizationRelationshipRequestTask @sprint-10-US-223893 @komal @reassignment
+  Scenario:Verify ADMIN is able to see new task  type as "Queue Based" for "Task: Review Parent/Child Organization Relationship Request"
+    Given I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to current org URL with Record ID "a1O4T000000gkhd"
+    Then I softly see the text containing :
+      | Task: Review Parent/Child Organization Relationship Request |
+    Then I see the following options in dropdown field:
+      | --None-- | Approval Process | Non-Ownership | Ownership | Peer Review | Queue Based |
