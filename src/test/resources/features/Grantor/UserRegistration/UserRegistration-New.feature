@@ -71,8 +71,8 @@ Feature: Validate all User registration related scenarios
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "---home:-:sourceUserId---"
-    And I select value "Automation PM1" into field "---home:-:targetUserId---"
+    And I select value "Automation PM" into field "---home:-:ReassignTaskFromDropdownId---"
+    And I select value "Automation PM1" into field "---home:-:ReassignTaskToDropdownId---"
     When I perform quick search for "Provide or Decline Risk Assessment Access" in "---home:-:adminTaskReassignmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:adminTaskReassignmentTableId---"
 

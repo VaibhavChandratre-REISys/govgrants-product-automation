@@ -14,12 +14,16 @@ public class UsersAndURL implements UsersController {
 
     public UsersAndURL() {
         I.amPerforming().propertiesFileOperationsTo().saveValue("EXE Username", "Automation EXE");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("EXE1 Username", "Automation EXE1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("FO Username", "Automation FO");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("FO1 Username", "Automation FO1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("PO Username", "Automation PO");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("PO1 Username", "Automation PO1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("FD Username", "Automation FD");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("FD1 Username", "Automation FD1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("PM Username", "Automation PM");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("PM1 Username", "Automation PM1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("AUDITOR Username", "Automation AUDITOR");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI Username", "Automation SPI");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI3 Username", "Automation SPI3");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPA Username", "Automation SPA");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "Grantee ADMIN");
