@@ -17,7 +17,7 @@ Feature: Validate all User registration related scenarios
     Then I softly see the text containing :
       | Pre-Application and Applications Tasks which are assigned to the internal user will not be visible in the Task Reassignment page. These tasks are associated with Announcement Owner. To reassign these tasks, go to the Ownership Reassignment page and transfer the ownership of desired announcement. Queue based tasks(Related to User registration and Organizational Risk assessment) which are assigned to this user will not be shown here. Please check the Pending Tasks table for such tasks. |
 
-  @223512 @PMUser-VerifyTaskRelatedToOrganizationRiskAssessmentAreNotAvailableToPMUserForReassignment @sprint-10-US-223893 @komal @reassignment
+  @224233 @PMUser-VerifyTaskRelatedToOrganizationRiskAssessmentAreNotAvailableToPMUserForReassignment @sprint-10-US-223893 @komal @reassignment
   Scenario: PM User- Validate Task Related to Organization Risk Assessment are not available for Reassignment for PM User in User Registration approval Queue
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
@@ -47,7 +47,7 @@ Feature: Validate all User registration related scenarios
     And I perform quick search for "Provide or Decline Risk Assessment Access" in "---home:-:grantorTaskReassignTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---home:-:grantorTaskReassignTableId---"
 
-  @223512 @AdminUser-VerifyUserApprovalQueueMemberShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @sprint-10-US-223893 @komal @reassignment
+  @224235 @AdminUser-VerifyUserApprovalQueueMemberShouldNotAbleToSeeTheReassignTaskOfIndividualRegistrationApprovalInReassignTask @sprint-10-US-223893 @komal @reassignment
   Scenario: Admin User- Validate Task Related to Organization Risk Assessment are not available for Reassignment for ADMIN user
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"

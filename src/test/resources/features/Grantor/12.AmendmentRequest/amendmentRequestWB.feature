@@ -25010,7 +25010,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:AmendReqEgmsId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AmendReqEgmsId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @TBE @162378 @FundingchangeAmendment-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
+  @rerun @TBE @162378 @FundingchangeAmendment-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
   Scenario: Funding change Amendment - Verify PM user can reassign Approval task to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST"
     When I login to "As a Grantor" app as "dynamicUser" user

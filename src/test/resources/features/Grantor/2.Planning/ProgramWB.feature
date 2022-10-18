@@ -5189,12 +5189,12 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @161929 @VerifyReassignFromFieldIsReadOnly @sprint-2-US-151916 @komal @reassignment
+  @rerun @161929 @VerifyReassignFromFieldIsReadOnly @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify for EXE user, see the Reassign From field is read-only.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly do not see fields "---home:-:ReassignTaskFromDropdownId---" is in edit mode
+    Then I softly see that "---home:-:ReassignTaskFromDropdownId---" rendered in view mode only
 
   @162003 @Planning_VerifyFieldHistorySectionDoesNotTrackPeerReviewerReassignmentChange @sprint-2-US-151916 @komal @reassignment
   Scenario: Planning_ Verify that The History tab does not track this reviewer change when Peer review task is reassigned
@@ -5233,7 +5233,7 @@ Feature: Validate all scenarios for program
       | EGMS ID                    | Changed Field | New Value            | Old Value | Changed By     |
       | {SavedValue:ProgramEGMSID} | Status        | Submitted for Review | Created   | Automation EXE |
 
-  @162015 @Planning_VerifyApprovalHistorySectionTrackPeerReviewerReassignmentChange @sprint-2-US-151916 @komal @reassignment
+  @rerun @162015 @Planning_VerifyApprovalHistorySectionTrackPeerReviewerReassignmentChange @sprint-2-US-151916 @komal @reassignment
   Scenario: Planning_ Verify that the History tab tracks the approver reassignment when approval  task is reassigned
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5270,7 +5270,8 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside table
-    Then I see the following rows under the following columns in table with id "toggleApprovalHistory" :
+    When I navigate to "History" sub tab
+    Then I see the following rows under the following columns in table with id "approvalHistoryComponent" :
       | Assigned To    | Actual Approver | Status     |
       | Automation EXE | Automation EXE1 | Pending    |
       | Automation EXE | Automation EXE1 | Reassigned |
@@ -5376,7 +5377,7 @@ Feature: Validate all scenarios for program
       | PM   | Automation PM | Automation PM1 |
       | PO   | Automation PO | Automation PO1 |
 
-  @TBE @190969 @190984 @VerifyEXEuserseewarningmessageIfuserclickedonReassignbuttonwithoutselectingthetargetuser @sprint-2-US-151916 @komal @reassignment
+  @rerun @190969 @190984 @VerifyEXEuserseewarningmessageIfuserclickedonReassignbuttonwithoutselectingthetargetuser @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify EXE user see warning message If user clicked on Reassign button without selecting the target user
   |Verify Admin user can reassign their pending tasks to any user of same profile|
     When I login to "As a Grantor" app as "PM" user
@@ -5404,7 +5405,7 @@ Feature: Validate all scenarios for program
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    When I click table top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     #190969
     Then I softly see the following messages in the page details contains:
       | Select target user to reassign the tasks. |
@@ -5471,7 +5472,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:programsTableId---"
 
-  @TBE @191004 @VerifyPMusercanreassignonly'Notstarted'and'Inprogress'tasks @sprint-2-US-151916 @komal @reassignment
+  @rerun @TBE @191004 @VerifyPMusercanreassignonly'Notstarted'and'Inprogress'tasks @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify PM user can reassign only 'Not started' and 'In progress' tasks
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5489,14 +5490,14 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name           | Program |
+      | Name          | Program |
       | Automation PM | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "green"
     And I navigate to "Planning" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -5510,11 +5511,11 @@ Feature: Validate all scenarios for program
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:pendingTaskTableId---"
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "In Progress" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -5525,3 +5526,49 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+
+  @mkk @TBE @192038 @VerifyUsercannotseetheirreassigntasksintheirownpendingtasks @sprint-2-US-151916 @komal @reassignment
+  Scenario: Verify User can not see their reassign tasks in their own pending tasks
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter in modal "Creation2" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name          | Program |
+      | Automation PM | Step 1  |
+    And I pause execution for "5" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    And I navigate to "Planning" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "30" seconds
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I navigate to "Planning" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"

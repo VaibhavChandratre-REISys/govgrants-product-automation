@@ -17062,7 +17062,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime Announcement} | {SavedValue:Automation Runtime Announcement} |
 
-  @TBE @runOnJenkins @162102 @FDM-VerifyPMUserCanReassignApprovalTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
+  @rerun @TBE @runOnJenkins @162102 @FDM-VerifyPMUserCanReassignApprovalTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
   Scenario Outline: FDM - Verify PM user can reassign Approval task to other PM user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement for Application}" on announcement "{SavedValue:Automation Runtime Announcement for Application}" with properties "default"
@@ -17095,6 +17095,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I save the value from row "1" for column name "Application EGMS ID" as "ApplicationEGMSID" from flex table "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I wait for "1" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab

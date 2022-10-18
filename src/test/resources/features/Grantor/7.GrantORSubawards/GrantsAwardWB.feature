@@ -8847,7 +8847,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Responsibilities" tab
     Then I softly see value "Automation ADMIN" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @TBE @191550 @VerifyAdminUserCanReassignApprovalTaskFromEXEuserToPMuser @sprint-2-US-151916 @komal @reassignment
+  @191550 @VerifyAdminUserCanReassignApprovalTaskFromEXEuserToPMuser @sprint-2-US-151916 @komal @reassignment @wip @notApplicable
   Scenario: Verify Admin user can reassign Sub-award Approval task of EXE user to PM user
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -8919,7 +8919,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @TBE @runonJenkins @162103 @Subaward_VerifyPMUserCanReassignPeerReviewTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
+  @rerun @TBE @runonJenkins @162103 @Subaward_VerifyPMUserCanReassignPeerReviewTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
   Scenario: Sub-award_ Verify PM user can reassign Peer review task to other PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8988,7 +8988,6 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Edit" in page detail
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM1" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"

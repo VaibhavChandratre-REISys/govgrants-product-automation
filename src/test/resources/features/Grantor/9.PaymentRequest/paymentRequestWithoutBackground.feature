@@ -6830,7 +6830,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @mkk @TBE @162145 @ReimbursementPaymentRequest-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
+  @rerun @TBE @162145 @ReimbursementPaymentRequest-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
   Scenario: Reimbursement Payment Request - Verify PM user can reassign Approval task to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "NO_PROGRAM_INCOME_ANTICIPATE"
     And I am on "SUBPORTAL" portal
