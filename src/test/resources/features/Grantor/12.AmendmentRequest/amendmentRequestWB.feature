@@ -24946,7 +24946,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @TBE @162375 @PeriodicRenewalAmendment-VerifyPMusercanreassignApprovaltasktootherPM @sprint-2-US-151916 @komal @reassignment
+  @162375 @PeriodicRenewalAmendment-VerifyPMusercanreassignApprovaltasktootherPM @sprint-2-US-151916 @komal @reassignment
   Scenario: Periodic Renewal Amendment - Verify PM user can reassign Approval task to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST"
     When I am on "INTERNAL" portal
@@ -25010,7 +25010,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:AmendReqEgmsId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AmendReqEgmsId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @rerun @TBE @162378 @FundingchangeAmendment-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
+  @162378 @FundingchangeAmendment-VerifyPMusercanreassignApprovaltasktootherPMuser @sprint-2-US-151916 @komal @reassignment
   Scenario: Funding change Amendment - Verify PM user can reassign Approval task to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -25034,6 +25034,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 1            |
     And I save the field labeled "EGMS ID" as "AmendReqEgmsId"
     And I click on "Send to Subrecipient" in the page details
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

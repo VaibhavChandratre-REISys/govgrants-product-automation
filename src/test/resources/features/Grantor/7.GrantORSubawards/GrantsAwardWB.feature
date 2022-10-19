@@ -8919,7 +8919,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @rerun @TBE @runonJenkins @162103 @Subaward_VerifyPMUserCanReassignPeerReviewTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
+  @runonJenkins @162103 @Subaward_VerifyPMUserCanReassignPeerReviewTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
   Scenario: Sub-award_ Verify PM user can reassign Peer review task to other PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

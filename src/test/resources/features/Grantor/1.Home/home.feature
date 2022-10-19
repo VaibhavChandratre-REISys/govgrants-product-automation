@@ -935,14 +935,13 @@ Feature: Validate all scenarios in the home tab
     Then I see the following messages in the page details :
       | Select at least one record to reassign |
 
-  @rerun @162638 @VerifyAuditorProfileUserCannotReassignPendingTasksToAnyUserInTheSystem @sprint-2-US-151916 @komal @reassignment
+  @162638 @VerifyAuditorProfileUserCannotReassignPendingTasksToAnyUserInTheSystem @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify Auditor Profile user cannot reassign pending tasks to any user in the system
     When I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Home" tab
     Then I do not see "My Tasks" inside "Reassign" is displayed
-    Then I click on "Reset" in the page details
 
-  @rerun @190979 @VerifyPMuserseeselectedrecordsareclearwhenuserclickon"Reset"button @sprint-2-US-151916 @komal @reassignment
+  @190979 @VerifyPMuserseeselectedrecordsareclearwhenuserclickon"Reset"button @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify PM user see selected records are clear when user click on "Reset" button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

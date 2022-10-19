@@ -17062,7 +17062,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime Announcement} | {SavedValue:Automation Runtime Announcement} |
 
-  @rerun @TBE @runOnJenkins @162102 @FDM-VerifyPMUserCanReassignApprovalTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
+  @TBE @162102 @FDM-VerifyPMUserCanReassignApprovalTaskToOtherPMUser @sprint-2-US-151916 @komal @reassignment
   Scenario Outline: FDM - Verify PM user can reassign Approval task to other PM user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement for Application}" on announcement "{SavedValue:Automation Runtime Announcement for Application}" with properties "default"
@@ -17100,9 +17100,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
-    Then I softly see that "Record ID" has been added in flextable with Id "---applicationReview:-:pendingTaskTableId---"
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see that "{SavedValue:AppEGMSID}" has been added in flextable with Id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds

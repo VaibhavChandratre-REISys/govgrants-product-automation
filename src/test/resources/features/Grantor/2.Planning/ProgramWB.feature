@@ -5189,7 +5189,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @rerun @161929 @VerifyReassignFromFieldIsReadOnly @sprint-2-US-151916 @komal @reassignment
+  @161929 @VerifyReassignFromFieldIsReadOnly @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify for EXE user, see the Reassign From field is read-only.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -5233,7 +5233,7 @@ Feature: Validate all scenarios for program
       | EGMS ID                    | Changed Field | New Value            | Old Value | Changed By     |
       | {SavedValue:ProgramEGMSID} | Status        | Submitted for Review | Created   | Automation EXE |
 
-  @rerun @162015 @Planning_VerifyApprovalHistorySectionTrackPeerReviewerReassignmentChange @sprint-2-US-151916 @komal @reassignment
+  @162015 @Planning_VerifyApprovalHistorySectionTrackPeerReviewerReassignmentChange @sprint-2-US-151916 @komal @reassignment
   Scenario: Planning_ Verify that the History tab tracks the approver reassignment when approval  task is reassigned
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5341,7 +5341,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @TBE @190966 @190964 @VerifyPM/POuserseewarningmessageafterclickon"ReassignSelected"buttonforselectedtask @sprint-2-US-151916 @komal @reassignment
+  @190966 @190964 @VerifyPM/POuserseewarningmessageafterclickon"ReassignSelected"buttonforselectedtask @sprint-2-US-151916 @komal @reassignment
   Scenario Outline: Verify PM/PO user see warning message after click on "Reassign Selected" button for selected task
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5377,7 +5377,7 @@ Feature: Validate all scenarios for program
       | PM   | Automation PM | Automation PM1 |
       | PO   | Automation PO | Automation PO1 |
 
-  @rerun @190969 @190984 @VerifyEXEuserseewarningmessageIfuserclickedonReassignbuttonwithoutselectingthetargetuser @sprint-2-US-151916 @komal @reassignment
+  @190969 @190984 @VerifyEXEuserseewarningmessageIfuserclickedonReassignbuttonwithoutselectingthetargetuser @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify EXE user see warning message If user clicked on Reassign button without selecting the target user
   |Verify Admin user can reassign their pending tasks to any user of same profile|
     When I login to "As a Grantor" app as "PM" user
@@ -5422,7 +5422,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @TBE @191001 @191003 @VerifyotherprofilestaskorotherorgprofiletaskshouldnotdisplayforPMuser
+  @191001 @191003 @VerifyotherprofilestaskorotherorgprofiletaskshouldnotdisplayforPMuser
   @VerifyEXEusercanreassigntheirowntasktoonlyhissameprofileuserandsameorganization @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify other profiles task or other org profile task should not display for PM user
   | Verify EXE user can reassign their own task to only his same profile user and same organization |
@@ -5472,7 +5472,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:programsTableId---"
 
-  @rerun @TBE @191004 @VerifyPMusercanreassignonly'Notstarted'and'Inprogress'tasks @sprint-2-US-151916 @komal @reassignment
+  @191004 @VerifyPMusercanreassignonly'Notstarted'and'Inprogress'tasks @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify PM user can reassign only 'Not started' and 'In progress' tasks
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5527,7 +5527,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @mkk @TBE @192038 @VerifyUsercannotseetheirreassigntasksintheirownpendingtasks @sprint-2-US-151916 @komal @reassignment
+  @192038 @VerifyUsercannotseetheirreassigntasksintheirownpendingtasks @sprint-2-US-151916 @komal @reassignment
   Scenario: Verify User can not see their reassign tasks in their own pending tasks
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

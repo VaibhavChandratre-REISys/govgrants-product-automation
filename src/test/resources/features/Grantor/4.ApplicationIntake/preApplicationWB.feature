@@ -6360,7 +6360,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:completedAssignedToMe---" panel
     Then I softly see value "Review Pre-Application" for title "Task Type" inside table "---home:-:completedAssignedToMe---"
 
-  @TBE @162100 @Preapplication-VerifyEXEUserCanReassignPeerReviewTaskToOtherEXEUser @sprint-2-US-151916 @komal @reassignment
+  @162100 @Preapplication-VerifyEXEUserCanReassignPeerReviewTaskToOtherEXEUser @sprint-2-US-151916 @komal @reassignment
   Scenario: Preapplication - Verify EXE user can reassign Peer review task to other EXE user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
