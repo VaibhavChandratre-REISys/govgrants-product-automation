@@ -55,6 +55,11 @@ public class CommonSteps {
         projectManager.validateImage(usage, imageName);
     }
 
+    @Then("^I see the page contains text \"([^\"]*)\"$")
+    public void assertTextOnPage(String desiredText) {
+        projectManager.assertTextOnPage(desiredText);
+    }
+
     @Then("^I navigate to current org URL with Record ID \"([^\"]*)\"$")
     public void navigateToCurrentOrgUrlWithRecordId(String recordID) {
         projectManager.navigateToCurrentOrgUrlWithGivenRecordId(recordID);
