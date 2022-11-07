@@ -94,4 +94,21 @@ public class ProjectManager extends ProjectWebServices {
         Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='messageText']"))
                 .getAttribute("innerText").contains(desiredText));
     }
+
+    /**
+     * Method to navigate to the current org URL by appending given record-ID
+     * @param recordId
+     * @author- komal.mukhekar
+     */
+    public void navigateToCurrentOrgUrlWithGivenRecordId(String recordId) {
+        try {
+            String urlWithRecordId= I.amPerforming().browserOperationsTo().getCurrentUrl().split("apex")[0]+recordId;
+            I.amPerforming().browserOperationsTo().navigateToUrl(urlWithRecordId);
+        }catch (Exception e)
+        {
+            //Handled exception to continue execution
+        }
+    }
+
+
 }

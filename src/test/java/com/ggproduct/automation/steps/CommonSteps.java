@@ -59,4 +59,9 @@ public class CommonSteps {
     public void assertTextOnPage(String desiredText) {
         projectManager.assertTextOnPage(desiredText);
     }
+
+    @Then("^I navigate to current org URL with Record ID \"([^\"]*)\"$")
+    public void navigateToCurrentOrgUrlWithRecordId(String recordID) {
+        projectManager.navigateToCurrentOrgUrlWithGivenRecordId(recordID);
+    }
 }

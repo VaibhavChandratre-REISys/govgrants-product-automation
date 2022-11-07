@@ -924,3 +924,37 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
       | SPA      |
       | IND      |
+
+  @190974 @VerifyFOUserSeeErrorMessageIfUserClickedOnReassignButtonWithoutSelectingTask @sprint-2-US-151916 @komal @reassignment @buglogged-268761
+  Scenario: Verify FO user see error message If user clicked on Reassign button without selecting the task
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation FO1"
+    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
+    Then I see the following messages in the page details :
+      | Select at least one record to reassign |
+
+  @162638 @VerifyAuditorProfileUserCannotReassignPendingTasksToAnyUserInTheSystem @sprint-2-US-151916 @komal @reassignment
+  Scenario: Verify Auditor Profile user cannot reassign pending tasks to any user in the system
+    When I login to "As a Grantor" app as "AUDITOR" user
+    And I navigate to "Home" tab
+    Then I do not see "My Tasks" inside "Reassign" is displayed
+
+  @190979 @VerifyPMuserseeselectedrecordsareclearwhenuserclickon"Reset"button @sprint-2-US-151916 @komal @reassignment
+  Scenario: Verify PM user see selected records are clear when user click on "Reset" button
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---home:-:grantorTaskReassignTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:EGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    When I click on "Reset" in the page details
+    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Select target user to reassign the tasks. |
+    When I reassign task to "Automation PM1"
+    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
+    Then I see the following messages in the page details :
+      | Select at least one record to reassign |
