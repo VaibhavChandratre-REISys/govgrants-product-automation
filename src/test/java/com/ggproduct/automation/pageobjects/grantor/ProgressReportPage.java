@@ -1,6 +1,6 @@
 package com.ggproduct.automation.pageobjects.grantor;
 
-import com.automation.rei.handlers.govgrants;
+import com.ggproduct.automation.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.testingblaze.objects.Elements;
 import com.testingblaze.register.I;
