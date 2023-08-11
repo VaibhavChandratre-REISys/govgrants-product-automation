@@ -3,7 +3,7 @@ Feature: Validate all scenarios in Focus Area
 
   @34512 @creationOfFocusArea @smoke @training
   Scenario: Creation of Focus Area by User - Admin/EXE/PM
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login as "Admin" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
