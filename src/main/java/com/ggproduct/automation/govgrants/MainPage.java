@@ -105,11 +105,9 @@ public final class MainPage {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(acceptTerms)) {
             I.amPerforming().click().on(acceptTerms);
         }
-        try {
+
             I.amPerforming().click().on(loginButton);
-        } catch (WebDriverException e) {
-            I.amPerforming().getElementReference().of(By.xpath("//a[@title='Home Tab'] | //a[@title='Home Tab - Selected'] | //a[@title='Home']"));
-        }
+
 
         if (I.amPerforming().checkToSee().IsElementPresentQuick(declinePhoneRegistrationButton)) {
             try {
@@ -277,12 +275,11 @@ public final class MainPage {
      * @param tabName
      */
     public void clickMainMenuBar(String tabName) {
-        By mainMenuButton = By.xpath("//div/ul[@class='nav navbar-nav' or @class='nav nav-tabs']/li/a[@title='" + tabName
-                + "' or @name='" + tabName + "'] | //nav/ul/li/a[@title='" + tabName + "' or @name='" + tabName + "']");
+        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" +tabName + "' or @name='" + tabName + "']");
         if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
             I.amPerforming().waitFor().makeThreadSleep(3000);
         }
-        I.amPerforming().click().on(mainMenuButton);
+        I.amPerforming().click().withJavaScript(mainMenuButton);
     }
 
     /**

@@ -38,7 +38,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "']|//*[@value='" + buttonName + "' and @class='customBtn']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "']|//*[@value='" + buttonName + "' and @class='customBtn'] | //div[@class='slds-template__container']//lightning-button//button[@title='" + buttonName + "']");
     }
 
     /**
@@ -397,7 +397,7 @@ public final class PageDetails {
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = By.xpath(String.format(""
                                 // This option should work in all situations, if using the latest version of GovGrants
-                                + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
+                                + "//div//label[contains(@class, 'slds-text-title header-field-label')]",
                         matchLabelExactly
                                 ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
                                 : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)

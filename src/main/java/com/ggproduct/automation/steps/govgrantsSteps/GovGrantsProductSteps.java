@@ -1,4 +1,4 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 import com.testingblaze.exception.TestingBlazeCustomException;
 import com.testingblaze.register.I;

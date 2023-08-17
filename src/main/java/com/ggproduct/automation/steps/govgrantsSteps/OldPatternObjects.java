@@ -1,4 +1,4 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 import com.testingblaze.actionsfactory.api.ByUsing;
 import org.junit.Assert;

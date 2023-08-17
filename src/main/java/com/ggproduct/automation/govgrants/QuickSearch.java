@@ -74,7 +74,7 @@ public class QuickSearch {
      */
     public void performTableSpecificQuickSearch(String tableId, String searchTerm) throws TestingBlazeCustomException {
         boolean flag = false;
-        By searchInputBox = By.cssSelector("div#" + tableId + " div>div>input");
+        By searchInputBox = By.xpath("//span[text()='"+ tableId +"']/ancestor::gnt-flex-table-l-w-c//input[contains(@id,'input')]");
         List<Elements> quickSearchElements = I.amPerforming().getElementReference().forListOfElements().of(searchInputBox);
         for (Elements quickSearch : quickSearchElements) {
             flag = handleQuickSearch(quickSearch, tableId, searchTerm);
@@ -164,13 +164,13 @@ public class QuickSearch {
         try {
             searchElement.clearText();
             searchElement.enterText(searchTerm);
-            I.amPerforming().click().on(By.cssSelector("div#" + tableId + " i.fa.fa-search, div#" + tableId + " div.input-group-btn>button"));
+//            I.amPerforming().click().on(By.cssSelector("div#" + tableId + " i.fa.fa-search, div#" + tableId + " div.input-group-btn>button"));
             flag = true;
         } catch (Exception e) {
             try {
                 searchElement.clearText();
                 searchElement.enterText(searchTerm);
-                I.amPerforming().click().on(By.cssSelector("div#" + tableId + " i.fa.fa-search, div#" + tableId + " div.input-group-btn>button"));
+//                I.amPerforming().click().on(By.cssSelector("div#" + tableId + " i.fa.fa-search, div#" + tableId + " div.input-group-btn>button"));
                 flag = true;
             } catch (Exception f) {
                 /* Ignore Exception */

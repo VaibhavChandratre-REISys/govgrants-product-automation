@@ -1,4 +1,4 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 import com.ggproduct.automation.govgrants.MainPage;
 import com.ggproduct.automation.handlers.GovGrantsLibrary;

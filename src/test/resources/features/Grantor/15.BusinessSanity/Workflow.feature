@@ -1527,3 +1527,23 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
+
+ @vai @testWorkFlowForLWC
+  Scenario:
+    And I login as "Admin" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "PG--0380" in "---program:-:programsTableId---" panel
+    And I click on "Edit" icon for "PG--0380" inside flex table with id "---program:-:programsTableId---"
+    And I enter value "Automation Program" into field "ProgramName__c"
+    And I enter value "Autom" into field "Abbreviation__c"
+    And I click on "Save" in the page details
+    Then I softly see field " Program Name " as "Automation Program"
+    #Announcements
+    When I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "AN-CHIP Test-307" in "All Competitive Announcements" panel
+    When  I click on "Edit" icon for "AN-CHIP Test-307" inside flex table with id "All Competitive Announcements" without waiting for record
+    And I click on "Save" in the page details

@@ -1,4 +1,4 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 
 import com.ggproduct.automation.handlers.govgrants;
@@ -44,6 +44,21 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
+        if (this.tableIdForQsearch.contains("InternalFundingSource")) {
+            this.tableIdForQsearch="Internal Funding Sources - All";
+        }
+        else if (this.tableIdForQsearch.contains("Programs")) {
+            this.tableIdForQsearch="Internal Programs - All";
+        }
+        else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
+            this.tableIdForQsearch="Application Reviews - All";
+        }
+        else if (this.tableIdForQsearch.contains("AllCloseouts")) {
+            this.tableIdForQsearch="Closeouts - All";
+        }
+        else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
+            this.tableIdForQsearch="Pending Tasks (Assigned To Me)";
+        }
         if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
             govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
                     govgrants.perform().pageDetails().idOfRecord);

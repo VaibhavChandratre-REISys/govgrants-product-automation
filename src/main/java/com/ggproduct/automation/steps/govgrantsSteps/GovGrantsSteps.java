@@ -1,11 +1,9 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 import com.ggproduct.automation.handlers.govgrants;
 import com.testingblaze.actionsfactory.api.ByUsing;
 import com.testingblaze.exception.TestingBlazeCustomException;
-import com.testingblaze.register.EnvironmentFactory;
 import com.testingblaze.register.I;
-import com.testingblaze.report.RunReportAnalyzer;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +13,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -304,7 +301,7 @@ public final class GovGrantsSteps {
     @Description("Click on toggle button on a flex table")
     @When("^I click toggle button to select \"([^\"]*)\"$")
     public void clickToggleButtonAndSelect(String menuItemName) {
-        govgrants.perform().flexTable().waitForFlexTablesToLoad();
+//        govgrants.perform().flexTable().waitForFlexTablesToLoad();
         govgrants.perform().phasePanel().clickDoubleArrowDropDownAndSelectItem(menuItemName);
     }
 

@@ -1,4 +1,4 @@
-package com.ggproduct.automation.govgrantsSteps;
+package com.ggproduct.automation.steps.govgrantsSteps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -150,10 +150,7 @@ public final class PhasePanel {
      * @return
      */
     public void selectDoubleArrowDropDownItem(String menuItemNamee) {
-        By doubleArrowDropDownItem = By.xpath("//div[@class='panel-heading']//div[contains(@class,'panel-title')]"
-                + "//div[@id='dropdownListView']/ul/li/a[@title='" + menuItemNamee + "']|" +
-                "//div[contains(@class,'panel-heading')]" +
-                "//span[@id='dropdownListView']/ul/li/a[@title='" + menuItemNamee + "']");
+        By doubleArrowDropDownItem = By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
         I.amPerforming().click().on(doubleArrowDropDownItem);
     }
 
@@ -339,12 +336,7 @@ public final class PhasePanel {
     /******* "Local Methods with Limited functionality - Private" **********/
 
     private By getDoubleArrowLocator(String anyItemContainedInDropDown) {
-        return By.xpath("//div[contains(@class,'panel-title')]//div[@id='dropdownListView']/ul/li/a[@title='"
-                + anyItemContainedInDropDown
-                + "']/../../.. //span[contains(@class,'fa fa-angle-double-down')] | " +
-                "//div[contains(@class,'panel-heading')]//span[@id='dropdownListView']/ul/li/a[@title='"
-                + anyItemContainedInDropDown
-                + "']/../../.. //span[contains(@class,'fa fa-angle-double-down')]");
+        return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
     }
 
     private By getDoubleArrowToggleLocator(String termContainedInDataTarget) {
