@@ -1530,20 +1530,24 @@ Feature: Validate all scenarios of every modules flow
 
  @vai @testWorkFlowForLWC
   Scenario:
-    And I login as "Admin" user
+#   And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+   Given I am on "INTERNAL" portal
+   And I login as "Admin" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "PG--0380" in "---program:-:programsTableId---" panel
-    And I click on "Edit" icon for "PG--0380" inside flex table with id "---program:-:programsTableId---"
-    And I enter value "Automation Program" into field "ProgramName__c"
-    And I enter value "Autom" into field "Abbreviation__c"
-    And I click on "Save" in the page details
-    Then I softly see field " Program Name " as "Automation Program"
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "test" in "---program:-:programsTableId---" panel
+#    And I click on "Edit" icon for "test" inside flex table with id "---program:-:programsTableId---"
+#    And I enter value "Automation Program" into field "ProgramName__c"
+#    And I enter value "Autom" into field "Abbreviation__c"
+#    And I click on "Save" in the page details
+#    Then I softly see field " Program Name " as "Automation Program"
     #Announcements
-    When I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Competitive Announcements"
-    And I perform quick search for "AN-CHIP Test-307" in "All Competitive Announcements" panel
-    When  I click on "Edit" icon for "AN-CHIP Test-307" inside flex table with id "All Competitive Announcements" without waiting for record
-    And I click on "Save" in the page details
+#   When I navigate to "Announcements" tab
+#   And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+#   When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   When I perform quick search for "PG--0391" in "---announcement:-:pendingTaskTableId---" panel
+   When I click on "View" icon for "PG--0391" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+   When I "Approve" in the approval decision
+   Then I softly see field "Status" as "Approved"

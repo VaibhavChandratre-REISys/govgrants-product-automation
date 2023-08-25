@@ -59,6 +59,9 @@ public final class GovGrantsObjects {
         else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
             this.tableIdForQsearch="Pending Tasks (Assigned To Me)";
         }
+        else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesAll")) {
+            this.tableIdForQsearch="Published Announcements";
+        }
         if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
             govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
                     govgrants.perform().pageDetails().idOfRecord);

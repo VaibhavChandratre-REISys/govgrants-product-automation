@@ -161,6 +161,9 @@ public final class FlexTable implements FlexTableComponent {
             else if (flexTableId.contains("PhasePendingTasks")) {
                 flexTableId="Pending Tasks (Assigned To Me)";
             }
+            else if (flexTableId.contains("ActiveFundingOpportunitiesAll")) {
+                flexTableId="Published Announcements";
+            }
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
