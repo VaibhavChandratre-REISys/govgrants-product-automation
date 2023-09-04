@@ -25639,9 +25639,6 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:approversTableId---" by clicking "Edit" :
       | Name                     | Amendment Request|
-      | {SavedValue:PO Username} | Step 1           |
-    And I edit the following rows inline in flex table with id "---amendment:-:approversTableId---" by clicking "Edit" :
-      | Name                     | Amendment Request|
       | {SavedValue:EXE Username}| NA               |
     And I edit the following rows inline in flex table with id "---amendment:-:approversTableId---" by clicking "Edit" :
       | Name                     | Amendment Request|
