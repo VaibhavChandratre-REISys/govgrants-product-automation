@@ -17,7 +17,7 @@ public class ProjectWebServices {
     public static String appType;
 
     static {
- //       getAuthToken();
+        getAuthToken();
     }
 
     /**

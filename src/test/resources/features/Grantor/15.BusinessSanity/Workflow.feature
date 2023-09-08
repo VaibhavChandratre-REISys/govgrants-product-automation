@@ -1530,10 +1530,10 @@ Feature: Validate all scenarios of every modules flow
 
  @vai @testWorkFlowForLWC
   Scenario:
-#   And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+   And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
    Given I am on "INTERNAL" portal
    And I login as "Admin" user
-    And I navigate to "Planning" tab
+#    And I navigate to "Planning" tab
 #    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
 #    And I click toggle button to select "Internal Programs - All"
 #    When I perform quick search for "test" in "---program:-:programsTableId---" panel
@@ -1543,11 +1543,16 @@ Feature: Validate all scenarios of every modules flow
 #    And I click on "Save" in the page details
 #    Then I softly see field " Program Name " as "Automation Program"
     #Announcements
-#   When I navigate to "Announcements" tab
-#   And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
-#   When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   When I perform quick search for "PG--0391" in "---announcement:-:pendingTaskTableId---" panel
-   When I click on "View" icon for "PG--0391" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-   When I "Approve" in the approval decision
-   Then I softly see field "Status" as "Approved"
+    When I navigate to "Announcements" tab
+   And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+   When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+#   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#   When I perform quick search for "PG--0391" in "---announcement:-:pendingTaskTableId---" panel
+#   When I click on "View" icon for "PG--0391" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+#   When I "Approve" in the approval decision
+#   Then I softly see field "Status" as "Approved"
+   When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+     | Name                      | Closeout |
+     | {SavedValue:EXE Username} | Step 1   |
+   And I click on parallel menu button in flex table title "Review Steps"
+   And I select "Download as PDF" from parallel lines dropdown of "Key Performance Indicators (KPI) - All"
