@@ -1531,6 +1531,7 @@ Feature: Validate all scenarios of every modules flow
  @vai @testWorkFlowForLWC
   Scenario:
    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+#   Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
    Given I am on "INTERNAL" portal
    And I login as "Admin" user
 #    And I navigate to "Planning" tab
@@ -1543,7 +1544,12 @@ Feature: Validate all scenarios of every modules flow
 #    And I click on "Save" in the page details
 #    Then I softly see field " Program Name " as "Automation Program"
     #Announcements
-    When I navigate to "Announcements" tab
+   And I navigate to "Overview" sub tab
+   And I select value inside table "{grantee_tableId:RelatedContacts}" is "5"
+   When I click on advance filter "#advfOpenGranteePreApplications" of table id "{grantee_tableId:PreApplication}"
+   When I enter advance filter values inside id "advfAgencyQualifiedLeadsRelated"
+     | EGMS ID | contains | {SavedValue:EID} |
+   When I navigate to "Announcements" tab
    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
 #   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
