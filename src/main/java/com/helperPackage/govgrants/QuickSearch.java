@@ -88,6 +88,20 @@ public class QuickSearch {
 
     }
 
+    public void performTableSpecificQuickSearchLwc(String tableId, String searchTerm) throws TestingBlazeCustomException {
+        boolean flag = false;
+        By searchInputBox = By.xpath("//span[text()='"+ tableId +"']/ancestor::gnt-flex-table-l-w-c//input[contains(@id,'input')] | //span[text()='"+ tableId +"']/ancestor::c-lwc-flex-table//input[contains(@id,'input')]");
+        List<Elements> quickSearchElements = I.amPerforming().getElementReference().forListOfElements().of(searchInputBox);
+        for (Elements quickSearch : quickSearchElements) {
+            flag = handleQuickSearchLwc(quickSearch, tableId, searchTerm);
+            if (flag) {
+                break;
+            }
+        }
+        if (!flag) {
+            throw new TestingBlazeCustomException("Quick search not found with locator " + searchInputBox);
+        }
+    }
     /**
      * perform complete quick search on modal in flex based on table id
      *
@@ -171,6 +185,25 @@ public class QuickSearch {
                 searchElement.clearText();
                 searchElement.enterText(searchTerm);
                 I.amPerforming().click().on(By.cssSelector("div#" + tableId + " i.fa.fa-search, div#" + tableId + " div.input-group-btn>button"));
+                flag = true;
+            } catch (Exception f) {
+                /* Ignore Exception */
+            }
+        }
+        return flag;
+    }
+
+    private boolean handleQuickSearchLwc(Elements searchElement, String tableId, String searchTerm) {
+        boolean flag = false;
+
+        try {
+            searchElement.clearText();
+            searchElement.enterText(searchTerm);
+            flag = true;
+        } catch (Exception e) {
+            try {
+                searchElement.clearText();
+                searchElement.enterText(searchTerm);
                 flag = true;
             } catch (Exception f) {
                 /* Ignore Exception */

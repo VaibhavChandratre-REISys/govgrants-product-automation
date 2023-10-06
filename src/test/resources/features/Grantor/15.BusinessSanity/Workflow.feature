@@ -1527,3 +1527,18 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
+
+  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
+    Given I am on "INTERNAL" portal
+    And I login as "FO" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AP-TAO modified-006" in "Pending Tasks (Assigned To Me)" panel
+    And I click on "View" icon for "AP-TAO modified-006" inside flex table with id "Pending Tasks (Assigned To Me)"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    And I click on "Submit" in the page details
+    When I click alert button "OK"
+    And I wait for "5" seconds

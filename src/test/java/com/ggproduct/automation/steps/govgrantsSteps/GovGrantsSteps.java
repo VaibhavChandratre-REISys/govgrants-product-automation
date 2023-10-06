@@ -162,7 +162,11 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-        govgrants.perform().mainPage().clickMainMenuBar(tabName);
+        try{
+            govgrants.perform().mainPage().clickMainMenuBar(tabName);
+        }catch(Exception e){
+            govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
+        }
     }
 
     @Description("Navigate to sidebar content inside a sidebar subheader")

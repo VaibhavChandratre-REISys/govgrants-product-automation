@@ -284,6 +284,14 @@ public final class MainPage {
         I.amPerforming().click().on(mainMenuButton);
     }
 
+    public void clickMainMenuBarForLwc(String tabName) {
+        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" +tabName + "' or @name='" + tabName + "']");
+        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+        }
+        I.amPerforming().click().on(mainMenuButton);
+    }
+
     /**
      * click on navigation bar item on main admin homepage.
      *

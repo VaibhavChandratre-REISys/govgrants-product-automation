@@ -44,11 +44,38 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
-                    govgrants.perform().pageDetails().idOfRecord);
-        } else {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
+        try {
+            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
+                        govgrants.perform().pageDetails().idOfRecord);
+            } else {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
+            }
+        } catch (Exception e) {
+            if (this.tableIdForQsearch.contains("InternalFundingSource")) {
+                this.tableIdForQsearch="Internal Funding Sources - All";
+            }
+            else if (this.tableIdForQsearch.contains("Programs")) {
+                this.tableIdForQsearch="Internal Programs - All";
+            }
+            else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
+                this.tableIdForQsearch="Application Reviews - All";
+            }
+            else if (this.tableIdForQsearch.contains("AllCloseouts")) {
+                this.tableIdForQsearch="Closeouts - All";
+            }
+            else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
+                this.tableIdForQsearch="Pending Tasks (Assigned To Me)";
+            }
+            else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesAll")) {
+                this.tableIdForQsearch="Published Announcements";
+            }
+            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
+                        govgrants.perform().pageDetails().idOfRecord);
+            } else {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
+            }
         }
     }
 

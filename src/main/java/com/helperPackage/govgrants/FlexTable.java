@@ -137,9 +137,29 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
-        I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
-        govgrants.perform().modal().acceptPopUp();
+
+        try {
+            I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+        } catch (Exception e) {
+            if (flexTableId.contains("InternalFundingSource")) {
+                flexTableId = "Internal Funding Sources - All";
+            } else if (flexTableId.contains("Programs")) {
+                flexTableId = "Internal Programs - Active";
+            } else if (flexTableId.contains("flexGridAnnouncementList")) {
+                flexTableId = "Application Reviews - All";
+            } else if (flexTableId.contains("AllCloseouts")) {
+                flexTableId = "Closeouts - All";
+            } else if (flexTableId.contains("PhasePendingTasks")) {
+                flexTableId = "Pending Tasks (Assigned To Me)";
+            } else if (flexTableId.contains("ActiveFundingOpportunitiesAll")) {
+                flexTableId = "Published Announcements";
+            }
+            getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
+            getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
+        }
+       govgrants.perform().modal().acceptPopUp();
     }
+
 
     /**
      * click any table action icon using column
@@ -622,6 +642,21 @@ public final class FlexTable implements FlexTableComponent {
         return By.xpath(desiredAction);
     }
 
+    public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[text()='"+ flexTableId +"']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='"+ flexTableId +"']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='"+ flexTableId +"']/ancestor::gnt-flex-gridlwc//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
+            I.amPerforming().click().withJavaScript(desiredAction);
+        }
+
+    }
+
+    public void getTableActionIconforLWC(String flexTableId, String iconName, String... uniqueColumnValues) {
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + flexTableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[text()='" + flexTableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[text()='" + flexTableId + "']/ancestor::gnt-flex-gridlwc//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"']"));
+            I.amPerforming().click().on(desiredAction);
+        }
+
+    }
     /**
      * @param row
      * @param headerLabels

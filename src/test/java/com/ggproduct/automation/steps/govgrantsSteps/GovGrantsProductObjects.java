@@ -255,7 +255,11 @@ public final class GovGrantsProductObjects {
      * @modifiled mahadev.hanme
      */
     public void fillInReviewForm(String recommendation) {
-        govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
+        try{
+            govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
+        }catch(Exception e){
+            govgrants.perform().inputForms().completeFillingReviewFormForLwc(recommendation);
+        }
     }
 
     public void fillingInReviewForm(String recommendation) {
