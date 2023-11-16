@@ -2564,6 +2564,7 @@ Feature: Pre-Application scenarios without background
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     #180662
+    When I click on "Form Name" column header inside table with id "---preApplication:-:negotiationFormTableId---"
     Then I see value "true" for title "Needs Negotiation" against the value "Standard Pre-Application form" inside table "---preApplication:-:negotiationFormTableId---"
     #180665
     And I click on "Send to Subrecipient" in the page details
