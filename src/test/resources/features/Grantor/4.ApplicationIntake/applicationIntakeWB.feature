@@ -17,7 +17,7 @@ Feature: Application Intake scenarios without background
     Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
 
-  @70257 @73937 @73940 @73935 @73941 @70255 @70256 @spaUserCannotQualifyTheApplication @deepika
+  @70257 @73937 @73940 @73935 @73941 @70255 @70256 @spaUserCannotQualifyTheApplication @deepika @hiteshTemp
   Scenario: Validate as another SPI / SPA user should not be able to Qualify for the second time| Validate SPA user view the Create Application button in page details
   Validate SPA user can View the Qualified Application under 'Qualified' and not under 'Not Yet Qualified'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -797,7 +797,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication @deepika @needSupportingDocuSupportInAPI
+  @73516 @73517 @supportingDocValidationOnApplication @deepika @needSupportingDocuSupportInAPI @hiteshTemp
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -1101,7 +1101,7 @@ Feature: Application Intake scenarios without background
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$1,000.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
-  @34322 @zeroBudgetRequestedAmount @deepika
+  @34322 @zeroBudgetRequestedAmount @deepika @hiteshTemp
   Scenario: Verify SPI user is not able to Submit Application to Grantor with zero budget/requested amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1148,7 +1148,7 @@ Feature: Application Intake scenarios without background
       | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                                  |
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                            |
 
-  @76376 @76378 @contactAssociationforApplication @deepika
+  @76376 @76378 @contactAssociationforApplication @deepika @hiteshTemp
   Scenario Outline: Validate whether SPI user is allowed to add contacts while creating an Application | Validate whether created Application by SPI user(Record owner of Application)are visible for their child (SPA) organizations
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1181,7 +1181,7 @@ Feature: Application Intake scenarios without background
       | Contact        |
       | Automation SPA |
 
-  @77044 @34324 @requestedAmountMustBeLessThanCelingAmount @deepika
+  @77044 @34324 @requestedAmountMustBeLessThanCelingAmount @deepika @hiteshTemp
   Scenario: Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount less than Subaward Floor Amount |
   Validate when the supporting documents  checklist are not entered by Announcement owner then Applicant will not be able to upload any document while submitting the application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -2154,7 +2154,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064 @ValidateAppemailshouldbegeneratedfornewownerforAppifitrelatedAnnownershipassigntootheruser @sprint-4-US-197579 @vaibhav @reassignment
+  @197064 @ValidateAppemailshouldbegeneratedfornewownerforAppifitrelatedAnnownershipassigntootheruser @sprint-4-US-197579 @vaibhav @reassignment @hiteshTemp
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal

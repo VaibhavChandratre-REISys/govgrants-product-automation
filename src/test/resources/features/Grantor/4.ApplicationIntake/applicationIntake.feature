@@ -35,7 +35,7 @@ Feature: Validate all scenarios in the Application Intake
       | Focus Area                      |
       | Automation Permanent Focus Area |
 
-  @50964 @addBudgetDetailsToApplication
+  @50964 @addBudgetDetailsToApplication @hiteshTemp
   Scenario: Addition of budget in the budget grid to an application
     When I navigate to "Budget" sub tab
     And I expand nested table containing column value "BP01"
@@ -60,7 +60,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details contains:
       | Saved Successfully! |
 
-  @70333 @69367 @50969 @formFillingApplication @smoke
+  @70333 @69367 @50969 @formFillingApplication @smoke @hiteshTemp
   Scenario: To fill and complete the form in Application | Validate whether user is allowed to proceed without filling Mandatory forms
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -300,7 +300,7 @@ Feature: Validate all scenarios in the Application Intake
     #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
-  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @maxAppValidationError @deepika
+  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @maxAppValidationError @deepika @hiteshTemp
   Scenario: Validate whether User  will be able to view the following error message "Reached the Maximum number of Applications" when the limit has been reached.
   To verify Converted Opportunities should reflect under Opportunities "Converted to Application - Open" list view to External user
   | To verify ,search functionality for Opportunities Converted to Application - All section in opportunities tab

@@ -54,7 +54,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "Green"
 
-  @75596 @70248 @70664 @53154 @addBudgetDetailsToPreApplication @smoke
+  @75596 @70248 @70664 @53154 @addBudgetDetailsToPreApplication @smoke @hiteshTemp
   Scenario: Validate addition of budget in the budget grid to an pre-application |
   Validate User will be able to view the opportunity focus area in the application budget grid when the focus area settings as Yes while announcement creation
   Validate the SPI Users will be able to add new focus areas while creating an pre-application | Validate when the oppurtunity has only one focus area then user will not be able see any other focus areas when clicked on Add focus areas
@@ -204,7 +204,7 @@ Feature: Validate all scenarios in the Pre-Application
       | {SavedValue:Automation Runtime Announcement Application} | FO   |
       | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
-  @70468 @acknowledgeRequiredForPre-App @deepika
+  @70468 @acknowledgeRequiredForPre-App @deepika @hiteshTemp
   Scenario: Validate the system should throw an validation message if the pre-application is submitted with Acknowledging it
     Given I click on "Edit" in the page details
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"

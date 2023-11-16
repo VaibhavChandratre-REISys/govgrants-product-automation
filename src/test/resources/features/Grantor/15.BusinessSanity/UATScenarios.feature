@@ -144,7 +144,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     Then I softly see field "Status" as "Rejected"
 
-  @138494 @142313 @VerifyCreationOfPreApplicationWithSPIUser_PreApplication @monu
+  @138494 @142313 @VerifyCreationOfPreApplicationWithSPIUser_PreApplication @monu @hiteshTemp
   Scenario Outline: Validate External (Subrecipient) user should able to create Pre-Application
   |Verify user should able to Publish an Announcement|
     When I login to "As a Grantor" app as "EXE" user

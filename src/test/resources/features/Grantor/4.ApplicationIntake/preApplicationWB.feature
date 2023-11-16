@@ -177,7 +177,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-  @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487
+  @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487 @hiteshTemp
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -289,7 +289,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     Then I softly do not see "{SavedValue:Automation Runtime Announcement for Pre-Application}" has been added in "---preApplication:-:notYetQualifiedTable---" flex table
 
-  @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
+  @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487 @hiteshTemp
   Scenario: Validate whether user can change the pre-application due date while creating the pre-application
   Validate whether pre-application title field is editable while creating the pre-application | Validate whether the Announcement owner receives an email notification when the pre-application is submitted to grantor |
   Validate whether the external user recieves an email notification when the pre-application is accepted by the grantor
@@ -2034,7 +2034,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
 
 
-  @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav
+  @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav @hiteshTemp
   Scenario: Validate user should able to see Error Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2513,7 +2513,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
-  @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
+  @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav @hiteshTemp
   Scenario: Validate announcement owner should able to see the Forms and Files:Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2564,8 +2564,7 @@ Feature: Pre-Application scenarios without background
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     #180662
-    When I click on "Form Name" column header inside table with id "---preApplication:-:negotiationFormTableId---"
-    Then I see value "true" for title "Needs Negotiation" against the value "Standard Pre-Application form" inside table "---preApplication:-:negotiationFormTableId---"
+    Then I see value "check" for title "Needs Negotiation" against the value "Standard Pre-Application form" inside table "---preApplication:-:negotiationFormTableId---"
     #180665
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
@@ -2778,7 +2777,7 @@ Feature: Pre-Application scenarios without background
       | Directed          | ---announcement:-:annoucementTableId---             | Creation Second Modal        |
       | Formula           | ---announcement:-:formulaAnnouncementTableId---     | Creation_Formula_ByApplicant |
 
-  @180699 @VerifyIfFormselectedforedit&usernotadded"Files&Forms:Forms"inApplicationsection,usershouldgeterroronsenttos/rclickatgrantorside. @Sprint-10 @Vrishali
+  @180699 @VerifyIfFormselectedforedit&usernotadded"Files&Forms:Forms"inApplicationsection,usershouldgeterroronsenttos/rclickatgrantorside. @Sprint-10 @Vrishali @hiteshTemp
   Scenario: Verify If the Form is selected for edit, and user have not added the "Forms and Files: Forms" in the Application section, then user should get error on sent to s/r click at grantor side.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -4727,7 +4726,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @202442 @ValidatePreapptasktypeshouldberenamedforPOuserasReviewPre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment
+  @202442 @ValidatePreapptasktypeshouldberenamedforPOuserasReviewPre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment @hiteshTemp
   Scenario: Validate Pre app task type should be renamed for PO user as "Review Pre-Application" after pre-app submitted to grantor
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -4980,7 +4979,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment @buglogged-257254
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment @buglogged-257254 @hiteshTemp
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -5821,7 +5820,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
-  @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579 @vaibhav @reassignment
+  @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579 @vaibhav @reassignment @hiteshTemp
   Scenario: Validate Pre-app email should be generated for new owner for pre-app if it's related Ann ownership assign to new Ann user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -6235,7 +6234,7 @@ Feature: Pre-Application scenarios without background
       The EGMS Team
       """
 
-  @274555 @ValidatepeerreviewerPOcanseeappropriatefields&tablesregarding$whenpreapplicationissentforreview @Sprint-23-US-273843 @vaibhav @Allocation
+  @274555 @ValidatepeerreviewerPOcanseeappropriatefields&tablesregarding$whenpreapplicationissentforreview @Sprint-23-US-273843 @vaibhav @Allocation @hiteshTemp
   Scenario: Validate peer reviewer PO can see appropriate fields & tables regarding $ when preapplication is sent for review
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
