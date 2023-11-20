@@ -53,7 +53,7 @@ public final class PageDetails {
         return By.xpath("//*[contains(@class,'panel-footer')]//*[(local-name()='button' or local-name()='input') and not(contains(@class,'hidden')) and ("
                 + I.amPerforming().sanityOfXpathTo().equals("@title", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
-                + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")]");
+                + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] | ");
     }
 
     /**
@@ -170,6 +170,53 @@ public final class PageDetails {
         }
     }
 
+    public void clickSubTabsInsideTableViewForLWC(String tabName) {
+        By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
+        By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
+        By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
+//        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
+
+        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
+            I.amPerforming().waitFor().makeThreadSleep(4000);
+        }
+        // wait until any one of the subtab to be active to get rid of the issue of
+        // click effect is not taking place even after clicking on it.
+        try {
+            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
+        } catch (Exception ee) {
+            // Who cares!
+        }
+
+        try {
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
+                I.amPerforming().click().on(moreTabs);
+                I.amPerforming().click().on(desiredTab);
+                I.amPerforming().click().on(moreTabs);
+            } else {
+                I.amPerforming().click().on(desiredTab);
+            }
+        } catch (Exception ex) {
+            try {
+                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
+                I.amPerforming().waitFor().makeThreadSleep(3000);
+                I.amPerforming().click().withJavaScript(desiredTab, false);
+            } catch (Exception e) {
+                if (!EnvironmentFactory.getDevice().equalsIgnoreCase("firefox"))
+                    throw e;
+            }
+        }
+
+        try {
+            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
+                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     The click was not successful - Retrying with javaScript");
+                I.amPerforming().click().withJavaScript(desiredTab, false);
+            }
+        } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(desiredTab, false);
+        }
+    }
+
     /**
      * click on icon in rich text area editor menu at page layout
      *
@@ -251,7 +298,7 @@ public final class PageDetails {
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
         By progressBarStatusLocator = By.xpath("//div[@class='container-fluid']//*[@id='progressBarId']//ol//li" + "//span["
-                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')]");
+                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //div[contains(@class,'progressBarWrap')]//span[text()='" + statusName + "'] ");
         return I.amPerforming().getElementReference().of(progressBarStatusLocator);
     }
 
@@ -284,6 +331,11 @@ public final class PageDetails {
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(160, 160, 160)")) {
             trueColor = "grey";
+        }
+        else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(1, 68, 134")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
+            trueColor = "dark blue";
         }
 
         return trueColor;

@@ -44,6 +44,8 @@ public final class MainPage {
                     " | //li[contains(@class, 'main-title')]" +
                     " | //*[text()='GovGrants Launcher']" +
                     " | //a[text()=\"I Don't Want to Register My Phone\"]"),
+            loginResultLWC = By.xpath("//a[@title='Home']"),
+            switchToLighteningButton = By.xpath("//a[@class='switch-to-lightning']"),
             govGrantsLauncherButton = By.xpath("//ul/li/a[@title='GovGrants Launcher Tab']"),
             declinePhoneRegistrationButton = By.xpath("//a[text()=\"I Don't Want to Register My Phone\"]"),
             lightningDialogBox = By.xpath("//div[@class='overlayDialog tryLightning']");
@@ -114,6 +116,15 @@ public final class MainPage {
             try {
                 I.amPerforming().click().on(declinePhoneRegistrationButton);
                 I.amPerforming().waitFor().ElementToBePresent(loginResult);
+            } catch (Exception e) {
+                /* Ignore Exception */
+            }
+        }
+
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(switchToLighteningButton)) {
+            try {
+                I.amPerforming().click().on(switchToLighteningButton);
+                I.amPerforming().waitFor().ElementToBePresent(loginResultLWC);
             } catch (Exception e) {
                 /* Ignore Exception */
             }
@@ -285,11 +296,11 @@ public final class MainPage {
     }
 
     public void clickMainMenuBarForLwc(String tabName) {
-        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" +tabName + "' or @name='" + tabName + "']");
+        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "']");
         if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
             I.amPerforming().waitFor().makeThreadSleep(3000);
         }
-        I.amPerforming().click().on(mainMenuButton);
+        I.amPerforming().click().withJavaScript(mainMenuButton);
     }
 
     /**
@@ -482,7 +493,7 @@ public final class MainPage {
         for (File files : directory) {
             if (files.getName().endsWith(".xls")) {
                 new File(files.getAbsolutePath())
-                        .renameTo(new File(file.getAbsolutePath() + File.separator  + fileName + ".xls"));
+                        .renameTo(new File(file.getAbsolutePath() + File.separator + fileName + ".xls"));
                 extensionType = ".xls";
                 break;
             } else if (files.getName().endsWith(".csv")) {

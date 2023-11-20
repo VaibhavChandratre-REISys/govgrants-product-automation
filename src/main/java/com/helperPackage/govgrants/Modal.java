@@ -67,9 +67,9 @@ public final class Modal {
      */
     public void acceptPopUp() {
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')]"))) {
-                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')]"));
-                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class, 'modal-content')]//button[text()='Yes' or text()='Continue' or text()='Ok']")));
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal')]"))) {
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal')]"));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class, 'modal-content')]//button[text()='Yes' or text()='Continue' or text()='Ok'] | //div[contains(@class,'modal')]//button[text()='OK']")));
             }
         } catch (Exception e) {
 

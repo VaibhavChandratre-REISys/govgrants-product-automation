@@ -3,7 +3,8 @@ Feature: Validate all scenarios of every modules flow
 
   @programFlow @ValidateFullProgramFlow
   Scenario: Validate Full Program Flow
-    When I login to "As a Grantor" app as "dynamicUser" user
+    Given I am on "INTERNAL" portal
+    And I login as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -1536,9 +1537,20 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "AP-TAO modified-006" in "Pending Tasks (Assigned To Me)" panel
     And I click on "View" icon for "AP-TAO modified-006" inside flex table with id "Pending Tasks (Assigned To Me)"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
     And I click on "Submit" in the page details
     When I click alert button "OK"
     And I wait for "5" seconds
+
+  @vai
+  Scenario:
+    Given I am on "INTERNAL" portal
+    And I login as "ADMIN" user
+    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+
+    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
+    When I enter advance filter values inside id "advfGrantorTaskReassignment"
+      | EGMS ID | Contains | {SavedValue:ProgramEGMSID2} |

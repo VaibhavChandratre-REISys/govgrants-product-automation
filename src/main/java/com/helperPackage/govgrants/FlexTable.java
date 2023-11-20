@@ -125,8 +125,19 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableTopRightButton(String flexTableId, String buttonName) {
-        I.amPerforming().click().on(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
-        govgrants.perform().modal().acceptPopUp();
+        try {
+            I.amPerforming().click().on(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
+            govgrants.perform().modal().acceptPopUp();
+        }catch(Exception e) {
+            if (flexTableId.contains("GrantorServiceAreas")) {
+                flexTableId= "Focus";
+            }
+          else  if (flexTableId.contains("flexGridGrantorFocusAreaFiles")) {
+                flexTableId="Focus Area Files";
+            }
+            I.amPerforming().click().on(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+            govgrants.perform().modal().acceptPopUp();
+        }
     }
 
     /**
@@ -609,6 +620,21 @@ public final class FlexTable implements FlexTableComponent {
                 + " | "
                 + "//div[" + I.amPerforming().sanityOfXpathTo().contains("@class", "active") + "]//button[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
         );
+        try {
+            if(EnvironmentFactory.getProjectName().contains("OSPI") && ScenarioController.getScenario().getSourceTagNames().contains("@117618")){
+                I.amPerforming().checkToSee().isElementDisplayed(locator);
+            }
+            else{
+                I.amPerforming().waitFor().ElementToBePresent(locator, 2);
+            }
+        } catch (Exception ee) {
+            System.out.println("Element was not present...");
+        }
+        return locator;
+    }
+
+    public By getTopRightButtonLocatorByTableIdForLWC(String flexTableDivId, String buttonName) {
+        By locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or @text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or @text()='"+ buttonName +"']");
         try {
             if(EnvironmentFactory.getProjectName().contains("OSPI") && ScenarioController.getScenario().getSourceTagNames().contains("@117618")){
                 I.amPerforming().checkToSee().isElementDisplayed(locator);

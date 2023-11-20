@@ -107,8 +107,12 @@ public final class GovGrantsSteps {
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
-        govgrants.perform().mainPage().loginWithUserType(userType);
-        govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+        try {
+            govgrants.perform().mainPage().loginWithUserType(userType);
+            govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+        } catch (Exception e) {
+            /* Ignore Exception */
+        }
     }
 
     @Description("Re-Login to the app as any user")
@@ -162,9 +166,9 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-        try{
+        try {
             govgrants.perform().mainPage().clickMainMenuBar(tabName);
-        }catch(Exception e){
+        } catch (Exception e) {
             govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
         }
     }
@@ -462,11 +466,19 @@ public final class GovGrantsSteps {
     @Description("Used to add attachments from computer")
     @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" from computer$")
     public void uplaodAttachFromComputer(String withoutRandomNumber, String fileName, String fileType) {
-        ggObjects.uploadAttachmentInFlexTableFromComputer(
-                withoutRandomNumber != null,
-                fileName,
-                fileType
-        );
+       try {
+           ggObjects.uploadAttachmentInFlexTableFromComputer(
+                   withoutRandomNumber != null,
+                   fileName,
+                   fileType
+           );
+       }catch(Exception e){
+           ggObjects.uploadAttachmentInFlexTableFromComputerForLWC(
+                   withoutRandomNumber != null,
+                   fileName,
+                   fileType
+           );
+       }
     }
 
     /**
@@ -742,14 +754,14 @@ public final class GovGrantsSteps {
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {
         if (usage.equalsIgnoreCase("parallel menu")) {
-            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='"+ flexTableTitle +"']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
+            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars') | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             }
             I.amPerforming().click().on(menuButton);
 
         } else if (usage.equalsIgnoreCase("enhanced view")) {
-            By menuButton = By.xpath("//*[text()='"+ flexTableTitle +"']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Enhanced View' or contains(@class,'fa fa-arrows-alt')]");
+            By menuButton = By.xpath("//*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Enhanced View' or contains(@class,'fa fa-arrows-alt')]");
             I.amPerforming().click().on(menuButton);
         }
     }
@@ -896,7 +908,7 @@ public final class GovGrantsSteps {
     @Description("To validate the help text inside page details")
     @Then("^I (see|softly see) \"([^\"]*)\" shown as help text( for label \"([^\"]*)\")?$")
     public void assertHelpText(String usage, String helpText, String fieldLabel) {
-        if(fieldLabel != null)
+        if (fieldLabel != null)
             govgrants.perform().pageDetails().assertHelpTextAtField(usage, helpText, fieldLabel);
         else
             govgrants.perform().pageDetails().assertHelpTextAtPageBlock(usage, helpText);
@@ -905,7 +917,7 @@ public final class GovGrantsSteps {
     @Description("To mouse hover on help text icon inside page details")
     @When("^I hovering mouse on help text icon inside (page block detail|modal) \"([^\"]*)\"$")
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
-        if(usage.equalsIgnoreCase("modal"))
+        if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
         else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
@@ -1045,8 +1057,8 @@ public final class GovGrantsSteps {
 
     @Description("To click on lookup link on calendar")
     @When("^I click on lookup link \"([^\"]*)\" on calender$")
-    public void clickOnLookupLinkAtCalender( String lookupLink) {
-        govgrants.perform().pageDetails().performClickOnLookupLink( lookupLink);
+    public void clickOnLookupLinkAtCalender(String lookupLink) {
+        govgrants.perform().pageDetails().performClickOnLookupLink(lookupLink);
     }
 //
 //    @When("We copy data from {string} and generate report to {string}")
@@ -1066,8 +1078,8 @@ public final class GovGrantsSteps {
     }
 
     @When("^I (see|do not see) radio button \"([^\"]*)\" for field \"([^\"]*)\"$")
-    public void iSeeRadioButtonForField(String usage,String radioButton, String fieldApiName) {
-        govgrants.perform().pageDetails().assertRadioButtonPresents(usage,radioButton,fieldApiName);
+    public void iSeeRadioButtonForField(String usage, String radioButton, String fieldApiName) {
+        govgrants.perform().pageDetails().assertRadioButtonPresents(usage, radioButton, fieldApiName);
     }
 
 

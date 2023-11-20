@@ -24,8 +24,8 @@ public final class InputForms {
             ConflictOfInterestReviewFromPath = By.xpath("//span//input[@type='radio'][@value='I agree']"),
             formSectionTitles = By.xpath("//div[@class='panel-heading']//h3");
     private final By
-            ConflictOfInterestReviewForLwcFromPath = By.xpath("//span//input[@type='radio'][@value='I agree']"),
-            formSectionTitlesLwc = By.xpath("//div[@class='slds-box pblock']//span");
+            ConflictOfInterestReviewForLwcFromPath = By.xpath("//label//span[@class='slds-form-element__label']/../../input[@type='radio'][@value='I agree']"),
+            formSectionTitlesLwc = By.xpath("//div[@class='slds-box pblock']//span[contains(@class,'slds-text-heading_medium')]");
 
     /******* "Key Methods with complete functionality - Public" *****************/
 
@@ -131,9 +131,9 @@ public final class InputForms {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         By fieldWrapperLocator;
         if (isModal) {
-            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
         } else {
-            fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
            int size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
             if (size > 2){
                 fieldWrapperLocator=By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
@@ -215,7 +215,7 @@ public final class InputForms {
     public void completeFillingReviewFormForLwc(String recommendation) {
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewForLwcFromPath)) {
-                I.amPerforming().click().on(ConflictOfInterestReviewForLwcFromPath);
+                I.amPerforming().click().withJavaScript(ConflictOfInterestReviewForLwcFromPath);
             }
             I.amPerforming().click().on(By.xpath("//div[@class='slds-tabs_default']//li[@title='Review' or @name='Review']"));
             I.amPerforming().click().on(getSummaryRecommendationForLwcXpath());
@@ -245,11 +245,11 @@ public final class InputForms {
         for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
             for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
                 if (checkDropdownPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
-                   I.amPerforming().click().on(checkDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                   I.amPerforming().click().withJavaScript(checkDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     try {
-                        I.amPerforming().click().on(selectDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                        I.amPerforming().click().withJavaScript(selectDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     } catch (Exception e) {
-                        I.amPerforming().click().on(selectDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                        I.amPerforming().click().withJavaScript(selectDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     }
                 }
             }
@@ -284,15 +284,15 @@ public final class InputForms {
     }
 
     public void completeFillingReviewForm(String recommendation) {
-        try {
+//        try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
                 I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
             }
             I.amPerforming().dropDownSelection().from(getSummaryRecommendationXpath()).selectByValue(recommendation);
             I.amPerforming().textInput().in(getSummaryComments(), "Automation test description");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
         for (int i = 0; i < getTitlesInForm().size(); i++) {
             for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
                 if (checkTextAreaPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
@@ -474,6 +474,9 @@ public final class InputForms {
                     handleDropdownInput(fieldWrapper, fieldValue);
                 }
                 break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button")).size() > 0) {
+                handleDropdownInput(fieldWrapper, fieldValue);
+                break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
@@ -568,10 +571,17 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
-        By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
-        WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-        I.amPerforming().textInput().toClear(inputBox);
-        I.amPerforming().textInput().in(inputBox, fieldValue);
+       try {
+           By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
+           WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+           I.amPerforming().textInput().toClear(inputBox);
+           I.amPerforming().textInput().in(inputBox, fieldValue);
+       }catch(Exception e){
+           By attachmentDescriptionPath = By.xpath("//lightning-input-rich-text//div[@class='slds-rich-text-editor__textarea slds-grid editor ql-container']/div/p  | //div[@class='slds-rich-text-editor__textarea slds-grid']");
+           I.amPerforming().click().on(attachmentDescriptionPath);
+               WebElement attachmentDescriptionPath1 = I.amPerforming().getElementReference().of(ByUsing.xpath("//lightning-input-rich-text//div[@class='slds-rich-text-editor__textarea slds-grid editor ql-container']/div/p | //div[@class='slds-rich-text-editor slds-grid slds-grid_vertical slds-nowrap']//following-sibling::div//div[@role='textbox']"));
+               I.amPerforming().textInput().in(attachmentDescriptionPath1, fieldValue);
+       }
     }
 
     /**
@@ -837,8 +847,15 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleDropdownInput(WebElement fieldWrapper, String value) {
-        By dropDownSelector = By.xpath(".//select");
-        I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, dropDownSelector)).selectByVisibleText(value);
+        try {
+            By dropDownSelector = By.xpath(".//select");
+            I.amPerforming().getElementReference().of(dropDownSelector);
+            I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, dropDownSelector)).selectByVisibleText(value);
+        } catch(Exception e){
+            By dropDownSelector = By.xpath(".//button[@aria-haspopup='listbox']");
+            I.amPerforming().click().on(dropDownSelector);
+            I.amPerforming().click().on(By.xpath("//span[@title='"+ value +"']"));
+        }
     }
 
     /**
@@ -869,12 +886,19 @@ public final class InputForms {
      * @modifier aashish.pardeshi
      */
     private void openLookupModal(WebElement fieldWrapper) {
+        try {
         By searchButton = By.xpath(".//dd//span[@class='lookupInput']//a");
+            I.amPerforming().getElementReference().of(searchButton);
         By lookupTableHeader = By.xpath("//input[@id='LookupSearchReportText']");
-        WebElement searchIcon = I.amPerforming().getElementReference().ofNested(fieldWrapper, searchButton);
-        I.amPerforming().click().on(searchIcon);
-        I.amPerforming().getElementReference().of(lookupTableHeader);
-    }
+            WebElement searchIcon = I.amPerforming().getElementReference().ofNested(fieldWrapper, searchButton);
+            I.amPerforming().click().on(searchIcon);
+            I.amPerforming().getElementReference().of(lookupTableHeader);
+        } catch(Exception e) {
+           String Search = fieldWrapper.toString().split("//")[5].split("\'")[1];
+           I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']"));
+
+        }
+        }
 
     /**
      * handles perform quick search for action icon. gets the static variables from
@@ -1004,7 +1028,7 @@ public final class InputForms {
     }
 
     private int checkTextInputScorePresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]/input[@placeholder='Enter a Number']"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a Number']"), false).size();
     }
 
     private By getTextInputScoreReviewForm(String title, int qNumber) {
@@ -1121,7 +1145,7 @@ public final class InputForms {
     }
 
     private By selectDropdownReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button/../..//span[text()='Yes']");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button/../..//span[text()='Yes' or text()='Medium' ]");
     }
 
     /**

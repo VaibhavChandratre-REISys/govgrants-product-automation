@@ -123,7 +123,11 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+        try {
+            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+        }catch (Exception e){
+            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+        }
     }
 
     /**
@@ -398,6 +402,36 @@ public final class GovGrantsObjects {
         }
     }
 
+    public void uploadAttachmentInFlexTableFromComputerForLWC(Boolean withoutRandomNumber, String fileName, String fileType) {
+
+        By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");
+        By selectClassificationType = By.xpath("//span[normalize-space(text())='"+ fileType +"']");
+        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
+        String[] splitFileName = fileName.split("\\.");
+        String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
+        try {
+            // renamed file with random number
+            if (!withoutRandomNumber) {
+                renameFile(defaultFilePath, fileName, newFileName);
+            }
+            I.amPerforming().click().on(classificationType);
+            I.amPerforming().click().on(selectClassificationType);
+            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
+            I.amPerforming().click().on(By.xpath("//button[text()='Upload']"));
+        } finally {
+            try {
+                I.amPerforming().waitFor().makeThreadSleep(10000);
+                if (!withoutRandomNumber) {
+                    // renaming back to the original file name
+                    renameFile(defaultFilePath, newFileName, fileName);
+                }
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
     /**
      * complete steps to upload attachment on row level edit click inside attachment block
      * <p>
