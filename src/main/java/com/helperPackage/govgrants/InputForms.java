@@ -586,7 +586,7 @@ public final class InputForms {
            I.amPerforming().textInput().in(inputBox, fieldValue);
        }catch(Exception e){
            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
-           By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='"+ field +"']//div[contains(@class,'text-area')]//p");
+           By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='\"+ field +\"']//div[contains(@class,'text-area')] | //div[@data-field_api_name='"+ field +"']//div[contains(@class,'text-area')]//p");
            I.amPerforming().click().withJavaScript(inputBox);
            I.amPerforming().textInput().withJavaScript(inputBox, fieldValue);
 //           if (inputBox.equals("//div[@data-field_api_name='"+ field +"']//div[@aria-label='Compose text']//p")){
