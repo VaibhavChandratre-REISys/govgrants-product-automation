@@ -1544,13 +1544,3 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Submit" in the page details
     When I click alert button "OK"
     And I wait for "5" seconds
-
-  @vai
-  Scenario:
-    Given I am on "INTERNAL" portal
-    And I login as "ADMIN" user
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-
-    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
-    When I enter advance filter values inside id "advfGrantorTaskReassignment"
-      | EGMS ID | Contains | {SavedValue:ProgramEGMSID2} |

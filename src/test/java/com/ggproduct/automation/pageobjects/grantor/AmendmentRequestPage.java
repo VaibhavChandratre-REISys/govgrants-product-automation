@@ -43,7 +43,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
     }
 
     public void clickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
-        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select");
+        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
 
         try {
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)

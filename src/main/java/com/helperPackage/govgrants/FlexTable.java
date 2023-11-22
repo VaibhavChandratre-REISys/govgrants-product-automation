@@ -135,7 +135,24 @@ public final class FlexTable implements FlexTableComponent {
           else  if (flexTableId.contains("flexGridGrantorFocusAreaFiles")) {
                 flexTableId="Focus Area Files";
             }
-            I.amPerforming().click().on(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+            else  if (flexTableId.contains("GrantorMasterKPIs")) {
+                flexTableId="Key";
+            }
+            else  if (flexTableId.contains("InternalFundingSource")) {
+                flexTableId="Internal Funding";
+            }
+            else  if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
+                flexTableId="Funding Accounts";
+            }
+            else  if (flexTableId.contains("Programs")) {
+                flexTableId="Internal Programs";
+            }
+            else  if (flexTableId.contains("flexGridDataTableEnhanceProgramContacts")) {
+                flexTableId="Contacts";
+            }
+//            I.amPerforming().click().on(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+
             govgrants.perform().modal().acceptPopUp();
         }
     }
@@ -565,7 +582,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void flexTableShowEntriesDropDown(String flexTableId, String numberofEntries) {
         By entriesDropDown = ByUsing.xpath(
-                "//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select");
+                "//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         try {
             entriesDD.click();

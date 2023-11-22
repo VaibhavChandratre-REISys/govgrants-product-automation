@@ -298,7 +298,7 @@ public final class PageDetails {
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
         By progressBarStatusLocator = By.xpath("//div[@class='container-fluid']//*[@id='progressBarId']//ol//li" + "//span["
-                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //div[contains(@class,'progressBarWrap')]//span[text()='" + statusName + "'] ");
+                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='"+ statusName +"' and contains(@class,'active')]");
         return I.amPerforming().getElementReference().of(progressBarStatusLocator);
     }
 
@@ -333,7 +333,7 @@ public final class PageDetails {
             trueColor = "grey";
         }
         else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(1, 68, 134")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(7, 47, 87")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
             trueColor = "dark blue";
         }

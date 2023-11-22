@@ -65,6 +65,11 @@ public final class PhasePanel {
         I.amPerforming().click().on(doubleArrow);
     }
 
+    public void clickDoubleArrowtoggleForLWC(String anyItemContainedInDropDown) {
+        By doubleArrow = getDoubleArrowLocatorForLWC(anyItemContainedInDropDown);
+        I.amPerforming().click().on(doubleArrow);
+    }
+
     /**
      * genric method to get the double arrow dropdown
      *
@@ -157,6 +162,11 @@ public final class PhasePanel {
         I.amPerforming().click().on(doubleArrowDropDownItem);
     }
 
+    public void selectDoubleArrowDropDownItemForLWC(String menuItemNamee) {
+        By doubleArrowDropDownItem = By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "'] | //c-lwc-flex-table//lightning-button-menu//div//a//span[text()='" + menuItemNamee + "']");
+        I.amPerforming().click().on(doubleArrowDropDownItem);
+    }
+
     /**
      * get parallel bars like Menu with panel title name
      *
@@ -193,8 +203,13 @@ public final class PhasePanel {
      * @param anyItemContainedInDropDownnn
      */
     public void clickDoubleArrowDropDownAndSelectItem(String anyItemContainedInDropDownnn) {
-        clickDoubleArrowtoggle(anyItemContainedInDropDownnn);
-        selectDoubleArrowDropDownItem(anyItemContainedInDropDownnn);
+       try {
+           clickDoubleArrowtoggle(anyItemContainedInDropDownnn);
+           selectDoubleArrowDropDownItem(anyItemContainedInDropDownnn);
+       }catch (Exception e){
+           clickDoubleArrowtoggleForLWC(anyItemContainedInDropDownnn);
+           selectDoubleArrowDropDownItemForLWC(anyItemContainedInDropDownnn);
+       }
     }
 
     /**
@@ -345,6 +360,10 @@ public final class PhasePanel {
                 "//div[contains(@class,'panel-heading')]//span[@id='dropdownListView']/ul/li/a[@title='"
                 + anyItemContainedInDropDown
                 + "']/../../.. //span[contains(@class,'fa fa-angle-double-down')]");
+    }
+
+    private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
+        return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
     }
 
     private By getDoubleArrowToggleLocator(String termContainedInDataTarget) {

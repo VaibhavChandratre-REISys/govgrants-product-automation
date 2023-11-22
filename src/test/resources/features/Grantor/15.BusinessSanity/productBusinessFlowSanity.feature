@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression @regression
 Feature: Validate sanity testing of Complete Business Flow
 
- @vai @72335 @activationOfFocusArea
+  @72335 @activationOfFocusArea
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -29,7 +29,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @72337 @activationOFFundingSource
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
@@ -48,7 +48,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @72341 @programActivation
   Scenario: Validate the activation of Internal Program and the status changes to Active

@@ -10,6 +10,7 @@ import com.helperPackage.report.LogLevel;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -75,8 +76,13 @@ public final class InputForms {
                     }
                     // Switch to relevant tab
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-                        currentSubTab = subTab;
+                       try {
+                           govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+                           currentSubTab = subTab;
+                       }catch(Exception e){
+                           govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+                           currentSubTab = subTab;
+                       }
                     }
                     this.inputFormDataByFieldApiName(fieldApiName, fieldValue, isModal.contains("modal"));
                 }
@@ -460,6 +466,8 @@ public final class InputForms {
                     handleDateInput(fieldWrapper, fieldValue, false);
                 } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'dateInput')]")).size() > 0) {
                     handleDateInput(fieldWrapper, fieldValue, true);
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-datepicker")).size() > 0) {
+                    handleDateInput(fieldWrapper, fieldValue, false);
                 } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'lookupInput')]")).size() > 0) {
                     handleLookUpInput(fieldWrapper, fieldValue);
                 } else {
@@ -474,7 +482,7 @@ public final class InputForms {
                     handleDropdownInput(fieldWrapper, fieldValue);
                 }
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
                 handleDropdownInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
@@ -483,7 +491,7 @@ public final class InputForms {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
                 handleRadioButtonInput(fieldWrapper, fieldValue);
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//textarea[not(@warningchar)]")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
                 handleTextInput(fieldWrapper, fieldValue);
                 break;
             }
@@ -577,10 +585,10 @@ public final class InputForms {
            I.amPerforming().textInput().toClear(inputBox);
            I.amPerforming().textInput().in(inputBox, fieldValue);
        }catch(Exception e){
-           By attachmentDescriptionPath = By.xpath("//lightning-input-rich-text//div[@class='slds-rich-text-editor__textarea slds-grid editor ql-container']/div/p  | //div[@class='slds-rich-text-editor__textarea slds-grid']");
-           I.amPerforming().click().on(attachmentDescriptionPath);
-               WebElement attachmentDescriptionPath1 = I.amPerforming().getElementReference().of(ByUsing.xpath("//lightning-input-rich-text//div[@class='slds-rich-text-editor__textarea slds-grid editor ql-container']/div/p | //div[@class='slds-rich-text-editor slds-grid slds-grid_vertical slds-nowrap']//following-sibling::div//div[@role='textbox']"));
-               I.amPerforming().textInput().in(attachmentDescriptionPath1, fieldValue);
+           String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+           By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='"+ field +"']//div[@aria-label='Compose text']//p");
+           I.amPerforming().click().on(inputBox);
+           I.amPerforming().textInput().in(inputBox, fieldValue);
        }
     }
 
@@ -687,14 +695,25 @@ public final class InputForms {
      * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
-        WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));
+           WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));
 
-        DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+           DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
 
-        String inputValue = parseDateFieldValue(fieldValue, formatter);
+           String inputValue = parseDateFieldValue(fieldValue, formatter);
 
-        I.amPerforming().textInput().toClear(inputBox);
-        I.amPerforming().textInput().withJavaScript(inputBox, inputValue);
+           if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+               try {
+                   SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                   Date date = dt.parse(inputValue);
+                   SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                   inputValue = dt1.format(date);
+               }catch(Exception e){
+
+               }
+           }
+           I.amPerforming().textInput().toClear(inputBox);
+//           I.amPerforming().textInput().withJavaScript(inputBox, inputValue);
+           I.amPerforming().textInput().in(inputBox, inputValue);
 
         //makeCalendarPopupDisappear(inputBox);
     }
@@ -785,9 +804,19 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleLookUpInput(WebElement fieldWrapper, String searchTerm) {
-        openLookupModal(fieldWrapper);
-        performLookupQuickSearch(searchTerm);
-        selectLookupValue(searchTerm);
+       try {
+           openLookupModal(fieldWrapper);
+           performLookupQuickSearch(searchTerm);
+           selectLookupValue(searchTerm);
+       }catch(Exception e){
+           String Search = fieldWrapper.toString().split("//")[2].split("\'")[1];
+           I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']"));
+           By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']");
+           I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
+           I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+           By selectButtonLocator = By.xpath("//div[@title='"+ searchTerm +"']");
+           I.amPerforming().click().on(selectButtonLocator);
+       }
     }
 
     /**
@@ -852,7 +881,8 @@ public final class InputForms {
             I.amPerforming().getElementReference().of(dropDownSelector);
             I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, dropDownSelector)).selectByVisibleText(value);
         } catch(Exception e){
-            By dropDownSelector = By.xpath(".//button[@aria-haspopup='listbox']");
+            String table = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            By dropDownSelector = By.xpath("//div[@data-field_api_name='"+ table +"']//button[@aria-haspopup='listbox']");
             I.amPerforming().click().on(dropDownSelector);
             I.amPerforming().click().on(By.xpath("//span[@title='"+ value +"']"));
         }
@@ -886,18 +916,12 @@ public final class InputForms {
      * @modifier aashish.pardeshi
      */
     private void openLookupModal(WebElement fieldWrapper) {
-        try {
         By searchButton = By.xpath(".//dd//span[@class='lookupInput']//a");
             I.amPerforming().getElementReference().of(searchButton);
         By lookupTableHeader = By.xpath("//input[@id='LookupSearchReportText']");
             WebElement searchIcon = I.amPerforming().getElementReference().ofNested(fieldWrapper, searchButton);
             I.amPerforming().click().on(searchIcon);
             I.amPerforming().getElementReference().of(lookupTableHeader);
-        } catch(Exception e) {
-           String Search = fieldWrapper.toString().split("//")[5].split("\'")[1];
-           I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']"));
-
-        }
         }
 
     /**
@@ -907,22 +931,22 @@ public final class InputForms {
      * @author john.phillips
      */
     private void performLookupQuickSearch(String searchTerm) {
-        String tableId = I.amPerforming().actionToGet().attribute(By.xpath("//div[@id='ModalDivID']//div[1]"), "id");
-        By lookupInputBoxSelector = By.xpath("//div[@id='" + tableId + "']//div/input");
-        By lookUpSearchButton = By.xpath("//div[@id='" + tableId + "']//button//i[contains(@class, 'fa-search')]");
-        By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "' or @title='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
+           String tableId = I.amPerforming().actionToGet().attribute(By.xpath("//div[@id='ModalDivID']//div[1]"), "id");
+           By lookupInputBoxSelector = By.xpath("//div[@id='" + tableId + "']//div/input");
+           By lookUpSearchButton = By.xpath("//div[@id='" + tableId + "']//button//i[contains(@class, 'fa-search')]");
+           By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "' or @title='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
 
-        for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-             elapsedTime < EnvironmentFactory.getMaxWaitTime() * 2 && !I.amPerforming().checkToSee().IsElementPresentQuick(selectButtonLocator);
-             elapsedTime = (System.currentTimeMillis() - startTime) / 1000) {
-            try {
-                I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
-                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
-                I.amPerforming().click().on(lookUpSearchButton, false);
-            } catch (Exception e) {
-                /* Ignore Exception */
-            }
-        }
+           for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                elapsedTime < EnvironmentFactory.getMaxWaitTime() * 2 && !I.amPerforming().checkToSee().IsElementPresentQuick(selectButtonLocator);
+                elapsedTime = (System.currentTimeMillis() - startTime) / 1000) {
+               try {
+                   I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
+                   I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+                   I.amPerforming().click().on(lookUpSearchButton, false);
+               } catch (Exception e) {
+                   /* Ignore Exception */
+               }
+           }
     }
 
     /**
@@ -932,26 +956,27 @@ public final class InputForms {
      * @modifier nauman.shahid
      */
     private void selectLookupValue(String searchTerm) {
-        By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
-        try {
-            I.amPerforming().waitFor().makeThreadSleep(200);
-            I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
-            I.amPerforming().click().withMouse().on(selectButtonLocator);
-        } catch (StaleElementReferenceException stale) { // Exception handling added due to inappropriate refresh behaviour on orgs
-            I.amPerforming().waitFor().makeThreadSleep(500);
-            I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
-            I.amPerforming().click().withMouse().on(selectButtonLocator);
-        }
-        // Below block is only added to be executed if the click is performed but the record is not still selected
-
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(selectButtonLocator, false)) {
+            By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
+            try {
+                I.amPerforming().waitFor().makeThreadSleep(200);
+                I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
+                I.amPerforming().click().withMouse().on(selectButtonLocator);
+            } catch (
+                    StaleElementReferenceException stale) { // Exception handling added due to inappropriate refresh behaviour on orgs
                 I.amPerforming().waitFor().makeThreadSleep(500);
-                I.amPerforming().click().on(selectButtonLocator);
+                I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
+                I.amPerforming().click().withMouse().on(selectButtonLocator);
             }
-        } catch (Exception e) {
+            // Below block is only added to be executed if the click is performed but the record is not still selected
 
-        }
+            try {
+                if (I.amPerforming().checkToSee().isDisplayed(selectButtonLocator, false)) {
+                    I.amPerforming().waitFor().makeThreadSleep(500);
+                    I.amPerforming().click().on(selectButtonLocator);
+                }
+            } catch (Exception e) {
+
+            }
     }
 
     /******** Holds private methods for filling up of Review form ******/
