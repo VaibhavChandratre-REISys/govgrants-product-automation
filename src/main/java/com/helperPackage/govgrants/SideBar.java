@@ -53,7 +53,9 @@ public final class SideBar {
            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
        }catch(Exception e){
 //           handleSideBarContentExpanded(subHeaderName);
-           I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+//           I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+           I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
+
        }
     }
 

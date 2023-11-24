@@ -123,10 +123,10 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        try {
-            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-        }catch (Exception e){
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
             govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+        }else{
+            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
         }
     }
 

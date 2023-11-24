@@ -1,6 +1,7 @@
 package com.ggproduct.automation.steps.grantor;
 
 import com.ggproduct.automation.pageobjects.grantor.AmendmentRequestPage;
+import com.helperPackage.register.I;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.springframework.context.annotation.Description;
@@ -25,6 +26,22 @@ public class AmendmentRequestSteps {
 
     @When("I click {string} after selection of {string} by showing entries {string} in flex table with id {string}")
     public void iClickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberOfEntries, String flexTableId) {
-        amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableId.contains("AssociateProgramContacts")) {
+                flexTableId= "Contacts";
+            }
+           else if (flexTableId.contains("SelectProgramServiceArea")) {
+                flexTableId= "Focus Areas";
+            }
+            else if (flexTableId.contains("SelectGoals")) {
+                flexTableId= "Objectives";
+            }
+            else if (flexTableId.contains("SelectProgramKPIs")) {
+                flexTableId= "Key Performance Indicators";
+            }
+            amendmentRequestPage.clickAfterSelectionOfInTheTablesForLWC(buttonName, recordValue, numberOfEntries, flexTableId);
+        }
+        else
+            amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
     }
 }

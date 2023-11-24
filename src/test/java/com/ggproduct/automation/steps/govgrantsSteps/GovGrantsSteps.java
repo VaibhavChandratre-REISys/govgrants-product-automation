@@ -107,13 +107,12 @@ public final class GovGrantsSteps {
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
-        try {
+
             govgrants.perform().mainPage().loginWithUserType(userType);
-            govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
-        } catch (Exception e) {
-            /* Ignore Exception */
+           if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+               govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+           }
         }
-    }
 
     @Description("Re-Login to the app as any user")
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
@@ -394,11 +393,25 @@ public final class GovGrantsSteps {
 
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
-        govgrants.perform().flexTable().enterFlexTableRows(
-                flexTableId,
-                buttonName,
-                rowValues
-        );
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
+                flexTableId= "Approvers";
+            }
+            else if (flexTableId.contains("flexGridProgramChecklists")) {
+                flexTableId= "Supporting Documents Checklist";
+            }
+            govgrants.perform().flexTable().enterFlexTableRowsForLWC(
+                    flexTableId,
+                    buttonName,
+                    rowValues
+            );
+        } else {
+            govgrants.perform().flexTable().enterFlexTableRows(
+                    flexTableId,
+                    buttonName,
+                    rowValues
+            );
+        }
     }
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")

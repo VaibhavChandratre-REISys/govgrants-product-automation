@@ -1544,3 +1544,9 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Submit" in the page details
     When I click alert button "OK"
     And I wait for "5" seconds
+
+  @debug
+  Scenario:
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I wait for "10" seconds
+    When I "Approve" in the approval decision

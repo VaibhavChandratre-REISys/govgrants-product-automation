@@ -43,12 +43,27 @@ public class AmendmentRequestPage extends GrantorProjectManager {
     }
 
     public void clickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
-        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
 
         try {
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
                     || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
                 govgrants.perform().flexTable().flexTableShowEntriesDropDown(flexTableId, numberofEntries);
+            }
+        } catch (Exception e) {
+
+        }
+        govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordValue);
+        govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);
+    }
+
+    public void clickAfterSelectionOfInTheTablesForLWC(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
+        By entriesDropDown = ByUsing.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
+                    || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
+                govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
             }
         } catch (Exception e) {
 

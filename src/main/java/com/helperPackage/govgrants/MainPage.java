@@ -32,7 +32,7 @@ public final class MainPage {
             + " | "
             + "//div[@class='rowLevelOverlay'] | //div[@class='modalLoadIcon' and @style='display: block;']");
     private final By
-            loginDropDown = By.xpath("//div[contains(@class,'navTopHeader')]//li[@class='dropdown userDropdown']//a[@class='dropdown-toggle']"),
+            loginDropDown = By.xpath("//div[contains(@class,'navTopHeader')]//li[@class='dropdown userDropdown']//a[@class='dropdown-toggle'] | //div[contains(@class,'global-header')]//li//span[contains(@class,'oneUserProfileCardTrigger')]"),
             egmsHeader = By.xpath("//span[contains(@class, 'navbarBrandText')]"),
             topRightDropDown = By.cssSelector("div>ul>li.dropdown.appDropdown>a"),
             navProfile_CurrentApp = By.cssSelector("div#myNavbarProfile>ul>li>a>span"),
@@ -520,7 +520,7 @@ public final class MainPage {
 
     public By getLoginDropDownItems(String loginMenuItem) {
         return By
-                .xpath("//div/ul/li[contains(@class,'dropdown userDropdown')]/ul/li/a[@title='" + loginMenuItem + "']");
+                .xpath("//div/ul/li[contains(@class,'dropdown userDropdown')]/ul/li/a[@title='" + loginMenuItem + "'] | //div[contains(@class,'profile-card-toplinks')]//a[text()='" + loginMenuItem + "']");
     }
 
     /**

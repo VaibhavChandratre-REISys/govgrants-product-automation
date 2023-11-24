@@ -449,7 +449,7 @@ public final class PageDetails {
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = By.xpath(String.format(""
                                 // This option should work in all situations, if using the latest version of GovGrants
-                                + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
+                                + "//dt//span[contains(@class, 'customLabelstyle') and %s] | //div//label[contains(@class,'field-label')]",
                         matchLabelExactly
                                 ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
                                 : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
@@ -458,7 +458,7 @@ public final class PageDetails {
 
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd"));
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";

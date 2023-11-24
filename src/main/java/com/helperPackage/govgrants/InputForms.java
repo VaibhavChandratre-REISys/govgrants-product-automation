@@ -76,11 +76,11 @@ public final class InputForms {
                     }
                     // Switch to relevant tab
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                       try {
-                           govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-                           currentSubTab = subTab;
-                       }catch(Exception e){
+                        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
                            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+                           currentSubTab = subTab;
+                       }else{
+                           govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
                            currentSubTab = subTab;
                        }
                     }
@@ -579,16 +579,17 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
-       try {
-           By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
-           WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-           I.amPerforming().textInput().toClear(inputBox);
-           I.amPerforming().textInput().in(inputBox, fieldValue);
-       }catch(Exception e){
-           String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
-           By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='"+ field +"']//div[@aria-label='Compose text']//p");
-           I.amPerforming().click().on(inputBox);
-           I.amPerforming().textInput().in(inputBox, fieldValue);
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='"+ field +"']//div[contains(@class,'text-area')]");
+                I.amPerforming().click().withJavaScript(inputBox);
+                I.amPerforming().textInput().in(inputBox, fieldValue);
+       }else{
+            By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+            I.amPerforming().click().withJavaScript(inputBox);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
        }
     }
 
@@ -876,15 +877,15 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleDropdownInput(WebElement fieldWrapper, String value) {
-        try {
-            By dropDownSelector = By.xpath(".//select");
-            I.amPerforming().getElementReference().of(dropDownSelector);
-            I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, dropDownSelector)).selectByVisibleText(value);
-        } catch(Exception e){
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
             String table = fieldWrapper.toString().split("//")[2].split("\'")[1];
             By dropDownSelector = By.xpath("//div[@data-field_api_name='"+ table +"']//button[@aria-haspopup='listbox']");
             I.amPerforming().click().on(dropDownSelector);
             I.amPerforming().click().on(By.xpath("//span[@title='"+ value +"']"));
+        } else {
+            By dropDownSelector = By.xpath(".//select");
+            I.amPerforming().getElementReference().of(dropDownSelector);
+            I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, dropDownSelector)).selectByVisibleText(value);
         }
     }
 

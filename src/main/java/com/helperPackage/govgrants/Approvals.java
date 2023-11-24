@@ -15,8 +15,8 @@ public final class Approvals {
             userLookupLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[@class='select2-chosen']"),
             userLookupSearchLocator = By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/input"),
             userLookupResultsLocator = By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]/li/div"),
-            commentBoxLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//textarea"),
-            submitButtonLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//input[@value='Submit']"),
+            commentBoxLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//textarea | //c-approval-decision//textarea"),
+            submitButtonLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//input[@value='Submit'] | //c-approval-decision//button[@title='Submit' and text()='Submit']"),
             submitConfirmationLocator = By.xpath("//div[contains(@class,'modal-dialog')]/div[@class='modal-content']//button[contains(text(),'Continue')]"),
             approvalMessagesLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//div[contains(@class, 'alert')]//span");
 
@@ -24,7 +24,7 @@ public final class Approvals {
         return By.xpath("" +
                 "//div[@id='ApprovalDecisionComponent']//span/input[@name='myRadio' and " + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + "]" +
                 " | " +
-                "//div[@id='ApprovalDecisionComponent']//span[./text()[" + I.amPerforming().sanityOfXpathTo().equals(".", buttonName) + "]]/input[@name='myRadio']");
+                "//div[@id='ApprovalDecisionComponent']//span[./text()[" + I.amPerforming().sanityOfXpathTo().equals(".", buttonName) + "]]/input[@name='myRadio'] | //c-approval-decision//div//span[text()='" + buttonName + "']");
     }
 
     private By userLookupResultLocator(String userName) {
