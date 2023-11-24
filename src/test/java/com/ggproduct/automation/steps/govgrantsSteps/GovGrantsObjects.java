@@ -70,6 +70,9 @@ public final class GovGrantsObjects {
             else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesAll")) {
                 this.tableIdForQsearch="Published Announcements";
             }
+            else if (this.tableIdForQsearch.contains("GrantorActiveGrantsgrid")) {
+                this.tableIdForQsearch="Grants";
+            }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);

@@ -400,6 +400,9 @@ public final class GovGrantsSteps {
             else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
             }
+            else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
+                flexTableId= "Approvers";
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,

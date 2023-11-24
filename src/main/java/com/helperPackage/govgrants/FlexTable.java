@@ -151,6 +151,8 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Key Performance Indicators (KPIs)";
            } else if (flexTableId.contains("flexGridGrantorInternalProgramFiles")) {
                flexTableId = "Program Files";
+           } else if (flexTableId.contains("flexGridGrantorCloseOutRequest")) {
+               flexTableId = "Closeout Requests";
            }
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -184,6 +186,9 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
+            }
+            else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
+                flexTableId= "Grants";
             }
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -864,6 +869,7 @@ public final class FlexTable implements FlexTableComponent {
                 I.amPerforming().textInput().in(inputBox, fieldValue);
             By selectText = By.xpath("//input[@placeholder='Select an Option']/ancestor::div//li//span[text()='" + fieldValue + "']");
             if(I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
+                   I.amPerforming().click().withJavaScript(selectText);
                    I.amPerforming().click().withJavaScript(selectText);
                }
             }  else {
