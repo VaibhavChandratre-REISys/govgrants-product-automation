@@ -1,7 +1,7 @@
 @grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @grantAndAwardUndo
 Feature: Validate all scenarios of grants and award with undo
 
-  @286390 @VerifyPMSPIusershouldnotseeundobuttonincreatedsentforreviewreviewedsenttoSRbeforeapprovalsenttoSRafterapprovalAcceptSubmitforapprovalstateofaward @sprint-1-US-295145 @hitesh @Undo
+  @286390 @VerifyPMSPIusershouldnotseeundobuttonincreatedsentforreviewreviewedsenttoSRbeforeapprovalsenttoSRafterapprovalAcceptSubmitforapprovalstateofaward @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario: Verify PM/SPI user should not see undo button in created, sent for review, reviewed, sent to S\R before approval, sent to S\R after approval, Accept, Submit for approval state of award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -348,7 +348,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @286408 @VerifyEXEasstep4approvercanseeundobuttonafterapprovedtheaward @sprint-1-US-295145 @hitesh @Undo
+  @286408 @VerifyEXEasstep4approvercanseeundobuttonafterapprovedtheaward @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario:Verify EXE as step 4 approver can see undo button after approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -594,7 +594,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I see "{SavedValue:EXE Username}" against "Re-approval (Pending for first approval)" in approval history
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
 
-  @286441 @VerifyPOasstep2approverifIclickonUndobuttonthenapprovedawardtaskgotincancelledfromcompletedtasktableofapprover @sprint-1-US-295145 @hitesh @Undo
+  @286441 @VerifyPOasstep2approverifIclickonUndobuttonthenapprovedawardtaskgotincancelledfromcompletedtasktableofapprover @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario:Verify PO  as step 2 approver if I click on Undo button then approved award  task got in cancelled from completed task table of approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1594,7 +1594,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-  @286517 @Verifystep4approvercansenttoownertheawardafterclickonUndobuttonandupdatetheapproveronawardsoUndowilldisplaytoupdatedapproverafterapprovedtheaward @sprint-1-US-295145 @hitesh @Undo
+  @286517 @Verifystep4approvercansenttoownertheawardafterclickonUndobuttonandupdatetheapproveronawardsoUndowilldisplaytoupdatedapproverafterapprovedtheaward @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario: Verify step 4 approver can sent to owner the award after click on Undo button and update the approver on award so Undo will display to updated approver after approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1965,7 +1965,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "Green"
     Then I can see top right button "Undo" in page detail
 
-  @286539 @VerifynotificationemailshouldgeneratetonewownerofawardafterclickonUndobutton @sprint-1-US-295145 @hitesh @Undo
+  @286539 @VerifynotificationemailshouldgeneratetonewownerofawardafterclickonUndobutton @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario: Verify notification email should generate to new owner of award after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2377,7 +2377,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
 
-  @290067 @VerifyemailshouldbegeneratedtoawardownerandapproversafterforwardedapproverclickonUndobuttonandapprovaltaskshouldgetcanceledfromcompletedtask @Sprint-2-US-290067 @hitesh @Undo
+  @290067 @VerifyemailshouldbegeneratedtoawardownerandapproversafterforwardedapproverclickonUndobuttonandapprovaltaskshouldgetcanceledfromcompletedtask @Sprint-2-US-290067 @hitesh @Undo @TempApi
   Scenario: Verify email should be generated to award owner and approvers after forwarded approver click on Undo button and approval task should get canceled from completed task
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3002,7 +3002,7 @@ Feature: Validate all scenarios of grants and award with undo
       | {SavedValue:CumulativeObligation} | 3           |
       | {SavedValue:TotalCommitment}      | 3           |
 
-  @286503 @VerifyIfFOasstep3approverclickonUndobuttonthenemailshouldbegeneratedforallassignapproverandawardowner @sprint-1-US-295145 @hitesh @Undo
+  @286503 @VerifyIfFOasstep3approverclickonUndobuttonthenemailshouldbegeneratedforallassignapproverandawardowner @sprint-1-US-295145 @hitesh @Undo @TempApi
   Scenario: Verify If FO as step 3 approver click on Undo button then email should be generated for all assign approver and award owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3280,7 +3280,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I cannot see top right button "Edit" in page detail
 
-  @312330 @Grant&AwardVerifyuserseeupdatedvaluesdisplayonPDFforFAbudgetfiledafterundoishappenedandawardgrantapproved @sprint-7-US-304339 @hitesh @Undo
+  @312330 @Grant&AwardVerifyuserseeupdatedvaluesdisplayonPDFforFAbudgetfiledafterundoishappenedandawardgrantapproved @sprint-7-US-304339 @hitesh @Undo @TempApi
   Scenario: Grant & Award_ Verify user see updated values display on PDF for FA, budget filed after undo is happened and award/grant approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3645,7 +3645,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I "Approve" in the approval decision
     Then I softly see that "EGMS ID" is in "Active" status
 
-  @3123341 @Grant&AwardVerifyundobuttonisnotdisplayongrantinbeforeandafterundohappenedonawardinfollowingstatesofgrantaward @sprint-7-US-304339 @hitesh @Undo
+  @3123341 @Grant&AwardVerifyundobuttonisnotdisplayongrantinbeforeandafterundohappenedonawardinfollowingstatesofgrantaward @sprint-7-US-304339 @hitesh @Undo @TempApi
   Scenario: Grant & Award_ Verify undo button is not display on grant in before and after undo happened on award in following states of grant/award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3922,7 +3922,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see field "Status" as "Closed/Completed"
     Then I cannot see top right button "Undo" in page detail
 
-  @312322 @Grant&AwardVerifytocheckundobuttonvisibilityonprogramAnnandawardafterinheritedtheapprover @sprint-7-US-304339 @Undo
+  @312322 @Grant&AwardVerifytocheckundobuttonvisibilityonprogramAnnandawardafterinheritedtheapprover @sprint-7-US-304339 @Undo @TempApi
   Scenario: Grant & Award Verify to check undo button visibility on program Ann and award after inherited the approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4108,7 +4108,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see status in Progress-bar is "Approved" and is "green"
     Then I can see top right button "Undo" in page detail
 
-  @299541 @Verifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-295145 @hitesh @Undo
+  @299541 @Verifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-295145 @hitesh @Undo @TempApi
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

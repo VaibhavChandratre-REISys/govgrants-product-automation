@@ -14,7 +14,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
 
-  @51128 @51129 @65592 @69088 @awardCreationAndEdition
+  @51128 @51129 @65592 @69088 @awardCreationAndEdition @TempApi
   Scenario: Creation of an award and edition of an award
     Then I softly see status in Progress-bar is "Created" and is "Green"
     When I click on "Edit" in the page details
@@ -83,7 +83,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Construction    | 1000         | 10         | 90             |
     Then I see that "$10.00" has been added in flextable with Id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @51134 @allObjectiveAssociation
+  @51134 @allObjectiveAssociation @TempApi
   Scenario: Validate the association of Objective to Award
     When I navigate to "Performance" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:objectivesTableId---"
@@ -257,7 +257,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @jitendra @buglogged151483
+  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @jitendra @buglogged151483 @TempApi
   Scenario Outline: Validate the award send to recipient and acceptance by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1109,7 +1109,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
+  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071 @TempApi
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1292,7 +1292,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward @jitendra
+  @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward @jitendra @TempApi
   Scenario Outline: To verify that the peer reviewers can be added in the responsibility tab of Sub Award Risk Assessment phase by the Award owner(PM profile)
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1986,7 +1986,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66023 @errorMsgForRiskAssementAfterActivateAward @jitendra @buglogged127848
+  @66023 @errorMsgForRiskAssementAfterActivateAward @jitendra @buglogged127848 @TempApi
   Scenario Outline: To verify that after Activate Button on the award owner (PM ) profile is clicked without completing risk assessment validation error must appear
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2214,7 +2214,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:4" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297
+  @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297 @TempApi
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2758,7 +2758,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---subAwardStandAlone:-:progressReportScheduleChildTableId---"
     Then I verify that the Schedule start date is matching with Reporting Period start Date
 
-  @58735 @verifyProgressReportScheduleAutoCreatedWithFrequencyNotApplicable @mahadev
+  @58735 @verifyProgressReportScheduleAutoCreatedWithFrequencyNotApplicable @mahadev @TempApi
   Scenario Outline: Verify that Progress Reports Schedule is auto created with the frequency as 'not applicable' on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2958,7 +2958,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45752 @GrantDeletion  @mahadev @buglogged127950
+  @45752 @GrantDeletion  @mahadev @buglogged127950 @TempApi
   Scenario Outline: Deletion of award by owner
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3587,7 +3587,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
+  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev @TempApi
   Scenario: Verify award owner can add new Terms and Conditions on subaward Terms Tab |
   Verify New added Terms and Conditions are Editable by award owner on Subaward.
     And I navigate to "Terms" sub tab
@@ -3814,7 +3814,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65909 @65898 @65902 @65894 @65910 @validateUploadingDigitalSignatureDocument @mahadev
+  @65909 @65898 @65902 @65894 @65910 @validateUploadingDigitalSignatureDocument @mahadev @TempApi
   Scenario Outline: To verify that the attachment can be added by the award owner profile after peer review completion | Validate status after peer review
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4046,7 +4046,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev
+  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev @TempApi
   Scenario Outline: To verify that after the program approver is assigned task by the award owner from the Subaward in the created state it must appear in the pending task of the approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4168,7 +4168,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68482 @validatePeerReviewOnSubAward @aashish
+  @68482 @validatePeerReviewOnSubAward @aashish @TempApi
   Scenario Outline: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5239,7 +5239,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
+  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish @TempApi
   Scenario Outline: Validate that Subaward sent to the Subrecipient can be Edited and Viewed by all the member of the Same Org and the Changes made must be affected in the Subaward of all profile.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5593,7 +5593,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @monu
+  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @monu @TempApi
   Scenario Outline: Verify Approvers are inherited from award to closeout request record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5710,7 +5710,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @monu
+  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @monu @TempApi
   Scenario Outline: Verify the record owner can update the approver that are inherited from award program to closeout record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5950,7 +5950,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
+  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage @TempApi
   Scenario Outline: Validate After “Accept After Approval” Button Is Clicked On The Subrecipient Profile (SPIuser) View Noga Button Appears On The Top Right Corner Of The Page
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6122,7 +6122,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav
+  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav @TempApi
   Scenario Outline: Validate After “Accept After Approval ” Button Is Clicked On The (PMUser) View Noga Button Appears On The Top Right Corner Of The Page and compare amount on pdf
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

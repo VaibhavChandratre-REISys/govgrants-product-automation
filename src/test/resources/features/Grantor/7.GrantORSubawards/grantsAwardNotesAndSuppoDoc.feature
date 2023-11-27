@@ -660,7 +660,7 @@ Feature: Validate all scenarios of grants and award Notes and Supporting Documen
     Then I softly can see row level action button "Edit" against "Submitted Review State FO User Award Notes" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly can see row level action button "Delete" against "Submitted Review State FO User Award Notes" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
 
-  @236360 @236363 @236366 @236376 @ValidateEXEuserallowrecordeditingisyesthepeerreviewershouldabletoeditdeletethenotesinsentforreviewstate @Sprint-14-US-234263 @vaibhav @Notes
+  @236360 @236363 @236366 @236376 @ValidateEXEuserallowrecordeditingisyesthepeerreviewershouldabletoeditdeletethenotesinsentforreviewstate @Sprint-14-US-234263 @vaibhav @Notes @TempApi
   Scenario Outline: Validate EXE user allow record editing is yes then peer reviewer should able to edit & delete the notes in sent for review state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1417,7 +1417,7 @@ Feature: Validate all scenarios of grants and award Notes and Supporting Documen
     Then I softly see field "Status" as "Accepted"
     Then I cannot see top right button "Add" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
 
-  @236534 @ValidatewhenawardisinSenttoSrbeforeapprovalstatethenINDusersshouldabletoaddthenotes @Sprint-14-US-234263 @vaibhav @Notes
+  @236534 @ValidatewhenawardisinSenttoSrbeforeapprovalstatethenINDusersshouldabletoaddthenotes @Sprint-14-US-234263 @vaibhav @Notes @TempApi
   Scenario: Validate when award is in Sent to S/r before approval state then IND users should able to add the notes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1484,7 +1484,7 @@ Feature: Validate all scenarios of grants and award Notes and Supporting Documen
     Then I softly can see row level action button "Edit" against "Sent to SR State IND User Award Notes" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly can see row level action button "Delete" against "Sent to SR State IND User Award Notes" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
 
-  @236546 @236547 @ValidateINDusershouldnotabletoaddnoteswhenawardisActivatedstate @Sprint-14-US-234263 @vaibhav @Notes
+  @236546 @236547 @ValidateINDusershouldnotabletoaddnoteswhenawardisActivatedstate @Sprint-14-US-234263 @vaibhav @Notes @TempApi
   Scenario: Validate IND user should not able to add notes  when award is Activated state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2184,7 +2184,7 @@ Feature: Validate all scenarios of grants and award Notes and Supporting Documen
       | Award       | Optional | Award      | Active |
     Then I softly see value "Optional" for title "Required" against the value "Award" inside table "---subAwardStandAlone:-:grantSupportDocTableId---"
 
-  @223464 @ValidateINDusershouldnotseeerrormessageifusertriestosubmittheAwardtoGrantoronlyifinternalusercreateGrant&selectappliestoAwardandRequiredfieldisOptional @Sprint-10-US-217547 @vaibhav @SuppDoc
+  @223464 @ValidateINDusershouldnotseeerrormessageifusertriestosubmittheAwardtoGrantoronlyifinternalusercreateGrant&selectappliestoAwardandRequiredfieldisOptional @Sprint-10-US-217547 @vaibhav @SuppDoc @TempApi
   Scenario: Validate IND user should not see error message if user tries to submit the Award to Grantor only if internal user create Grant & select applies to=Award and Required field is 'Optional'
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab

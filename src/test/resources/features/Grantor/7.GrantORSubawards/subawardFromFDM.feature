@@ -17,7 +17,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @67486 @67485 @totalObligation @jitendra
+  @67486 @67485 @totalObligation @jitendra @TempApi
   Scenario: To validate that total obligation in the Financial table of funding account page navigated through the Funding account hyperlink present on the Subaward page of Grantor (Internal PM ) is the Sum of Pre-encumbrance, Encumbrance and the Spent value
     And I navigate to "Budget" sub tab
     And I click on hyperlink containing value "{SavedValue:fundingAccount}"
@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the award created from FDM
       | {SavedValue:FO Username} | Step 3 |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---subAwardFromFDM:-:awardApproverTableId---"
 
-  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI @bug-94597
+  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI @bug-94597 @TempApi
   Scenario Outline: Send an award to sub-recipient before approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -292,7 +292,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67671 @validateUsershouldAllowedToUseMoneyMoreThanPreEncumbranceAmount @jitendra
+  @67671 @validateUsershouldAllowedToUseMoneyMoreThanPreEncumbranceAmount @jitendra @TempApi
   Scenario Outline: Validate User is allowed to utilize money greater than Pre En-cumbrance Balance but less than available Balance
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -414,7 +414,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67665 @67564 @validateEncumberanceGreaterAndLessValue @jitendra
+  @67665 @67564 @validateEncumberanceGreaterAndLessValue @jitendra @TempApi
   Scenario: Validate that the encumbrance value should not be less than budget value before Submitting for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -455,7 +455,7 @@ Feature: Validate all scenarios in the award created from FDM
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
-  @67700 @emailNotificationAfterPMApproverSubaward @jitendra
+  @67700 @emailNotificationAfterPMApproverSubaward @jitendra @TempApi
   Scenario Outline: Validate that after program approver approves the subaward the mail generates for the Fiscal approver
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -590,7 +590,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67698 @validateEmailNotificationToAwardOwnerAfterAwardSubmission @monu @smoke
+  @67698 @validateEmailNotificationToAwardOwnerAfterAwardSubmission @monu @smoke @TempApi
   Scenario Outline: To Validate that email is getting generated for award owner once user submit subaward for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1181,7 +1181,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @45745 @VerifyAwardRejectionByS/R @keerti @bug-94597
+  @45745 @VerifyAwardRejectionByS/R @keerti @bug-94597 @TempApi
   Scenario Outline: Validate the rejection of award by recipient after approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1359,7 +1359,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64785  @verifyAnnoucementNameCarryForwardedOnGrant
+  @64785  @verifyAnnoucementNameCarryForwardedOnGrant @TempApi
   Scenario Outline: Verify Announcement Name is carried forward to Grant Title on grant which is created with application
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1435,7 +1435,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64722 @VerifyRelatedFocusAreasField @keerti
+  @64722 @VerifyRelatedFocusAreasField @keerti @TempApi
   Scenario Outline: Verify Related Focus Areas field value setup tab overview at announcement is same on grant which is created with application Overview Tab.
     When I navigate to "Announcements" tab
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
@@ -1455,7 +1455,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65409  @verifyErrorMessageForFocusArea
+  @65409  @verifyErrorMessageForFocusArea @TempApi
   Scenario Outline: To verify the action on adding a focus area start and end end date in between the budget period date in the budget tab of subaward phase in the award owner profile PM User category
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1523,7 +1523,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65412 @addFederalProgram @bug-94597
+  @65412 @addFederalProgram @bug-94597 @TempApi
   Scenario Outline: To verify that federal program can be added from the award owner profile in overview tab after the sub award is accepted by the sub recipient
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1754,7 +1754,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67661 @71124 @71125 @71123 @addAnotherFundingAccountAfterSubawardAccepted @jitendra
+  @67661 @71124 @71125 @71123 @addAnotherFundingAccountAfterSubawardAccepted @jitendra @TempApi
   Scenario Outline: Validate that the new Funding account can be added before Approval by award-owner.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
