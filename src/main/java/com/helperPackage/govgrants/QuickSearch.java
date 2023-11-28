@@ -5,6 +5,7 @@ import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.objects.Elements;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -90,7 +91,7 @@ public class QuickSearch {
 
     public void performTableSpecificQuickSearchLwc(String tableId, String searchTerm) throws TestingBlazeCustomException {
         boolean flag = false;
-        By searchInputBox = By.xpath("//span[text()='"+ tableId +"']/ancestor::gnt-flex-table-l-w-c//input[contains(@id,'input')] | //span[text()='"+ tableId +"']/ancestor::c-lwc-flex-table//input[contains(@id,'input')]");
+        By searchInputBox = By.xpath("//span[contains(text(),'"+ tableId +"')]/ancestor::gnt-flex-table-l-w-c//input[contains(@id,'input')] | //span[contains(text(),'"+ tableId +"')]/ancestor::c-lwc-flex-table//input[contains(@id,'input')]");
         List<Elements> quickSearchElements = I.amPerforming().getElementReference().forListOfElements().of(searchInputBox);
         for (Elements quickSearch : quickSearchElements) {
             flag = handleQuickSearchLwc(quickSearch, tableId, searchTerm);
@@ -199,6 +200,7 @@ public class QuickSearch {
         try {
             searchElement.clearText();
             searchElement.enterText(searchTerm);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
             flag = true;
         } catch (Exception e) {
             try {

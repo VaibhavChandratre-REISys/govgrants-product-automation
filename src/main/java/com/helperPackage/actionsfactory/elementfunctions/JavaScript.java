@@ -129,6 +129,10 @@ public final class JavaScript {
         js.executeScript("arguments[0].scrollIntoView(true);", locator);
     }
 
+    public void scrollVericallyByAxis() {
+        js.executeScript("window.scrollBy(0,50)");
+    }
+
     /**
      * scroll a specific element to the center of the page
      * Concept for function derived from:

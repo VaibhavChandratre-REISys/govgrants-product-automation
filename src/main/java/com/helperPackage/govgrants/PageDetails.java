@@ -182,11 +182,11 @@ public final class PageDetails {
         }
         // wait until any one of the subtab to be active to get rid of the issue of
         // click effect is not taking place even after clicking on it.
-        try {
-            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
-        } catch (Exception ee) {
-            // Who cares!
-        }
+//        try {
+//            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
+//        } catch (Exception ee) {
+//            // Who cares!
+//        }
 
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {

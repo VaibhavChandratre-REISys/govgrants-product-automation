@@ -2546,7 +2546,7 @@ public class GrantorPayloads {
         buildUpItems.addProperty("CashMatch", 100);
         buildUpItems.addProperty("NonCashMatch", 100);
         buildUpItems.add("OtherLeverageOptional", JsonNull.INSTANCE);
-        buildUpItems.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.addProperty("ServiceAreaName", "Automation Permanent Focus Area 4567");
         buildUpItemsA.add(buildUpItems);
         parent.add("BuildUpItems", buildUpItemsA);
 
@@ -2581,7 +2581,7 @@ public class GrantorPayloads {
 
         JsonObject awardServiceArea = new JsonObject();
         JsonArray awardServiceAreaArray = new JsonArray();
-        awardServiceArea.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area"));
+        awardServiceArea.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area 4567"));
         awardServiceArea.addProperty("GATStartDate",
                 I.amPerforming()
                         .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));

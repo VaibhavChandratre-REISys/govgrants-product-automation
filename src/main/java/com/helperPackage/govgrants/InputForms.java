@@ -138,6 +138,7 @@ public final class InputForms {
         By fieldWrapperLocator;
         if (isModal) {
             fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
+            I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
         } else {
             fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
            int size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
@@ -151,6 +152,7 @@ public final class InputForms {
             }
         }
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         I.amPerforming().scroll().toElementCenter(fieldWrapperLocator);
         if ("".equalsIgnoreCase(fieldValue)) {
             handleClearingFormDataInputs(fieldWrapper);
@@ -482,7 +484,10 @@ public final class InputForms {
                     handleDropdownInput(fieldWrapper, fieldValue);
                 }
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
+            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-picklist")).size() > 0) {
+                handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                break;
+            }else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
                 handleDropdownInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
@@ -580,11 +585,19 @@ public final class InputForms {
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
-            By inputBox = By.xpath("//div[@data-field_api_name='"+ field +"']//input[@type='text'] | //div[@data-field_api_name='"+ field +"']//div[contains(@class,'text-area')]");
+            if(field.contains("field")) {
+                String field1 = field.toString().split("field")[1];
+                By inputBox1 = By.xpath("//div[@data-field_api_name='"+ field1 +"']//input[@type='text'] | //div[@data-field_api_name='"+ field1 +"']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+                I.amPerforming().click().withJavaScript(inputBox1);
+                I.amPerforming().textInput().in(inputBox1, fieldValue);
+            } else {
+                By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
                 I.amPerforming().click().withJavaScript(inputBox);
                 I.amPerforming().textInput().in(inputBox, fieldValue);
-       }else{
+            }
+       }  else{
             By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
             WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
             I.amPerforming().click().withJavaScript(inputBox);
@@ -840,17 +853,29 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleMultiSelectInput(WebElement fieldWrapper, String[] valueList) {
-        By selects = By.xpath(".//select");
-        if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selects).size() > 1) {
-            By addButtonSelector = By.xpath(".//img[@title='Add']//..");
-            By optionsSelector = By.xpath(".//optgroup[@label='Available']//..");
-            for (String value : valueList) {
-                I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, optionsSelector)).selectByVisibleText(value);
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            By selectList = By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]");
+            if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selectList).size() > 1) {
+                By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Chosen']");
+                for (String value : valueList) {
+                    I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]//span[text()='" + value + "']"));
+                }
+                I.amPerforming().click().withJavaScript(addButtonSelector);
             }
-            I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(fieldWrapper, addButtonSelector));
-        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selects).size() == 1) {
-            for (String value : valueList) {
-                I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, selects)).selectByVisibleText(value);
+        } else {
+            By selects = By.xpath(".//select");
+            if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selects).size() > 1) {
+                By addButtonSelector = By.xpath(".//img[@title='Add']//..");
+                By optionsSelector = By.xpath(".//optgroup[@label='Available']//..");
+                for (String value : valueList) {
+                    I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, optionsSelector)).selectByVisibleText(value);
+                }
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(fieldWrapper, addButtonSelector));
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selects).size() == 1) {
+                for (String value : valueList) {
+                    I.amPerforming().dropDownSelection().from(I.amPerforming().getElementReference().ofNested(fieldWrapper, selects)).selectByVisibleText(value);
+                }
             }
         }
     }
@@ -879,9 +904,27 @@ public final class InputForms {
     private void handleDropdownInput(WebElement fieldWrapper, String value) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
             String table = fieldWrapper.toString().split("//")[2].split("\'")[1];
-            By dropDownSelector = By.xpath("//div[@data-field_api_name='"+ table +"']//button[@aria-haspopup='listbox']");
-            I.amPerforming().click().on(dropDownSelector);
-            I.amPerforming().click().on(By.xpath("//span[@title='"+ value +"']"));
+            if(table.contains("field")){
+                String table1 = table.toString().split("field")[1];
+                By dropDownSelector1 = By.xpath("//div[@data-field_api_name='"+ table1 +"']//button[@aria-haspopup='listbox']");
+                try {
+                    I.amPerforming().waitFor().ElementListToBePresent(dropDownSelector1);
+                    I.amPerforming().click().on(dropDownSelector1);
+                    I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
+                }catch(Exception e){
+                    I.amPerforming().click().withJavaScript(dropDownSelector1);
+                    I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
+                }
+            } else {
+                By dropDownSelector = By.xpath("//div[@data-field_api_name='"+ table +"']//button[@aria-haspopup='listbox']");
+                try {
+                    I.amPerforming().click().on(dropDownSelector);
+                    I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
+                }catch(Exception e){
+                    I.amPerforming().click().withJavaScript(dropDownSelector);
+                    I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
+                }
+            }
         } else {
             By dropDownSelector = By.xpath(".//select");
             I.amPerforming().getElementReference().of(dropDownSelector);

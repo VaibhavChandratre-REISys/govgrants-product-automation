@@ -255,6 +255,7 @@ public final class MainPage {
      * click on logout menu.
      */
     public void clickLoginDropDown() {
+        I.amPerforming().waitFor().ElementToBePresent(loginDropDown);
         I.amPerforming().click().on(loginDropDown);
     }
 
@@ -278,6 +279,7 @@ public final class MainPage {
      * @return
      */
     public void clickLoginDropDownItems(String loginMenuItem) {
+        I.amPerforming().waitFor().ElementToBePresent(getLoginDropDownItems(loginMenuItem));
         I.amPerforming().click().on(getLoginDropDownItems(loginMenuItem));
     }
 

@@ -44,14 +44,14 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);
             } else {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
             }
-        } catch (Exception e) {
+        } else {
             if (this.tableIdForQsearch.contains("InternalFundingSource")) {
                 this.tableIdForQsearch="Internal Funding Sources - All";
             }
@@ -72,6 +72,18 @@ public final class GovGrantsObjects {
             }
             else if (this.tableIdForQsearch.contains("GrantorActiveGrantsgrid")) {
                 this.tableIdForQsearch="Grants";
+            }
+            else if (this.tableIdForQsearch.contains("GrantorPaymentRequestReimbursement")) {
+                this.tableIdForQsearch="Reimbursements";
+            }
+            else if (this.tableIdForQsearch.contains("SoleSourceAwardRecipientsTable")) {
+                this.tableIdForQsearch="Organizations";
+            }
+            else if (this.tableIdForQsearch.contains("FDMList1")) {
+                this.tableIdForQsearch="Funding Decision Memos";
+            }
+            else if (this.tableIdForQsearch.contains("FundingDecisionMemoApplicationsgrid")) {
+                this.tableIdForQsearch="Recommended Applications";
             }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
@@ -96,10 +108,10 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        try {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickLoginDropDown();
-            govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
-        } catch (Exception e) {
+            govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
+        } else {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(1000);
                 govgrants.perform().mainPage().clickLoginDropDown();

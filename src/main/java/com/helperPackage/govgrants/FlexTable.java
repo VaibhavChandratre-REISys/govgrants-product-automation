@@ -1,17 +1,22 @@
 package com.helperPackage.govgrants;
 
 
+import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.interfaces.FlexTableComponent;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.controller.ScenarioController;
 import com.helperPackage.objects.Elements;
+import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.sql.SQLOutput;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -153,6 +158,16 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Program Files";
            } else if (flexTableId.contains("flexGridGrantorCloseOutRequest")) {
                flexTableId = "Closeout Requests";
+           }else if (flexTableId.contains("ActiveFundingOpportunitiesFormula")) {
+               flexTableId = "Formula Announcements";
+           }else if (flexTableId.contains("flexGridAnnouncementFundingAccountGrantor")) {
+               flexTableId = "Funding Accounts";
+           }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
+               flexTableId = "Budget Period Details";
+           }else if (flexTableId.contains("AnnouncementContacts")) {
+               flexTableId = "Contacts";
+           }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
+               flexTableId = "Applicants";
            }
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -168,9 +183,9 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
 
-        try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
-        } catch (Exception e) {
+        } else {
             if (flexTableId.contains("InternalFundingSource")) {
                 flexTableId = "Internal Funding Sources - All";
             } else if (flexTableId.contains("Programs")) {
@@ -189,6 +204,18 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
                 flexTableId= "Grants";
+            }
+            else if (flexTableId.contains("GrantorPaymentRequestReimbursement")) {
+                flexTableId= "Reimbursements";
+            }
+            else if (flexTableId.contains("flexGridPaymentFundingAccountsEnhanced")) {
+                flexTableId = "Subaward Funding Account Information";
+            }
+            else if (flexTableId.contains("FDMList1")) {
+                flexTableId="Funding Decision Memos";
+            }
+            else if (flexTableId.contains("FundingDecisionMemoApplicationsgrid")) {
+                flexTableId="Recommended Applications";
             }
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -475,8 +502,8 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
-            I.amPerforming().click().on(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
-                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
+                I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
+                        + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
         }
     }
 
@@ -506,20 +533,20 @@ public final class FlexTable implements FlexTableComponent {
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         waitForFlexTablesToLoad();
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         } catch (Exception ee) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         }
         for (String key : flexTableMap.keySet()) {
-            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
+            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
             Map<String, String> currentRowValues = flexTableMap.get(key);
             WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
 
             if (mapColumnHeaderToColumnPosition == null) {
                 mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
             }
-
+            I.amPerforming().waitFor().makeThreadSleep(3000);
             clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
@@ -529,8 +556,8 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
-            I.amPerforming().click().on(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
-                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
+                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
         }
     }
 
@@ -750,7 +777,7 @@ public final class FlexTable implements FlexTableComponent {
 
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         for (String uniqueColumnValue : uniqueColumnValues) {
-            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[text()='"+ flexTableId +"']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='"+ flexTableId +"']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='"+ flexTableId +"']/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
+            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
             I.amPerforming().click().withJavaScript(desiredAction);
         }
 
@@ -758,7 +785,7 @@ public final class FlexTable implements FlexTableComponent {
 
     public void getTableActionIconforLWC(String flexTableId, String iconName, String... uniqueColumnValues) {
         for (String uniqueColumnValue : uniqueColumnValues) {
-            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + flexTableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[text()='" + flexTableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[text()='" + flexTableId + "']/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"']"));
+            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"'] | //span[contains(text(),'"+ flexTableId +"')]/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" +iconName +"']"));
             I.amPerforming().click().on(desiredAction);
         }
 
@@ -808,8 +835,7 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='search']")).size() > 0) {
                 handleFlexTableLookupInputForLWC(fieldWrapper, fieldValue);
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[(@type='text' or @type='number' or @type='email') and not(@time-picker or @date-time-picker or @e-grid-date-picker)] | .//textarea"))
-                    .size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[(@type='text' or @type='number' or @type='email') and not(@time-picker or @date-time-picker or @e-grid-date-picker)] | .//textarea")).size() > 0) {
                 handleTextInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='text' and (@time-picker or @date-time-picker or @e-grid-date-picker)]"))
@@ -863,20 +889,43 @@ public final class FlexTable implements FlexTableComponent {
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-                By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' or @placeholder='Select an Option'] | .//lightning-input//input[@type='text' or @placeholder='Select an Option'] | .//textarea");
+            if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' or @placeholder='Select an Option'] | .//lightning-input//input[@type='text' and @placeholder='Select an Option']")).size() > 0) {
+                By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' and @placeholder='Select an Option'] | .//lightning-input//input[@type='text' and @placeholder='Select an Option'] | .//textarea");
                 WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+//                I.amPerforming().scroll().onPageToSpecificElement(inputBox);
                 I.amPerforming().click().withJavaScript(inputBoxSelector);
-                I.amPerforming().textInput().in(inputBox, fieldValue);
-            By selectText = By.xpath("//input[@placeholder='Select an Option']/ancestor::div//li//span[text()='" + fieldValue + "']");
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
-                   I.amPerforming().click().withJavaScript(selectText);
-                   I.amPerforming().click().withJavaScript(selectText);
-               }
-            }  else {
+                    for (int i = 0; i < 50; i++) {
+                        try {
+                            By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
+                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
+                            I.amPerforming().click().withJavaScript(selectText);
+                            if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
+                                try {
+                                    I.amPerforming().click().on(selectText);
+                                } catch (Exception e) {
+                                    I.amPerforming().click().withJavaScript(selectText);
+                                }
+                            }
+                            break;
+                        } catch (Exception e) {
+
+                        }
+
+                    }
+            }
+            else {
                 By inputBoxSelector = By.xpath(".//input[@type='text' or @type='number' or @type='email'] | .//textarea");
                 WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
                 I.amPerforming().textInput().toClear(inputBox);
                 I.amPerforming().textInput().in(inputBox, fieldValue);
+            }
+        }
+        else {
+            By inputBoxSelector = By.xpath(".//input[@type='text' or @type='number' or @type='email'] | .//textarea");
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
             }
         }
     /**

@@ -766,6 +766,39 @@ public final class GovGrantsAssertionObjects {
 
     }
 
+    public void assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(String tableId, String uniqueColumnValue,
+                                                                        String buttonName, boolean shouldBeVisible, boolean isSoftly) {
+        String columnValueUpdated = uniqueColumnValue;
+        if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+//            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
+        I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/following::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button")));
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "']"), false);
+        if (shouldBeVisible) {
+            for (Elements element : elements) {
+                if (element.isDisplayed()) {
+                    return;
+                }
+            }
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat("Button is present").isEqualTo("Button was not present, or not displayed");
+            } else {
+                Assert.fail("Button was not present, or not displayed");
+            }
+        } else {
+            for (Elements element : elements) {
+                if (element.isDisplayed()) {
+                    if (isSoftly) {
+                        I.amPerforming().assertionsTo().assertThat("Button is not present").isEqualTo("Button was present and displayed");
+                    } else {
+                        Assert.fail("Button was present and displayed");
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * get sub tab inside detail each main detail page like overview etc.
      *

@@ -126,10 +126,14 @@ public final class GovGrantsSteps {
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user on \"([^\"]*)\" portal$")
     public void reloginToggleToAppInURL(String appName, String userType, String portalType) {
         try {
+            I.amPerforming().waitFor().makeThreadSleep(5000);
             ggObjects.clickLogOut();
+            I.amPerforming().waitFor().makeThreadSleep(7000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
-            govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+            }
         } catch (Exception e) {
             if (I.amPerforming().checkToSee().isElementDisplayed(ByUsing.xpath("//a[@title='GovGrants Launcher Tab']"))) {
                 By GovtGrantLauncher = ByUsing.xpath("//a[@title='GovGrants Launcher Tab']");
@@ -403,6 +407,15 @@ public final class GovGrantsSteps {
             else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
             }
+            else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
+                flexTableId= "Approvers";
+            }
+            else if (flexTableId.contains("flexGridPaymentLineItems")) {
+                flexTableId= "Payment Line Items";
+            }
+            else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
+                flexTableId= "Approvers";
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,
@@ -419,11 +432,34 @@ public final class GovGrantsSteps {
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
-        govgrants.perform().flexTable().editFlexTableRowsInline(
-                flexTableId,
-                editButtonName,
-                I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
-        );
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
+                flexTableId = "Approvers";
+            } else if (flexTableId.contains("flexGridProgramChecklists")) {
+                flexTableId = "Supporting Documents Checklist";
+            } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
+                flexTableId = "Approvers";
+            } else if (flexTableId.contains("flexGridAnnouncementFundingAccountGrantor")) {
+                flexTableId = "Funding Accounts";
+            } else if (flexTableId.contains("flexGridPaymentFundingAccountsEnhanced")) {
+                flexTableId = "Subaward Funding Account Information";
+            }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
+                flexTableId = "Applicants";
+            }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
+                flexTableId = "Budget Period Details";
+            }
+            govgrants.perform().flexTable().editFlexTableRowsInline(
+                    flexTableId,
+                    editButtonName,
+                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+            );
+        } else {
+            govgrants.perform().flexTable().editFlexTableRowsInline(
+                    flexTableId,
+                    editButtonName,
+                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+            );
+        }
     }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")

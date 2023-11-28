@@ -178,13 +178,26 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
-        ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
-                tableId,
-                uniqueColumnValue,
-                buttonName,
-                ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                usage.contains("softly")
-        );
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (tableId.contains("flexGridCompletedNegotiations")) {
+                tableId = "Completed Negotiations";
+            }
+            ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
+                    tableId,
+                    uniqueColumnValue,
+                    buttonName,
+                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                    usage.contains("softly")
+            );
+        } else{
+            ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
+                    tableId,
+                    uniqueColumnValue,
+                    buttonName,
+                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                    usage.contains("softly")
+            );
+        }
     }
 
     @Then("^I (softly can see|softly cannot see|can see|cannot see) \"([^\"]*)\" sub tab at view detail page$")

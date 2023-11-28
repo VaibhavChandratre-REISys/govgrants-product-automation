@@ -39,6 +39,12 @@ public class AmendmentRequestSteps {
             else if (flexTableId.contains("SelectProgramKPIs")) {
                 flexTableId= "Key Performance Indicators";
             }
+            else if (flexTableId.contains("SelectAnnFundingAccounts")) {
+                flexTableId= "Funding Accounts";
+            }
+            else if (flexTableId.contains("AssociateAnnouncementContacts")) {
+                flexTableId= "Contacts";
+            }
             amendmentRequestPage.clickAfterSelectionOfInTheTablesForLWC(buttonName, recordValue, numberOfEntries, flexTableId);
         }
         else
