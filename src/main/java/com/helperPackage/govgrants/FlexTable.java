@@ -169,6 +169,8 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Contacts";
            }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
                flexTableId = "Applicants";
+           }else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
+               flexTableId = "Grants ";
            }
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
