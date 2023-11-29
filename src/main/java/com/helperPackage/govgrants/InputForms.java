@@ -901,7 +901,7 @@ public final class InputForms {
             if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selectList).size() > 1) {
                 By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Chosen']");
                 for (String value : valueList) {
-                    I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]//span[text()='" + value + "']"));
+                    I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]//span[text()='" + value + "']"));
                 }
                 I.amPerforming().click().withJavaScript(addButtonSelector);
             }
