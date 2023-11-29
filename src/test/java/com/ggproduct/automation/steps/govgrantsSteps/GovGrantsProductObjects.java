@@ -34,6 +34,14 @@ public final class GovGrantsProductObjects {
         I.amPerforming().textInput().in(By.xpath("//div[@id='fieldReviewComments__c']//textarea"), "Automation Reviewer comments");
     }
 
+    public void enterReviewForLWC(String rating) {
+        I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//div[@data-field_api_name='Rating__c']//button[@aria-haspopup='listbox']"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='Rating__c']//button[@aria-haspopup='listbox']"));
+        I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + rating + "']"));
+
+        I.amPerforming().textInput().in(By.xpath("//div[@data-field_api_name='ReviewComments__c']//textarea"), "Automation Reviewer comments");
+    }
+
     /**
      * Handles association of various related records
      *

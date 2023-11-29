@@ -85,6 +85,12 @@ public final class GovGrantsObjects {
             else if (this.tableIdForQsearch.contains("FundingDecisionMemoApplicationsgrid")) {
                 this.tableIdForQsearch="Recommended Applications";
             }
+            else if (this.tableIdForQsearch.contains("HomePendingTasks")) {
+                this.tableIdForQsearch="Pending Tasks (Assigned To Me)";
+            }
+            else if (this.tableIdForQsearch.contains("flexGridRiskAssessmentGridViewInternal")) {
+                this.tableIdForQsearch="Subaward Risk Assessments";
+            }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);

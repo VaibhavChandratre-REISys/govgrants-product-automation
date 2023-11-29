@@ -169,9 +169,9 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-        try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickMainMenuBar(tabName);
-        } catch (Exception e) {
+        } else {
             govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
         }
     }
@@ -415,6 +415,12 @@ public final class GovGrantsSteps {
             }
             else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
                 flexTableId= "Approvers";
+            }
+            else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
+                flexTableId= "Approvers";
+            }
+            else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
+                flexTableId= "Peer Reviewers";
             }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,

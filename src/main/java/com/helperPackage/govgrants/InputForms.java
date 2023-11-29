@@ -860,11 +860,12 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleLookUpInput(WebElement fieldWrapper, String searchTerm) {
-       try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+
            openLookupModal(fieldWrapper);
            performLookupQuickSearch(searchTerm);
            selectLookupValue(searchTerm);
-       }catch(Exception e){
+       } else {
            String Search = fieldWrapper.toString().split("//")[2].split("\'")[1];
            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']"));
            By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']");

@@ -67,9 +67,15 @@ public final class GovGrantsProductSteps {
     @Description("Enter a Peer Review with the given rating")
     @When("^I enter a review as \"([^\"]*)\"$")
     public void enterReview(String rating) {
-        ggProductObjects.enterReview(
-                rating
-        );
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            ggProductObjects.enterReviewForLWC(
+                    rating
+            );
+        } else {
+            ggProductObjects.enterReview(
+                    rating
+            );
+        }
     }
 
     /******** Page/ Record Detail level *************/

@@ -513,7 +513,7 @@ public class GenericSteps {
 
     @And("I click on submit review")
     public void iClickOnSubmitReview() {
-        By submit_button = By.xpath("//div[@class='panel-footer']//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review']");
+        By submit_button = By.xpath("//div[@class='panel-footer']//div[@id='footerButtonsPanel']//*[text()='Submit Review' or @title='Submit Review'] | //div[contains(@class,'modal__container')]//*[text()='Submit Review' or @title='Submit Review']");
         I.amPerforming().click().on(submit_button);
     }
 

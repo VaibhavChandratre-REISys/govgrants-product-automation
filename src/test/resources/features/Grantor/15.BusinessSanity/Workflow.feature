@@ -1547,8 +1547,7 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario:
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "As a Grantor" app as "PM" user
     And I wait for "10" seconds
-    When I enter value "Small Businesses" into field "EligibleApplicantTypes__c"
-
+    And I click toggle button to select "Subaward Risk Assessments - All"
 

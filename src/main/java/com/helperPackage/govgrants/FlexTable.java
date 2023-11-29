@@ -131,10 +131,10 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableTopRightButton(String flexTableId, String buttonName) {
-       try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
            I.amPerforming().click().on(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
-       }catch (Exception e) {
+       }else {
            if (flexTableId.contains("GrantorServiceAreas")) {
                flexTableId = "Focus";
            } else if (flexTableId.contains("flexGridGrantorFocusAreaFiles")) {
@@ -170,7 +170,9 @@ public final class FlexTable implements FlexTableComponent {
            }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
                flexTableId = "Applicants";
            }else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
-               flexTableId = "Grants ";
+               flexTableId = "Grants";
+           }else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
+               flexTableId = "Subaward Risk Assessments";
            }
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -219,6 +221,21 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("FundingDecisionMemoApplicationsgrid")) {
                 flexTableId="Recommended Applications";
+            }
+            else if (flexTableId.contains("flexGridRelatedAwards1")) {
+                flexTableId="Subawards";
+            }
+            else if (flexTableId.contains("HomePendingTasks")) {
+                flexTableId="Pending Tasks (Assigned To Me)";
+            }
+            else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
+                flexTableId = "Subaward Risk Assessments";
+            }
+            else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
+                flexTableId= "Peer Reviewers";
+            }
+            else if (flexTableId.contains("flexGridRiskAssessmentGridViewInternal")) {
+                flexTableId = "Subaward Risk Assessments";
             }
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -745,7 +762,7 @@ public final class FlexTable implements FlexTableComponent {
     }
 
     public By getTopRightButtonLocatorByTableIdForLWC(String flexTableDivId, String buttonName) {
-        By locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or @text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or @text()='"+ buttonName +"']");
+        By locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"']");
         try {
             if(EnvironmentFactory.getProjectName().contains("OSPI") && ScenarioController.getScenario().getSourceTagNames().contains("@117618")){
                 I.amPerforming().checkToSee().isElementDisplayed(locator);

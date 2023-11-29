@@ -2,6 +2,7 @@ package com.helperPackage.govgrants;
 
 
 import com.helperPackage.handlers.govgrants;
+import com.helperPackage.objects.Elements;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -67,7 +68,7 @@ public final class PhasePanel {
 
     public void clickDoubleArrowtoggleForLWC(String anyItemContainedInDropDown) {
         By doubleArrow = getDoubleArrowLocatorForLWC(anyItemContainedInDropDown);
-        I.amPerforming().click().on(doubleArrow);
+        I.amPerforming().click().withJavaScript(doubleArrow);
     }
 
     /**
@@ -371,7 +372,8 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-        return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+                    String toggleName = anyItemContainedInDropDown.split("-")[0];
+                    return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
     }
 
     private By getDoubleArrowToggleLocator(String termContainedInDataTarget) {

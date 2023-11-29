@@ -48,10 +48,10 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-       try {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
            handleSideBarContentExpanded(subHeaderName);
            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-       }catch(Exception e){
+       }else{
 //           handleSideBarContentExpanded(subHeaderName);
 //           I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
            I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
