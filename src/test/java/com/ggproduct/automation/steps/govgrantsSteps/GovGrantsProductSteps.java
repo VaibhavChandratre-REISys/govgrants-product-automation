@@ -97,14 +97,24 @@ public final class GovGrantsProductSteps {
     /******** Modal **********/
     @Description("After selecting the checkbox for the value passed clicks on the button")
     @When("^I click \"([^\"]*)\" after selection of \"([^\"]*)\" in the table \"([^\"]*)\"$")
-    public void chooseRecordForProgramAssociation(String buttonName, String recordUniqueValues, String tableId) {
-        ggProductObjects.chooseRecordForAssociation(
-                buttonName,
-                tableId,
-                recordUniqueValues.split(",")
-        );
+    public void chooseRecordForProgramAssociation(String buttonName, String recordUniqueValues, String tableId) throws TestingBlazeCustomException {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            ggProductObjects.chooseRecordForAssociation(
+                    buttonName,
+                    tableId,
+                    recordUniqueValues.split(",")
+            );
+        } else {
+            if (tableId.contains("SoleSourceAwardRecipientsTable")) {
+                tableId="Organizations";
+            }
+            ggProductObjects.chooseRecordForAssociation(
+                    buttonName,
+                    tableId,
+                    recordUniqueValues.split(",")
+            );
+        }
     }
-
     @Description("After selecting the checkbox for the value passed clicks on the button")
     @When("^I click \"([^\"]*)\" after selection of \"([^\"]*)\" without searching in the table \"([^\"]*)\"$")
     public void chooseRecordForProgramAssociationWithoutSerch(String buttonName, String recordUniqueValues, String tableId) {

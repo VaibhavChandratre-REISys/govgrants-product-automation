@@ -1545,9 +1545,10 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-#  @debug
-#  Scenario:
-#    When I login to "As a Grantor" app as "PM" user
-#    And I wait for "10" seconds
-#    Then I softly see field "Status" as "Activated"
+  @debug
+  Scenario:
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I wait for "10" seconds
+    When I enter value "Small Businesses" into field "EligibleApplicantTypes__c"
+
 

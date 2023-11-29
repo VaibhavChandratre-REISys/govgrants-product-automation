@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.sql.SQLOutput;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -535,7 +536,7 @@ public final class FlexTable implements FlexTableComponent {
         try {
             I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         } catch (Exception ee) {
-            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().waitFor().makeThreadSleep(3000);
             I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         }
         for (String key : flexTableMap.keySet()) {
@@ -546,8 +547,9 @@ public final class FlexTable implements FlexTableComponent {
             if (mapColumnHeaderToColumnPosition == null) {
                 mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
             }
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-            clickTableActionIcon(flexTableDivId, editButtonName, key);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
+//            clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
                 this.handleFlexTableDataInputs(rowCell, currentRowValues.get(columnName));
@@ -778,6 +780,7 @@ public final class FlexTable implements FlexTableComponent {
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         for (String uniqueColumnValue : uniqueColumnValues) {
             WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
+            I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
             I.amPerforming().click().withJavaScript(desiredAction);
         }
 
@@ -836,8 +839,14 @@ public final class FlexTable implements FlexTableComponent {
                 handleFlexTableLookupInputForLWC(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[(@type='text' or @type='number' or @type='email') and not(@time-picker or @date-time-picker or @e-grid-date-picker)] | .//textarea")).size() > 0) {
-                handleTextInput(fieldWrapper, fieldValue);
-                break;
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-datepicker"))
+                        .size() > 0) {
+                    handleDateInputForLWC(fieldWrapper, fieldValue);
+                    break;
+                } else {
+                    handleTextInput(fieldWrapper, fieldValue);
+                    break;
+                }
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='text' and (@time-picker or @date-time-picker or @e-grid-date-picker)]"))
                     .size() > 0) {
                 handleDateInput(fieldWrapper, fieldValue);
@@ -899,7 +908,7 @@ public final class FlexTable implements FlexTableComponent {
                             By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
                             WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
                             ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
-                            I.amPerforming().click().withJavaScript(selectText);
+                            I.amPerforming().textInput().in(inputBox, fieldValue);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {
                                     I.amPerforming().click().on(selectText);
@@ -933,6 +942,22 @@ public final class FlexTable implements FlexTableComponent {
      * @param fieldValue
      * @author john.phillips
      */
+    private void handleDateInputForLWC(WebElement fieldWrapper, String fieldValue) {
+        By inputBoxSelector = By.xpath(".//input[@type='text']");
+
+        String inputValue;
+        try {
+            int offset = Integer.parseInt(fieldValue);
+            inputValue = I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(offset, DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+        } catch (NumberFormatException e) {
+            inputValue = fieldValue;
+        }
+
+        WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+        I.amPerforming().textInput().toClear(inputBox);
+        I.amPerforming().textInput().in(inputBox, inputValue);
+    }
+
     private void handleDateInput(WebElement fieldWrapper, String fieldValue) {
         By inputBoxSelector = By.xpath(".//input[@type='text']");
 

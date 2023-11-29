@@ -44,7 +44,12 @@ public final class GovGrantsProductObjects {
      */
     public void chooseRecordForAssociation(String buttonName, String flexTableId, String... recordUniqueValues) {
         for (String recordUniqueValue : recordUniqueValues) {
-            govgrants.perform().quickSearch().performModalSpecificQuickSearch(flexTableId, recordUniqueValue);
+            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                govgrants.perform().quickSearch().performModalSpecificQuickSearch(flexTableId, recordUniqueValue);
+            }else {
+                govgrants.perform().quickSearch().performModalSpecificQuickSearchForLWC(flexTableId, recordUniqueValue);
+
+            }
             I.amPerforming().waitFor().makeThreadSleep(1000);
             govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordUniqueValue);
         }

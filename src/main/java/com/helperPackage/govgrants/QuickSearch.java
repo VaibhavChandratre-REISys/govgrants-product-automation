@@ -124,6 +124,20 @@ public class QuickSearch {
         }
     }
 
+    public void performModalSpecificQuickSearchForLWC(String tableId, String searchTerm) {
+        By searchInputBox = By.xpath("//span[contains(text(),'" + tableId + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//input[contains(@id,'input')]");
+
+        try {
+            I.amPerforming().textInput().toClear(searchInputBox);
+            I.amPerforming().textInput().in(searchInputBox, searchTerm);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
+        } catch (Exception e) {
+            I.amPerforming().textInput().toClear(searchInputBox);
+            I.amPerforming().textInput().in(searchInputBox, searchTerm);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
+        }
+    }
+
     /**
      * get quick search specific to a table
      *

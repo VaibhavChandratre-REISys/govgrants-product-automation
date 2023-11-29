@@ -458,6 +458,9 @@ public final class InputForms {
             if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//iframe")).size() > 0) {
                 handleRichTextInput(fieldWrapper, fieldValue);
                 break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
+                handleRichTextAreaInput(fieldWrapper, fieldValue);
+                break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
                     By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
@@ -484,7 +487,7 @@ public final class InputForms {
                     handleDropdownInput(fieldWrapper, fieldValue);
                 }
                 break;
-            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-picklist")).size() > 0) {
+            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
                 handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
                 break;
             }else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
@@ -497,7 +500,11 @@ public final class InputForms {
                 handleRadioButtonInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
-                handleTextInput(fieldWrapper, fieldValue);
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-datepicker")).size() > 0) {
+                    handleDateInput(fieldWrapper, fieldValue, false);
+                } else {
+                    handleTextInput(fieldWrapper, fieldValue);
+                }
                 break;
             }
             I.amPerforming().waitFor().makeThreadSleep(1000);
@@ -542,6 +549,22 @@ public final class InputForms {
      */
     private void handleRichTextInput(WebElement fieldWrapper, String value) {
         handleRichTextInput(fieldWrapper, value, false);
+    }
+    private void handleRichTextAreaInput(WebElement fieldWrapper, String fieldValue) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            if(field.contains("field")) {
+                String field1 = field.toString().split("field")[1];
+                By inputBox1 = By.xpath("//div[@data-field_api_name='"+ field1 +"']//input[@type='text'] | //div[@data-field_api_name='"+ field1 +"']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+                I.amPerforming().click().withJavaScript(inputBox1);
+                I.amPerforming().textInput().in(inputBox1, fieldValue);
+            } else {
+                By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+                I.amPerforming().click().withJavaScript(inputBox);
+                I.amPerforming().textInput().in(inputBox, fieldValue);
+            }
+        }
     }
 
     /**
@@ -709,28 +732,47 @@ public final class InputForms {
      * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
-           WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            if (field.contains("field")) {
+                String field1 = field.toString().split("field")[1];
+//                By inputBox1 = By.xpath("//div[@data-field_api_name='" + field1 + "']//input[@type='text']");
+                WebElement inputBox1 = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field1 + "']//input[@type='text']"));
 
-           DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+                DateTimeFormatter formatter = getDateInputFormat(inputBox1, isDateTime);
 
-           String inputValue = parseDateFieldValue(fieldValue, formatter);
+                String inputValue = parseDateFieldValue(fieldValue, formatter);
 
-           if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
-               try {
-                   SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
-                   Date date = dt.parse(inputValue);
-                   SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
-                   inputValue = dt1.format(date);
-               }catch(Exception e){
+                    try {
+                        SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                        Date date = dt.parse(inputValue);
+                        SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                        inputValue = dt1.format(date);
+                    }catch(Exception e){
+                }
+                I.amPerforming().textInput().toClear(inputBox1);
+                I.amPerforming().textInput().in(inputBox1, inputValue);
 
-               }
-           }
-           I.amPerforming().textInput().toClear(inputBox);
-//           I.amPerforming().textInput().withJavaScript(inputBox, inputValue);
-           I.amPerforming().textInput().in(inputBox, inputValue);
+            } else {
+                WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
 
-        //makeCalendarPopupDisappear(inputBox);
-    }
+                DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+
+                String inputValue = parseDateFieldValue(fieldValue, formatter);
+
+                try {
+                    SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                    Date date = dt.parse(inputValue);
+                    SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                    inputValue = dt1.format(date);
+                }catch(Exception e){
+                }
+                I.amPerforming().textInput().toClear(inputBox);
+                I.amPerforming().textInput().in(inputBox, inputValue);
+            }
+        }
+    }   //makeCalendarPopupDisappear(inputBox);
 
     private DateTimeFormatter getDateInputFormat(WebElement input, boolean isDateTime) {
         String inputFormat = "";
