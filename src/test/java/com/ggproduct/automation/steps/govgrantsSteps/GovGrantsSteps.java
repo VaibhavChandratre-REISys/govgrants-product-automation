@@ -422,6 +422,9 @@ public final class GovGrantsSteps {
             else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
                 flexTableId= "Peer Reviewers";
             }
+            else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+                flexTableId= "Peer Reviewers";
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,

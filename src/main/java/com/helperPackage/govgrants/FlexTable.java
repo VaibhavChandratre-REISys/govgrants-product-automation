@@ -173,6 +173,8 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Grants";
            }else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
                flexTableId = "Subaward Risk Assessments";
+           }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
+            flexTableId = "Published Competitive Announcements";
            }
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
