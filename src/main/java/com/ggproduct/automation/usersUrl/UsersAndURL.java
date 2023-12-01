@@ -84,9 +84,6 @@ public class UsersAndURL implements UsersController {
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "SARAH PO":
-                password = "test72018";
-                break;
             case "SPI3":
                 password = "Salesforce2025";
                 break;
@@ -155,7 +152,6 @@ public class UsersAndURL implements UsersController {
         username.put("FO", "auto.fm@auto.com.atm.qaorg");
         username.put("SPI3", "automationspi3@yopmail.com");
         username.put("SPA", "spaautomation@yopmail.com");
-
         username.put("PO", "sdgdg45435dj@gmail.com");
         username.put("SIMON PM", "simon_pm@ggp.test7");
         username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
