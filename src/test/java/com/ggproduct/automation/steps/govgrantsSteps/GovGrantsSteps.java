@@ -462,6 +462,20 @@ public final class GovGrantsSteps {
                 flexTableId = "Applicants";
             }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
                 flexTableId = "Budget Period Details";
+            }else if (flexTableId.contains("flexGridEnhancedGrantorAwardServiceAreas")) {
+                flexTableId = "Budget Summary by Focus Area";
+            }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
+                flexTableId = "Funding Account Information";
+            }else if (flexTableId.contains("flexGridSubAwardBudgetCategoryFlexGrid")) {
+                flexTableId = "Subaward budget";
+            }else if (flexTableId.contains("GrantorAwardKeyOutcomesgrid")) {
+                flexTableId = "Key Performance Indicators (KPIs)";
+            }else if (flexTableId.contains("flexGridPaymentSchedules")) {
+                flexTableId = "Payment Requests Schedule";
+            }else if (flexTableId.contains("flexGridTnCSchedules")) {
+                flexTableId = "Progress Reports Schedule";
+            }else if (flexTableId.contains("flexGridSubawardContact")) {
+                flexTableId = "Contacts";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
