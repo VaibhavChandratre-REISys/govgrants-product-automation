@@ -170,6 +170,8 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Grants";
            }else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
                flexTableId = "Subaward Risk Assessments";
+           }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
+            flexTableId = "Published Competitive Announcements";
            }
            else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
                flexTableId = "Amendment Requests";

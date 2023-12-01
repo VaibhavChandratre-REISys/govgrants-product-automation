@@ -428,6 +428,9 @@ public final class GovGrantsSteps {
             else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
                 flexTableId = "Approvers";
             }
+            else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+                flexTableId= "Peer Reviewers";
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,
@@ -459,18 +462,6 @@ public final class GovGrantsSteps {
                 flexTableId = "Applicants";
             }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
                 flexTableId = "Budget Period Details";
-            }else if (flexTableId.contains("flexGridAmendmentProjectAreasGrantor")) {
-                flexTableId = "Budget Summary by Focus Area";
-            }else if (flexTableId.contains("flexGridEnhancedGrantorAwardServiceAreas")) {
-                flexTableId = "Budget Summary by Focus Area";
-            }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
-                flexTableId = "Funding Account Information";
-            }else if (flexTableId.contains("flexGridSubAwardBudgetCategoryFlexGrid")) {
-                flexTableId = "Subaward budget";
-            }else if (flexTableId.contains("GrantorAwardKeyOutcomesgrid")) {
-                flexTableId = "Key Performance Indicators (KPIs)";
-            }else if (flexTableId.contains("flexGridSubawardContact")) {
-                flexTableId = "Contacts";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
