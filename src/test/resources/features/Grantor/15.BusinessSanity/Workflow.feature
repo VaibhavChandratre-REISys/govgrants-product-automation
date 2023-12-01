@@ -1549,5 +1549,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     When I login to "As a Grantor" app as "PM" user
     And I wait for "10" seconds
-    And I click toggle button to select "Subaward Risk Assessments - All"
-
+    And I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "PR-1234-65" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "PR-1234-65" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record

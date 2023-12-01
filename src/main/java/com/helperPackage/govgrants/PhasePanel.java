@@ -372,8 +372,12 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-                    String toggleName = anyItemContainedInDropDown.split("-")[0];
-                    return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        if(anyItemContainedInDropDown.contains("Announcements")){
+            return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        }else {
+            String toggleName = anyItemContainedInDropDown.split("-")[0];
+            return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        }
     }
 
     private By getDoubleArrowToggleLocator(String termContainedInDataTarget) {
