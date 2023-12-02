@@ -216,7 +216,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
-    When I enter in modal value "Execution Objective" into field "StrategyTitle__c"
+    When I enter in modal value "Execution Objective" into field "fieldStrategyTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab

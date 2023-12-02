@@ -80,7 +80,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "Strategic Goals ID"
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
-    When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
+    When I enter in modal value "Execution Strategic Objective" into field "fieldStrategyTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     Then I softly see field "Strategic Plan Status" as "Draft"
@@ -107,11 +107,11 @@ Feature: Validate all scenarios in Strategic Plan
     When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
     And I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
-    When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
+    When I enter in modal value "Execution Strategic Objective" into field "fieldStrategyTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
-    When I enter value "Execution Strategic Objective" into field "StrategyDescription__c"
+    When I enter value "Execution Strategic Objective" into field "fieldStrategyDescription__c"
     When I click on "Save" in the page details
     Then I softly see field "Description" as "Execution Strategic Objective"
 
@@ -124,7 +124,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
-    When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
+    When I enter in modal value "Execution Strategic Objective" into field "fieldStrategyTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
@@ -141,7 +141,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
-    When I enter in modal value "Execution Objective" into field "StrategyTitle__c"
+    When I enter in modal value "Execution Objective" into field "fieldStrategyTitle__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab

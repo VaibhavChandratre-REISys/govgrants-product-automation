@@ -251,7 +251,7 @@ Feature: Validate all scenarios in Funding Source
     And I save the field labeled "Title" as "FundingSourceTitle"
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -263,7 +263,7 @@ Feature: Validate all scenarios in Funding Source
     Then I see the header is "Internal Funding Source" in the page details
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1500" into field "AppropriationBalance__c"
+    When I enter value "1500" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -295,7 +295,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -358,7 +358,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -409,7 +409,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -474,7 +474,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -517,7 +517,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -580,7 +580,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
@@ -643,7 +643,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter value "1000" into field "fieldAppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
