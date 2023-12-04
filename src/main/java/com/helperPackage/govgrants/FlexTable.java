@@ -182,6 +182,18 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("GrantorTermsandConditions")) {
                flexTableId = "Terms and Conditions";
            }
+           else if (flexTableId.contains("GrantorSiteVisitsAward")) {
+               flexTableId = "Site Visits";
+           }
+           else if (flexTableId.contains("GrantorSiteVisitContacts")) {
+               flexTableId = "Participants";
+           }
+           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+               flexTableId = "Related Subawards";
+           }
+           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+               flexTableId = "Related Subawards";
+           }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -257,6 +269,12 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("flexGridTnCSchedules")) {
                 flexTableId = "Progress Reports Schedule";
+            }
+            else if (flexTableId.contains("flexGridSiteVisitsGridView")) {
+                flexTableId = "Site Visit Reports";
+            }
+            else if (flexTableId.contains("SVDRFormEnhancedTable")) {
+                flexTableId = "All Forms";
             }
                 getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);

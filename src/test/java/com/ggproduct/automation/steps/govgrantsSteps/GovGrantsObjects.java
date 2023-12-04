@@ -82,6 +82,8 @@ public final class GovGrantsObjects {
                 this.tableIdForQsearch = "Subawards";
             } else if (this.tableIdForQsearch.contains("RelatedAwards1grid")) {
                 this.tableIdForQsearch = "Subawards";
+            } else if (this.tableIdForQsearch.contains("flexGridSiteVisitsGridView")) {
+                this.tableIdForQsearch = "Site Visit Reports";
             }
 // Below Implementation will be remove once bug resolved for Pending Task
             if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {
