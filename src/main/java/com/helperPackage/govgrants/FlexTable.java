@@ -175,9 +175,16 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Subaward Risk Assessments";
            }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
             flexTableId = "Published Competitive Announcements";
+           }else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
+            flexTableId = "Goals and Objectives";
            }
-           I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
-           govgrants.perform().modal().acceptPopUp();
+           I.amPerforming().waitFor().makeThreadSleep(5000);
+           try {
+               I.amPerforming().click().on(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+           }catch (Exception e){
+               I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+           }
+            govgrants.perform().modal().acceptPopUp();
        }
      }
 
@@ -254,7 +261,12 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
-        I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
+            I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[" + I.amPerforming().sanityOfXpathTo().equals("text()='" + iconName + "']")));
+        }else{
+            I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
+        }
     }
 
     /**
@@ -390,6 +402,16 @@ public final class FlexTable implements FlexTableComponent {
         }
         desiredAction += "//td//a[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName)
                 + " or text()='" + iconName + "']";
+        return By.xpath(desiredAction);
+    }
+
+    public By getTableActionIconWithoutTableIdForLWC(String... uniqueColumnValues) {
+        String desiredAction = "";
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            desiredAction = "//td//*["
+                    + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                    + "/ancestor::tr[1]//button";
+        }
         return By.xpath(desiredAction);
     }
 

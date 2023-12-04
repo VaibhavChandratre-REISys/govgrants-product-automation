@@ -447,18 +447,30 @@ public final class PageDetails {
      * @modified richa.sharma updated field name for gwinnett county egms id to govgrants id
      */
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
-        By fieldLabelLocator = By.xpath(String.format(""
-                                // This option should work in all situations, if using the latest version of GovGrants
-                                + "//dt//span[contains(@class, 'customLabelstyle') and %s] | //div//label[contains(@class,'field-label')]",
-                        matchLabelExactly
-                                ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                )
-        );
+        By fieldLabelLocator = null;
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//div//label[contains(@class,'field-label') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        } else {
 
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        }
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div"));
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
