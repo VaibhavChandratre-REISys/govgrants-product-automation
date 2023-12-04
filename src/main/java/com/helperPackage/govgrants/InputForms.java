@@ -137,7 +137,11 @@ public final class InputForms {
                 fieldWrapperLocator=By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
                 size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
                 if (size > 1) {
-                    fieldWrapperLocator=By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "']//label[contains(string(),'Description')]/.. | //field[@field-name='" + fieldApiName + "']");
+                    if(I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@style,'display') and contains(@id,'modal')]")).size()== 1) {
+                        fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "']");
+                    } else {
+                        fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "']//label[contains(string(),'Description')]/.. | //field[@field-name='" + fieldApiName + "']");
+                    }
                 }
 
             }
