@@ -121,7 +121,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
@@ -148,7 +148,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
-    Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -294,7 +294,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"

@@ -1172,7 +1172,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:budgetPeriodAcronym}" for title "Budget Period" against the value "{SavedValue:Automation Runtime Award}" inside table "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I softly see all the fields are present for site visit while initializing it
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1198,7 +1198,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see "Grant" shown inside mini page layout on hover
     Then I softly see "Test Automation Organization" shown inside mini page layout on hover
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter value "Automation Desc" into field "fieldPointsdiscussedwithofficials__c"
@@ -1428,7 +1428,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
@@ -1448,7 +1448,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see status in Progress-bar is "Created" and is "Green"
@@ -1481,7 +1481,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    And I click on top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
     And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "SourceError" values from "DeskReview_Field_Values.xlsx"
@@ -1501,7 +1501,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    And I click on top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
     And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "InstructionError" values from "DeskReview_Field_Values.xlsx"
@@ -2054,7 +2054,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    And I softly can see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    And I softly can see top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
     Examples:
       | Award Name                                   |
       | {SavedValue:Automation Runtime Award For Me} |

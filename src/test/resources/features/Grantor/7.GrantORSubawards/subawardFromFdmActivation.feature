@@ -19,7 +19,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     When I navigate to "Management" sub tab
-    When I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    When I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Site Visit" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
@@ -33,7 +33,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
-    When I click on top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    When I click on top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
     And I enter "Desk Review" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
@@ -105,7 +105,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    Then I softly can see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
+    Then I softly can see top right button "Initiate Desk Review" in flex table with id "flexGridGrantorDeskReviewAward"
 
   @68650 @continuationAndVersionCheckAfterPeriodicRenewalAmendmentFromFDM @jitendra @aashish @smoke
   Scenario Outline: Validate that after periodic renewal amendment Subaward type changes from Initial to Continuation and the Version number is still retained at 1 also the Status changes to pending Activation from Activated

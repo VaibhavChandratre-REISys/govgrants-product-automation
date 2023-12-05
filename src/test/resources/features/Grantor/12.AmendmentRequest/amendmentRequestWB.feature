@@ -1563,7 +1563,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
@@ -1651,7 +1651,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
@@ -3583,7 +3583,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
@@ -3755,7 +3755,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:NewSubAwardId}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:NewSubAwardId}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
+    And I click on top right button "Initiate Site Visit" in flex table with id "flexGridGrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
