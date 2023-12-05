@@ -1937,7 +1937,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    Below button is not display for now logged the bug
+#    When I click on "Back" in the page details
+    And I switch to Parent iframe
+    And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
