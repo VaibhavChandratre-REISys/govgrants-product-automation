@@ -1939,7 +1939,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I switch to Parent iframe
+    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
