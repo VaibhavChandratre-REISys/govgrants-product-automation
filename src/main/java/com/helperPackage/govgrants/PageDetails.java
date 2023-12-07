@@ -449,7 +449,7 @@ public final class PageDetails {
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            fieldLabelLocator = By.xpath(String.format(""
+             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//div//label[contains(@class,'field-label') and %s]",
                             matchLabelExactly
@@ -459,7 +459,7 @@ public final class PageDetails {
             );
         } else {
 
-            fieldLabelLocator = By.xpath(String.format(""
+             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
                             matchLabelExactly

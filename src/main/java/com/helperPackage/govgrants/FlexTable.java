@@ -10,10 +10,7 @@ import com.helperPackage.objects.Elements;
 import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.sql.SQLOutput;
@@ -178,13 +175,30 @@ public final class FlexTable implements FlexTableComponent {
            }else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
                flexTableId = "Goals and Objectives";
            }
-           I.amPerforming().waitFor().makeThreadSleep(5000);
-           try {
-               I.amPerforming().click().on(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
-           }catch (Exception e){
-               I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+           else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
+               flexTableId = "Amendment Requests";
            }
-            govgrants.perform().modal().acceptPopUp();
+           else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
+               flexTableId = "Funding Account Information";
+           }
+           else if (flexTableId.contains("GrantorTermsandConditions")) {
+               flexTableId = "Terms and Conditions";
+           }
+           else if (flexTableId.contains("GrantorSiteVisitsAward")) {
+               flexTableId = "Site Visits";
+           }
+           else if (flexTableId.contains("GrantorSiteVisitContacts")) {
+               flexTableId = "Participants";
+           }
+           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+               flexTableId = "Related Subawards";
+           }
+           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+               flexTableId = "Related Subawards";
+           }
+           I.amPerforming().waitFor().makeThreadSleep(2000);
+           I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
+           govgrants.perform().modal().acceptPopUp();
        }
      }
 
@@ -246,8 +260,26 @@ public final class FlexTable implements FlexTableComponent {
             else if (flexTableId.contains("flexGridRiskAssessmentGridViewInternal")) {
                 flexTableId = "Subaward Risk Assessments";
             }
-            getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
-            getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
+            else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
+                flexTableId = "Amendment Requests";
+            }
+            else if (flexTableId.contains("RelatedAwards1grid")) {
+                flexTableId = "Subawards";
+            }
+            else if (flexTableId.contains("flexGridPaymentSchedules")) {
+                flexTableId = "Payment Requests Schedule";
+            }
+            else if (flexTableId.contains("flexGridTnCSchedules")) {
+                flexTableId = "Progress Reports Schedule";
+            }
+            else if (flexTableId.contains("flexGridSiteVisitsGridView")) {
+                flexTableId = "Site Visit Reports";
+            }
+            else if (flexTableId.contains("SVDRFormEnhancedTable")) {
+                flexTableId = "All Forms";
+            }
+                getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
+                getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
        govgrants.perform().modal().acceptPopUp();
     }
@@ -787,6 +819,7 @@ public final class FlexTable implements FlexTableComponent {
 
     public By getTopRightButtonLocatorByTableIdForLWC(String flexTableDivId, String buttonName) {
         By locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"']");
+        I.amPerforming().waitFor().ElementToBePresent(locator);
         try {
             if(EnvironmentFactory.getProjectName().contains("OSPI") && ScenarioController.getScenario().getSourceTagNames().contains("@117618")){
                 I.amPerforming().checkToSee().isElementDisplayed(locator);
@@ -997,8 +1030,11 @@ public final class FlexTable implements FlexTableComponent {
         }
 
         WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+        WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
         I.amPerforming().textInput().toClear(inputBox);
         I.amPerforming().textInput().in(inputBox, inputValue);
+        I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
     }
 
     private void handleDateInput(WebElement fieldWrapper, String fieldValue) {
@@ -1026,8 +1062,12 @@ public final class FlexTable implements FlexTableComponent {
         By checkBoxSelector = By.xpath(".//input[@type='checkbox']");
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
         if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
-                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected()) {
-            I.amPerforming().click().on(checkBox);
+                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected() ||"Check".equalsIgnoreCase(fieldValue) && !checkBox.isSelected() ) {
+           try {
+               I.amPerforming().click().on(checkBox);
+           } catch(Exception e) {
+               I.amPerforming().click().withJavaScript(checkBox);
+           }
         }
     }
 

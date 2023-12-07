@@ -377,7 +377,8 @@ public final class PhasePanel {
         }else {
             String toggleName = anyItemContainedInDropDown.split("-")[0];
             return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
-    }}
+        }
+    }
 
     private By getDoubleArrowToggleLocator(String termContainedInDataTarget) {
         return By.xpath("//div[contains(@class,'panel-title')]//div[@id='dropdownListView']"
