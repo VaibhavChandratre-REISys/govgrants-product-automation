@@ -172,27 +172,20 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Subaward Risk Assessments";
            }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
             flexTableId = "Published Competitive Announcements";
-           }
-           else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
+           }else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
                flexTableId = "Amendment Requests";
-           }
-           else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
+           }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
                flexTableId = "Funding Account Information";
-           }
-           else if (flexTableId.contains("GrantorTermsandConditions")) {
+           }else if (flexTableId.contains("GrantorTermsandConditions")) {
                flexTableId = "Terms and Conditions";
-           }
-           else if (flexTableId.contains("GrantorSiteVisitsAward")) {
+           }else if (flexTableId.contains("GrantorSiteVisitsAward")) {
                flexTableId = "Site Visits";
-           }
-           else if (flexTableId.contains("GrantorSiteVisitContacts")) {
+           }else if (flexTableId.contains("GrantorSiteVisitContacts")) {
                flexTableId = "Participants";
-           }
-           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+           }else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
                flexTableId = "Related Subawards";
-           }
-           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
-               flexTableId = "Related Subawards";
+           }else if (flexTableId.contains("GrantorDeskReviewAward")) {
+               flexTableId = "Desk Reviews";
            }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
@@ -966,7 +959,8 @@ public final class FlexTable implements FlexTableComponent {
                         try {
                             By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
                             WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
+                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
+                            I.amPerforming().textInput().toClear(inputBox);
                             I.amPerforming().textInput().in(inputBox, fieldValue);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {

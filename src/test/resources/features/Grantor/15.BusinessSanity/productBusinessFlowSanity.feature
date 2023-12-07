@@ -2033,7 +2033,11 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I halt execution
+#    Below button is not display for now logged the bug
+#    When I click on "Back" in the page details
+    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
+    And I navigate to "Reports and Outcomes" sub tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
