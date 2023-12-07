@@ -1549,9 +1549,9 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     When I login to "As a Grantor" app as "PM" user
     And I wait for "10" seconds
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Check            |
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "PR-1234-66" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "PR-1234-66" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I halt execution
 #    And I navigate to "Monitoring" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
