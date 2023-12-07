@@ -176,7 +176,7 @@ public final class FlexTable implements FlexTableComponent {
            }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
             flexTableId = "Published Competitive Announcements";
            }else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
-            flexTableId = "Goals and Objectives";
+               flexTableId = "Goals and Objectives";
            }
            I.amPerforming().waitFor().makeThreadSleep(5000);
            try {
@@ -643,7 +643,7 @@ public final class FlexTable implements FlexTableComponent {
                                                                     String uniqueColumnValue, String flexTableDivId) {
         Set<String> columnTitleSet = new HashSet<>();
         columnTitleSet.add(columnTitle);
-        I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + flexTableDivId + "']"));
+        I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + flexTableDivId + "'] | //c-lwc-flex-table//span[text()='" + flexTableDivId + "']"));
         waitForFlexTablesToLoad();
         By currentRowLocator = By
                 .xpath("//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]");

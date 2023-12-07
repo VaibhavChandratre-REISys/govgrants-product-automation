@@ -138,7 +138,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-   When I navigate to "Financials" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -1661,7 +1661,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "green"
 
   @72350 @adhocAdvanceHappyPath
@@ -1775,13 +1776,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId1}" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I click modal button "Close"
     Then I softly see field "Status" as "Paid"
 
   @72351 @scheduledReimbursementPaymentRequestHappyPath
   Scenario Outline: Validate the Scheduled Payment Request happy path and the status changes to 'Paid' and is green
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
-    #Given I delete the record "<Award Name>" from the object "Payment Request"
+    Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -1829,7 +1831,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "green"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -1884,7 +1887,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - Approved"
-    Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+    Then I see value "Approved" for title "Status" against the value "PR--GT-1234-00113-001" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
   @72353 @siteVisitAcceptAndClose
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed

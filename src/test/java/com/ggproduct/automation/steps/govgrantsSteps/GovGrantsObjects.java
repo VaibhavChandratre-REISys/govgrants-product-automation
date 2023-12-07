@@ -90,6 +90,8 @@ public final class GovGrantsObjects {
             }
             else if (this.tableIdForQsearch.contains("flexGridRiskAssessmentGridViewInternal")) {
                 this.tableIdForQsearch="Subaward Risk Assessments";
+            } else if (this.tableIdForQsearch.contains("flexGridPhasePendingTasks")) {
+                this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
             }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
