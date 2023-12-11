@@ -72,6 +72,12 @@ public final class FlexTable implements FlexTableComponent {
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
+    public WebElement getSpecificElementFromTableHeaderForLWC(String tableId, String titleName) {
+        By tableHeaderElement = By
+                .xpath("//span[contains(text(),'" + tableId + "')]/ancestor::c-lwc-flex-table//table//th//span[@title='" + titleName + "' and text()='" + titleName + "']");
+        return I.amPerforming().getElementReference().of(tableHeaderElement);
+    }
+
     /**
      * get complete rows of flea table. It will return us rows of table which donot have any expand/collapse(+) icon.
      *
@@ -186,6 +192,12 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Related Subawards";
            }else if (flexTableId.contains("GrantorDeskReviewAward")) {
                flexTableId = "Desk Reviews";
+           }else if (flexTableId.equals("SiteVisit")) {
+               flexTableId = "Site Visits";
+           }else if (flexTableId.equals("GrantorSiteVisitOrganizationContactsGridgrid")) {
+               flexTableId = "Participants";
+           }else if (flexTableId.equals("DeskReview")) {
+               flexTableId = "Desk Review";
            }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
@@ -269,6 +281,15 @@ public final class FlexTable implements FlexTableComponent {
             else if (flexTableId.contains("SVDRFormEnhancedTable")) {
                 flexTableId = "All Forms";
             }
+            else if (flexTableId.contains("PaymentSchedulesgrid")) {
+                flexTableId = "Payment Requests Schedule";
+            }
+            else if (flexTableId.contains("PaymentSchedulesgrid")) {
+                flexTableId = "Payment Requests Schedule";
+            }
+            else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
+                flexTableId = "Peer Reviewers";
+            }
                 getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
@@ -284,7 +305,12 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
-        I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
+            I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
+        }else{
+            I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
+        }
     }
 
     /**
@@ -420,6 +446,16 @@ public final class FlexTable implements FlexTableComponent {
         }
         desiredAction += "//td//a[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName)
                 + " or text()='" + iconName + "']";
+        return By.xpath(desiredAction);
+    }
+
+    public By getTableActionIconWithoutTableIdForLWC(String... uniqueColumnValues) {
+        String desiredAction = "";
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            desiredAction = "//td//*["
+                    + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                    + "/ancestor::tr[1]//button";
+        }
         return By.xpath(desiredAction);
     }
 
@@ -629,6 +665,18 @@ public final class FlexTable implements FlexTableComponent {
         try {
             I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//tr")));
             WebElement row = I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+            Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='"+columnValue+"']"));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean assertCoulmnValueAgainstColumnTitleForLWC(String columnValue, String columnTitle, String flexTableDivId) {
+        try {
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//tr")));
+            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
             Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
             I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='"+columnValue+"']"));
             return true;

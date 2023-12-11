@@ -69,7 +69,7 @@ public final class Modal {
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]"));
-                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class, 'modal-content')]//button[text()='Yes' or text()='Continue' or text()='Ok'] | //div[contains(@class,'modal__container')]//button[text()='OK']")));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class, 'modal-content')]//button[text()='Yes' or text()='Continue' or text()='Ok'] | //div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
         } catch (Exception e) {
 

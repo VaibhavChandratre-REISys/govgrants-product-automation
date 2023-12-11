@@ -93,7 +93,7 @@ public final class GovGrantsAssertionObjects {
                 By.xpath("//span[text()='" + record + "']"
                         + "/../../../../../../../..//div//dt"
                         + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "']"), true);
+                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "']"), true);
     }
 
     /**
@@ -165,22 +165,46 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableWithColumnTitle(String columnValue, String columnTitle, String flexTableDivId,
                                                           Boolean checkifpresent, boolean isSoftly) {
-        String columnValueUpdated = columnValue;
-        if (columnValue.equalsIgnoreCase("Record Id")) {
-            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
-        }
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableDivId.contains("flexGridPhasePendingTasks")) {
+                flexTableDivId = "Pending Tasks (Assigned To Me)";
+            }
+            String columnValueUpdated = columnValue;
+            if (columnValue.equalsIgnoreCase("Record Id")) {
+                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+            }
 
-        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                flexTableDivId)) {
-            I.amPerforming().waitFor().makeThreadSleep(1000);
-        }
+            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+                    flexTableDivId)) {
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+            }
 
-        if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                    flexTableDivId)).isEqualTo(checkifpresent);
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+                        flexTableDivId)).isEqualTo(checkifpresent);
+            } else {
+                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+                        flexTableDivId));
+            }
         } else {
-            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                    flexTableDivId));
+
+            String columnValueUpdated = columnValue;
+            if (columnValue.equalsIgnoreCase("Record Id")) {
+                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+            }
+
+            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId)) {
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+            }
+
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                        flexTableDivId)).isEqualTo(checkifpresent);
+            } else {
+                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                        flexTableDivId));
+            }
         }
     }
 

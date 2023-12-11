@@ -1549,12 +1549,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     When I login to "As a Grantor" app as "PM" user
     And I wait for "10" seconds
-    When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
-      | Title                   | Description            | Type        |
-      | Automation Finding1     | Automation Description | Finding     |
-      | Automation Concern1     | Automation Description | Concern     |
-      | Automation Observation1 | Automation Description | Observation |
-    And I halt execution
+    Then I see that "Subaward" is in "Activated" status
 #    And I navigate to "Monitoring" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 #    When I perform quick search for "PR-1234-65" in "---amendment:-:pendingTaskTableId---" panel
