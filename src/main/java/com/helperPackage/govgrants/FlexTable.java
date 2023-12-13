@@ -690,13 +690,13 @@ public final class FlexTable implements FlexTableComponent {
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         waitForFlexTablesToLoad();
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         } catch (Exception ee) {
             I.amPerforming().waitFor().makeThreadSleep(3000);
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         }
         for (String key : flexTableMap.keySet()) {
-            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
+            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
             Map<String, String> currentRowValues = flexTableMap.get(key);
             WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
 

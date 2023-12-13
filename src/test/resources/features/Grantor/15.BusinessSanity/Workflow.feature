@@ -1549,9 +1549,9 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     When I login to "As a Grantor" app as "PM" user
     And I wait for "10" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
 #    Then I see that "Subaward" is in "Activated" status
 #    And I navigate to "Monitoring" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
