@@ -4,7 +4,7 @@ Feature: Validate all scenarios of every modules flow
   @programFlow @ValidateFullProgramFlow
   Scenario: Validate Full Program Flow
     Given I am on "INTERNAL" portal
-    And I login as "PM" user
+    And I login as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"

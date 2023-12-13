@@ -440,6 +440,12 @@ public final class GovGrantsSteps {
             else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
                 flexTableId = "Outcomes";
             }
+            else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
+                flexTableId = "Review Questions";
+            }else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+            flexTableId = "Approvers";
+            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,
@@ -485,6 +491,8 @@ public final class GovGrantsSteps {
                 flexTableId = "Progress Reports Schedule";
             }else if (flexTableId.contains("flexGridSubawardContact")) {
                 flexTableId = "Contacts";
+            }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
+            flexTableId = "Review Categories";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,

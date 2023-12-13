@@ -117,6 +117,8 @@ public final class GovGrantsProductSteps {
                 tableId="Select Participants";
             } else if (tableId.contains("SelectAwardSiteDeskReviews")) {
                 tableId="Associate Award To Site Visit / Desk Review";
+            } else if (tableId.contains("SoleSourceAwardRecipientsTable")) {
+                tableId="Applicants";
             }
             ggProductObjects.chooseRecordForAssociation(
                     buttonName,

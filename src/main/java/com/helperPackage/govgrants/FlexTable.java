@@ -196,6 +196,21 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
                flexTableId = "Related Subawards";
            }
+           else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
+               flexTableId = "Review Questions";
+           }
+           else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
+               flexTableId = "Review Categories";
+           }
+           else if (flexTableId.contains("flexGridAnnouncementReviewTemplates")) {
+               flexTableId = "Review Steps";
+           }
+           else if (flexTableId.contains("ActiveFundingOpportunities")) {
+                flexTableId = "Draft Directed Announcements";
+            }
+           else if (flexTableId.contains("flexGridFormulaGrantsAwardOrganizations")) {
+                flexTableId = "Applicants";
+            }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -278,7 +293,22 @@ public final class FlexTable implements FlexTableComponent {
             else if (flexTableId.contains("SVDRFormEnhancedTable")) {
                 flexTableId = "All Forms";
             }
-                getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
+            else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+                flexTableId = "Peer Reviewers";
+            }
+            else if (flexTableId.contains("flexGridAnnouncementReviewTemplates")) {
+                flexTableId = "Review Forms";
+            }
+            else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
+                flexTableId = "Review Categories";
+            }
+             else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
+                flexTableId = "All Competitive Announcements";
+            }
+             else if (flexTableId.contains("ActiveFundingOpportunities")) {
+                flexTableId = "Draft Directed Announcements";
+            }
+        getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
        govgrants.perform().modal().acceptPopUp();
@@ -295,7 +325,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
-            I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[" + I.amPerforming().sanityOfXpathTo().equals("text()='" + iconName + "']")));
+            I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
         }else{
             I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
         }
@@ -378,28 +408,55 @@ public final class FlexTable implements FlexTableComponent {
      * @modifier komal.mukhekar - Added xpath
      */
     public void expandOrCollapseNestedTable(String uniqueColumnValue, boolean isExpand) {
-        String plusOrMinus = isExpand ? "plus" : "minus";
-        By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
-        By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
 
-        WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-        I.amPerforming().click().on(circleIconSelector);
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            String plusOrMinus = isExpand ? "plus" : "minus";
+            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                    + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
+            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
 
-        boolean clickedAgain = false;
+            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+            I.amPerforming().click().on(circleIconSelector);
 
-        for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-             elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-             elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-        ) {
-            if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                clickedAgain = true;
-                try {
-                    I.amPerforming().click().on(circleIconSelector, false);
-                } catch (Exception e) {
-                    /* Ignore Exception */
+            boolean clickedAgain = false;
+
+            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+            ) {
+                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                    clickedAgain = true;
+                    try {
+                        I.amPerforming().click().on(circleIconSelector, false);
+                    } catch (Exception e) {
+                        /* Ignore Exception */
+                    }
                 }
             }
+        }else {
+            String plusOrMinus = isExpand ? "right" : "down";
+            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                    + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
+            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+            I.amPerforming().click().withJavaScript(circleIconSelector);
+
+            boolean clickedAgain = false;
+
+            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+            ) {
+                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                    clickedAgain = true;
+                    try {
+                        I.amPerforming().click().on(circleIconSelector, false);
+                    } catch (Exception e) {
+                        /* Ignore Exception */
+                    }
+                }
+            }
+
         }
     }
 
@@ -545,8 +602,8 @@ public final class FlexTable implements FlexTableComponent {
     public void enterFlexTableRowsForLWC(String flexTableDivId, String buttonName, List<Map<String, String>> rowValues) {
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         WebElement table = null;
-
         for (Map<String, String> rowValue : rowValues) {
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             clickTableTopRightButton(flexTableDivId, buttonName);
             if (table == null) {
                 if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
@@ -578,8 +635,14 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
+                I.amPerforming().click().withJavaScript(By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
+            }else {
+
                 I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
                         + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
+            }
+
         }
     }
 
@@ -818,8 +881,13 @@ public final class FlexTable implements FlexTableComponent {
     }
 
     public By getTopRightButtonLocatorByTableIdForLWC(String flexTableDivId, String buttonName) {
-        By locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"']");
-        I.amPerforming().waitFor().ElementToBePresent(locator);
+        By locator=null;
+        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
+            locator = By.xpath("//div[contains(@class,'modal__container')]//span[text()='" + flexTableDivId + "']/../..//button[@title='"+ buttonName +"' or text()='"+ buttonName +"']");
+        }else {
+            locator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='"+ buttonName +"' or text()='"+ buttonName +"']");
+        }
+
         try {
             if(EnvironmentFactory.getProjectName().contains("OSPI") && ScenarioController.getScenario().getSourceTagNames().contains("@117618")){
                 I.amPerforming().checkToSee().isElementDisplayed(locator);
@@ -854,10 +922,28 @@ public final class FlexTable implements FlexTableComponent {
     }
 
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
+        WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
-            WebElement desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
-            I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
-            I.amPerforming().click().withJavaScript(desiredAction);
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@class='ctable']"))){
+                if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
+                    desiredAction = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+                    I.amPerforming().click().withJavaScript(desiredAction);
+                } else {
+                desiredAction = I.amPerforming().getElementReference().of(By.xpath(" //span[text()='"+ flexTableId +"']/ancestor::c-lwc-flex-table[@class='ctable']//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+//                I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
+                I.amPerforming().scroll().toMoveToElement(desiredAction);
+                try{
+                    I.amPerforming().click().on(desiredAction);
+                } catch (Exception e){
+                    I.amPerforming().click().withJavaScript(desiredAction);
+                }
+            }
+            }else {
+                desiredAction = I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[contains(text(),'"+ flexTableId +"')]/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button"));
+                I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
+                I.amPerforming().click().withJavaScript(desiredAction);
+            }
+
         }
 
     }
@@ -982,8 +1068,9 @@ public final class FlexTable implements FlexTableComponent {
                     for (int i = 0; i < 50; i++) {
                         try {
                             By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
-                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
+//                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+//                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
+                            I.amPerforming().textInput().toClear(inputBox);
                             I.amPerforming().textInput().in(inputBox, fieldValue);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {
@@ -1094,7 +1181,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement table;
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
-                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table"));
+                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table"));
         } else {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[@id='flexTableDivId' or @id='flexGridDivId' or contains(@id, 'flexGridEnhancedDivId') or @ng-controller='inlineEditGridCtrl' or contains]//table | ./ancestor::div[contains(@class,'grid-block')]//table"));
