@@ -497,7 +497,7 @@ public final class GovGrantsSteps {
             }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
                 flexTableId = "Focus Areas";
             }
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@class='ctable']"))){
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
                 govgrants.perform().flexTable().editFlexTableRowsInlineForLWC(
                         flexTableId,
                         editButtonName,
