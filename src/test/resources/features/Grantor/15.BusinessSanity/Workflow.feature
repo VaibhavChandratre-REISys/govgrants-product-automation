@@ -1548,8 +1548,8 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario:
     When I login to "As a Grantor" app as "PM" user
-    And I wait for "10" seconds
-    Then I see that "Subaward" is in "Activated" status
+#    And I wait for "10" seconds
+#    Then I see that "Subaward" is in "Activated" status
 #    And I navigate to "Monitoring" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 #    When I perform quick search for "PR-1234-65" in "---amendment:-:pendingTaskTableId---" panel

@@ -56,6 +56,7 @@ public class CapabilitiesManager {
                 "profile.cookie_controls_mode", 0,
                 "profile.block_third_party_cookies", false,
                 "profile.default_content_settings.popups", 0,
+                "profile.default_content_setting_values.notifications", 2,
                 "download.prompt_for_download", "false",
                 "download.directory_upgrade", "true",
                 "download.default_directory", System.getProperty("user.dir") + File.separatorChar + "target"
