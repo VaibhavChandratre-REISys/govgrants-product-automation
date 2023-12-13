@@ -494,6 +494,8 @@ public final class GovGrantsSteps {
                 flexTableId = "Funding Account Information";
             }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
             flexTableId = "Review Categories";
+            }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
+                flexTableId = "Focus Areas";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
