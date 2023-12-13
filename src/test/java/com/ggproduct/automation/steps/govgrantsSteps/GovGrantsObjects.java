@@ -92,6 +92,8 @@ public final class GovGrantsObjects {
                 this.tableIdForQsearch = "All Competitive Announcements";
             } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunities")) {
                 this.tableIdForQsearch = "Draft Directed Announcements";
+            } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
+                this.tableIdForQsearch = "Application Reviews - All";
             }
 // Below Implementation will be remove once bug resolved for Pending Task
             if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {

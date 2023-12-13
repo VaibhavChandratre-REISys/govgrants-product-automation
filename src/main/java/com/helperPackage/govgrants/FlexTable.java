@@ -317,6 +317,9 @@ public final class FlexTable implements FlexTableComponent {
              else if (flexTableId.contains("ActiveFundingOpportunities")) {
                 flexTableId = "Draft Directed Announcements";
             }
+             else if (flexTableId.contains("ActiveFundingOpportunities")) {
+            flexTableId = "flexGridAnnouncementReviewSteps";
+           }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
