@@ -84,6 +84,8 @@ public final class GovGrantsObjects {
                 this.tableIdForQsearch = "Subawards";
             } else if (this.tableIdForQsearch.contains("flexGridSiteVisitsGridView")) {
                 this.tableIdForQsearch = "Site Visit Reports";
+            } else if (this.tableIdForQsearch.contains("ActiveAccount")) {
+                this.tableIdForQsearch = "Subrecipient Organizations";
             } else if (this.tableIdForQsearch.contains("flexGridPhasePendingTasks")) {
             this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
             } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesCompitive")) {

@@ -400,45 +400,44 @@ public final class GovGrantsSteps {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("flexGridProgramChecklists")) {
+            } else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
-            }
-            else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
+            } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
+            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("flexGridPaymentLineItems")) {
+            } else if (flexTableId.contains("flexGridPaymentLineItems")) {
                 flexTableId= "Payment Line Items";
-            }
-            else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
+            } else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
+            } else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
+            } else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
                 flexTableId= "Peer Reviewers";
-            }
-            else if (flexTableId.contains("flexGridAmendmentreqRolesAndResponsibilities")) {
+            } else if (flexTableId.contains("flexGridAmendmentreqRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
-            }
-            else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
+            } else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
                 flexTableId = "Approvers";
-            }
-            else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            } else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
                 flexTableId= "Peer Reviewers";
+            } else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
+                flexTableId = "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
+                flexTableId = "Outcomes";
+            } else if (flexTableId.contains("GrantorDeskReviewRolesandResponsibilitiesgrid")) {
             }
             else if (flexTableId.contains("flexGridProgressReportsRolesandResponsibilities")) {
                 flexTableId= "Approvers";
             }
             else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
                 flexTableId = "Approvers";
-            }
-            else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGrid")) {
                 flexTableId = "Outcomes";
+            } else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
+                flexTableId = "Peer Reviewers";
             }
             else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
                 flexTableId = "Review Questions";
@@ -491,6 +490,8 @@ public final class GovGrantsSteps {
                 flexTableId = "Progress Reports Schedule";
             }else if (flexTableId.contains("flexGridSubawardContact")) {
                 flexTableId = "Contacts";
+            }else if (flexTableId.contains("AwardFundingAccountsgrid")) {
+                flexTableId = "Funding Account Information";
             }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
             flexTableId = "Review Categories";
             }

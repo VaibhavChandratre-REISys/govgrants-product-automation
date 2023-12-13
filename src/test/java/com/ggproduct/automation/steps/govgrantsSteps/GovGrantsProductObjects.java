@@ -507,7 +507,14 @@ public final class GovGrantsProductObjects {
      * @author meenakshi.jha
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (tableId.contains("ActiveAccount")) {
+                tableId = "Subrecipient Organizations";
+            }
+            I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
+        } else {
+            I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
+        }
     }
 
     public void enterEmailId(String emailId, String fieldAPIName) {

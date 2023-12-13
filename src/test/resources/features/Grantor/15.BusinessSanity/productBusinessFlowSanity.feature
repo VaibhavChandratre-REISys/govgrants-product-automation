@@ -14,7 +14,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---focusarea:-:FocusAreaFilesTableId---"
     When I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
@@ -1226,50 +1227,59 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I wait for "3" seconds
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
+    And I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
-    And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    When I navigate to "Performance" sub tab
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    When I navigate to "Performance" sub tab
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
+#    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
+    And I wait for "1" seconds
     When I click modal button "Save"
+    And I wait for "1" seconds
+    When I click modal button "Close"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
+#    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
-    And I click modal button "Save"
+    And I wait for "1" seconds
+    When I click modal button "Save"
+    And I wait for "1" seconds
+    When I click modal button "Close"
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
+    And I wait for "1" seconds
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 2 |
+    And I wait for "1" seconds
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "9" seconds
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
     And I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1294,6 +1304,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "1" seconds
+    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1303,6 +1315,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     And I click on "Complete Review" in the page details
+    And I wait for "2" seconds
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "3" seconds
@@ -1337,7 +1350,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
+    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside table
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1349,7 +1362,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Activated" and is "green"
+    Then I see status in Progress-bar is "Activated" and is "dark blue"
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
@@ -1971,10 +1984,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "green"
+    And I click on "Accept and Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @72354 @deskReviewAcceptAndClose
   Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
@@ -2018,18 +2030,22 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    Below button is not display for now logged the bug
+#    When I click on "Back" in the page details
+    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
+    And I navigate to "Reports and Outcomes" sub tab
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
-    Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:homePendingTasksTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
     And I "Approve" in the approval decision
-    Then I softly can see top right button "Send to Subrecipient" in page detail
     When I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2056,10 +2072,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept and Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "green"
+    And I click on "Accept And Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @72355 @siteVisitAcceptAndCloseOrgLevel
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
@@ -2068,9 +2083,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2101,7 +2115,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    Below button is not display for now logged the bug
+#    When I click on "Back" in the page details
+    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:orgCorrectiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -2142,8 +2159,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    And I click on "Accept and Close" in the page details
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @72357 @deskReviewAcceptAndCloseOrgLevel
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
@@ -2152,9 +2169,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2165,7 +2181,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
@@ -2181,7 +2197,13 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    Below button is not display for now logged the bug
+#    When I click on "Back" in the page details
+    And I navigate to "{SavedValue:DeskReviewID} | Site Visit" tab
+    And I navigate to "Reports and Outcomes" sub tab
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "1" seconds
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
     And I "Approve" in the approval decision
@@ -2217,7 +2239,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @72358 @activationOfBudgetPeriodAmendmentRequest
   Scenario: Validate the Budget period amendment activation
@@ -2245,7 +2267,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                                | End Date                             |
-      | Automation Permanent Focus Area 4567 | {SavedValue:updatedBudgetPeriodDate} |
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |

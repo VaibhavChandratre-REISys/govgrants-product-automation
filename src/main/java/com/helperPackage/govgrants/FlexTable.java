@@ -72,6 +72,12 @@ public final class FlexTable implements FlexTableComponent {
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
+    public WebElement getSpecificElementFromTableHeaderForLWC(String tableId, String titleName) {
+        By tableHeaderElement = By
+                .xpath("//span[contains(text(),'" + tableId + "')]/ancestor::c-lwc-flex-table//table//th//span[@title='" + titleName + "' and text()='" + titleName + "']");
+        return I.amPerforming().getElementReference().of(tableHeaderElement);
+    }
+
     /**
      * get complete rows of flea table. It will return us rows of table which donot have any expand/collapse(+) icon.
      *
@@ -172,29 +178,26 @@ public final class FlexTable implements FlexTableComponent {
                flexTableId = "Subaward Risk Assessments";
            }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
             flexTableId = "Published Competitive Announcements";
-           }else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
-               flexTableId = "Goals and Objectives";
-           }
-           else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
+           }else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
                flexTableId = "Amendment Requests";
-           }
-           else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
+           }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
                flexTableId = "Funding Account Information";
-           }
-           else if (flexTableId.contains("GrantorTermsandConditions")) {
+           }else if (flexTableId.contains("GrantorTermsandConditions")) {
                flexTableId = "Terms and Conditions";
-           }
-           else if (flexTableId.contains("GrantorSiteVisitsAward")) {
+           }else if (flexTableId.contains("GrantorSiteVisitsAward")) {
                flexTableId = "Site Visits";
-           }
-           else if (flexTableId.contains("GrantorSiteVisitContacts")) {
+           }else if (flexTableId.contains("GrantorSiteVisitContacts")) {
                flexTableId = "Participants";
-           }
-           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+           }else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
                flexTableId = "Related Subawards";
-           }
-           else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
-               flexTableId = "Related Subawards";
+           }else if (flexTableId.contains("GrantorDeskReviewAward")) {
+               flexTableId = "Desk Reviews";
+           }else if (flexTableId.equals("SiteVisit")) {
+               flexTableId = "Site Visits";
+           }else if (flexTableId.equals("GrantorSiteVisitOrganizationContactsGridgrid")) {
+               flexTableId = "Participants";
+           }else if (flexTableId.equals("DeskReview")) {
+               flexTableId = "Desk Review";
            }
            else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
                flexTableId = "Review Questions";
@@ -292,6 +295,12 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("SVDRFormEnhancedTable")) {
                 flexTableId = "All Forms";
+            }
+            else if (flexTableId.contains("PaymentSchedulesgrid")) {
+                flexTableId = "Payment Requests Schedule";
+            }
+            else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
+                flexTableId = "Peer Reviewers";
             }
             else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
                 flexTableId = "Peer Reviewers";
@@ -724,6 +733,18 @@ public final class FlexTable implements FlexTableComponent {
         }
     }
 
+    public boolean assertCoulmnValueAgainstColumnTitleForLWC(String columnValue, String columnTitle, String flexTableDivId) {
+        try {
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//tr")));
+            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+            Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='"+columnValue+"']"));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     /**
      * Handles assertion of column value for the given column title in the given
      * flextable against the particular unique value
@@ -1068,6 +1089,9 @@ public final class FlexTable implements FlexTableComponent {
                     for (int i = 0; i < 50; i++) {
                         try {
                             By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
+//                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+//                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
+                            I.amPerforming().textInput().toClear(inputBox);
 //                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
                             I.amPerforming().textInput().toClear(inputBox);
