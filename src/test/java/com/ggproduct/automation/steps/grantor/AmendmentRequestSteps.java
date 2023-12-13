@@ -44,6 +44,8 @@ public class AmendmentRequestSteps {
             }
             else if (flexTableId.contains("AssociateAnnouncementContacts")) {
                 flexTableId= "Contacts";
+            }else if (flexTableId.contains("SelectAnnGoals")) {
+                flexTableId= "Objectives";
             }
             else if (flexTableId.contains("SelectAwardFundingAccounts")) {
                 flexTableId= "Funding Accounts";

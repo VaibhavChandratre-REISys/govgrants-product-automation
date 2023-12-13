@@ -142,8 +142,11 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableAgainstUniqueValue(String columnValue, String columnTitle,
                                                              String uniqueColumnValue, String flexTableDivId, Boolean checkifpresent, boolean isSoftly) {
-
-        if (isSoftly) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableDivId.contains("GrantorProgressReportsInternal")) {
+                flexTableDivId = "Progress Reports - Approved";
+            }
+            if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                     columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
         } else {
@@ -151,6 +154,17 @@ public final class GovGrantsAssertionObjects {
                     govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                             columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
         }
+        }else {
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+                        columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
+            } else {
+                Assert.assertEquals(checkifpresent,
+                        govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+                                columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
+            }
+        }
+
     }
 
     /**

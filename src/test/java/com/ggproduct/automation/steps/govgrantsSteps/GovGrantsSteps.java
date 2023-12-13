@@ -427,12 +427,23 @@ public final class GovGrantsSteps {
             } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
                 flexTableId = "Outcomes";
             } else if (flexTableId.contains("GrantorDeskReviewRolesandResponsibilitiesgrid")) {
+            }
+            else if (flexTableId.contains("flexGridProgressReportsRolesandResponsibilities")) {
+                flexTableId= "Approvers";
+            }
+            else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
                 flexTableId = "Approvers";
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGrid")) {
                 flexTableId = "Outcomes";
             } else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
                 flexTableId = "Peer Reviewers";
+            }
+            else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
+                flexTableId = "Review Questions";
+            }else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
+            flexTableId = "Approvers";
+            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
@@ -481,6 +492,8 @@ public final class GovGrantsSteps {
                 flexTableId = "Contacts";
             }else if (flexTableId.contains("AwardFundingAccountsgrid")) {
                 flexTableId = "Funding Account Information";
+            }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
+            flexTableId = "Review Categories";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
