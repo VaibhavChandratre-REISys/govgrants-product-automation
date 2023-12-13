@@ -190,11 +190,21 @@ public final class PageDetails {
 
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                I.amPerforming().click().on(moreTabs);
-                I.amPerforming().click().on(desiredTab);
-                I.amPerforming().click().on(moreTabs);
+               try {
+                   I.amPerforming().click().on(moreTabs);
+                   I.amPerforming().click().on(desiredTab);
+                   I.amPerforming().click().on(moreTabs);
+               }catch(Exception ez){
+                   I.amPerforming().click().withJavaScript(moreTabs);
+                   I.amPerforming().click().withJavaScript(desiredTab);
+                   I.amPerforming().click().withJavaScript(moreTabs);
+               }
             } else {
-                I.amPerforming().click().on(desiredTab);
+                try {
+                    I.amPerforming().click().on(desiredTab);
+                }catch(Exception et){
+                    I.amPerforming().click().withJavaScript(desiredTab);
+                }
             }
         } catch (Exception ex) {
             try {

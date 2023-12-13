@@ -497,11 +497,20 @@ public final class GovGrantsSteps {
             }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
                 flexTableId = "Focus Areas";
             }
-            govgrants.perform().flexTable().editFlexTableRowsInline(
-                    flexTableId,
-                    editButtonName,
-                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
-            );
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@class='ctable']"))){
+                govgrants.perform().flexTable().editFlexTableRowsInlineForLWC(
+                        flexTableId,
+                        editButtonName,
+                        I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+                );
+            } else {
+                govgrants.perform().flexTable().editFlexTableRowsInline(
+                        flexTableId,
+                        editButtonName,
+                        I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+                );
+            }
+
         } else {
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,

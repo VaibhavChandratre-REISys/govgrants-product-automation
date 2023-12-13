@@ -323,6 +323,9 @@ public final class FlexTable implements FlexTableComponent {
              else if (flexTableId.contains("ActiveFundingOpportunities")) {
                 flexTableId = "Draft Directed Announcements";
             }
+            else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
+                flexTableId = "Focus Areas";
+            }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
@@ -687,13 +690,47 @@ public final class FlexTable implements FlexTableComponent {
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         waitForFlexTablesToLoad();
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         } catch (Exception ee) {
             I.amPerforming().waitFor().makeThreadSleep(3000);
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td")));
         }
         for (String key : flexTableMap.keySet()) {
-            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
+            By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
+            Map<String, String> currentRowValues = flexTableMap.get(key);
+            WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
+
+            if (mapColumnHeaderToColumnPosition == null) {
+                mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
+            }
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
+//            clickTableActionIcon(flexTableDivId, editButtonName, key);
+            for (String columnName : currentRowValues.keySet()) {
+                WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
+                this.handleFlexTableDataInputs(rowCell, currentRowValues.get(columnName));
+            }
+        }
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
+            clickTableTopRightButton(flexTableDivId, "Save");
+        } else {
+            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
+                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
+        }
+    }
+
+    public void editFlexTableRowsInlineForLWC(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
+        Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
+        Map<String, Integer> mapColumnHeaderToColumnPosition = null;
+        waitForFlexTablesToLoad();
+        try {
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td")));
+        } catch (Exception ee) {
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td")));
+        }
+        for (String key : flexTableMap.keySet()) {
+            By currentRowLocator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
             Map<String, String> currentRowValues = flexTableMap.get(key);
             WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
 
