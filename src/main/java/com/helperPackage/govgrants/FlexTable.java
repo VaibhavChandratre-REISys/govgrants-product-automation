@@ -988,7 +988,7 @@ public final class FlexTable implements FlexTableComponent {
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@class='ctable']"))){
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
                 if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
                     desiredAction = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
                     I.amPerforming().click().withJavaScript(desiredAction);
