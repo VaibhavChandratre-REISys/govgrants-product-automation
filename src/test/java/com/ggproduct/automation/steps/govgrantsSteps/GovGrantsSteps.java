@@ -400,36 +400,42 @@ public final class GovGrantsSteps {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
             } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridPaymentLineItems")) {
                 flexTableId= "Payment Line Items";
             } else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
                 flexTableId= "Peer Reviewers";
             } else if (flexTableId.contains("flexGridAmendmentreqRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
                 flexTableId = "Approvers";
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
                 flexTableId= "Peer Reviewers";
-            } else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
                 flexTableId = "Outcomes";
             } else if (flexTableId.contains("GrantorDeskReviewRolesandResponsibilitiesgrid")) {
+                flexTableId = "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             }
             else if (flexTableId.contains("flexGridProgressReportsRolesandResponsibilities")) {
                 flexTableId= "Approvers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             }
             else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
                 flexTableId = "Approvers";
