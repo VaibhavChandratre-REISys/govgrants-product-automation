@@ -340,6 +340,8 @@ public final class FlexTable implements FlexTableComponent {
             }
             else if (flexTableId.contains("RelatedPanelApplicationsGridFlexToggle")) {
                 flexTableId = "Review Forms";
+            } else if (flexTableId.contains("ApplicantGrantorApplications")) {
+                flexTableId = "Applications - All";
             }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);

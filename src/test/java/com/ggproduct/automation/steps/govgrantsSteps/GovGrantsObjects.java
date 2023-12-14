@@ -102,6 +102,10 @@ public final class GovGrantsObjects {
             this.tableIdForQsearch = "Assign Users for Applications";
             } else if (this.tableIdForQsearch.contains("pendingTaskTableId")) {
                 this.tableIdForQsearch = "Assign Users for Applications";
+            } else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
+            this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
+            } else if (this.tableIdForQsearch.contains("ApplicantGrantorApplications")) {
+            this.tableIdForQsearch = "Applications - All";
             }
 // Below Implementation will be remove once bug resolved for Pending Task
             if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {
