@@ -1433,7 +1433,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "8" seconds
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
