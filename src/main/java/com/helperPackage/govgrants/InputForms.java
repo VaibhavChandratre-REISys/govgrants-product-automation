@@ -1231,11 +1231,11 @@ public final class InputForms {
     }
 
     private int checkTextInputDatePresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='mm/dd/yyyy']"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field["+ qNumber + "]//lightning-datepicker//input"), false).size();
     }
 
     private By getTextInputDateReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='mm/dd/yyyy']");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field["+ qNumber + "]//lightning-datepicker//input");
     }
 
     private int checkDropdownPresentReviewForm(String title, int qNumber) {
@@ -1245,7 +1245,7 @@ public final class InputForms {
     }
 
     private int checkDropdownPresentReviewFormForLwc(String title, int qNumber) {
-        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button"), false).size();
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button[@role='combobox']"), false).size();
     }
 
 
@@ -1256,11 +1256,11 @@ public final class InputForms {
     }
 
     private By checkDropdownReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button[@role='combobox']");
     }
 
     private By selectDropdownReviewFormForLwc(String title, int qNumber) {
-        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button/../..//span[text()='Yes' or text()='Medium' ]");
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button[@role='combobox']/../..//span[text()='Yes' or text()='Medium' ]");
     }
 
     /**

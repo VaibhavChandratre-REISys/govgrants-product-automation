@@ -151,4 +151,11 @@ public final class Modal {
             }
         }
     }
+
+    public void clickAlertContentSpecificButtonForLwc(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='"+buttonName+"']"));
+    }
 }
+
+
+

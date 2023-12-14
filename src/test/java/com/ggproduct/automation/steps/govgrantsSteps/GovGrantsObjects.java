@@ -87,35 +87,49 @@ public final class GovGrantsObjects {
             } else if (this.tableIdForQsearch.contains("ActiveAccount")) {
                 this.tableIdForQsearch = "Subrecipient Organizations";
             } else if (this.tableIdForQsearch.contains("flexGridPhasePendingTasks")) {
-            this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
+                this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
             } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesCompitive")) {
                 this.tableIdForQsearch = "All Competitive Announcements";
             } else if (this.tableIdForQsearch.equals("ActiveFundingOpportunities")) {
                 this.tableIdForQsearch = "Draft Directed Announcements";
             }else if (this.tableIdForQsearch.equals("ActiveFundingOpportunitiesFormula")) {
                 this.tableIdForQsearch = "Draft Formula Announcements";
+            } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
+                this.tableIdForQsearch = "Application Reviews - All";
+            } else if (this.tableIdForQsearch.contains("flexGridReviewStepUsers")) {
+                this.tableIdForQsearch = "Applications";
+            } else if (this.tableIdForQsearch.contains("flexGridAssignAppToUser")) {
+                this.tableIdForQsearch = "Assign Applications to Reviewer";
+            } else if (this.tableIdForQsearch.contains("flexGridAssignPanelApplications")) {
+            this.tableIdForQsearch = "Assign Users for Applications";
+            } else if (this.tableIdForQsearch.contains("pendingTaskTableId")) {
+                this.tableIdForQsearch = "Assign Users for Applications";
+            } else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
+            this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
+            } else if (this.tableIdForQsearch.contains("ApplicantGrantorApplications")) {
+            this.tableIdForQsearch = "Applications - All";
             }
 // Below Implementation will be remove once bug resolved for Pending Task
             if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {
-              boolean recordPresent = false;
-              int counter = 0;
-               while (!recordPresent && counter<15){
-                   if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::gnt-flex-table-l-w-c//div//span[contains(text(),'Total Records:')] | //span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::c-lwc-flex-table//div//span[contains(text(),'Total Records:')]"))) {
-                       recordPresent =  true;
-                       break;
-                   }
-                   else{
-                       I.amPerforming().browserOperationsTo().refreshPage();
-                       govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
-                       I.amPerforming().waitFor().makeThreadSleep(9000);
-                   } counter ++;
-              }
-                        if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                            govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                                    govgrants.perform().pageDetails().idOfRecord);
-                        } else {
-                            govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
-                        }
+                boolean recordPresent = false;
+                int counter = 0;
+                while (!recordPresent && counter < 15) {
+                    if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::gnt-flex-table-l-w-c//div//span[contains(text(),'Total Records:')] | //span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::c-lwc-flex-table//div//span[contains(text(),'Total Records:')]"))) {
+                        recordPresent = true;
+                        break;
+                    } else {
+                        I.amPerforming().browserOperationsTo().refreshPage();
+                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
+                        I.amPerforming().waitFor().makeThreadSleep(9000);
+                    }
+                    counter++;
+                }
+                if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
+                            govgrants.perform().pageDetails().idOfRecord);
+                } else {
+                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
+                }
 
             } else {
                 if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
@@ -365,8 +379,22 @@ public final class GovGrantsObjects {
      * Checks a checkbox in each row of a flex table containing given strings
      */
     public void checkFlexRows(String flexTableId, String... uniqueColumnTexts) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flexTableId.contains("flexGridAssignAppToUser")) {
+                flexTableId = "Assign Applications to Reviewer";
+            } else if (flexTableId.contains("flexGridStepReviews")) {
+                flexTableId = "Reviews";
+            } else if (flexTableId.contains("flexGridPreScreenRelatedStepApplicationsFinal")) {
+            flexTableId = "Applications";
+            } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
+                flexTableId = "Assign Users for Applications";
+            }
+            govgrants.perform().flexTable().selectCheckBoxes(flexTableId, uniqueColumnTexts);
+        } else {
         govgrants.perform().flexTable().selectCheckBoxes(flexTableId, uniqueColumnTexts);
+       }
     }
+
 
     /**
      * Performs the necessary actions to upload an attachment through a flex table
