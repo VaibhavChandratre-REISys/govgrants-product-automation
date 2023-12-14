@@ -190,11 +190,12 @@ public final class PageDetails {
 
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                I.amPerforming().click().on(moreTabs);
-                I.amPerforming().click().on(desiredTab);
-                I.amPerforming().click().on(moreTabs);
+                   I.amPerforming().click().withJavaScript(moreTabs);
+                   I.amPerforming().click().withJavaScript(desiredTab);
+                   I.amPerforming().click().withJavaScript(moreTabs);
+
             } else {
-                I.amPerforming().click().on(desiredTab);
+                    I.amPerforming().click().withJavaScript(desiredTab);
             }
         } catch (Exception ex) {
             try {
@@ -207,14 +208,14 @@ public final class PageDetails {
             }
         }
 
-        try {
-            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
-                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     The click was not successful - Retrying with javaScript");
-                I.amPerforming().click().withJavaScript(desiredTab, false);
-            }
-        } catch (Exception e) {
-            I.amPerforming().click().withJavaScript(desiredTab, false);
-        }
+//        try {
+//            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
+//                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     The click was not successful - Retrying with javaScript");
+//                I.amPerforming().click().withJavaScript(desiredTab, false);
+//            }
+//        } catch (Exception e) {
+//            I.amPerforming().click().withJavaScript(desiredTab, false);
+//        }
     }
 
     /**

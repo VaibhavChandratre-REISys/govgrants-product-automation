@@ -225,7 +225,12 @@ public final class FlexTable implements FlexTableComponent {
            } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
                flexTableId = "Assign Users for Applications";
            }
-
+           else if (flexTableId.contains("flexGridByApplicatntFocusAreaInvitedApplicants")) {
+               flexTableId = "Applicants";
+           }
+           else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
+               flexTableId = "Goals and Objectives";
+           }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -328,6 +333,9 @@ public final class FlexTable implements FlexTableComponent {
             }
              else if (flexTableId.contains("ActiveFundingOpportunities")) {
                 flexTableId = "Draft Directed Announcements";
+            }
+            else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
+                flexTableId = "Focus Areas";
             }
              else if (flexTableId.contains("ActiveFundingOpportunities")) {
             flexTableId = "flexGridAnnouncementReviewSteps";
@@ -736,6 +744,40 @@ public final class FlexTable implements FlexTableComponent {
         }
     }
 
+    public void editFlexTableRowsInlineForLWC(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
+        Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
+        Map<String, Integer> mapColumnHeaderToColumnPosition = null;
+        waitForFlexTablesToLoad();
+        try {
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td")));
+        } catch (Exception ee) {
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td")));
+        }
+        for (String key : flexTableMap.keySet()) {
+            By currentRowLocator = By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
+            Map<String, String> currentRowValues = flexTableMap.get(key);
+            WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
+
+            if (mapColumnHeaderToColumnPosition == null) {
+                mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
+            }
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
+//            clickTableActionIcon(flexTableDivId, editButtonName, key);
+            for (String columnName : currentRowValues.keySet()) {
+                WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
+                this.handleFlexTableDataInputs(rowCell, currentRowValues.get(columnName));
+            }
+        }
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
+            clickTableTopRightButton(flexTableDivId, "Save");
+        } else {
+            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
+                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='Save' or @text()='Save'] | //span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//div//*[@title='Save' or @text()='Save']"));
+        }
+    }
+
     /**
      * Handles assertion of column value for the given column title in the given
      * flextable
@@ -971,7 +1013,7 @@ public final class FlexTable implements FlexTableComponent {
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@class='ctable']"))){
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
                 if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
                     desiredAction = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
                     I.amPerforming().click().withJavaScript(desiredAction);

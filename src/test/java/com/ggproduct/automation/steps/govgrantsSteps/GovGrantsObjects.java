@@ -90,8 +90,10 @@ public final class GovGrantsObjects {
                 this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
             } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesCompitive")) {
                 this.tableIdForQsearch = "All Competitive Announcements";
-            } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunities")) {
+            } else if (this.tableIdForQsearch.equals("ActiveFundingOpportunities")) {
                 this.tableIdForQsearch = "Draft Directed Announcements";
+            }else if (this.tableIdForQsearch.equals("ActiveFundingOpportunitiesFormula")) {
+                this.tableIdForQsearch = "Draft Formula Announcements";
             } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
                 this.tableIdForQsearch = "Application Reviews - All";
             } else if (this.tableIdForQsearch.contains("flexGridReviewStepUsers")) {
@@ -154,7 +156,7 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
@@ -184,9 +186,9 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
             govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-        } else {
+        }else{
             govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
         }
     }
