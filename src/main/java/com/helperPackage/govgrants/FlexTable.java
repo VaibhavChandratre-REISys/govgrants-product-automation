@@ -210,10 +210,22 @@ public final class FlexTable implements FlexTableComponent {
            }
            else if (flexTableId.contains("ActiveFundingOpportunities")) {
                 flexTableId = "Draft Directed Announcements";
-            }
+           }
            else if (flexTableId.contains("flexGridFormulaGrantsAwardOrganizations")) {
                 flexTableId = "Applicants";
-            }
+           } else if (flexTableId.contains("flexGridReviewStepUsers")) {
+               flexTableId = "Applications";
+           }
+           else if (flexTableId.contains("flexGridAssignAppToUser")) {
+                flexTableId = "Assign Applications to Reviewer";
+           } else if (flexTableId.contains("flexGridStepReviews")) {
+               flexTableId = "Reviews";
+           } else if (flexTableId.contains("flexGridPreScreenRelatedStepApplicationsFinal")) {
+            flexTableId = "Applications";
+           } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
+               flexTableId = "Assign Users for Applications";
+           }
+
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -319,7 +331,16 @@ public final class FlexTable implements FlexTableComponent {
             }
              else if (flexTableId.contains("ActiveFundingOpportunities")) {
             flexTableId = "flexGridAnnouncementReviewSteps";
-           }
+            }
+            else if (flexTableId.contains("flexGridAnnouncementReviewSteps")) {
+                flexTableId = "Review Steps";
+            }
+            else if (flexTableId.contains("flexGridReviewStepUsers")) {
+                flexTableId = "Reviewers";
+            }
+            else if (flexTableId.contains("RelatedPanelApplicationsGridFlexToggle")) {
+                flexTableId = "Review Forms";
+            }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
         }
@@ -393,7 +414,7 @@ public final class FlexTable implements FlexTableComponent {
         if (uniqueColumnTexts.length == 0) {
             By checkAllSelector = By.xpath("//div[@id='" + flexTableId + "']"
                     + "//div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId' or @id='flexGridEnhancedDivIdStepReviews']"
-                    + "//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)] | //span[contains(text()='" + flexTableId + "')]/ancestor::c-lwc-flex-table//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)]");
+                    + "//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)] | //span[text()='" + flexTableId + "']//ancestor::div[@class='header']/following-sibling::div//th[contains(@id,'allselect')]");
             I.amPerforming().click().on(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
@@ -401,7 +422,7 @@ public final class FlexTable implements FlexTableComponent {
                     + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox'or @type='radio'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox'or @type='radio']");
+                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox'or @type='radio'] | //span[text()='" + flexTableId + "']//ancestor::div[@class='header']/following-sibling::div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
 //            try {
 //                I.amPerforming().click().on(rowCheckboxSelector);
 //            } catch (org.openqa.selenium.ElementClickInterceptedException e) {

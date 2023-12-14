@@ -91,7 +91,13 @@ public class QuickSearch {
 
     public void performTableSpecificQuickSearchLwc(String tableId, String searchTerm) throws TestingBlazeCustomException {
         boolean flag = false;
-        By searchInputBox = By.xpath("//span[contains(text(),'"+ tableId +"')]/ancestor::gnt-flex-table-l-w-c//input[@type='search' and contains(@id,'input')] | //span[contains(text(),'"+ tableId +"')]/ancestor::c-lwc-flex-table//input[@type='search' and contains(@id,'input')]");
+        By searchInputBox=null;
+        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]"))) {
+            searchInputBox = By.xpath("//span[contains(text(),'"+ tableId +"')]/ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table//input[@type='search' and contains(@id,'input')]");
+
+        }else{
+            searchInputBox = By.xpath("//span[contains(text(),'"+ tableId +"')]/ancestor::gnt-flex-table-l-w-c//input[@type='search' and contains(@id,'input')] | //span[contains(text(),'"+ tableId +"')]/ancestor::c-lwc-flex-table//input[@type='search' and contains(@id,'input')]");
+        }
         List<Elements> quickSearchElements = I.amPerforming().getElementReference().forListOfElements().of(searchInputBox);
         for (Elements quickSearch : quickSearchElements) {
             flag = handleQuickSearchLwc(quickSearch, tableId, searchTerm);

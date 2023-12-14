@@ -445,6 +445,10 @@ public final class GovGrantsSteps {
             flexTableId = "Approvers";
             I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             }
+            else if (flexTableId.contains("flexGridReviewStepUsers")) {
+                flexTableId = "Reviewers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            }
             govgrants.perform().flexTable().enterFlexTableRowsForLWC(
                     flexTableId,
                     buttonName,
@@ -494,6 +498,8 @@ public final class GovGrantsSteps {
                 flexTableId = "Funding Account Information";
             }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
             flexTableId = "Review Categories";
+            }else if (flexTableId.contains("ApplicationReviewTreegrid")) {
+                flexTableId = "Forms";
             }
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
@@ -989,7 +995,11 @@ public final class GovGrantsSteps {
     @Description("To handle the alert pop up")
     @When("^I click alert button \"([^\"]*)\"$")
     public void iClickAlertButton(String buttonName) {
-        govgrants.perform().modal().clickAlertContentSpecificButton(buttonName);
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+            govgrants.perform().modal().clickAlertContentSpecificButton(buttonName);
+        }else {
+            govgrants.perform().modal().clickAlertContentSpecificButtonForLwc(buttonName);
+        }
     }
 
     @Description("Checkout to yopmail")
