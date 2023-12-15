@@ -262,7 +262,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | 1              | Question1 | Written | 100       |
     And I pause execution for "4" seconds
     And I collapse nested table containing column value "Program Income"
-    When I click modal button "Close"
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
