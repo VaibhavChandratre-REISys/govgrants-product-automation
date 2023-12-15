@@ -425,7 +425,7 @@ public final class FlexTable implements FlexTableComponent {
             By checkAllSelector = By.xpath("//div[@id='" + flexTableId + "']"
                     + "//div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId' or @id='flexGridEnhancedDivIdStepReviews']"
                     + "//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)] | //span[text()='" + flexTableId + "']//ancestor::div[@class='header']/following-sibling::div//th[contains(@id,'allselect')]");
-            I.amPerforming().click().on(checkAllSelector);
+            I.amPerforming().click().withJavaScript(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
             By rowCheckboxSelector = By.xpath("//div[@id='" + flexTableId
