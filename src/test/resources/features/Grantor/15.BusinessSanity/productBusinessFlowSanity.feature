@@ -51,7 +51,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72341 @programActivation
+  @debug @72341 @programActivation
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -324,7 +324,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -343,7 +343,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -865,10 +865,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
 #    When I close "Associate Funding Accounts" modal by clicking the top right x button
 #    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -1706,7 +1706,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-    Then I see status in Progress-bar is "Paid" and is "green"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
@@ -1876,7 +1876,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-    Then I see status in Progress-bar is "Paid" and is "green"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
