@@ -889,7 +889,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Overview" sub tab
     And I pause execution for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization              | Allocated Amount |
+      | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
