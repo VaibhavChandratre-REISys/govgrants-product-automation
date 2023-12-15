@@ -1832,7 +1832,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:subrecipientPendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     And I click on "Edit" in the page details
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"

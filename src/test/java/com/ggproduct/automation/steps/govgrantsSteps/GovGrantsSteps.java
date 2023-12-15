@@ -403,6 +403,8 @@ public final class GovGrantsSteps {
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
+            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesAdvancegrid")) {
+                flexTableId= "Approvers";
             } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
