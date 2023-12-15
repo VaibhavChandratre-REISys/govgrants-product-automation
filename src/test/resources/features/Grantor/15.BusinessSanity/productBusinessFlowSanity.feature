@@ -169,7 +169,7 @@ Feature: Validate sanity testing of Complete Business Flow
    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
    And I click on "Start" icon for "Record id" inside table
-   When I navigate to "Responsibilities" tab
+   When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I enter values into fields
