@@ -508,6 +508,10 @@ public final class GovGrantsSteps {
                 flexTableId = "Forms";
             }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
                 flexTableId = "Focus Areas";
+            }else if (flexTableId.contains("flexGridPaymentFundingAccountsAdvance")) {
+                flexTableId = "Funding Account Information";
+            }else if (flexTableId.contains("flexGridAmendmentProjectAreasGrantor  ")) {
+            flexTableId = "Budget Summary by Focus Area";
             }
             if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
                 govgrants.perform().flexTable().editFlexTableRowsInlineForLWC(
