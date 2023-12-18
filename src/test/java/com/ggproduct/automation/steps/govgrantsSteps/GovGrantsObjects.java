@@ -108,6 +108,12 @@ public final class GovGrantsObjects {
             this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
             } else if (this.tableIdForQsearch.contains("ApplicantGrantorApplications")) {
             this.tableIdForQsearch = "Applications - All";
+            } else if (this.tableIdForQsearch.contains("FDMList1")) {
+            this.tableIdForQsearch = "Approved Funding Decision Memos (FDM)";
+            } else if (this.tableIdForQsearch.contains("GrantorMasterKPIs")) {
+            this.tableIdForQsearch = "Key Performance Indicators (KPI) - Draft";
+            } else if (this.tableIdForQsearch.contains("StrategicPlansGrantor")) {
+            this.tableIdForQsearch = "Strategic Plans - All";
             }
 // Below Implementation will be remove once bug resolved for Pending Task
             if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {

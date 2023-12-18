@@ -181,6 +181,8 @@ public final class GovGrantsAssertionSteps {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (tableId.contains("flexGridCompletedNegotiations")) {
                 tableId = "Completed Negotiations";
+            } else if (tableId.contains("GrantorMasterKPIs")) {
+                tableId = "Key Performance Indicators (KPI) - Draft";
             }
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,

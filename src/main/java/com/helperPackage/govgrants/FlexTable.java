@@ -231,7 +231,25 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
                flexTableId = "Goals and Objectives";
            }
-           I.amPerforming().waitFor().makeThreadSleep(2000);
+            else if (flexTableId.contains("flexGridGrantorKPIFiles")) {
+                flexTableId = "KPI Files";
+            }
+            else if (flexTableId.contains("popupflextable")) {
+                flexTableId = "Key Performance Indicators (KPI) - Draft";
+            }
+           else if (flexTableId.contains("StrategicPlansGrantor")) {
+               flexTableId = "Strategic Plans - Draft";
+           }
+           else if (flexTableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+                flexTableId = "Strategic Goals";
+            }
+           else if (flexTableId.contains("KPIGoalsandObjectivesGridgrid")) {
+               flexTableId = "Key Performance Indicators";
+            }
+           else if (flexTableId.contains("RelatedObjectivesGrantor")) {
+               flexTableId = "Objectives";
+           }
+               I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
        }
@@ -350,6 +368,8 @@ public final class FlexTable implements FlexTableComponent {
                 flexTableId = "Review Forms";
             } else if (flexTableId.contains("ApplicantGrantorApplications")) {
                 flexTableId = "Applications - All";
+            } else if (flexTableId.contains("FDMList1")) {
+                flexTableId = "Approved Funding Decision Memos (FDM)";
             }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -556,7 +576,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public WebElement getSpecificTableColumn(String flexTableId, String... uniqueColumnValues) {
         String desiredColumn = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId)
-                + "]";
+                + "] |";
         for (String uniqueColumnValue : uniqueColumnValues) {
 
             if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {

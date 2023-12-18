@@ -1228,6 +1228,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
+    And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "5" seconds
     When I click on "Edit" in the page details
@@ -1930,7 +1931,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - Approved"
-    Then I see value "Approved" for title "Status" against the value "PR--GT-1234-00113-001" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+    Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
   @72353 @siteVisitAcceptAndClose
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
