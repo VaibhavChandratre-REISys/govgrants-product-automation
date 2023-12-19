@@ -607,7 +607,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @334234 @ValidatePreScreenReviewStepwhenapplicationispromotedtoFDMandassignedreviewerhasclickedundoonPreScreenreviewstepthenonclickofsubmitscoreshouldbeupdatedontheapplicationsectiononthereviewstep @Sprint-26-US-282727 @vaibhav @Undo @Execution
+  @334234 @ValidatePreScreenReviewStepwhenapplicationispromotedtoFDMandassignedreviewerhasclickedundoonPreScreenreviewstepthenonclickofsubmitscoreshouldbeupdatedontheapplicationsectiononthereviewstep @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate PreScreen Review Step when application is promoted to FDM, and assigned reviewer has clicked undo on Pre-Screen review step then on click of submit score should be updated on the application section on the review step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

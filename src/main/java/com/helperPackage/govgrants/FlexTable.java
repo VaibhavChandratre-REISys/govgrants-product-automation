@@ -242,6 +242,33 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("RelatedObjectivesGrantor")) {
                flexTableId = "Objectives";
            }
+           else if (flexTableId.contains("GrantorStrategicPlanFilesgrid")) {
+                flexTableId = "Strategic Plan Files";
+            }
+            else if (flexTableId.contains("flexGridGrantorStrategicGoalFiles")) {
+                flexTableId = "Strategic Goal Files";
+            }
+            else if (flexTableId.contains("RelatedObjectivesGrantor")) {
+                flexTableId = "Objectives";
+            }
+            else if (flexTableId.contains("KPIGoalsandObjectivesGridgrid")) {
+                flexTableId = "Key Performance Indicators (KPIs)";
+            }
+            else if (flexTableId.contains("InternalFundingSource")) {
+                flexTableId = "Internal Funding Sources";
+            }
+            else if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
+                flexTableId = "Funding Accounts";
+            }
+            else if (flexTableId.contains("flexGridInternalFundingSourceFiles")) {
+                flexTableId = "Funding Source Files";
+            }
+            else if (flexTableId.contains("ExternalFundingSource")) {
+                flexTableId = "All External Funding Sources";
+            }
+            else if (flexTableId.contains("flexGridExternalFundingSourceFiles")) {
+                flexTableId = "Funding Source Files";
+            }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -363,6 +390,8 @@ public final class FlexTable implements FlexTableComponent {
                 flexTableId = "Applications - All";
             } else if (flexTableId.contains("FDMList1")) {
                 flexTableId = "Approved Funding Decision Memos (FDM)";
+            } else if (flexTableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+                flexTableId = "Strategic Goals";
             }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -584,6 +613,29 @@ public final class FlexTable implements FlexTableComponent {
         desiredColumn = desiredColumn.substring(0, desiredColumn.length() - 16);
         return I.amPerforming().getElementReference().of(By.xpath(desiredColumn));
     }
+
+    public WebElement getSpecificTableColumnForLWC(String flexTableId, String... uniqueColumnValues) {
+        String  desiredColumn = null;
+        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))) {
+            desiredColumn = "//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']";
+        } else{
+            desiredColumn = "//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table";
+        }
+        for (String uniqueColumnValue : uniqueColumnValues) {
+
+            if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
+                uniqueColumnValue = govgrants.perform().pageDetails().idOfRecord;
+            }
+
+            desiredColumn += "//td//*["
+                    + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
+                    + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                    + "/ancestor::tr[1]";
+        }
+        desiredColumn = desiredColumn.substring(0, desiredColumn.length() - 16);
+        return I.amPerforming().getElementReference().of(By.xpath(desiredColumn));
+    }
+
 
     /**
      * @author john.phillips

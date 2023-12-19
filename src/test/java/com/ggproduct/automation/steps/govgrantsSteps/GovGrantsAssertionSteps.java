@@ -167,12 +167,32 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of top right button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertTopRightButtonInFlexTableById(String usage, String buttonName, String tableId) {
-        ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
-                tableId,
-                buttonName,
-                ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                usage.contains("softly")
-        );
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
+                    tableId,
+                    buttonName,
+                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                    usage.contains("softly")
+            );
+        } else {
+            if (tableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+                tableId = "Strategic Goals";
+            } else if (tableId.contains("RelatedObjectivesGrantor")) {
+                tableId = "Objectives";
+            } else if (tableId.contains("InternalFundingSource")) {
+                tableId = "Internal Funding Sources";
+            } else if (tableId.contains("flexGridInternalFundingSourceFiles")) {
+                tableId = "Funding Source Files";
+            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
+                tableId = "Funding Source Files";
+            }
+            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(
+                    tableId,
+                    buttonName,
+                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                    usage.contains("softly")
+            );
+        }
     }
 
     @Description("Tests for the presence of row level button on a table")
@@ -183,6 +203,8 @@ public final class GovGrantsAssertionSteps {
                 tableId = "Completed Negotiations";
             } else if (tableId.contains("GrantorMasterKPIs")) {
                 tableId = "Key Performance Indicators (KPI) - Draft";
+            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
+                tableId = "Funding Source Files";
             }
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
@@ -396,11 +418,22 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (header) is \"([^\"]*)\" in the page details$")
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
-        By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
-                ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
-        I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))
-                .as("Verifying overview header is as expected")
-                .isEqualToNormalizingWhitespace(headerText);
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
+                    ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))
+                    .as("Verifying overview header is as expected")
+                    .isEqualToNormalizingWhitespace(headerText);
+        } else {
+           if("header".equalsIgnoreCase(isHeader)){
+               By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
+               Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
+           } else {
+               By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[(@title='" + headerText + "' or text()='" + headerText + "')]");
+               Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
+           }
+
+        }
     }
 
     @Description("It will compare total records inside table with number of rows/records in table")

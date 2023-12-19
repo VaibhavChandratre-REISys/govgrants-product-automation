@@ -536,7 +536,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')]"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()]"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -751,6 +751,24 @@ public final class GovGrantsAssertionObjects {
     public void assertCanOrCannotSeeTopRightButtonInFlexTableById(String tableId, String buttonName,
                                                                   boolean assertCan, boolean isSoftly) {
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(tableId, buttonName), false);
+        if (assertCan) {
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(0).isNotEqualTo(elements.size());
+            } else {
+                Assert.assertNotEquals(elements.size(), 0);
+            }
+        } else {
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(0).isEqualTo(elements.size());
+            } else {
+                Assert.assertEquals(elements.size(), 0);
+            }
+        }
+    }
+
+    public void assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(String tableId, String buttonName,
+                                                                  boolean assertCan, boolean isSoftly) {
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTopRightButtonLocatorByTableIdForLWC(tableId, buttonName), false);
         if (assertCan) {
             if (isSoftly) {
                 I.amPerforming().assertionsTo().assertThat(0).isNotEqualTo(elements.size());

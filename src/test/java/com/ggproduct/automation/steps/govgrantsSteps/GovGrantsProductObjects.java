@@ -114,12 +114,14 @@ public final class GovGrantsProductObjects {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (flextableId.contains("KPIGoalsandObjectivesGridgrid")) {
                 flextableId = "Key Performance Indicators (KPIs)";
+            } else if (flextableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+                flextableId = "Strategic Goals";
             }
                  if (isSoftly) {
-                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
                  } else {
                     Assert.assertTrue(
-                             govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+                             govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled());
                  }
         } else {
 

@@ -53,7 +53,7 @@ public final class GovGrantsObjects {
             }
         } else {
             if (this.tableIdForQsearch.contains("InternalFundingSource")) {
-                this.tableIdForQsearch = "Internal Funding Sources - All";
+                this.tableIdForQsearch = "Internal Funding Sources";
             } else if (this.tableIdForQsearch.contains("Programs")) {
                 this.tableIdForQsearch = "Internal Programs - All";
             } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
