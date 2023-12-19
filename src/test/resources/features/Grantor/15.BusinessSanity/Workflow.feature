@@ -1546,16 +1546,16 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "5" seconds
 
 #  @debug
-#  Scenario:
-#    When I login to "As a Grantor" app as "PM" user
-#    And I halt execution
-#    Then I softly see field "Description" as "test"
-#
-##    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-#      | Budget Period Name | Start Date | End Date |
-#      | BP01               | 50         | 150      |
-#    Then I see that "Subaward" is in "Activated" status
-#    And I navigate to "Monitoring" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "PR-1234-65" in "---amendment:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "PR-1234-65" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+  Scenario:Validate
+    When I login to "As a Grantor" app as "PM" user
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
+    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    When I close "Add Organizations" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I pause execution for "2" seconds
+    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
+      | Applicants                          | Allocated Amount |
+      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |

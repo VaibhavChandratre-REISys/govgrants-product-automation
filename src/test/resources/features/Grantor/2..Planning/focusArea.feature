@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Focus Area
     When I click modal button "Save and Continue"
     When I enter value "Automation Test Description" into field "Description__c"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @50961 @addAttachmentToFocusArea
   Scenario Outline: Addition of Attachment to Focus Area by User - Admin/EXE/PM
@@ -52,7 +52,7 @@ Feature: Validate all scenarios in Focus Area
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @52455 @creationOFFocusAreaFOUser
   Scenario: Negative Scenario-Verify that FO is not able to create focus area
@@ -105,7 +105,7 @@ Feature: Validate all scenarios in Focus Area
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @53221 @foUserdeactivatingfocusArea
   Scenario: Negative Case- Verfiy that other users (other than Admin, EXE, PM) can not deactivate focus area
@@ -143,7 +143,7 @@ Feature: Validate all scenarios in Focus Area
     And I click toggle button to select "Focus Area - Inactive" in "---focusarea:-:focusAreaTableId---"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord @monu
   Scenario: Validate user should be able to see associated focus area at grant record for program

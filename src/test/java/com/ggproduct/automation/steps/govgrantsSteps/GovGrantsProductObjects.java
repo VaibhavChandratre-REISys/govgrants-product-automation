@@ -110,12 +110,26 @@ public final class GovGrantsProductObjects {
      * @author hema.ananthan
      */
     public void assertColumnOnTable(String columnUniqueValue, String flextableId, boolean isSoftly) {
-        if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (flextableId.contains("KPIGoalsandObjectivesGridgrid")) {
+                flextableId = "Key Performance Indicators (KPIs)";
+            }
+                 if (isSoftly) {
+                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+                 } else {
+                    Assert.assertTrue(
+                             govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+                 }
         } else {
-            Assert.assertTrue(
-                    govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
-        }
+
+                if (isSoftly) {
+                    I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+                } else {
+                    Assert.assertTrue(
+                            govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+                }
+            }
     }
 
     /**

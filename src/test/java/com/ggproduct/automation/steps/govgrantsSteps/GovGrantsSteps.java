@@ -403,6 +403,8 @@ public final class GovGrantsSteps {
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             } else if (flexTableId.contains("flexGridProgramChecklists")) {
                 flexTableId= "Supporting Documents Checklist";
+            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesAdvancegrid")) {
+                flexTableId= "Approvers";
             } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
                 flexTableId= "Approvers";
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
@@ -508,6 +510,10 @@ public final class GovGrantsSteps {
                 flexTableId = "Forms";
             }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
                 flexTableId = "Focus Areas";
+            }else if (flexTableId.contains("flexGridPaymentFundingAccountsAdvance")) {
+                flexTableId = "Funding Account Information";
+            }else if (flexTableId.contains("flexGridAmendmentProjectAreasGrantor  ")) {
+            flexTableId = "Budget Summary by Focus Area";
             }
             if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
                 govgrants.perform().flexTable().editFlexTableRowsInlineForLWC(

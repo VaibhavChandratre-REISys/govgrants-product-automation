@@ -204,9 +204,9 @@ public final class InputForms {
     public void clearFormDataByFieldApiName(String fieldApiName, boolean isModal) {
         By fieldWrapperLocator;
         if (isModal) {
-            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
         } else {
-            fieldWrapperLocator = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
         }
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         handleClearingFormDataInputs(fieldWrapper);

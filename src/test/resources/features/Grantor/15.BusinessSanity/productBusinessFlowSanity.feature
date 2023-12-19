@@ -51,7 +51,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72341 @programActivation
+   @72341 @programActivation
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -148,10 +148,31 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
+   When I navigate to "Responsibilities" sub tab
+   When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+     | Name                     | Announcement |
+     | {SavedValue:PM Username} | Step 1       |
+   When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+     | Name                      | Announcement |
+     | {SavedValue:EXE Username} | Step 2       |
+   When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+     | Name                     | Announcement |
+     | {SavedValue:FO Username} | Step 3       |
+   When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+     | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+     | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+   And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+   And I get the "EGMS ID"
+   And I pause execution for "3" seconds
+   And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+   When I navigate to "Announcements" tab
+   And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
+   And I click on "Start" icon for "Record id" inside table
+   When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-   And I pause execution for "5" seconds
-   And I enter values into fields
+    And I pause execution for "5" seconds
+    And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
@@ -241,7 +262,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | 1              | Question1 | Written | 100       |
     And I pause execution for "4" seconds
     And I collapse nested table containing column value "Program Income"
-    When I click modal button "Close"
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
@@ -304,7 +324,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -323,7 +343,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -352,6 +372,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -598,7 +619,6 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -620,6 +640,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
@@ -843,10 +864,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
 #    When I close "Associate Funding Accounts" modal by clicking the top right x button
 #    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -866,10 +887,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
-    When I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Overview" sub tab
+    And I pause execution for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization              | Allocated Amount |
+      | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -931,7 +952,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Accept" in the page details
-    Then I see status in Progress-bar is "Accepted" and is "Green"
+    Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
   @72345 @submitApplication
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
@@ -1051,6 +1072,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -1108,6 +1130,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -1205,6 +1228,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
+    And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "5" seconds
     When I click on "Edit" in the page details
@@ -1313,6 +1337,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Reviewer Name            | Role            | Description            | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Created" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1467,6 +1492,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1520,7 +1546,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save"
+    When I click modal button "Save and Continue"
     When I click modal button "Close"
     And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
@@ -1681,7 +1707,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-    Then I see status in Progress-bar is "Paid" and is "green"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
@@ -1807,7 +1833,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:subrecipientPendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     And I click on "Edit" in the page details
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
@@ -1851,7 +1877,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-    Then I see status in Progress-bar is "Paid" and is "green"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
@@ -1905,7 +1931,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - Approved"
-    Then I see value "Approved" for title "Status" against the value "PR--GT-1234-00113-001" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+    Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
   @72353 @siteVisitAcceptAndClose
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
@@ -2286,7 +2312,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                                | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+      | Automation Permanent Focus Area      | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |

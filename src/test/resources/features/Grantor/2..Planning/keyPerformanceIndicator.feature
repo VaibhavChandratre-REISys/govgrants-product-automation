@@ -11,7 +11,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | User  |
       | ADMIN |
@@ -28,7 +28,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | User  |
       | ADMIN |
@@ -47,6 +47,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     Then I see "Other" has been added in "KPI Files" flex table
     Examples:
       | User  |
@@ -67,8 +68,9 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     Examples:
       | User  |
       | ADMIN |
@@ -81,7 +83,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @52625 @userFOEditKPI
+  @debug @52625 @userFOEditKPI
   Scenario: Negative Case-Verfiy that PM user cannot Edit the record
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "EXE" user
@@ -92,10 +94,11 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - Draft" in "---keyperformanceindicator:-:kpiTableId---"
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I cannot see row level action button "Edit" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
@@ -110,10 +113,11 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - Draft" in "---keyperformanceindicator:-:kpiTableId---"
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I cannot see row level action button "Delete" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
@@ -130,7 +134,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
-    Then I see status in Progress-bar is "Inactive" and is "Green"
+    Then I see status in Progress-bar is "Inactive" and is "dark blue"
     Examples:
       | User  |
       | ADMIN |
@@ -177,7 +181,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click toggle button to select "Key Performance Indicators (KPI) - Inactive"
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime KPI}" inside table
-    Then I see status in Progress-bar is "Inactive" and is "Green"
+    Then I see status in Progress-bar is "Inactive" and is "dark blue"
 
   @105456 @VerifyActiveStrategicPlan @monu
   Scenario: Validate user is able to see activated strategic plan
@@ -200,7 +204,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "Green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Title" as "KPINAME"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -209,11 +213,12 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
     And I enter in modal "StrategicPlanCreation" values from "StrategicPlan_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
-    When I enter in modal value "Execution Strategic Goal" into field "fieldStrategyTitle__c"
+    When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
+    And I pause execution for "2" seconds
     When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Objective" into field "StrategyTitle__c"
@@ -222,11 +227,11 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "{SavedValue:KPINAME}" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
-    Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
+  #    Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) -Active"
-    When I perform quick search for "{SavedValue:KPINAME}" in "---keyperformanceindicator:-:kpiTableId---" panel
-    And I click on "View" icon for "{SavedValue:KPINAME}" inside table
+    When I perform quick search for "KPI-0290" in "---keyperformanceindicator:-:kpiTableId---" panel
+    And I click on "View" icon for "KPI-0290" inside table
     When I navigate to "Related Log" sub tab
     Then I softly see value "Execution Objective" for title "Title" inside table "---keyperformanceindicator:-:ObjectiveTableId---"

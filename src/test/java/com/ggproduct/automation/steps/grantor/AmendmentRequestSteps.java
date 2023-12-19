@@ -50,6 +50,9 @@ public class AmendmentRequestSteps {
             else if (flexTableId.contains("SelectAwardFundingAccounts")) {
                 flexTableId= "Funding Accounts";
             }
+            else if (flexTableId.contains("SelectKPIs")) {
+                flexTableId= "List of Active KPIs";
+            }
             amendmentRequestPage.clickAfterSelectionOfInTheTablesForLWC(buttonName, recordValue, numberOfEntries, flexTableId);
         }
         else
