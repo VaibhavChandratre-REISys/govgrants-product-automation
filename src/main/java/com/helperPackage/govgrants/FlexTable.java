@@ -231,6 +231,9 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
                flexTableId = "Goals and Objectives";
            }
+           else if (flexTableId.contains("StrategicPlansGrantor")) {
+               flexTableId = "Strategic Plans";
+           }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
