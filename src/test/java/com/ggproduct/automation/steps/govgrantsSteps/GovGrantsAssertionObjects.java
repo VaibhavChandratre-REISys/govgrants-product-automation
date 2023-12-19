@@ -186,6 +186,11 @@ public final class GovGrantsAssertionObjects {
                 flexTableDivId = "Pending Tasks (Assigned To Me)";
             }else if(flexTableDivId.contains("Goalsgrid")){
                 flexTableDivId = "Objectives";
+            } else if (flexTableDivId.contains("RelatedAnnouncements")) {
+                flexTableDivId  = "Announcements";
+            }else if (flexTableDivId.contains("flexGridProgramReviewStepTemplates")) {
+                flexTableDivId = "Reviewers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -1000);
             }
             String columnValueUpdated = columnValue;
             if (columnValue.equalsIgnoreCase("Record Id")) {
@@ -815,7 +820,7 @@ public final class GovGrantsAssertionObjects {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
 //            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
-        I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/following::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button")));
+        I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/following::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tr[@class='inputRows']//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button")));
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "']"), false);
         if (shouldBeVisible) {
             for (Elements element : elements) {

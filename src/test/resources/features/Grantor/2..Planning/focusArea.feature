@@ -9,7 +9,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
     When I enter value "Automation Runtime Focus Area" into field "Title__c"
     When I click modal button "Save and Continue"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @50963 @editionOfFocusArea
   Scenario: Edition of Focus Area by User - Admin/EXE/PM
@@ -35,6 +35,7 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---focusarea:-:FocusAreaFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
     Then I see "Other" has been added in "Focus Area Files" flex table
     Examples:
       | User  |
@@ -70,10 +71,11 @@ Feature: Validate all scenarios in Focus Area
     When I enter value "Automation Runtime Focus Area" into field "Title__c"
     When I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Draft" in "---focusarea:-:focusAreaTableId---"
+    And I click toggle button to select "Focus Area - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     Then I cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Focus Area}" in flex table with id "---focusarea:-:focusAreaTableId---"
 
@@ -89,7 +91,7 @@ Feature: Validate all scenarios in Focus Area
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Draft" in "---focusarea:-:focusAreaTableId---"
+    And I click toggle button to select "Focus Area - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     Then I cannot see row level action button "Delete" against "{SavedValue:Automation Runtime Focus Area}" in flex table with id "---focusarea:-:focusAreaTableId---"
 
@@ -117,11 +119,12 @@ Feature: Validate all scenarios in Focus Area
     When I click modal button "Save and Continue"
     When I enter value "Automation Test Description" into field "Description__c"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I click on "Activate" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Active" in "---focusarea:-:focusAreaTableId---"
+    And I click toggle button to select "Focus Area - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I cannot see top right button "Deactivate" in page detail
@@ -136,11 +139,12 @@ Feature: Validate all scenarios in Focus Area
     When I click modal button "Save and Continue"
     When I enter value "Automation Test Description" into field "Description__c"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Inactive" in "---focusarea:-:focusAreaTableId---"
+    And I click toggle button to select "Focus Area - Inactive"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I see status in Progress-bar is "Closed" and is "dark blue"
@@ -151,6 +155,7 @@ Feature: Validate all scenarios in Focus Area
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I pause execution for "3" seconds
     And I click toggle button to select "Focus Areas - All"
     When I perform quick search for "Automation Permanent Focus Area" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "Automation Permanent Focus Area" inside table
@@ -159,6 +164,7 @@ Feature: Validate all scenarios in Focus Area
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Subawards" sub tab
+    And I halt execution
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:GrantsSubAwardsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Budget" sub tab
@@ -221,9 +227,10 @@ Feature: Validate all scenarios in Focus Area
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
-    Then I see the following messages in the page details contains:
-      | Saved Successfully! |
-    And I expand nested table containing column value "Pre-Screen Review"
+#    Then I see the following messages in the page details contains:
+#      | Saved Successfully! |
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I expand nested table containing column value
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"

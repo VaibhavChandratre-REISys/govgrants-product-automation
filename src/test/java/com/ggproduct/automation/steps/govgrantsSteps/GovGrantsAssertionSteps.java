@@ -183,6 +183,10 @@ public final class GovGrantsAssertionSteps {
                 tableId = "Completed Negotiations";
             } else if (tableId.contains("GrantorMasterKPIs")) {
                 tableId = "Key Performance Indicators (KPI) - Draft";
+            } else if (tableId.contains("GrantorServiceAreas")) {
+                tableId = "Focus Area - Draft";
+            } else if (tableId.contains("ProramPackagesGrantorgrid")) {
+            tableId = "Business Forms";
             }
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,

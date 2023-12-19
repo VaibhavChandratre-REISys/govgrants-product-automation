@@ -83,7 +83,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @debug @52625 @userFOEditKPI
+  @52625 @userFOEditKPI
   Scenario: Negative Case-Verfiy that PM user cannot Edit the record
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "EXE" user
@@ -227,7 +227,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "{SavedValue:KPINAME}" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
-  #    Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
+    Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) -Active"

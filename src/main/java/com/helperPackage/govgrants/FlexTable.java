@@ -241,7 +241,10 @@ public final class FlexTable implements FlexTableComponent {
             }
            else if (flexTableId.contains("RelatedObjectivesGrantor")) {
                flexTableId = "Objectives";
-           }
+           }else if (flexTableId.contains("flexGridProgramReviewStepTemplates")) {
+            flexTableId = "Reviewers";
+            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -1000);
+            }
            I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
@@ -363,6 +366,9 @@ public final class FlexTable implements FlexTableComponent {
                 flexTableId = "Applications - All";
             } else if (flexTableId.contains("FDMList1")) {
                 flexTableId = "Approved Funding Decision Memos (FDM)";
+            }
+              else if (flexTableId.contains("flexGridProgramReviewStepTemplates")) {
+                flexTableId = "Reviewers";
             }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);
@@ -816,15 +822,24 @@ public final class FlexTable implements FlexTableComponent {
 
     public boolean assertCoulmnValueAgainstColumnTitleForLWC(String columnValue, String columnTitle, String flexTableDivId) {
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//tr")));
-            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
-            Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
-            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='"+columnValue+"']"));
-            return true;
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))) {
+                I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//ancestor::tr")));
+                WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+                Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+                I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='" + columnValue + "']"));
+                return true;
+            } else  {
+                I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//tr")));
+                WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+                Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+                I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='" + columnValue + "']"));
+                return true;
+            }
         } catch (Exception e) {
             return false;
         }
     }
+
 
     /**
      * Handles assertion of column value for the given column title in the given
@@ -1031,7 +1046,7 @@ public final class FlexTable implements FlexTableComponent {
                     desiredAction = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
                     I.amPerforming().click().withJavaScript(desiredAction);
                 } else {
-                desiredAction = I.amPerforming().getElementReference().of(By.xpath(" //span[text()='"+ flexTableId +"']/ancestor::c-lwc-flex-table[@class='ctable']//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+                desiredAction = I.amPerforming().getElementReference().of(By.xpath(" //span[text()='"+ flexTableId +"']/ancestor::c-lwc-flex-table[@class='ctable']//tr[@class='inputRows']//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
 //                I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
                 I.amPerforming().scroll().toMoveToElement(desiredAction);
                 try{
@@ -1286,7 +1301,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement table;
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
-                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table"));
+                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table | ./ancestor::c-lwc-flex-table[@class='ctable']//table"));
         } else {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[@id='flexTableDivId' or @id='flexGridDivId' or contains(@id, 'flexGridEnhancedDivId') or @ng-controller='inlineEditGridCtrl' or contains]//table | ./ancestor::div[contains(@class,'grid-block')]//table"));

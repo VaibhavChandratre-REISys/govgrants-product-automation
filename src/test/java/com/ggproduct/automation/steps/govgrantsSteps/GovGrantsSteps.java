@@ -446,14 +446,15 @@ public final class GovGrantsSteps {
                 flexTableId = "Outcomes";
             } else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
                 flexTableId = "Peer Reviewers";
-            }
-            else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
+            } else if (flexTableId.contains("flexGridProgramReviewStepTemplates")) {
+            flexTableId = "Reviewers";
+                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
+            } else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
                 flexTableId = "Review Questions";
             }else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
             flexTableId = "Approvers";
             I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("flexGridReviewStepUsers")) {
+            } else if (flexTableId.contains("flexGridReviewStepUsers")) {
                 flexTableId = "Reviewers";
                 I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
             }

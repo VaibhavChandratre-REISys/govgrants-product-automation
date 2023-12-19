@@ -1545,7 +1545,7 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-#  @debug
+
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Overview" sub tab
