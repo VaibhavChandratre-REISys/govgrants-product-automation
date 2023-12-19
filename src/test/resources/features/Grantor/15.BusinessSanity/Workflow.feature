@@ -1545,10 +1545,10 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-  @debug
-  Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    Then I softly see that "Automation Permanent Strategic Goal" has been added in flextable with Id "---strategicplan:-:strategicGoalObjectivesTableId---"
+#  @debug
+#  Scenario:Validate
+#    When I login to "As a Grantor" app as "PM" user
+#    Then I softly see that "Automation Permanent Strategic Goal" has been added in flextable with Id "---strategicplan:-:strategicGoalObjectivesTableId---"
 #    When I navigate to "Overview" sub tab
 #    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 #    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel

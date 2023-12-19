@@ -117,7 +117,7 @@ Feature: Validate all scenarios in Funding Source
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "darl blue"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @51039 @activateFundingAccount @smoke
   Scenario: Activation of Funding Source
@@ -182,6 +182,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I enter value "0" into field "StartDate__c"
     When I enter value "3650" into field "EndDate__c"
     And I click on "Save" in the page details
@@ -212,6 +213,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I enter value "0" into field "StartDate__c"
     When I enter value "3650" into field "EndDate__c"
     And I click on "Save" in the page details

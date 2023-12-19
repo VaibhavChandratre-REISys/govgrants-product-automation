@@ -41,10 +41,22 @@ public final class GovGrantsProductSteps {
     @Description("To check no records displayed in flex table")
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" inside flex table with id \"([^\"]*)\"$")
     public void iSeeInsideFlexTableWithId(String usage, String text, String tableID) {
-        if (usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (tableID.contains("StrategicPlansGrantor")) {
+                tableID = "Strategic Plans";
+            }
+
+            if (usage.contains("softly")) {
+                I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
+            } else {
+                Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
+            }
         } else {
-            Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
+            if (usage.contains("softly")) {
+                I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
+            } else {
+                Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
+            }
         }
     }
 

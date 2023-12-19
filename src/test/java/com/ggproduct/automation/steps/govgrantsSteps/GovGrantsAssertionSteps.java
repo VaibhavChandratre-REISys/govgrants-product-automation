@@ -179,7 +179,7 @@ public final class GovGrantsAssertionSteps {
                 tableId = "Strategic Goals";
             } else if (tableId.contains("RelatedObjectivesGrantor")) {
                 tableId = "Objectives";
-            } else if (tableId.contains("InternalFundingSource")) {
+            } else if (tableId.equals("InternalFundingSource")) {
                 tableId = "Internal Funding Sources";
             } else if (tableId.contains("flexGridInternalFundingSourceFiles")) {
                 tableId = "Funding Source Files";

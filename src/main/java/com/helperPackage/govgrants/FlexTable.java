@@ -144,7 +144,7 @@ public final class FlexTable implements FlexTableComponent {
                 flexTableId = "Focus Area Files";
             } else if (flexTableId.contains("GrantorMasterKPIs")) {
                 flexTableId = "Key";
-            } else if (flexTableId.contains("InternalFundingSource")) {
+            } else if (flexTableId.equals("InternalFundingSource")) {
                 flexTableId = "Internal Funding";
             } else if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
                 flexTableId = "Funding Accounts";
@@ -254,19 +254,19 @@ public final class FlexTable implements FlexTableComponent {
             else if (flexTableId.contains("KPIGoalsandObjectivesGridgrid")) {
                 flexTableId = "Key Performance Indicators (KPIs)";
             }
-            else if (flexTableId.contains("InternalFundingSource")) {
+            else if (flexTableId.equals("InternalFundingSource")) {
                 flexTableId = "Internal Funding Sources";
             }
             else if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
                 flexTableId = "Funding Accounts";
             }
-            else if (flexTableId.contains("flexGridInternalFundingSourceFiles")) {
+            else if (flexTableId.equals("flexGridInternalFundingSourceFiles")) {
                 flexTableId = "Funding Source Files";
             }
-            else if (flexTableId.contains("ExternalFundingSource")) {
+            else if (flexTableId.equals("ExternalFundingSource")) {
                 flexTableId = "All External Funding Sources";
             }
-            else if (flexTableId.contains("flexGridExternalFundingSourceFiles")) {
+            else if (flexTableId.equals("flexGridExternalFundingSourceFiles")) {
                 flexTableId = "Funding Source Files";
             }
            I.amPerforming().waitFor().makeThreadSleep(2000);
@@ -392,6 +392,8 @@ public final class FlexTable implements FlexTableComponent {
                 flexTableId = "Approved Funding Decision Memos (FDM)";
             } else if (flexTableId.contains("flexGridGrantorStrategicGoalObjectives")) {
                 flexTableId = "Strategic Goals";
+            } else if (flexTableId.contains("StrategicPlansGrantor")) {
+                flexTableId = "Strategic Plans";
             }
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
                 getTableActionIconforLWC(flexTableId, iconName, anyUniqueColumnValues);

@@ -41,26 +41,24 @@ Feature: Validate all scenarios in Strategic Plan
 
   @51045 @editionOfStrategicGoal
   Scenario: Edition of Strategic Goal inside a Strategic Plan by User - Admin/EXE/PM
-    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     Then I see field "Strategic Plan Status" as "Draft"
 
   @51046 @addAttachmentToStrategicGoal
   Scenario: Addition of Attachment to Strategic Goal inside a Strategic Plan by User - Admin/EXE/PM
-    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
@@ -78,14 +76,14 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "3" seconds
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "Strategic Goals ID"
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     Then I softly see field "Strategic Plan Status" as "Draft"
     #105394 #monu
@@ -126,10 +124,12 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
