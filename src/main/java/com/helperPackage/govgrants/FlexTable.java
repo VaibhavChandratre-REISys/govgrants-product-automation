@@ -138,100 +138,93 @@ public final class FlexTable implements FlexTableComponent {
            I.amPerforming().click().on(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
        }else {
-           if (flexTableId.contains("GrantorServiceAreas")) {
-               flexTableId = "Focus";
-           } else if (flexTableId.contains("flexGridGrantorFocusAreaFiles")) {
-               flexTableId = "Focus Area Files";
-           } else if (flexTableId.contains("GrantorMasterKPIs")) {
-               flexTableId = "Key";
-           } else if (flexTableId.contains("InternalFundingSource")) {
-               flexTableId = "Internal Funding";
-           } else if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
-               flexTableId = "Funding Accounts";
-           } else if (flexTableId.contains("Programs")) {
-               flexTableId = "Internal Programs";
-           } else if (flexTableId.contains("flexGridDataTableEnhanceProgramContacts")) {
-               flexTableId = "Contacts";
-           } else if (flexTableId.contains("flexGridGrantorServiceAreasProgram")) {
-               flexTableId = "Related Focus Area";
-           } else if (flexTableId.contains("RelatedProgramGoalsandObjectivesgrid")) {
-               flexTableId = "Objectives";
-           } else if (flexTableId.contains("ProgramKeyOutcomes")) {
-               flexTableId = "Key Performance Indicators (KPIs)";
-           } else if (flexTableId.contains("flexGridGrantorInternalProgramFiles")) {
-               flexTableId = "Program Files";
-           } else if (flexTableId.contains("flexGridGrantorCloseOutRequest")) {
-               flexTableId = "Closeout Requests";
-           }else if (flexTableId.contains("ActiveFundingOpportunitiesFormula")) {
-               flexTableId = "Formula Announcements";
-           }else if (flexTableId.contains("flexGridAnnouncementFundingAccountGrantor")) {
-               flexTableId = "Funding Accounts";
-           }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
-               flexTableId = "Budget Period Details";
-           }else if (flexTableId.contains("AnnouncementContacts")) {
-               flexTableId = "Contacts";
-           }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
-               flexTableId = "Applicants";
-           }else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
-               flexTableId = "Grants";
-           }else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
-               flexTableId = "Subaward Risk Assessments";
-           }else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
-            flexTableId = "Published Competitive Announcements";
-           }else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
-               flexTableId = "Amendment Requests";
-           }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
-               flexTableId = "Funding Account Information";
-           }else if (flexTableId.contains("GrantorTermsandConditions")) {
-               flexTableId = "Terms and Conditions";
-           }else if (flexTableId.contains("GrantorSiteVisitsAward")) {
-               flexTableId = "Site Visits";
-           }else if (flexTableId.contains("GrantorSiteVisitContacts")) {
-               flexTableId = "Participants";
-           }else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
-               flexTableId = "Related Subawards";
-           }else if (flexTableId.contains("GrantorDeskReviewAward")) {
-               flexTableId = "Desk Reviews";
-           }else if (flexTableId.equals("SiteVisit")) {
-               flexTableId = "Site Visits";
-           }else if (flexTableId.equals("GrantorSiteVisitOrganizationContactsGridgrid")) {
-               flexTableId = "Participants";
-           }else if (flexTableId.equals("DeskReview")) {
-               flexTableId = "Desk Review";
-           }
-           else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
-               flexTableId = "Review Questions";
-           }
-           else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
-               flexTableId = "Review Categories";
-           }
-           else if (flexTableId.contains("flexGridAnnouncementReviewTemplates")) {
-               flexTableId = "Review Steps";
-           }
-           else if (flexTableId.contains("ActiveFundingOpportunities")) {
-                flexTableId = "Draft Directed Announcements";
-           }
-           else if (flexTableId.contains("flexGridFormulaGrantsAwardOrganizations")) {
+            if (flexTableId.contains("GrantorServiceAreas")) {
+                flexTableId = "Focus";
+            } else if (flexTableId.contains("flexGridGrantorFocusAreaFiles")) {
+                flexTableId = "Focus Area Files";
+            } else if (flexTableId.contains("GrantorMasterKPIs")) {
+                flexTableId = "Key";
+            } else if (flexTableId.contains("InternalFundingSource")) {
+                flexTableId = "Internal Funding";
+            } else if (flexTableId.contains("flexGridFundingAccountsEnhancedGrid")) {
+                flexTableId = "Funding Accounts";
+            } else if (flexTableId.contains("Programs")) {
+                flexTableId = "Internal Programs";
+            } else if (flexTableId.contains("flexGridDataTableEnhanceProgramContacts")) {
+                flexTableId = "Contacts";
+            } else if (flexTableId.contains("flexGridGrantorServiceAreasProgram")) {
+                flexTableId = "Related Focus Area";
+            } else if (flexTableId.contains("RelatedProgramGoalsandObjectivesgrid")) {
+                flexTableId = "Objectives";
+            } else if (flexTableId.contains("ProgramKeyOutcomes")) {
+                flexTableId = "Key Performance Indicators (KPIs)";
+            } else if (flexTableId.contains("flexGridGrantorInternalProgramFiles")) {
+                flexTableId = "Program Files";
+            } else if (flexTableId.contains("flexGridGrantorCloseOutRequest")) {
+                flexTableId = "Closeout Requests";
+            } else if (flexTableId.contains("ActiveFundingOpportunitiesFormula")) {
+                flexTableId = "Formula Announcements";
+            } else if (flexTableId.contains("flexGridAnnouncementFundingAccountGrantor")) {
+                flexTableId = "Funding Accounts";
+            } else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
+                flexTableId = "Budget Period Details";
+            } else if (flexTableId.contains("AnnouncementContacts")) {
+                flexTableId = "Contacts";
+            } else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
                 flexTableId = "Applicants";
-           } else if (flexTableId.contains("flexGridReviewStepUsers")) {
-               flexTableId = "Applications";
-           }
-           else if (flexTableId.contains("flexGridAssignAppToUser")) {
+            } else if (flexTableId.contains("GrantorActiveGrantsgrid")) {
+                flexTableId = "Grants";
+            } else if (flexTableId.contains("flexGridAwardRiskAssessmentView")) {
+                flexTableId = "Subaward Risk Assessments";
+            } else if (flexTableId.contains("ActiveFundingOpportunitiesCompitive")) {
+                flexTableId = "Published Competitive Announcements";
+            } else if (flexTableId.contains("GrantorAwardAmendmentRequest")) {
+                flexTableId = "Amendment Requests";
+            } else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
+                flexTableId = "Funding Account Information";
+            } else if (flexTableId.contains("GrantorTermsandConditions")) {
+                flexTableId = "Terms and Conditions";
+            } else if (flexTableId.contains("GrantorSiteVisitsAward")) {
+                flexTableId = "Site Visits";
+            } else if (flexTableId.contains("GrantorSiteVisitContacts")) {
+                flexTableId = "Participants";
+            } else if (flexTableId.contains("SiteVisitAssociatedAwards")) {
+                flexTableId = "Related Subawards";
+            } else if (flexTableId.contains("GrantorDeskReviewAward")) {
+                flexTableId = "Desk Reviews";
+            } else if (flexTableId.equals("SiteVisit")) {
+                flexTableId = "Site Visits";
+            } else if (flexTableId.equals("GrantorSiteVisitOrganizationContactsGridgrid")) {
+                flexTableId = "Participants";
+            } else if (flexTableId.equals("DeskReview")) {
+                flexTableId = "Desk Review";
+            } else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
+                flexTableId = "Review Questions";
+            } else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
+                flexTableId = "Review Categories";
+            } else if (flexTableId.contains("flexGridAnnouncementReviewTemplates")) {
+                flexTableId = "Review Steps";
+            } else if (flexTableId.contains("ActiveFundingOpportunities")) {
+                flexTableId = "Draft Directed Announcements";
+            } else if (flexTableId.contains("flexGridFormulaGrantsAwardOrganizations")) {
+                flexTableId = "Applicants";
+            } else if (flexTableId.contains("flexGridReviewStepUsers")) {
+                flexTableId = "Applications";
+            } else if (flexTableId.contains("flexGridAssignAppToUser")) {
                 flexTableId = "Assign Applications to Reviewer";
-           } else if (flexTableId.contains("flexGridStepReviews")) {
-               flexTableId = "Reviews";
-           } else if (flexTableId.contains("flexGridPreScreenRelatedStepApplicationsFinal")) {
-            flexTableId = "Applications";
-           } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
-               flexTableId = "Assign Users for Applications";
-           }
-           else if (flexTableId.contains("flexGridByApplicatntFocusAreaInvitedApplicants")) {
-               flexTableId = "Applicants";
-           }
-           else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
-               flexTableId = "Goals and Objectives";
-           }
-            else if (flexTableId.contains("flexGridGrantorKPIFiles")) {
+            } else if (flexTableId.contains("flexGridStepReviews")) {
+                flexTableId = "Reviews";
+            } else if (flexTableId.contains("flexGridPreScreenRelatedStepApplicationsFinal")) {
+                flexTableId = "Applications";
+            } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
+                flexTableId = "Assign Users for Applications";
+            } else if (flexTableId.contains("flexGridByApplicatntFocusAreaInvitedApplicants")) {
+                flexTableId = "Applicants";
+            } else if (flexTableId.contains("AnnouncementGranteeStrategicGoalsObjectivesgrid")) {
+                flexTableId = "Goals and Objectives";
+            } else if (flexTableId.contains("StrategicPlansGrantor")) {
+                flexTableId = "Strategic Plans";
+            }else if (flexTableId.contains("flexGridGrantorKPIFiles")) {
                 flexTableId = "KPI Files";
             }
             else if (flexTableId.contains("popupflextable")) {
@@ -249,7 +242,7 @@ public final class FlexTable implements FlexTableComponent {
            else if (flexTableId.contains("RelatedObjectivesGrantor")) {
                flexTableId = "Objectives";
            }
-               I.amPerforming().waitFor().makeThreadSleep(2000);
+           I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableIdForLWC(flexTableId, buttonName));
            govgrants.perform().modal().acceptPopUp();
        }
@@ -576,7 +569,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public WebElement getSpecificTableColumn(String flexTableId, String... uniqueColumnValues) {
         String desiredColumn = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId)
-                + "] |";
+                + "]";
         for (String uniqueColumnValue : uniqueColumnValues) {
 
             if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {

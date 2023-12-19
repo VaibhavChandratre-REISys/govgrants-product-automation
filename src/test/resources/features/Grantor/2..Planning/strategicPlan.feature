@@ -193,7 +193,7 @@ Feature: Validate all scenarios in Strategic Plan
 
   @34727 @Validate_StrategicPlanGoals @smoke
   Scenario: Validate the Strategic plan can not be activated without goals by User - Admin/EXE/PM
-    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
     Then I see the following messages in the page details contains:
