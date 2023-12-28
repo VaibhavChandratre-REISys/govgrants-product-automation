@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 
 public final class Approvals {
     private final By approvalDecisionLocator = By.xpath("//div[@id='ApprovalDecisionComponent']"),
-            radioButtonsLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[contains(@class, 'approval-actions')]"),
-            userLookupLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[@class='select2-chosen']"),
-            userLookupSearchLocator = By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/input"),
-            userLookupResultsLocator = By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]/li/div"),
+            radioButtonsLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[contains(@class, 'approval-actions')] | //c-approval-decision//label//span[contains(@class,'form-element__label')]"),
+            userLookupLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[@class='select2-chosen'] | //input[@placeholder='Search' and @type='text']"),
+            userLookupSearchLocator = By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/input | //input[@placeholder='Search' and @type='text']"),
+            userLookupResultsLocator = By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]/li/div | //div[@class='slds-combobox_container']//div//ul//li//div"),
             commentBoxLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//textarea | //c-approval-decision//textarea"),
             submitButtonLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//input[@value='Submit'] | //c-approval-decision//button[@title='Submit' and text()='Submit']"),
-            submitConfirmationLocator = By.xpath("//div[contains(@class,'modal-dialog')]/div[@class='modal-content']//button[contains(text(),'Continue')]"),
-            approvalMessagesLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//div[contains(@class, 'alert')]//span");
+            submitConfirmationLocator = By.xpath("//div[contains(@class,'modal-dialog')]/div[@class='modal-content']//button[contains(text(),'Continue')] | //div[@class='confirm-modal']//button[contains(text(),'Continue')]"),
+            approvalMessagesLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//div[contains(@class, 'alert')]//span | //div[contains(@id,'toastDescription')]//span");
 
     private By radioButtonLocator(String buttonName) {
         return By.xpath("" +
@@ -28,8 +28,9 @@ public final class Approvals {
     }
 
     private By userLookupResultLocator(String userName) {
-        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "]");
+        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "]");
     }
+
 
     // Action Methods
 

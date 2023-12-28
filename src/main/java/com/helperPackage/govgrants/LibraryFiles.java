@@ -56,7 +56,7 @@ public final class LibraryFiles {
      * @modifier monu.kumar (added xpath in or condition)
      */
     public void uploadFileInLibraryAtHomePhase(String attachmentName, String usage) {
-        By attachmentChooseFilePath = ByUsing.xpath("//input[@type='file'] | //input[@type='file' and @title='Attachment']");
+        By attachmentChooseFilePath = ByUsing.xpath("//input[@type='file' and not(contains(@class,'image-picker'))] | //input[@type='file' and @title='Attachment']");
         if (usage.contains("sharing")) {
             attachmentChooseFilePath = ByUsing.xpath("//div[contains(@class,'GNTFileUploadFromComputer')]//input[@type='file']");
         }
