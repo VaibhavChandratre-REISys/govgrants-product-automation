@@ -270,4 +270,8 @@ public final class GovGrantsProductSteps {
     }
 
 
+    @And("I select module {string} from reassign ownership dropdown")
+    public void iSelectModuleFromReassignOwnershipDropdown(String option) {
+        ggProductObjects.selectDropDownOptions(option);
+    }
 }

@@ -142,21 +142,21 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableAgainstUniqueValue(String columnValue, String columnTitle,
                                                              String uniqueColumnValue, String flexTableDivId, Boolean checkifpresent, boolean isSoftly) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableDivId.contains("GrantorProgressReportsInternal")) {
-                flexTableDivId = "Progress Reports - Approved";
-            } else if (flexTableDivId.contains("StrategicPlansGrantor")) {
-                flexTableDivId = "Strategic Plans - All";
-            }
-            if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-                    columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
-        } else {
-            Assert.assertEquals(checkifpresent,
-                    govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
-        }
-        }else {
+//        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+//            if (flexTableDivId.contains("GrantorProgressReportsInternal")) {
+//                flexTableDivId = "Progress Reports - Approved";
+//            } else if (flexTableDivId.contains("StrategicPlansGrantor")) {
+//                flexTableDivId = "Strategic Plans - All";
+//            }
+//            if (isSoftly) {
+//            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+//                    columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
+//        } else {
+//            Assert.assertEquals(checkifpresent,
+//                    govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+//                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
+//        }
+//        }else {
             if (isSoftly) {
                 I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                         columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
@@ -167,7 +167,7 @@ public final class GovGrantsAssertionObjects {
             }
         }
 
-    }
+//    }
 
     /**
      * Assert column values are or are not present in a flex table under a
@@ -181,30 +181,30 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableWithColumnTitle(String columnValue, String columnTitle, String flexTableDivId,
                                                           Boolean checkifpresent, boolean isSoftly) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableDivId.contains("flexGridPhasePendingTasks")) {
-                flexTableDivId = "Pending Tasks (Assigned To Me)";
-            }else if(flexTableDivId.contains("Goalsgrid")){
-                flexTableDivId = "Objectives";
-            }
-            String columnValueUpdated = columnValue;
-            if (columnValue.equalsIgnoreCase("Record Id")) {
-                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
-            }
-
-            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-                    flexTableDivId)) {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-            }
-
-            if (isSoftly) {
-                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-                        flexTableDivId)).isEqualTo(checkifpresent);
-            } else {
-                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-                        flexTableDivId));
-            }
-        } else {
+//        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+//            if (flexTableDivId.contains("flexGridPhasePendingTasks")) {
+//                flexTableDivId = "Pending Tasks (Assigned To Me)";
+//            }else if(flexTableDivId.contains("Goalsgrid")){
+//                flexTableDivId = "Objectives";
+//            }
+//            String columnValueUpdated = columnValue;
+//            if (columnValue.equalsIgnoreCase("Record Id")) {
+//                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+//            }
+//
+//            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+//                    flexTableDivId)) {
+//                I.amPerforming().waitFor().makeThreadSleep(1000);
+//            }
+//
+//            if (isSoftly) {
+//                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+//                        flexTableDivId)).isEqualTo(checkifpresent);
+//            } else {
+//                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
+//                        flexTableDivId));
+//            }
+//        } else {
 
             String columnValueUpdated = columnValue;
             if (columnValue.equalsIgnoreCase("Record Id")) {
@@ -224,7 +224,7 @@ public final class GovGrantsAssertionObjects {
                         flexTableDivId));
             }
         }
-    }
+//    }
 
     /**
      * Assert a text string is visible on the page
@@ -496,7 +496,7 @@ public final class GovGrantsAssertionObjects {
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
-            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')]");
+            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "']");
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
         } catch (Exception e) {
 
@@ -2125,7 +2125,7 @@ public final class GovGrantsAssertionObjects {
                         + "']|//iframe[contains(@ng-src,'apex') or contains(@src,'apex')]//ancestor::div[contains(@class,'modal-content')][1]//p[text()='"
                         + titleName
                         + "']| //iframe[contains(@ng-src,'apex') or contains(@src,'apex')]//ancestor::div[contains(@class,'modal-content')][1]//div[contains(text(),'"
-                        + titleName + "')]"));
+                        + titleName + "')] | //header[contains(@class,'modal-header')]//h2[text()='" + titleName + "']"));
     }
 
     /**
@@ -2183,7 +2183,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)]");
         boolean flag = false;
         try {
             if (I.amPerforming().actionToGet().attribute(fieldsAtPageDetails, "id").toLowerCase().contains("j_id0") || I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
@@ -2437,9 +2437,9 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertButtonIsDisabledAtModalOrLayout(String usage, String buttonName, Boolean isModal) {
         if (usage.equalsIgnoreCase("see")) {
-            I.amPerforming().assertionsTo().assertThat(isButtonDisabledAtModalOrLayout(buttonName, isModal)).isTrue();
+           Assert.assertTrue(isButtonDisabledAtModalOrLayout(buttonName, isModal));
         } else {
-            I.amPerforming().assertionsTo().assertThat(isButtonDisabledAtModalOrLayout(buttonName, isModal)).isFalse();
+           Assert.assertFalse(isButtonDisabledAtModalOrLayout(buttonName, isModal));
         }
     }
 
@@ -2452,7 +2452,7 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (isModal) {
-                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true']"))) {
+                if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[text()='" + buttonName + "' and @disabled='true'] | //button[text()='" + buttonName + "' and @aria-disabled='true']"))) {
                     flag = true;
                 }
             } else if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//button[@class='customDisableBtn' and contains(text(),'" + buttonName + "')]"))) {
@@ -2948,7 +2948,7 @@ public final class GovGrantsAssertionObjects {
      */
     public boolean isSearchedValuePresentAutoSearchResult(String itemName) {
         boolean flag = false;
-        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span|//div[contains(@class,'select2-search')]/following-sibling::ul//li"));
+        List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span|//div[contains(@class,'select2-search')]/following-sibling::ul//li | //div[contains(@id,'listbox-id')]//ul//li"));
         for (Elements we : listViewOptions) {
             if (we.getText().contains(itemName)) {
                 flag = true;

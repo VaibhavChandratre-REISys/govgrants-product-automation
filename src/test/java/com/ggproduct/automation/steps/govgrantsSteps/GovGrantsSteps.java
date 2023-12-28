@@ -1103,8 +1103,16 @@ public final class GovGrantsSteps {
     @Description("Select the value in any specific field and also covers lookup data entry")
     @When("^I (select|select in modal) value \"([^\"]*)\" into field \"([^\"]*)\"$")
     public void selectValue(String usage, String fieldValue, String fieldApiName) {
-        govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
-        I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
+            I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
+        } else {
+            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...']");
+            I.amPerforming().click().withJavaScript(inputBox1);
+            I.amPerforming().textInput().toClear(inputBox1);
+            I.amPerforming().textInput().in(inputBox1, fieldValue);
+            I.amPerforming().click().on(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "']"));
+        }
     }
 
     @Description("Edit Notes inside notes page block")

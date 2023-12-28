@@ -1545,8 +1545,23 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-#  @debug
-#  Scenario:Validate
+  @debug
+  Scenario:Validate
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA"
+    When I login to "As a Grantor" app as "PM" user
+    And I wait for "10" seconds
+#    Then I see value "Active" for title "Status" against the value "PG-TAO modified-0002" inside table "---program:-:programsTableId---"
+#    Then I see value "PG-TAO modified-0002" for title "EGMS ID" inside table "---program:-:programsTableId---"
+#    Then I do not see fields "PrimaryFunderType__c" is in edit mode
+#    Then I see fields "ProgramName__c" is in edit mode
+#    Then I softly see field "PrimaryFunderType__c" is not editable
+#    Then I softly see field "ProgramName__c" is not editable
+#    Then I see fields "ProgramName__c" is in edit mode
+#    Then I softly see that "First Name" rendered in view mode only
+#    Then I softly see "Add Files" opens in overLay window
+#    When I download the file
+#    Then I softly see "PG-TAO modified-0007" on page "1" of "govgrants" pdf file
+    And I halt execution
 #    When I login to "As a Grantor" app as "PM" user
 #    Then I softly see that "Automation Permanent Strategic Goal" has been added in flextable with Id "---strategicplan:-:strategicGoalObjectivesTableId---"
 #    When I navigate to "Overview" sub tab

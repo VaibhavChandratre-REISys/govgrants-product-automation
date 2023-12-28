@@ -1231,12 +1231,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "5" seconds
-    When I click on "Edit" in the page details
+#    When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

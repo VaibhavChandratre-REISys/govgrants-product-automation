@@ -613,15 +613,29 @@ public final class InputForms {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if(field.contains("field")) {
                 String field1 = field.toString().split("field")[1];
-                By inputBox1 = By.xpath("//div[@data-field_api_name='"+ field1 +"']//input[@type='text'] | //div[@data-field_api_name='"+ field1 +"']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
-                I.amPerforming().click().withJavaScript(inputBox1);
-                I.amPerforming().textInput().toClear(inputBox1);
-                I.amPerforming().textInput().in(inputBox1, fieldValue);
+                if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field1 + "']"))){
+                    By inputBox1 = By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field1 + "']//input[@type='text'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field1 + "']//div[contains(@class,'text-area')] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+                    I.amPerforming().click().withJavaScript(inputBox1);
+                    I.amPerforming().textInput().toClear(inputBox1);
+                    I.amPerforming().textInput().in(inputBox1, fieldValue);
+                } else {
+                    By inputBox1 = By.xpath("//div[@data-field_api_name='" + field1 + "']//input[@type='text'] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+                    I.amPerforming().click().withJavaScript(inputBox1);
+                    I.amPerforming().textInput().toClear(inputBox1);
+                    I.amPerforming().textInput().in(inputBox1, fieldValue);
+                }
             } else {
-                By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
-                I.amPerforming().click().withJavaScript(inputBox);
-                I.amPerforming().textInput().toClear(inputBox);
-                I.amPerforming().textInput().in(inputBox, fieldValue);
+                if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field + "']"))) {
+                    By inputBox = By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+                    I.amPerforming().click().withJavaScript(inputBox);
+                    I.amPerforming().textInput().toClear(inputBox);
+                    I.amPerforming().textInput().in(inputBox, fieldValue);
+                } else {
+                    By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+                    I.amPerforming().click().withJavaScript(inputBox);
+                    I.amPerforming().textInput().toClear(inputBox);
+                    I.amPerforming().textInput().in(inputBox, fieldValue);
+                }
             }
        }  else{
             By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
