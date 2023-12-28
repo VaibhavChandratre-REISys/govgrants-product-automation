@@ -1545,17 +1545,6 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-
+  @debug @11111
   Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    Then I refresh the page
-    When I navigate to "Overview" sub tab
-    And I pause execution for "2" seconds
-    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicants                          | Allocated Amount |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    When I login to "As a Grantor" app as "EXE" user
