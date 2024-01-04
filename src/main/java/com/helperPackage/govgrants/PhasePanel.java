@@ -22,7 +22,18 @@ public final class PhasePanel {
      */
     public WebElement getAdvanceFilterItem(String tableId, String dataTargetValue) {
         By advanceFilter = By
-                .xpath("//div[@id='" + tableId + "']//button[@data-target='" + dataTargetValue + "']");
+                .xpath("//div[@id='" + tableId + "']//button[@data-target='" + dataTargetValue + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//lightning-button-icon[contains(@class,'togglebtn')]//button");
+        return I.amPerforming().getElementReference().of(advanceFilter);
+    }
+
+    /**
+     * genric method to get advance filter from any table with table id
+     *
+     * @return
+     * @author Vaibhav.Chandratre
+     */
+    public WebElement getAdvanceFilterItemForLWC(String tableId) {
+        By advanceFilter = By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//lightning-button-icon[contains(@class,'togglebtn')]//button");
         return I.amPerforming().getElementReference().of(advanceFilter);
     }
 
@@ -53,6 +64,45 @@ public final class PhasePanel {
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
         } else {
             I.amPerforming().dropDownSelection().from(dropDownSelector3).selectByVisibleText(rowvalues.get(2).toString());
+        }
+        I.amPerforming().click().on(filterAction);
+    }
+
+    /**
+     * select/enter values for Advance filter fields.
+     * <p>
+     * rowvalues:- There are few fields like Select box, and text box inside Advance filter option. And we are
+     * passing values to these fields from feature file table
+     * for ex- rowvalues.get(0), it will take first table value from feature file.
+     * </p>
+     *
+     * @param advanceFilterId
+     * @param rowvalues
+     * @author Vaibhav.chandratre - added for LWC
+     */
+    public void handleDropdownInputForAdvanceFilterForLWC(String advanceFilterId, List rowvalues) {
+        By filterAction = null;
+        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Column')]/..//c-multi-select-pick-list//input");
+        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Operator')]/..//c-multi-select-pick-list//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//c-multi-select-pick-list//input");
+        By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
+        filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
+        I.amPerforming().textInput().toClear(dropDownSelector1);
+        I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
+        By selectDropdown1 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
+        I.amPerforming().click().withJavaScript(selectDropdown1);
+        I.amPerforming().textInput().toClear(dropDownSelector2);
+        I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
+        By selectDropdown2 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
+        I.amPerforming().click().withJavaScript(selectDropdown2);
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
+            I.amPerforming().textInput().toClear(inputField);
+            I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
+        } else {
+            I.amPerforming().textInput().toClear(dropDownSelector3);
+            I.amPerforming().textInput().in(dropDownSelector3, rowvalues.get(2).toString());
+            By selectDropdown3 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
+            I.amPerforming().click().withJavaScript(selectDropdown3);
         }
         I.amPerforming().click().on(filterAction);
     }
@@ -293,17 +343,10 @@ public final class PhasePanel {
      * @return
      */
     public void clickAnyRightPannelButton(String idOfPanelButton, String buttonName) {
-        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + idOfPanelButton + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//div//*[@title='"+ buttonName + "' or text()='"+ buttonName + "']")))
-        {
-            By modalButton = By.xpath("//span[contains(text(),'" + idOfPanelButton + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//div//*[@title='"+ buttonName + "' or text()='"+ buttonName + "']");
-            I.amPerforming().click().withJavaScript(modalButton);
-        }
-     else {
-            By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
-                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //span[contains(text(),'" + idOfPanelButton + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='" + buttonName + "' or text()='" + buttonName + "'] | //span[contains(text(),'" + idOfPanelButton + "')]/ancestor::c-lwc-flex-table//div//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
+                By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
+                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
 
                 I.amPerforming().click().withJavaScript(rightPanelButton);
-            }
     }
 
     /**

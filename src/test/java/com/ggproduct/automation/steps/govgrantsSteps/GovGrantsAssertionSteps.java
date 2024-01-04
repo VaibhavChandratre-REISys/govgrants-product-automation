@@ -167,45 +167,39 @@ public final class GovGrantsAssertionSteps {
     @Description("Tests for the presence of top right button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertTopRightButtonInFlexTableById(String usage, String buttonName, String tableId) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+//        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
                     tableId,
                     buttonName,
                     ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
                     usage.contains("softly")
             );
-        } else {
-            if (tableId.contains("flexGridGrantorStrategicGoalObjectives")) {
-                tableId = "Strategic Goals";
-            } else if (tableId.contains("RelatedObjectivesGrantor")) {
-                tableId = "Objectives";
-            } else if (tableId.equals("InternalFundingSource")) {
-                tableId = "Internal Funding Sources";
-            } else if (tableId.contains("flexGridInternalFundingSourceFiles")) {
-                tableId = "Funding Source Files";
-            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
-                tableId = "Funding Source Files";
-            }
-            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(
-                    tableId,
-                    buttonName,
-                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                    usage.contains("softly")
-            );
         }
-    }
+//        else {
+//            if (tableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+//                tableId = "Strategic Goals";
+//            } else if (tableId.contains("RelatedObjectivesGrantor")) {
+//                tableId = "Objectives";
+//            } else if (tableId.equals("InternalFundingSource")) {
+//                tableId = "Internal Funding Sources";
+//            } else if (tableId.contains("flexGridInternalFundingSourceFiles")) {
+//                tableId = "Funding Source Files";
+//            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
+//                tableId = "Funding Source Files";
+//            }
+//            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(
+//                    tableId,
+//                    buttonName,
+//                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+//                    usage.contains("softly")
+//            );
+//        }
+//    }
 
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (tableId.contains("flexGridCompletedNegotiations")) {
-                tableId = "Completed Negotiations";
-            } else if (tableId.contains("GrantorMasterKPIs")) {
-                tableId = "Key Performance Indicators (KPI) - Draft";
-            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
-                tableId = "Funding Source Files";
-            }
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
                     uniqueColumnValue,

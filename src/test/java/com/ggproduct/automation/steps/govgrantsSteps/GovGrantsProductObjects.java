@@ -111,20 +111,6 @@ public final class GovGrantsProductObjects {
      */
     public void assertColumnOnTable(String columnUniqueValue, String flextableId, boolean isSoftly) {
 
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flextableId.contains("KPIGoalsandObjectivesGridgrid")) {
-                flextableId = "Key Performance Indicators (KPIs)";
-            } else if (flextableId.contains("flexGridGrantorStrategicGoalObjectives")) {
-                flextableId = "Strategic Goals";
-            }
-                 if (isSoftly) {
-                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
-                 } else {
-                    Assert.assertTrue(
-                             govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled());
-                 }
-        } else {
-
                 if (isSoftly) {
                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
                 } else {
@@ -132,7 +118,6 @@ public final class GovGrantsProductObjects {
                             govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
                 }
             }
-    }
 
     /**
      * handles to verify no record is present in flex table
@@ -143,7 +128,7 @@ public final class GovGrantsProductObjects {
      */
     public boolean isRecordPresentInTheFlexTable(String text, String tableId) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "] | //span[contains(text(),'" + tableId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "] |//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
         } catch (Exception e) {
         }
         return false;
@@ -487,7 +472,7 @@ public final class GovGrantsProductObjects {
     private String getValueOfSpecifiedColFromTableHavingColumnNameAs(String rowNumber, String columnName, String flexTableId) {
         int columnValueFromRowInInt = 0;
         int counter = 1;
-        By columnHeaders = By.xpath("//div[@id='" + flexTableId + "']//th[not(contains(@class,'hide'))]");
+        By columnHeaders = By.xpath("//div[@id='" + flexTableId + "']//th[not(contains(@class,'hide'))] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[not(contains(@class,'hide'))]");
         List<Elements> columnList = I.amPerforming().getElementReference().forListOfElements().of(columnHeaders);
 
         // get the column index of required column.
@@ -497,9 +482,9 @@ public final class GovGrantsProductObjects {
             }
             counter++;
         }
-        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/field/span"));
+        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/field/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//*"));
         if (listOfDataInColumn.size() == 0) {
-            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/span/span"));
+            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/span/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//*"));
             if (listOfDataInColumn.size() == 0) {
                 listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span"));
                 if (listOfDataInColumn.size() == 0) {

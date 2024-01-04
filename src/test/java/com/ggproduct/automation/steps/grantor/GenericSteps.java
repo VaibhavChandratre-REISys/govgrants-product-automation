@@ -12,6 +12,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.springframework.context.annotation.Description;
 
 import javax.mail.MessagingException;
@@ -441,7 +442,7 @@ public class GenericSteps {
 
     @And("I clear all the filter from the table id {string}")
     public void iClearAllTheFilterFromTheTableId(String filterTableId) {
-        By clearAll = By.xpath("//*[@id='" + filterTableId + "']//*[@title='Clear All']//i");
+        By clearAll = By.xpath("//*[@id='" + filterTableId + "']//*[@title='Clear All']//i | //c-lwc-flex-table[@data-flextablename='" + filterTableId + "']//*[@title='Clear']");
         I.amPerforming().click().on(clearAll);
     }
 
@@ -544,6 +545,11 @@ public class GenericSteps {
         grantorProjectManager.assertTextInHistoryTable(usage, colName, rowNo, tData, text);
     }
 
+    @Then("^I (softly see|softly cannot see|cannot see|see) column \"([^\"]*)\" at position \"([^\"]*)\" contains text \"([^\"]*)\"$")
+    public void iSeeInsideRowOfIndexAndColumnIndexForLWC(String usage, String colName, String tData, String text) {
+        grantorProjectManager.assertTextInHistoryTableForLWC(usage, colName, tData, text);
+    }
+
     @And("^I (see|softly see|do not see|softly do not see) field \"([^\"]*)\" as \"([^\"]*)\" in \"([^\"]*)\" pageblock$")
     public void iSeeFieldStatusInPageBlock(String usage, String fieldName, String fieldValue, String pageblockName) {
         grantorProjectManager.seeFieldStatusInPageBlock(usage, fieldName, fieldValue, pageblockName);
@@ -552,5 +558,10 @@ public class GenericSteps {
     @Then("^I (see|softly see|do not see|softly do not see) \"([^\"]*)\" button is displayed On Modal$")
     public void assertButtonDisplayedOnModal(String usage, String buttonName) {
         grantorProjectManager.assertButtonDisplayedOnModal(usage, buttonName);
+    }
+
+    @Then("^I (see|softly see|do not see|softly do not see) value \"([^\"]*)\" against the value \"([^\"]*)\" for title \"([^\"]*)\" in approval history$")
+    public void iSeeValueAgainstTheValueForTitleInApprovalHistory(String usage, String expectedValue, String againstValue, String columnname) {
+        grantorProjectManager.assertValueAgainstTheValueForTitleInApprovalHistory(usage, expectedValue, againstValue, columnname);
     }
 }

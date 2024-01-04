@@ -1545,11 +1545,28 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-  @debug
-  Scenario:Validate
-    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA"
+#  @debug
+#  Scenario:Validate
+#    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
+#    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
+#    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
+#    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
+#    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantor" app as "PM" user
-    And I wait for "10" seconds
+#    And I wait for "20" seconds
+    And I halt execution
+#    When I hovering mouse on page block help text icon inside table "---program:-:programsTableId---" with tooltip id "PreviewPackageFormstooltip"
+#    Then I softly see "Saved Successfully!" inside flex table with id "ProgramRolesAndResponsibilitiesInternalProg"
+#   Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+#    Then I softly see "Total Records: 1" inside flex table with id "---program:-:programsTableId---"
+#    Then I see field "Internal Organization" inside page block
+    Then I softly see column "Date" at position "5" contains text "Step5"
+    Then I softly see value "Approve" against the value "Automation PM" for title "Assigned To" in approval history
+#    And I navigate to "Planning" tab
+#    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+#    Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
+#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
 #    Then I see value "Active" for title "Status" against the value "PG-TAO modified-0002" inside table "---program:-:programsTableId---"
 #    Then I see value "PG-TAO modified-0002" for title "EGMS ID" inside table "---program:-:programsTableId---"
 #    Then I do not see fields "PrimaryFunderType__c" is in edit mode

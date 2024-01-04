@@ -28,6 +28,11 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.getHelpTextAtPageBlockOrInsideTable(tableId, toolTipId);
     }
 
+    @When("^I hovering mouse on page block help text icon inside table \"([^\"]*)\" for LWC$")
+    public void getHelpTextAtPageBlockForLWC(String tableId) {
+        internalOrganizationPage.getHelpTextAtPageBlockOrInsideTableForLWC(tableId);
+    }
+
     @When("^I close alertbox$")
     public void closeAlertBox() {
         internalOrganizationPage.closeAlertBoxFromPage();

@@ -159,6 +159,15 @@ public final class GovGrantsObjects {
     }
 
     /**
+     * perform click on advance filter with table id
+     *
+     * @param tableId
+     */
+    public void performClickOnAdvanceFilterWithTableIdForLWC(String tableId) {
+        I.amPerforming().click().on(govgrants.perform().phasePanel().getAdvanceFilterItemForLWC(tableId));
+    }
+
+    /**
      * click logout to log out
      */
     protected void clickLogOut() {

@@ -181,31 +181,6 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableWithColumnTitle(String columnValue, String columnTitle, String flexTableDivId,
                                                           Boolean checkifpresent, boolean isSoftly) {
-//        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-//            if (flexTableDivId.contains("flexGridPhasePendingTasks")) {
-//                flexTableDivId = "Pending Tasks (Assigned To Me)";
-//            }else if(flexTableDivId.contains("Goalsgrid")){
-//                flexTableDivId = "Objectives";
-//            }
-//            String columnValueUpdated = columnValue;
-//            if (columnValue.equalsIgnoreCase("Record Id")) {
-//                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
-//            }
-//
-//            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-//                    flexTableDivId)) {
-//                I.amPerforming().waitFor().makeThreadSleep(1000);
-//            }
-//
-//            if (isSoftly) {
-//                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-//                        flexTableDivId)).isEqualTo(checkifpresent);
-//            } else {
-//                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForLWC(columnValueUpdated, columnTitle,
-//                        flexTableDivId));
-//            }
-//        } else {
-
             String columnValueUpdated = columnValue;
             if (columnValue.equalsIgnoreCase("Record Id")) {
                 columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
@@ -224,7 +199,6 @@ public final class GovGrantsAssertionObjects {
                         flexTableDivId));
             }
         }
-//    }
 
     /**
      * Assert a text string is visible on the page
@@ -766,23 +740,23 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
-    public void assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(String tableId, String buttonName,
-                                                                  boolean assertCan, boolean isSoftly) {
-        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTopRightButtonLocatorByTableIdForLWC(tableId, buttonName), false);
-        if (assertCan) {
-            if (isSoftly) {
-                I.amPerforming().assertionsTo().assertThat(0).isNotEqualTo(elements.size());
-            } else {
-                Assert.assertNotEquals(elements.size(), 0);
-            }
-        } else {
-            if (isSoftly) {
-                I.amPerforming().assertionsTo().assertThat(0).isEqualTo(elements.size());
-            } else {
-                Assert.assertEquals(elements.size(), 0);
-            }
-        }
-    }
+//    public void assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(String tableId, String buttonName,
+//                                                                  boolean assertCan, boolean isSoftly) {
+//        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTopRightButtonLocatorByTableIdForLWC(tableId, buttonName), false);
+//        if (assertCan) {
+//            if (isSoftly) {
+//                I.amPerforming().assertionsTo().assertThat(0).isNotEqualTo(elements.size());
+//            } else {
+//                Assert.assertNotEquals(elements.size(), 0);
+//            }
+//        } else {
+//            if (isSoftly) {
+//                I.amPerforming().assertionsTo().assertThat(0).isEqualTo(elements.size());
+//            } else {
+//                Assert.assertEquals(elements.size(), 0);
+//            }
+//        }
+//    }
 
     /**
      * Asserts that row level button inside table is or is not present
@@ -833,8 +807,9 @@ public final class GovGrantsAssertionObjects {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
 //            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
-        I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/following::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//button | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tr[@class='inputRows']//lightning-formatted-text[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button")));
-        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-base-formatted-text[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::gnt-flex-table-l-w-c//tbody/tr//lightning-formatted-rich-text//span[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "'] | //span[text()='" + tableId + "']/ancestor::c-lwc-flex-table//tbody/tr//*[text()='" + uniqueColumnValue + "']/ancestor::tr//div[@class='slds-dropdown slds-dropdown_left']//a/span[text()='" + buttonName + "']"), false);
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//tbody/tr//*[text()='" + columnValueUpdated + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+        I.amPerforming().click().withJavaScript(ClickSelector);
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTableActionIcon(tableId, buttonName, columnValueUpdated), false);
         if (shouldBeVisible) {
             for (Elements element : elements) {
                 if (element.isDisplayed()) {

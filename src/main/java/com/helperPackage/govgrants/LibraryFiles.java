@@ -6,6 +6,7 @@ import com.helperPackage.register.I;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.SendKeys;
 
 public final class LibraryFiles {
 
