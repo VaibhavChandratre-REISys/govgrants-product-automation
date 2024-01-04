@@ -1529,12 +1529,33 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
+  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
+    Given I am on "INTERNAL" portal
+    And I login as "FO" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AP-TAO modified-006" in "Pending Tasks (Assigned To Me)" panel
+    And I click on "View" icon for "AP-TAO modified-006" inside flex table with id "Pending Tasks (Assigned To Me)"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    And I click on "Submit" in the page details
+    When I click alert button "OK"
+    And I wait for "5" seconds
 
-  @debug @1111
+
   Scenario:Validate
-    Given I login to "As a Grantor" app as "PM" user
-    And I wait for "20" seconds
-    And I navigate to "History" sub tab
-    And I see "{SavedValue:PO Username}" against "Re-approval (Pending for first approval)" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
-    Then I softly see column "Date" inside row "1" at position "1" contains text "Step : Step 2"
+    When I login to "As a Grantor" app as "PM" user
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
+    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    When I close "Add Organizations" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I pause execution for "2" seconds
+    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
+      | Applicants                          | Allocated Amount |
+      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
