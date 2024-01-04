@@ -63,7 +63,10 @@ public class UsersAndURL implements UsersController {
             userName = getQAEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("TEST8"))) {
             userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
-        } else {
+        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
+            userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
+        }
+        else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
         return userName;
@@ -76,8 +79,22 @@ public class UsersAndURL implements UsersController {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
             password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
+        } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
+            password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
+        return password;
+    }
+
+    private String getProLwcEnvironmentPassword(String userLevel) {
+        String password;
+        switch (userLevel.toUpperCase()) {
+            case "SARAH PM":
+                password = "Salesforce2032";
+                break;
+            default:
+                password = "Salesforce2031";
+        }
         return password;
     }
 
@@ -147,6 +164,35 @@ public class UsersAndURL implements UsersController {
         return password;
     }
 
+    private String getProLwcEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.prolwcut");
+        username.put("ADMIN1", "manu.admin@ggp.test8.prolwcut");
+        username.put("EXE", "test@gmaildemo.com.prolwcut");
+        username.put("PM", "donald_pm@ggp.test7.atm.prolwcut");
+        username.put("FO", "auto.fm@auto.com.prolwcut");
+        username.put("PO", "automationpo@yopmail.com.prolwcut");
+        username.put("FD", "automationfd@yopmail.com.prolwcut");
+        username.put("PM1", "pm1.automation@yopmail.com.prolwcut");
+        username.put("EXE1", "exe1.automation@yopmail.com.prolwcut");
+        username.put("PO1", "automationpo1@yopmail.com.prolwcut");
+        username.put("FO1", "fo1.automation@yopmail.com.prolwcut");
+        username.put("FD1", "automationfd1@yopmail.com.prolwcut");
+        username.put("SPI3", "aspi3@grants.gov");
+        username.put("SPA", "spa.automation@yopmail.com");
+        username.put("SA", "asa@grants.gov");
+        username.put("IND", "ind.automation@yopmail.com");
+        username.put("AUDITOR", "automationauditor@yopmail.com.prolwcut");
+        username.put("SME", "sme11@yopmail.com");
+        username.put("SPI4", "spi4@yopmail.com.prolwcut");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.prolwcut");
+
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");

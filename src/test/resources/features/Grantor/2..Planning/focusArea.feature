@@ -164,7 +164,6 @@ Feature: Validate all scenarios in Focus Area
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Subawards" sub tab
-    And I halt execution
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:GrantsSubAwardsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Budget" sub tab

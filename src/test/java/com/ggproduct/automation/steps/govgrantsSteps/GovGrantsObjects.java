@@ -44,112 +44,19 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+           if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+             govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
+                    govgrants.perform().pageDetails().idOfRecord);
+           } else {
+             govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
+           }
+        }else {
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);
             } else {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
-            }
-        } else {
-            if (this.tableIdForQsearch.contains("InternalFundingSource")) {
-                this.tableIdForQsearch = "Internal Funding Sources - All";
-            } else if (this.tableIdForQsearch.contains("Programs")) {
-                this.tableIdForQsearch = "Internal Programs - All";
-            } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
-                this.tableIdForQsearch = "Application Reviews - All";
-            } else if (this.tableIdForQsearch.contains("AllCloseouts")) {
-                this.tableIdForQsearch = "Closeouts - All";
-            } else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
-                this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
-            } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesAll")) {
-                this.tableIdForQsearch = "Published Announcements";
-            } else if (this.tableIdForQsearch.contains("GrantorActiveGrantsgrid")) {
-                this.tableIdForQsearch = "Grants";
-            } else if (this.tableIdForQsearch.contains("GrantorPaymentRequestReimbursement")) {
-                this.tableIdForQsearch = "Reimbursements";
-            } else if (this.tableIdForQsearch.contains("SoleSourceAwardRecipientsTable")) {
-                this.tableIdForQsearch = "Organizations";
-            } else if (this.tableIdForQsearch.contains("FDMList1")) {
-                this.tableIdForQsearch = "Funding Decision Memos";
-            } else if (this.tableIdForQsearch.contains("FundingDecisionMemoApplicationsgrid")) {
-                this.tableIdForQsearch = "Recommended Applications";
-            } else if (this.tableIdForQsearch.contains("HomePendingTasks")) {
-                this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
-            } else if (this.tableIdForQsearch.contains("flexGridRiskAssessmentGridViewInternal")) {
-                this.tableIdForQsearch = "Subaward Risk Assessments";
-            } else if (this.tableIdForQsearch.contains("flexGridRelatedAwards1")) {
-                this.tableIdForQsearch = "Subawards";
-            } else if (this.tableIdForQsearch.contains("RelatedAwards1grid")) {
-                this.tableIdForQsearch = "Subawards";
-            } else if (this.tableIdForQsearch.contains("flexGridSiteVisitsGridView")) {
-                this.tableIdForQsearch = "Site Visit Reports";
-            } else if (this.tableIdForQsearch.contains("ActiveAccount")) {
-                this.tableIdForQsearch = "Subrecipient Organizations";
-            } else if (this.tableIdForQsearch.contains("flexGridPhasePendingTasks")) {
-                this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
-            } else if (this.tableIdForQsearch.contains("ActiveFundingOpportunitiesCompitive")) {
-                this.tableIdForQsearch = "All Competitive Announcements";
-            } else if (this.tableIdForQsearch.equals("ActiveFundingOpportunities")) {
-                this.tableIdForQsearch = "Draft Directed Announcements";
-            }else if (this.tableIdForQsearch.equals("ActiveFundingOpportunitiesFormula")) {
-                this.tableIdForQsearch = "Draft Formula Announcements";
-            } else if (this.tableIdForQsearch.contains("flexGridAnnouncementList")) {
-                this.tableIdForQsearch = "Application Reviews - All";
-            } else if (this.tableIdForQsearch.contains("flexGridReviewStepUsers")) {
-                this.tableIdForQsearch = "Applications";
-            } else if (this.tableIdForQsearch.contains("flexGridAssignAppToUser")) {
-                this.tableIdForQsearch = "Assign Applications to Reviewer";
-            } else if (this.tableIdForQsearch.contains("flexGridAssignPanelApplications")) {
-            this.tableIdForQsearch = "Assign Users for Applications";
-            } else if (this.tableIdForQsearch.contains("pendingTaskTableId")) {
-                this.tableIdForQsearch = "Assign Users for Applications";
-            } else if (this.tableIdForQsearch.contains("PhasePendingTasks")) {
-            this.tableIdForQsearch = "Pending Tasks (Assigned To Me)";
-            } else if (this.tableIdForQsearch.contains("ApplicantGrantorApplications")) {
-            this.tableIdForQsearch = "Applications - All";
-            } else if (this.tableIdForQsearch.contains("FDMList1")) {
-            this.tableIdForQsearch = "Approved Funding Decision Memos (FDM)";
-            } else if (this.tableIdForQsearch.contains("GrantorMasterKPIs")) {
-            this.tableIdForQsearch = "Key Performance Indicators (KPI) - Draft";
-            } else if (this.tableIdForQsearch.contains("StrategicPlansGrantor")) {
-            this.tableIdForQsearch = "Strategic Plans - All";
-            } else if (this.tableIdForQsearch.contains("GrantorServiceAreas")) {
-            this.tableIdForQsearch = "Focus Area - Draft";
-            } else if (this.tableIdForQsearch.contains("RelatedGrants")) {
-            this.tableIdForQsearch = "Related Grants";
-            } else if (this.tableIdForQsearch.contains("RelatedAnnouncements")) {
-            this.tableIdForQsearch = "Announcements";
-            }
-// Below Implementation will be remove once bug resolved for Pending Task
-            if (this.tableIdForQsearch.equals("Pending Tasks (Assigned To Me)")) {
-                boolean recordPresent = false;
-                int counter = 0;
-                while (!recordPresent && counter < 15) {
-                    if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::gnt-flex-table-l-w-c//div//span[contains(text(),'Total Records:')] | //span[contains(text(),'" + this.tableIdForQsearch + "')]/ancestor::c-lwc-flex-table//div//span[contains(text(),'Total Records:')]"))) {
-                        recordPresent = true;
-                        break;
-                    } else {
-                        I.amPerforming().browserOperationsTo().refreshPage();
-                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
-                        I.amPerforming().waitFor().makeThreadSleep(9000);
-                    }
-                    counter++;
-                }
-                if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                            govgrants.perform().pageDetails().idOfRecord);
-                } else {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
-                }
-
-            } else {
-                if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                            govgrants.perform().pageDetails().idOfRecord);
-                } else {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
-                }
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
             }
         }
     }
@@ -391,20 +298,7 @@ public final class GovGrantsObjects {
      * Checks a checkbox in each row of a flex table containing given strings
      */
     public void checkFlexRows(String flexTableId, String... uniqueColumnTexts) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableId.contains("flexGridAssignAppToUser")) {
-                flexTableId = "Assign Applications to Reviewer";
-            } else if (flexTableId.contains("flexGridStepReviews")) {
-                flexTableId = "Reviews";
-            } else if (flexTableId.contains("flexGridPreScreenRelatedStepApplicationsFinal")) {
-            flexTableId = "Applications";
-            } else if (flexTableId.contains("flexGridAssignPanelApplications")) {
-                flexTableId = "Assign Users for Applications";
-            }
-            govgrants.perform().flexTable().selectCheckBoxes(flexTableId, uniqueColumnTexts);
-        } else {
         govgrants.perform().flexTable().selectCheckBoxes(flexTableId, uniqueColumnTexts);
-       }
     }
 
 

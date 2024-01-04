@@ -38,7 +38,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "']|//*[@value='" + buttonName + "' and @class='customBtn'] | //div[@class='slds-template__container']//lightning-button//button[@title='" + buttonName + "']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //div[@class='slds-template__container']//lightning-button//button[@title='" + buttonName + "']");
     }
 
     /**
@@ -68,8 +68,14 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-            I.amPerforming().click().on(topRightButton);
-            govgrants.perform().modal().acceptPopUp();
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
+                I.amPerforming().click().on(topRightButton);
+                govgrants.perform().modal().acceptPopUp();
+            }else {
+                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                govgrants.perform().modal().acceptPopUp();
+            }
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
@@ -423,7 +429,7 @@ public final class PageDetails {
      */
     public void clickLookupLink(String lookupRelationshipAPIName) {
         By path = By.xpath(
-                "//dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("@id", lookupRelationshipAPIName) + "]| //dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
+                "//dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("@id", lookupRelationshipAPIName) + "]| //dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "] | //lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
         I.amPerforming().click().on(path);
 
     }
@@ -514,7 +520,7 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//span[text()=\"" + fieldLabel + "\"]";
+            element = "//span[text()='" + fieldLabel + "']";
         else
             element = "//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]|//div[@class='selectTitle']//label[contains(text(),'" + fieldLabel + "')] | //table[@id='" + fieldLabel + "']";
 
@@ -695,9 +701,9 @@ public final class PageDetails {
     public void clickOnLink(boolean checkTable, String usage, String linkName) {
         if (usage.equalsIgnoreCase("hyperlink")) {
             if (!checkTable) {
-                I.amPerforming().click().on(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
+                I.amPerforming().click().withJavaScript(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
             } else {
-                I.amPerforming().click().on(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
+                I.amPerforming().click().withJavaScript(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
             }
         } else if (usage.equalsIgnoreCase("subaward dashboard")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));

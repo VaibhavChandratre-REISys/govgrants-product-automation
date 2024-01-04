@@ -212,6 +212,9 @@ public class GrantorPayloads {
         application.add("PreApplication", JsonNull.INSTANCE);
         application.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("Application__c", "Grantor"));
         application.addProperty("OwnerId", ProjectWebServices.getIdOf("User", ownerName));
+        application.addProperty("ApproachMethodology", "Approch methodology test");
+        application.addProperty("Capacity", "Capacity test");
+        application.addProperty("Qualifications", "Qualifications test");
         applicationArray.add(application);
         parent.add("Application", applicationArray);
 

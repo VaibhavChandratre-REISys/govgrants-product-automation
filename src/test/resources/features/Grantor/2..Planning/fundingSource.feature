@@ -1,4 +1,4 @@
-@fundingSource @grantor-regression @grantor-parallel-regression @planning @regression
+@Execution @fundingSource @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios in Funding Source
 
   @51034 @creationOfFundingSource
@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Funding Source
     When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @105208 @105224 @ValidateDatesOfFundingSourceAndFundingAccount @monu
   Scenario: verify start date and end date of funding account should be same or less than funding source date
@@ -28,11 +28,11 @@ Feature: Validate all scenarios in Funding Source
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     #105224 #monu
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -49,7 +49,7 @@ Feature: Validate all scenarios in Funding Source
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @51036 @addAttachmentToFundingSource
   Scenario: Addition of Attachment to Funding Source
@@ -80,7 +80,7 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @105223 @ValidateErrorMessageForFundingAccountEndDate @smoke
   Scenario: Verify user is able to see error message for end date while entering end date greater than funding source end date
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "4650" into field "fieldEndDate__c"
+    When I enter value "4650" into field "EndDate__c"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     Then I softly see the following messages in the page details contains:
@@ -117,7 +117,7 @@ Feature: Validate all scenarios in Funding Source
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @51039 @activateFundingAccount @smoke
   Scenario: Activation of Funding Source
@@ -135,7 +135,7 @@ Feature: Validate all scenarios in Funding Source
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @52661 @creationFSFOUser
   Scenario Outline:Verify that users (other than Admin/PM/EXE)are not able to create funding account &  funding source
@@ -166,7 +166,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
     When I click on "Deactivate" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @52663 @deactivateFundingSourcePMUser
   Scenario: Verify that  PM user can  deactivate  Funding Source
@@ -182,8 +182,9 @@ Feature: Validate all scenarios in Funding Source
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    When I enter value "0" into field "fieldStartDate__c"
-    When I enter value "3650" into field "fieldEndDate__c"
+    And I wait for "3" seconds
+    When I enter value "0" into field "StartDate__c"
+    When I enter value "3650" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
@@ -212,8 +213,9 @@ Feature: Validate all scenarios in Funding Source
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    When I enter value "0" into field "fieldStartDate__c"
-    When I enter value "3650" into field "fieldEndDate__c"
+    And I wait for "3" seconds
+    When I enter value "0" into field "StartDate__c"
+    When I enter value "3650" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
@@ -231,7 +233,7 @@ Feature: Validate all scenarios in Funding Source
     And I click toggle button to select "Internal Funding Sources - Active"
     When I perform quick search for "<Funding Source>" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "<Funding Source>" inside table
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     Examples:
       | Funding Source                                 |
       | {SavedValue:Automation Runtime Funding Source} |
@@ -253,11 +255,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     Then I see the header is "Internal Funding Source" in the page details
@@ -265,8 +267,8 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1500" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -297,11 +299,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -360,8 +362,8 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "green"
@@ -411,11 +413,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -476,11 +478,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
@@ -519,11 +521,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -582,11 +584,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -645,11 +647,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I enter value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
-    When I enter value "{SavedValue:SDATE}" into field "fieldStartDate__c"
-    When I enter value "{SavedValue:EDATE}" into field "fieldEndDate__c"
+    When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
+    When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link

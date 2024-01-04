@@ -293,18 +293,12 @@ public final class PhasePanel {
      * @return
      */
     public void clickAnyRightPannelButton(String idOfPanelButton, String buttonName) {
-        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + idOfPanelButton + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//div//*[@title='"+ buttonName + "' or text()='"+ buttonName + "']")))
-        {
-            By modalButton = By.xpath("//span[contains(text(),'" + idOfPanelButton + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//div//*[@title='"+ buttonName + "' or text()='"+ buttonName + "']");
-            I.amPerforming().click().withJavaScript(modalButton);
-        }
-     else {
-            By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
-                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //span[contains(text(),'" + idOfPanelButton + "')]/ancestor::gnt-flex-table-l-w-c//div//*[@title='" + buttonName + "' or text()='" + buttonName + "'] | //span[contains(text(),'" + idOfPanelButton + "')]/ancestor::c-lwc-flex-table//div//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
 
+            By rightPanelButton = By.xpath("//div[contains(@class,'header-buttons') and contains(@id,'"
+                    + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //div[contains(@id,'" + idOfPanelButton + "')]//*[text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='" + idOfPanelButton + "']//div//*[@title='" + buttonName + "' or text()='" + buttonName + "']");
                 I.amPerforming().click().withJavaScript(rightPanelButton);
             }
-    }
+
 
     /**
      * get any item from top right bar inside phases

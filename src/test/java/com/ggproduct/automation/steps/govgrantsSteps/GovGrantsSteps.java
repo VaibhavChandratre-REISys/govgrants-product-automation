@@ -397,80 +397,12 @@ public final class GovGrantsSteps {
 
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridProgramChecklists")) {
-                flexTableId= "Supporting Documents Checklist";
-            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesAdvancegrid")) {
-                flexTableId= "Approvers";
-            } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridPaymentLineItems")) {
-                flexTableId= "Payment Line Items";
-            } else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
-                flexTableId= "Peer Reviewers";
-            } else if (flexTableId.contains("flexGridAmendmentreqRolesAndResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
-                flexTableId= "Peer Reviewers";
-            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
-                flexTableId = "Outcomes";
-            } else if (flexTableId.contains("GrantorDeskReviewRolesandResponsibilitiesgrid")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("flexGridProgressReportsRolesandResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGrid")) {
-                flexTableId = "Outcomes";
-            } else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
-                flexTableId = "Peer Reviewers";
-            } else if (flexTableId.contains("flexGridProgramReviewStepTemplates")) {
-            flexTableId = "Reviewers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
-                flexTableId = "Review Questions";
-            }else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
-            flexTableId = "Approvers";
-            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridReviewStepUsers")) {
-                flexTableId = "Reviewers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            govgrants.perform().flexTable().enterFlexTableRowsForLWC(
-                    flexTableId,
-                    buttonName,
-                    rowValues
-            );
-        } else {
             govgrants.perform().flexTable().enterFlexTableRows(
                     flexTableId,
                     buttonName,
                     rowValues
             );
         }
-    }
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
@@ -1104,8 +1036,16 @@ public final class GovGrantsSteps {
     @Description("Select the value in any specific field and also covers lookup data entry")
     @When("^I (select|select in modal) value \"([^\"]*)\" into field \"([^\"]*)\"$")
     public void selectValue(String usage, String fieldValue, String fieldApiName) {
-        govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
-        I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
+            I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
+        } else {
+            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...']");
+            I.amPerforming().click().withJavaScript(inputBox1);
+            I.amPerforming().textInput().toClear(inputBox1);
+            I.amPerforming().textInput().in(inputBox1, fieldValue);
+            I.amPerforming().click().on(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "']"));
+        }
     }
 
     @Description("Edit Notes inside notes page block")

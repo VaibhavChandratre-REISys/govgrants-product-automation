@@ -23,7 +23,7 @@ public final class GovGrantsProductObjects {
                     + "//div//label[text()='File']/..//input[@type='file'] | "
                     + "//div//label[contains(text(),'File')]/..//input[@type='file'] | "
                     + "//div//span[text()='File']/../..//input[@type='file']"),
-            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')]");
+            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm");
 
     /**
      * Handles entering of Peer review
@@ -114,12 +114,14 @@ public final class GovGrantsProductObjects {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             if (flextableId.contains("KPIGoalsandObjectivesGridgrid")) {
                 flextableId = "Key Performance Indicators (KPIs)";
+            } else if (flextableId.contains("flexGridGrantorStrategicGoalObjectives")) {
+                flextableId = "Strategic Goals";
             }
                  if (isSoftly) {
-                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+                     I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
                  } else {
                     Assert.assertTrue(
-                             govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+                             govgrants.perform().flexTable().getSpecificTableColumnForLWC(flextableId, columnUniqueValue.split(",")).isEnabled());
                  }
         } else {
 
@@ -267,7 +269,7 @@ public final class GovGrantsProductObjects {
     private boolean isPageBlockTitleDisplayed(String titleName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//h3//a[contains(text(),'" + titleName + "')] | //a[@title='" + titleName + "'] | //a[not(parent::li)]/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //a[text()='" + titleName + "'] | //h3[text()='" + titleName + "'] | //h2[(text()='" + titleName + "')] | //*[text()='" + titleName + "']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//h3//a[contains(text(),'" + titleName + "')] | //a[@title='" + titleName + "'] | //a[not(parent::li)]/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //a[text()='" + titleName + "'] | //h3[text()='" + titleName + "'] | //h2[(text()='" + titleName + "')] | //c-page-block-section//span[normalize-space(text())='" + titleName + "']"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -676,5 +678,10 @@ public final class GovGrantsProductObjects {
      */
     public void clickIconWithOutTableId(String iconName, String recordName) {
         I.amPerforming().click().on(By.xpath("//td//*[text()='" + recordName + "']//ancestor::tr[1]//td//*[@title='" + iconName + "']|//td[text()='" + recordName + "']//ancestor::tr[1]//td//*[@title='" + iconName + "']"));
+    }
+
+    public void selectDropDownOptions(String option) {
+        I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module']"));
+        I.amPerforming().click().on(By.xpath("//div[@role='listbox']//lightning-base-combobox-item//span[@title='" + option + "']"));
     }
 }

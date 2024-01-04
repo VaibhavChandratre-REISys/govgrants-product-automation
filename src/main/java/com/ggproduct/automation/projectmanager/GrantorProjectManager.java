@@ -259,6 +259,12 @@ public class GrantorProjectManager extends ProjectManager {
             } catch (IOException e) {
 
             }
+        } else if (null != EnvironmentFactory.getEnvironmentName() && !"".equalsIgnoreCase(EnvironmentFactory.getEnvironmentName()) && EnvironmentFactory.getEnvironmentName().equalsIgnoreCase("PROLWC")) {
+            try {
+                p.load(this.getClass().getResourceAsStream("properties/ProLWCEnvData.properties"));
+            } catch (IOException e) {
+
+            }
         } else {
             try {
                 p.load(this.getClass().getResourceAsStream("/properties/AUTOEnvData.properties"));
