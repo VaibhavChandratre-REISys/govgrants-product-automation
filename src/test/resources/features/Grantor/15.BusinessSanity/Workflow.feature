@@ -1559,3 +1559,4 @@ Feature: Validate all scenarios of every modules flow
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    When I enter value "UnChecked" into field "Required__c"
