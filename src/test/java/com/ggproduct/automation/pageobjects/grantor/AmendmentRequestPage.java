@@ -4,6 +4,7 @@ import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.register.I;
+import org.junit.platform.commons.function.Try;
 import org.openqa.selenium.By;
 
 import java.time.format.DateTimeFormatter;
@@ -43,7 +44,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
     }
 
     public void clickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
-        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
 
         try {
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
@@ -57,8 +58,8 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);
     }
 
-    public void clickAfterSelectionOfInTheTablesForLWC(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
-        By entriesDropDown = ByUsing.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+    public void clickAfterSelectionOfInTheTablesForLwc(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
+        By entriesDropDown = ByUsing.xpath("//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
 
         try {
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)

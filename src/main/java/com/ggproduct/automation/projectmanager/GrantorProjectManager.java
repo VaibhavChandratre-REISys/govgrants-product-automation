@@ -390,7 +390,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public Boolean isButtonDisplayedOnModal(String buttonName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='"+buttonName+"']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='"+buttonName+"'] | //c-modal-flex-layout//button[@title='"+buttonName+"']"));
         } catch (Exception e) {
         }
         return false;
@@ -673,7 +673,7 @@ public class GrantorProjectManager extends ProjectManager {
     private boolean isTextPresentInsideHistoryTable(String colName, String rowNo, String tData, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th[text()='" + colName + "']//ancestor::tbody/following-sibling::tbody[" + rowNo + "]/tr[" + tData + "]//td//*[text()='" + text + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th[text()='" + colName + "']//ancestor::tbody/following-sibling::tbody[" + rowNo + "]/tr[" + tData + "]//td//*[text()='" + text + "']  | //th//div[text()='Date']/ancestor::table//tbody//tr[5]//td[1][text()='" + text + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {

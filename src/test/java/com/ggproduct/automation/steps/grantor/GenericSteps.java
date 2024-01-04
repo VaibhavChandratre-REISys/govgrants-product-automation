@@ -376,7 +376,7 @@ public class GenericSteps {
 
     @Description("Check the users status against value in Approval History table inside Hsitory Tab")
     @Then("I see {string} against {string} in approval history")
-    public void seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
+    public void  seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
         By listOfsUsers = By.xpath("//div[@id='chevronBarId']//ul[1]//li//a");
         List<Elements> listOfLoc = I.amPerforming().getElementReference().forListOfElements().of(listOfsUsers);
         int expectedIndex = 0;

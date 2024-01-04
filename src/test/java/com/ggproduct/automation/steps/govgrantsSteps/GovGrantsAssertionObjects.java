@@ -167,7 +167,6 @@ public final class GovGrantsAssertionObjects {
             }
         }
 
-//    }
 
     /**
      * Assert column values are or are not present in a flex table under a
@@ -199,6 +198,7 @@ public final class GovGrantsAssertionObjects {
                         flexTableDivId));
             }
         }
+
 
     /**
      * Assert a text string is visible on the page

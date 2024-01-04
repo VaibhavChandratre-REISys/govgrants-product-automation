@@ -146,15 +146,25 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
-
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         } else {
-            getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         }
        govgrants.perform().modal().acceptPopUp();
     }
+
+
+    public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
+        WebElement desiredAction=null;
+        for (String uniqueColumnValue : uniqueColumnValues) {
+            desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='"+ flexTableId +"']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+            I.amPerforming().click().withJavaScript(desiredAction);
+        }
+
+    }
+
 
 
     /**
@@ -231,12 +241,9 @@ public final class FlexTable implements FlexTableComponent {
                     + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //*[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
-//            try {
-//                I.amPerforming().click().on(rowCheckboxSelector);
-//            } catch (org.openqa.selenium.ElementClickInterceptedException e) {
-            I.amPerforming().click().withJavaScript(rowCheckboxSelector);
-//            }
+                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox'or @type='radio'] |//*[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
+                I.amPerforming().click().withJavaScript(rowCheckboxSelector);
+
         }
     }
 
@@ -370,6 +377,7 @@ public final class FlexTable implements FlexTableComponent {
         desiredColumn = desiredColumn.substring(0, desiredColumn.length() - 16);
         return I.amPerforming().getElementReference().of(By.xpath(desiredColumn));
     }
+
 
     /**
      * @author john.phillips
@@ -595,6 +603,26 @@ public final class FlexTable implements FlexTableComponent {
         }
     }
 
+    public boolean assertCoulmnValueAgainstColumnTitleForLWC(String columnValue, String columnTitle, String flexTableDivId) {
+        try {
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))) {
+                I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//ancestor::tr")));
+                WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table[@class='ctable']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+                Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+                I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='" + columnValue + "']"));
+                return true;
+            } else  {
+                I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//tr")));
+                WebElement row = I.amPerforming().getElementReference().of((By.xpath("//span[contains(text(),'" + flexTableDivId + "')]/ancestor::c-lwc-flex-table//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+                Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
+                I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@title='" + columnValue + "']"));
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     /**
      * Handles assertion of column value for the given column title in the given
      * flextable against the particular unique value
@@ -669,7 +697,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void flexTableShowEntriesDropDown(String flexTableId, String numberofEntries) {
         By entriesDropDown = ByUsing.xpath(
-                "//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select | //span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+                "//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select");
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         try {
             entriesDD.click();
@@ -682,7 +710,7 @@ public final class FlexTable implements FlexTableComponent {
 
     public void flexTableShowEntriesDropDownForLWC(String flexTableId, String numberofEntries) {
         By entriesDropDown = ByUsing.xpath(
-                "//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table//div//span[text()='Show']/parent::div/parent::div//input[@placeholder='Select an Option']");
+                "//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
         try {
@@ -764,25 +792,15 @@ public final class FlexTable implements FlexTableComponent {
      * @modifier hema.ananthan
      */
     public By getTableActionIcon(String flexTableId, String iconName, String... uniqueColumnValues) {
-        String desiredAction = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId) + "]";
+        String desiredAction = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId) + "] | //c-lwc-flex-table[" + I.amPerforming().sanityOfXpathTo().equals("@data-flextablename", flexTableId) + "]";
         for (String uniqueColumnValue : uniqueColumnValues) {
             desiredAction += "//td//*["
                     + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
                     + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
                     + "/ancestor::tr[1]";
         }
-        desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
+        desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "]";
         return By.xpath(desiredAction);
-    }
-
-    public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
-        WebElement desiredAction=null;
-        for (String uniqueColumnValue : uniqueColumnValues) {
-                desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
-                I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
-                I.amPerforming().click().withJavaScript(desiredAction);
-            }
-
     }
 
     public void getTableActionIconforLWC(String flexTableId, String iconName, String... uniqueColumnValues) {
@@ -1021,7 +1039,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement table;
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
-                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table"));
+                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table | ./ancestor::c-lwc-flex-table[@class='ctable']//table"));
         } else {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[@id='flexTableDivId' or @id='flexGridDivId' or contains(@id, 'flexGridEnhancedDivId') or @ng-controller='inlineEditGridCtrl' or contains]//table | ./ancestor::div[contains(@class,'grid-block')]//table"));

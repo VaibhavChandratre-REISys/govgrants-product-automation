@@ -396,79 +396,12 @@ public final class GovGrantsSteps {
 
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridProgramChecklists")) {
-                flexTableId= "Supporting Documents Checklist";
-            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesAdvancegrid")) {
-                flexTableId= "Approvers";
-            } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("PaymentRequestRolesandResponsibilitiesgrid")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridPaymentLineItems")) {
-                flexTableId= "Payment Line Items";
-            } else if (flexTableId.contains("AnnouncementRolesandResponsibilitygrid")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorRiskAssessmentRolesandResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridRiskAssessmentApproverRoles")) {
-                flexTableId= "Peer Reviewers";
-            } else if (flexTableId.contains("flexGridAmendmentreqRolesAndResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorAwardRolesAndResponsibilities")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
-                flexTableId= "Peer Reviewers";
-            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGridRecipientEnhance")) {
-                flexTableId = "Outcomes";
-            } else if (flexTableId.contains("GrantorDeskReviewRolesandResponsibilitiesgrid")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("flexGridProgressReportsRolesandResponsibilities")) {
-                flexTableId= "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("GrantorSiteVisitRolesandResponsibilitiesgrid")) {
-                flexTableId = "Approvers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            } else if (flexTableId.contains("flexGridGrantorSiteVisitFindingsGrid")) {
-                flexTableId = "Outcomes";
-            } else if (flexTableId.contains("flexGridGrantorAwardReviewer")) {
-                flexTableId = "Peer Reviewers";
-            }
-            else if (flexTableId.contains("RelatedReviewPanelQuestionsmodalDiv")) {
-                flexTableId = "Review Questions";
-            }else if (flexTableId.contains("flexGridApproverRolesGrantor")) {
-            flexTableId = "Approvers";
-            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            else if (flexTableId.contains("flexGridReviewStepUsers")) {
-                flexTableId = "Reviewers";
-                I.amPerforming().scroll().onPageWindow("PAGEUP",0,-1000);
-            }
-            govgrants.perform().flexTable().enterFlexTableRowsForLWC(
-                    flexTableId,
-                    buttonName,
-                    rowValues
-            );
-        } else {
             govgrants.perform().flexTable().enterFlexTableRows(
                     flexTableId,
                     buttonName,
                     rowValues
             );
         }
-    }
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
@@ -823,7 +756,7 @@ public final class GovGrantsSteps {
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {
         if (usage.equalsIgnoreCase("parallel menu")) {
-            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
+            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')] | //*[text()='" + flexTableTitle + "']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//button");
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars') | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             }

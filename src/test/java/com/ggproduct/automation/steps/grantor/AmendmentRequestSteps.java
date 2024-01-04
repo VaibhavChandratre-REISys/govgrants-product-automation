@@ -26,36 +26,12 @@ public class AmendmentRequestSteps {
 
     @When("I click {string} after selection of {string} by showing entries {string} in flex table with id {string}")
     public void iClickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberOfEntries, String flexTableId) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableId.contains("AssociateProgramContacts")) {
-                flexTableId= "Contacts";
-            }
-           else if (flexTableId.contains("SelectProgramServiceArea")) {
-                flexTableId= "Focus Areas";
-            }
-            else if (flexTableId.contains("SelectGoals")) {
-                flexTableId= "Objectives";
-            }
-            else if (flexTableId.contains("SelectProgramKPIs")) {
-                flexTableId= "Key Performance Indicators";
-            }
-            else if (flexTableId.contains("SelectAnnFundingAccounts")) {
-                flexTableId= "Funding Accounts";
-            }
-            else if (flexTableId.contains("AssociateAnnouncementContacts")) {
-                flexTableId= "Contacts";
-            }else if (flexTableId.contains("SelectAnnGoals")) {
-                flexTableId= "Objectives";
-            }
-            else if (flexTableId.contains("SelectAwardFundingAccounts")) {
-                flexTableId= "Funding Accounts";
-            }
-            else if (flexTableId.contains("SelectKPIs")) {
-                flexTableId= "List of Active KPIs";
-            }
-            amendmentRequestPage.clickAfterSelectionOfInTheTablesForLWC(buttonName, recordValue, numberOfEntries, flexTableId);
-        }
-        else
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
+        } else {
+            amendmentRequestPage.clickAfterSelectionOfInTheTablesForLwc(buttonName, recordValue, numberOfEntries, flexTableId);
+        }
     }
 }
+

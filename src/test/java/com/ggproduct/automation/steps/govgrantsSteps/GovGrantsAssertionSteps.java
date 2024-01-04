@@ -174,8 +174,7 @@ public final class GovGrantsAssertionSteps {
                     ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
                     usage.contains("softly")
             );
-        }
-//        else {
+//        } else {
 //            if (tableId.contains("flexGridGrantorStrategicGoalObjectives")) {
 //                tableId = "Strategic Goals";
 //            } else if (tableId.contains("RelatedObjectivesGrantor")) {
@@ -194,7 +193,8 @@ public final class GovGrantsAssertionSteps {
 //                    usage.contains("softly")
 //            );
 //        }
-//    }
+    }
+
 
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
