@@ -126,7 +126,7 @@ public class QuickSearch {
     }
 
     public void performModalSpecificQuickSearchForLWC(String tableId, String searchTerm) {
-        By searchInputBox = By.xpath("//span[contains(text(),'" + tableId + "')]/ancestor::div[contains(@class,'modal')]//c-lwc-flex-table//input[contains(@id,'input')]");
+        By searchInputBox = By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//input[@placeholder='Search...' and @type='search']");
 
         try {
             I.amPerforming().textInput().toClear(searchInputBox);

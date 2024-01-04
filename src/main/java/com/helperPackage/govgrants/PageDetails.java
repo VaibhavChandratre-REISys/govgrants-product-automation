@@ -18,7 +18,7 @@ import java.util.List;
 
 public final class PageDetails {
     private final By textInsideHelpText = By.xpath(
-            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a");
+            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span");
     public String idOfRecord = null;
 
     /**
@@ -520,9 +520,9 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//span[text()='" + fieldLabel + "']";
+            element = "//span[text()='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]|//div[@class='selectTitle']//label[contains(text(),'" + fieldLabel + "')] | //table[@id='" + fieldLabel + "']";
+            element = "//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]|//div[@class='selectTitle']//label[contains(text(),'" + fieldLabel + "')] | //table[@id='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] ";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));

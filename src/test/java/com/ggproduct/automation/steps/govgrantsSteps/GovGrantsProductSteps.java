@@ -41,24 +41,12 @@ public final class GovGrantsProductSteps {
     @Description("To check no records displayed in flex table")
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" inside flex table with id \"([^\"]*)\"$")
     public void iSeeInsideFlexTableWithId(String usage, String text, String tableID) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (tableID.contains("StrategicPlansGrantor")) {
-                tableID = "Strategic Plans";
-            }
-
-            if (usage.contains("softly")) {
-                I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
-            } else {
-                Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
-            }
-        } else {
             if (usage.contains("softly")) {
                 I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
             } else {
                 Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
             }
         }
-    }
 
     /******* Input Field(s) ***********/
     @Description("To fill the review form")
@@ -116,28 +104,11 @@ public final class GovGrantsProductSteps {
     @Description("After selecting the checkbox for the value passed clicks on the button")
     @When("^I click \"([^\"]*)\" after selection of \"([^\"]*)\" in the table \"([^\"]*)\"$")
     public void chooseRecordForProgramAssociation(String buttonName, String recordUniqueValues, String tableId) throws TestingBlazeCustomException {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             ggProductObjects.chooseRecordForAssociation(
                     buttonName,
                     tableId,
                     recordUniqueValues.split(",")
             );
-        } else {
-            if (tableId.contains("SoleSourceAwardRecipientsTable")) {
-                tableId="Organizations";
-            } else if (tableId.contains("SelectSiteDeskReviewContacts")) {
-                tableId="Select Participants";
-            } else if (tableId.contains("SelectAwardSiteDeskReviews")) {
-                tableId="Associate Award To Site Visit / Desk Review";
-            } else if (tableId.contains("SoleSourceAwardRecipientsTable")) {
-                tableId="Applicants";
-            }
-            ggProductObjects.chooseRecordForAssociation(
-                    buttonName,
-                    tableId,
-                    recordUniqueValues.split(",")
-            );
-        }
     }
     @Description("After selecting the checkbox for the value passed clicks on the button")
     @When("^I click \"([^\"]*)\" after selection of \"([^\"]*)\" without searching in the table \"([^\"]*)\"$")

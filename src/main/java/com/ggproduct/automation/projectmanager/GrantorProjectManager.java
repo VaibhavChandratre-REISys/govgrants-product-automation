@@ -259,12 +259,6 @@ public class GrantorProjectManager extends ProjectManager {
             } catch (IOException e) {
 
             }
-        } else if (null != EnvironmentFactory.getEnvironmentName() && !"".equalsIgnoreCase(EnvironmentFactory.getEnvironmentName()) && EnvironmentFactory.getEnvironmentName().equalsIgnoreCase("PROLWC")) {
-            try {
-                p.load(this.getClass().getResourceAsStream("properties/ProLWCEnvData.properties"));
-            } catch (IOException e) {
-
-            }
         } else {
             try {
                 p.load(this.getClass().getResourceAsStream("/properties/AUTOEnvData.properties"));
@@ -615,7 +609,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @author Keerti Munde
      */
     public void clickAllDeleteButtonsInsideFlexTable(String flextableId) {
-        By columnSelector = By.xpath("//*[@id='" + flextableId + "']//table//tr//td[1]");
+        By columnSelector = By.xpath("//*[@id='" + flextableId + "']//table//tr//td[1] | //*[@data-flextablename='" + flextableId + "']//table//tr//td[1]");
         List<Elements> rowValues = I.amPerforming().getElementReference().forListOfElements().of(columnSelector);
         int rowSize = rowValues.size();
         int counter = 0;
@@ -624,8 +618,15 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, "Delete", rowValues2.get(counter).getText()));
-                govgrants.perform().modal().acceptPopUp();
+                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                    I.amPerforming().click().on(columnSelector);
+                    I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, "Delete", rowValues2.get(counter).getText()));
+                    govgrants.perform().modal().acceptPopUp();
+                    I.amPerforming().waitFor().makeThreadSleep(3000);
+                } else {
+                    I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, "Delete", rowValues2.get(counter).getText()));
+                    govgrants.perform().modal().acceptPopUp();
+                }
             }
         }
     }
@@ -649,6 +650,23 @@ public class GrantorProjectManager extends ProjectManager {
         }
     }
 
+    public void assertTextInHistoryTableForLWC(String usage, String colName,String tData, String text) {
+        if (usage.contains("softly")) {
+            if (usage.contains("cannot")) {
+                I.amPerforming().assertionsTo().assertThat(isTextPresentInsideHistoryTableForLWC(colName, tData, text)).isFalse();
+            } else {
+                I.amPerforming().assertionsTo().assertThat(isTextPresentInsideHistoryTableForLWC(colName, tData, text)).isTrue();
+            }
+        } else {
+            if (usage.contains("cannot")) {
+                Assert.assertFalse(isTextPresentInsideHistoryTableForLWC(colName, tData, text));
+            } else {
+                Assert.assertTrue(isTextPresentInsideHistoryTableForLWC(colName, tData, text));
+            }
+        }
+    }
+
+
     /**
      * @return true if expected text is displayed inside history table
      */
@@ -656,6 +674,17 @@ public class GrantorProjectManager extends ProjectManager {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th[text()='" + colName + "']//ancestor::tbody/following-sibling::tbody[" + rowNo + "]/tr[" + tData + "]//td//*[text()='" + text + "']  | //th//div[text()='Date']/ancestor::table//tbody//tr[5]//td[1][text()='" + text + "']")))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    private boolean isTextPresentInsideHistoryTableForLWC(String colName, String tData, String text) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td[text()='" + text + "'] ")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -699,4 +728,25 @@ public class GrantorProjectManager extends ProjectManager {
             I.amPerforming().assertionsTo().assertThat(isButtonDisplayedOnModal(buttonName)).isFalse();
         }
     }
+
+    public void assertValueAgainstTheValueForTitleInApprovalHistory(String usage, String expectedValue, String againstValue, String columnname) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname ));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname ));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname )).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname )).isFalse();
+        }
+    }
+
+    private boolean isvalueDisplayAgainsttheValue(String expectedValue, String againstValue, String columnname) {
+        try {
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//th//*[text()='" + columnname + "']/ancestor::table//*[text()='" + againstValue + "']/ancestor::tr//td//*[text()='" + expectedValue + "']"));
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
 }

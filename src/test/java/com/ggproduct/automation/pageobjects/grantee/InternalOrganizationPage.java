@@ -337,6 +337,10 @@ public class InternalOrganizationPage extends GranteeProjectManager {
         I.amPerforming().scroll().toMoveToElement(By.xpath("//div[@id='" + tableId + "']//a[@id='" + toolTipId + "']//span[contains(@class,'fa-info')]"));
     }
 
+    public void getHelpTextAtPageBlockOrInsideTableForLWC(String tableId) {
+        I.amPerforming().scroll().toMoveToElement(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//lightning-icon[contains(@icon-name,'info')]"));
+    }
+
     /**
      * get any item from bottom menu at page details
      *

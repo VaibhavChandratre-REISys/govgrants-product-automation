@@ -107,7 +107,6 @@ public final class GovGrantsSteps {
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
-
             govgrants.perform().mainPage().loginWithUserType(userType);
            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
                govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
@@ -406,70 +405,12 @@ public final class GovGrantsSteps {
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (flexTableId.contains("flexGridProgramRolesAndResponsibilitiesInternalProg")) {
-                flexTableId = "Approvers";
-            } else if (flexTableId.contains("flexGridProgramChecklists")) {
-                flexTableId = "Supporting Documents Checklist";
-            } else if (flexTableId.contains("flexGridGrantorCloseoutRequestRolesAndResponsibilities")) {
-                flexTableId = "Approvers";
-            } else if (flexTableId.contains("flexGridAnnouncementFundingAccountGrantor")) {
-                flexTableId = "Funding Accounts";
-            } else if (flexTableId.contains("flexGridPaymentFundingAccountsEnhanced")) {
-                flexTableId = "Subaward Funding Account Information";
-            }else if (flexTableId.contains("flexGridSoleSourceAwardOrganizations")) {
-                flexTableId = "Applicants";
-            }else if (flexTableId.contains("flexGridAnnouncementBudgetPeriod")) {
-                flexTableId = "Budget Period Details";
-            }else if (flexTableId.contains("flexGridEnhancedGrantorAwardServiceAreas")) {
-                flexTableId = "Budget Summary by Focus Area";
-            }else if (flexTableId.contains("flexGridAwardFundingAccounts")) {
-                flexTableId = "Funding Account Information";
-            }else if (flexTableId.contains("flexGridSubAwardBudgetCategoryFlexGrid")) {
-                flexTableId = "Subaward budget";
-            }else if (flexTableId.contains("GrantorAwardKeyOutcomesgrid")) {
-                flexTableId = "Key Performance Indicators (KPIs)";
-            }else if (flexTableId.contains("flexGridPaymentSchedules")) {
-                flexTableId = "Payment Requests Schedule";
-            }else if (flexTableId.contains("flexGridTnCSchedules")) {
-                flexTableId = "Progress Reports Schedule";
-            }else if (flexTableId.contains("flexGridSubawardContact")) {
-                flexTableId = "Contacts";
-            }else if (flexTableId.contains("AwardFundingAccountsgrid")) {
-                flexTableId = "Funding Account Information";
-            }else if (flexTableId.contains("ReviewPanelCategoriesgrid")) {
-            flexTableId = "Review Categories";
-            }else if (flexTableId.contains("ApplicationReviewTreegrid")) {
-                flexTableId = "Forms";
-            }else if (flexTableId.contains("ByApplicatntFocusAwardOrganizationsFlexToggle")) {
-                flexTableId = "Focus Areas";
-            }else if (flexTableId.contains("flexGridPaymentFundingAccountsAdvance")) {
-                flexTableId = "Funding Account Information";
-            }else if (flexTableId.contains("flexGridAmendmentProjectAreasGrantor  ")) {
-            flexTableId = "Budget Summary by Focus Area";
-            }
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//span[contains(text(),'" + flexTableId + "')]/ancestor::c-lwc-flex-table[@class='ctable']"))){
-                govgrants.perform().flexTable().editFlexTableRowsInlineForLWC(
-                        flexTableId,
-                        editButtonName,
-                        I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
-                );
-            } else {
-                govgrants.perform().flexTable().editFlexTableRowsInline(
-                        flexTableId,
-                        editButtonName,
-                        I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
-                );
-            }
-
-        } else {
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
         }
-    }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")
     public void collpasePageBlock(String pageBlockTitle) {
@@ -832,6 +773,11 @@ public final class GovGrantsSteps {
         govgrants.perform().phasePanel().handleDropdownInputForAdvanceFilter(advanceFilterId, rowValues);
     }
 
+    @When("^I enter advance filter values inside id \"([^\"]*)\" for LWC$")
+    public void enterValuesForAdvanceFilterForLWC(String advanceFilterId, List<String> rowValues) {
+        govgrants.perform().phasePanel().handleDropdownInputForAdvanceFilterForLWC(advanceFilterId, rowValues);
+    }
+
     @When("I enter comments {string} and click {string}")
     public void enterCommentsAndClick(String comments, String buttonName) {
         govgrants.perform().modal().enterCommentsOnPopup(comments, buttonName);
@@ -1156,4 +1102,8 @@ public final class GovGrantsSteps {
     }
 
 
+    @And("I click on advance filter of table id {string} for LWC")
+    public void iClickOnAdvanceFilterOfTableIdForLWC(String tableId) {
+        ggObjects.performClickOnAdvanceFilterWithTableIdForLWC(tableId);
+    }
 }

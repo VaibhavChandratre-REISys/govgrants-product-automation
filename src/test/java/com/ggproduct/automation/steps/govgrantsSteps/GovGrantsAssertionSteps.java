@@ -195,21 +195,11 @@ public final class GovGrantsAssertionSteps {
 //        }
     }
 
+
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (tableId.contains("flexGridCompletedNegotiations")) {
-                tableId = "Completed Negotiations";
-            } else if (tableId.contains("GrantorMasterKPIs")) {
-                tableId = "Key Performance Indicators (KPI) - Draft";
-            } else if (tableId.contains("GrantorServiceAreas")) {
-                tableId = "Focus Area - Draft";
-            } else if (tableId.contains("ProramPackagesGrantorgrid")) {
-            tableId = "Business Forms";
-            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
-                tableId = "Funding Source Files";
-            }
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
                     uniqueColumnValue,
