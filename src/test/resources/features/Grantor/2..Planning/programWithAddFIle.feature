@@ -63,7 +63,7 @@ Feature: Validate all scenarios for program with add file
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 

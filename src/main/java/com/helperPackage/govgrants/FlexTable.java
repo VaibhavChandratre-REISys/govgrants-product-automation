@@ -210,7 +210,7 @@ public final class FlexTable implements FlexTableComponent {
                     + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio']");
+                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //*[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
             try {
                 I.amPerforming().click().on(rowCheckboxSelector);
             } catch (org.openqa.selenium.ElementClickInterceptedException e) {
