@@ -68,8 +68,8 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-            I.amPerforming().waitFor().makeThreadSleep(1000);
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+            if(I.amPerforming().checkToSee().isElementDisplayed(topRightButton)) {
                 I.amPerforming().click().on(topRightButton);
                 govgrants.perform().modal().acceptPopUp();
             }else {
@@ -341,7 +341,7 @@ public final class PageDetails {
             trueColor = "grey";
         }
         else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(7, 47, 87")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(1, 68, 134")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
             trueColor = "dark blue";
         }
