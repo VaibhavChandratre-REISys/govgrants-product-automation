@@ -229,7 +229,7 @@ Feature: Validate all scenarios in Focus Area
 #    Then I see the following messages in the page details contains:
 #      | Saved Successfully! |
     When I collapse nested table containing column value "Pre-Screen Review"
-    And I expand nested table containing column value
+    And I expand nested table containing column value "Pre-Screen Review"
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
     And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
