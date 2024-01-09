@@ -277,8 +277,8 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "---program:-:programReviewPanel---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I click on advance filter of table id "---program:-:programReviewPanel---" for LWC
+    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
       | Section Order | equals to | 3 |
     Then I softly see value "Permits" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
@@ -289,8 +289,8 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "---program:-:programReviewPanel---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I click on advance filter of table id "---program:-:programReviewPanel---" for LWC
+    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
       | Section Order | equals to | 3 |
     Then I softly see value "Program Income" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
@@ -793,11 +793,11 @@ Feature: Validate all scenarios for program
     #  | Saved successfully! |
     And I perform quick search for "Return on Investment (ROI)" in "---program:-:programReviewPanel---" panel
     Then I softly see value "Return on Investment (ROI)" for title "Section Header" inside table "---program:-:programReviewPanel---"
-    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "---announcement:-:ReviewPanelCategoriesTableId---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I click on advance filter of table id "---announcement:-:ReviewPanelCategoriesTableId---" for LWC
+    And I enter advance filter values inside id "---announcement:-:ReviewPanelCategoriesTableId---" for LWC
       | Section Header | contains | Return on Investment (ROI) |
     Then I softly see value "Return on Investment (ROI)" for title "Section Header" inside table "---program:-:programReviewPanel---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I enter advance filter values inside id "---announcement:-:ReviewPanelCategoriesTableId---" for LWC
       | Section Header | contains | TestInvalidPanel |
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanel---"
     Examples:
@@ -1228,11 +1228,11 @@ Feature: Validate all scenarios for program
       | Capability     | 15                 |
       | Approach       | 60                 |
       | Impact         | 25                 |
-    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "---program:-:programReviewPanel---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I click on advance filter of table id "---program:-:programReviewPanel---" for LWC
+    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
       | Section Order | equals to | 3 |
     Then I softly see value "3" for title "Section Order" inside table "---program:-:programReviewPanel---"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
       | Section Order | equals to | 5 |
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
@@ -1243,8 +1243,8 @@ Feature: Validate all scenarios for program
       | Budget         | 75                 |
       | Match          | 75                 |
       | Program Income | 10                 |
-    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "ProgramRelatedReviewPanelCategoriesFlexToggle"
-    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
+    And I click on advance filter of table id "ProgramRelatedReviewPanelCategoriesFlexToggle" for LWC
+    And I enter advance filter values inside id "ProgramRelatedReviewPanelCategoriesFlexToggle" for LWC
       | Section Order | equals to | 5 |
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanel---"
     Examples:
