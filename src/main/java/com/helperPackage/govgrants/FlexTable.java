@@ -792,14 +792,26 @@ public final class FlexTable implements FlexTableComponent {
      * @modifier hema.ananthan
      */
     public By getTableActionIcon(String flexTableId, String iconName, String... uniqueColumnValues) {
-        String desiredAction = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId) + "] | //c-lwc-flex-table[" + I.amPerforming().sanityOfXpathTo().equals("@data-flextablename", flexTableId) + "]";
-        for (String uniqueColumnValue : uniqueColumnValues) {
-            desiredAction += "//td//*["
-                    + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
-                    + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
-                    + "/ancestor::tr[1]";
+        String desiredAction = null;
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            desiredAction = "//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableId) + "]";
+            for (String uniqueColumnValue : uniqueColumnValues) {
+                desiredAction += "//td//*["
+                        + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
+                        + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                        + "/ancestor::tr[1]";
+            }
+            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
+        } else {
+            desiredAction = "//c-lwc-flex-table[" + I.amPerforming().sanityOfXpathTo().equals("@data-flextablename", flexTableId) + "]";
+            for (String uniqueColumnValue : uniqueColumnValues) {
+                desiredAction += "//td//*["
+                        + I.amPerforming().sanityOfXpathTo().equals("@title", uniqueColumnValue) + " or "
+                        + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
+                        + "/ancestor::tr[1]";
+            }
+            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "]";
         }
-        desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "]";
         return By.xpath(desiredAction);
     }
 

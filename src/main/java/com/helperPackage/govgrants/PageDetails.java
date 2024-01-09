@@ -68,6 +68,7 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
+            I.amPerforming().waitFor().makeThreadSleep(1000);
             if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
                 I.amPerforming().click().on(topRightButton);
                 govgrants.perform().modal().acceptPopUp();

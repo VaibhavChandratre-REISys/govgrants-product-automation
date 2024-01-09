@@ -1211,10 +1211,9 @@ Feature: Validate all scenarios for program
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I Click on "Reassign Records" icon for "Program" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Program" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
@@ -1551,7 +1550,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     And I navigate to "History" sub tab
     And I see "{SavedValue:FO Username}" against "Re-approval (Pending for first approval)" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     When I download the file
@@ -1613,7 +1612,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
     And I see "{SavedValue:PO Username}" against "Re-approval (Pending for first approval)" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
   @279503 @VerifyEXEasstep1approvercanseeundobuttonafterapprovedtheExternalprogram @sprint-3-US-291914 @hitesh @Undo
@@ -2579,10 +2578,9 @@ Feature: Validate all scenarios for program
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I Click on "Reassign Records" icon for "Program" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Program" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
