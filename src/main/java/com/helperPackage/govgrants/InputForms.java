@@ -886,13 +886,23 @@ public final class InputForms {
            performLookupQuickSearch(searchTerm);
            selectLookupValue(searchTerm);
        } else {
-           String Search = fieldWrapper.toString().split("//")[2].split("\'")[1];
-           I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']"));
-           By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='"+ Search +"']//input[@type='search']");
-           I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
-           I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
-           By selectButtonLocator = By.xpath("//div[@title='"+ searchTerm +"']");
-           I.amPerforming().click().on(selectButtonLocator);
+            String Search = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            if(Search.contains("field")){
+                String Search1 = Search.toString().split("field")[1];
+                I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search1 +"']//input[@type='search']"));
+                By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='"+ Search1 +"']//input[@type='search']");
+                I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
+                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+                By selectButtonLocator = By.xpath("//div[@title='"+ searchTerm +"']");
+                I.amPerforming().click().on(selectButtonLocator);
+            } else {
+                I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + Search + "']//input[@type='search']"));
+                By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='" + Search + "']//input[@type='search']");
+                I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
+                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+                By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
+                I.amPerforming().click().on(selectButtonLocator);
+            }
        }
     }
 
