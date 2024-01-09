@@ -1,10 +1,12 @@
 @productBusinessFlowSanity @product @grantor-regression @regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335 @activationOfFocusArea
+  @72335 @activationOfFocusArea @debug
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
+    Then I softly see fields "ReviewerRole__c" is in edit mode
+
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
     When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
@@ -1879,7 +1881,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
- @debug @72352 @progressReportHappyPath
+  @72352 @progressReportHappyPath
   Scenario: Validate once the Progress Report approval process is completed then the status changes to approved
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"

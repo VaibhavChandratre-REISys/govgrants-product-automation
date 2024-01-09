@@ -208,12 +208,13 @@ public final class GovGrantsAssertionObjects {
      * @modifier Vrishali Raskar(added xpath)
      * @modifier komal.mukhekar- Handled InvalidSelectorException exception
      * @modifier komal.mukhekar- Added xpath and updated "processing" parameter from false to true
+     * @modifier pooja.gundle-Added xpath for LWC
      */
     public void assertTextVisibleOnPage(boolean isContaining, String desiredText, boolean assertcan, boolean isSoftly) {
         By desiredTextSelector = By.xpath("//*[normalize-space(text())='" + desiredText + "']");
         if (isContaining) {
             try {
-                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')]");
+                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] |//span[contains(normalize-space(text()),'\" + desiredText + \"'))] //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
             } catch (InvalidSelectorException e) {
                 /* Above provided xpath (I.e. //text()[contains(.,'" + desiredText + "')] ) is giving InvalidSelectorException, so handling it over here */
@@ -2158,7 +2159,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)]");
+        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //div[@data-field_api_name='" + fieldApiName + "'] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)]");
         boolean flag = false;
         try {
             if (I.amPerforming().actionToGet().attribute(fieldsAtPageDetails, "id").toLowerCase().contains("j_id0") || I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
