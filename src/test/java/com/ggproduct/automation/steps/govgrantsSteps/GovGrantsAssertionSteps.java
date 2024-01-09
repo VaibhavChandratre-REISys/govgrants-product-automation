@@ -174,25 +174,6 @@ public final class GovGrantsAssertionSteps {
                     ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
                     usage.contains("softly")
             );
-//        } else {
-//            if (tableId.contains("flexGridGrantorStrategicGoalObjectives")) {
-//                tableId = "Strategic Goals";
-//            } else if (tableId.contains("RelatedObjectivesGrantor")) {
-//                tableId = "Objectives";
-//            } else if (tableId.equals("InternalFundingSource")) {
-//                tableId = "Internal Funding Sources";
-//            } else if (tableId.contains("flexGridInternalFundingSourceFiles")) {
-//                tableId = "Funding Source Files";
-//            } else if (tableId.contains("flexGridExternalFundingSourceFiles")) {
-//                tableId = "Funding Source Files";
-//            }
-//            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableByIdForLWC(
-//                    tableId,
-//                    buttonName,
-//                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-//                    usage.contains("softly")
-//            );
-//        }
     }
 
 
