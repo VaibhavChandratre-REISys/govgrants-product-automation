@@ -788,7 +788,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
- @debug @195212 @Validateusershouldabletoreassigntheownershiptaskbetweensameprofileandthesameorganization @sprint-4 @vaibhav @reassignment @ownvai
+  @195212 @Validateusershouldabletoreassigntheownershiptaskbetweensameprofileandthesameorganization @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should able to re-assign the ownership task between same profile and the same organization
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
