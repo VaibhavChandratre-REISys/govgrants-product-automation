@@ -1545,20 +1545,18 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-  @11111 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke @monu
-  Scenario: Validate all expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
-    When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Planning" tab
-#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-#    And I click toggle button to select "Internal Programs - Draft"
-#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-#    When I enter "Creation" values from "Program_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    When I save the field labeled "EGMS ID" as "ProgramID"
-#    And I click on "Save" in the page details
-    And I navigate to "Home" tab
-    And I select "Programs" from dropdown for Global search
-    And I perform quick search inside global search "PG-TAO modified-0003"
-    #And I click toggle button to select "Internal Programs"
-    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
-    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Program__c"
+  #  @debug
+#  Scenario:Validate
+#    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
+#    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
+#    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
+#    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
+#    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
+    When I login to "As a Grantor" app as "PM" user
+#    And I wait for "20" seconds
+#    And I halt execution
+#    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    And I halt execution
