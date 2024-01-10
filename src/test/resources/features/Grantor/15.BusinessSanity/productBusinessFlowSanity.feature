@@ -992,7 +992,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "Green"
 
-  @72346 @applicationReviewHappyPath
+  @debug @72346 @applicationReviewHappyPath
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal

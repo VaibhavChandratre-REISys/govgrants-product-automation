@@ -52,7 +52,7 @@ public final class GovGrantsObjects {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
             }
         } else {
-            if (this.tableIdForQsearch.equals("PhasePendingTasks)")) {
+            if (this.tableIdForQsearch.equals("PhasePendingTasks")) {
                 boolean recordPresent = false;
                 int counter = 0;
                 while (!recordPresent && counter < 15) {
