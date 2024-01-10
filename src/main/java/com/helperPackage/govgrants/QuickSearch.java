@@ -69,19 +69,6 @@ public class QuickSearch {
         }
     }
 
-    public void performGlobalQuickSearchForLwc(String searchTerm) {
-        try {
-            I.amPerforming().textInput().toClear(globalSearchInputLwc);
-            I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
-            I.amPerforming().textInput().in(globalSearchButtonLwc, Keys.ENTER.toString());
-//            I.amPerforming().click().on(globalSearchButtonLwc);
-        } catch (Exception e) {
-            I.amPerforming().textInput().toClear(globalSearchInputLwc);
-            I.amPerforming().textInput().in(globalSearchInputLwc, searchTerm);
-            I.amPerforming().click().on(globalSearchButtonLwc);
-        }
-    }
-
     /**
      * get generic quick search
      *
