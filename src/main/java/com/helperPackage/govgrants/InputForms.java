@@ -752,7 +752,7 @@ public final class InputForms {
      * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
