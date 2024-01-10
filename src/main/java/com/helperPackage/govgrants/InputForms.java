@@ -764,12 +764,12 @@ public final class InputForms {
 
                 String inputValue = parseDateFieldValue(fieldValue, formatter);
 
-                try {
-                    SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
-                    Date date = dt.parse(inputValue);
-                    SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
-                    inputValue = dt1.format(date);
-                } catch (Exception e) {
+                    try {
+                        SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                        Date date = dt.parse(inputValue);
+                        SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                        inputValue = dt1.format(date);
+                    }catch(Exception e){
                 }
                 I.amPerforming().textInput().toClear(inputBox1);
                 I.amPerforming().textInput().in(inputBox1, inputValue);
@@ -791,8 +791,17 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(inputBox);
                 I.amPerforming().textInput().in(inputBox, inputValue);
             }
-        }   //makeCalendarPopupDisappear(inputBox);
-    }
+        } else {
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));
+
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().withJavaScript(inputBox, inputValue);
+        }
+    }   //makeCalendarPopupDisappear(inputBox);
 
     private DateTimeFormatter getDateInputFormat(WebElement input, boolean isDateTime) {
         String inputFormat = "";
