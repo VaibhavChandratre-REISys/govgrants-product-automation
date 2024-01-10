@@ -1545,50 +1545,20 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-#  @debug
-#  Scenario:Validate
-#    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
-#    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
-#    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
-#    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
-#    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantor" app as "PM" user
-#    And I wait for "20" seconds
-    And I halt execution
-#    When I hovering mouse on page block help text icon inside table "---program:-:programsTableId---" with tooltip id "PreviewPackageFormstooltip"
-#    Then I softly see "Saved Successfully!" inside flex table with id "ProgramRolesAndResponsibilitiesInternalProg"
-#   Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
-#    Then I softly see "Total Records: 1" inside flex table with id "---program:-:programsTableId---"
-#    Then I see field "Internal Organization" inside page block
-    Then I softly see column "Date" at position "5" contains text "Step5"
-    Then I softly see value "Approve" against the value "Automation PM" for title "Assigned To" in approval history
+  @11111 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke @monu
+  Scenario: Validate all expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
+    When I login to "As a Grantor" app as "dynamicUser" user
 #    And I navigate to "Planning" tab
-#    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-#    Then  I cannot see top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
-#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
-#    Then I see value "Active" for title "Status" against the value "PG-TAO modified-0002" inside table "---program:-:programsTableId---"
-#    Then I see value "PG-TAO modified-0002" for title "EGMS ID" inside table "---program:-:programsTableId---"
-#    Then I do not see fields "PrimaryFunderType__c" is in edit mode
-#    Then I see fields "ProgramName__c" is in edit mode
-#    Then I softly see field "PrimaryFunderType__c" is not editable
-#    Then I softly see field "ProgramName__c" is not editable
-#    Then I see fields "ProgramName__c" is in edit mode
-#    Then I softly see that "First Name" rendered in view mode only
-#    Then I softly see "Add Files" opens in overLay window
-#    When I download the file
-#    Then I softly see "PG-TAO modified-0007" on page "1" of "govgrants" pdf file
-    And I halt execution
-#    When I login to "As a Grantor" app as "PM" user
-#    Then I softly see that "Automation Permanent Strategic Goal" has been added in flextable with Id "---strategicplan:-:strategicGoalObjectivesTableId---"
-#    When I navigate to "Overview" sub tab
-#    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-#    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-#    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-#    When I close "Add Organizations" modal by clicking the top right x button
-#    Then I refresh the page
-#    When I navigate to "Overview" sub tab
-#    And I pause execution for "2" seconds
-#    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-#      | Applicants                          | Allocated Amount |
-#      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    When I save the field labeled "EGMS ID" as "ProgramID"
+#    And I click on "Save" in the page details
+    And I navigate to "Home" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "PG-TAO modified-0003"
+    #And I click toggle button to select "Internal Programs"
+    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
+    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Program__c"
