@@ -76,11 +76,11 @@ public class AwardPage extends GrantorProjectManager {
     public void assertToSeeWindowTitleContains(String usage, String textContains) {
         if (usage.contains("softly")) {
             I.amPerforming().assertionsTo().assertThat(
-                    I.amPerforming().actionToGet().text(By.xpath("//*[@id='pageHeaderId']//span[@class='overview-title']")).contains(textContains)
+                    I.amPerforming().actionToGet().text(By.xpath("//*[@id='pageHeaderId']//span[@class='overview-title'] | //gnt-header-overview//div[contains(@class,'header-title')]")).contains(textContains)
             ).isTrue();
         } else {
             Assert.assertTrue(
-                    I.amPerforming().actionToGet().text(By.xpath("//*[@id='pageHeaderId']//span[@class='overview-title']")).contains(textContains)
+                    I.amPerforming().actionToGet().text(By.xpath("//*[@id='pageHeaderId']//span[@class='overview-title'] | | //gnt-header-overview//div[contains(@class,'header-title')]")).contains(textContains)
             );
         }
     }

@@ -1,5 +1,6 @@
 package com.ggproduct.automation.pageobjects.grantor;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.helperPackage.objects.Elements;
@@ -7,6 +8,7 @@ import com.helperPackage.register.I;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -119,9 +121,18 @@ public class HomePage extends GrantorProjectManager {
      * @param dropDownValue - value to be selected
      */
     public void selectValueFromGlobalSearchDropDown(String dropDownValue) {
-        By globalDropdownSelector = By.xpath("//*[@id='selectSearchId']");
+        By globalDropdownSelector = By.xpath("//*[@id='selectSearchId'] |//*[@data-value='Search: All']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='All Searchable Items']//li"));
+            for (Elements element : elements) {
+                if (element.getText().contains(dropDownValue)) {
+                    element.click();
+                    break;
+                }}
+        } else {
         I.amPerforming().dropDownSelection().from(globalDropdownSelector).selectByVisibleText(dropDownValue);
-    }
+    }}
 
     /**
      * To save the todays date as well as date after one year

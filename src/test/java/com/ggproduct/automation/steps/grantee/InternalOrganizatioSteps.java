@@ -77,7 +77,7 @@ public class InternalOrganizatioSteps {
 
     @And("I save the contact name as {string}")
     public void iSaveTheContactNameAs(String contactName) {
-        String newContactName = I.amPerforming().propertiesFileOperationsTo().getValue(contactName) + " Contact";
+        String newContactName = I.amPerforming().propertiesFileOperationsTo().getValue(contactName);
         I.amPerforming().propertiesFileOperationsTo().saveValue("firstName", I.amPerforming().propertiesFileOperationsTo().getValue(contactName));
         I.amPerforming().propertiesFileOperationsTo().saveValue(contactName, newContactName);
     }
