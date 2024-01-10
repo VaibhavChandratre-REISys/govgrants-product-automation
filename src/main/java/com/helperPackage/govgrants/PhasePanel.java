@@ -415,7 +415,7 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-        if(anyItemContainedInDropDown.contains("Announcements")){
+        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos")){
             return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         }else {
             String toggleName = anyItemContainedInDropDown.split("-")[0];
