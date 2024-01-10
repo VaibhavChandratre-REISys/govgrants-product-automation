@@ -1030,7 +1030,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back" in the page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    Then I see status in Progress-bar is "Submitted" and is "dark green"
+    Then I see status in Progress-bar is "Submitted" and is "Green"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel

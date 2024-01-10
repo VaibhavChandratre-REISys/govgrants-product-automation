@@ -791,6 +791,15 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(inputBox);
                 I.amPerforming().textInput().in(inputBox, inputValue);
             }
+        } else {
+            WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));
+
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().withJavaScript(inputBox, inputValue);
         }
     }   //makeCalendarPopupDisappear(inputBox);
 
