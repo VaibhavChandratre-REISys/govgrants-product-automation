@@ -1554,7 +1554,11 @@ Feature: Validate all scenarios of every modules flow
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    Then I see values "SAN DIEGO ELECTRICAL TRAINING TRUST" and "For-profit organizations" inside table
+#    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+#    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+#    When I click modal button "Close"
+#    And I refresh the page
+    And I click on "Edit" in the page details
 #    When I click on "Accept" in the page details
 #    And I wait for "20" seconds
 #    And I halt execution

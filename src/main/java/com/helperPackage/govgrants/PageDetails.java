@@ -68,8 +68,9 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-            if(I.amPerforming().checkToSee().isElementDisplayed(topRightButton)) {
+//            Todo: remove below step once loading time is reduce
+            I.amPerforming().waitFor().makeThreadSleep(5000);
+            if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
                 I.amPerforming().click().on(topRightButton);
                 govgrants.perform().modal().acceptPopUp();
             }else {
