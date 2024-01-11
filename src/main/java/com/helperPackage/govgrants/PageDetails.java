@@ -69,9 +69,20 @@ public final class PageDetails {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
 //            Todo: remove below step once loading time is reduce
-            I.amPerforming().waitFor().makeThreadSleep(5000);
-            if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
-                I.amPerforming().click().on(topRightButton);
+            if(buttonName.equals("Save") || buttonName.equals("Edit")){
+               for(int i=0; i<5; i++) {
+                  try {
+                      I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+                      I.amPerforming().click().withJavaScript(topRightButton);
+                      govgrants.perform().modal().acceptPopUp();
+                      break;
+                  } catch(Exception  ex){
+                      I.amPerforming().waitFor().makeThreadSleep(3000);
+                  }
+               }
+            }
+            else if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
+                I.amPerforming().click().withJavaScript(topRightButton);
                 govgrants.perform().modal().acceptPopUp();
             }else {
                 I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));

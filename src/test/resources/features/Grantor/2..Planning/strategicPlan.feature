@@ -145,12 +145,13 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
+    And I wait for "6" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Objective" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
