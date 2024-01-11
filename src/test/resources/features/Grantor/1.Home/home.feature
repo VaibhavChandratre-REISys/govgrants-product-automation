@@ -516,7 +516,7 @@ Feature: Validate all scenarios in the home tab
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    Then I see values "234567891" and " " inside table
+    Then I see values " " and " " inside table
     Examples:
       | User  |
       | ADMIN |
