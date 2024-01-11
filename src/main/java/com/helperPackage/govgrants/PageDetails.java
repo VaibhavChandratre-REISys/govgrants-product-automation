@@ -69,26 +69,27 @@ public final class PageDetails {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
 //            Todo: remove below step once loading time is reduce
-            if(buttonName.equals("Save") || buttonName.equals("Edit")){
-               for(int i=0; i<5; i++) {
+//            if(buttonName.equals("Save") || buttonName.equals("Edit") || buttonName.equals("Activate") ){
+//               for(int i=0; i<5; i++) {
                   try {
                       I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
                       I.amPerforming().click().withJavaScript(topRightButton);
                       govgrants.perform().modal().acceptPopUp();
-                      break;
                   } catch(Exception  ex){
-                      I.amPerforming().waitFor().makeThreadSleep(3000);
+                      I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                      I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                      govgrants.perform().modal().acceptPopUp();
                   }
-               }
-            }
-            else if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
-                I.amPerforming().click().withJavaScript(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
-            }else {
-                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-                govgrants.perform().modal().acceptPopUp();
-            }
+//               }
+//            }
+//            else if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
+//                I.amPerforming().click().withJavaScript(topRightButton);
+//                govgrants.perform().modal().acceptPopUp();
+//            }else {
+//                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+//                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+//                govgrants.perform().modal().acceptPopUp();
+//            }
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);

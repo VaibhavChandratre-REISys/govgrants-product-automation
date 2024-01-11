@@ -48,6 +48,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see "Other" has been added in "KPI Files" flex table
     Examples:
       | User  |
@@ -176,6 +177,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
+    And I wait for "2" seconds
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Inactive"
@@ -192,7 +194,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I perform quick search for "Automation Permanent Strategic Plan" in "---strategicplan:-:StrategicPlansTableId---" panel
     Then I see value "Active" for title "Status" against the value "Automation Permanent Strategic Plan" inside table "---strategicplan:-:StrategicPlansTableId---"
 
-  @debug @106645 @VerifyRelatedObjectiveDetails @smoke
+  @106645 @VerifyRelatedObjectiveDetails @smoke
   Scenario: Validate user is able to see related objective
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -203,6 +205,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "Title" as "KPINAME"
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
