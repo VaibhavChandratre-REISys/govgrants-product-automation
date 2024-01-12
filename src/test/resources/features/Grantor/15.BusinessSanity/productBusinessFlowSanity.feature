@@ -160,6 +160,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
+#   To Do: Remove below step once waiting time reduce
+    And I wait for "8" seconds
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | NA           |
@@ -176,6 +178,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     When I navigate to "Responsibilities" sub tab
+#   To Do: Remove below step once waiting time reduce
+    And I wait for "8" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
