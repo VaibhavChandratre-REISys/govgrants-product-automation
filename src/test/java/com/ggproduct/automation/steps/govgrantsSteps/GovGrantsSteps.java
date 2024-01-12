@@ -396,7 +396,8 @@ public final class GovGrantsSteps {
 
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
-            govgrants.perform().flexTable().enterFlexTableRows(
+        I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
+        govgrants.perform().flexTable().enterFlexTableRows(
                     flexTableId,
                     buttonName,
                     rowValues
