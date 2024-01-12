@@ -1460,6 +1460,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save"
     And I wait for "3" seconds
     And I click modal button "Close"
+    Then I refresh the page
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -1468,10 +1469,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
