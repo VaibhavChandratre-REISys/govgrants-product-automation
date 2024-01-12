@@ -193,7 +193,7 @@ public final class PageDetails {
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
         By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
         By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
-        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs']");
         By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 
