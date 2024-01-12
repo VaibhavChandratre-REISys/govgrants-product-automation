@@ -138,8 +138,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Financials" sub tab
-#   To Do: Remove below step once waiting time reduce
-    And I wait for "4" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
@@ -150,18 +148,12 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:fundingAccount} | 2000            |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
-#   To Do: Remove below step once waiting time reduce
-    And I wait for "8" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-#   To Do: Remove below step once waiting time reduce
-    And I wait for "8" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
-#   To Do: Remove below step once waiting time reduce
-    And I wait for "12" seconds
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | NA           |
@@ -178,7 +170,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     When I navigate to "Responsibilities" sub tab
-    And I wait for "8" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
@@ -882,7 +873,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     And I refresh the page
     When I navigate to "Financials" sub tab
-    And I pause execution for "2" seconds
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
