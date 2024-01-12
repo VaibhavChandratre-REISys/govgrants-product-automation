@@ -135,7 +135,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void clickTableTopRightButton(String flexTableId, String buttonName) {
         I.amPerforming().waitFor().makeThreadSleep(4000);
-        I.amPerforming().waitFor().ElementToBeClickable(getTopRightButtonLocatorByTableId(flexTableId, buttonName),10);
+        I.amPerforming().waitFor().ElementToBeVisible(getTopRightButtonLocatorByTableId(flexTableId, buttonName),10);
         try {
             I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
             govgrants.perform().modal().acceptPopUp();
