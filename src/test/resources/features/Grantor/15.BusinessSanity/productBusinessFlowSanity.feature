@@ -1678,6 +1678,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Financials" sub tab
+    And I halt execution
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 30                    |

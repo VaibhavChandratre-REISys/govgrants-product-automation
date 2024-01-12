@@ -166,6 +166,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
             desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='"+ flexTableId +"']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+            I.amPerforming().scroll().toMoveToElement(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='"+ flexTableId +"']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
             I.amPerforming().click().withJavaScript(desiredAction);
         }
 
