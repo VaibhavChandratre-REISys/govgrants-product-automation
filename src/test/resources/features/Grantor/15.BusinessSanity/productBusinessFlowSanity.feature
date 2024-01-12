@@ -178,8 +178,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     When I navigate to "Responsibilities" sub tab
-#   To Do: Remove below step once waiting time reduce
-    And I wait for "12" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
