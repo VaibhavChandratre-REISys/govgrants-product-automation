@@ -1553,17 +1553,10 @@ Feature: Validate all scenarios of every modules flow
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantor" app as "PM" user
-    And I halt execution
-#    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
-#    When I click modal button "Close"
-#    And I refresh the page
-    And I click on "Edit" in the page details
-#    When I click on "Accept" in the page details
 #    And I wait for "20" seconds
 #    And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-#    And I navigate to "Applications" tab
-#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     And I halt execution
