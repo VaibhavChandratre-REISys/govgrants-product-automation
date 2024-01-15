@@ -105,19 +105,13 @@ public class UsersAndURL implements UsersController {
             case "SPI3":
                 password = "Salesforce@2033";
                 break;
-            case "SA":
-                password = "Salesforce@2032";
-                break;
             case "IND":
-                password = "Salesforce@2031";
+                password = "Salesforce@2033";
                 break;
             case "PM":
                 password = "Salesforce@2032";
                 break;
             case "PM1":
-                password = "Salesforce@2031";
-                break;
-            case "SPA":
                 password = "Salesforce@2031";
                 break;
             default:
@@ -130,16 +124,19 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "SPI4":
-                password = "Salesforce@2028";
+                password = "Salesforce2030";
                 break;
             case "SPA":
+                password = "Salesforce2030";
+                break;
+            case "PM":
                 password = "Salesforce2030";
                 break;
             case "FD":
                 password = "Salesforce2030";
                 break;
             default:
-                password = "Salesforce2028";
+                password = "Salesforce2029";
         }
         return password;
     }

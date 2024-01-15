@@ -1192,7 +1192,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
-    And I save the field value having link labeled "Grant  ID" as "grantID"
+    And I save the field value having link labeled "Grant ID" as "grantID"
     And I softly see "Automation ADMIN" is present after mouse hover for active subaward
     And I mouse hover to link contains "{SavedValue:grantID}"
     Then I softly see "Grant" shown inside mini page layout on hover
