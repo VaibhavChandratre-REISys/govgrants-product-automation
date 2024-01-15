@@ -1560,7 +1560,3 @@ Feature: Validate all scenarios of every modules flow
 #    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
 #    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
 #    And I halt execution
-
-  @1111 @formFillingSiteVisitUploadAttachment
-  Scenario: User will be able to review the supporting document checklist submitted by the subrecipient and Filling up of form in Site Visit
-    Given I activated standalone subaward "Poonam17420" with properties "Automation EXE user" of type "Competitive"
