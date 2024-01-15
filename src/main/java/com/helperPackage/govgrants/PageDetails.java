@@ -68,15 +68,28 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-            if(I.amPerforming().checkToSee().isElementDisplayed(topRightButton)) {
-                I.amPerforming().click().on(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
-            }else {
-                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-                govgrants.perform().modal().acceptPopUp();
-            }
+//            Todo: remove below step once loading time is reduce
+//            if(buttonName.equals("Save") || buttonName.equals("Edit") || buttonName.equals("Activate") ){
+//               for(int i=0; i<5; i++) {
+                  try {
+                      I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+                      I.amPerforming().click().withJavaScript(topRightButton);
+                      govgrants.perform().modal().acceptPopUp();
+                  } catch(Exception  ex){
+                      I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                      I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                      govgrants.perform().modal().acceptPopUp();
+                  }
+//               }
+//            }
+//            else if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
+//                I.amPerforming().click().withJavaScript(topRightButton);
+//                govgrants.perform().modal().acceptPopUp();
+//            }else {
+//                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+//                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+//                govgrants.perform().modal().acceptPopUp();
+//            }
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
@@ -181,6 +194,7 @@ public final class PageDetails {
         By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
         By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
         By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
+//        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs']");
         By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 

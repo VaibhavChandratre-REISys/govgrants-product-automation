@@ -1552,11 +1552,11 @@ Feature: Validate all scenarios of every modules flow
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
-#    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "PM" user
 #    And I wait for "20" seconds
 #    And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-#    And I navigate to "Applications" tab
-#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-#    And I halt execution
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    And I halt execution

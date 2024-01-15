@@ -55,14 +55,14 @@ Feature: Validate all scenarios in Focus Area
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @52455 @creationOFFocusAreaFOUser
+  @52455 @creationOFFocusAreaFOUser @TBExecution
   Scenario: Negative Scenario-Verify that FO is not able to create focus area
     Given I login to "As a Grantor" app as "FO" user
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then  I cannot see top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
 
-  @53219 @userFOEditfocusArea
+  @53219 @userFOEditfocusArea @TBExecution
   Scenario: Negative Case-Verfiy that FO user cannot Edit  the record
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -79,7 +79,7 @@ Feature: Validate all scenarios in Focus Area
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     Then I cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Focus Area}" in flex table with id "---focusarea:-:focusAreaTableId---"
 
-  @52620 @userFODeletefocusArea @aa
+  @52620 @userFODeletefocusArea @TBExecution
   Scenario: Negative Case-Verfiy that FO user cannot Delete the record
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -109,7 +109,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @53221 @foUserdeactivatingfocusArea
+  @53221 @foUserdeactivatingfocusArea @TBExecution
   Scenario: Negative Case- Verfiy that other users (other than Admin, EXE, PM) can not deactivate focus area
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -129,7 +129,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @52476 @closedfocusAreaListView
+  @52476 @closedfocusAreaListView @TBExecution
   Scenario: Verfiy that user can see Closed Focus Area under Inactive Focus Area list view (Admin/EXE/PM)
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -149,7 +149,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord @monu
+  @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord @monu @TBExecution
   Scenario: Validate user should be able to see associated focus area at grant record for program
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -169,7 +169,7 @@ Feature: Validate all scenarios in Focus Area
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---focusarea:-:SubAwardFocusAreaTableId---"
 
-  @106615 @VerifyCorrespondingAnnouncement @monu
+  @106615 @VerifyCorrespondingAnnouncement @monu @TBExecution
   Scenario: Validate user should be able to see related announcement associated with program
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -208,7 +208,7 @@ Feature: Validate all scenarios in Focus Area
       | ADMIN    |
       | PM       |
 
-  @109641 @109606 @ValidateDeletionOfReviewerFromInternalProgram @monu
+  @109641 @109606 @ValidateDeletionOfReviewerFromInternalProgram @monu @TBExecution
   Scenario: Validate user is able to delete associated Reviewer at internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
