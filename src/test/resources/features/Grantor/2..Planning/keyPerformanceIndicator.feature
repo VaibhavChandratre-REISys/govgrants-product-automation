@@ -1,4 +1,4 @@
-@kpi @grantor-regression @grantor-parallel-regression @planning @regression @TBExecution
+@kpi @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios in Key Performance Indicator(KPI)
 
   @34735 @creationOfKPI
