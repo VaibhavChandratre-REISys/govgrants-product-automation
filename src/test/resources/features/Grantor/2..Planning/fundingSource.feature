@@ -64,6 +64,7 @@ Feature: Validate all scenarios in Funding Source
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
     Then I see "Other" has been added in "Funding Source Files" flex table
 
   @51037 @creationOfFundingAccount @smoke
@@ -290,6 +291,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -353,6 +355,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -469,6 +472,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
