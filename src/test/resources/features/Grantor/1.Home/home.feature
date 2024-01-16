@@ -755,7 +755,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{user:fullName}" in "---home:-:indContactTableId---" panel
     Then I see that "{user:fullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
-  @62255 @CreatedNotes @keerti
+  @62255 @CreatedNotes @keerti @onhold @wip
   Scenario: Verify created notes on Home Tab
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
