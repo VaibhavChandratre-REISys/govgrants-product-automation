@@ -48,6 +48,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see "Other" has been added in "KPI Files" flex table
     Examples:
       | User  |
@@ -176,6 +177,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
+    And I wait for "2" seconds
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Inactive"
@@ -203,9 +205,10 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "Title" as "KPINAME"
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I save the field labeled "Title" as "KPINAME"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
@@ -227,11 +230,12 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "{SavedValue:KPINAME}" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
+    When I click modal button "Close"
     Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) -Active"
-    When I perform quick search for "KPI-0290" in "---keyperformanceindicator:-:kpiTableId---" panel
-    And I click on "View" icon for "KPI-0290" inside table
+    When I perform quick search for "{SavedValue:KPINAME}" in "---keyperformanceindicator:-:kpiTableId---" panel
+    And I click on "View" icon for "{SavedValue:KPINAME}" inside table
     When I navigate to "Related Log" sub tab
     Then I softly see value "Execution Objective" for title "Title" inside table "---keyperformanceindicator:-:ObjectiveTableId---"

@@ -154,7 +154,8 @@ public final class InputForms {
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         I.amPerforming().waitFor().makeThreadSleep(2000);
 //        I.amPerforming().scroll().toElementCenter(fieldWrapperLocator);
-        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+//        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+        I.amPerforming().scroll().onPageToSpecificElement(fieldWrapperLocator);
         if ("".equalsIgnoreCase(fieldValue)) {
             handleClearingFormDataInputs(fieldWrapper);
         } else {
@@ -497,7 +498,7 @@ public final class InputForms {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//c-lwc-flex-table//input[@type='checkbox']")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//c-lwc-flex-table//input[@type='checkbox']")).size() > 0) {
                     handleCheckBoxInputForTable(fieldWrapper, fieldValue);
                     break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
@@ -773,7 +774,7 @@ public final class InputForms {
                 }
                 I.amPerforming().textInput().toClear(inputBox1);
                 I.amPerforming().textInput().in(inputBox1, inputValue);
-
+                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
             } else {
                 WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
 
@@ -790,6 +791,7 @@ public final class InputForms {
                 }
                 I.amPerforming().textInput().toClear(inputBox);
                 I.amPerforming().textInput().in(inputBox, inputValue);
+                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
             }
         } else {
             WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));

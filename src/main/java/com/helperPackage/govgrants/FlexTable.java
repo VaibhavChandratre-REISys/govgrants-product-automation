@@ -134,7 +134,8 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableTopRightButton(String flexTableId, String buttonName) {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().waitFor().makeThreadSleep(4000);
+        I.amPerforming().waitFor().ElementToBePresent(getTopRightButtonLocatorByTableId(flexTableId, buttonName),10);
         try {
             I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
             govgrants.perform().modal().acceptPopUp();
@@ -166,6 +167,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
             desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='"+ flexTableId +"']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             I.amPerforming().click().withJavaScript(desiredAction);
         }
 
@@ -537,7 +539,6 @@ public final class FlexTable implements FlexTableComponent {
             if (mapColumnHeaderToColumnPosition == null) {
                 mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
             }
-            I.amPerforming().waitFor().makeThreadSleep(2000);
                 govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
 //            clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
