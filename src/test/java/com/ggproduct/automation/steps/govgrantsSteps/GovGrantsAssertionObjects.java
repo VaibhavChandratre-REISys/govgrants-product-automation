@@ -1248,8 +1248,79 @@ public final class GovGrantsAssertionObjects {
      */
     public List<List<String>> getTable(boolean byId, String identifier) {
         By tableLocator;
+        if (byId) {;
+            tableLocator = By.xpath(String.format("//c-lwc-flex-table[@data-flextablename='%s']//table", identifier));
+        } else {
+            tableLocator = By.xpath(String.format("//div[contains(@class, 'panel-heading')]//text()[%s]/ancestor::div[.//table][1]//table", I.amPerforming().sanityOfXpathTo().equals(".", identifier)));
+        }
+
+        List<List<String>> toReturn = new ArrayList<>();
+
+        try {
+            // Get the table from the page
+            WebElement theTable = I.amPerforming().getElementReference().of(tableLocator);
+
+            // For padding out shortened rows
+            int longestRow = 0;
+
+            // Loop through each row in the table
+            // Option for rows (tbody) is specialized to ignore the "Total Records" row
+            for (WebElement row : theTable.findElements(By.xpath(".//thead//tr | .//tbody//tr[not(contains(@ng-if, 'totalRecords') or contains(@ng-if, '!noRecords'))]"))
+                    // Filter out rows that are not displayed
+                    .stream().filter(WebElement::isDisplayed).collect(Collectors.toList())) {
+
+                List<String> rowValues = new ArrayList<>();
+
+                // Loop through each cell in the row
+                for (WebElement cell : row.findElements(By.xpath(".//td | .//th"))
+                        // Filter out cells that are not displayed
+                        .stream().filter(WebElement::isDisplayed).collect(Collectors.toList())) {
+
+                    By iconLocator = By.xpath(".//a[@title and .//*[contains(@class, 'fa-')]] | .//span[@title and contains(@class, 'fa-')]");
+
+                    // Check if there are icons in the cell
+                    if ("".equalsIgnoreCase(cell.getText()) && cell.findElements(iconLocator).size() != 0) {
+                        // Add titles of all icons in the cell to list
+                        rowValues.add(cell.findElements(iconLocator)
+                                // Filter out icons that are not displayed or enabled
+                                .stream().filter(el -> el.isDisplayed() && el.isEnabled())
+                                // Join the titles of the icons by " & "
+                                .map(el -> el.getAttribute("title")).collect(Collectors.joining(" & ")));
+                    } else {
+                        // Add text of the cell to list
+                        rowValues.add(cell.getText());
+                    }
+                }
+
+                // Save the length of the longest row for later
+                if (rowValues.size() > longestRow) {
+                    longestRow = rowValues.size();
+                }
+
+                toReturn.add(rowValues);
+            }
+
+            // Pad out any rows shorter than the longest row with empty strings
+            for (List<String> row : toReturn) {
+                for (int i = row.size(); i < longestRow; i++) {
+                    row.add("");
+                }
+            }
+        } catch (StaleElementReferenceException e) {
+            return getTable(byId, identifier);
+        } catch (Exception e) {
+            I.amPerforming().assertionsTo().assertThat(1)
+                    .as("Table %s '%s' was not found on the page", byId ? "with id" : "named", identifier)
+                    .isEqualTo(0);
+        }
+
+        return toReturn;
+    }
+
+    public List<List<String>> getTableLwc(boolean byId, String identifier) {
+        By tableLocator;
         if (byId) {
-            tableLocator = By.xpath(String.format("//div[@id='%s']//table", identifier));
+            tableLocator = By.xpath(String.format("//c-lwc-flex-table[@data-flextablename='%s']//table", identifier));
         } else {
             tableLocator = By.xpath(String.format("//div[contains(@class, 'panel-heading')]//text()[%s]/ancestor::div[.//table][1]//table", I.amPerforming().sanityOfXpathTo().equals(".", identifier)));
         }

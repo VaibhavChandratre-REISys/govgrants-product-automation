@@ -1265,8 +1265,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
-
-  @debug @38224 @awardHappyPathFromFDM
+  @38224 @awardHappyPathFromFDM
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

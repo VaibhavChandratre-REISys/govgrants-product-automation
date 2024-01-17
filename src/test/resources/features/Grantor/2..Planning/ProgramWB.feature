@@ -89,10 +89,10 @@ Feature: Validate all scenarios for program
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
+    And I pause execution for "4" seconds
     And I click on "Edit" in the page details
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "All NGO Programs"
@@ -152,6 +152,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -193,6 +194,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
