@@ -774,7 +774,7 @@ public final class InputForms {
                 }
                 I.amPerforming().textInput().toClear(inputBox1);
                 I.amPerforming().textInput().in(inputBox1, inputValue);
-
+                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
             } else {
                 WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
 
@@ -791,6 +791,7 @@ public final class InputForms {
                 }
                 I.amPerforming().textInput().toClear(inputBox);
                 I.amPerforming().textInput().in(inputBox, inputValue);
+                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
             }
         } else {
             WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//input[@type='text']")));

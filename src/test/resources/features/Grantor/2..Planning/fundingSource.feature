@@ -22,6 +22,7 @@ Feature: Validate all scenarios in Funding Source
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "Start Date" as "SDATE"
     And I save the field labeled "End Date" as "EDATE"
     And I save the field labeled "Title" as "FundingSourceTitle"
@@ -221,15 +222,23 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Edit" in the page details
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Activate" in the page details
+    And I wait for "2" seconds
     When I click on "Deactivate" in the page details
+    And I wait for "4" seconds
+    And I refresh the page
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click toggle button to select "Internal Funding Sources -Closed"
     When I perform quick search for "<Funding Source>" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "<Funding Source>" inside table
-    When I click on "View" icon for "Closed" inside flex table with id "---fundingsource:-:fundingAccountTableId---" without waiting for record
+    And I wait for "3" seconds
+    When I click on "View" icon for "Closed" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I click on "Activate" in the page details
+    And I wait for "4" seconds
+    And I refresh the page
+    When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
     And I click toggle button to select "Internal Funding Sources - Active"
     When I perform quick search for "<Funding Source>" in "---fundingsource:-:fundingSourceTableId---" panel
@@ -254,7 +263,7 @@ Feature: Validate all scenarios in Funding Source
     And I save the field labeled "Title" as "FundingSourceTitle"
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
@@ -266,12 +275,13 @@ Feature: Validate all scenarios in Funding Source
     Then I see the header is "Internal Funding Source" in the page details
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1500" into field "AppropriationBalance__c"
+    When I enter in modal value "1500" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     Then I softly see field "Appropriation Amount" as "$2,500.00"
 
@@ -292,6 +302,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -299,15 +310,15 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I wait for "2" seconds
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -316,8 +327,10 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
+    And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -356,6 +369,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -363,15 +377,15 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I wait for "2" seconds
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -380,6 +394,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
     And I pause execution for "3" seconds
@@ -407,6 +422,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -414,15 +430,15 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -431,6 +447,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
     And I pause execution for "3" seconds
@@ -473,6 +490,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -480,7 +498,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
@@ -516,6 +534,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -523,7 +542,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
@@ -531,7 +550,6 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -540,8 +558,10 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
+    And I wait for "2" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -579,6 +599,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -586,15 +607,15 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -603,8 +624,10 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
+    And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -642,6 +665,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -649,15 +673,15 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "1000" into field "AppropriationBalance__c"
+    When I enter in modal value "1000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     When I enter value "{SavedValue:SDATE}" into field "StartDate__c"
     When I enter value "{SavedValue:EDATE}" into field "EndDate__c"
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
-    And I save the field labeled "EGMS ID" as "FundingAccId"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -666,8 +690,10 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I navigate to "Overview" sub tab
+    When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
+    And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
