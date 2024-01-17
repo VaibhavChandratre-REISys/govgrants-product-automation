@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @109448 @VerifySelectionOfChildOrganization @monu
+  @Temphit @109448 @VerifySelectionOfChildOrganization @monu
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -29,7 +29,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
 
-  @111272 @111182 @111191 @VerifyActivationOfNGOProgram @monu @buglogged138933
+  @Temphit @111272 @111182 @111191 @VerifyActivationOfNGOProgram @monu @buglogged138933
   Scenario Outline: Verifying record owner is able to activate NGO program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -41,9 +41,13 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -78,7 +82,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime Internal Program} |
 
-  @110502 @110501 @VerifyEditOfCreatedNGOProgram @monu
+  @Temphit @110502 @110501 @VerifyEditOfCreatedNGOProgram @monu
   Scenario Outline: Verifying record owner is able to activate NGO program
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -99,6 +103,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     Then I softly can see row level action button "Edit" against "Created" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     #110504 #monu
+    And I pause execution for "2" seconds
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     #110501 #monu
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -140,7 +145,7 @@ Feature: Validate all scenarios for program
     And I click on "Remove" icon for "NGO Contact" inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see "Record deleted successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
 
-  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation @monu @buglogged138933
+  @Temphit @111264 @111183 @VerifyTaskCreationForNGOProgramActivation @monu @buglogged138933
   Scenario: Verifying record owner should receive generated task inside pending for Program activation after approval of program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -159,6 +164,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -182,7 +190,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @111226 @VerifyProgramNotEditableAfterSubmission @monu @buglogged138933
+  @Temphit @111226 @VerifyProgramNotEditableAfterSubmission @monu @buglogged138933
   Scenario Outline: Verifying NGO Program record is not editable once program is submitted for approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -198,6 +206,9 @@ Feature: Validate all scenarios for program
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -339,7 +350,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:PM Username} | Step 1  |
     Then I softly see "Saved Successfully!" inside flex table with id "---program:-:extapproverTableId---"
 
-  @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality @monu
+  @Temphit @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality @monu
   Scenario: Validate user can two step approval for NGO program and complete the approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -356,11 +367,15 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "4" seconds
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -411,7 +426,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav
+  @Temphit @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
