@@ -4,6 +4,7 @@ import com.ggproduct.automation.pageobjects.grantor.AmendmentRequestPage;
 import com.helperPackage.register.I;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.springframework.context.annotation.Description;
 
 public class AmendmentRequestSteps {
@@ -26,7 +27,7 @@ public class AmendmentRequestSteps {
 
     @When("I click {string} after selection of {string} by showing entries {string} in flex table with id {string}")
     public void iClickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberOfEntries, String flexTableId) {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
         } else {

@@ -416,12 +416,13 @@ Feature: Validate all scenarios in Funding Source
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "Start Date" as "SDATE"
     And I save the field labeled "End Date" as "EDATE"
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -449,6 +450,7 @@ Feature: Validate all scenarios in Funding Source
     And I navigate to "Overview" sub tab
     When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
+    And I pause execution for "2" seconds
     When I click on "Deactivate" in the page details
     And I pause execution for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
@@ -705,6 +707,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I halt execution
     And I click toggle button to select "All External Funding Sources"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
@@ -713,4 +716,5 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
+    And I wait for "1" seconds 
     Then I softly verify that the file "Attachment.pdf" is downloaded

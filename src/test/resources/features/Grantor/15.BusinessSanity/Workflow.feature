@@ -1552,13 +1552,12 @@ Feature: Validate all scenarios of every modules flow
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "As a Grantor" app as "PM" user
 #    And I wait for "20" seconds
     And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
 #    When I navigate to "Files" sub tab
-    Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:competitiveAnnouncementTableId---" :
+      | EGMS ID             | Announcement Name |
+      | AN-TAO modified-094 | test12356         |
     And I halt execution

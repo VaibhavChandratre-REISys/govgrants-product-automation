@@ -52,21 +52,21 @@ public final class GovGrantsObjects {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
             }
         } else {
-//            if (this.tableIdForQsearch.contains("PendingTasks")) {
-//                boolean recordPresent = false;
-//                int counter = 0;
-//                while (!recordPresent && counter < 15) {
-//                    if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@data-flextablename='" + this.tableIdForQsearch + "']//*[contains(text(),'Total Records:')]"))) {
-//                        recordPresent = true;
-//                        break;
-//                    } else {
-//                        I.amPerforming().browserOperationsTo().refreshPage();
-//                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
-//                        I.amPerforming().waitFor().makeThreadSleep(9000);
-//                    }
-//                    counter++;
-//                }
-//            }
+            if (this.tableIdForQsearch.contains("PendingTasks")) {
+                boolean recordPresent = false;
+                int counter = 0;
+                while (!recordPresent && counter < 15) {
+                    if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-lwc-flex-table[@data-flextablename='" + this.tableIdForQsearch + "']//*[contains(text(),'Total Records:')]"))) {
+                        recordPresent = true;
+                        break;
+                    } else {
+                        I.amPerforming().browserOperationsTo().refreshPage();
+                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
+                        I.amPerforming().waitFor().makeThreadSleep(9000);
+                    }
+                    counter++;
+                }
+            }
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);
@@ -129,11 +129,11 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
-            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-        }else{
-            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-        }
+            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+            } else {
+                govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+            }
     }
 
     /**

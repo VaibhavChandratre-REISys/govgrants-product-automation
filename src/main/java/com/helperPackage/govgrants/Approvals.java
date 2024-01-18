@@ -24,7 +24,7 @@ public final class Approvals {
         return By.xpath("" +
                 "//div[@id='ApprovalDecisionComponent']//span/input[@name='myRadio' and " + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + "]" +
                 " | " +
-                "//div[@id='ApprovalDecisionComponent']//span[./text()[" + I.amPerforming().sanityOfXpathTo().equals(".", buttonName) + "]]/input[@name='myRadio'] | //c-approval-decision//div//span[text()='" + buttonName + "']");
+                "//div[@id='ApprovalDecisionComponent']//span[./text()[" + I.amPerforming().sanityOfXpathTo().equals(".", buttonName) + "]]/input[@name='myRadio'] | //c-approval-decision//div//span[text()='" + buttonName + "'] | //c-approval-decision//div//span//input[@value='" + buttonName + "']");
     }
 
     private By userLookupResultLocator(String userName) {
@@ -41,7 +41,7 @@ public final class Approvals {
      */
     public void selectRadioButton(String radioButtonOption) {
         try {
-            I.amPerforming().click().on(radioButtonLocator(radioButtonOption));
+            I.amPerforming().click().withJavaScript(radioButtonLocator(radioButtonOption));
         } catch (Exception e) {
             String error = e.getMessage();
 
