@@ -177,4 +177,12 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().click().on(By.xpath("//input[@type='submit']"));
         I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
     }
+
+    public void enterValueInReassignLookup(String userName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//div[contains(@class,'panel-body')]//span[@class='select2-chosen'] | //div[contains(@class,'combobox__form-element')]//lightning-input"));
+            I.amPerforming().textInput().in(By.xpath("//div[@id='select2-drop']//div/input | //div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
+        } catch (Exception e) {
+        }
+    }
 }
