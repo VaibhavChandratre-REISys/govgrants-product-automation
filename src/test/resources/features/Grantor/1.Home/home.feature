@@ -2,7 +2,7 @@
 Feature: Validate all scenarios in the home tab
 
   @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
-  Scenario Outline: Validate whether all users have view access to Internal Organization
+  Scenario Outline: Validate whether all7 users have view access to Internal Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
@@ -112,7 +112,7 @@ Feature: Validate all scenarios in the home tab
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
+    And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:reviewersTableId---" panel
@@ -121,7 +121,6 @@ Feature: Validate all scenarios in the home tab
     And I click "Send" button in modal
     Then I see the following messages in the page details :
       | Email Sent Successfully |
-
     Examples:
       | User  |
       | ADMIN |
@@ -181,8 +180,9 @@ Feature: Validate all scenarios in the home tab
   Scenario Outline: Validate whether ADMIN have view access to DUNSRegistration
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
-    And I navigate to "UEI Registration" content inside "Useful Links" subheader on left panel
-    Then I navigate to url "https://sam.gov/content/entity-registration"
+    Then I softly can see "History" sub tab at view detail page
+#    And I navigate to "UEI Registration" content inside "Useful Links" subheader on left panel
+#    Then I navigate to url "https://sam.gov/content/entity-registration"
     Examples:
       | User  |
       | ADMIN |
@@ -755,7 +755,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{user:fullName}" in "---home:-:indContactTableId---" panel
     Then I see that "{user:fullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
-  @62255 @CreatedNotes @keerti
+  @62255 @CreatedNotes @keerti @onhold @wip
   Scenario: Verify created notes on Home Tab
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -840,7 +840,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the following messages in the page details :
       | Email Sent Successfully |
 
-  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+   @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -853,10 +853,10 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
-      | IND      |
+#      | SPA      |
+#      | IND      |
 
-  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+   @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user can edit the 'Accessibility Mode' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user

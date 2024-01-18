@@ -68,7 +68,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("@title", titleName) + " or "
                         + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]|" +
                         "//div[@id='" + tableId + "']//div/table/thead/tr/th[@title='" + titleName + "' or text()='" + titleName + "'] | " +
-                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] ");
+                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
@@ -184,6 +184,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
             I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
         }else{
@@ -358,6 +359,7 @@ public final class FlexTable implements FlexTableComponent {
                     + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
                     + "/ancestor::tr[1]//button";
         }
+        //I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
         return By.xpath(desiredAction);
     }
 

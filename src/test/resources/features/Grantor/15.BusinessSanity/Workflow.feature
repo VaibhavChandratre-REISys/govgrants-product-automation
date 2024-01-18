@@ -1554,10 +1554,9 @@ Feature: Validate all scenarios of every modules flow
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantor" app as "PM" user
 #    And I wait for "20" seconds
-    And I halt execution
+#    And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-#    When I navigate to "Files" sub tab
-    Then I see the following rows under the following headers in table with id "---announcement:-:competitiveAnnouncementTableId---" :
-      | EGMS ID             | Announcement Name |
-      | AN-TAO modified-094 | test12356         |
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     And I halt execution

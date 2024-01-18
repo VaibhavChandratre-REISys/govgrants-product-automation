@@ -142,9 +142,10 @@ Feature: Validate all scenarios in Focus Area
     And I get the "EGMS ID"
     When I click on "Activate" in the page details
     And I click on "Deactivate" in the page details
+    And I pause execution for "5" seconds
     When I navigate to "Planning" tab
     And I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Inactive"
+    And I click toggle button to select "Focus Areas - Inactive"
     When I perform quick search for "{SavedValue:Automation Runtime Focus Area}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I see status in Progress-bar is "Closed" and is "dark blue"
@@ -163,8 +164,10 @@ Feature: Validate all scenarios in Focus Area
     And I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    And I pause execution for "3" seconds
     And I navigate to "Subawards" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:GrantsSubAwardsTableIdFocusArea---" panel
+    And I pause execution for "3" seconds
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---focusarea:-:SubAwardFocusAreaTableId---"
@@ -180,7 +183,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "View" icon for "Automation Permanent Internal Program" inside table
     And I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---program:-:AnnouncementTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---program:-:AnnouncementTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---program:-:AnnouncementTableId---"
 
   @109436 @ValidateEditOfBusinessForm @monu
   Scenario Outline: Validate expected user is able to edit business form on internal program

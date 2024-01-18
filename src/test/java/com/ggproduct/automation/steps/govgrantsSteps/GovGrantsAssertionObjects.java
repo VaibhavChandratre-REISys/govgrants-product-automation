@@ -841,7 +841,7 @@ public final class GovGrantsAssertionObjects {
      * @param desiredSubTab
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
-        By allSubTabsLocator = By.xpath("//div[@id='myTabs']/ul//li/a[@name]");
+        By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label]");
 
         List<String> allSubTabNames;
         try {
@@ -1013,14 +1013,29 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        List<String> actualOptions = I.amPerforming().dropDownSelection()
-                .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
-                .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox']"));
+            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title]");
+            List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
+                    .stream().map(Elements::getText).collect(Collectors.toList());
 
-        compareLists(expectedOptions, actualOptions,
-                "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                exactMatch, checkOrder
-        );
+            compareLists(expectedOptions, actualOptions,
+                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                    exactMatch, checkOrder
+            );
+        }
+        else {
+            List<String> actualOptions = I.amPerforming().dropDownSelection()
+                    .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
+                    .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
+
+            compareLists(expectedOptions, actualOptions,
+                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                    exactMatch, checkOrder
+            );
+        }
+
+
     }
 
     /**
@@ -1248,8 +1263,79 @@ public final class GovGrantsAssertionObjects {
      */
     public List<List<String>> getTable(boolean byId, String identifier) {
         By tableLocator;
+        if (byId) {;
+            tableLocator = By.xpath(String.format("//c-lwc-flex-table[@data-flextablename='%s']//table", identifier));
+        } else {
+            tableLocator = By.xpath(String.format("//div[contains(@class, 'panel-heading')]//text()[%s]/ancestor::div[.//table][1]//table", I.amPerforming().sanityOfXpathTo().equals(".", identifier)));
+        }
+
+        List<List<String>> toReturn = new ArrayList<>();
+
+        try {
+            // Get the table from the page
+            WebElement theTable = I.amPerforming().getElementReference().of(tableLocator);
+
+            // For padding out shortened rows
+            int longestRow = 0;
+
+            // Loop through each row in the table
+            // Option for rows (tbody) is specialized to ignore the "Total Records" row
+            for (WebElement row : theTable.findElements(By.xpath(".//thead//tr | .//tbody//tr[not(contains(@ng-if, 'totalRecords') or contains(@ng-if, '!noRecords'))]"))
+                    // Filter out rows that are not displayed
+                    .stream().filter(WebElement::isDisplayed).collect(Collectors.toList())) {
+
+                List<String> rowValues = new ArrayList<>();
+
+                // Loop through each cell in the row
+                for (WebElement cell : row.findElements(By.xpath(".//td | .//th"))
+                        // Filter out cells that are not displayed
+                        .stream().filter(WebElement::isDisplayed).collect(Collectors.toList())) {
+
+                    By iconLocator = By.xpath(".//a[@title and .//*[contains(@class, 'fa-')]] | .//span[@title and contains(@class, 'fa-')]");
+
+                    // Check if there are icons in the cell
+                    if ("".equalsIgnoreCase(cell.getText()) && cell.findElements(iconLocator).size() != 0) {
+                        // Add titles of all icons in the cell to list
+                        rowValues.add(cell.findElements(iconLocator)
+                                // Filter out icons that are not displayed or enabled
+                                .stream().filter(el -> el.isDisplayed() && el.isEnabled())
+                                // Join the titles of the icons by " & "
+                                .map(el -> el.getAttribute("title")).collect(Collectors.joining(" & ")));
+                    } else {
+                        // Add text of the cell to list
+                        rowValues.add(cell.getText());
+                    }
+                }
+
+                // Save the length of the longest row for later
+                if (rowValues.size() > longestRow) {
+                    longestRow = rowValues.size();
+                }
+
+                toReturn.add(rowValues);
+            }
+
+            // Pad out any rows shorter than the longest row with empty strings
+            for (List<String> row : toReturn) {
+                for (int i = row.size(); i < longestRow; i++) {
+                    row.add("");
+                }
+            }
+        } catch (StaleElementReferenceException e) {
+            return getTable(byId, identifier);
+        } catch (Exception e) {
+            I.amPerforming().assertionsTo().assertThat(1)
+                    .as("Table %s '%s' was not found on the page", byId ? "with id" : "named", identifier)
+                    .isEqualTo(0);
+        }
+
+        return toReturn;
+    }
+
+    public List<List<String>> getTableLwc(boolean byId, String identifier) {
+        By tableLocator;
         if (byId) {
-            tableLocator = By.xpath(String.format("//div[@id='%s']//table", identifier));
+            tableLocator = By.xpath(String.format("//c-lwc-flex-table[@data-flextablename='%s']//table", identifier));
         } else {
             tableLocator = By.xpath(String.format("//div[contains(@class, 'panel-heading')]//text()[%s]/ancestor::div[.//table][1]//table", I.amPerforming().sanityOfXpathTo().equals(".", identifier)));
         }
@@ -2122,7 +2208,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span " + "| //div[@data-field_api_name='" + fieldAPIName + "']"  )))
                 flag = true;
         } catch (Exception e) {
             flag = false;
