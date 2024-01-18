@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @Temphit @109448 @VerifySelectionOfChildOrganization @monu
+  @109448 @VerifySelectionOfChildOrganization @monu
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -13,6 +13,7 @@ Feature: Validate all scenarios for program
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
+    And I pause execution for "3" seconds
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -29,7 +30,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
 
-  @Temphit @111272 @111182 @111191 @VerifyActivationOfNGOProgram @monu @buglogged138933
+  @111272 @111182 @111191 @VerifyActivationOfNGOProgram @monu @buglogged138933
   Scenario Outline: Verifying record owner is able to activate NGO program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -37,13 +38,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I pause execution for "4" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -82,7 +81,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime Internal Program} |
 
-  @Temphit @110502 @110501 @VerifyEditOfCreatedNGOProgram @monu
+  @110502 @110501 @VerifyEditOfCreatedNGOProgram @monu
   Scenario Outline: Verifying record owner is able to activate NGO program
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -90,13 +89,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Edit" in the page details
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I pause execution for "3" seconds
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "All NGO Programs"
@@ -230,7 +227,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime Internal Program} |
 
-  @Temphit @111416 @VerifyRejectionOfNGOProgram @monu @buglogged138933
+  @111416 @VerifyRejectionOfNGOProgram @monu @buglogged138933
   Scenario: Verifying Executive approver is able to reject NGO Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -279,13 +276,15 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -313,13 +312,15 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -350,6 +351,9 @@ Feature: Validate all scenarios for program
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -398,8 +402,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
@@ -420,6 +423,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
@@ -431,7 +437,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @Temphit @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav
+  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -508,6 +514,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -572,6 +581,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
@@ -648,6 +660,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
@@ -740,6 +755,9 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -1168,6 +1186,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -1463,12 +1484,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -1480,6 +1500,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
@@ -1555,6 +1578,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -1684,6 +1710,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
@@ -1712,6 +1741,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -1749,6 +1781,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -1858,6 +1893,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -1908,7 +1946,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside table "---program:-:historyTableId---"
     Then I softly see value "Automation PM1" for title "Old Value" inside table "---program:-:historyTableId---"
 
-  @Temphit @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4 @vaibhav @reassignment
+  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4 @vaibhav @reassignment
   Scenario: Validate approval task assigned to initial owner of program <EXE> is not transferred to new owner when a external program in submit for approval status is transferred to new owner (EXE) & email is sent to correct owner upon rejecting
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1916,17 +1954,18 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -2042,6 +2081,9 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
@@ -2081,6 +2123,9 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
       | Program | Announcement | Announcement | FDM    | Award | Post Award / Monitoring | Closeout |
       | Step 1  | Step 1       | Step 1       | Step 1 | NA    | Step 1                  | Step 1   |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Award |
+      | {SavedValue:PM Username}  | NA    |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name            | Award  |
       | Automation EXE1 | Step 1 |
@@ -2170,6 +2215,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
@@ -2232,6 +2280,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -2292,6 +2343,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name           | Program |
+      | Automation PM  | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name           | Program |
       | Automation PM1 | Step 1  |
     Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -2316,6 +2370,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name           | Program |
+      | Automation PM  | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name           | Program |
       | Automation PM1 | Step 1  |
     Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -2338,6 +2395,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name           | Program |
+      | Automation PM  | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name           | Program |
       | Automation PM1 | Step 1  |
@@ -2442,6 +2502,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -2499,6 +2562,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name              | Program |
+      | Automation ADMIN1 | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name              | Program |
       | Automation ADMIN1 | Step 1  |
@@ -2568,6 +2634,9 @@ Feature: Validate all scenarios for program
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name              | Program |
+      | Automation ADMIN1 | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name              | Program |
       | Automation ADMIN1 | Step 1  |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
@@ -2621,6 +2690,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
@@ -2970,6 +3042,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -3041,6 +3116,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -3109,6 +3187,9 @@ Feature: Validate all scenarios for program
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name              | Program |
+      | Automation ADMIN1 | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name              | Program |
       | Automation ADMIN1 | Step 1  |
     And I click on "Submit For Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "green"
@@ -3145,6 +3226,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -3220,6 +3304,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -3315,6 +3402,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name            | Program | Post Award / Monitoring | Closeout |
@@ -3361,6 +3451,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program | Announcement | FDM    | Award  | Post Award / Monitoring | Closeout |
       | {SavedValue:EXE Username} | Step 1  | Step 2       | Step 2 | Step 2 | Step 2                  | Step 2   |
@@ -3435,6 +3528,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program | FDM    | Closeout |
       | {SavedValue:PM Username} | Step 1  | Step 1 | Step 1   |
@@ -3613,6 +3709,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
@@ -3773,6 +3872,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program | Announcement |
       | {SavedValue:PM Username} | Step 1  | Step 1       |
@@ -4187,6 +4289,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I navigate to "Setup" sub tab
@@ -4342,16 +4447,18 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -4418,6 +4525,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program | Announcement | FDM    | Award  | Post Award / Monitoring | Closeout |
       | {SavedValue:EXE Username} | Step 1  | Step 2       | Step 2 | Step 2 | Step 2                  | Step 2   |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -4480,12 +4590,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -4497,6 +4606,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -4564,6 +4676,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program | Announcement |
       | {SavedValue:PM Username} | Step 1  | Step 1       |
@@ -4677,6 +4792,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
@@ -4751,6 +4869,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -4831,7 +4952,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
-      | {SavedValue:EXE Username} | NA      |
+      | {SavedValue:PM  Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name            | Program | Announcement |
       | Automation EXE1 | Step 1  | Step 1       |
@@ -4905,6 +5026,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name           | Program |
+      | Automation PM  | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -5146,6 +5270,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I navigate to "Setup" sub tab
@@ -5206,6 +5333,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I navigate to "Setup" sub tab
@@ -5235,6 +5365,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -5268,6 +5401,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I navigate to "Setup" sub tab
@@ -5300,6 +5436,9 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I navigate to "Setup" sub tab
@@ -5331,6 +5470,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -5544,6 +5686,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:PM Username}  | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name           | Program |
       | Automation PM1 | Step 1  |
