@@ -218,7 +218,11 @@ public final class PageDetails {
                    I.amPerforming().click().withJavaScript(moreTabs);
 
             } else {
+                try {
+                    I.amPerforming().click().on(desiredTab);
+                } catch (Exception e){
                     I.amPerforming().click().withJavaScript(desiredTab);
+                }
             }
         } catch (Exception ex) {
             try {

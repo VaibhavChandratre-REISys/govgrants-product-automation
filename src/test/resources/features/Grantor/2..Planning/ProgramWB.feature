@@ -425,7 +425,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I perform quick search for "{SavedValue:ProgramEGMSID}"
+    And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "Edit" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---program:-:businessFormTableId---"
@@ -2328,8 +2328,8 @@ Feature: Validate all scenarios for program
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM"
-    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
-    When I enter advance filter values inside id "advfGrantorTaskReassignment"
+    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
+    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -2339,8 +2339,8 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
-    When I enter advance filter values inside id "advfGrantorTaskReassignment"
+    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
+    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID1} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -2350,8 +2350,8 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID1}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    When I click on advance filter "#advfGrantorTaskReassignment" of table id "---program:-:grantorTaskReassignTableId---"
-    When I enter advance filter values inside id "advfGrantorTaskReassignment"
+    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
+    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID2} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID2}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -2708,7 +2708,6 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I switch to iframe with id "---program:-:supportDocIframeId---"
     Then I see "Upload File from Computer" page block displayed
 
   @204034 @ValidateUploadFIlesfromComputerwillhavesectionslikeClassificationUploadFileChooseaFileORDragithereDescription @sprint-7-US-202724 @vaibhav
@@ -2729,7 +2728,6 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I switch to iframe with id "---program:-:supportDocIframeId---"
     Then I see field "Classification" as "Select file classification" on modal
     Then I see field "Upload File" as " " on modal
     Then I see field "Description" as " " on modal
@@ -2752,7 +2750,6 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I switch to iframe with id "---program:-:supportDocIframeId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
@@ -3600,6 +3597,7 @@ Feature: Validate all scenarios for program
       | Automation FO1 | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation FO1" inside table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3663,6 +3661,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I wait for "3" seconds
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -3679,6 +3678,7 @@ Feature: Validate all scenarios for program
       | Automation PM1 | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PM" inside table
+    When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation PM1" inside table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
