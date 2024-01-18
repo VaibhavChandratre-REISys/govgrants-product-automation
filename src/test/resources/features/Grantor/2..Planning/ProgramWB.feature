@@ -16,7 +16,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I perform quick search for "{SavedValue:Automation Runtime Internal Program}"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     When I enter value "Test Automation Organization" into field "fieldAccount__c"
     And I click on "Save" in the page details
@@ -145,7 +145,7 @@ Feature: Validate all scenarios for program
     And I click on "Remove" icon for "NGO Contact" inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see "Record deleted successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
 
-  @Temphit @111264 @111183 @VerifyTaskCreationForNGOProgramActivation @monu @buglogged138933
+  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation @monu @buglogged138933
   Scenario: Verifying record owner should receive generated task inside pending for Program activation after approval of program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -190,7 +190,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @Temphit @111226 @VerifyProgramNotEditableAfterSubmission @monu @buglogged138933
+  @111226 @VerifyProgramNotEditableAfterSubmission @monu @buglogged138933
   Scenario Outline: Verifying NGO Program record is not editable once program is submitted for approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -230,7 +230,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime Internal Program} |
 
-  @111416 @VerifyRejectionOfNGOProgram @monu @buglogged138933
+  @Temphit @111416 @VerifyRejectionOfNGOProgram @monu @buglogged138933
   Scenario: Verifying Executive approver is able to reject NGO Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -247,6 +247,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
@@ -256,6 +259,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -350,7 +354,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:PM Username} | Step 1  |
     Then I softly see "Saved Successfully!" inside flex table with id "---program:-:extapproverTableId---"
 
-  @Temphit @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality @monu
+  @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality @monu
   Scenario: Validate user can two step approval for NGO program and complete the approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1903,7 +1907,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside table "---program:-:historyTableId---"
     Then I softly see value "Automation PM1" for title "Old Value" inside table "---program:-:historyTableId---"
 
-  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4 @vaibhav @reassignment
+  @Temphit @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4 @vaibhav @reassignment
   Scenario: Validate approval task assigned to initial owner of program <EXE> is not transferred to new owner when a external program in submit for approval status is transferred to new owner (EXE) & email is sent to correct owner upon rejecting
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1915,6 +1919,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
