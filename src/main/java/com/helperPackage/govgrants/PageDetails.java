@@ -71,6 +71,8 @@ public final class PageDetails {
 //            Todo: remove below step once loading time is reduce
 //            if(buttonName.equals("Save") || buttonName.equals("Edit") || buttonName.equals("Activate") ){
 //               for(int i=0; i<5; i++) {
+            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
                   try {
                       I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
                       I.amPerforming().click().withJavaScript(topRightButton);
@@ -193,8 +195,8 @@ public final class PageDetails {
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
         By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
         By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
-        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
-//        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs']");
+//        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs']");
         By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 
@@ -216,7 +218,11 @@ public final class PageDetails {
                    I.amPerforming().click().withJavaScript(moreTabs);
 
             } else {
+                try {
+                    I.amPerforming().click().on(desiredTab);
+                } catch (Exception e){
                     I.amPerforming().click().withJavaScript(desiredTab);
+                }
             }
         } catch (Exception ex) {
             try {
@@ -445,7 +451,7 @@ public final class PageDetails {
     public void clickLookupLink(String lookupRelationshipAPIName) {
         By path = By.xpath(
                 "//dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("@id", lookupRelationshipAPIName) + "]| //dl//dd//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "] | //lightning-formatted-lookup//a[" + I.amPerforming().sanityOfXpathTo().contains("text()", lookupRelationshipAPIName) + "]");
-        I.amPerforming().click().on(path);
+        I.amPerforming().click().withJavaScript(path);
 
     }
 

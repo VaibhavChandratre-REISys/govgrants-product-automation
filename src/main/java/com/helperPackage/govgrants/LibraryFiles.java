@@ -188,4 +188,8 @@ public final class LibraryFiles {
     public void pressKeyFromkeyboard() {
         I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
     }
+
+    public void pressKeyFromkeyboardForTabButton() {
+        I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+    }
 }

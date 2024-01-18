@@ -841,7 +841,7 @@ public final class GovGrantsAssertionObjects {
      * @param desiredSubTab
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
-        By allSubTabsLocator = By.xpath("//div[@id='myTabs']/ul//li/a[@name]");
+        By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label]");
 
         List<String> allSubTabNames;
         try {
@@ -1013,14 +1013,29 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        List<String> actualOptions = I.amPerforming().dropDownSelection()
-                .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
-                .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox']"));
+            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title]");
+            List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
+                    .stream().map(Elements::getText).collect(Collectors.toList());
 
-        compareLists(expectedOptions, actualOptions,
-                "Verifying options of dropdown field with api name '" + fieldApiName + "'",
-                exactMatch, checkOrder
-        );
+            compareLists(expectedOptions, actualOptions,
+                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                    exactMatch, checkOrder
+            );
+        }
+        else {
+            List<String> actualOptions = I.amPerforming().dropDownSelection()
+                    .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
+                    .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
+
+            compareLists(expectedOptions, actualOptions,
+                    "Verifying options of dropdown field with api name '" + fieldApiName + "'",
+                    exactMatch, checkOrder
+            );
+        }
+
+
     }
 
     /**
@@ -2193,7 +2208,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span " + "| //div[@data-field_api_name='" + fieldAPIName + "']"  )))
                 flag = true;
         } catch (Exception e) {
             flag = false;

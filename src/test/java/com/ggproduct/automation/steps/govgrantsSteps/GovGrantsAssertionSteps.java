@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import jdk.jfr.Description;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import java.nio.charset.MalformedInputException;
 import java.util.List;
@@ -188,6 +189,7 @@ public final class GovGrantsAssertionSteps {
                     ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
                     usage.contains("softly")
             );
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
         } else{
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
                     tableId,

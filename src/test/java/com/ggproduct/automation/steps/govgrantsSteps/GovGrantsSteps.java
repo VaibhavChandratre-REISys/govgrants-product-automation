@@ -210,6 +210,7 @@ public final class GovGrantsSteps {
     @When("^I navigate to \"([^\"]*)\" sub tab$")
     public void navigateToSubTabs(String subtabName) {
         ggObjects.clickSubTab(subtabName);
+        I.amPerforming().waitFor().makeThreadSleep(5000);
     }
 
     /******* Flex Table ***********/
@@ -1095,6 +1096,11 @@ public final class GovGrantsSteps {
     @And("I press enter key")
     public void iPressEnterKey() {
         govgrants.perform().libraryFiles().pressKeyFromkeyboard();
+    }
+
+    @And("I press tab key")
+    public void iPressTabKey() {
+        govgrants.perform().libraryFiles().pressKeyFromkeyboardForTabButton();
     }
 
     @When("^I (see|do not see) radio button \"([^\"]*)\" for field \"([^\"]*)\"$")

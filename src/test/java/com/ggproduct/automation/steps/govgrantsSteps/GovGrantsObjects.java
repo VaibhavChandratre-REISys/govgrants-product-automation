@@ -129,11 +129,11 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
-            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-        }else{
-            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-        }
+            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+            } else {
+                govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+            }
     }
 
     /**

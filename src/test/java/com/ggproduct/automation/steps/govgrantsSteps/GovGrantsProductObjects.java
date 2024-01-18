@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@id='" + fieldApiName + "' or @id='field" + fieldApiName + "']//span[@class='readonlySpan']  | //div[@id='" + fieldApiName + "' or @id='field" + fieldApiName + "']//input[@disabled] | //div//span[contains(text(),'" + fieldApiName + "')]");
+        By pageBlockFields = By.xpath("//div[@id='" + fieldApiName + "' or @id='field" + fieldApiName + "']//span[@class='readonlySpan']  | //div[@id='" + fieldApiName + "' or @id='field" + fieldApiName + "']//input[@disabled] | //div//span[contains(text(),'" + fieldApiName + "')] | //div[@data-field_api_name='fieldApiName']");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {
@@ -192,7 +192,7 @@ public final class GovGrantsProductObjects {
     private Boolean isTableColumnDropDownPresent(String tableId, String titleName) {
         boolean flag = false;
         try {
-            I.amPerforming().scroll().toMoveToElement(ByUsing.xpath("//div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]"));
+            I.amPerforming().scroll().toMoveToElement(ByUsing.xpath("//div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']"));
             String dropdownXpath = "//div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]//following::div[@class='dropdown thDropMenu']";
             if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath(dropdownXpath))) {
                 flag = true;

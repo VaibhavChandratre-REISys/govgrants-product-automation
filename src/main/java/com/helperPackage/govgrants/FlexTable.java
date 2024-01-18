@@ -68,7 +68,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("@title", titleName) + " or "
                         + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]|" +
                         "//div[@id='" + tableId + "']//div/table/thead/tr/th[@title='" + titleName + "' or text()='" + titleName + "'] | " +
-                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] ");
+                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
@@ -250,7 +250,7 @@ public final class FlexTable implements FlexTableComponent {
                     + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //span[contains(text(),'" + flexTableId + "')]/ancestor::gnt-flex-table-l-w-c//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox'or @type='radio'] |//*[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
+                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
                 I.amPerforming().click().withJavaScript(rowCheckboxSelector);
 
         }
@@ -740,8 +740,8 @@ public final class FlexTable implements FlexTableComponent {
      */
     public void flexTablePagination(String flexTableId, String NextPrevious) {
         By paginationChoice = By.xpath("//*[@id='" + flexTableId + "']//a[@title='"
-                + NextPrevious + "']");
-        I.amPerforming().click().on(paginationChoice);
+                + NextPrevious + "'] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//button[@title='" + NextPrevious + "']");
+        I.amPerforming().click().withJavaScript(paginationChoice);
     }
 
     /******* "Private Methods with Limited functionality " **********/

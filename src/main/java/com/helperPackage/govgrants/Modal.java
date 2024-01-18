@@ -29,6 +29,9 @@ public final class Modal {
                 govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
             }
         }
+        if(buttonName.equals("Save and Continue")){
+           I.amPerforming().waitFor().makeThreadSleep(5000);
+        }
     }
 
     public By getModalContentSpecificButton(String buttonName) {

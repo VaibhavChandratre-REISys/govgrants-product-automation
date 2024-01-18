@@ -1529,8 +1529,24 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug @11111
-     Scenario:Validate
+  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
+    Given I am on "INTERNAL" portal
+    And I login as "FO" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "AP-TAO modified-006" in "Pending Tasks (Assigned To Me)" panel
+    And I click on "View" icon for "AP-TAO modified-006" inside flex table with id "Pending Tasks (Assigned To Me)"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    And I click on "Submit" in the page details
+    When I click alert button "OK"
+    And I wait for "5" seconds
+
+#  @debug
+#  Scenario:Validate
 #    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
@@ -1540,25 +1556,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I wait for "20" seconds
 #    And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    Then I see the following rows under the following headers in table with id "---program:-:programsTableId---" :
-      | EGMS ID              | Program Name                                  | Type            |
-      | PG-TAO modified-0156 | Automation Runtime Internal Program1621576876 |  Project Grants |
-
-  @55555 @AdminUserVerifiesInfoTextForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
-  Scenario: Verify when Admin user should able to see the Info Text for Directed Announcement
-  |Verify focus area table should display above the Applicant Section for Directed Announcement|
-    When I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
-    And I enter "DirectedAnnouncementForAdmin" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    When I hovering mouse on help text icon inside page block detail "Applicants"
-    Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    And I halt execution
