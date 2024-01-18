@@ -18,7 +18,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I enter value "Test Automation Organization" into field "fieldAccount__c"
+    When I enter value "Test Automation Organization" into field "Account__c"
     And I click on "Save" in the page details
     Then I softly see field "Internal Organization" as "Test Automation Organization"
 
@@ -59,7 +59,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click on "Submit For Approval" in the page details
     #111182 #monu
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -76,7 +76,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
     Examples:
       | Program Name                                     |
@@ -241,6 +241,7 @@ Feature: Validate all scenarios for program
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
+    And I pause execution for "3" seconds
     And I click on "Edit" in the page details
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -446,7 +447,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I perform quick search for "{SavedValue:ProgramEGMSID}"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "Edit" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---program:-:businessFormTableId---"
