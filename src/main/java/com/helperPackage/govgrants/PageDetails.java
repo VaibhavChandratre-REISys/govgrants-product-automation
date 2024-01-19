@@ -353,7 +353,8 @@ public final class PageDetails {
             trueColor = "green";
         } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(230, 0, 0, 1)")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(230, 0, 0)")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(230, 0, 0)")) {
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(230, 0, 0)")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(230, 0, 0)")) {
             trueColor = "red";
         } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(160, 160, 160, 1")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")
@@ -792,7 +793,7 @@ public final class PageDetails {
      * @modifier saranjit.modak added xpath
      */
     public void getHelpTextAtPageBlockDetail(String pageBlockDetailTitle) {
-        I.amPerforming().scroll().toMoveToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')]|//span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')]"));
+        I.amPerforming().scroll().toMoveToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')]|//span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] |//span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@class,'pointer')]"));
     }
 
     /**

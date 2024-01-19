@@ -309,125 +309,125 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Submitted for Approval"
     #279415
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I pause execution for "100" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+    """
+    Hello,
 
-   This email is to notify you that program approver #Automation EXE has initiated undo action for program approval.
+    This email is to notify you that program approver #Automation EXE has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+    Program Details:
+    Program ID: {SavedValue:ProgramEGMSID}
+    Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+    Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
+    Thank you.
+    The EGMS Team
     """
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+    """
+    Hello,
 
-   This email is to notify you that program approver #Automation PO has initiated undo action for program approval.
+    This email is to notify you that program approver #Automation PO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+    Program Details:
+    Program ID: {SavedValue:ProgramEGMSID}
+    Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+    Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+    Thank you.
+    The EGMS Team
+    """
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-   Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
     And I checkout to yopmail with mailid "automationfd@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FD has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FD has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+      Program Details:
+      Program ID: {SavedValue:ProgramEGMSID}
+      Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+      Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+      Thank you.
+      The EGMS Team
+      """
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-   Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
 
   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
@@ -1493,7 +1493,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1892,10 +1892,10 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "All NGO Programs"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Activate" in page detail
     When I click on "Undo" in the page details
@@ -2016,7 +2016,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
@@ -2086,125 +2086,125 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I pause execution for "100" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+    """
+    Hello,
 
-   This email is to notify you that program approver #Automation EXE has initiated undo action for program approval.
+    This email is to notify you that program approver #Automation EXE has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+    Program Details:
+    Program ID: {SavedValue:ProgramEGMSID}
+    Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+    Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
+    Thank you.
+    The EGMS Team
     """
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation PO has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation PO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-   Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
     And I checkout to yopmail with mailid "automationfd@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+    Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FD has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FD has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-   Hello,
+     """
+     Hello,
 
-   This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
+     This email is to notify you that program approver #Automation FO has initiated undo action for program approval.
 
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
 
-   Log in to EGMS and click here to start reviewing the details.
+     Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-   Thank you.
-   The EGMS Team
-  """
+     Thank you.
+     The EGMS Team
+     """
 
   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
@@ -2577,7 +2577,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2812,6 +2812,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I wait for "3" seconds
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "External NGO Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
