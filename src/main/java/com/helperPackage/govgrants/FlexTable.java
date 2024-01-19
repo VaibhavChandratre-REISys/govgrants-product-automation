@@ -246,11 +246,11 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().click().withJavaScript(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
-            By rowCheckboxSelector = By.xpath("//div[@id='" + flexTableId
+            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox'] | //div[@id='" + flexTableId
                     + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio'] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox']");
+                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio']");
                 I.amPerforming().click().withJavaScript(rowCheckboxSelector);
 
         }
