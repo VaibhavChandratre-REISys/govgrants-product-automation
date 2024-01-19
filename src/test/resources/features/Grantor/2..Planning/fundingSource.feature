@@ -707,7 +707,6 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I halt execution
     And I click toggle button to select "All External Funding Sources"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table

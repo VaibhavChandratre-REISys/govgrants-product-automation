@@ -1545,18 +1545,17 @@ Feature: Validate all scenarios of every modules flow
     When I click alert button "OK"
     And I wait for "5" seconds
 
-#  @debug
-#  Scenario:Validate
+  @debug
+  Scenario:Validate
 #    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "EXE" user
 #    And I wait for "20" seconds
-#    And I halt execution
+     And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I navigate to "Applications" tab
-    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I halt execution

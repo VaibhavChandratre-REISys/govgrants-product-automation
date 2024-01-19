@@ -853,7 +853,6 @@ Feature: Validate all scenarios for program
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I halt execution
     And I save the value from row "1" for column name "Owner" as "OwnerName1" from flex table "---program:-:adminTargetOwnerReplaceTableId---"
     Then I see value "{SavedValue:OwnerName1}" for title "Owner" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
