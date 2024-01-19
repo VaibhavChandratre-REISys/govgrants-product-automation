@@ -231,7 +231,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
- @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138 @hitesh @Undo @buglogged-356843 @TBExecution
+ @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138 @hitesh @Undo @buglogged-356843
   Scenario:Verify FO as step 4 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -607,7 +607,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:completedTaskTableId---" without waiting for record
     Then I cannot see top right button "Undo" in page detail
 
-  @279376 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-25-US-295138 @hitesh @Undo @TBExecution
+  @279376 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify FO user as step 2 approver should not see Undo button in Reject state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1511,6 +1511,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
       | Name                     | Program |
       | {SavedValue:PO Username} | NA      |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
       | Name                     | Program |
       | {SavedValue:FO Username} | NA      |
@@ -1862,7 +1863,7 @@ Feature: Validate all scenarios for program
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @279515 @VerifyPMusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo @TBExecution
+  @279515 @VerifyPMusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo
   Scenario:Verify PM user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1947,7 +1948,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Undo" in page detail
 
-  @279523 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-3-US-291914 @hitesh @Undo @TBExecution
+  @279523 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-3-US-291914 @hitesh @Undo
   Scenario: Verify FO user as step 2 approver should not see Undo button in Reject state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1992,7 +1993,7 @@ Feature: Validate all scenarios for program
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @279525 @VerifyEXEuserasstep1approvershouldnotseeUndobuttoninsenttoownerstateofprogramafterapproval @sprint-3-US-291914 @hitesh @Undo @TBExecution
+  @279525 @VerifyEXEuserasstep1approvershouldnotseeUndobuttoninsenttoownerstateofprogramafterapproval @sprint-3-US-291914 @hitesh @Undo
   Scenario: Verify EXE user as step 1 approver should not see Undo button in sent to owner state of program after approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2027,7 +2028,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo @TBExecution
+  @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2256,10 +2257,12 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I wait for "3" seconds
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
+    And I halt execution
+   Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
     And I click "Continue" on modal confirmation box
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2786,7 +2789,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I cannot see top right button "Undo" in page detail
 
-  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190 @hitesh @Undo @TBExecution
+  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190 @hitesh @Undo
   Scenario: External Prog_ Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
