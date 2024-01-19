@@ -12,7 +12,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @105208 @105224 @ValidateDatesOfFundingSourceAndFundingAccount @monu @TBExecution
+  @105208 @105224 @ValidateDatesOfFundingSourceAndFundingAccount @monu
   Scenario: verify start date and end date of funding account should be same or less than funding source date
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -52,7 +52,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @51036 @addAttachmentToFundingSource @TBExecution
+  @51036 @addAttachmentToFundingSource
   Scenario: Addition of Attachment to Funding Source
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -84,7 +84,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @105223 @ValidateErrorMessageForFundingAccountEndDate @smoke @TBExecution
+  @105223 @ValidateErrorMessageForFundingAccountEndDate @smoke
   Scenario: Verify user is able to see error message for end date while entering end date greater than funding source end date
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -200,7 +200,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "View" icon for "{SavedValue:Automation Runtime Funding Source}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @52666 @reactivateFundingSource @mahadev @TBExecution
+  @52666 @reactivateFundingSource @mahadev
   Scenario Outline: Verify that  user can  reactivate the deactivated  Funding Source
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -248,7 +248,7 @@ Feature: Validate all scenarios in Funding Source
       | Funding Source                                 |
       | {SavedValue:Automation Runtime Funding Source} |
 
-  @105225 @ValidateAppropriationAmountOnFundingSource @monu @TBExecution
+  @105225 @ValidateAppropriationAmountOnFundingSource @monu
   Scenario: verify appropriation amount on Active funding source is sum of all active funding accounts
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -285,7 +285,7 @@ Feature: Validate all scenarios in Funding Source
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     Then I softly see field "Appropriation Amount" as "$2,500.00"
 
-  @196552 @196555 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196552 @196555 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for EXE profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -352,7 +352,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -406,7 +406,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
 
-  @196554 @196557 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196554 @196557 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for FO profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Planning" tab
@@ -474,7 +474,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196556 @ValidatefilerelatedpermissionsforPOprofileduringtheworkflowStatusCreatedActivatedActivewhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196556 @ValidatefilerelatedpermissionsforPOprofileduringtheworkflowStatusCreatedActivatedActivewhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for EXE profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -520,7 +520,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196558 @196563 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196558 @196563 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for EXE profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by EXE
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -585,7 +585,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by ADMIN
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -651,7 +651,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196560 @196562 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyFO @Sprint-3-US-195048 @vaibhav @TBExecution
+  @196560 @196562 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyFO @Sprint-3-US-195048 @vaibhav
   Scenario: Validate file related permissions for FO profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by FO
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Planning" tab
@@ -707,7 +707,6 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I halt execution
     And I click toggle button to select "All External Funding Sources"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
