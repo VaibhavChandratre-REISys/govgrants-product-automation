@@ -417,7 +417,10 @@ public final class PhasePanel {
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
         if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos")){
             return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
-        }else {
+        } else if(anyItemContainedInDropDown.contains("External Funding Sources")){
+            String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
+            return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        } else {
             String toggleName = anyItemContainedInDropDown.split("-")[0];
             return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         }
