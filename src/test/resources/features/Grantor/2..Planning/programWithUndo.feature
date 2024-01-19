@@ -2339,7 +2339,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
 
-  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo @Debug
+  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify EXE approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2676,6 +2676,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I wait for "100" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
       """
