@@ -353,7 +353,8 @@ public final class PageDetails {
             trueColor = "green";
         } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(230, 0, 0, 1)")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(230, 0, 0)")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(230, 0, 0)")) {
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(230, 0, 0)")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(230, 0, 0)")) {
             trueColor = "red";
         } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(160, 160, 160, 1")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")

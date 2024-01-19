@@ -1552,10 +1552,9 @@ Feature: Validate all scenarios of every modules flow
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
 #    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Award}" and properties "Automation PM user"
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "As a Grantor" app as "PM" user
 #    And I wait for "20" seconds
      And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    Then I see status in Progress-bar is "Rejected" and is "Red"
     And I halt execution
