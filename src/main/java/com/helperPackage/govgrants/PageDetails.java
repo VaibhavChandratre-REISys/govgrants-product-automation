@@ -38,7 +38,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //div[@class='slds-template__container']//lightning-button//button[@title='" + buttonName + "']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //div[@class='slds-template__container']//lightning-button//button[@title='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']");
     }
 
     /**
@@ -213,9 +213,15 @@ public final class PageDetails {
 
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                   I.amPerforming().click().withJavaScript(moreTabs);
-                   I.amPerforming().click().withJavaScript(desiredTab);
-                   I.amPerforming().click().withJavaScript(moreTabs);
+                   try {
+                       I.amPerforming().click().on(moreTabs);
+                       I.amPerforming().click().on(desiredTab);
+                       I.amPerforming().click().on(moreTabs);
+                   } catch (Exception e) {
+                       I.amPerforming().click().withJavaScript(moreTabs);
+                       I.amPerforming().click().withJavaScript(desiredTab);
+                       I.amPerforming().click().withJavaScript(moreTabs);
+                   }
 
             } else {
                 try {
