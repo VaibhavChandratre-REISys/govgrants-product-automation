@@ -511,7 +511,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()]"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')]"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -590,6 +590,7 @@ public final class GovGrantsAssertionObjects {
         try {
             I.amPerforming().waitFor().ElementListToBePresent(govgrants.perform().pageDetails().getAnyTopRightButton(buttonName));
         } catch (Exception e) {
+
         }
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().pageDetails().getAnyTopRightButton(buttonName), false);
         if (assertCan) {
