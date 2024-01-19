@@ -675,13 +675,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -721,10 +719,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -772,13 +766,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -823,13 +815,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -877,13 +867,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -939,13 +927,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -996,13 +982,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1048,13 +1032,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1162,13 +1144,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1220,7 +1200,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---program:-:historyTableId---"
     Then I softly see value "Automation PO1" for title "Changed By" inside table "---program:-:historyTableId---"
 
-  @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
+   @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1229,13 +1209,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1268,12 +1246,13 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---"
     And I navigate to "Responsibilities" sub tab
     And I save the value from row "1" for column name "Name" as "OwnerName1" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
@@ -1287,6 +1266,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "180" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
       """
@@ -1338,13 +1318,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1462,13 +1440,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1556,13 +1532,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1630,13 +1604,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -1690,12 +1662,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -1726,12 +1697,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -2369,7 +2339,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
 
-  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo
+  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo @Debug
   Scenario: Verify EXE approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2411,6 +2381,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
