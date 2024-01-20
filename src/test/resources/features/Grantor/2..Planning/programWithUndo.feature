@@ -2589,6 +2589,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
     And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
