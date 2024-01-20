@@ -1556,7 +1556,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I wait for "20" seconds
      And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-#    Then I see status in Progress-bar is "Rejected" and is "dark blue"
-    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
-    And I click "Continue" on modal confirmation box
+    Then I see status in Progress-bar is "Rejected" and is "Red"
+#    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
+#    And I click "Continue" on modal confirmation box
     And I halt execution

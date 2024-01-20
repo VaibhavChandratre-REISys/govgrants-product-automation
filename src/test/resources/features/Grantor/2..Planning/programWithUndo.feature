@@ -607,7 +607,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:completedTaskTableId---" without waiting for record
     Then I cannot see top right button "Undo" in page detail
 
-  @279376 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-25-US-295138 @hitesh @Undo
+  @279376 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-25-US-295138 @hitesh @Undo @TBExecution
   Scenario: Verify FO user as step 2 approver should not see Undo button in Reject state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1436,7 +1436,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:completedTaskTableId---"
 
-  @281740 @Verifypreviousapprovedtaskshouldnotcancelfromcompletedtasktable @sprint-25-US-295138 @hitesh @Undo @TBExecution
+  @281740 @Verifypreviousapprovedtaskshouldnotcancelfromcompletedtasktable @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify previous approved task should not cancel from completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1950,7 +1950,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Undo" in page detail
 
-  @279523 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-3-US-291914 @hitesh @Undo
+  @279523 @VerifyFOuserasstep2approvershouldnotseeUndobuttoninRejectstateofprogram @sprint-3-US-291914 @hitesh @Undo @TBExecution
   Scenario: Verify FO user as step 2 approver should not see Undo button in Reject state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2216,7 +2216,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo @TBExecution
+  @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2524,7 +2524,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
 
-  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914 @hitesh @Undo @TBExecution
+  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify step 4 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
