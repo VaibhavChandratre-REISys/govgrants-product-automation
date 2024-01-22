@@ -642,6 +642,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Title>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I wait for "3" seconds
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I click on "Remove" icon for "<Title>" inside flex table with id "---program:-:focusAreaTableId---" without waiting for record
    # Then I softly see the following messages in the page details contains:
@@ -879,11 +880,14 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "3" seconds
     Then I softly see that "Active" has been added in flextable with Id "---program:-:checklistTableId---"
     #106078 #monu
-    When I click on "Edit" icon for "Mandatory" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    When I enter value "Automation test" into field "Description__c"
-    And I click on top right button "Save" in flex table with id "---program:-:checklistTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:checklistTableId---" by clicking "Edit" :
+      | Required  | Description     |
+      | Mandatory | Automation test |
+    And I wait for "1" seconds
     Then I softly see that "Automation test" has been added in flextable with Id "---program:-:checklistTableId---"
     #106079 #monu
     When I click on "Delete" icon for "Mandatory" inside flex table with id "---program:-:checklistTableId---" without waiting for record
@@ -1074,7 +1078,6 @@ Feature: Validate all scenarios for program
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
@@ -2048,7 +2051,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm @keerti
+   @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm @keerti
   Scenario Outline: To verify user able to add new review question with success message in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2059,6 +2062,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I pause execution for "5" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2066,7 +2070,7 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    And I expand nested table containing column value "Program Income"
+     And I expand nested table containing column value "Program Income"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 3              | Test 3   | Date | 0         |
@@ -2094,19 +2098,23 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I navigate to "Setup" sub tab
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
-    And I click on "Edit" icon for "Compliance Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    When I enter value "10" into field "Weight__c"
-    And I click on "Edit" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    When I enter value "40" into field "Weight__c"
-    And I click on "Edit" icon for "Program Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    When I enter value "50" into field "Weight__c"
-    And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name         | Form Weight (%) |
+      | Compliance Review | 10              |
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name     | Form Weight (%) |
+      | Fiscal Review | 40              |
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name      | Form Weight (%) |
+      | Program Review | 50              |
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Capability"
@@ -3621,18 +3629,16 @@ Feature: Validate all scenarios for program
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
-    And I click on "Edit" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    When I enter value "30" into field "Weight__c"
-    When I enter value "1" into field "MinimumNumberOfReviewers__c"
-    When I enter value "Checked" into field "Required__c"
-    And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
+      | Fiscal Review | 30              | 1                                         | Checked   |
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I perform quick search for "Match" in "---program:-:programReviewPanel---" panel
     And I expand nested table containing column value "Match"
-    And I click on "Edit" icon for "Match" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
-    When I enter value "30" into field "Weight__c"
-    And I click on top right button "Save" in flex table with id "---program:-:programReviewPanel---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Section Header | Form Weight (%) |
+      | Match          | 30              |
     And I expand nested table containing column value "Match"
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
@@ -3675,6 +3681,7 @@ Feature: Validate all scenarios for program
       | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Fiscal Review  | 100             | 1                                         | Checked   |
       | Program Review | 0               | 1                                         | Checked   |
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     When I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
@@ -3689,6 +3696,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 0         |
+    And I collapse nested table containing column value "Program Income"
     And I expand nested table containing column value "Program Income"
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I close "Review Form" modal by clicking the top right x button
@@ -3720,11 +3728,10 @@ Feature: Validate all scenarios for program
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
-    And I click on "Edit" icon for "Compliance Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    When I enter value "30" into field "Weight__c"
-    When I enter value "1" into field "MinimumNumberOfReviewers__c"
-    When I enter value "Checked" into field "Required__c"
-    And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
+      | Step Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
+      | Compliance Review | 10              | 1                                         | Checked   |
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     #77405
@@ -5200,36 +5207,35 @@ Feature: Validate all scenarios for program
   @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%  @monu
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
-    And I click on "Edit" icon for "Pre-Screen Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    When I enter value "30" into field "Weight__c"
-    And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name         | Step Weight (%) |
+      | Pre-Screen Review | 30              |
     And I expand nested table containing column value "Pre-Screen Review"
-    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    When I enter value "70" into field "Weight__c"
-    When I enter value "1" into field "MinimumNumberOfReviewers__c"
-    When I enter value "Checked" into field "Required__c"
-    And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
+      | Pre-Screen | 30              | 1                                         | Checked   |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
-      | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 70.00%. |
+      | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 30.00%. |
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 130.00%.                                       |
       | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections.                              |
 
   @109651 @VerifyValidationMessageForReviewFormStepWeightLessThan100%  @monu
   Scenario: validate user is able to see validation message when step weight is les than 100%
     And I navigate to "Setup" sub tab
-    And I click on "Edit" icon for "SME Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    When I enter value "70" into field "Weight__c"
-    And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "1" seconds
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name  | Step Weight (%) |
+      | SME Review | 70              |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 95.00%. |
-    And I refresh the page
-    And I click on "Edit" icon for "SME Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    When I enter value "85" into field "Weight__c"
-    And I click on top right button "save" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name  | Step Weight (%) |
+      | SME Review | 85              |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
