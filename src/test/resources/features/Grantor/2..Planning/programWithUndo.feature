@@ -313,7 +313,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Submitted for Approval"
     #279415
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I pause execution for "100" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -620,11 +620,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -661,6 +661,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -668,7 +669,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:completedTaskTableId---" without waiting for record
-    Then I see status in Progress-bar is "Rejected" and is "Red"
+   Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
   @279383 @VerifyFDuserasstep1approvershouldnotseeUndobuttoninsenttoownerstateofprogramfromapproval @sprint-25-US-295138 @hitesh @Undo @Temphitesh
@@ -1991,6 +1992,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
@@ -2095,7 +2097,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    And I pause execution for "100" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -2349,7 +2351,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
 
-  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo @Debug
+  @279565 @VerifyEXEapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify EXE approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2686,6 +2688,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I wait for "100" seconds
     Then I refresh the page
     Then I do not see the mail text is as follows :
       """
@@ -2787,7 +2790,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I cannot see top right button "Undo" in page detail
 
-  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190 @hitesh @Undo
+  @300299 @ExternalProgVerifythesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-5-US-299190 @hitesh @Undo @TBExecution
   Scenario: External Prog_ Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2827,6 +2830,7 @@ Feature: Validate all scenarios for program
     Then I softly see snapshot with name containing "External NGO Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
     When I download the file
+    And I switch to tab number "1"
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
