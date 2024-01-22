@@ -1,7 +1,7 @@
 @grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression
 Feature: Validate all scenarios of grants and award for Allocation
 
-  @239510 @239514 @239519 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-15-US-237846 @vaibhav @Allocation @TempAPI
+  @239510 @239514 @239519 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM user see section name of Budget Period Details should rename with "Budget Summary" section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -311,7 +311,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #239596
     Then I see total records count "Total Records:1" in flex table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @239590 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-15-US-237846 @vaibhav @Allocation @TempAPI
+  @239590 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate Admin user see edit access on for start date and end date of focus area budget summary by focus area table in created,(before approval) sent to S\R, sent for review and reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -429,7 +429,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239595 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedSenttoS\Rafterapproveactiveandinclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation @TempAPI
+  @239595 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedSenttoS\Rafterapproveactiveandinclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate EXE user should not see edit access on budget summary by focus area table in submit for approval, approved, Sent to S\R after approve, active and in close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2059,7 +2059,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "New Obligation" as "$1,500.00"
     Then I softly see field "Cumulative Obligation" as "$1,500.00"
 
-  @240292 @240295 @240299 @ValidateuserseerenamedsectionofBudgetPeriodDetailstotheBudgetSummarysection @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240292 @240295 @240299 @ValidateuserseerenamedsectionofBudgetPeriodDetailstotheBudgetSummarysection @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate user see renamed section of Budget Period Details to the "Budget Summary" section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2091,7 +2091,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
     Then I softly do not see field "Total Subaward Amount this Budget Period" inside "Budget Summary" section
 
-  @240296 @ValidatePMuserseeBudgetperiodnumberNewObligationCumulativeObligationTotalCommitmentMatchthisBudgetPeriodandBudgetedAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240296 @ValidatePMuserseeBudgetperiodnumberNewObligationCumulativeObligationTotalCommitmentMatchthisBudgetPeriodandBudgetedAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-16-US-220612 @vaibhav @Allocation
   Scenario Outline: Validte PM user see 'Budget period number', 'New Obligation', 'Cumulative Obligation', 'Total Commitment', 'Match this Budget Period' and 'Budgeted Amount'fields should be read only in budget summary section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-<UserName>"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2151,7 +2151,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | EXE   | Automation EXE user   |
       | ADMIN | Automation ADMIN user |
 
-  @240300 @240301 @ValidatePOuserseeBudgetedAmountfiledshouldbedisplayinsteadofTotalSubawardAmountthisBudgetPeriodfiledonawardinbudgetsummarysection @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240300 @240301 @ValidatePOuserseeBudgetedAmountfiledshouldbedisplayinsteadofTotalSubawardAmountthisBudgetPeriodfiledonawardinbudgetsummarysection @sprint-16-US-220612 @vaibhav @Allocation
   Scenario Outline: Validate PO user see 'Budgeted Amount' filed should be display instead of 'Total Subaward Amount this Budget Period' filed on award in budget summary section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "<Type>-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -2183,7 +2183,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | BY_APPLICANT               |
       | BY_APPLICANT_FOCUS_AREA_NO |
 
-  @240302 @240307 @240317 @ValidatevalidatiomessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240302 @240307 @240317 @ValidatevalidatiomessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-220612 @vaibhav @Allocation 
   Scenario: Validate validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2239,7 +2239,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | BY_APPLICANT               |
       | BY_APPLICANT_FOCUS_AREA_NO |
 
-  @240322 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240322 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-16-US-220612 @vaibhav @Allocation 
   Scenario Outline: Validate Admin user see edit access on for start date and end date of focus area budget summary by focus area table in created,(before approval) sent to S\R, sent for review and reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2357,7 +2357,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240324 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedactiveandinclosestateofaward @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240324 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedactiveandinclosestateofaward @sprint-16-US-220612 @vaibhav @Allocation 
   Scenario Outline: Validate EXE user should not see edit access on budget summary by focus area table in submit for approval, approved, active and in close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3481,7 +3481,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
-  @240579 @ValidatePMuserseecorrectNewobligationandCumulativeobligationamountshoulddisplaycorrectlyforeachfocusareafromawardbudgetgrid @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240579 @ValidatePMuserseecorrectNewobligationandCumulativeobligationamountshoulddisplaycorrectlyforeachfocusareafromawardbudgetgrid @sprint-16-US-220612 @vaibhav @Allocation 
   Scenario: Validate PM user see correct 'New obligation' and 'Cumulative obligation' amount should display correctly for each focus area from award budget grid
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4712,7 +4712,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Grant Type" rendered in view mode only
     Then I softly see that "Allocation Level" rendered in view mode only
 
-  @236771 @236772 @236774 @236775 @ValidateFormulaVerifyAdminusercanAllocationLevelshoulbereadonlyFieldinthecaseofGrantfromApplicationitvaluewillbecopiedfromtheannouncement @sprint-14-US-236203 @vaibhav @Allocation @TempAPI
+  @236771 @236772 @236774 @236775 @ValidateFormulaVerifyAdminusercanAllocationLevelshoulbereadonlyFieldinthecaseofGrantfromApplicationitvaluewillbecopiedfromtheannouncement @sprint-14-US-236203 @vaibhav @Allocation 
   Scenario Outline: Validate Formula Ann Admin user can Allocation Level should be read-only Field in the case of Grant from Application it value will be copied from the announcement
     Given I published "<AnnType>" type announcement having name "Automation Runtime FDM Announcement" and properties "<Type>-<UserName>"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4792,7 +4792,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Grant Type" inside page block
     Then I softly see field "Grant Type" as "Competitive"
 
-  @241689 @241699 @241700 @ValidateCompetitiveisdisplayedasgrantstypetoPOuserwhengrantiscreatedfromcompetitiveapplication @sprint-15-US-238850 @vaibhav @Allocation @TempAPI
+  @241689 @241699 @241700 @ValidateCompetitiveisdisplayedasgrantstypetoPOuserwhengrantiscreatedfromcompetitiveapplication @sprint-15-US-238850 @vaibhav @Allocation 
   Scenario Outline: Validate Competitive is displayed as grants type to PO user when grant is created from competitive application
     Given I published "<AnnType>" type announcement having name "Automation Runtime FDM Announcement" and properties "<Type>-<UserName>"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -21993,7 +21993,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation @TempAPI
+  @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation 
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

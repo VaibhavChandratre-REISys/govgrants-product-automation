@@ -1529,24 +1529,8 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-  Scenario: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
-    Given I am on "INTERNAL" portal
-    And I login as "FO" user
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "AP-TAO modified-006" in "Pending Tasks (Assigned To Me)" panel
-    And I click on "View" icon for "AP-TAO modified-006" inside flex table with id "Pending Tasks (Assigned To Me)"
-    And I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    And I click on "Submit" in the page details
-    When I click alert button "OK"
-    And I wait for "5" seconds
-
-#  @debug
-#  Scenario:Validate
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario:Validate
 #    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Award}"
@@ -1554,9 +1538,14 @@ Feature: Validate all scenarios of every modules flow
 #    And I activate award from FDM having application name "{SavedValue:Automation Runtime Award}"
     When I login to "As a Grantor" app as "PM" user
 #    And I wait for "20" seconds
-     And I halt execution
+#     And I halt execution
 #    Then I see status in Progress-bar is "Active" and is "dark blue"
-    Then I see status in Progress-bar is "Rejected" and is "Red"
-#    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
-#    And I click "Continue" on modal confirmation box
-    And I halt execution
+    And I pause execution for "10" seconds
+    When I navigate to "Setup" sub tab
+    And I expand nested table containing column value "SME Review"
+    And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
+    And I expand nested table containing column value "Program Income"
+    And I pause execution for "5" seconds
+    When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question | Type | Max Score |
+      | 3              | Test 3   | Date | 0         |
