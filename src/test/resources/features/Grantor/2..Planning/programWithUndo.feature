@@ -66,7 +66,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
 
    @279295 @279349 @VerifyEXEasstep1approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
-  Scenario: Verify EXE as step 1 approver can see undo button after approved the internal program
+   Scenario: Verify EXE as step 1 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -99,6 +99,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -710,7 +711,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
@@ -1103,7 +1104,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1910,7 +1911,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Activate" in page detail
 
-  @279520 @VerifyifPMuserclickonActivatebuttontheprogramstatechangetoactiveandUndobuttonwillbehiddenifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo @Temphitesh
+  @279520 @VerifyifPMuserclickonActivatebuttontheprogramstatechangetoactiveandUndobuttonwillbehiddenifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo
   Scenario:Verify if PM user click on Activate button the program state change to active and Undo button will be hidden if program owner and approver is same
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2521,7 +2522,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
 
-  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914 @hitesh @Undo @Temphitesh
+  @279537 @Verifystep4approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify step 4 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
