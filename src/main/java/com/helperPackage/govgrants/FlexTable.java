@@ -13,6 +13,7 @@ import com.helperPackage.register.I;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
+import java.sql.Driver;
 import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -157,7 +158,7 @@ public final class FlexTable implements FlexTableComponent {
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         } else {
-            I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+            I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         }
        govgrants.perform().modal().acceptPopUp();
     }
@@ -167,8 +168,10 @@ public final class FlexTable implements FlexTableComponent {
         WebElement desiredAction=null;
         for (String uniqueColumnValue : uniqueColumnValues) {
             desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='"+ flexTableId +"']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+            I.amPerforming().scroll().toMoveToElement(desiredAction);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             I.amPerforming().click().withJavaScript(desiredAction);
+
         }
 
     }
@@ -1060,7 +1063,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement table;
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
-                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table | ./ancestor::c-lwc-flex-table[@class='ctable']//table"));
+                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table"));
         } else {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[@id='flexTableDivId' or @id='flexGridDivId' or contains(@id, 'flexGridEnhancedDivId') or @ng-controller='inlineEditGridCtrl' or contains]//table | ./ancestor::div[contains(@class,'grid-block')]//table"));
