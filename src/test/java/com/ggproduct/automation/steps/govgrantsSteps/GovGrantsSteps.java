@@ -398,6 +398,7 @@ public final class GovGrantsSteps {
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
         I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
+          I.amPerforming().waitFor().makeThreadSleep(1000);
             govgrants.perform().flexTable().enterFlexTableRows(
                     flexTableId,
                     buttonName,
@@ -407,7 +408,8 @@ public final class GovGrantsSteps {
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
-            govgrants.perform().flexTable().editFlexTableRowsInline(
+        I.amPerforming().waitFor().makeThreadSleep(1000);
+        govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
