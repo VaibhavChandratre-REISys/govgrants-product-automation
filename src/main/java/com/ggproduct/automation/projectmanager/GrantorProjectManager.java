@@ -620,7 +620,7 @@ public class GrantorProjectManager extends ProjectManager {
             } else {
                 if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
                     I.amPerforming().click().on(columnSelector);
-                    I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, "Delete", rowValues2.get(counter).getText()));
+                    I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
                     govgrants.perform().modal().acceptPopUp();
                     I.amPerforming().waitFor().makeThreadSleep(3000);
                 } else {
