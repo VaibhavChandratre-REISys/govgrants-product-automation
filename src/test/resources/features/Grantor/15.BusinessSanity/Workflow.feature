@@ -1529,7 +1529,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
 #    And I published "Formula" type announcement having name "Automation Runtime Award" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "SECOND_BUDGET_CATEGORY"
