@@ -128,7 +128,7 @@ public final class GovGrantsProductObjects {
      */
     public boolean isRecordPresentInTheFlexTable(String text, String tableId) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "] |//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
         } catch (Exception e) {
         }
         return false;
@@ -509,9 +509,6 @@ public final class GovGrantsProductObjects {
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            if (tableId.contains("ActiveAccount")) {
-                tableId = "Subrecipient Organizations";
-            }
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
         } else {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
