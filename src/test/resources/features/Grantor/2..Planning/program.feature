@@ -870,6 +870,7 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see that "Active" has been added in flextable with Id "---program:-:checklistTableId---"
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "SME Review"
@@ -2752,6 +2753,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) |
       | Compliance Review | 50              |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
@@ -2794,6 +2797,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) |
       | Compliance Review | 0               |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
@@ -3908,6 +3913,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name      | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Program Review | Unchecked | 0                                         | 0               |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
@@ -3944,6 +3951,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Compliance Review | Unchecked | 0                                         | 0               |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
@@ -3998,6 +4007,8 @@ Feature: Validate all scenarios for program
       | Program Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
@@ -4006,12 +4017,17 @@ Feature: Validate all scenarios for program
       | For required panel the Minimum Number of Reviews should be greater than zero. |
      #77477
     And I refresh the page
+    And I navigate to "Setup" sub tab
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
@@ -4020,12 +4036,16 @@ Feature: Validate all scenarios for program
       | For required panel the Minimum Number of Reviews should be greater than zero. |
         #77478
     And I refresh the page
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
@@ -4059,6 +4079,8 @@ Feature: Validate all scenarios for program
       | Management Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    And I collapse nested table containing column value "Management Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
@@ -4164,6 +4186,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | 100             | 1                                         |
+    When I collapse nested table containing column value "Management Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
     And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I wait for "2" seconds
@@ -4171,6 +4195,9 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 40                 |
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 60                 |
     And I softly see value "40%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I expand nested table containing column value "Return on Investment (ROI)"
@@ -4300,7 +4327,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | 100             | 1                                         |
-    And I collapse nested table containing column value "SME Review"
+    And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
     And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -4331,6 +4358,7 @@ Feature: Validate all scenarios for program
 
   @78047 @78085 @validatingSuccessMessagePreScreenReviewForm @meenakshi
   Scenario Outline: To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Eligibility" under prescreening review form of the prescreening reviews steps of setup tab of planning phase.
+    And I wait for "5" seconds
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -4355,12 +4383,18 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 60                 |
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 40                 |
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I expand nested table containing column value "Eligibility"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 1              | 100       |
+    And I wait for "1" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
+      | Question Order | Max Score |
       | 2              | 0         |
     And I collapse nested table containing column value "Eligibility"
     And I expand nested table containing column value "Completeness"
@@ -4372,11 +4406,17 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review - Pre-Screen: A score must be associated to at least one question in the Completeness section because it is weighted. |
     And I refresh the page
+    And I navigate to "Setup" sub tab
+    And I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 40                 |
+    And I wait for "1" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 60                 |
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I expand nested table containing column value "Completeness"
@@ -4462,6 +4502,8 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Impact         | 20                 |
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
+    And I collapse nested table containing column value "Capability"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Approach"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
@@ -4476,6 +4518,7 @@ Feature: Validate all scenarios for program
 
   @78045 @78046 @validatingSuccessMessageComplianceReviewForm @meenakshi
   Scenario Outline: To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Environment" under compliance review form of the SME reviews steps of setup tab of planning phase.
+    And I wait for "5" seconds
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -4504,6 +4547,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 100             | 1                                         | Checked   |
     When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I wait for "2" seconds
@@ -4590,6 +4634,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 0               | 1                                         | Checked   |
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
@@ -4877,6 +4923,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 0               | 1                                         | Checked   |
     When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
@@ -4903,10 +4950,18 @@ Feature: Validate all scenarios for program
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I collapse nested table containing column value "Approach"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 20                 |
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Approach       | 20                 |
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Impact         | 60                 |
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I expand nested table containing column value "Impact"
@@ -5025,6 +5080,8 @@ Feature: Validate all scenarios for program
     And I refresh the page
     #38864
     When I navigate to "Setup" sub tab
+    And I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Capability"
@@ -5121,6 +5178,8 @@ Feature: Validate all scenarios for program
     And I refresh the page
     #77105
     When I navigate to "Setup" sub tab
+    And I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Environment"
@@ -5568,6 +5627,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 4  |
     And I wait for "9" seconds
     And I click on "Submit For Approval" in the page details
+    And I halt execution
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
