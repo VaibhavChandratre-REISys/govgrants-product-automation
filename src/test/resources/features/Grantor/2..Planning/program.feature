@@ -776,7 +776,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "<EGMS Id>" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     Then I softly see that "<EGMS Id>" has been added in flextable with Id "---program:-:kpiTableId---"
-    And I pause execution for "5" seconds
     And I expand nested table containing column value "Management Review"
     And I pause execution for "5" seconds
     When I enter the following values into flex table with id "---program:-:reviewFormTableId---" by clicking "New" :
@@ -784,16 +783,19 @@ Feature: Validate all scenarios for program
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see value "Strategic Alignment" for title "Section Header" inside table "---program:-:programReviewPanel---"
@@ -1081,6 +1083,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
+    And I pause execution for "2" seconds
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
@@ -1088,8 +1091,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1097,6 +1101,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
+    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @53689 @verifyRelatedLogsTableForFocusAreaForActiveProgram @mahadev
@@ -5399,6 +5404,7 @@ Feature: Validate all scenarios for program
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
