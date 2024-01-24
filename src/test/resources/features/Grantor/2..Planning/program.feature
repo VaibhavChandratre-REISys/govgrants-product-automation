@@ -2669,7 +2669,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) |
       | Fiscal Review     | 50              |
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name         | Form Weight (%) |
       | Program Review    | 0               |
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name         | Form Weight (%) |
       | Compliance Review | 50              |
     And I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds

@@ -681,7 +681,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Start" against "Record Id" in flex table with id "---program:-:pendingTaskTableId---"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly see fields "s2id_autogen1" is in edit mode
+    Then I softly see fields "input-source" is in edit mode
     When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
@@ -777,8 +777,8 @@ Feature: Validate all scenarios for program
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE1" into field "s2id_autogen1"
-    And I select value "Automation EXE" into field "s2id_autogen3"
+    And I select value "Automation EXE1" into field "input-source"
+    And I select value "Automation EXE" into field "input-target"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly see value "Planning" for title "Phase" inside table "---program:-:adminTaskReassignmentTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:adminTaskReassignmentTableId---"
@@ -2536,8 +2536,8 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation ADMIN" into field "s2id_autogen1"
-    And I select value "Automation ADMIN1" into field "s2id_autogen3"
+    And I select value "Automation ADMIN" into field "input-source"
+    And I select value "Automation ADMIN1" into field "input-target"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTaskReassignmentTableId---" panel
     And I pause execution for "5" seconds
     Then I softly see value "Planning" for title "Phase" inside table "---program:-:adminTaskReassignmentTableId---"
@@ -2604,8 +2604,8 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation ADMIN" into field "s2id_autogen1"
-    And I select value "Automation ADMIN1" into field "s2id_autogen3"
+    And I select value "Automation ADMIN" into field "input-source"
+    And I select value "Automation ADMIN1" into field "input-target"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly see value "Planning" for title "Phase" inside table "---program:-:adminTaskReassignmentTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:adminTaskReassignmentTableId---"
@@ -2971,7 +2971,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Reviewed"
     Then I can see top right button "Submit for Approval" in page detail
 
-  @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646 @vaibhav @reassignment
+ @Debug @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
