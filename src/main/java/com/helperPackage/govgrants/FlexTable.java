@@ -531,7 +531,6 @@ public final class FlexTable implements FlexTableComponent {
      * @modified john.phillips (03/27/2019) - Added support for editing data in nested Enhanced Flex Tables
      */
     public void editFlexTableRowsInline(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
-        I.amPerforming().waitFor().makeThreadSleep(2000);
         Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         waitForFlexTablesToLoad();
@@ -542,7 +541,7 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//td | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//td")));
         }
         for (String key : flexTableMap.keySet()) {
-            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().waitFor().makeThreadSleep(5000);
             By currentRowLocator = By.xpath("//div[@id='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", key) + "]//ancestor::tr[1]");
             Map<String, String> currentRowValues = flexTableMap.get(key);
             WebElement currentRow = I.amPerforming().getElementReference().of((currentRowLocator));
