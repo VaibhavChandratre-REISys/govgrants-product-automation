@@ -2663,7 +2663,7 @@ Feature: Validate all scenarios for program
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "SME Review"
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) |
       | Program Review    | 0               |
       | Compliance Review | 50              |
