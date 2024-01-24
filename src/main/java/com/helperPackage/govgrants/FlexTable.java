@@ -531,6 +531,7 @@ public final class FlexTable implements FlexTableComponent {
      * @modified john.phillips (03/27/2019) - Added support for editing data in nested Enhanced Flex Tables
      */
     public void editFlexTableRowsInline(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
         waitForFlexTablesToLoad();
