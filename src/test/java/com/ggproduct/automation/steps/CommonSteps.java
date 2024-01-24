@@ -76,4 +76,9 @@ public class CommonSteps {
     public void iClickRadioButtonInCOIOfReviewForm(String radioButtonName) {
         projectManager.clickOnCOIOption(radioButtonName);
     }
+
+    @And("I reset the table")
+    public void iResetTheTable() {
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
+    }
 }
