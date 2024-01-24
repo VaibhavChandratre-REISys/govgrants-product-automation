@@ -511,7 +511,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text']"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
