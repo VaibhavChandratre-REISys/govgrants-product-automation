@@ -548,6 +548,7 @@ public final class FlexTable implements FlexTableComponent {
             if (mapColumnHeaderToColumnPosition == null) {
                 mapColumnHeaderToColumnPosition = constructColumnMapping(currentRow, headerRows);
             }
+            I.amPerforming().waitFor().makeThreadSleep(2000);
                 govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
 //            clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
