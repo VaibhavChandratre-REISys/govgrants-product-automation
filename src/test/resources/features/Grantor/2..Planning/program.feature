@@ -1093,6 +1093,7 @@ Feature: Validate all scenarios for program
   @53689 @verifyRelatedLogsTableForFocusAreaForActiveProgram @mahadev
   Scenario Outline: Verify related log table for focus area for Active Program
     And I click on "Edit" in the page details
+    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -1138,7 +1139,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Active"
+    And I click toggle button to select "Focus Areas - Active"
     And I perform quick search for "<Focus Area>" in "---focusarea:-:focusAreaTableId---" panel
     When I click on "View" icon for "<Focus Area>" inside flex table with id "---focusarea:-:focusAreaTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
