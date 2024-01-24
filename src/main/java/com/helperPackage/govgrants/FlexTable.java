@@ -75,7 +75,7 @@ public final class FlexTable implements FlexTableComponent {
 
     public WebElement getSpecificElementFromTableHeaderForLWC(String tableId, String titleName) {
         By tableHeaderElement = By
-                .xpath("//span[contains(text(),'" + tableId + "')]/ancestor::c-lwc-flex-table//table//th//span[@title='" + titleName + "' and text()='" + titleName + "']");
+                .xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th[@title='" + titleName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th//span[@title='" + titleName + "' and text()='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
@@ -462,7 +462,7 @@ public final class FlexTable implements FlexTableComponent {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
             I.amPerforming().click().on(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
-                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save']"));
+                    + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[2]//button[text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[1]//button[text()='Save']"));
         }
     }
 
@@ -558,7 +558,7 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
-            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[@title='Save' or @text()='Save']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[@title='Save' or @text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[2]//button[text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[1]//button[text()='Save']"));
         }
     }
 
