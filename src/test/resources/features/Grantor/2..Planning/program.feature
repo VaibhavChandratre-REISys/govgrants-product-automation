@@ -2588,7 +2588,7 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Management Review | 100             | 0                                         | Unchecked |
     Then I softly see the following messages in the page details contains:
@@ -2597,12 +2597,12 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 40              | 0                                         | Unchecked |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Fiscal Review | 40              | 0                                         | Unchecked |
     Then I softly see the following messages in the page details contains:
