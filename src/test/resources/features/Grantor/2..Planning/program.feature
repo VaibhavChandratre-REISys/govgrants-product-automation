@@ -227,6 +227,7 @@ Feature: Validate all scenarios for program
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
       #76130
+    When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
@@ -236,7 +237,7 @@ Feature: Validate all scenarios for program
       | Saved Successfully! |
     And I softly see value "Impact Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76126
-    And I perform quick search for "Impact Test" in "---program:-:programReviewPanel---" panel
+#    And I perform quick search for "Impact Test" in "---program:-:programReviewPanel---" panel
     Then I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
       #76293
     And I click on "Delete" icon for "Impact Test" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
@@ -740,7 +741,7 @@ Feature: Validate all scenarios for program
       | Title                           |
       | Automation Permanent Focus Area |
 
-  @105920 @VerifyErrorMessageForFocusArea @monu
+  @105920 @VerifyErrorMessageForFocusArea @monu 
   Scenario: Validate user is able to see error message for focus area after making program detail changes
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -870,7 +871,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "<EGMS Id>" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     Then I softly see that "<EGMS Id>" has been added in flextable with Id "---program:-:kpiTableId---"
-    And I pause execution for "5" seconds
     And I expand nested table containing column value "Management Review"
     And I pause execution for "5" seconds
     When I enter the following values into flex table with id "---program:-:reviewFormTableId---" by clicking "New" :
@@ -878,16 +878,19 @@ Feature: Validate all scenarios for program
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
+    When I collapse nested table containing column value "Management Review"
     And I expand nested table containing column value "Management Review"
     And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see value "Strategic Alignment" for title "Section Header" inside table "---program:-:programReviewPanel---"
@@ -1016,6 +1019,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
+    And I pause execution for "3" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanel---" by clicking "New" :
       | Section Order | Section Header    |
       | 3             | Automation Header |
@@ -1177,6 +1181,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
+    And I pause execution for "2" seconds
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
@@ -1184,8 +1189,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1193,6 +1199,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
+    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @53689 @verifyRelatedLogsTableForFocusAreaForActiveProgram @mahadev
@@ -1222,6 +1229,7 @@ Feature: Validate all scenarios for program
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1302,6 +1310,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1325,7 +1334,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Focus Area - Active"
+    And I click toggle button to select "Focus Areas - Active"
     And I perform quick search for "<Focus Area>" in "---focusarea:-:focusAreaTableId---" panel
     When I click on "View" icon for "<Focus Area>" inside flex table with id "---focusarea:-:focusAreaTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
@@ -1430,11 +1439,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -1479,11 +1487,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -1704,6 +1711,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "2" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "2" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    When I collapse nested table containing column value "Eligibility"
     And I expand nested table containing column value "Completeness"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "If applicable, were the required public comment processes observed and documented?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1719,6 +1727,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
+    When I collapse nested table containing column value "Schedule"
     And I expand nested table containing column value "Schedule"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1726,10 +1735,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    When I collapse nested table containing column value "Schedule"
     And I expand nested table containing column value "Environment"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
+    When I collapse nested table containing column value "Environment"
     And I expand nested table containing column value "Environment"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1737,10 +1748,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    When I collapse nested table containing column value "Environment"
     And I expand nested table containing column value "Permits"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
+    When I collapse nested table containing column value "Permits"
     And I expand nested table containing column value "Permits"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1750,12 +1763,14 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "Total Records:3" inside flex table with id "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Budget"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 7              | Test 7   | Yes/No | 0         |
+    When I collapse nested table containing column value "Budget"
     And I expand nested table containing column value "Budget"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 7" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1763,10 +1778,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "7" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "7" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    When I collapse nested table containing column value "Match"
     And I expand nested table containing column value "Match"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
+    When I collapse nested table containing column value "Match"
     And I expand nested table containing column value "Match"
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1774,10 +1791,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    When I collapse nested table containing column value "Match"
     And I expand nested table containing column value "Program Income"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 3              | Test 3   | Yes/No | 0         |
+    When I collapse nested table containing column value "Program Income"
     And I expand nested table containing column value "Program Income"
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1897,17 +1916,20 @@ Feature: Validate all scenarios for program
       | 4              | Test 4   | Date | 0         |
   #  Then I softly see the following messages in the page details contains:
    #   | Saved Successfully! |
+    When I collapse nested table containing column value "Return on Investment (ROI)"
     And I expand nested table containing column value "Return on Investment (ROI)"
     When I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Type    |
       | 4              | Written |
     #Then I softly see the following messages in the page details contains:
     #  | Saved Successfully! |
+    When I collapse nested table containing column value "Return on Investment (ROI)"
     And I expand nested table containing column value "Return on Investment (ROI)"
     Then I softly see value "Written" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
   #  Then I softly see the following messages in the page details contains:
    #   | Record deleted successfully! |
+    When I collapse nested table containing column value "Return on Investment (ROI)"
     And I expand nested table containing column value "Return on Investment (ROI)"
     Then I softly do not see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I expand nested table containing column value "Strategic Alignment"
@@ -1933,11 +1955,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -2122,10 +2143,12 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I get the "EGMS ID"
     And I wait for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -2419,11 +2442,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -2957,11 +2979,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -3920,11 +3941,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -4824,6 +4844,7 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
+    And I wait for "2" seconds
     And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
@@ -5746,6 +5767,7 @@ Feature: Validate all scenarios for program
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
