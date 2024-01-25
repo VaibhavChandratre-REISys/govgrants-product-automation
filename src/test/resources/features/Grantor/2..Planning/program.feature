@@ -2587,6 +2587,7 @@ Feature: Validate all scenarios for program
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "Management Review"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Management Review | 100             | 0                                         | Unchecked |
@@ -2595,6 +2596,7 @@ Feature: Validate all scenarios for program
     When I collapse nested table containing column value "Management Review"
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 40              | 0                                         | Unchecked |
