@@ -5805,7 +5805,6 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 4  |
     And I wait for "9" seconds
     And I click on "Submit For Approval" in the page details
-    And I halt execution
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 

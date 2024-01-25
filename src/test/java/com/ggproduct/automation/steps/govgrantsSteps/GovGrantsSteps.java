@@ -682,10 +682,11 @@ public final class GovGrantsSteps {
         );
     }
 
-    @When("^I enter values into fields$")
-    public void inputValue(List<Map<String, String>> table) {
+    @When("^I (enter|enter in modal) values into fields$")
+    public void inputValue(List<Map<String, String>> table ,String usage) {
         for (Map<String, String> map : table) {
-            govgrants.perform().inputForms().inputFormDataByFieldApiName(map.get("Field"), map.get("Value"), false);
+            govgrants.perform().inputForms().inputFormDataByFieldApiName(map.get("Field"), map.get("Value"),usage.contains("modal")
+            );
         }
     }
 
