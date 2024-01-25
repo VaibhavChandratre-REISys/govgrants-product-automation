@@ -1067,7 +1067,7 @@ Feature: Validate all scenarios for program
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---
+    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
     And I pause execution for "5" seconds

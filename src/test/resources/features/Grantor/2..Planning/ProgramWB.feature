@@ -38,7 +38,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I pause execution for "4" seconds
+    And I pause execution for "5" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -56,6 +56,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     #111182 #monu
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -223,6 +224,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly cannot see top right button "Edit" in page detail
+
     Examples:
       | Program Name                                     |
       | {SavedValue:Automation Runtime Internal Program} |
@@ -235,13 +237,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I pause execution for "3" seconds
-    And I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -266,6 +266,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
     Then I can see the message "Successfully disapproved" in the approval decision
+    Then I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @111514 @VerifyForwardOfNGOProgram @monu
@@ -294,6 +295,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I select radio button "Forward" in the approval decision
@@ -330,6 +332,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
@@ -381,8 +384,9 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
-    And I pause execution for "4" seconds
+    And I pause execution for "3" seconds
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -535,12 +539,13 @@ Feature: Validate all scenarios for program
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "In Progress" for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -606,12 +611,13 @@ Feature: Validate all scenarios for program
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation EXE1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "In Progress" for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -684,7 +690,7 @@ Feature: Validate all scenarios for program
     Then I softly see fields "s2id_autogen1" is in edit mode
     When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Not Started" for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
@@ -901,7 +907,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    When I enter in modal "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
@@ -948,7 +954,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    When I enter in modal "NGOCreation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
@@ -962,7 +968,7 @@ Feature: Validate all scenarios for program
     And I select module "Program" from reassign ownership dropdown
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see the following messages in the page details contains:
-      | Please select atleast one record |
+      | You need to select atleast one record |
 
   @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4 @vaibhav @reassignment
   Scenario: Validate the record is transferred then user should able to see the same record in the target user's table
@@ -2255,12 +2261,13 @@ Feature: Validate all scenarios for program
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation EXE1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Not Started " for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -2367,7 +2374,7 @@ Feature: Validate all scenarios for program
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Approve NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Not Started " for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
@@ -2378,7 +2385,7 @@ Feature: Validate all scenarios for program
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID1} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Approve NGO Program {SavedValue:ProgramEGMSID1}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Not Started " for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID1}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
@@ -2389,7 +2396,7 @@ Feature: Validate all scenarios for program
       | EGMS ID | Contains | {SavedValue:ProgramEGMSID2} |
     And I pause execution for "5" seconds
     Then I softly see value "{SavedValue:ProgramEGMSID2}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    Then I softly see value "GrantorPlanning" for title "Phase Name" inside table "---program:-:grantorTaskReassignTableId---"
+    Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID2}" for title "Subject" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Not Started " for title "Status" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:ProgramEGMSID2}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
@@ -2575,6 +2582,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    And I pause execution for "3" seconds
     When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -3127,6 +3135,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    And I pause execution for "2" seconds
     When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -3134,7 +3143,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "KPI-0085" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name              | Program |
@@ -3203,6 +3212,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -3238,12 +3248,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -3312,10 +3321,9 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
+    And I pause execution for "3" seconds
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
@@ -3496,8 +3504,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name   | Responsibility   | Description                 | Due Date |
       | Automation EXE1 | Program Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation EXE1" inside table
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -3601,6 +3609,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
@@ -3674,8 +3683,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility   | Description                 | Due Date |
       | Automation FO1 | Program Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation FO1" inside table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3754,8 +3763,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility   | Description                 | Due Date |
       | Automation PM1 | Program Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PM" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation PM1" inside table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3867,8 +3876,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description                 | Due Date |
       | Automation PM | Fiscal Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PM" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation PM" inside table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4156,6 +4165,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
@@ -4266,6 +4276,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -4324,6 +4335,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
@@ -4446,6 +4458,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -4519,6 +4532,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4639,9 +4653,10 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     When I "Approve" in the approval decision
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
+    And I halt execution
     And I click on "Menu" in the page details
     Then I can see top right button "Activate" in page detail
     And I click on "Activate" in the page details
@@ -4757,8 +4772,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation FO1 | Fiscal Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I pause execution for "5" second
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation FO1" inside table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4928,6 +4943,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5054,8 +5070,8 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name   | Responsibility   | Description                 | Due Date |
       | Automation EXE1 | Program Reviewer | Automation Test Description | 10       |
-    And I pause execution for "3" seconds
-    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I click on "Send for Review" icon for "Automation EXE" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation EXE1" inside table
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5111,12 +5127,11 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -5131,6 +5146,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility   | Description                 | Due Date |
       | Automation PM1 | Program Reviewer | Automation Test Description | 10       |
+    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PM1" inside table
     Then I softly see that "Sent for Review" has been added in flextable with Id "---program:-:peerReviewTableId---"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -5239,6 +5255,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "5" seconds
@@ -5302,6 +5319,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "5" seconds
@@ -5335,6 +5353,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "5" seconds
@@ -5684,6 +5703,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
@@ -5702,6 +5722,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
