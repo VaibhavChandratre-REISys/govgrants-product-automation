@@ -1533,17 +1533,10 @@ Feature: Validate all scenarios of every modules flow
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 4  |
-    And I wait for "9" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Responsibilities - You cannot skip an Approval Step. |
+    And I expand nested table containing column value "Pre-Screen Review"
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name  | Form Weight (%) |
+      | Pre-Screen | 100.00%         |
+#    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+#      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
+#      | Pre-Screen | 100.00%         | 1                                         | Checked   |
