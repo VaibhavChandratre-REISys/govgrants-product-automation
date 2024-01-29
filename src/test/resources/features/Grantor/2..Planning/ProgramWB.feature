@@ -3146,7 +3146,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -3156,6 +3156,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name              | Program |
+      | Automation ADMIN1 | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name              | Program |
       | Automation ADMIN1 | NA      |
@@ -3797,7 +3800,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
