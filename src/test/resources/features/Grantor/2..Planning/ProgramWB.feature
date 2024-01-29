@@ -5146,6 +5146,7 @@ Feature: Validate all scenarios for program
       | Automation PM1 | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PM1" inside table
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---program:-:peerReviewTableId---"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -5179,7 +5180,7 @@ Feature: Validate all scenarios for program
     When I click modal button "Save"
     And I click on submit review
     And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
