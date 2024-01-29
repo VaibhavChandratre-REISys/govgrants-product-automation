@@ -1291,7 +1291,9 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    And I pause execution for "3" seconds
     Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    And I pause execution for "3" seconds
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     Then I softly can see top right button "Complete Review" in page detail
