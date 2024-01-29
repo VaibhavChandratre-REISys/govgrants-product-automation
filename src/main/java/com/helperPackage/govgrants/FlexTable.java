@@ -461,7 +461,7 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
-            I.amPerforming().click().on(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
+            I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
                     + "/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[2]//button[text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[1]//button[text()='Save']"));
         }
     }
@@ -958,6 +958,7 @@ public final class FlexTable implements FlexTableComponent {
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
                             I.amPerforming().textInput().toClear(inputBox);
                             I.amPerforming().textInput().in(inputBox, fieldValue);
+                            I.amPerforming().waitFor().makeThreadSleep(1000);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {
                                     I.amPerforming().click().on(selectText);
@@ -1068,6 +1069,14 @@ public final class FlexTable implements FlexTableComponent {
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table//table"));
+          try {
+              if (I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']")).isDisplayed()) {
+                  table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
+                          "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table"));
+              }
+          } catch (Exception e){
+
+          }
         } else {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
                     "./ancestor::div[@id='flexTableDivId' or @id='flexGridDivId' or contains(@id, 'flexGridEnhancedDivId') or @ng-controller='inlineEditGridCtrl' or contains]//table | ./ancestor::div[contains(@class,'grid-block')]//table"));
