@@ -950,7 +950,7 @@ public final class FlexTable implements FlexTableComponent {
                 I.amPerforming().click().withJavaScript(inputBoxSelector);
                     for (int i = 0; i < 50; i++) {
                         try {
-                            By selectText = By.xpath("//ul/li/span[text()='" + fieldValue + "']");
+                            By selectText = By.xpath("//ul//li//span[text()='" + fieldValue + "']");
 //                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
                             I.amPerforming().textInput().toClear(inputBox);
@@ -958,6 +958,7 @@ public final class FlexTable implements FlexTableComponent {
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
                             I.amPerforming().textInput().toClear(inputBox);
                             I.amPerforming().textInput().in(inputBox, fieldValue);
+                            I.amPerforming().scroll().withMouseToElement(inputBox);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {
                                     I.amPerforming().click().on(selectText);
