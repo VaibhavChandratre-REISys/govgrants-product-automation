@@ -252,9 +252,10 @@ public final class GovGrantsProductObjects {
      * @modifier komal.mukhekar added xpath for form page block title
      */
     private boolean isPageBlockTitleDisplayed(String titleName) {
+        titleName = titleName.trim();
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//h3//a[contains(text(),'" + titleName + "')] | //a[@title='" + titleName + "'] | //a[not(parent::li)]/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //a[text()='" + titleName + "'] | //h3[text()='" + titleName + "'] | //h2[(text()='" + titleName + "')] | //c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //div[@class='header']//div//span[contains(text(),'" + titleName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//h3//a[contains(text(),'" + titleName + "')] | //a[@title='" + titleName + "'] | //a[not(parent::li)]/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //a[text()='" + titleName + "'] | //h3[text()='" + titleName + "'] | //h2[(text()='" + titleName + "')] | //c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {

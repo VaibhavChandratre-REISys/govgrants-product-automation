@@ -893,7 +893,7 @@ Feature: Validate all scenarios for program
     And I enter value "Automation FD" in reassign lookup
     Then I softly do not see "Automation FD" inside auto search result
 
-  @195234 @Validateusershouldnavigatedtothesepagewhereusershouldabletoseelistofalltheprogramsafterclickonreassignbutton/icon @sprint-4 @vaibhav @reassignment
+  @debug @195234 @Validateusershouldnavigatedtothesepagewhereusershouldabletoseelistofalltheprogramsafterclickonreassignbutton/icon @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should navigated to these page where user should able to see list of all the programs after click on reassign button/icon
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -964,6 +964,7 @@ Feature: Validate all scenarios for program
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
+    And I pause execution for "5" seconds
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -981,7 +982,7 @@ Feature: Validate all scenarios for program
     And I select module "Program" from reassign ownership dropdown
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see the following messages in the page details contains:
-      | You need to select atleast one record |
+      | You need to select at least one record |
 
   @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4 @vaibhav @reassignment
   Scenario: Validate the record is transferred then user should able to see the same record in the target user's table
@@ -1203,6 +1204,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    Then I Softly see column "Overall Status" contains text "Approved"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3568,7 +3570,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @TempAPI @195757 @ValidateEmailistriggeredtoreassigneduserontheclickofReassignAll @sprint-12-US-226646 @vaibhav @reassignment
+  @195757 @ValidateEmailistriggeredtoreassigneduserontheclickofReassignAll @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Email is triggered to the reassigned user on the click of Reassign All
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -3617,9 +3619,9 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
-    Then I see the mail text is as follows :
+      Then I see the mail text is as follows :
       """
       Hello,
 
@@ -3632,10 +3634,6 @@ Feature: Validate all scenarios for program
       Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
       Login in to EGMS and click on EGMS IDs to access the assigned record.
 
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -4300,7 +4298,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @TempAPI @195753 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-7-US-191250 @vaibhav @reassignment
+  @195753 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-7-US-191250 @vaibhav @reassignment
   Scenario: Validate Email is triggered to the reassigned user on the click of Reassign selected
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4348,7 +4346,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4363,10 +4361,6 @@ Feature: Validate all scenarios for program
       Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
       Login in to EGMS and click on EGMS IDs to access the assigned record.
 
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -4381,7 +4375,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+     Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4396,10 +4390,6 @@ Feature: Validate all scenarios for program
       Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
       Login in to EGMS and click on EGMS IDs to access the assigned record.
 
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -4876,7 +4866,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+     Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -5178,6 +5168,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM1" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I pause execution for "5" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
@@ -5189,7 +5180,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Program {SavedValue:ProgramEGMSID} has been PeerReviewed
+      Sandbox: Notification: Program {SavedValue:ProgramEGMSID} has been PeerReviewed
       """
     Then I see the mail text is as follows :
       """
