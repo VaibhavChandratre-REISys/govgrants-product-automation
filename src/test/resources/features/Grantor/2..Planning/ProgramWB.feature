@@ -3598,6 +3598,7 @@ Feature: Validate all scenarios for program
       | Reviewer Name            | Responsibility   | Description                 | Due Date |
       | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---program:-:peerReviewTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4328,6 +4329,7 @@ Feature: Validate all scenarios for program
       | Reviewer Name             | Responsibility   | Description                 | Due Date |
       | {SavedValue:EXE Username} | Program Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---program:-:peerReviewTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
