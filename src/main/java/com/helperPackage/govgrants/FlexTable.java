@@ -961,10 +961,10 @@ public final class FlexTable implements FlexTableComponent {
                             I.amPerforming().scroll().withMouseToElement(inputBox);
                             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
                                 try {
-                                    I.amPerforming().scroll().withMouseSlowlyToElement(selectText);
+//                                    I.amPerforming().scroll().withMouseSlowlyToElement(selectText);
                                     I.amPerforming().click().on(selectText);
                                 } catch (Exception e) {
-                                    I.amPerforming().scroll().withMouseSlowlyToElement(selectText);
+//                                    I.amPerforming().scroll().withMouseSlowlyToElement(selectText);
                                     I.amPerforming().click().withJavaScript(selectText);
                                 }
                             }
