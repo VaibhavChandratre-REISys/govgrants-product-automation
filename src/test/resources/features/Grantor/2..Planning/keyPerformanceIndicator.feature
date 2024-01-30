@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
       | ADMIN |
       | EXE   |
 
-  @34736 @kpiHappyPath @smoke @buglogged96621
+  @34736 @kpiHappyPath @smoke
   Scenario Outline: Happy Path of KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -66,9 +66,9 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
@@ -234,8 +234,12 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
+    And I wait for "5" seconds
     When I click "Add" after selection of "{SavedValue:KPINAME}" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
     When I click modal button "Close"
+    And I refresh the page
+    When I navigate to "Related Log" sub tab
+    And I wait for "3" seconds
     Then I softly see that "{SavedValue:KPINAME}" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel

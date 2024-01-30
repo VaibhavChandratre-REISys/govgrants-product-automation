@@ -1119,7 +1119,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement table;
         if (I.amPerforming().getElementReference().forListOfElements().ofNested(button, interiorNestedTableLocator).size() > 0) {
             table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
-                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table//table"));
+                    "./ancestor::div[contains(@class, 'branch')]//table | ./ancestor::tr[contains(@class, 'ng-scope')]//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']//table |./ancestor::div[contains(@class,'modal__container')]//c-lwc-flex-table//table | .//ancestor::c-lwc-flex-table[@class='ctable']//table"));
           try {
               if (I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]//c-lwc-flex-table[@class='ctable']")).isDisplayed()) {
                   table = I.amPerforming().getElementReference().ofNested(button, By.xpath(
