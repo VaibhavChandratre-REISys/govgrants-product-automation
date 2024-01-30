@@ -1409,6 +1409,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I logout
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I pause execution for "150" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
