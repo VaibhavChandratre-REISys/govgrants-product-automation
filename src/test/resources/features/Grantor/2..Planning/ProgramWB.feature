@@ -638,7 +638,7 @@ Feature: Validate all scenarios for program
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "All NGO Programs"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
-    And I save the value from row "1" for column name "Created By" as "created" from flex table "---program:-:ExternalNGOProgramTableId---"
+    And I save the value from row "1" for column name "Created By ID" as "created" from flex table "---program:-:ExternalNGOProgramTableId---"
     Then I softly see value "{SavedValue:created}" for title "Created By ID" inside table "---program:-:ExternalNGOProgramTableId---"
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I navigate to "Responsibilities" sub tab
