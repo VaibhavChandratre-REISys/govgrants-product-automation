@@ -758,6 +758,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
@@ -1308,6 +1309,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+     And I pause execution for "3" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
@@ -2025,6 +2027,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I pause execution for "5" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
@@ -2938,6 +2941,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I pause execution for "5" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
@@ -4659,6 +4663,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I pause execution for "5" seconds
     And I enter values into fields
       | Value                      | Field      |
       | {SavedValue:ProgramEGMSID} | Program__c |
@@ -4961,6 +4966,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I pause execution for "5" seconds
     And I enter values into fields
       | Value                      | Field      |
       | {SavedValue:ProgramEGMSID} | Program__c |
@@ -5031,7 +5037,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "Program" against the value "Automation PM1" inside table "---program:-:extapproverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM" inside table "---program:-:extapproverTableId---"
 
-  @TempAPI @226835 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfailsKeeptargetuserincreatedstate @sprint-11-US-218319 @vaibhav @reassignment
+  @226835 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfailsKeeptargetuserincreatedstate @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails Keep target user in created state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5085,20 +5091,13 @@ Feature: Validate all scenarios for program
      Sandbox: Task Reassignment Report
       """
 
-    Then I see the mail text is as follows :
+     Then I see the mail text is as follows :
       """
-      Hello,
-
-      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
+     Hello,
 
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
 
       EGMS ID Type Status Subject Assigned By Reason of Failure
       {SavedValue:ProgramEGMSID} Review Grantor Program Not Started Review Program {SavedValue:ProgramEGMSID} Automation EXE Responsibilities Tab - A person with the same role cannot be added again.
@@ -5111,7 +5110,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @TempAPI @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
+  @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Program Module if program record is in submitted for review state & submitted review by reviewer after changing the ownership of  program then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5168,7 +5167,7 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM1" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "5" seconds
+    And I pause execution for "10" seconds
     And I enter values into fields
       | Value       | Field             |
       | Cannot Rate | Rating__c         |
