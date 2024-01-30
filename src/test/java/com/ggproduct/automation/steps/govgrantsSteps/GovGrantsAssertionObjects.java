@@ -184,7 +184,6 @@ public final class GovGrantsAssertionObjects {
             if (columnValue.equalsIgnoreCase("Record Id")) {
                 columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
             }
-            I.amPerforming().scroll().toMoveToElement(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,flexTableDivId));
             if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
                     flexTableDivId)) {
                 I.amPerforming().waitFor().makeThreadSleep(1000);
