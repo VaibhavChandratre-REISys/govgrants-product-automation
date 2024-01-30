@@ -5031,7 +5031,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "Program" against the value "Automation PM1" inside table "---program:-:extapproverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM" inside table "---program:-:extapproverTableId---"
 
-  @226835 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfailsKeeptargetuserincreatedstate @sprint-11-US-218319 @vaibhav @reassignment
+  @TempAPI @226835 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfailsKeeptargetuserincreatedstate @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails Keep target user in created state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5111,7 +5111,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
+  @TempAPI @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Program Module if program record is in submitted for review state & submitted review by reviewer after changing the ownership of  program then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
