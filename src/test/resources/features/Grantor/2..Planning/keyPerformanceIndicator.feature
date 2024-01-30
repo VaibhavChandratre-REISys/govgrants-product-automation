@@ -64,13 +64,18 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on top right button "New" in flex table with id "---keyperformanceindicator:-:kpiTableId---"
     And I enter "Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "5" seconds
     When I enter "Edition" values from "KPI_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
+    And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
     Examples:
       | User  |

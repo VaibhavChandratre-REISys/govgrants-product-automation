@@ -1529,16 +1529,10 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-#  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-#  Scenario:Validate
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
-    And I wait for "2" seconds
-    And I expand nested table containing column value "Return on Investment (ROI)"
-    And I wait for "2" seconds
-    When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
-      | Question Order | Question | Type | Max Score |
-      | 4              | Test 4   | Date | 0         |
+    And I expand nested table containing column value "Match"
+    Then I see value "5" for title "Max Score" against the value "Are the match costs allowable, allocable, and reasonable?" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I halt execution

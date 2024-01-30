@@ -273,56 +273,107 @@ public final class FlexTable implements FlexTableComponent {
      * @modifier komal.mukhekar - Added xpath
      */
     public void expandOrCollapseNestedTable(String uniqueColumnValue, boolean isExpand) {
+      try {
+          if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+              String plusOrMinus = isExpand ? "plus" : "minus";
+              By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                      + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
+              By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
 
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            String plusOrMinus = isExpand ? "plus" : "minus";
-            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                    + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
-            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+              WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+              I.amPerforming().click().on(circleIconSelector);
 
-            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-            I.amPerforming().click().on(circleIconSelector);
+              boolean clickedAgain = false;
 
-            boolean clickedAgain = false;
+              for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                   elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                   elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+              ) {
+                  if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                      clickedAgain = true;
+                      try {
+                          I.amPerforming().click().on(circleIconSelector, false);
+                      } catch (Exception e) {
+                          /* Ignore Exception */
+                      }
+                  }
+              }
+          } else {
+              String plusOrMinus = isExpand ? "right" : "down";
+              By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                      + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
+              By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+              WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+              I.amPerforming().click().withJavaScript(circleIconSelector);
 
-            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-            ) {
-                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                    clickedAgain = true;
-                    try {
-                        I.amPerforming().click().on(circleIconSelector, false);
-                    } catch (Exception e) {
-                        /* Ignore Exception */
-                    }
-                }
-            }
-        }else {
-            String plusOrMinus = isExpand ? "right" : "down";
-            By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
-                    + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
-            By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
-            WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
-            I.amPerforming().click().withJavaScript(circleIconSelector);
+              boolean clickedAgain = false;
 
-            boolean clickedAgain = false;
+              for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                   elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                   elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+              ) {
+                  if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                      clickedAgain = true;
+                      try {
+                          I.amPerforming().click().on(circleIconSelector, false);
+                      } catch (Exception e) {
+                          /* Ignore Exception */
+                      }
+                  }
+              }
 
-            for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                 elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
-                 elapsedTime = (System.currentTimeMillis() - startTime) / 1000
-            ) {
-                if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
-                    clickedAgain = true;
-                    try {
-                        I.amPerforming().click().on(circleIconSelector, false);
-                    } catch (Exception e) {
-                        /* Ignore Exception */
-                    }
-                }
-            }
+          }
+      } catch (StaleElementReferenceException e){
+          if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+              String plusOrMinus = isExpand ? "plus" : "minus";
+              By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                      + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
+              By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
 
-        }
+              WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+              I.amPerforming().click().on(circleIconSelector);
+
+              boolean clickedAgain = false;
+
+              for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                   elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                   elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+              ) {
+                  if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                      clickedAgain = true;
+                      try {
+                          I.amPerforming().click().on(circleIconSelector, false);
+                      } catch (Exception ee) {
+                          /* Ignore Exception */
+                      }
+                  }
+              }
+          } else {
+              String plusOrMinus = isExpand ? "right" : "down";
+              By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
+                      + "//lightning-icon[contains(@class, 'chevron" + plusOrMinus + "')]");
+              By collapsingRow = By.xpath("//tr//*[contains(@class, 'collapsing')] | //tr//*[contains(@class, 'collapse')]");
+              WebElement circleIconRow = I.amPerforming().getElementReference().of(circleIconSelector).findElement(By.xpath(".//ancestor::tr[1]"));
+              I.amPerforming().click().withJavaScript(circleIconSelector);
+
+              boolean clickedAgain = false;
+
+              for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+                   elapsedTime < EnvironmentFactory.getMaxWaitTime() && (I.amPerforming().checkToSee().IsElementPresentQuick(collapsingRow) || circleIconRow.findElements(circleIconSelector).size() != 0);
+                   elapsedTime = (System.currentTimeMillis() - startTime) / 1000
+              ) {
+                  if (!clickedAgain && elapsedTime > EnvironmentFactory.getMaxWaitTime() / 2) {
+                      clickedAgain = true;
+                      try {
+                          I.amPerforming().click().on(circleIconSelector, false);
+                      } catch (Exception eg) {
+                          /* Ignore Exception */
+                      }
+                  }
+              }
+
+          }
+      }
     }
 
     /**
