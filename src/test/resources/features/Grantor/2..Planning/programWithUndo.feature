@@ -453,7 +453,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "10" seconds
     When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -739,7 +739,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "10" seconds
     When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "10" seconds
     When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -1304,7 +1304,6 @@ Feature: Validate all scenarios for program
       """
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
     """
    Sandbox: Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
@@ -1547,7 +1546,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
- @Debug @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+ @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2113,7 +2112,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2138,7 +2136,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2163,7 +2160,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2188,7 +2184,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "automationfd@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
       """
     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2213,7 +2208,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.

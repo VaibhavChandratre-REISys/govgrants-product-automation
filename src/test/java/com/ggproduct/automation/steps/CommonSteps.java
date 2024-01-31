@@ -81,4 +81,10 @@ public class CommonSteps {
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
     }
+    @And("I click on remove for lookup from field \"([^\"]*)\"$")
+    public void iRemovelookupvalue(String fieldApiName) {
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
+    }
 }
+
+
