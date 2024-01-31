@@ -3614,15 +3614,15 @@ Feature: Validate all scenarios for program
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Match          | 60                 |
+      | Match          | 50                 |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Program Income | 20                 |
+      | Program Income | 0                  |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Budget         | 20                 |
+      | Budget         | 0                  |
     And I expand nested table containing column value "Match"
     And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
@@ -3638,7 +3638,6 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 3              | Test 3   | Yes/No | 0         |
     And I close "Review Form" modal by clicking the top right x button
-    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 50%. |
@@ -3653,15 +3652,16 @@ Feature: Validate all scenarios for program
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Program Income | 60                 |
+      | Program Income | 50                 |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Match          | 20                 |
+      | Match          | 0                  |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Budget         | 20                 |
+      | Budget         | 0                  |
+    And I wait for "2" seconds
     And I collapse nested table containing column value "Match"
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
@@ -3670,7 +3670,6 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 50        |
     And I close "Review Form" modal by clicking the top right x button
-    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 50%. |
