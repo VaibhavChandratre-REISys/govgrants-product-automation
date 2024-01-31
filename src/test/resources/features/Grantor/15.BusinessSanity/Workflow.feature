@@ -1533,6 +1533,9 @@ Feature: Validate all scenarios of every modules flow
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I click on parallel menu button in flex table title "Review Questions"
-    And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
+    And I expand nested table containing column value "Management Review"
+    And I pause execution for "5" seconds
+    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
+      | Form Name         | Minimum Number of Reviews per Application | Required? |
+      | Automation Review | 1                                         | Checked   |
     And I halt execution
