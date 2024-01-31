@@ -3353,9 +3353,14 @@ Feature: Validate all scenarios for program
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 195%.                                     |
     And I refresh the page
     And I navigate to "Setup" sub tab
+    And I wait for "1" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "1" seconds
+    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) |
       | Fiscal Review | 30              |
+    And I wait for "1" seconds
     When I collapse nested table containing column value "SME Review"
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
