@@ -4429,7 +4429,7 @@ Feature: Validate all scenarios for program
       | 3              | 0         |
     And I refresh the page
     And I navigate to "Setup" sub tab
-    And I collapse nested table containing column value "SME Review"
+    And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     #77706
     And I expand nested table containing column value "Management Review"
