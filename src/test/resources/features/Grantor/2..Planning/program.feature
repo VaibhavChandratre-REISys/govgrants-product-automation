@@ -3209,8 +3209,9 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Program Review | 30              |
+    And I wait for "2" seconds
     When I collapse nested table containing column value "SME Review"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
@@ -3230,11 +3231,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Setup" sub tab
     When I collapse nested table containing column value "SME Review"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Program Review | 30              |
+    And I wait for "2" seconds
     When I collapse nested table containing column value "SME Review"
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
@@ -3259,9 +3261,9 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Program Review | 30              |
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     When I collapse nested table containing column value "SME Review"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
