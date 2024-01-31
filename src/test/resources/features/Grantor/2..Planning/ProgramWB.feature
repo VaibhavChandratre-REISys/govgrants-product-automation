@@ -3294,6 +3294,7 @@ Feature: Validate all scenarios for program
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click on remove for lookup from field "Program__c"
     And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+    And I wait for "2" seconds
     And I click modal button "Continue"
     And I pause execution for "3" seconds
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
@@ -3587,7 +3588,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -3672,7 +3673,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -3752,7 +3753,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -3909,7 +3910,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4025,7 +4026,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4076,7 +4077,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4145,7 +4146,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4178,7 +4179,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4317,7 +4318,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4350,7 +4351,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4639,6 +4640,7 @@ Feature: Validate all scenarios for program
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click on remove for lookup from field "Program__c"
     When I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+    And I wait for "2" seconds
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -4761,7 +4763,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -4843,7 +4845,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -4873,7 +4875,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250 @vaibhav @reassignment
+ @Debug @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250 @vaibhav @reassignment
   Scenario: Validate Internal Prog additional entries made due to reassignment for R&R in context to next module are not carried ahead
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4897,6 +4899,10 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name            | Program | Announcement |
       | Automation EXE1 | Step 1  | Step 1       |
+   And I wait for "3" seconds
+   And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
+     | Name                     | Announcement |
+     | {SavedValue:FO Username} | Step 1       |
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -4941,6 +4947,7 @@ Feature: Validate all scenarios for program
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click on remove for lookup from field "Program__c"
     When I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+    And I wait for "2" seconds
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -5059,7 +5066,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -5581,7 +5588,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
