@@ -2002,6 +2002,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections. |
     And I collapse nested table containing column value "Pre-Screen Review"
+    And I navigate to "Setup" sub tab
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I wait for "3" seconds
