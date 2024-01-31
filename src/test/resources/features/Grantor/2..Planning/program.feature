@@ -3638,6 +3638,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 3              | Test 3   | Yes/No | 0         |
     And I close "Review Form" modal by clicking the top right x button
+    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 50%. |
@@ -3669,6 +3670,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 50        |
     And I close "Review Form" modal by clicking the top right x button
+    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 50%. |
@@ -4865,6 +4867,7 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Permits"
     And I wait for "2" seconds
     And I expand nested table containing column value "Permits"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 1              | 100       |
@@ -5517,6 +5520,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Schedule"
+    And I wait for "2" seconds
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
@@ -5533,7 +5537,8 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "3" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     #77104
-   # And I collapse nested table containing column value "Schedule"
+    And I collapse nested table containing column value "Schedule"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Environment"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
