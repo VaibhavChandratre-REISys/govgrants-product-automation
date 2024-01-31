@@ -236,7 +236,7 @@ Feature: Validate all scenarios for program
       | Saved successfully! |
     And I softly see value "Impact Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76126
-    Then I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
+    Then I softly see total records count "Total Records: 3" in flex table "---program:-:programReviewPanel---"
       #76293
     And I click on "Delete" icon for "Impact Test" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
    # Then I softly see the following messages in the page details contains:
@@ -260,7 +260,7 @@ Feature: Validate all scenarios for program
     And I softly do not see value "Eligibility Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I refresh the page
     When I navigate to "Setup" sub tab
-    When I collapse nested table containing column value "SME Review"
+    When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     #76128
     And I expand nested table containing column value "SME Review"
