@@ -3453,7 +3453,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 130.00%. |
-      | Setup Tab - SME Review - Compliance Review: A weighted form must contain weighted sections.                        |
+      | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Environment section because it is weighted.                        |
+      | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Schedule section because it is weighted.                        |
+      |Setup Tab - SME Review - Compliance Review: The total section weight must equal 100% or 0%. It is currently 120%.                        |
     And I refresh the page
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -3472,8 +3474,11 @@ Feature: Validate all scenarios for program
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
-      | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 130.00%. |
-      | Setup Tab - SME Review - Compliance Review: A weighted form must contain weighted sections.                        |
+      | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 130.00%.                                 |
+      | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Environment section because it is weighted. |
+      | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Permits section because it is weighted.     |
+      | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Schedule section because it is weighted.    |
+      | Setup Tab - SME Review - Compliance Review: The total section weight must equal 100% or 0%. It is currently 180%.                                  |
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -3610,9 +3615,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Match          | 60                 |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Program Income | 20                 |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 20                 |
@@ -3622,9 +3629,11 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 100       |
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 2              | Test 2   | Yes/No | 0         |
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 3              | Test 3   | Yes/No | 0         |
@@ -3644,9 +3653,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Program Income | 60                 |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Match          | 20                 |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 20                 |
@@ -3677,9 +3688,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 0                  |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 0                  |
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 100                |
@@ -3688,9 +3701,11 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 100       |
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 2              | Test 2   | Yes/No | 0         |
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 3              | Test 3   | Yes/No | 0         |
@@ -4820,9 +4835,10 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Environment"
     And I wait for "2" seconds
     And I expand nested table containing column value "Permits"
+    And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
-      | 1              | 15        |
+      | 1              | 0         |
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
