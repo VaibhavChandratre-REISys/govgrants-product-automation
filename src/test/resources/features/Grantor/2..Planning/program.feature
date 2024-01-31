@@ -5368,7 +5368,7 @@ Feature: Validate all scenarios for program
     And I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Does the application include leverage funds? Is documentation of the leverage included in the application?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
-    Then I see value "5" for title "Max Score" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    Then I see value "5" for title "Max Score" against the value "Does the application include leverage funds? Is documentation of the leverage included in the application?" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I collapse nested table containing column value "Match"
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
