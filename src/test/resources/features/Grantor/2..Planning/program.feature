@@ -3628,7 +3628,7 @@ Feature: Validate all scenarios for program
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
-      | 1              | Test 1   | Yes/No | 100       |
+      | 1              | Test 1   | Yes/No | 50        |
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3667,7 +3667,7 @@ Feature: Validate all scenarios for program
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
-      | 1              | Test 1   | Yes/No | 100       |
+      | 1              | Test 1   | Yes/No | 50        |
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -3697,6 +3697,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Permits        | 100                |
     And I expand nested table containing column value "Permits"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
