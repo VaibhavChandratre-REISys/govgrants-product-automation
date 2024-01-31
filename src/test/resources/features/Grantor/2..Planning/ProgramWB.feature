@@ -1321,7 +1321,8 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
-    Then I softly can see top right button "Submit for Approval" in page detail
+     And I click on Menu icon present on top right corner of the page
+    Then I softly can see top right button "Submit For Approval" in page detail
 
   @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4 @vaibhav @reassignment
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
@@ -1786,7 +1787,8 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID2}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    When I perform quick search for "{SavedValue:ProgramEGMSID3}" in "---program:-:adminOwnerReplaceTableId---" panel
+     And I reset the table
+     When I perform quick search for "{SavedValue:ProgramEGMSID3}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID3}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed

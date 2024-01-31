@@ -1533,10 +1533,5 @@ Feature: Validate all scenarios of every modules flow
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I pause execution for "5" seconds
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "5" seconds
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
+    And I click on Menu icon present on top right corner of the page
+    Then I softly can see top right button "Activate" in page detail
