@@ -92,6 +92,7 @@ public final class PageDetails {
 //                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
 //                govgrants.perform().modal().acceptPopUp();
 //            }
+
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
