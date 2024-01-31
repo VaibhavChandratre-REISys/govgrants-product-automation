@@ -3686,6 +3686,9 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---"
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Program Income"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Program Income | 0                  |
@@ -4864,7 +4867,6 @@ Feature: Validate all scenarios for program
       | Question Order |  Max Score |
       | 1              |   0        |
     And I close "Review Form" modal by clicking the top right x button
-    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Permits section because it is weighted. |
