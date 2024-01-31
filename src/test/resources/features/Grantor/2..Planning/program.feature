@@ -4406,6 +4406,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | 100             | 1                                         |
+    And I wait for "2" seconds
     When I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
