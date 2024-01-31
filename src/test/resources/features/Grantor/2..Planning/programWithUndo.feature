@@ -433,7 +433,9 @@ Feature: Validate all scenarios for program
      """
 
 
-  @PoojaUndo @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+
+
+   @PoojaUndo @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -484,13 +486,13 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
     And I click on "Menu" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I can see top right button "Activate" in page detail
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
     Then I cannot see top right button "Undo" in page detail
 
- @Debug @PoojaUndo @279351 @VerifyPMassecondstepapproverifIclickonUndobuttonthenApprovedProgramtaskgotincancelledfromcompletedtaskonprogramevenifprogramownerandprogramstep2approverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @PoojaUndo @279351 @VerifyPMassecondstepapproverifIclickonUndobuttonthenApprovedProgramtaskgotincancelledfromcompletedtaskonprogramevenifprogramownerandprogramstep2approverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify PM as second step approver if I click on Undo button then Approved Program task got in cancelled from completed task on program even if program owner and program step 2 approver is same
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1214,7 +1216,7 @@ Feature: Validate all scenarios for program
 #    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---program:-:historyTableId---"
 #    Then I softly see value "Automation PO1" for title "Changed By" inside table "---program:-:historyTableId---"
 
-  @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843 @Temphitesh
+ @Debug @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843 @Temphitesh
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1301,10 +1303,12 @@ Feature: Validate all scenarios for program
       """
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #PG-TAO modified-****."
     And I see the mail subject is as follows :
     """
-   Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
+   Sandbox: Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}.
     """
+
     Then I see the mail text is as follows :
     """
       Hello,
@@ -1322,7 +1326,6 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
       """
-
 
   @PoojaUndo @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
@@ -1408,14 +1411,15 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
-    And I pause execution for "5" seconds
     And I logout
+    And I pause execution for "5" seconds
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     And I pause execution for "150" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
     And I see the mail subject is as follows :
       """
-      Notification: Request to Approve {SavedValue:ProgramEGMSID}
+      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
     Then I see the mail text is as follows :
       """
@@ -2108,6 +2112,7 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2132,6 +2137,7 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2156,6 +2162,7 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2180,6 +2187,7 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "automationfd@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}."
     And I see the mail subject is as follows :
       """
     Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
@@ -2204,6 +2212,7 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}."
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
