@@ -758,11 +758,9 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Cannot Rate" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -2033,11 +2031,9 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "5" seconds
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Cannot Rate" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2585,7 +2581,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -2947,11 +2943,9 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "5" seconds
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Cannot Rate" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
     And I logout
@@ -3142,7 +3136,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -3168,7 +3162,7 @@ Feature: Validate all scenarios for program
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation AUDITOR"
     And I pause execution for "4" seconds
-    Then I softly see "No matches found" inside auto search result
+    Then I softly do not see "Automation AUDITOR" inside auto search result
 
   @217607 @ValidateInternalProgapproveandownerofprogramaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Internal Prog approver and owner of a program are same validate after reassigning the approval task ownership of record is not changed
@@ -4660,7 +4654,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     When I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    And I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
     Then I can see top right button "Activate" in page detail
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
@@ -4669,10 +4663,8 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "5" seconds
-    And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -5173,11 +5165,9 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM1" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I pause execution for "10" seconds
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Cannot Rate" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
     And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
