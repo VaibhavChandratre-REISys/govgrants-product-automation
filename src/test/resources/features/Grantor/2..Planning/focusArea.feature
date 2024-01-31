@@ -159,12 +159,13 @@ Feature: Validate all scenarios in Focus Area
     And I pause execution for "3" seconds
     And I click toggle button to select "Focus Areas - All"
     When I perform quick search for "Automation Permanent Focus Area" in "---focusarea:-:focusAreaTableId---" panel
-    And I click on "View" icon for "Automation Permanent Focus Area" inside table
+    And I click on "View" icon for "Automation Permanent Focus Area" inside flex table with id "---focusarea:-:focusAreaTableId---"
     #109276 #monu
     And I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---focusarea:-:ActiveGrantsTableIdFocusArea---"
     And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I navigate to "Subawards" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:GrantsSubAwardsTableIdFocusArea---" panel
     And I pause execution for "3" seconds
@@ -226,13 +227,13 @@ Feature: Validate all scenarios in Focus Area
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     #109606 #monu
-    When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:addReviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
-#    Then I see the following messages in the page details contains:
-#      | Saved Successfully! |
+    Then I see the following messages in the page details contains:
+      | Saved successfully! |
     When I collapse nested table containing column value "Pre-Screen Review"
     And I expand nested table containing column value "Pre-Screen Review"
-    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
+    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
+    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"

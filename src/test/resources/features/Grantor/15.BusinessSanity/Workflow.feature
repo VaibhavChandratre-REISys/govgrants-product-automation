@@ -1528,3 +1528,14 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
+
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario:Validate
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    And I expand nested table containing column value "Management Review"
+    And I pause execution for "5" seconds
+    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
+      | Form Name         | Minimum Number of Reviews per Application | Required? |
+      | Automation Review | 1                                         | Checked   |
+    And I halt execution

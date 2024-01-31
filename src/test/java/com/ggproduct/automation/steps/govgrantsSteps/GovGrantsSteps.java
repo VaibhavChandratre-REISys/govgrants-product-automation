@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
@@ -409,11 +410,19 @@ public final class GovGrantsSteps {
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
         I.amPerforming().waitFor().makeThreadSleep(1000);
-        govgrants.perform().flexTable().editFlexTableRowsInline(
+        try {
+            govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
+        } catch (StaleElementReferenceException stale){
+            govgrants.perform().flexTable().editFlexTableRowsInline(
+                    flexTableId,
+                    editButtonName,
+                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+            );
+         }
         }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")
@@ -760,7 +769,7 @@ public final class GovGrantsSteps {
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {
         if (usage.equalsIgnoreCase("parallel menu")) {
-            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')] | //*[text()='" + flexTableTitle + "']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//button");
+            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')] | //c-flex-gridlwc//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars') | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             }

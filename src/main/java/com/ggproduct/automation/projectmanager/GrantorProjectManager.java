@@ -55,7 +55,7 @@ public class GrantorProjectManager extends ProjectManager {
 
     /* handles to veify total records present in flex table */
     public String totalRecordsCount(String tableId) {
-        return (I.amPerforming().actionToGet().text(By.xpath("//div[@id='" + tableId + "']//following-sibling::span[contains(text(),'Total Records')]")));
+        return (I.amPerforming().actionToGet().text(By.xpath("//div[@id='" + tableId + "']//following-sibling::span[contains(text(),'Total Records')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[contains(text(),'Total Records')]")));
     }
 
     public void AssertTotalRecordsCountInFlexTable(String totalRecord, String tableId, boolean isSoftly) {
