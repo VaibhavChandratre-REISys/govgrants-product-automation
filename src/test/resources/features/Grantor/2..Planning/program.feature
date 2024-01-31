@@ -4842,6 +4842,7 @@ Feature: Validate all scenarios for program
       | Question Order |  Max Score |
       | 1              |   0        |
     And I close "Review Form" modal by clicking the top right x button
+    And I halt execution
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Compliance Review: A score must be associated to at least one question in the Permits section because it is weighted. |
