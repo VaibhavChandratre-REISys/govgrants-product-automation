@@ -1,4 +1,4 @@
- @fundingSource @grantor-regression @grantor-parallel-regression @planning @regression
+@fundingSource @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios in Funding Source
 
   @51034 @creationOfFundingSource
@@ -101,6 +101,7 @@ Feature: Validate all scenarios in Funding Source
     When I enter value "4650" into field "EndDate__c"
     When I click on "Save" in the page details
     When I click on "Activate" in the page details
+    And I wait for "1" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Funding account dates should be within funding source dates. |
 
@@ -715,5 +716,5 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
-    And I wait for "1" seconds 
+    And I wait for "1" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded

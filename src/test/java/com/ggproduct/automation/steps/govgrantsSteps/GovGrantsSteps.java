@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
@@ -409,11 +410,19 @@ public final class GovGrantsSteps {
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
         I.amPerforming().waitFor().makeThreadSleep(1000);
-        govgrants.perform().flexTable().editFlexTableRowsInline(
+        try {
+            govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
+        } catch (StaleElementReferenceException stale){
+            govgrants.perform().flexTable().editFlexTableRowsInline(
+                    flexTableId,
+                    editButtonName,
+                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+            );
+        }
         }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")

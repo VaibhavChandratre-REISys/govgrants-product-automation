@@ -258,8 +258,8 @@ public final class FlexTable implements FlexTableComponent {
                     + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
                     "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio']");
-                I.amPerforming().click().withJavaScript(rowCheckboxSelector);
-
+//                I.amPerforming().click().withJavaScript(rowCheckboxSelector);
+                I.amPerforming().click().withMouse().on(rowCheckboxSelector);
         }
     }
 
