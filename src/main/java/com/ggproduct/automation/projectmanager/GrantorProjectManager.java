@@ -684,7 +684,7 @@ public class GrantorProjectManager extends ProjectManager {
     private boolean isTextPresentInsideHistoryTableForLWC(String colName, String tData, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td[text()='" + text + "'] ")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//div[text()='" + text + "'] ")))) {
                 flag = true;
             }
         } catch (Exception e) {

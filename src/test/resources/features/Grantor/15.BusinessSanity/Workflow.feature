@@ -1528,12 +1528,3 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
-
-   @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-  Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-#    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
-#      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-#      | Pre-Screen | 100.00%         | 1                                         | Checked   |
