@@ -95,7 +95,7 @@ public final class Modal {
     public void acceptPopUpWithParameter(String buttonName) {
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
-                I.amPerforming().click().on(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "']"));
+                I.amPerforming().click().on(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
             }
         } catch (Exception e) {
         }
