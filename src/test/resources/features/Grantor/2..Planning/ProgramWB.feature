@@ -1511,7 +1511,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "History" sub tab
-#    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1590,7 +1590,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I navigate to "History" sub tab
-#    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1973,7 +1973,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1981,12 +1981,16 @@ Feature: Validate all scenarios for program
       """
     Then I see the mail text is as follows :
       """
-       Hello,
-       This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been rejected.
-       Log in to EGMS and click here to see details.
-       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
-       Thank you.
-       The EGMS Team
+      Hello,
+
+      This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been rejected.
+
+      Log in to EGMS and click here to see details.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
+
+      Thank you.
+      The EGMS Team
       """
 
   @198790 @ValidatenewlyassignedownerPMreceivesanemailafterinternalprogramissenttoownerduringapprovalswhenownershipistransferredbeforepostprogramisReviewed @sprint-4 @vaibhav @reassignment
@@ -4057,7 +4061,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -4108,7 +4112,7 @@ Feature: Validate all scenarios for program
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
