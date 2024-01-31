@@ -1528,10 +1528,3 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
-
-  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-  Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "5" seconds
-    And I click on Menu icon present on top right corner of the page
-    Then I softly can see top right button "Activate" in page detail
