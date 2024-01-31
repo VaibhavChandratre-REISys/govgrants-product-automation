@@ -227,7 +227,6 @@ Feature: Validate all scenarios for program
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
       #76130
-    When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :

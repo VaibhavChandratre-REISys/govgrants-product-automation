@@ -1529,10 +1529,10 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-#  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-#  Scenario:Validate
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I expand nested table containing column value "Match"
-    Then I see value "5" for title "Max Score" against the value "Are the match costs allowable, allocable, and reasonable?" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I click on parallel menu button in flex table title "Review Questions"
+    And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I halt execution
