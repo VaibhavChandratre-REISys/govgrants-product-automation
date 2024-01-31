@@ -422,7 +422,7 @@ public final class GovGrantsSteps {
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
-        }
+         }
         }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")
