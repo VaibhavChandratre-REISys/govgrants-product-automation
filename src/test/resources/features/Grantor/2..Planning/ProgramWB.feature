@@ -629,6 +629,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
      And I reset the table
+    And I pause execution for "3" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
@@ -708,6 +709,8 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
+    And I pause execution for "3" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1785,6 +1788,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID2}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
      And I reset the table
+     And I pause execution for "3" seconds
      When I perform quick search for "{SavedValue:ProgramEGMSID3}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID3}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
@@ -1792,10 +1796,10 @@ Feature: Validate all scenarios for program
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Source User" sub tab
-     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID3}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID3}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
      And I reset the table
+     And I pause execution for "3" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID4}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID4}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
@@ -3033,6 +3037,8 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
+    And I pause execution for "3" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3783,19 +3789,11 @@ Feature: Validate all scenarios for program
       """
       Hello,
 
-      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
-      EGMS ID Type Status Subject Assigned By Reason of Failure
-      {SavedValue:ProgramEGMSID} Review Grantor Program Not Started Review Program {SavedValue:ProgramEGMSID} Automation PM Responsibilities Tab - A person with the same role cannot be added again.
+      EGMS ID	Type	Status	Subject	Assigned By	Reason of Failure
+      {SavedValue:ProgramEGMSID}	Review Grantor Program	Not Started	Review Program {SavedValue:ProgramEGMSID}	Automation PM	Responsibilities Tab - A person with the same role cannot be added again.
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
