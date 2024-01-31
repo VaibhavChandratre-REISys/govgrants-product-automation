@@ -370,9 +370,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
@@ -394,9 +396,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 50                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
@@ -417,9 +421,11 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 20                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
