@@ -4433,7 +4433,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     #77706
     And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I wait for "2" seconds
     And I collapse nested table containing column value "Return on Investment (ROI)"
