@@ -1532,10 +1532,8 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I halt execution
-    And I expand nested table containing column value "Management Review"
     And I pause execution for "5" seconds
-    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
-      | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Checked   |
-    And I halt execution
+    And I navigate to "Funding Decision Memo" sub tab
+    Then I see the following rows under the following headers in table with id "---applicationReview:-:recommendedTableId---" :
+      | EGMS ID             | Grant     | Subrecipient Organization           | Budgeted Amount  |
+      | AP-TAO modified-005 | GT--00002 | SAN DIEGO ELECTRICAL TRAINING TRUST | $1,000.00        |
