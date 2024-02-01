@@ -13,7 +13,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I enter value "No" into field "IsMatchRequired__c"
     Then I softly see that "GranteeMatch__c" rendered in view mode only
-    And I enter value "No" into field "fieldFocusAreaRequired__c"
+    And I enter value "No" into field "FocusAreaRequired__c"
     And I click modal button "Save and Continue"
     Then I softly see field "Focus Area Required?" as "No"
     Then I softly cannot see field "Pre-Application Due Date" inside page block
@@ -41,7 +41,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Modal FA" values from "Announcement_Field_Values.xlsx"
-    And I enter value "No" into field "fieldIsGoalsRequired__c"
+    And I enter value "No" into field "IsGoalsRequired__c"
     And I click modal button "Save and Continue"
     And I navigate to "Setup" sub tab
     Then I softly do not see "Related Focus Areas" page block displayed
@@ -133,7 +133,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I navigate to "Overview" sub tab
-    When I enter value "45" into field "fieldPreApplicationDueDate__c"
+    When I enter value "45" into field "PreApplicationDueDate__c"
     When I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -167,7 +167,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     When I click on "Edit" in the page details
     And I navigate to "Financials" sub tab
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
@@ -232,19 +232,19 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Delete" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly do not see value "Pre-Screen Review" for title "Step Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I navigate to "Overview" sub tab
-    And I enter value "30" into field "fieldApplicationDueDate__c"
-    And I enter value "40" into field "fieldPreApplicationDueDate__c"
+    And I enter value "30" into field "ApplicationDueDate__c"
+    And I enter value "40" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
       | Pre-Application Due Date cannot be after Application Due Date |
-    And I enter value "20" into field "fieldPreApplicationDueDate__c"
+    And I enter value "20" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "Application Due Date" as "ADD"
     And I save the field labeled "PreApplication Due Date" as "PDD"
     Then I softly see field "PreApplication Due Date" as "{SavedValue:PDD}"
     Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
     And I click on "Edit" in the page details
-    And I enter value "-5" into field "fieldPreApplicationDueDate__c"
+    And I enter value "-5" into field "PreApplicationDueDate__c"
     And I enter value "-5" into field "fieldApplicationDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :

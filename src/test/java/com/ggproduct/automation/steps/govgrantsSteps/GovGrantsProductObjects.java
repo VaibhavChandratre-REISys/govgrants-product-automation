@@ -270,9 +270,9 @@ public final class GovGrantsProductObjects {
      * @modifiled mahadev.hanme
      */
     public void fillInReviewForm(String recommendation) {
-        try{
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
-        }catch(Exception e){
+        }else {
             govgrants.perform().inputForms().completeFillingReviewFormForLwc(recommendation);
         }
     }

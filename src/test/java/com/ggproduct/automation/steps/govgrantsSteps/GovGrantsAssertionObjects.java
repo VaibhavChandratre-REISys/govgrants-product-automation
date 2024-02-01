@@ -839,6 +839,7 @@ public final class GovGrantsAssertionObjects {
      * get sub tab inside detail each main detail page like overview etc.
      *
      * @param desiredSubTab
+     * @modifier pooja.gundle -- added xpath
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
         By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label]");
