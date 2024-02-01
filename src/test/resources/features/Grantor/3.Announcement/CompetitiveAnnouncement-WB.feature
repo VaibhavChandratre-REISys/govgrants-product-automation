@@ -150,7 +150,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     #237875 #238363
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -308,7 +308,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     #237868
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 500                | 1000                    | Yes                   | Recommended |
     And I pause execution for "9" seconds
@@ -458,7 +458,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see field "Status" as "Created"
     And I navigate to "Funding Decision Memo" sub tab
     #227554
-    Then I see the following headers in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following headers in table with id "---applicationReview:-:recommendedTableId---" :
       | Recommended Budget | Budgeted Amount | State Allocation |
     #227745
     Then I softly see field "Subaward Floor" inside page block
@@ -476,7 +476,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -886,11 +886,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     #227564
     And I navigate to "Funding Decision Memo" sub tab
-    Then I softly can see row level action button "Edit" against "<Announcement Name>" in flex table with id "flexGridFundingDecisionMemoApplications"
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    Then I softly can see row level action button "Edit" against "<Announcement Name>" in flex table with id "---applicationReview:-:recommendedTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
-    Then I see the following rows under the following headers in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following rows under the following headers in table with id "---applicationReview:-:recommendedTableId---" :
       | Application Title   | Recommended Budget |
       | <Announcement Name> | $1,000.00          |
 
@@ -1075,7 +1075,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     #227723
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -1283,7 +1283,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Application2>    | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -1491,7 +1491,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I save the field labeled "Announcement EGMS ID" as "AnnEgmdId"
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
       | Application Title | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Application2>    | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -1665,8 +1665,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I navigate to "Funding Decision Memo" sub tab
-    When I check "<Announcement Name>" boxes in flex table with id "flexGridFundingDecisionMemoApplications"
-    When I click on top right button "Notify Selected Applicants" in flex table with id "flexGridFundingDecisionMemoApplications"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:recommendedTableId---"
+    When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:recommendedTableId---"
     And I checkout to yopmail with mailid "automationspi30@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page

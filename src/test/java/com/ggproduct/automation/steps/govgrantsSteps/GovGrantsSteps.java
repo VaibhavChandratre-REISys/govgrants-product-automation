@@ -773,7 +773,7 @@ public final class GovGrantsSteps {
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars') | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             }
-            I.amPerforming().click().on(menuButton);
+            I.amPerforming().click().withJavaScript(menuButton);
 
         } else if (usage.equalsIgnoreCase("enhanced view")) {
             By menuButton = By.xpath("//*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Enhanced View' or contains(@class,'fa fa-arrows-alt')]");
