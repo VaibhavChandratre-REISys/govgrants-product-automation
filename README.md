@@ -91,3 +91,4 @@ Migration Disclaimer
 4)Added @Undo tag for undo related test cases
 5)Added @ErrorMessageTimeout tag for few test cases for error messages disappear in fraction of seconds in application review scenarios.
 6)Added @CaptchaIssueOnYopmail tag for User registration scenarios where yopmail getting display captcha
+7)Added @FieldHistoryExclude tag for field history are excluded in LWC 
