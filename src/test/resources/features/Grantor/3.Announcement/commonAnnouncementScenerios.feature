@@ -19,9 +19,10 @@ Feature: Validate all common scenarios in the  Announcement tab
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements" in "---announcement:-:annoucementTableId---"
+    And I click toggle button to select "Draft Directed Announcements"
     When I perform quick search for "Record Id" in "---announcement:-:annoucementTableId---" panel
     Then I softly do not see values "Record Id" and "Announcement Name" inside table
+    And I pause execution for "3" seconds
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
     And I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
