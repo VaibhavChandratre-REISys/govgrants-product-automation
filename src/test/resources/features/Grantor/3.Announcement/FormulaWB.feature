@@ -683,7 +683,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-  @219623 @ValidateSPIUserNameshoulbechangetoBudgetSummaryfromFinancialDetailsforformulaAnnouncementonqualified/NotyetqualifiedOpportunitypagelayouts @sprint-9-US-204998 @vaibhav @Allocation
+  @219623 @ValidateSPIUserNameshoulbechangetoBudgetSummaryfromFinancialDetailsforformulaAnnouncementonqualified/NotyetqualifiedOpportunitypagelayouts @sprint-9-US-204998 @vaibhav @Allocation @Pre-ScreenOnHoldSPI
   Scenario: Validate SPI User Name should be change to Budget Summary from Financial Details for formula Announcement on qualified/Not yet qualified Opportunity page layouts
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -698,7 +698,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
 
-  @219625 @ValidateSPIUserforformulaannouncementswithallocationlevelByApplicantandFocusAreabudgetsummarysectiondisplayincludingfocusare&AllocationamountfieldQualified&NotyetQualifiedpage @sprint-9-US-204998 @vaibhav @Allocation
+  @219625 @ValidateSPIUserforformulaannouncementswithallocationlevelByApplicantandFocusAreabudgetsummarysectiondisplayincludingfocusare&AllocationamountfieldQualified&NotyetQualifiedpage @sprint-9-US-204998 @vaibhav @Allocation @Pre-ScreenOnHoldSPI
   Scenario: Validate SPI User for formula announcements with allocation-level = By Applicant and Focus Area budget summary section display including focus area & Allocation amount field (Qualified & Not yet Qualified  page )
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -786,7 +786,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | userType |
       | IND      |
 
-  @220898 @ValidateuseraddsamefocusareatodifferentOrganizationthenonlyrespectivefocusareashoulddisplaytothisorganization @sprint-9-US-204998 @vaibhav @Allocation
+  @220898 @ValidateuseraddsamefocusareatodifferentOrganizationthenonlyrespectivefocusareashoulddisplaytothisorganization @sprint-9-US-204998 @vaibhav @Allocation @Pre-ScreenOnHoldSPI
   Scenario: Validate user add same focus area to different Organization then only respective focus area should display to this organization
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -1807,7 +1807,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
+  @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1874,7 +1874,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222298 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
+  @222298 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before award creation)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1948,7 +1948,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @226436 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
+  @226436 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2215,7 +2215,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @226439 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
+  @226439 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2440,7 +2440,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation
+  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2599,7 +2599,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222304 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation
+  @222304 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2754,7 +2754,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222277 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation
+  @222277 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2932,7 +2932,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222305 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation
+  @222305 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3108,7 +3108,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222556 @222555 @222479 @VerifyupdatedvaluesofAllocationAmountshouldgetupdatedinopportunityandQualifiedopportunityaswell @sprint-11-US-201558 @komal @Allocation
+  @222556 @222555 @222479 @VerifyupdatedvaluesofAllocationAmountshouldgetupdatedinopportunityandQualifiedopportunityaswell @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify updated values of Allocation Amount should get updated in opportunity and Qualified opportunity as well.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3383,7 +3383,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
 
-  @225549 @225427 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation
+  @225549 @225427 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: PM User when negotiation is initiated during promoted to FDM  then it should must mandatory for user to select the "Budget Budget Details " picklist value  for Negotiation field when the budgeted Amount is not equal to the Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation <User> user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -3551,7 +3551,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | PM    | {SavedValue:Automation Runtime Formula Announcement} |
       | ADMIN | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @225429 @225421 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation
+  @225429 @225421 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify updated values of Allocation Amount should get updated in opportunity and Qualified opportunity as well.
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT-Automation <User> user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3696,7 +3696,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @222648 @VerifywhenAllocationamountisupdatedforAllocationinApplicantsthenemailshouldbetriggeredAnnouncementisinPublishedstateForformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-12-US-221459 @komal @Allocation
+  @222648 @VerifywhenAllocationamountisupdatedforAllocationinApplicantsthenemailshouldbetriggeredAnnouncementisinPublishedstateForformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-12-US-221459 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario: Verify when Allocation amount is updated for Allocation in Applicants then email should be triggered (Announcement is in Published state)(For formula announcements with allocationlevel By Applicant & Focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3806,7 +3806,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
     """
 
-  @227708 @227720 @227708 @227709 @227717 @VerifyPMUserseethetheBudgetedAmountinplaceoftheRecommendedBudgetandAllocationamountinsteadoftheRequestedAmountonlyforformulaannouncementsCheckifwecanusethesameclmforallocationandRecommendamount @sprint-13-US-204132 @komal @Allocation
+  @227708 @227720 @227708 @227709 @227717 @VerifyPMUserseethetheBudgetedAmountinplaceoftheRecommendedBudgetandAllocationamountinsteadoftheRequestedAmountonlyforformulaannouncementsCheckifwecanusethesameclmforallocationandRecommendamount @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify PM User see the the Budgeted Amount in place of the Recommended  Budget and Allocation amount instead of the Requested Amount only for formula announcements(Check if we can use the same clm for allocation and Recommend amount )
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3974,7 +3974,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227829 @227837 @227839 @VerifyAdminuserseevalidationwhenbudgetedamountinanyfocusareaisnotequaltotheAllocationamountofthatfocusareawhenItrytocreateawardfromFDM @sprint-13-US-204132 @komal @Allocation
+  @227829 @227837 @227839 @VerifyAdminuserseevalidationwhenbudgetedamountinanyfocusareaisnotequaltotheAllocationamountofthatfocusareawhenItrytocreateawardfromFDM @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify Admin user see validation when budgeted amount in any focus area is not equal to the Allocation amount of that focus area & when I try to create award from FDM
   | Verify Admin user see validation when budgeted amount in any focus area is not equal to the Allocation amount of that focus area & when I try Create Award from application |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation ADMIN user"
@@ -4170,7 +4170,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227840 @VerifyAdminusershouldseewhennegotiationisinitiatedduringtheApplicationreviewitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnot @sprint-13-US-204132 @komal @Allocation
+  @227840 @VerifyAdminusershouldseewhennegotiationisinitiatedduringtheApplicationreviewitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnot @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify Admin user should see  when negotiation is initiated during the Application review  it should be  mandatory for to select the "Budget: Budget Details " picklist value in Application Sections for Negotiation section when the budgeted Amount is not
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4221,7 +4221,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227725 @227729 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @sprint-13-US-204132 @komal @Allocation
+  @227725 @227729 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify the new readonly field for "Total Allocation Funding", this should be total of All Allocation Amount, from recommended application section for formula announcement .
   | FDM - Verify Subaward floor and Subaward Ceiling fields are hidden for formula announcement |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
@@ -4376,7 +4376,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227802 @227797 @VerifyEXEUserseethevalueBudgetTabFocusAreareplacedwithBudgetTabBudgetSummarybyFocusAreaintheApplicationsectionforNegotiation @sprint-13-US-204132 @komal @Allocation
+  @227802 @227797 @VerifyEXEUserseethevalueBudgetTabFocusAreareplacedwithBudgetTabBudgetSummarybyFocusAreaintheApplicationsectionforNegotiation @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify EXE User see the value "Budget Tab Focus Area" replaced with "Budget Tab Budget Summary by Focus Area" in the Application section for Negotiation.
   | Verify EXE user  should see  when negotiation is initiated during the Application review  it should be  mandatory for to select the "Budget: Budget Details " picklist value in Application Sections for Negotiation section when the budgeted Amount is not equal to the Allocation Amount |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT-Automation EXE user"
@@ -4458,7 +4458,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227788 @VerifyEXEusershouldseewhennegotiationisinitiatedduringtheFDMitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnotequaltotheAllo @sprint-13-US-204132 @komal @Allocation
+  @227788 @VerifyEXEusershouldseewhennegotiationisinitiatedduringtheFDMitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnotequaltotheAllo @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify EXE user should see  when negotiation is initiated during the FDM it should be  mandatory for to select the "Budget Budget Details " picklist value in Application Sections for Negotiation section when the budgeted Amount is not equal to the Allo
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -4639,7 +4639,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | EXE  |
 
-  @227740 @VerifyPOuserseethevalidationwhenthebudgetedamountnotequaltotheAllocationamount&UsertrytocreateawardfromFDMorfromtheApplication @sprint-13-US-204132 @komal @Allocation
+  @227740 @VerifyPOuserseethevalidationwhenthebudgetedamountnotequaltotheAllocationamount&UsertrytocreateawardfromFDMorfromtheApplication @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify PO user see the validation when the budgeted amount not equal to  the Allocation amount & User try to create award from FDM or from the Application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4818,7 +4818,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | PO   |
 
-  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When SPI resubmit the application after negotiation in pre screen review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4868,7 +4868,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226382 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinManagementReviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @226382 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinManagementReviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When SPI resubmit the application after negotiation in Management Review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4996,7 +4996,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation
+  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Focus area's budgeted not equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation check then it should through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5048,7 +5048,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation
+  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in Pre Screen review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5095,7 +5095,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation
+  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline:  Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in SME review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5147,7 +5147,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226384 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinManagementreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation
+  @226384 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinManagementreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When <SPI>resubmit the application after negotiation in Management review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5274,7 +5274,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify If Budgeted amount must be equal to the Allocation Amount When IND resubmit the application after negotiation then it will not through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5321,7 +5321,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When IND resubmit the application after negotiation in SME review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5378,7 +5378,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @225418 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinManagementReviewwhenallocationamountinannouncementischanged @sprint-11-US-204300 @komal @Allocation
+  @225418 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinManagementReviewwhenallocationamountinannouncementischanged @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that IND user will able to change the value in budget budget details while resubmitting the negotiations to grantor in Management Review when allocation amount in announcement is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5519,7 +5519,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation
+  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that IND user will able to change the value in budget:budget details while resubmitting the negotiations to grantor in pre screen review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5584,7 +5584,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @226387 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinSMEreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation
+  @226387 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinSMEreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify that IND user will able to change the value in budget budget details while resubmitting the negotiations to grantor in SME review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5653,7 +5653,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @274025 @VerifyuserseethevalidationwhenthebudgetedAmountisnotequaltotheAllocationamountwhenusertriedtopromotetheapplicationtothenextstepfromSMEreviewstep @sprint-23-US-273843 @hitesh
+  @274025 @VerifyuserseethevalidationwhenthebudgetedAmountisnotequaltotheAllocationamountwhenusertriedtopromotetheapplicationtothenextstepfromSMEreviewstep @sprint-23-US-273843 @hitesh @Pre-ScreenOnHoldSPI
   Scenario Outline: FA No Verify user see the validation when the budgeted Amount is not equal to the Allocation amount when user tried to promote the application to the next step from SME review step.
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -5767,7 +5767,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518 @hitesh
+  @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518 @hitesh @Pre-ScreenOnHoldSPI
   Scenario Outline:Verify PM user should not able to update the allocation amount on Ann  if negotiation is No on Ann once application is promote to FDM record
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5919,7 +5919,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @326929 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-10-US-320518 @hitesh
+  @326929 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-10-US-320518 @hitesh @Pre-ScreenOnHoldSPI
   Scenario: Verify external user should not see opportunity those external org are added eligible criteria but not invited on formula type of announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6208,7 +6208,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see top right button "Extend Dates" in page detail
     Then I softly cannot see top right button "Unpublish" in page detail
 
-  @270867 @VerifyAnnownerPMUsershouldseefollowingcolumnnamesinthetableunderinvitedapplicantssectionwhenAnnisinPublishedApprovedClosedandUnderRevisionstatus @sprint-21-US-267479 @Hitesh
+  @270867 @VerifyAnnownerPMUsershouldseefollowingcolumnnamesinthetableunderinvitedapplicantssectionwhenAnnisinPublishedApprovedClosedandUnderRevisionstatus @sprint-21-US-267479 @Hitesh @Pre-ScreenOnHoldSPI
   Scenario: Verify Ann owner PM User should see following column names in the table under invited applicants section when Ann is in Published Approved Closed and Under Revision status
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PM user"
     When I login to "As a Grantor" app as "PM" user

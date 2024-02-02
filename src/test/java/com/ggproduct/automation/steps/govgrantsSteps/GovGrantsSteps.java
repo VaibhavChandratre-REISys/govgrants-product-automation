@@ -282,9 +282,6 @@ public final class GovGrantsSteps {
                 actionIcon,
                 anyUniqueColumnValue.split(",")
         );
-        if (I.amPerforming().switchTo().getWindowsHandlers().size()> 0) {
-            I.amPerforming().switchTo().windowHandler(1);
-        }
     }
 
     @Description("Clicks on top any right button for a table using button name and table id")
