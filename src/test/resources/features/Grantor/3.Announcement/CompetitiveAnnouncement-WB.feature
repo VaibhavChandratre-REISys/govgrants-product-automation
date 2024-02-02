@@ -734,7 +734,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     #219357
     And I refresh the page
     When I navigate to "Budget" sub tab
-    Then I softly donot see field "Recommended Budget" inside page block
+    Then I softly do not see field "Recommended Budget" inside page block
     Examples:
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | EXE  |
@@ -1676,25 +1676,25 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   """
     Then I see the mail text is as follows :
   """
-Hello Automation SPI3,
+  Hello Automation SPI3,
 
 
 
-This email is to inform you that Application #{SavedValue:Automation Runtime Announcement} for Funding Opportunity #{SavedValue:Automation Runtime Announcement} has been recommended for funding.
+  This email is to inform you that Application #{SavedValue:Automation Runtime Announcement} for Funding Opportunity #{SavedValue:Automation Runtime Announcement} has been recommended for funding.
 
-Recommended Amount: $1,000.00
+  Recommended Amount: $1,000.00
 
-Comment By Grantor:
+  Comment By Grantor:
 
-For more details needed at this time, refer to the contact(s) listed on the Funding Opportunity.
+  For more details needed at this time, refer to the contact(s) listed on the Funding Opportunity.
 
-Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com , if you have any questions or need assistance with this task.
+ Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com , if you have any questions or need assistance with this task.
 
 
 
-Thank you.
+ Thank you.
 
-The EGMS Team
+ The EGMS Team
   """
     Examples:
       | Announcement Name                            | User |

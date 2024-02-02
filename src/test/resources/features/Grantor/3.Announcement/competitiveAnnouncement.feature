@@ -292,7 +292,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I softly see value "Closed" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I click on "View" icon for "Closed" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Closed" and is "green"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -310,19 +310,18 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-    When I click on "Upload Template" icon for " Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    And I pause execution for "3" seconds
+    When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    #And I perform quick search for "Automation test description" in "---announcement:-:annChecklist---" panel
+    When I close "Upload Template" modal by clicking the top right x button
     Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
     Given I edit the following rows inline in flex table with id "---announcement:-:annChecklist---" by clicking "Edit" :
       | Required  | Description                   | Applies To | Status |
       | Mandatory | Automation test description02 | Award      | Active |
-    And I refresh the page
     Then I softly see value "Automation test description02" for title "Description" inside table "---announcement:-:annChecklist---"
     When I click on "Delete" icon for "Automation test description02" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
-    #And I perform quick search for "Automation test description02" in "---announcement:-:annChecklist---" panel
     Then I softly do not see value "Automation test description02" for title "Description" inside table "---announcement:-:annChecklist---"
     And I navigate to "Setup" sub tab
     When I click on "Preview" icon for "Organization Desk Review" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
@@ -333,24 +332,20 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---announcement:-:AnnouncementNotestableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
+    | Created By                  | Title         | Description       |
+    | {SavedValue:EXE Username}   | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
-    And I click on top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    And I enter value "Automation Notes2" into field "Body"
-    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
+      | Created By                  | Title         | Description       |
+      | {SavedValue:EXE Username}   |               | Automation Notes2 |
     Then I softly see the following messages in the page details :
       | Required fields are missing : Title |
     And I pause execution for "2" seconds
-    And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    And I pause execution for "5" seconds
-    And I switch to iframe with id "---announcement:-:iframeIdAddFiles---"
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    When I close "Add Files" modal by clicking the top right x button
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---announcement:-:AnnouncementAttachmentTableId---"
     Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
     When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
@@ -405,13 +400,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
-    #And I perform quick search for "Automation Permanent KPI" in "---announcement:-:kpiflextableid---" panel
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
-#    When I click on advance filter "#advfAnnouncementKeyOutcomes" of table id "---announcement:-:kpiflextableid---"
-#    When I enter advance filter values inside id "advfAnnouncementKeyOutcomes"
-#      | Title | Contains | Automation Permanent KPI |
-    Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
-    And I refresh the page
     When I click on "View" icon for "Automation Permanent KPI" inside flex table with id "---announcement:-:kpiflextableid---"
     Then I see the header is "Key Performance Indicator" in the page details
     Then I see the sub-header is "Automation Permanent KPI" in the page details
@@ -429,7 +418,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
-    #And I perform quick search for "Automation Permanent Objective" in "---announcement:-:objectivesTableId---" panel
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
 
   @70163 @70166 @70197 @userAllowToSelectEligibilityDetails @aashish
@@ -466,18 +454,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see value "Animal And Plant Health Inspection Service" for title "Organization Name" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    #When I click on advance filter "#advfRelatedAnnouncementCFDANumbersGrantor" of table id "---announcement:-:relatedAnnouncementTableId---"
-    #When I enter advance filter values inside id "advfRelatedAnnouncementCFDANumbersGrantor"
-    #  | Program Title | Contains | Calfire |
-    Then I see "No Records Found" inside flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I refresh the page
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I perform quick search for "Automation Permanent NGO Program" in "---announcement:-:associateForRelated---" panel
     And I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---announcement:-:associateForRelated---"
     And I click on "View" icon for "Automation Permanent NGO Program" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I see the header is "NGO Program" in the page details
     Then I see the sub-header is "Automation Permanent NGO Program" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
@@ -494,8 +477,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Financials" sub tab
    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -897,7 +878,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I "Approve" in the approval decision
     Then I softly can see top right button "Revise" in page detail
     And I click on "Revise" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Status" as "Under Revision"
     Then I softly cannot see top right button "Extend Dates" in page detail
 
@@ -971,7 +952,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly cannot see row level action button "Edit" against "Record id" in flex table with id "---announcement:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see value "Approved" for title "New Value" inside table "History"
     Then I softly see value "Submitted for Approval" for title "Old Value" inside table "History"
@@ -1128,6 +1109,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
@@ -1180,6 +1162,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1187,8 +1170,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     And I pause execution for "3" seconds
-    Then I softly see status in Progress-bar is "Created" and is "green"
-    When I navigate to "History" sub tab
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1239,14 +1221,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
- #   When I close "Enter Review" modal by clicking the top right x button
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
@@ -1683,14 +1665,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    When I navigate to "Responsibilities" tab
+    And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-  #  When I close "Enter Review" modal by clicking the top right x button
     Then I softly see value "submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
