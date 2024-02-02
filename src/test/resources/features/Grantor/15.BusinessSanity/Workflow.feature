@@ -1532,8 +1532,11 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "5" seconds
-    And I navigate to "Funding Decision Memo" sub tab
-    Then I see the following rows under the following headers in table with id "---applicationReview:-:recommendedTableId---" :
-      | EGMS ID             | Grant     | Subrecipient Organization           | Budgeted Amount  |
-      | AP-TAO modified-005 | GT--00002 | SAN DIEGO ELECTRICAL TRAINING TRUST | $1,000.00        |
+    And I halt execution
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "AP-TAO modified-057" boxes in flex table with id "---applicationReview:-:appTableId---"
+#    And I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I halt execution

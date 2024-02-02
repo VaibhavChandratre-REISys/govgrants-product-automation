@@ -1211,6 +1211,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
+    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
@@ -3614,15 +3615,15 @@ Feature: Validate all scenarios for program
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Match          | 60                 |
+      | Match          | 50                 |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Program Income | 20                 |
+      | Program Income | 0                  |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Budget         | 20                 |
+      | Budget         | 0                  |
     And I expand nested table containing column value "Match"
     And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
@@ -3652,15 +3653,16 @@ Feature: Validate all scenarios for program
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Program Income | 60                 |
+      | Program Income | 50                 |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Match          | 20                 |
+      | Match          | 0                  |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Budget         | 20                 |
+      | Budget         | 0                  |
+    And I wait for "2" seconds
     And I collapse nested table containing column value "Match"
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
@@ -3681,6 +3683,31 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) |
       | Fiscal Review | 0               |
+    And I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---"
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Program Income"
+    And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Program Income | 0                  |
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Program Income"
+    And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Program Income"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Match"
+    And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Budget"
+    And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Budget"
+    And I close "Review Form" modal by clicking the top right x button
     And I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4837,9 +4864,10 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Permits"
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
-      | Question Order |  Max Score |
-      | 1              |   0        |
+      | Question Order | Question | Type | Max Score |
+      | 1              | Test 1   | Date | 0         |
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -4865,6 +4893,7 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Permits"
     And I wait for "2" seconds
     And I expand nested table containing column value "Permits"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 1              | 100       |
@@ -5348,7 +5377,8 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Budget"
     And I wait for "2" seconds
     And I expand nested table containing column value "Budget"
-    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
+    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" against the value "5" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "10" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "6" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5445,7 +5475,7 @@ Feature: Validate all scenarios for program
     #76503
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Return on Investment (ROI)"
     And I softly see value "1" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Is the project cost effective and has a cost estimate been provided?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5475,7 +5505,7 @@ Feature: Validate all scenarios for program
     #76946
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
-    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Eligibility"
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
@@ -5517,6 +5547,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Schedule"
+    And I wait for "2" seconds
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
@@ -5533,7 +5564,8 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "3" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     #77104
-   # And I collapse nested table containing column value "Schedule"
+    And I collapse nested table containing column value "Schedule"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Environment"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |

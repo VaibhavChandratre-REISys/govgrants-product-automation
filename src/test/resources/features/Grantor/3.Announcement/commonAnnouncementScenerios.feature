@@ -16,12 +16,13 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @34461 @52398 @70357 @@52399 @52397 @announcementCreationFA @smoke @annn
   Scenario: Creation of an Announcement |To Verify that if user selects "Subrecipients Match Required"-yes then he can  enter "Subrecipient Match(%)" in the Subrecipient Match(%) field while creating Announcement
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements" in "---announcement:-:annoucementTableId---"
+    And I click toggle button to select "Draft Directed Announcements"
     When I perform quick search for "Record Id" in "---announcement:-:annoucementTableId---" panel
     Then I softly do not see values "Record Id" and "Announcement Name" inside table
+    And I pause execution for "3" seconds
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
     And I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
@@ -64,7 +65,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly see field "Description" as "Automation test description"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -87,8 +88,6 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -100,7 +99,6 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Budget Period Addition to an Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 0          | 500      |
@@ -110,7 +108,10 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate the dissociation of Budget Period to the Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I pause execution for "3" seconds
     When I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     Then I do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
 
   @52407 @announcementFocusAreaAssociationFA
@@ -143,6 +144,7 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Automation test description | Mandatory | Award      | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     Then I see that "Active" has been added in flextable with Id "---announcement:-:annChecklist---"
 
   @52411 @announcementApproverSelectionFA
@@ -173,6 +175,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
@@ -193,12 +196,11 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+    And I click on submit review
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -206,15 +208,14 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside table
     When I click on "Complete Review" in the page details
-    Then I see status in Progress-bar is "Reviewed" and is "green"
+    Then I see status in Progress-bar is "Reviewed" and is "dark blue"
 
   @35003 @announcementAddAttachmentFA 
   Scenario: Validate the attachment for an Announcement
     Given I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    And I pause execution for "5" seconds
-    And I switch to iframe with id "---announcement:-:iframeIdAddFiles---"
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    When I click modal button "Close"
     Then I softly see "Funding Opportunity Announcement" has been added in "Announcement Files" flex table
 
   @52414 @reviewStepsBeforeSubmitForApprovalFA
@@ -231,15 +232,15 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
-#    And I pause execution for "2" seconds
-#    And I collapse nested table containing column value "Eligibility"
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "Eligibility"
     And I expand nested table containing column value "Completeness"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question2 | Written | 100       |
     And I pause execution for "2" seconds
     When I close "Review Form" modal by clicking the top right x button
-    #When I collapse nested table containing column value "Pre-Screen Review"
+    When I collapse nested table containing column value "Pre-Screen Review"
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -253,20 +254,21 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Schedule"
+    And I collapse nested table containing column value "Schedule"
     And I expand nested table containing column value "Environment"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question2 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Environment"
+    And I collapse nested table containing column value "Environment"
     And I expand nested table containing column value "Permits"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question3 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Permits"
+    And I collapse nested table containing column value "Permits"
     When I close "Review Form" modal by clicking the top right x button
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -280,20 +282,21 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Budget"
+    And I collapse nested table containing column value "Budget"
     And I expand nested table containing column value "Match"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Match"
+    And I collapse nested table containing column value "Match"
     And I expand nested table containing column value "Program Income"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Program Income"
+    And I collapse nested table containing column value "Program Income"
     When I close "Review Form" modal by clicking the top right x button
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -307,21 +310,21 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Capability"
+    And I collapse nested table containing column value "Capability"
     And I expand nested table containing column value "Approach"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Approach"
+    And I collapse nested table containing column value "Approach"
     And I expand nested table containing column value "Impact"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Impact"
+    And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
-    #When I collapse nested table containing column value "SME Review"
+    When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "Management Review"
     When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -334,21 +337,21 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
-    #And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I collapse nested table containing column value "Return on Investment (ROI)"
     And I expand nested table containing column value "Strategic Alignment"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
     When I close "Review Form" modal by clicking the top right x button
-    #When I collapse nested table containing column value "Management Review"
+    When I collapse nested table containing column value "Management Review"
     And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
     Then I see the following messages in the page details :
       | There are no errors with the review step templates. |
 
   @45773 @announcementOtherNotAbleToDelete
   Scenario: Validate that other users are not able to delete created announcement
-    When I re-login to "As a Grantor" app as "PM" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "All Announcements"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -356,7 +359,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @45774 @announcementOtherNotAbleToEdit
   Scenario: Validate that other users are not able to Edit created announcement
-    When I re-login to "As a Grantor" app as "PM" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "All Announcements"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
