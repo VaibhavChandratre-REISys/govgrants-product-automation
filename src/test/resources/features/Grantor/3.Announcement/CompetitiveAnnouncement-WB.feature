@@ -154,7 +154,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
       | Announcement Name                            | Filter                             | User |
@@ -480,10 +480,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     Then I can see row level action button "Create Subaward" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Then I can see row level action button "Initiate Negotiation" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -548,10 +548,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see field "Recommended Budget" inside page block
     #219366
     And I click on "Create Subaward" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on back arrow
     And I wait for "5" seconds
-    Then I see status in Progress-bar is "Converted to Award" and is "green"
+    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
     When I navigate to "Budget" sub tab
     Then I softly see field "Recommended Budget" inside page block
 
@@ -660,7 +660,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Approved"
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "green"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     And I wait for "10" seconds
     When I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     When I navigate to "Applications" tab
@@ -909,7 +909,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
@@ -1080,10 +1080,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
@@ -1291,7 +1291,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I save the field labeled "Announcement EGMS ID" as "AnnEgmdId"
     When I click on "Initiate Negotiation" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
@@ -1337,7 +1337,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:App2EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     When I click on "Complete Negotiation" in the page details
     And I click on "Create Subaward" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
     Examples:
       | Announcement Name                            | Application2                     | User |
@@ -1499,14 +1499,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     #227577
     And I click on "Create Subaward" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Then I softly see the following messages in the page details contains:
       | The Budgeted Amount must be equal to The Recommended Budget Amount. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
     And I refresh the page
     And I click on "Create Subaward" icon for "{SavedValue:App2EgmdId}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
     Examples:
       | Announcement Name                            | Application2                     | User |
@@ -1520,7 +1520,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "{AUTOEnvData:CompetitiveClosedAnnDetailBudgetYes}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:CompetitiveClosedAnnDetailBudgetYes}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Closed" and is "green"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I click on "Extend Dates" in the page details
     And I enter values into fields
       | Value | Field                               |
