@@ -245,7 +245,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
     And I click on "Edit" in the page details
     And I enter value "-5" into field "PreApplicationDueDate__c"
-    And I enter value "-5" into field "fieldApplicationDueDate__c"
+    And I enter value "-5" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
