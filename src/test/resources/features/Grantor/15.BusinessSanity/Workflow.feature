@@ -1533,7 +1533,27 @@ Feature: Validate all scenarios of every modules flow
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I pause execution for "5" seconds
-    And I navigate to "Funding Decision Memo" sub tab
-    Then I see the following rows under the following headers in table with id "---applicationReview:-:recommendedTableId---" :
-      | EGMS ID             | Grant     | Subrecipient Organization           | Budgeted Amount  |
-      | AP-TAO modified-005 | GT--00002 | SAN DIEGO ELECTRICAL TRAINING TRUST | $1,000.00        |
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    When I click on "Edit" icon for "Notes Record" inside flex table with id "---announcement:-:AnnouncementNotestableId---"
+    And I enter value "Notes Record1" into field "Title"
+    And I enter value "Automation Notes1" into field "Body"
+    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
+    And I click on top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    And I enter value "Automation Notes2" into field "Body"
+    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see the following messages in the page details :
+      | Required fields are missing : Title |
+    And I pause execution for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
+    And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    When I close "Add Files" modal by clicking the top right x button
+    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table

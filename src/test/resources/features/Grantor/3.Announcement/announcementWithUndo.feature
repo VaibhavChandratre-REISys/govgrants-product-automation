@@ -14,11 +14,10 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+    And I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "--announcement:-:annChecklist---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Site Visit | Active |
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I click on "Edit" in the page details
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -107,8 +106,8 @@ Feature: Validate all scenarios in the Announcement with Undo
      Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+   """
+   Hello,
 
 
 
@@ -224,7 +223,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -233,7 +231,6 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -343,7 +340,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -352,7 +348,6 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -437,7 +432,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -504,7 +498,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -611,7 +604,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -691,12 +683,11 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I click on submit review
+    And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -726,7 +717,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -814,12 +804,11 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I click on submit review
+    And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
@@ -844,7 +833,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -919,7 +907,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1067,6 +1054,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click "Yes" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Reject" in the approval decision
+    And I pause execution for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
@@ -1086,7 +1074,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1198,7 +1185,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1306,7 +1292,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1371,7 +1356,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1476,7 +1460,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #342362
     Then I cannot see top right button "Undo" in page detail
@@ -1601,7 +1584,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Financials" sub tab
@@ -1653,12 +1635,11 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I click on submit review
+    And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1795,6 +1776,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
+    And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -1836,6 +1818,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
+    And I click on Menu icon present on top right corner of the page
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
