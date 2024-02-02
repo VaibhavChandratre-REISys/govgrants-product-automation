@@ -1531,12 +1531,11 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
-    And I published "Formula" type announcement having name "Automation Permanent Archived Formula Ann-By Applicant and Focus Area" and properties "BY_APPLICANT_FOCUS_AREA"
-#    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
-
-#    When I login to "As a Grantor" app as "PM" user
-##    And I halt execution
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "AP-TAO modified-057" boxes in flex table with id "---applicationReview:-:appTableId---"
 #    And I navigate to "Applications" tab
 #    And I navigate to "Applications" content inside "Applications" subheader on left panel
 #    When I click toggle button to select "Applications - All"
