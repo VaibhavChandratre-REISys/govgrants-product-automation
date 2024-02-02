@@ -1211,6 +1211,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
+    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
@@ -5376,7 +5377,8 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Budget"
     And I wait for "2" seconds
     And I expand nested table containing column value "Budget"
-    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
+    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" against the value "5" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "10" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "6" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5473,7 +5475,7 @@ Feature: Validate all scenarios for program
     #76503
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Return on Investment (ROI)"
     And I softly see value "1" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Is the project cost effective and has a cost estimate been provided?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5503,7 +5505,7 @@ Feature: Validate all scenarios for program
     #76946
     When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
-    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Eligibility"
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"

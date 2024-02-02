@@ -1531,11 +1531,13 @@ Feature: Validate all scenarios of every modules flow
 
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    And I halt execution
-    And I expand nested table containing column value "Management Review"
-    And I pause execution for "5" seconds
-    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
-      | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Checked   |
-    And I halt execution
+    And I published "Formula" type announcement having name "Automation Permanent Archived Formula Ann-By Applicant and Focus Area" and properties "BY_APPLICANT_FOCUS_AREA"
+#    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
+
+#    When I login to "As a Grantor" app as "PM" user
+##    And I halt execution
+#    And I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I halt execution

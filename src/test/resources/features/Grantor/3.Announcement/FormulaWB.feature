@@ -12,6 +12,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -28,6 +29,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -64,6 +66,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -82,8 +85,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    When I enter value "State Governments" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    When I enter value "State Governments" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -108,7 +111,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -139,7 +142,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -157,7 +160,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     #204382
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---" without waiting for record
-    And I refresh the page
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
 
@@ -173,7 +175,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -227,7 +229,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I refresh the page
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     #204386
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I see value "$100" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
@@ -299,7 +301,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside table with table id "---announcement:-:AnnouncementServiceArea1TableId---" without processing
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
 
   @204414 @197148 @ValidatewhenAnnouncementispublishedthenemailshouldgettriggered @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate when Announcement is published then email should get triggered
@@ -321,8 +322,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -336,6 +335,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                      | Announcement |
+      | {SavedValue:EXE Username} | NA           |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
@@ -360,14 +362,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -382,6 +384,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I checkout to yopmail with mailid "automationspi30@yopmail.com"
     Then I refresh the page
     And I pause execution for "120" seconds
+    And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published"
     And I see the mail subject is as follows :
       """
       Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published
@@ -430,8 +433,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -440,8 +441,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    And I wait for "4" seconds
     When I click "Associate" after selection of "Automation ADMIN1" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name              | Announcement |
+      | Automation ADMIN1 | NA           |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
       | Automation ADMIN1 | Step 1       |
@@ -463,14 +468,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -501,8 +506,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -534,14 +537,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -591,7 +594,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see confirmation box with body "This action will remove the selected organization(s), Are you sure you want to proceed?" is displayed
     And I click "Yes" on modal confirmation box
-    And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
 
   @219111 @ValidatePMusershouldremovethes/rbyclickingtheremoveicon&successmessageshouldbedisplayforFormulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation
@@ -656,8 +659,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -889,6 +890,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     #197144
+    Then I softly see "Budget Summary" page block displayed
     Then I softly can see page block "Applicants"
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
@@ -930,7 +932,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following messages in the page details contains:
       | If Focus Area is Not Required, Allocation Level must be 'N/A', or 'By Applicant'. |
     #219235
-    And I enter value "N/A" into field "fieldAllocationlevel__c"
+    And I enter value "N/A" into field "Allocationlevel__c"
     And I enter value "Yes" into field "FocusAreaRequired__c"
     And I click modal button "Save and Continue"
     Then I see the following messages in the page details contains:
@@ -955,7 +957,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click table top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I see confirmation box with quotes in body "Unsaved data will be lost due to page refresh on "Add Organization" button . Please save the record to continue." is displayed
     And I click "Yes" on modal confirmation box
-    And I refresh the page
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
@@ -1008,8 +1009,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1040,18 +1039,18 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     #222105
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     #222141
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1082,13 +1081,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     #222329
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
   @222117 @222153 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinpublishedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
@@ -1102,7 +1099,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     #222117
-    Then I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1100             |
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -1137,7 +1134,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     #222106
-    Then I see status in Progress-bar is "Submitted for Review" and is "green"
+    Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
@@ -1154,12 +1151,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I wait for "8" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    When I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+    And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1167,7 +1164,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside table
     When I click on "Complete Review" in the page details
-    Then I see status in Progress-bar is "Reviewed" and is "green"
+    Then I see status in Progress-bar is "Reviewed" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -1194,7 +1191,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     #222349
-    Then I see status in Progress-bar is "Submitted for Review" and is "green"
+    Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
@@ -1226,8 +1223,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1264,7 +1259,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Overview" sub tab
     #221687
     Then I softly cannot see top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -1292,8 +1287,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1321,14 +1314,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1341,7 +1334,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     #222007
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "Green"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     #222022
@@ -1368,8 +1361,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1378,7 +1369,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-     When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement |
@@ -1397,14 +1388,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1416,7 +1407,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     #222465
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "Green"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     #222468
     And I click on "Unpublish" in the page details
@@ -1444,8 +1435,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1472,14 +1461,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1487,7 +1476,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     #222370
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
@@ -1515,7 +1504,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Under Revision"
     When I navigate to "Overview" sub tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
@@ -1548,12 +1537,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I wait for "8" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    When I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+    And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1561,7 +1550,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside table
     When I click on "Complete Review" in the page details
-    Then I see status in Progress-bar is "Reviewed" and is "green"
+    Then I see status in Progress-bar is "Reviewed" and is "dark blue"
     When I navigate to "Overview" sub tab
     #222356
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
@@ -1606,8 +1595,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1617,12 +1604,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 500      |
     #221965
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
     Then I see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     #221970
     And I navigate to "Responsibilities" sub tab
@@ -1630,7 +1618,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    Then I see status in Progress-bar is "Submitted for Review" and is "green"
+    Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     #221971
@@ -1642,12 +1630,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I wait for "8" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    When I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+    And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1655,11 +1643,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside table
     When I click on "Complete Review" in the page details
-    Then I see status in Progress-bar is "Reviewed" and is "green"
+    Then I see status in Progress-bar is "Reviewed" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     #221974
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
@@ -1699,12 +1688,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | {SavedValue:EXE Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     #222058
     When I navigate to "Overview" sub tab
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     #222060
     And I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-    Then I see status in Progress-bar is "Submitted for Review" and is "green"
+    Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     #222064
@@ -1715,12 +1704,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I wait for "8" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    When I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+    And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1728,7 +1717,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside table
     When I click on "Complete Review" in the page details
-    Then I see status in Progress-bar is "Reviewed" and is "green"
+    Then I see status in Progress-bar is "Reviewed" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
@@ -1742,25 +1731,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-#    And I click on "Unpublish" in the page details
-#    Then I softly see field "Status" as "Under Revision"
-#    When I navigate to "Overview" sub tab
-#    When I click on "Edit" in the page details
-#    When I navigate to "Overview" sub tab
-#    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-#    And I enter value "Test" into field "fieldAnnouncementDescription__c"
-#    When I navigate to "Financials" sub tab
-#    And I enter value "Justified" into field "fieldJustification__c"
-#    When I click on "Save" in the page details
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                     | Announcement |
-#      | {SavedValue:PM Username} | Step 1       |
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
-#    And I "Approve" in the approval decision
-#    Then I softly see status in Progress-bar is "Approved" and is "Green"
-#    And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "green"
     And I created approved FDM on application "<Announcement Name>"
     And I wait for "10" seconds
@@ -1798,22 +1768,22 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
-    And I enter value "Yes" into field "fieldDetailedBudgetingRequired__c"
+    And I enter value "Justified" into field "Justification__c"
+    And I enter value "Yes" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I created approved FDM on application "<Announcement Name>"
     And I wait for "10" seconds
     And I refresh the page
@@ -1861,7 +1831,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -1929,7 +1899,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -1993,25 +1963,25 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2022,7 +1992,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -2065,7 +2035,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -2123,20 +2093,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2195,6 +2162,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2260,26 +2228,26 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2290,7 +2258,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -2348,20 +2316,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2420,6 +2385,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2482,7 +2448,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -2497,7 +2463,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -2555,14 +2521,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -2666,20 +2630,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2735,7 +2696,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
@@ -2803,22 +2764,22 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
-    And I enter value "Yes" into field "fieldDetailedBudgetingRequired__c"
+    And I enter value "Justified" into field "Justification__c"
+    And I enter value "Yes" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2829,7 +2790,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -2889,20 +2850,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "2" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2984,21 +2942,21 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Automation Permanent Focus Area | 2000              |
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -3009,7 +2967,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -3067,20 +3025,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3152,7 +3107,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -3172,7 +3127,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -3252,21 +3207,21 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I created approved FDM on application "<Announcement Name>"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3452,20 +3407,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3524,6 +3476,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3571,7 +3524,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -3595,7 +3548,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -3615,7 +3568,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -3637,7 +3590,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
@@ -3667,7 +3620,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
     When I checkout to yopmail with mailid "automationspi30@yopmail.com"
     And I wait for "190" seconds
@@ -3700,7 +3653,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
@@ -3776,7 +3729,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
@@ -3815,7 +3768,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AnnEgmsId"
     When I checkout to yopmail with mailid "automationspi30@yopmail.com"
     And I wait for "190" seconds
@@ -3875,20 +3828,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3947,6 +3897,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3974,14 +3925,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     #227720
-    Then I softly do not see "State Allocation" in flex table header "flexGridFundingDecisionMemoApplications"
+    Then I softly do not see "State Allocation" in flex table header "FundingDecisionMemoApplications"
     #227708
-    Then I softly see "Budgeted Amount" in flex table header "flexGridFundingDecisionMemoApplications"
-    Then I softly see "Allocation Amount" in flex table header "flexGridFundingDecisionMemoApplications"
-    Then I softly do not see "Recommended  Budget" in flex table header "flexGridFundingDecisionMemoApplications"
-    Then I softly do not see "Requested Amount" in flex table header "flexGridFundingDecisionMemoApplications"
+    Then I softly see "Budgeted Amount" in flex table header "FundingDecisionMemoApplications"
+    Then I softly see "Allocation Amount" in flex table header "FundingDecisionMemoApplications"
+    Then I softly do not see "Recommended  Budget" in flex table header "FundingDecisionMemoApplications"
+    Then I softly do not see "Requested Amount" in flex table header "FundingDecisionMemoApplications"
     #227709
-    Then I see the following rows under the following headers in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following rows under the following headers in table with id "FundingDecisionMemoApplications" :
       | Allocation Amount | Budgeted Amount |
       | $1,000            | $1,000.00       |
     #227717
@@ -4045,19 +3996,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4117,6 +4065,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4160,25 +4109,25 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
-    Then I softly see that "Recommended" has been added in flextable with Id "flexGridFundingDecisionMemoApplications"
+    Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                        | FDM    |
       | {SavedValue:ADMIN Username} | Step 1 |
-    Then I softly see that "{SavedValue:ADMIN Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:ADMIN Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     #227829
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -4188,7 +4137,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -4215,7 +4164,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
@@ -4243,7 +4192,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
     #227840
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -4292,19 +4241,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4364,6 +4310,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4391,7 +4338,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     #227725
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     And I refresh the page
@@ -4422,7 +4369,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -4456,9 +4403,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Negotiations Tab - The Budgeted Amount must be equal to the Allocation Amount in the application. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field before sending the application back for revision. |
     #227802
     When I click on "Edit" in the page details
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
-    Then I see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Application Sections for Revision - Available"
-    Then I do not see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget: Focus Area" under list "Application Sections for Revision - Available"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
+    Then I see multipicklist field "ApplicationSectionsForRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Application Sections for Revision - Available"
+    Then I do not see multipicklist field "ApplicationSectionsForRevision__c" contains value "Budget: Focus Area" under list "Application Sections for Revision - Available"
 
     Examples:
       | Announcement Name                                    |
@@ -4478,7 +4425,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -4528,19 +4475,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4599,6 +4543,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4647,18 +4592,18 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | AuGr                        | GrantCode__c          |
       | Automation Test Description | fieldJustification__c |
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I navigate to "Negotiations" sub tab
@@ -4710,20 +4655,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4782,6 +4724,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4829,20 +4772,20 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | AuGr                        | GrantCode__c          |
       | Automation Test Description | fieldJustification__c |
     And I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     #227740
@@ -4881,8 +4824,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -4940,20 +4882,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5012,8 +4951,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5064,8 +5002,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5112,8 +5049,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5164,8 +5100,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5222,20 +5157,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5294,8 +5226,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5341,8 +5272,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5393,8 +5323,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5456,20 +5385,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5537,8 +5463,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants     | Allocated Amount |
       | Automation IND | 2000             |
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5601,8 +5526,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
     And I refresh the page
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5670,8 +5594,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
     And I refresh the page
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -5735,20 +5658,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5763,7 +5683,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5774,7 +5693,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5810,7 +5728,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details contains:
-      |The Budgeted amount must be equal to the Allocation amount for the following Application IDs. Please send these applications back for revision |
+      | The Budgeted amount must be equal to the Allocation amount for the following Application IDs. Please send these applications back for revision |
 
     Examples:
       | Announcement Name                                    |
@@ -5853,20 +5771,17 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
+    And I wait for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5881,7 +5796,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5892,7 +5806,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5927,6 +5840,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5953,7 +5867,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see field "Status" as "Completed"
-    When I login to "As a Grantor" app as "PM" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
@@ -5965,7 +5879,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 5000             |
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
-      | "Allocation Amount" update is not allowed for organization, As Application is Promoted to FDM.|
+      | "Allocation Amount" update is not allowed for organization, As Application is Promoted to FDM. |
 
     Examples:
       | Announcement Name                                | Application Name                                 |
@@ -5985,15 +5899,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     When I navigate to "Overview" sub tab
-    When I enter value "Individuals" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -6005,8 +5917,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name              | Announcement |
-      | Automation PM     | Step 1       |
+      | Name          | Announcement |
+      | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -6018,24 +5930,24 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicant Organization    | Allocated Amount |
-      | Automation IND            | 1000             |
+      | Applicant Organization | Allocated Amount |
+      | Automation IND         | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I pause execution for "5" seconds
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "green"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
@@ -6062,8 +5974,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -6088,15 +5998,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     When I navigate to "Overview" sub tab
-    When I enter value "Individuals" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 5000            |
@@ -6142,7 +6050,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6157,9 +6065,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I click on "Edit" in the page details
-    And I clear the value from field "fieldEligibleApplicantTypes__c"
+    And I clear the value from field "EligibleApplicantTypes__c"
     And I navigate to "Financials" sub tab
-    And I clear the value from field "fieldJustification__c"
+    And I clear the value from field "Justification__c"
     And I click on "Save" in the page details
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -6192,16 +6100,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I Click on "Reassign Records" icon for "Announcement" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Announcement" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
@@ -6214,8 +6122,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 5000            |
@@ -6230,7 +6136,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
+      | Name                      | Announcement |
       | {SavedValue:PM1 Username} | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -6252,12 +6158,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "green"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     Then I softly can see top right button "Extend Dates" in page detail
     Then I softly can see top right button "Unpublish" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
