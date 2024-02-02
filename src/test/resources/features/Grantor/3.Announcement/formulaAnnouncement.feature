@@ -11,8 +11,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I wait for "4" seconds
 
    @34461 @70612 @submittingAnnouncementForApprovalFA @announcementForPastApplicationDueDateFA @submittedAnnouncementDeletionFA @smoke
    Scenario: Validate that user can not enter application due date as past date | Validate the submission of Announcement for Approval || Validate that only record owner cannot delete Submitted for Approval status announcements
