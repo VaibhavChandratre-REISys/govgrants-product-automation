@@ -2538,7 +2538,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     Then I softly can see top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @Debug @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
+   @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
