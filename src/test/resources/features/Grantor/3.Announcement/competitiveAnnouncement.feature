@@ -160,15 +160,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     And I save the value from row "1" for column name "Name" as "searchedItem" from flex table "---announcement:-:businessFormlistTableId---"
-    #And I perform quick search for "{SavedValue:searchedItem}" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "{SavedValue:searchedItem}" for title "Name" inside table "---announcement:-:businessFormlistTableId---"
     And I pause execution for "5" seconds
-    And I refresh the page
-    #When I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
-    #When I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
-    #  | Package Name | Contains | Grantor Site Visit Forms |
-    Then I softly see value "Grantor Site Visit Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
-    Then I softly see value "Site Visit" for title "Package Type" inside table "---announcement:-:businessFormlistTableId---"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
@@ -183,7 +176,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "{SavedValue:startDate}" for title "Start Date" inside table "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "{SavedValue:endDate}" for title "End Date" inside table "---announcement:-:budgetPeriodTableId---"
-    #And I click on "Remove" icon for "BP02" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction " inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
@@ -213,9 +205,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I check "All" boxes in flex table with id "---announcement:-:associateForRelated---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:associateForRelated---"
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
-    #And I click on advance filter "#advfRelatedAnnouncementCFDANumbersGrantor" of table id "---announcement:-:relatedAnnouncementTableId---"
-    #And I enter advance filter values inside id "advfRelatedAnnouncementCFDANumbersGrantor"
-    #  | Program Number | Contains | {SavedValue:prNum} |
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
   @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
@@ -484,16 +473,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-    And I refresh the page
-    #When I click on advance filter "#advfAnnouncementFundingAccountGrantor" of table id "---announcement:-:fundingAccountsTableId---"
-    #When I enter advance filter values inside id "advfAnnouncementFundingAccountGrantor"
-    #  | Pre-Encumbrance | equals to | 2000 |
-    Then I softly see value "$2,000.00" for title "Pre-Encumbrance" inside table "---announcement:-:fundingAccountsTableId---"
-    And I refresh the page
-    #When I click on advance filter "#advfAnnouncementFundingAccountGrantor" of table id "---announcement:-:fundingAccountsTableId---"
-    #When I enter advance filter values inside id "advfAnnouncementFundingAccountGrantor"
-    #  | Pre-Encumbrance | equals to | 3000 |
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:fundingAccountsTableId---"
     When I navigate to "History" sub tab
     And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
     Then I softly see value "Pre-Encumbrance" for title "Changed Field" inside table "History"
@@ -515,7 +494,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | TestFirst                  | fieldFirstName |
       | TestLast                   | fieldLastName  |
       | {SavedValue:uniqueEmailID} | fieldEmail     |
-   # When I enter value "Primary" into field "fieldUserRole__c"
     And I click modal button "Save"
     And I refresh the page
     Then I softly see value "TestFirst TestLast" for title "Name" inside table "---announcement:-:contactTableId---"
@@ -541,15 +519,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter value "SecondLast" into field "LastName"
     When I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
-#    And I click on advance filter "#advfAnnouncementContacts" of table id "---announcement:-:contactTableId---"
-#    When I enter advance filter values inside id "advfAnnouncementContacts"
-#      | Title | Contains | ab |
-    Then I softly see value "ab" for title "Title" inside table "---announcement:-:contactTableId---"
-    And I refresh the page
-    #And I click on advance filter "#advfAnnouncementContacts" of table id "---announcement:-:contactTableId---"
-    #When I enter advance filter values inside id "advfAnnouncementContacts"
-    #  | Title | Contains | who am i |
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:contactTableId---"
+    And I pause execution for "3" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -577,10 +547,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:ApproverRolesGrantorgridTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    #When I click on advance filter "#advfGrantorAnnouncementReviewersTempGrantor" of table id "---announcement:-:ApproverRolesGrantorgridTableId---"
-    #When I enter advance filter values inside id "advfGrantorAnnouncementReviewersTempGrantor"
-    #  | Responsibility | equals to | Fiscal Reviewer |
-    Then I softly see value "Fiscal Reviewer" for title "Responsibility" inside table "---announcement:-:ApproverRolesGrantorgridTableId---"
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal

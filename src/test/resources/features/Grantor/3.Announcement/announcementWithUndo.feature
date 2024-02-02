@@ -14,8 +14,8 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+    And I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "--announcement:-:annChecklist---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Site Visit | Active |
     When I click on "Edit" in the page details
