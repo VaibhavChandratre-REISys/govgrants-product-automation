@@ -88,7 +88,6 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    And I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -100,7 +99,6 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Budget Period Addition to an Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 0          | 500      |
@@ -110,7 +108,10 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate the dissociation of Budget Period to the Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I pause execution for "3" seconds
     When I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     Then I do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
 
   @52407 @announcementFocusAreaAssociationFA
@@ -143,7 +144,7 @@ Feature: Validate all common scenarios in the  Announcement tab
       | Automation test description | Mandatory | Award      | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I close "Upload Template" modal by clicking the top right x button
+    And I click modal button "Close"
     Then I see that "Active" has been added in flextable with Id "---announcement:-:annChecklist---"
 
   @52411 @announcementApproverSelectionFA
@@ -174,6 +175,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
@@ -212,8 +214,8 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate the attachment for an Announcement
     Given I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    And I pause execution for "5" seconds
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    When I click modal button "Close"
     Then I softly see "Funding Opportunity Announcement" has been added in "Announcement Files" flex table
 
   @52414 @reviewStepsBeforeSubmitForApprovalFA
@@ -266,6 +268,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I pause execution for "2" seconds
     And I collapse nested table containing column value "Permits"
     When I close "Review Form" modal by clicking the top right x button
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -293,6 +296,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I pause execution for "2" seconds
     And I collapse nested table containing column value "Program Income"
     When I close "Review Form" modal by clicking the top right x button
+    And I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -347,7 +351,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @45773 @announcementOtherNotAbleToDelete
   Scenario: Validate that other users are not able to delete created announcement
-    When I re-login to "As a Grantor" app as "PM" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "All Announcements"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -355,7 +359,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 
   @45774 @announcementOtherNotAbleToEdit
   Scenario: Validate that other users are not able to Edit created announcement
-    When I re-login to "As a Grantor" app as "PM" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "All Announcements"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel

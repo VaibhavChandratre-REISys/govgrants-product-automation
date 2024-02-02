@@ -18,7 +18,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Site Visit | Active |
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I click on "Edit" in the page details
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -224,7 +223,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -233,7 +231,6 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -343,7 +340,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -352,7 +348,6 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -437,7 +432,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -504,7 +498,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -611,7 +604,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -725,7 +717,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -842,7 +833,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -917,7 +907,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1084,7 +1073,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1196,7 +1184,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1304,7 +1291,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1369,7 +1355,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1474,7 +1459,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #342362
     Then I cannot see top right button "Undo" in page detail
@@ -1599,7 +1583,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Financials" sub tab
