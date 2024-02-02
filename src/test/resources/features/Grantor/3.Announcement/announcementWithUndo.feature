@@ -106,8 +106,8 @@ Feature: Validate all scenarios in the Announcement with Undo
      Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}.
       """
     Then I see the mail text is as follows :
-  """
-  Hello,
+   """
+   Hello,
 
 
 
@@ -1054,6 +1054,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click "Yes" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Reject" in the approval decision
+    And I pause execution for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
