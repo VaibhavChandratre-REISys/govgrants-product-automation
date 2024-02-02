@@ -282,6 +282,9 @@ public final class GovGrantsSteps {
                 actionIcon,
                 anyUniqueColumnValue.split(",")
         );
+        if (I.amPerforming().switchTo().getWindowsHandlers().size()> 0) {
+            I.amPerforming().switchTo().windowHandler(1);
+        }
     }
 
     @Description("Clicks on top any right button for a table using button name and table id")
@@ -389,9 +392,6 @@ public final class GovGrantsSteps {
 
     @When("^I check \"([^\"]*)\" boxes in flex table with id \"([^\"]*)\"$")
     public void checkFlexRows(String uniqueColumnText, String flexTableId) {
-      if (I.amPerforming().switchTo().getWindowsHandlers().size()> 0) {
-        I.amPerforming().switchTo().windowHandler(1);
-      }
         if ("All".equalsIgnoreCase(uniqueColumnText)) {
             ggObjects.checkFlexRows(flexTableId);
         } else {
