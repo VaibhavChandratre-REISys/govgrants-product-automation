@@ -1532,28 +1532,11 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "5" seconds
-    And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---announcement:-:AnnouncementNotestableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
-    And I click on top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    And I enter value "Automation Notes2" into field "Body"
-    And I click on top right button "Save" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see the following messages in the page details :
-      | Required fields are missing : Title |
-    And I pause execution for "2" seconds
-    And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
-    When I close "Add Files" modal by clicking the top right x button
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---announcement:-:AnnouncementAttachmentTableId---"
-    Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
-    When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
+    And I halt execution
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "AP-TAO modified-057" boxes in flex table with id "---applicationReview:-:appTableId---"
+#    And I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I halt execution

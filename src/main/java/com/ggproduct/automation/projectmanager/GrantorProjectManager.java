@@ -67,7 +67,7 @@ public class GrantorProjectManager extends ProjectManager {
     }
 
     public By pageBlock(String pageBlockName) {
-        return By.xpath("//div[contains(@class,'panel-title') or contains(@class,'panel-heading')]//*[text()='" + pageBlockName + "' or @title='" + pageBlockName + "']");
+        return By.xpath("//div[contains(@class,'panel-title') or contains(@class,'panel-heading')]//*[text()='" + pageBlockName + "' or @title='" + pageBlockName + "'] | //c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + pageBlockName + "']");
     }
 
     /**

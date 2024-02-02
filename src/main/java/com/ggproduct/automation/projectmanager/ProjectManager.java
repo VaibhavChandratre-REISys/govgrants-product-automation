@@ -102,7 +102,7 @@ public class ProjectManager extends ProjectWebServices {
      * @author komal.mukhekar
      */
     public void assertMessageOfConfirmationBoxPopUp(String message, boolean isSoftly) {
-        By confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')]");
+        By confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//div |//div[contains(@class,'modal__container')]//lightning-modal-body");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(message).isEqualTo(
                     I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " ")
