@@ -437,7 +437,11 @@ public class GrantorProjectManager extends ProjectManager {
      * @param flexTableId
      */
     public void clickTableTopRightButton(String buttonName, String flexTableId) {
-        I.amPerforming().click().on(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(flexTableId, buttonName));
+        try {
+            I.amPerforming().click().on(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(flexTableId, buttonName));
+        } catch(Exception e){
+            I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(flexTableId, buttonName));
+        }
     }
 
     /**

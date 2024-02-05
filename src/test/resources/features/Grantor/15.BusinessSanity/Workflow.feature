@@ -1539,4 +1539,4 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Applications" tab
 #    And I navigate to "Applications" content inside "Applications" subheader on left panel
 #    When I click toggle button to select "Applications - All"
-#    And I halt execution
+    And I halt execution
