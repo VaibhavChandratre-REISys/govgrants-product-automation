@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-   @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
+  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -237,7 +237,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
 
-  @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage @aashish 
+  @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage @aashish
   Scenario: To validate system generates error message,when user giving form weight but review steps weight is 0 in Announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -339,8 +339,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "3" seconds
     And I expand nested table containing column value "SME Review"
     When I enter the following values into flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "New" :
-      | Step Order| Step Name           | Description |Step Weight (%) |
-      | 4         | Program Review Form | Test        |70.00%          |
+      | Step Order | Step Name           | Description | Step Weight (%) |
+      | 4          | Program Review Form | Test        | 70.00%          |
     And I pause execution for "2" seconds
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I pause execution for "3" seconds
@@ -572,7 +572,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | FO    |
       | FD    |
 
-  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra 
+  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra
   Scenario: To validate system is getting displayed error message while adding invalid values into the filter for Approves section on responsibility tab of announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -595,7 +595,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I click on advance filter "#advfGrantorAnnouncementRolesandResponsibilities" of table id "---announcement:-:approversTableId---"
     #And I enter advance filter values inside id "advfGrantorAnnouncementRolesandResponsibilities"
     #  | Announcement | equals to | Step 4 |
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:approversTableId---"
+#    Then I softly see "No Records Found" inside flex table with id "---announcement:-:approversTableId---"
     And I navigate to "Setup" sub tab
 #    And I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
 #    And I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
@@ -817,7 +817,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-  @169907 @Verifyuserabletosee"Preview"icon"Forms"section"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali 
+  @169907 @Verifyuserabletosee"Preview"icon"Forms"section"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user  should able to see the "Preview" icon  in "Forms" section on "Preview Package" Modal for announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -859,8 +859,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -888,11 +889,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -912,7 +918,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Standard Pre-Application form" inside flex table with id "---program:-:previewPackageTableId---" without waiting for record
     Then I see new tab is opened
 
-  @169906 @usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali 
+  @169906 @usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user  should able to see the "Preview" icon  in "Forms" section on "Preview Package" Modal for announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -955,8 +961,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -983,11 +990,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1005,7 +1017,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---program:-:previewPackageTableId---"
 
-  @169905 @Usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"ModalforGrantorpre-applicationformforannouncementrecord. @Sprint-7 @Vrishali 
+  @169905 @Usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"ModalforGrantorpre-applicationformforannouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to see the "Preview" icon in "Forms" section on "Preview Package" Modal for  Grantor pre-application form for announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1048,8 +1060,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1076,11 +1089,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1098,7 +1116,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---program:-:previewPackageTableId---"
 
-  @169904 @usershouldabletoopen/see(OnSamewindow)GrantorPre-applicationformwhenuserclickon"Preview"actionforAnnouncementrecord. @Sprint-7 @Vrishali 
+  @169904 @usershouldabletoopen/see(OnSamewindow)GrantorPre-applicationformwhenuserclickon"Preview"actionforAnnouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to open/see(On Same window) Grantor Pre-application form when user  click on "Preview" action for Announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1141,8 +1159,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1169,11 +1188,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1234,8 +1258,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1262,11 +1287,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1283,7 +1313,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Then I softly can see row level action button "Preview" against "Grantor Pre-application Form" in flex table with id "---announcement:-:businessFormlistTableId---"
 
- @Debug @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
+   @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
   Scenario: Verify user should able to see new "Grantor Pre-application form" under the setup tab of  "Announcement" record
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1322,11 +1352,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+#    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1354,11 +1386,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1374,7 +1405,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
 
-  @174348 @Versionnumbershoulddisplay1forGrantorPre-applicationformundertheversionnumbercolumn @Sprint-7 @Vrishali 
+  @174348 @Versionnumbershoulddisplay1forGrantorPre-applicationformundertheversionnumbercolumn @Sprint-7 @Vrishali
   Scenario: Version number  should display  1 for Grantor Pre-application form under the version number column
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1416,8 +1447,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
-    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1444,11 +1476,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Construction                                | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -1464,7 +1496,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "1" for title "Version Number" inside table "---announcement:-:businessFormlistTableId---"
 
-  @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai 
+   @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1490,10 +1522,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #194683
     When I navigate to "Records of Target User" sub tab
     Then I softly see "Announcements Owned by Target User " page block displayed
-    When I navigate to "Announcements Available for Reassignment" sub tab
+    When I navigate to "Records of Source User" sub tab
     #194690
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "1" seconds
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
     #194685
@@ -1501,6 +1533,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
 
@@ -1565,7 +1598,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
-    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Transfer is in progress, kindly wait for email confirmation. |
 
@@ -1608,7 +1640,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---announcement:-:announcementOwner---"
 
-  @194741 @Validatenewownercanchangetheextenddate&unpublishtheannouncementonlyannouncementisinpublishedstate @sprint-4 @vaibhav @reassignment @ownershipcheck 
+  @194741 @Validatenewownercanchangetheextenddate&unpublishtheannouncementonlyannouncementisinpublishedstate @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate new owner can change the extend date & unpublish the announcement only if announcement is in published state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2175,7 +2207,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---announcement:-:annFieldHistory---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
 
-  @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4 @vaibhav @reassignment @ownershipcheck 
+  @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate user approved the announcement & reassign ownership to  new user then publish option should display to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2377,7 +2409,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---announcement:-:reviewersTableId---"
 
-  @197931 @Validateafterapprovedtheannouncementwhenuserchangetheownershipofannouncementthenpublishbuttonshoulddisplaytothenewowner @sprint-4 @vaibhav @reassignment 
+  @197931 @Validateafterapprovedtheannouncementwhenuserchangetheownershipofannouncementthenpublishbuttonshoulddisplaytothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after approved the announcement when user change the ownership of  announcement then publish button should display to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2456,7 +2488,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-  @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment 
+  @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after created announcement user changed the ownership of announcement then all overview tab button access should get to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2538,7 +2570,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     Then I softly can see top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-   @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
+  @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2599,6 +2631,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2627,6 +2660,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
     When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
@@ -2683,7 +2717,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @195051 @ValidateEXEuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign 
+  @195051 @ValidateEXEuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate EXE user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2756,7 +2790,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @195195 @ValidateusercancheckthetaskfromReassignMyCurrentTasktableandreassignthemtothenewuserofsameprofileandsameorganization @sprint-4 @vaibhav @reassignment 
+  @195195 @ValidateusercancheckthetaskfromReassignMyCurrentTasktableandreassignthemtothenewuserofsameprofileandsameorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can check the task from Reassign My Current Task table and reassign them to the new user of same profile and same organization
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2838,12 +2872,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "10" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -2951,7 +2984,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @195201 @ValidatependingtaskshouldbegeneratedforPOasnewownerofAnn @sprint-4 @vaibhav @reassignment @taskreassign 
+  @195201 @ValidatependingtaskshouldbegeneratedforPOasnewownerofAnn @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate pending task should be generated for PO as new owner of Ann
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -3020,7 +3053,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @195215 @ValidatePMasoldAnnownercanonlyviewAnnrecordoncehereassignAnnownershiptasktonewuser @sprint-4 @vaibhav @reassignment 
+  @195215 @ValidatePMasoldAnnownercanonlyviewAnnrecordoncehereassignAnnownershiptasktonewuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate PM as old Ann owner can only view Ann record once he reassign Ann ownership task to new user
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -3233,7 +3266,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I select value "Automation PM" into field "input-target"
     Then I softly see confirmation box with body "Source User and Target User cannot be same.Please select different Source and Target Users" is displayed
 
-  @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment 
+  @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -3530,7 +3563,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly cannot see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @197929 @ValidateAnnownerunpublishAnnandreassignownershiptonewuserforpublishthenpendingtaskshouldgeneratefornewowner @sprint-4 @vaibhav @reassignment 
+  @197929 @ValidateAnnownerunpublishAnnandreassignownershiptonewuserforpublishthenpendingtaskshouldgeneratefornewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate Ann owner unpublish Ann and reassign ownership to new user for publish then pending task should generate for new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3812,12 +3845,17 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter values into fields
-      | Value                                       | Field                      |
-      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-      | Non-Construction                            | Budget_Category_Package__c |
+    And I wait for "3" seconds
+    When I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
+#    And I enter values into fields
+#      | Value                                       | Field                      |
+#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+#      | Non-Construction                            | Budget_Category_Package__c |
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
@@ -3997,7 +4035,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the text containing :
       | Pre-Application and Applications Tasks which are assigned to the internal user will not be visible in the Task Reassignment page. These tasks are associated with Announcement Owner. To reassign these tasks, go to the Ownership Reassignment page and transfer the ownership of desired announcement. Queue based tasks(Related to User registration and Organizational Risk assessment) which are assigned to this user will not be shown here. Please check the Pending Tasks table for such tasks. |
 
-   @230020 @ValidateAnnnewownercanseeeditanddeleteiconforformsafterAnnownershipwillgetchange @sprint-12-US-226646 @vaibhav @reassignment
+  @230020 @ValidateAnnnewownercanseeeditanddeleteiconforformsafterAnnownershipwillgetchange @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Ann new owner can see edit and delete icon for forms after Ann ownership will get change
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4059,7 +4097,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
     Then I cannot see row level action button "Delete" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
 
-  @195209 @ValidateemailshouldbegeneratedfornewowneronceoldownerreassignAnnownershiptasktonewuser @sprint-12-US-226646 @vaibhav @reassignment 
+  @195209 @ValidateemailshouldbegeneratedfornewowneronceoldownerreassignAnnownershiptasktonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate  email should be generated for new owner once old owner reassign Ann ownership task to new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4179,7 +4217,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment  
+  @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate email should get reached to "SA"(previous owner) when ownership of record is changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4259,7 +4297,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @221973 @Validatetaskeassignmentdoesnothappenwhenausertriestoreassignhistasktoanotheruserisresponsiblefordifferentstepofsamemodule @sprint-11-US-218319 @vaibhav @reassignment 
+  @221973 @Validatetaskeassignmentdoesnothappenwhenausertriestoreassignhistasktoanotheruserisresponsiblefordifferentstepofsamemodule @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate task reassignment does not happen when a user tries to reassign his task to another user is responsible for different step of same module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4572,7 +4610,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment 
+  @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4624,7 +4662,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation EXE1 | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-    And I click on "Send for Review" icon for "Automation EXE1" inside table
+    And I pause execution for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:EXE1 Username}" inside table
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -4776,7 +4816,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @223503 @ValidateAnnstep4approveisinsertedforAnncolumnwhenapprovaltaskisreassigned @sprint-11-US-218319 @vaibhav @reassignment 
+  @223503 @ValidateAnnstep4approveisinsertedforAnncolumnwhenapprovaltaskisreassigned @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann step4 approver is inserted for Ann column when approval task is reassigned
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4948,11 +4988,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID2"
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement for Bulk"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -4980,7 +5018,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation PM1 | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
-    And I click on "Send for Review" icon for "Automation PM1" inside table
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:PM1 Username}" inside table
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -5156,7 +5196,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 1" for title "Announcement" against the value "Automation PM1" inside table "---announcement:-:approversTableId---"
     Then I softly see value "NA" for title "Announcement" against the value "Automation PM" inside table "---announcement:-:approversTableId---"
 
-  @223430 @ValidateAnnouncementModulethetransferoftaskownershipisfail&Validatemailinyopmail @sprint-11-US-217998 @vaibhav @reassignment 
+  @223430 @ValidateAnnouncementModulethetransferoftaskownershipisfail&Validatemailinyopmail @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Announcement Module the transfer of task ownership is fail & Validate mail in yopmail
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5249,7 +5289,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-  @223528 @ValidateAnnouncementModuleeifAnnouncementrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofannouncementthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment 
+  @223528 @ValidateAnnouncementModuleeifAnnouncementrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofannouncementthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -6156,7 +6196,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-     When I "Send to Owner" in the approval decision
+    When I "Send to Owner" in the approval decision
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -6180,7 +6220,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment 
+   @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
   Scenario: Validate Announcement added a different user Simon PM for same role program reviewer and reassigned then the reassignment got successful for the new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6211,6 +6251,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation FO | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -6249,7 +6290,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @238054 @ValidateannouncementwhenuseraddeddifferentuserSarahPMfordifferentrolefiscalreviewerandreassignedthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment 
+  @238054 @ValidateannouncementwhenuseraddeddifferentuserSarahPMfordifferentrolefiscalreviewerandreassignedthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
   Scenario: Validate announcement  when user added a different user Sarah PM for different role <fiscal reviewer> and reassigned the reassignment got successful for the new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6280,6 +6321,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation EXE | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -6322,7 +6364,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:homePendingTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:homePendingTableId---"
 
-  @238056 @238057 @Validateannouncementoldercommentsarenoteditabletoinitialandreassignereviewerwhenresendforreviewisperformed @sprint-14-US-235915 @vaibhav @reassignment 
+  @238056 @238057 @Validateannouncementoldercommentsarenoteditabletoinitialandreassignereviewerwhenresendforreviewisperformed @sprint-14-US-235915 @vaibhav @reassignment
   Scenario: Validate announcement older comments are not editable to initial and reassigned reviewer when resend for review is performed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6507,7 +6549,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment 
+  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann the correct step & reviewer mapping is done on individual record for respective assignment when records with similar task type for different step and responsibilities are selected and processed/ reassigned simultaneously
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

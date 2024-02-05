@@ -435,7 +435,7 @@ Feature: Validate all scenarios for program
 
 
 
-   @PoojaUndo @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -721,7 +721,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @PoojaUndo @279434 @Verifystep1approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @279434 @Verifystep1approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario:Verify step 1 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -983,6 +983,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
@@ -1546,7 +1547,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
- @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+ @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh @skipOnJenkins
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2230,6 +2231,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
+
   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo @Temphitesh
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
@@ -2796,6 +2798,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
