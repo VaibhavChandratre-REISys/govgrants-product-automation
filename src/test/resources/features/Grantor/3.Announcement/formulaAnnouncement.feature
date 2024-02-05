@@ -24,12 +24,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
-#    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-#    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -51,6 +48,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
@@ -138,7 +136,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" without waiting for record
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -150,7 +148,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I see the following messages in the page details :
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
 
@@ -282,6 +280,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see that "Announcement" is in "Draft" status
