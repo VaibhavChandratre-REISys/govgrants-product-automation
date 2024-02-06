@@ -62,6 +62,9 @@ Feature: Validate all scenarios of grants and award without background
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Award      | Active |
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
+    Then I see "Mandatory" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
+    Then I see "Award" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
+    Then I see "Active" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
   @68057 @createGrantEXE @jitendra
   Scenario: Valiadate EXE user can create Direct Grant
