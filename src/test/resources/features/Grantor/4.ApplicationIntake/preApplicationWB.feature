@@ -351,7 +351,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:preappID}" inside table
     When I click on "Accept" in the page details
     And I pause execution for "150" seconds
-    And I checkout to yopmail with mailid "Automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I refresh the page
     Then I see the mail subject is as follows :
       """
