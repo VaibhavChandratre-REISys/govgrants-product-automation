@@ -559,6 +559,7 @@ public final class GovGrantsSteps {
             By topRightButton = govgrants.perform().pageDetails().getAnyTopRightButton(buttonName);
             I.amPerforming().click().on(topRightButton);
         }
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 
     @Description("click top right button after reaching to page detail without processing")
