@@ -231,6 +231,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I pause execution for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -910,12 +911,9 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -1545,7 +1543,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}.
+     Sandbox: Notification: Approver initiated undo action onAnnouncement {SavedValue:AnnEGMSID}.
       """
     Then I see the mail text is as follows :
      """
@@ -1553,19 +1551,19 @@ Feature: Validate all scenarios in the Announcement with Undo
 
 
 
-     This email is to notify you that Approver Automation PM has initiated Undo Action for announcement {SavedValue:AnnEGMSID}.
+    This email is to notify you that Approver Automation PM has initiated Undo Action for announcement AN-TAO modified-341.
 
-     Announcement Details:
-     Announcement Title: {SavedValue:AnnEGMSID}
-     Announcement Type: Competitive
-     Associated Program Name: Automation Permanent Internal Program
+    Announcement Details:
+    Announcement Title: {SavedValue:AnnEGMSID}
+    Announcement Type: Competitive
+    Associated Program Name: Automation Permanent Internal Program
 
-     Log in to EGMS and click here to start reviewing the details.
+    Log in to EGMS and click here to start reviewing the details.
 
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-     Thank you.
-     The EGMS Team
+   Thank you.
+   The EGMS Team
      """
 
   @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo
