@@ -1533,10 +1533,11 @@ Feature: Validate all scenarios of every modules flow
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "AP-TAO modified-057" boxes in flex table with id "---applicationReview:-:appTableId---"
-#    And I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
+    And I save the field labeled "Reporting Period End Date" as "ScheduleEndDate"
+    And I halt execution
+    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportScheduleChildTableId---"
+    Then I verify that the Schedule end date is matching with Reporting Period End Date
+##    And I navigate to "Applications" tab
+##    And I navigate to "Applications" content inside "Applications" subheader on left panel
+##    When I click toggle button to select "Applications - All"
     And I halt execution

@@ -7164,7 +7164,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #267389
     And I navigate to "Overview" sub tab
     Then I softly see fields "IsAdvancePermitted__c" is in edit mode
-    When I enter value "No" into field "IsAdvancePermitted__c"
+    When I enter value "Yes" into field "IsAdvancePermitted__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | If the Focus Area Required is Yes, then the Advance Payment Allowed must be selected as No. |

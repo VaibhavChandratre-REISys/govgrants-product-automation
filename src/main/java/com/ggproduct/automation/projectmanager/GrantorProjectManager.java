@@ -38,18 +38,18 @@ public class GrantorProjectManager extends ProjectManager {
 
 
     /*handles to verify blank value is present inside flex table */
-    public boolean isColumnValueBlank(String fieldName) {
-        if (I.amPerforming().actionToGet().text(By.xpath("//*[@field-name='" + fieldName + "' or @id='" + fieldName + "']")).equals("")) {
+    public boolean isColumnValueBlank(String tableId, String fieldName) {
+        if (I.amPerforming().actionToGet().text(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr[@class='inputRows']//c-fieldlwc[@data-fieldapiname='" + fieldName + "']")).equals("")) {
             return true;
         }
         return false;
     }
 
-    public void assertColumnValuIsBlank(String fieldName, boolean isSoftly) {
+    public void assertColumnValuIsBlank(String tableId, String fieldName, boolean isSoftly) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(fieldName)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(tableId, fieldName)).isTrue();
         } else {
-            Assert.assertTrue(isColumnValueBlank(fieldName));
+            Assert.assertTrue(isColumnValueBlank(tableId, fieldName));
         }
     }
 
@@ -286,7 +286,7 @@ public class GrantorProjectManager extends ProjectManager {
 
         int columnValueFromRowInInt = 0;
         int counter = 1;
-        By columnHeaders = By.xpath("//div[@id='" + flexTableId + "']//th");
+        By columnHeaders = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[not(contains(@class,'hide'))]");
         List<Elements> columnList = I.amPerforming().getElementReference().forListOfElements().of(columnHeaders);
 
         // get the column index of required column.
@@ -297,9 +297,9 @@ public class GrantorProjectManager extends ProjectManager {
             counter++;
         }
 
-        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[" + counter + "]/span/field/span"));
+        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/field/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
         if (listOfDataInColumn.size() == 0) {
-            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[" + counter + "]/span/span/span"));
+            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/span/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
             if (listOfDataInColumn.size() == 0) {
                 listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[" + counter + "]/span"));
             }

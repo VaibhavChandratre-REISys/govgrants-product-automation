@@ -38,10 +38,10 @@ public class GenericSteps {
         grantorWebServices.getRecordIdFromResponse(objectType, recordName, objectApiName);
     }
 
-    @Description("To verify field value is blank in flex table")
-    @Then("^I (softly see|see) field name \"([^\"]*)\" is blank in flex table$")
-    public void iSeeFieldNameIsBlank(String usage, String fieldname) {
-        grantorProjectManager.assertColumnValuIsBlank(fieldname,
+    @Description("To verify field value is blank in flex table with Id")
+    @Then("^I (softly see|see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
+    public void iSeeFieldNameIsBlank(String usage, String fieldname, String tableId) {
+        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname,
                 usage.contains("softly")
         );
     }
