@@ -192,7 +192,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             I.amPerforming().waitFor().makeThreadSleep(5000);
-            I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
+            I.amPerforming().click().withJavaScript(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
             I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
         }else{
             I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
