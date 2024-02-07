@@ -1548,7 +1548,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Responsibilities" sub tab
