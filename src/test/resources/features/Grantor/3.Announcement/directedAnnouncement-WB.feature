@@ -21,7 +21,7 @@ Feature: Validate all scenarios in the directed Announcement tab
 
   @Pre-ScreenOnHoldSPI @219077 @VerifyAdminuserseetheEGMSIDshouldbeclickablelinkinthecolumnofApplicationEGMSIDforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user see the EGMS ID should be clickable link  in the column of Application EGMS ID for Directed Announcement
-    Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
+    Given I published "Directed" type announcement having name "Automation Directed Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
@@ -89,7 +89,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-  @219078 @219081 @AdminUserShouldAbleToSeeTwoColumnsInApprovedOrUnderRevisionStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+   @219078 @219081 @AdminUserShouldAbleToSeeTwoColumnsInApprovedOrUnderRevisionStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user should able to see the two columns in Approved Under Revision state for Directed Announcement
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -117,10 +117,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-#    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I perform quick search for "{SavedValue:ADMIN Username}" in "---announcement:-:annoucementContactTableId---" panel
     And I wait for "3" seconds
-    When I click "Add" after selection of "{SavedValue:ADMIN Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" in the table "---announcement:-:annoucementContactTableId---"
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -129,10 +128,10 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
@@ -156,16 +155,18 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
     And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     When I save the value from row "1" for column name "Application EGMS ID" as "AppEgmdId" from flex table "---announcement:-:directedInvitedApplicatsTableId---"
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
     Then I softly see value "{SavedValue:AppEgmdId}" for title "Application EGMS ID" inside table "---announcement:-:directedInvitedApplicatsTableId---"
     Then I softly see value "Submitted to Grantor" for title "Application Status" inside table "---announcement:-:directedInvitedApplicatsTableId---"
     And I click on hyperlink containing value "{SavedValue:AppEgmdId}"
+    And I wait for "5" seconds
     Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
- @219102 @219104 @VerifyEXeUserAbleToSeeSuccessMessageOnAddOrgModalAfterAddingActiveSubrecipieentOrg @sprint-9-US-208408 @komal @Allocation
+   @219102 @219104 @VerifyEXeUserAbleToSeeSuccessMessageOnAddOrgModalAfterAddingActiveSubrecipieentOrg @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify when EXE user click on the "Add Organization" button then user see modal with all the active SR names for Directed Announcement.
   | Verify EXE user see the Success message after adding Organization & when Applicants are updated and this modal will stay open to associate more applicants: |
     When I login to "As a Grantor" app as "EXE" user
@@ -1300,10 +1301,10 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I pause execution for "7" seconds
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
@@ -2517,10 +2518,10 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :

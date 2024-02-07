@@ -63,7 +63,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-   @279295 @279349 @VerifyEXEasstep1approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @279295 @279349 @VerifyEXEasstep1approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify EXE as step 1 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -432,10 +432,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-
-
-
-   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -453,8 +450,11 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "10" seconds
-    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I perform quick search for "{SavedValue:ADMIN Username}" in "---program:-:associateContactsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" in the table "---program:-:associateContactsTableId---"
+    And I wait for "3" seconds
+#    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -739,8 +739,11 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "10" seconds
-    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I perform quick search for "{SavedValue:ADMIN Username}" in "---program:-:associateContactsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" in the table "---program:-:associateContactsTableId---"
+    And I wait for "3" seconds
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -772,7 +775,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-   @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify user see validation message if user click on submit button without selecting decision and without entering comments on approval decision section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -989,7 +992,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
 
-  @PoojaUndo @280893 @VerifyAdminasstep1approvercannotseeundobuttoninamendstatusoftheinternalprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @280893 @VerifyAdminasstep1approvercannotseeundobuttoninamendstatusoftheinternalprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario:Verify Admin as step 1 approver can not see undo button in amend status of the internal program
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -1007,8 +1010,12 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    And I pause execution for "10" seconds
-    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I pause execution for "10" seconds
+#    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I perform quick search for "{SavedValue:ADMIN Username}" in "---program:-:associateContactsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" in the table "---program:-:associateContactsTableId---"
+    And I wait for "3" seconds
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -1040,7 +1047,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Being Amended"
     Then I cannot see top right button "Undo" in page detail
 
- @PoojaUndo @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @PoojaUndo @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario:Verify step 2 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1218,7 +1225,7 @@ Feature: Validate all scenarios for program
 #    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---program:-:historyTableId---"
 #    Then I softly see value "Automation PO1" for title "Changed By" inside table "---program:-:historyTableId---"
 
- @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843 @Temphitesh
+  @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843 @Temphitesh
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1547,7 +1554,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
- @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh @skipOnJenkins
+  @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @Temphitesh @skipOnJenkins
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

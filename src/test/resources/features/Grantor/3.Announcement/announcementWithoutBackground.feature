@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
+ @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -134,6 +134,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I navigate to "Overview" sub tab
     When I enter value "45" into field "PreApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -162,10 +164,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    When I click on "Edit" in the page details
-    And I navigate to "Financials" sub tab
-    And I enter value "Automation Test justification" into field "Justification__c"
-    When I click on "Save" in the page details
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description | Required  | Applies To  | Status |
@@ -186,39 +184,36 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 150.00%. |
-    And I click on "Edit" in the page details
     And I navigate to "Setup" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
       | SME Review        | 25              |
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 50.00%. |
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     And I navigate to "Setup" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 0               |
       | SME Review        | 0               |
       | Pre-Screen Review | 0               |
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 0.00%. |
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
     And I navigate to "Setup" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
       | SME Review        | 50              |
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I navigate to "Setup" sub tab
     And I click on "Delete" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly do not see value "Pre-Screen Review" for title "Step Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
     And I enter value "30" into field "ApplicationDueDate__c"
     And I enter value "40" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
@@ -237,7 +232,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
 
-  @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage @aashish
+  @Pre-ScreenOnHoldSPI @71445 @71580 @71593 @userCanValidateGeneratedErrorMessage @aashish
   Scenario: To validate system generates error message,when user giving form weight but review steps weight is 0 in Announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -259,16 +254,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Program Review    | 25              |
       | Compliance Review | 50              |
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     Then I see value "25.00%" for title "Form Weight (%)" against the value "Program Review" inside table "---announcement:-:AnnouncementReviewPanel---"
     Then I see value "25.00%" for title "Form Weight (%)" against the value "Fiscal Review" inside table "---announcement:-:AnnouncementReviewPanel---"
     Then I see value "50.00%" for title "Form Weight (%)" against the value "Compliance Review" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
 
-  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @aashish @smoke
+  @Pre-ScreenOnHoldSPI @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @aashish @smoke
   Scenario: To validate system generated error message when total Review Form  weight(%) is more than 100 % while creating Announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -475,7 +470,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Delete" icon for "Review form question Edited" inside flex table with id "---announcement:-:reviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "Review form question Edited" for title "Question" inside table "---announcement:-:reviewPanelQuestionsTableId---"
 
-  @71293 @71295 @71440 @71416 @verifyUserCanAddReviewers @aashish
+  @71293 @71295 @71440 @71416 @verifyUserCanAddReviewers @aashish @Pre-ScreenOnHoldSPI
   Scenario: To verify that user is allow to add reviewers to review forms while creating Announcement | To verify default review forms & reviewer section are populated on Draft announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -505,7 +500,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Organization Name" in flex table header "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see "# of Applications Assigned" in flex table header "---announcement:-:AnnouncementReviewPanel---"
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name         | Form Weight (%) |
       | Fiscal Review     | 25              |
@@ -514,7 +509,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
@@ -750,7 +745,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Setup" sub tab
     Then I softly see value "Automation FO" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
-    And I expand nested table containing column value "Management Review"
+#    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
   @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
@@ -805,6 +800,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
     And I enter in modal value "{SavedValue:ActivatedProgramForAnnouncement}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
@@ -1313,7 +1310,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Then I softly can see row level action button "Preview" against "Grantor Pre-application Form" in flex table with id "---announcement:-:businessFormlistTableId---"
 
-   @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
+  @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
   Scenario: Verify user should able to see new "Grantor Pre-application form" under the setup tab of  "Announcement" record
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1496,7 +1493,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "1" for title "Version Number" inside table "---announcement:-:businessFormlistTableId---"
 
-   @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
+  @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6220,7 +6217,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-   @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
+  @238053 @ValidateAnnouncementaddeddifferentuserSimonPMforsameroleprogramreviewerandreassignedthenthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
   Scenario: Validate Announcement added a different user Simon PM for same role program reviewer and reassigned then the reassignment got successful for the new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6381,11 +6378,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
+#    When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6395,6 +6392,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation FO | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "4" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -6479,6 +6477,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation EXE1 | Fiscal Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside table
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel

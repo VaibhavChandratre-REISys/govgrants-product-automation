@@ -2645,7 +2645,7 @@ public final class GovGrantsAssertionObjects {
     private boolean assertFieldPresentInsideSection(String fieldName, String sectionName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "] | //div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
