@@ -505,7 +505,7 @@ public class GrantorProjectManager extends ProjectManager {
     }
 
     public void validateModalEnlargeAndGrantDetails(String usage) {
-        By modalEnlarge = By.xpath("//div[@id='editDiv']/div/div[2]");
+        By modalEnlarge = By.xpath("//div[@id='editDiv']/div/div[2] | //lightning-record-edit-form-create");
         List<String> ids = List.of(
                 "LaverageAllowed__c",
                 "IsProgramIncomeAnticipated__c",
@@ -523,12 +523,12 @@ public class GrantorProjectManager extends ProjectManager {
         if (usage.contains("softly")) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(modalEnlarge)).isTrue();
             ids.forEach(
-                    id -> I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "']"))).isTrue()
+                    id -> I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "'] | //div[@data-field_api_name='" + id + "']"))).isTrue()
             );
         } else {
             Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(modalEnlarge));
             ids.forEach(
-                    id -> Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "']")))
+                    id -> Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "'] | //div[@data-field_api_name='" + id + "']")))
             );
         }
     }

@@ -189,9 +189,12 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     Then I softly see that Budget Period field contains the updated Budget Period End Date
+    And I pause execution for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1195,9 +1198,10 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     And I save the field value having link labeled "Grant  ID" as "grantID"
     And I softly see "Automation ADMIN" is present after mouse hover for active subaward
-    And I mouse hover to link contains "{SavedValue:grantID}"
-    Then I softly see "Grant" shown inside mini page layout on hover
-    Then I softly see "Test Automation Organization" shown inside mini page layout on hover
+ #   excluded this step bcz mini layout not supported
+#    And I mouse hover to link contains "{SavedValue:grantID}"
+#    Then I softly see "Grant" shown inside mini page layout on hover
+#    Then I softly see "Test Automation Organization" shown inside mini page layout on hover
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
@@ -1213,10 +1217,11 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
-    And I mouse hover to link contains "{SavedValue:grantID}"
-    And I click "Test Automation Organization" link present on hovered tooltip
-    #Then I softly see page title contains as "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    Then I see the sub-header is "Test Automation Organization" in the page details
+#    Mini layout not supported in lwc
+#    And I mouse hover to link contains "{SavedValue:grantID}"
+#    And I click "Test Automation Organization" link present on hovered tooltip
+#    #Then I softly see page title contains as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+#    Then I see the sub-header is "Test Automation Organization" in the page details
 
   @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke @wip
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
@@ -1468,7 +1473,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    Then I see textarea field "fieldGrantAwardDescription__c" is editable
+    Then I see textarea field "GrantAwardDescription__c" is editable
 
   @66416 @validateSourceInDeskReview  @mahadev
   Scenario: To verify that if source field in plan table is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message  must be thrown
