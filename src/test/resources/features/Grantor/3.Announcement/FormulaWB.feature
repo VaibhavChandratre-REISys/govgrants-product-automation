@@ -1504,8 +1504,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I wait for "2" seconds
+    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I wait for "3" seconds
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
   @222369 @222380 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinPublishedUnderRevisionStateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
@@ -3279,8 +3279,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
+    And I wait for "7" seconds
     And I navigate to "Budget" sub tab
-    And I wait for "2" seconds
+    And I wait for "7" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
@@ -3320,9 +3321,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" inside table
-    And I wait for "3" seconds
+    And I wait for "7" seconds
     And I navigate to "Budget" sub tab
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
   @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
@@ -3336,7 +3337,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$2,000"
 
- @debug @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558 @komal @Allocation @TBExecution
+ @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558 @komal @Allocation @TBExecution
   Scenario: Verify user cannot delete the associated focus area when Announcement is in closed state.
   | Verify user  can see row level edit action in the applicant section when formula announcement is in Closed state(formula announcements with allocation-level = By Applicant & Focus Area) |
     When I login to "As a Grantor" app as "PM" user
@@ -3360,9 +3361,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicantAndFocusArea_PreScreenReviewCompleted}"
+    And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicantAndFocusArea_PreScreenReviewCompleted}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicantAndFocusArea_PreScreenReviewCompleted}" inside table
+    And I wait for "7" seconds
     And I navigate to "Budget" sub tab
+    And I wait for "7" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
   @222301 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
