@@ -1137,7 +1137,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Responsibilities" sub tab
@@ -1145,12 +1147,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "2" seconds
     #222106
     Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -1195,7 +1199,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
     And I get the "EGMS ID"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
@@ -1211,6 +1218,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly can see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
@@ -3245,7 +3253,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
