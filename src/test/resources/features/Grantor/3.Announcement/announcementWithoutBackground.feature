@@ -853,6 +853,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
@@ -915,7 +916,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Standard Pre-Application form" inside flex table with id "---program:-:previewPackageTableId---" without waiting for record
     Then I see new tab is opened
 
-  @169906 @usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali
+  @PGannouncement @169906 @usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"Modalforannouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user  should able to see the "Preview" icon  in "Forms" section on "Preview Package" Modal for announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -955,6 +956,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
@@ -1014,7 +1016,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---program:-:previewPackageTableId---"
 
-  @169905 @Usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"ModalforGrantorpre-applicationformforannouncementrecord. @Sprint-7 @Vrishali
+  @PGannouncement @169905 @Usershouldabletoseethe"Preview"iconin"Forms"sectionon"PreviewPackage"ModalforGrantorpre-applicationformforannouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to see the "Preview" icon in "Forms" section on "Preview Package" Modal for  Grantor pre-application form for announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1054,6 +1056,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
@@ -1113,7 +1116,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---program:-:previewPackageTableId---"
 
-  @169904 @usershouldabletoopen/see(OnSamewindow)GrantorPre-applicationformwhenuserclickon"Preview"actionforAnnouncementrecord. @Sprint-7 @Vrishali
+  @PGannouncement @169904 @usershouldabletoopen/see(OnSamewindow)GrantorPre-applicationformwhenuserclickon"Preview"actionforAnnouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to open/see(On Same window) Grantor Pre-application form when user  click on "Preview" action for Announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1153,6 +1156,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
@@ -1212,7 +1216,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     Then I softly see "Preview Package" opens in overLay window
 
-  @169903 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
+ @PGannouncement @169903 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to see "Preview" action of "Grantor Pre-application form" at created state for Announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1311,7 +1315,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Then I softly can see row level action button "Preview" against "Grantor Pre-application Form" in flex table with id "---announcement:-:businessFormlistTableId---"
 
- @Debug @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
+  @Debug @169900 @Verifyusershouldabletoseenew"GrantorPre-applicationform"undersetupof"Announcement"record @Sprint-7 @Vrishali
   Scenario: Verify user should able to see new "Grantor Pre-application form" under the setup tab of  "Announcement" record
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1404,7 +1408,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
 
-  @174348 @Versionnumbershoulddisplay1forGrantorPre-applicationformundertheversionnumbercolumn @Sprint-7 @Vrishali
+  @PGannouncement @174348 @Versionnumbershoulddisplay1forGrantorPre-applicationformundertheversionnumbercolumn @Sprint-7 @Vrishali
   Scenario: Version number  should display  1 for Grantor Pre-application form under the version number column
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1443,6 +1447,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
@@ -1536,7 +1541,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
 
-  @194692 @Validateaftertransfertorecordusershouldabletoseethetheserecordintargetusertable @sprint-4 @vaibhav @reassignment
+  @PGannouncement @194692 @Validateaftertransfertorecordusershouldabletoseethetheserecordintargetusertable @sprint-4 @vaibhav @reassignment
   Scenario: Validate after transfer to record user should able to see the these record in target user table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1600,7 +1605,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details contains:
       | Transfer is in progress, kindly wait for email confirmation. |
 
-  @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4 @vaibhav @reassignment
+  @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4 @vaibhav @reassignment @PGannouncement
   Scenario: Validate  ownership is changed then only Announcement owner is changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1640,7 +1645,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---announcement:-:announcementOwner---"
 
-  @194741 @Validatenewownercanchangetheextenddate&unpublishtheannouncementonlyannouncementisinpublishedstate @sprint-4 @vaibhav @reassignment @ownershipcheck
+  @PGannouncement @194741 @Validatenewownercanchangetheextenddate&unpublishtheannouncementonlyannouncementisinpublishedstate @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate new owner can change the extend date & unpublish the announcement only if announcement is in published state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1725,7 +1730,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Extend Dates" in page detail
     Then I softly can see top right button "Unpublish" in page detail
 
-  @194742 @Validateoldownershouldonlyseetheannouncementrecord @sprint-4 @vaibhav @reassignment
+  @PGannouncement @194742 @Validateoldownershouldonlyseetheannouncementrecord @sprint-4 @vaibhav @reassignment
   Scenario: Validate old owner should only see the announcement record
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2161,7 +2166,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment
+  @PGannouncement @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment
   Scenario: Validate ownership reassignment of announcement field history should get updated
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2287,7 +2292,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-  @196852 @ValidateuseraddedtheYesNofunctionalitybeforereassignmentownershipthenafterownershipnewownerhavingtheaccessofthisparticularsettings @sprint-4 @vaibhav @reassignment
+  @PGannouncement @196852 @ValidateuseraddedtheYesNofunctionalitybeforereassignmentownershipthenafterownershipnewownerhavingtheaccessofthisparticularsettings @sprint-4 @vaibhav @reassignment
   Scenario: Validate user added the Yes No functionality before reassignment ownership then after ownership new owner having the access of this particular settings
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2361,7 +2366,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4 @vaibhav @reassignment
+  @PGannouncement @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate announcement is created & change the ownership of announcement then new button of peer review is display to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2400,7 +2405,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---announcement:-:reviewersTableId---"
 
-  @197931 @Validateafterapprovedtheannouncementwhenuserchangetheownershipofannouncementthenpublishbuttonshoulddisplaytothenewowner @sprint-4 @vaibhav @reassignment
+  @PGannouncement @197931 @Validateafterapprovedtheannouncementwhenuserchangetheownershipofannouncementthenpublishbuttonshoulddisplaytothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after approved the announcement when user change the ownership of  announcement then publish button should display to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2478,7 +2483,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-  @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
+  @PGannouncement @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after created announcement user changed the ownership of announcement then all overview tab button access should get to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3561,7 +3566,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly cannot see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @197929 @ValidateAnnownerunpublishAnnandreassignownershiptonewuserforpublishthenpendingtaskshouldgeneratefornewowner @sprint-4 @vaibhav @reassignment
+  @PGannouncement @197929 @ValidateAnnownerunpublishAnnandreassignownershiptonewuserforpublishthenpendingtaskshouldgeneratefornewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate Ann owner unpublish Ann and reassign ownership to new user for publish then pending task should generate for new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3577,6 +3582,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
     When I click on "Edit" in the page details
+    And I wait for "8" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
@@ -4220,7 +4226,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment
+
+  @PGannouncement @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate email should get reached to "SA"(previous owner) when ownership of record is changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
