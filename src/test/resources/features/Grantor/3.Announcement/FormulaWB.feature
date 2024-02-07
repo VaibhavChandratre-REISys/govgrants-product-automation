@@ -923,7 +923,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | As allocation is "By Applicant and Focus Area", Focus area table must contain at least one focus area if Organizations are associated with the Announcement. |
     #226435
     And I click on "Edit" in the page details
-    And I click table top right button "Remove Selecteds" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
+    And I click table top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I see confirmation box with quotes in body "Unsaved data will be lost due to page refresh on "Remove Selected" button . Please save the record to continue." is displayed
 
   @219187 @219235 @FormulaAnnVerifyasPMIshouldseevalidationmessageifIselectallocationlevelbyapplicantandfocusareaandfocusareaNo @sprint-10-US-203669 @komal @Allocation
@@ -3251,10 +3251,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I created approved FDM on application "<Announcement Name>"
     When I navigate to "Applications" tab
@@ -3263,14 +3267,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
-#    TODO: Implementation of below flow is pending
-#    Again I have created 1 application from different org
-#    And I submit the application to grantor
-#    And I changed the Allocation Amount in Under revision state
-#    And I go to the related tab & open  pre-screen Review.
-#    And Open respective Appliation
-#    Then I see updated final allocation is reflected in the corresponding application
 
     Examples:
       | Announcement Name                                |
@@ -3309,7 +3307,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" inside table
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
+    And I wait for "5" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
   @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
