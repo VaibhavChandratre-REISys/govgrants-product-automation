@@ -94,6 +94,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
   @70613 @70677 @announcementWithBlankBudgetPeriodFA @TBExecution
   Scenario: Validate that user should not submit announcement with blank budget period dates | To verify that if announcement type is -Formula then user can remove applicant organization in Invited Applicants section while creating the  Announcement
+    And I wait for "5" seconds
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details

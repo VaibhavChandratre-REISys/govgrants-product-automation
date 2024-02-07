@@ -6065,7 +6065,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
+    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | In the Formula announcements budgeting can be done only for first budget period. |
 
