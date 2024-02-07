@@ -962,7 +962,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     #226431
     And I click table top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I see confirmation box with quotes in body "Unsaved data will be lost due to page refresh on "Add Organization" button . Please save the record to continue." is displayed
@@ -3289,9 +3289,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
-    And I wait for "7" seconds
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
-    And I wait for "7" seconds
+    And I wait for "3" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
