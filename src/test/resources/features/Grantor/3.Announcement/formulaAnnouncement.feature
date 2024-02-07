@@ -282,8 +282,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     And I refresh the page
-    And I wait for "5" seconds
-    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Draft"
     When I navigate to "History" sub tab
     Then I softly see that "Announcement" is in "Draft" status
     When I navigate to "Announcements" tab
