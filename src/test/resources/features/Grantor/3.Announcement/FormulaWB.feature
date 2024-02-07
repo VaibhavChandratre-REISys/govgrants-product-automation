@@ -387,34 +387,31 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     Then I refresh the page
     And I pause execution for "120" seconds
-    And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published"
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published
+      Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}has beenPublished
       """
     Then I see the mail text is as follows :
       """
-      Hello,
+    Hello,
 
-      This email is to notify you that Opportunity #{SavedValue:AnnEGMSID} has been published.
+    This email is to notify you that Opportunity #{SavedValue:AnnEgmsId} has been published.
 
-      Opportunity Details:
+    Opportunity Details:
 
-      Opportunity Title: {SavedValue:Automation Runtime Formula Announcement}
+    Opportunity Title: {SavedValue:Automation Runtime Formula Announcement}
 
-      Opportunity Type: Formula
+    Opportunity Type: Formula
 
-      Focus Areas Allocation Amount
-      Automation Permanent Focus Area 1000
+     Focus Areas	Allocation Amount
+     Automation Permanent Focus Area	1000
+     SubTotal	1000
 
-      Log in to EGMS and click on click here to access the assigned record.
+     Log in to EGMS and click on click here to access the assigned record.
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-
-      The EGMS Team.
+     Thank you,
+     The EGMS Team.
       """
 
   @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408 @vaibhav @Allocation @TBExecution
@@ -1164,7 +1161,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I wait for "8" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -1555,7 +1552,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I wait for "8" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -1651,7 +1648,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I wait for "8" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -1725,7 +1722,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I wait for "8" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -3812,23 +3809,27 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEgmsId}hasbeen Published"
     Then I see the mail text is as follows :
     """
-      Hello,
-      This email is to notify you that Opportunity #{SavedValue:AnnEgmsId} has been published.
-      Opportunity Details:
-      Opportunity Title: {SavedValue:Automation Runtime Formula Announcement}
-      Opportunity Type: Formula
+    Hello,
 
-      Focus Areas	Allocation Amount
-      Automation Permanent Focus Area	1000
+    This email is to notify you that Opportunity #{SavedValue:AnnEgmsId} has been published.
 
-      Log in to EGMS and click on click here to access the assigned record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Opportunity Details:
 
-      Thank you,
-      The EGMS Team.
+    Opportunity Title: {SavedValue:Automation Runtime Formula Announcement}
+
+    Opportunity Type: Formula
+
+    Focus Areas	Allocation Amount
+    Automation Permanent Focus Area	1000
+    SubTotal	1000
+
+    Log in to EGMS and click on click here to access the assigned record.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+    Thank you,
+    The EGMS Team.
     """
 
   @227708 @227720 @227708 @227709 @227717 @VerifyPMUserseethetheBudgetedAmountinplaceoftheRecommendedBudgetandAllocationamountinsteadoftheRequestedAmountonlyforformulaannouncementsCheckifwecanusethesameclmforallocationandRecommendamount @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
