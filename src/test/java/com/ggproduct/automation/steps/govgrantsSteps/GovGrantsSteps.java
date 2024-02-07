@@ -409,7 +409,7 @@ public final class GovGrantsSteps {
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
-        I.amPerforming().waitFor().makeThreadSleep(1000);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         try {
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
