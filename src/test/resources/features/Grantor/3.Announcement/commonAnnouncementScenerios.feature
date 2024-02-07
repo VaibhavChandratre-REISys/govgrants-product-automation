@@ -365,6 +365,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "Management Review"
     And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I pause execution for "2" seconds
     Then I see the following messages in the page details :
       | There are no errors with the review step templates. |
 
