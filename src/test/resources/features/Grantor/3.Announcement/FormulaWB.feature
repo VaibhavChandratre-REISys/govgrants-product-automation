@@ -3325,9 +3325,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{AUTOEnvData:ClosedStateFormulaAnn_ByApplicant_PreScreenReviewCompleted}" inside table
-    And I wait for "7" seconds
+   And I wait for "5" seconds
     And I navigate to "Budget" sub tab
-    And I wait for "7" seconds
+    And I wait for "5" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
   @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
@@ -3653,9 +3653,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I wait for "190" seconds
+    And I wait for "210" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: New Opportunity # {SavedValue:AnnEgmsId} hasbeen Published"
     Then I see the mail text is as follows :
        """
       Hello,

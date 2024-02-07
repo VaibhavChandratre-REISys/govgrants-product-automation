@@ -136,7 +136,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     And I wait for "3" seconds
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
-    When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" without waiting for record
+    When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I wait for "5" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I navigate to "Overview" sub tab
@@ -282,8 +282,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "5" seconds
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see that "Announcement" is in "Draft" status
     When I navigate to "Announcements" tab
