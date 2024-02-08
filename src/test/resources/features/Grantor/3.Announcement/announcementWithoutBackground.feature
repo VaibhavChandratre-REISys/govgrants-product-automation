@@ -1778,7 +1778,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Home" tab
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I enter value "User FD" into field "input-1"
-    And I pause execution for "4" seconds
+    And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
   @PGannouncement @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4 @vaibhav @reassignment
@@ -2683,7 +2683,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-source"
     And I select value "Automation PM" into field "input-target"
-    Then I softly see confirmation box with body "Source User and Target User cannot be same.Please select different Source and Target Users" is displayed
+    Then I softly do not see "Automation PM" inside auto search result
 
   @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
