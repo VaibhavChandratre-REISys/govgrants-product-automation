@@ -1094,9 +1094,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    And I wait for "2" seconds
     #222329
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -3687,7 +3690,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I wait for "190" seconds
     Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEgmsId}hasbeen Published"
     Then I see the mail text is as follows :
        """
       Hello,
