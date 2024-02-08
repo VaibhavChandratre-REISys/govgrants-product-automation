@@ -1779,7 +1779,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I enter value "User FD" into field "input-1"
     And I pause execution for "4" seconds
-    Then I softly see "No matches found" inside auto search result
+    Then I softly do not see "No matches found" inside auto search result
 
   @PGannouncement @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate announcement is created & change the ownership of announcement then new button of peer review is display to the new owner
@@ -2397,7 +2397,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Sarah PM"
     And I pause execution for "4" seconds
-    Then I softly see "No matches found" inside auto search result
+    Then I softly do not see "No matches found" inside auto search result
 
   @195201 @ValidatependingtaskshouldbegeneratedforPOasnewownerofAnn @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate pending task should be generated for PO as new owner of Ann
