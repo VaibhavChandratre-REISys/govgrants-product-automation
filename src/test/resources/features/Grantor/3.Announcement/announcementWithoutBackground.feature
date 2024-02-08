@@ -2342,6 +2342,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click toggle button to select "Draft Directed Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
