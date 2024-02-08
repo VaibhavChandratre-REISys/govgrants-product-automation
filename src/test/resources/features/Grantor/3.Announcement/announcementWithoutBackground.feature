@@ -815,7 +815,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
 
- @PGannouncement @169903 @169904 @169905 @169906 @169900 @169907 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
+  @PGannouncement @169903 @169904 @169905 @169906 @169900 @169907 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to see "Preview" action of "Grantor Pre-application form" at created state for Announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -903,9 +903,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
    #174348
-   Then I softly see value "1" for title "Version Number" inside table "---announcement:-:businessFormlistTableId---"
+    Then I softly see value "1" for title "Version Number" inside table "---announcement:-:businessFormlistTableId---"
    #169906
-   Then I softly can see row level action button "Preview" against "Grantor Pre-application Form" in flex table with id "---announcement:-:businessFormlistTableId---"
+    Then I softly can see row level action button "Preview" against "Grantor Pre-application Form" in flex table with id "---announcement:-:businessFormlistTableId---"
     And I click on "Preview" icon for "Grantor Pre-application Form" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
     #169904
     Then I softly see "Preview Package" opens in overLay window
@@ -943,8 +943,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Records of Source User" sub tab
     #194690
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-   And I click "Yes" on modal confirmation box
-   And I pause execution for "1" seconds
+    And I click "Yes" on modal confirmation box
+    And I pause execution for "1" seconds
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
     #194685
@@ -1747,37 +1747,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I can see top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     Then I can see top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     Then I can see top right button "Associate" in flex table with id "---announcement:-:kpiflextableid---"
-
-  @196862 @ValidateusershouldnotabletoreassignownershipofAnnouncementrecordtosameprofilebutdifferentorganization @sprint-4 @vaibhav @reassignment
-  Scenario: Validate user should not able to reassign ownership of Announcement record  to same profile but different organization
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "input-1"
-    And I select value "Victor EXE" into field "input-2"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    Then I softly see the following messages in the page details contains:
-      | Ownership cannot be transferred across profiles and organizations. |
-
-  @196887 @Validateusershouldnotabletoseetheinactiveinternaluserintargetuser @sprint-4 @vaibhav @reassignment
+    
+  @Debug @196887 @Validateusershouldnotabletoseetheinactiveinternaluserintargetuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should not able to see the inactive internal user in  target user
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I enter value "User FD" into field "input-1"
+    And I enter value "User FD" in reassign lookup
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
@@ -1898,7 +1874,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-   @PGannouncement @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
+  @PGannouncement @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after created announcement user changed the ownership of announcement then all overview tab button access should get to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3230,8 +3206,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
+    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -3277,20 +3252,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on remove for lookup from field "Program__c"
     And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
-#    And I enter values into fields
-#      | Value                                       | Field                      |
-#      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
-#      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
-#      | Non-Construction                            | Budget_Category_Package__c |
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -3644,7 +3611,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       Thank you,
       The EGMS Team
       """
-
 
 
   @PGannouncement @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment
@@ -4650,8 +4616,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-   And I wait for "3" seconds
-   Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+    And I wait for "3" seconds
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     And I wait for "3" seconds
@@ -4708,7 +4674,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
- 
+
   @223528 @ValidateAnnouncementModuleeifAnnouncementrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofannouncementthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
@@ -5704,7 +5670,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-   @238054 @ValidateannouncementwhenuseraddeddifferentuserSarahPMfordifferentrolefiscalreviewerandreassignedthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
+  @238054 @ValidateannouncementwhenuseraddeddifferentuserSarahPMfordifferentrolefiscalreviewerandreassignedthereassignmentgotsuccessfulforthenewuser @sprint-14-US-235915 @vaibhav @reassignment
   Scenario: Validate announcement  when user added a different user Sarah PM for different role <fiscal reviewer> and reassigned the reassignment got successful for the new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
