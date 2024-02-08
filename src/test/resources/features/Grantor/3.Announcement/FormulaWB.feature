@@ -3693,15 +3693,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the mail text is as follows :
        """
       Hello,
-      This email is to notify you that Opportunity #{SavedValue:AnnEgmsId} has been published.
-      Opportunity Details:
-      Opportunity Title: {SavedValue:Automation Runtime Formula Announcement}
-      Opportunity Type: Formula
 
-      Focus Areas	Allocation Amount
-      Automation Permanent Focus Area	1000
-
-      Log in to EGMS and click on click here to access the assigned record.
+      This email is to notify you that Opportunity  # {SavedValue:AnnEGMSID} has been published and the amount allocated to your organization is $1,000.
+      Log in to EGMS and click here to review the details and submit an application.
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
       Thank you,
@@ -6155,8 +6149,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I clear the value from field "EligibleApplicantTypes__c"
     And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     And I clear the value from field "Justification__c"
     And I click on "Save" in the page details
     And I navigate to "Financials" sub tab

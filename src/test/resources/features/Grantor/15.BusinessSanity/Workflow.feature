@@ -1529,15 +1529,11 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-   @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+ @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I save the field labeled "Reporting Period End Date" as "ScheduleEndDate"
-    And I halt execution
-    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportScheduleChildTableId---"
-    Then I verify that the Schedule end date is matching with Reporting Period End Date
-##    And I navigate to "Applications" tab
-##    And I navigate to "Applications" content inside "Applications" subheader on left panel
-##    When I click toggle button to select "Applications - All"
+    And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
+    And I clear the value from field "Justification__c"
     And I halt execution

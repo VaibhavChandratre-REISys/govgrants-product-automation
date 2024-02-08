@@ -89,7 +89,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     And I get the "EGMS ID"
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     And I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Formula Announcements"
