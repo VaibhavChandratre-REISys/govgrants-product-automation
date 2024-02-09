@@ -53,7 +53,7 @@ public class AwardSteps {
 
     @And("^I click \"([^\"]*)\" link present on hovered tooltip$")
     public void iClickLinkPresentOnHoveredTooltip(String text) {
-        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='"+text+"']"));
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='"+text+"'] | //lightning-formatted-lookup//a[text()='"+text+"'] "));
     }
 
     @Then("^I (softly see|see) page title contains as \"([^\"]*)\"$")

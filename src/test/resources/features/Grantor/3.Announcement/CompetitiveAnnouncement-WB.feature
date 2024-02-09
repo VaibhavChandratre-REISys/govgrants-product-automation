@@ -718,6 +718,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Negotiation Initiated"
     #219357
     And I refresh the page

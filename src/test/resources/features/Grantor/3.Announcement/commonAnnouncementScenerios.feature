@@ -177,6 +177,8 @@ Feature: Validate all common scenarios in the  Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I pause execution for "3" seconds
+    When I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
@@ -225,7 +227,9 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
-      | Eligibility    | 50                 |
+      | Completeness   | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Eligibility"
@@ -234,6 +238,7 @@ Feature: Validate all common scenarios in the  Announcement tab
       | 1              | Question1 | Written | 100       |
     And I pause execution for "2" seconds
     And I collapse nested table containing column value "Eligibility"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "Completeness"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -246,7 +251,11 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Schedule"
@@ -274,7 +283,11 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Budget"
@@ -302,7 +315,11 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Capability"
@@ -330,6 +347,8 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 50                 |
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Return on Investment (ROI)"
@@ -345,6 +364,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I pause execution for "2" seconds
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "Management Review"
+    And I pause execution for "2" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
     Then I see the following messages in the page details :
       | There are no errors with the review step templates. |
