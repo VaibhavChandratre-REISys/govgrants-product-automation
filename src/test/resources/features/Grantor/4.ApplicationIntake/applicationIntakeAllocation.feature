@@ -2474,7 +2474,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222463
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldPreApplicationSectionsforRevision__c"
+    When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Revision - Available"
 
   @222462 @222477 @VerifyPMusercanseeBudgetTabBudgetSummarybyFocusAreaoptioninsteadofBudgetTab:FocusAreainPreApplicationsectionforNegotiation @sprint-10-US-221062 @komal @Allocation
@@ -2522,7 +2522,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222462
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldPreApplicationSectionsforRevision__c"
+    When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Revision - Available"
     #222477
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
@@ -2536,7 +2536,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside table
     And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
@@ -2620,11 +2620,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "fieldAnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
-    And I enter value "No" into field "fieldDetailedBudgetingRequired__c"
+    And I enter value "Justified" into field "Justification__c"
+    And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -2688,7 +2688,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside table
     And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
@@ -2845,11 +2845,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
-    And I enter value "No" into field "fieldDetailedBudgetingRequired__c"
+    And I enter value "Justified" into field "Justification__c"
+    And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -2949,7 +2949,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -2990,7 +2990,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -3703,7 +3703,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
