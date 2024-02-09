@@ -671,8 +671,8 @@ public final class GovGrantsAssertionObjects {
         try {
             By fieldWrapperLocator;
             if (responseType.equalsIgnoreCase("text")) {
-                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select");
-                String givenText = I.amPerforming().actionToGet().attribute(fieldWrapperLocator, "value");
+                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select | //div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
+                String givenText = I.amPerforming().actionToGet().text(fieldWrapperLocator);
                 if (givenText.equals(text)) {
                     flag = true;
                 }

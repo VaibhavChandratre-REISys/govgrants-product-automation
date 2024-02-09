@@ -1058,8 +1058,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @53835 @paymentRequestScheduleBlankOnDraftAward @mahadev
   Scenario: Verify that Payment Request Schedule is blank on draft award
-    When I navigate to "Management" sub tab
-    Then I see field name "Frequency__c" is blank in flex table
+    When I navigate to "Terms" sub tab
+    Then I see field name "Frequency__c" is blank in flex table with Id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
   @53837 @paymentRequestSchedulesCreationOnDraftAward @mahadev
   Scenario: Verify that Payment Request Schedule is blank on draft award

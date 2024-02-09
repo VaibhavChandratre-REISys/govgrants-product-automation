@@ -619,7 +619,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
     When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
-    Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
+    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"

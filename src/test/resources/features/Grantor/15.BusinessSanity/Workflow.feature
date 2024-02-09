@@ -1529,14 +1529,11 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-  Scenario:Validate
+# @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+#  Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "AP-TAO modified-057" boxes in flex table with id "---applicationReview:-:appTableId---"
-#    And I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I halt execution
+    And I navigate to "Financials" sub tab
+    And I wait for "2" seconds
+    And I clear the value from field "Justification__c"
+    And I halt execution

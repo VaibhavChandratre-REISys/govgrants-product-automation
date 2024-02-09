@@ -1631,7 +1631,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Funding Decision Memo" sub tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:recommendedTableId---"
     When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:recommendedTableId---"
-    And I checkout to yopmail with mailid "automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
