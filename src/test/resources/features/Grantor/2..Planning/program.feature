@@ -1065,6 +1065,7 @@ Feature: Validate all scenarios for program
 
   @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude
   Scenario: Validate the submission of Program for Approval
+    And I wait for "5" seconds
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1212,8 +1213,8 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
-    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @53689 @verifyRelatedLogsTableForFocusAreaForActiveProgram @mahadev
@@ -5731,6 +5732,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     And I check "All" boxes in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I wait for "5" seconds
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area2" inside table "---program:-:focusAreaTableId---"
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area" inside table "---program:-:focusAreaTableId---"
 

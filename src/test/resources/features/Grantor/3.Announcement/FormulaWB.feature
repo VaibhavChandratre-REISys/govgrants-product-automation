@@ -99,7 +99,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     Then I see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @195863 @195867 @ValidateAnnownerAdminusercanabletosees/rorganizationsanditsrelatedfocusareaisupdatedinthetableunderinvitedapplicantssectionwhenuserclickonAssociatebuttononmodal @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @195863 @195867 @ValidateAnnownerAdminusercanabletosees/rorganizationsanditsrelatedfocusareaisupdatedinthetableunderinvitedapplicantssectionwhenuserclickonAssociatebuttononmodal @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate Ann owner (Admin user) can able to see s/r organizations and its related focus area is updated in the table under invited applicants section when user click on 'Associate' button on modal
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -130,7 +130,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Applicants" in flex table header "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly see "Actions" in flex table header "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @195864 @204382 @ValidateAnnownerPMusercanabletoseefocusareainthetableunderinvitedapplicantssectionwhenallocationlevelisbyApplicantandfocusareaisselected @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @195864 @204382 @ValidateAnnownerPMusercanabletoseefocusareainthetableunderinvitedapplicantssectionwhenallocationlevelisbyApplicantandfocusareaisselected @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate Ann owner (PM user) can able to see focus area in the table under invited applicants section when allocation level is by Applicant and focus area is selected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -191,7 +191,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly do not see "Focus Areas" in flex table header "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @204386 @204387 @ValidatePMuserdeleteanyfocusareafromtheFocusareassectionthatFocusarearowfromtheApplicantssectionshouldgetremovedautomaticallyforallapplicants&subtotalshouldgetupdated @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @204386 @204387 @ValidatePMuserdeleteanyfocusareafromtheFocusareassectionthatFocusarearowfromtheApplicantssectionshouldgetremovedautomaticallyforallapplicants&subtotalshouldgetupdated @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate PM user delete any focus area from the "Focus areas" section,that Focus area row from the "Applicants" section should get removed automatically (for all applicants) & subtotal should get updated
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -234,7 +234,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I see value "$100" for title "Allocation Amount" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
 
-  @204408 @204412 @ValidatewhenuseraddanyfocusareaintheFocusareassectionthenthatFocusarearowintheApplicantssectionshouldgetupdatedautomaticallywith"0"allocationamountforallapplicantswhichcanbelaterinlineedited @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @204408 @204412 @ValidatewhenuseraddanyfocusareaintheFocusareassectionthenthatFocusarearowintheApplicantssectionshouldgetupdatedautomaticallywith"0"allocationamountforallapplicantswhichcanbelaterinlineedited @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate when user add any focus area in the "Focus areas" section, then that Focus area row in the "Applicants" section should  get updated automatically with "0" allocation amount for all applicants, which can be later inline edited
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -270,7 +270,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #204412
     Then I softly cannot see row level action button "Delete" against "Automation Permanent Focus Area2" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
-  @204415 @ValidateuserclickofRemoveSelectedonthisclickanewcolumnshouldappear&usercanmulti-selecttheorganizatio&candeleteselected @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @204415 @ValidateuserclickofRemoveSelectedonthisclickanewcolumnshouldappear&usercanmulti-selecttheorganizatio&candeleteselected @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate user click of 'Remove Selected',on this click a new column should appear & user can multi-select the organization & can delete selected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -304,7 +304,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside table with table id "---announcement:-:AnnouncementServiceArea1TableId---" without processing
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
 
-  @204414 @197148 @ValidatewhenAnnouncementispublishedthenemailshouldgettriggered @sprint-8-US-206947 @vaibhav @Allocation @TBExecution
+  @204414 @197148 @ValidatewhenAnnouncementispublishedthenemailshouldgettriggered @sprint-8-US-206947 @vaibhav @Allocation
   Scenario: Validate when Announcement is published then email should get triggered
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -414,7 +414,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
      The EGMS Team.
       """
 
-  @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408 @vaibhav @Allocation @TBExecution
+  @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408 @vaibhav @Allocation
   Scenario: Validate Admin user should able to see the two columns in published state for Formula Announcement when Allocation is by Applicants.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -489,7 +489,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-  @219088 @219090 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408 @vaibhav @Allocation @TBExecution
+  @219088 @219090 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408 @vaibhav @Allocation
   Scenario: Validate Admin user should able to see the two columns in Approved state for Formula Announcement when Allocation is by Applicants
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -567,7 +567,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-  @219106 @219107 @219163 @ValidatePOuserclickontheAddOrganizationbuttonthenuserseemodalwithalltheactiveS/RnamesforformulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation @TBExecution
+  @219106 @219107 @219163 @ValidatePOuserclickontheAddOrganizationbuttonthenuserseemodalwithalltheactiveS/RnamesforformulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation
   Scenario: Validate PO user click on the "Add Organization" button then user see modal with all the active S/R names for formula Announcement
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -645,7 +645,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     Then I softly can see page block "Focus Areas"
 
-  @219184 @ValidateusershouldnotbeabletoaddmorethanonebudgetperiodforformulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation @TBExecution
+  @219184 @ValidateusershouldnotbeabletoaddmorethanonebudgetperiodforformulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation
   Scenario: Validate user should not be able to add more than one budget period for formula Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -882,7 +882,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | User |
       | IND  |
 
-  @197144 @196665 @225801 @226417 @226435 @VerifyAnnownerPMuserOnceSRisassociatedtheinvitedapplicantssectiontableshouldupdateandautopopulatealltheassociatedfocusareasonlythosefocusareaswhicharealreadyassociatedwiththeannouncement @sprint-11-US-201040 @komal @Allocation @TBExecution
+  @197144 @196665 @225801 @226417 @226435 @VerifyAnnownerPMuserOnceSRisassociatedtheinvitedapplicantssectiontableshouldupdateandautopopulatealltheassociatedfocusareasonlythosefocusareaswhicharealreadyassociatedwiththeannouncement @sprint-11-US-201040 @komal @Allocation
   Scenario: Verify Ann owner pM user Once SR is associated, the invited applicant's section table should update and autopopulate all the associated focus areas (only those focus areas which are already associated with the announcement)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -947,7 +947,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following messages in the page details contains:
       | For a formula announcement, the Allocation Level must be one of the following - By Applicant or By Applicant and Focus Area. |
 
-  @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation @TBExecution
+  @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation
   Scenario: Verify if User gets warning message if tried to click on row level remove button without saving record "This action will delete the Org and associated FA and Unsaved data will be lost due to page refresh Please save the record to continue".
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -980,7 +980,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Removes" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table with table id "---announcement:-:addOrganizationByAppFocusAreaTableId---" without processing
     Then I see confirmation box with body "This action will delete the Organization and associated focus areas and Unsaved data will be lost due to page refresh . Please save the record to continue." is displayed
 
-  @226416 @VerifyIfuseraddingonefocusareathenatleastonefocusareamustbepresentinthefocusareasectionotherwiseshowtheerrormessageonAddorganizations @sprint-11-US-201040 @komal @Allocation @TBExecution
+  @226416 @VerifyIfuseraddingonefocusareathenatleastonefocusareamustbepresentinthefocusareasectionotherwiseshowtheerrormessageonAddorganizations @sprint-11-US-201040 @komal @Allocation
   Scenario: Verify If user adding one focus area, then at least one focus area must be present in the focus area section, otherwise, show the error message on Add organizations .
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1001,7 +1001,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Please associate at least one Focus Area before adding Organization, As Allocation level is by "By Applicant and Focus Area" . |
 
-  @222141 @222105 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinapprovedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222141 @222105 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinapprovedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user can see row level edit action in the applicant section when formula announcement is in Created/approved state(formula announcements with allocationlevel By Applicant)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1077,7 +1077,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @222329 @ValidatePMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinapprovedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222329 @ValidatePMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinapprovedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
   Scenario: Validate PM user can see row level edit action in the applicant section when formula announcement is in created state formula announcements with allocationlevel By Applicant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1128,7 +1128,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly cannot see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @222111 @222106 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinreviewedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222111 @222106 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinreviewedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in reviewed state(formula announcements with allocationlevel By Applicant)
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1190,7 +1190,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in submitted for review state(formula announcements with allocationlevel By Applicant & Focus Area)
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1231,7 +1231,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user should able to see the Add Organization button should be hidden on submit for approval state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1370,7 +1370,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Under Revision"
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @222464 @222465 @222468 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinApprovedPublishedUnpublishedState @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222464 @222465 @222468 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinApprovedPublishedUnpublishedState @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in Approved Published Unpublished state.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1444,7 +1444,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | As allocation is "By Applicant and Focus Area", Focus area table must contain at least one focus area if Organizations are associated with the Announcement. |
 
-  @222370 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinApprovedstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222370 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinApprovedstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user can see row level edit action in the applicant section when formula announcement is in Approved state(formula announcements with allocation level By Applicant & Focus Area)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1512,7 +1512,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
-  @222369 @222380 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinPublishedUnderRevisionStateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222369 @222380 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinPublishedUnderRevisionStateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user  can see row level edit action in the applicant section when formula announcement is in Published/Under Revision state(formula announcements with allocation level By Applicant & Focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
@@ -1537,7 +1537,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
-  @222356 @VerifyUsercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinreviewedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222356 @VerifyUsercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinreviewedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user can see row level edit action in the applicant section when formula announcement is in reviewed state(formula announcements with allocation level By Applicant & Focus Area)
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1601,7 +1601,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @221965 @221970 @221971 @221974 @222023 @222036 @VerifyEXEusershouldabletoaddorganizationforformulaAnnouncementwhenannouncementisincreatedsubmittedforreviewreviewedApprovedpublishedunderrevisionstate @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @221965 @221970 @221971 @221974 @222023 @222036 @VerifyEXEusershouldabletoaddorganizationforformulaAnnouncementwhenannouncementisincreatedsubmittedforreviewreviewedApprovedpublishedunderrevisionstate @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify EXE user should able to add organization for formula Announcement when announcement is in created/submitted for review reviewed Approved published under revision state.
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1699,7 +1699,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Under Revision"
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @222058 @222060 @222064 @VerifyAdminusercandeletesingleinvitedorganizationormultipleorganizationsforformulaAnnouncementwhenannouncementisinisincreatedsubmittedforreviewreviewedstate @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222058 @222060 @222064 @VerifyAdminusercandeletesingleinvitedorganizationormultipleorganizationsforformulaAnnouncementwhenannouncementisinisincreatedsubmittedforreviewreviewedstate @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify Admin user can delete single invited organization or multiple organizations  for formula Announcement when announcement is in created/submitted for review/reviewed state
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1759,7 +1759,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     Then I softly can see top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @226434 @222201 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @226434 @222201 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1791,7 +1791,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @226438 @ValidateifuserwantsupdatethefinalallocationforagivenorganizationiftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @226438 @ValidateifuserwantsupdatethefinalallocationforagivenorganizationiftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario Outline: Validate if user wants update the final allocation for a given organization if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2768,7 +2768,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222303 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222303 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before award creation)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3246,7 +3246,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222261 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222261 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3313,7 +3313,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222010
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in closed state(formula announcements with allocation level By Applicant)
   | Verify if user wants update the final allocation for a given organization & if the announcement status is closed then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM ) |
     When I login to "As a Grantor" app as "PM" user
@@ -3340,7 +3340,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
-  @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222259 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify if user wants update the final allocation for a given organization & if the announcement status is Closed then user should see the updated final allocation is reflected in the corresponding application (before award creation)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
@@ -3351,7 +3351,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$2,000"
 
- @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558 @komal @Allocation @TBExecution
+ @222467 @222376 @222306 @VerifyusercannotdeletetheassociatedfocusareawhenAnnouncementisinclosedstate @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user cannot delete the associated focus area when Announcement is in closed state.
   | Verify user  can see row level edit action in the applicant section when formula announcement is in Closed state(formula announcements with allocation-level = By Applicant & Focus Area) |
     When I login to "As a Grantor" app as "PM" user
@@ -3382,7 +3382,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "7" seconds
     Then I softly see field "Allocation Amount" as "$2,000"
 
-  @222301 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222301 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisClosedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify if user wants update the final allocation for a given organization & if the announcement status is Closed then user should see the updated final allocation is reflected in the corresponding application (before award creation)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
@@ -3418,7 +3418,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222020
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution
+  @222381 @VerifyusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinArchivedstateformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify user can see row level edit action in the applicant section when formula announcement is in Archived state(formula announcements with allocationlevel By Applicant & Focus Area)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3647,7 +3647,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | PM    | {SavedValue:Automation Runtime Formula Announcement} |
       | ADMIN | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @222580 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation @TBExecution
+  @222580 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
   Scenario: Validate formula when announcement is in published state then user should add organization edit the Allocation amount & mail should  be triggered for Organization with updated allocation values (Allocation is By Applicant)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     When I login to "As a Grantor" app as "PM" user
@@ -3676,7 +3676,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team
       """
 
-  @229100 @VerifywhenAnnouncementispublishedbyuserthenemailshouldbetriggeredForformulaannouncementswithallocationlevelByApplicant @sprint-12-US-221459 @komal @Allocation @TBExecution
+  @229100 @VerifywhenAnnouncementispublishedbyuserthenemailshouldbetriggeredForformulaannouncementswithallocationlevelByApplicant @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when Announcement is published by user then email should be triggered(For formula announcements with allocationlevel By Applicant)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     When I login to "As a Grantor" app as "PM" user
@@ -3702,7 +3702,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @222620 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation @TBExecution
+  @222620 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when announcement is in published state then user should add organization & edit the Allocation amount & mail should  be triggered for Organization with updated allocation values (Allocation is By Applicant & focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
@@ -3816,7 +3816,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @229102 @204414 @VerifywhenAnnouncementispublishedbyuserthenemailshouldbetriggeredForformulaannouncementswithallocationlevelByApplicantFocusAreayes @sprint-12-US-221459 @komal @Allocation @TBExecution
+  @229102 @204414 @VerifywhenAnnouncementispublishedbyuserthenemailshouldbetriggeredForformulaannouncementswithallocationlevelByApplicantFocusAreayes @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when Announcement is published by user then email should be triggered(For formula announcements with allocation level By Applicant & Focus Area=yes)
   | Validate when Announcement is published then email should get triggered |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
@@ -4478,7 +4478,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227809 @VerifyErrormessageisdisplayedtouserforformulaannouncementinthenegotiationtabwhenBudgetTabBudgetSummarybyFocusAreaisselectedandAllocationisbyapplicant @sprint-13-US-204132 @komal @Allocation @TBExecution
+  @227809 @VerifyErrormessageisdisplayedtouserforformulaannouncementinthenegotiationtabwhenBudgetTabBudgetSummarybyFocusAreaisselectedandAllocationisbyapplicant @sprint-13-US-204132 @komal @Allocation
   Scenario Outline: Verify Error message is displayed to user for formula announcement, in the negotiation tab, when "Budget Tab Budget Summary by Focus Area" is selected and Allocation is by applicant
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -6037,7 +6037,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---preApplication:-:qualifiedOpprtunitesTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "Opportunity Name" inside table "---preApplication:-:qualifiedOpprtunitesTableId---"
 
-  @274491 @ValidateisdisplayedtoUserwhenusertrytoaddmultiplebudgetperiodsonFormulaannouncementwhenFANO @Sprint-23-US-283335 @Vaibhav @Allocation @TBExecution
+  @274491 @ValidateisdisplayedtoUserwhenusertrytoaddmultiplebudgetperiodsonFormulaannouncementwhenFANO @Sprint-23-US-283335 @Vaibhav @Allocation
   Scenario: validation is displayed to user when user try to add multiple budget periods on Formula announcement when FA NO
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -6068,7 +6068,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | In the Formula announcements budgeting can be done only for first budget period. |
 
-  @274200 @ValidateFormulaPMusercanseevalidationonsubmitforApprovaonAnnouncementwhenAnnismodifiedmismatchvaluesisincreatedstateaftersendtoownerfromapprovalFAYESAllocationtypeByApplicantFA @Sprint-23-US-273843 @vaibhav @Allocation @TBExecution
+  @274200 @ValidateFormulaPMusercanseevalidationonsubmitforApprovaonAnnouncementwhenAnnismodifiedmismatchvaluesisincreatedstateaftersendtoownerfromapprovalFAYESAllocationtypeByApplicantFA @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can see validation on submit for Approval on Announcement when Ann is modified & mismatch values is in created state after send to owner from approval FA YES & Allocation Type By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6166,7 +6166,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Overview Tab - You must invite at least one applicant before submitting this Announcement.                                           |
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                                   |
 
-  @274212 @ValidateFormulaPMusercanseealleditaccessofAnnwhenownershipofAnnouncementistransfertoonePMtootherPMuserisincreatedstatenewusercanpublishedAnnFAYESAllocationTypeByApplicantFA @Sprint-23-US-273843 @vaibhav @Allocation @TBExecution
+  @274212 @ValidateFormulaPMusercanseealleditaccessofAnnwhenownershipofAnnouncementistransfertoonePMtootherPMuserisincreatedstatenewusercanpublishedAnnFAYESAllocationTypeByApplicantFA @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can see all edit access of Ann when ownership of Announcement is transfer to one PM to other PM user is in created state & new user can published Ann FA YES & Allocation Type By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
