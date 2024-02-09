@@ -100,8 +100,9 @@ Feature: Validate all scenarios in Funding Source
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I enter value "4650" into field "EndDate__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
-    And I wait for "1" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Funding account dates should be within funding source dates. |
 

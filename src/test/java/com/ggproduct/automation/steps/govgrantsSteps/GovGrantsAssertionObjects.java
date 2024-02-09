@@ -510,7 +510,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -671,8 +671,8 @@ public final class GovGrantsAssertionObjects {
         try {
             By fieldWrapperLocator;
             if (responseType.equalsIgnoreCase("text")) {
-                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select");
-                String givenText = I.amPerforming().actionToGet().attribute(fieldWrapperLocator, "value");
+                fieldWrapperLocator = ByUsing.xpath("//div[@id='field" + fieldName + "' or @id='" + fieldName + "']//input[not(contains(@type,'hidden'))] | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//textarea | //div[@id='field" + fieldName + "' or @id='" + fieldName + "']//select | //div[@data-field_api_name='" + fieldName + "']//button[contains(@id,'combobox-button')]");
+                String givenText = I.amPerforming().actionToGet().text(fieldWrapperLocator);
                 if (givenText.equals(text)) {
                     flag = true;
                 }
@@ -839,6 +839,7 @@ public final class GovGrantsAssertionObjects {
      * get sub tab inside detail each main detail page like overview etc.
      *
      * @param desiredSubTab
+     * @modifier pooja.gundle -- added xpath
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
         By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label]");

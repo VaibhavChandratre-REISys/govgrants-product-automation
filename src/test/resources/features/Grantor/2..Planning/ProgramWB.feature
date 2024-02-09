@@ -4879,7 +4879,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @Debug @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250 @vaibhav @reassignment @ProgramExcludeScenarios
+  @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Internal Prog additional entries made due to reassignment for R&R in context to next module are not carried ahead
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab

@@ -192,7 +192,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickTableActionIcons(String iconName, String... anyUniqueColumnValues) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             I.amPerforming().waitFor().makeThreadSleep(5000);
-            I.amPerforming().click().on(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
+            I.amPerforming().click().withJavaScript(getTableActionIconWithoutTableIdForLWC(anyUniqueColumnValues));
             I.amPerforming().click().withJavaScript(By.xpath("//td//a//span[text()='" + iconName + "']"));
         }else{
             I.amPerforming().click().on(getTableActionIconWithoutTableId(iconName, anyUniqueColumnValues));
@@ -780,11 +780,11 @@ public final class FlexTable implements FlexTableComponent {
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
         try {
-            entriesDD.click();
+            I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().textInput().withJavaScript(entriesDD, numberofEntries );
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
-            I.amPerforming().click().on(elementDropDown);
+            I.amPerforming().click().withJavaScript(elementDropDown);
         }
     }
 

@@ -19,7 +19,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     #219166
     Then I softly see "Focus Areas" page block displayed
 
-  @219077 @VerifyAdminuserseetheEGMSIDshouldbeclickablelinkinthecolumnofApplicationEGMSIDforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @219077 @VerifyAdminuserseetheEGMSIDshouldbeclickablelinkinthecolumnofApplicationEGMSIDforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user see the EGMS ID should be clickable link  in the column of Application EGMS ID for Directed Announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -31,6 +31,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
@@ -75,7 +76,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @219075 @AdminUserShouldAbleToSeeTwoColumnsInPublishedStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+ @219075 @AdminUserShouldAbleToSeeTwoColumnsInPublishedStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user should able to see the two columns in published state for Directed Announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -98,20 +99,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal_Directed" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+   And I wait for "3" seconds
     And I enter "Directed_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I navigate to "Financials" sub tab
+   And I save the field labeled "EGMS ID" as "AnnEGMSID"
+   When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
+    And I wait for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -132,7 +130,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
     When I navigate to "Overview" sub tab
     #219078
@@ -174,6 +172,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal_Directed" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter "Directed_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -190,7 +189,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see the following messages in the page details contains:
       | Selected Applicants are associated successfully. |
 
-  @219110 @219161 @VerifyPMusershouldremovethesrbyclickingtheremoveicon&successmessageshouldbedisplayforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+   @219110 @219161 @VerifyPMusershouldremovethesrbyclickingtheremoveicon&successmessageshouldbedisplayforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify PM user should remove the sr, by clicking the remove icon, & success message should be display for Directed Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -200,6 +199,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal_Directed" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter "Directed_Edition" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -216,7 +216,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
 
-  @219619 @INDUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @219619 @INDUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: IND User for Directed announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG"
     When I am on "SUBPORTAL" portal
@@ -248,7 +248,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | IND  |
 
-  @219614 @SPIUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @219614 @SPIUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: SPI User for Directed announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -280,7 +280,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | SPI3 |
 
-  @219617 @219612 @SPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @219617 @219612 @SPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: SPA SPI User for Competitive announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -313,7 +313,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | SPA  |
       | SPI3 |
 
-  @226489 @INDSPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @226489 @INDSPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: IND User for Competitive announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG"
     When I am on "SUBPORTAL" portal
@@ -345,7 +345,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | IND  |
 
-  @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is displayed to PM user when entered recommended budget is greater than the Budgeted Amount on FDM record which is created from Directed announcement
   | Verify validation message is displayed to PM user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Directed announcement  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO"
@@ -357,6 +357,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -382,19 +383,18 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
-    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+     When I close "Assign Reviewers" modal by clicking the top right x button
+     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
-    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+     When I close "Assign Reviewers" modal by clicking the top right x button
+     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+     When I close "Assign Reviewers" modal by clicking the top right x button
+     And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -481,20 +481,19 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I navigate to "Funding Decision Memo" sub tab
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     #238301
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 2000               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -503,7 +502,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     #237744
     And I refresh the page
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget |
       | <Announcement Name> | 500                |
     And I click on "Submit for Approval" in the page details
@@ -514,7 +513,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @237897 @VerifyAdminuserisabletocreatesubawardfromFDMwhenenteredrecommendedbudgetisequaltoBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @237897 @VerifyAdminuserisabletocreatesubawardfromFDMwhenenteredrecommendedbudgetisequaltoBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify Admin user is able to create subaward from FDM when entered recommended budget is equal to Budgeted Amount on FDM record which is created from Directed announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -525,6 +524,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -550,19 +551,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -649,27 +645,27 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     #237897
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I pause execution for "7" seconds
@@ -706,9 +702,9 @@ Feature: Validate all scenarios in the directed Announcement tab
       | BP01               |
       | BP02               |
 
-  @219346 @234712 @DirectedAnnVerifyasPMuserIcanseeRecommendedBudgetcolumnisvisiblewhenAppstatusisnegotiationinitiated @sprint-13-US-224612 @sprint-10-US-203669 @komal @Allocation
+   @219346 @234712 @DirectedAnnVerifyasPMuserIcanseeRecommendedBudgetcolumnisvisiblewhenAppstatusisnegotiationinitiated @sprint-13-US-224612 @sprint-10-US-203669 @komal @Allocation
   Scenario Outline:Directed Ann as PM user I can see Recommended Budget column is visible when App status is negotiation initiated
-  | Direct Ann>>Verify PM when negotiation is initiated during FDM or from app layout then user should not get validation on UI on send to subrecipient button when the budgeted Amount is equal to the Recommended Budget |
+  | Direct Ann Verify PM when negotiation is initiated during FDM or from app layout then user should not get validation on UI on send to subrecipient button when the budgeted Amount is equal to the Recommended Budget |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     And I created approved FDM on application "<Announcement Name>"
@@ -721,7 +717,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     #234712
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Overview: Project Information" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -736,7 +732,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234354 @234372 @DirectAnnVerifyPMusercanseetheRecommendedAmountBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234354 @234372 @DirectAnnVerifyPMusercanseetheRecommendedAmountBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PM user can see the 'Recommended Amount' 'Budgeted Amount' 'State Allocation' column on Recommended application section on FDM layout
   | Direct Ann PM user can see the Show Subaward floor and Subaward Ceiling under overview section on FDM layout |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -748,6 +744,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -773,19 +771,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -873,7 +866,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see field "Status" as "Created"
     And I navigate to "Funding Decision Memo" sub tab
     #234354
-    Then I see the following headers in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following headers in table with id "FundingDecisionMemoApplications" :
       | Recommended Budget | Budgeted Amount | State Allocation |
     #234372
     Then I softly see field "Subaward Floor" inside page block
@@ -883,7 +876,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234360 @DirectAnnVerifyPMusercanseeeditedtheBudgetedAmountfieldwhenusersendtheapplicationtosrfornegotiation&subrecipientaddbudgetonitwhenonceFDMisapproved @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234360 @DirectAnnVerifyPMusercanseeeditedtheBudgetedAmountfieldwhenusersendtheapplicationtosrfornegotiation&subrecipientaddbudgetonitwhenonceFDMisapproved @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PM user can see edited the Budgeted Amount field when user send the application to sr for negotiation subrecipient add budget on it when once FDM is approved
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -894,6 +887,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -919,19 +914,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1018,29 +1008,29 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -1055,7 +1045,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -1072,7 +1062,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234362 @DirectAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedamountwhenusertriedtoconverttoaward @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234362 @DirectAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedamountwhenusertriedtoconverttoaward @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PO user can see the validation when the budgeted Amount is not equal to the Recommended amount when user tried to convert to award
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1083,6 +1073,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -1108,19 +1100,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1206,25 +1193,24 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     Then I can see row level action button "Create Subaward" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -1251,7 +1237,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     #234715
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1264,7 +1250,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-  @234920 @DirectAnnVerifyPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234920 @DirectAnnVerifyPOusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PO user should see validation on send to s/r button when negotiation is initiated Customized review step when user select only budget summary by Focus Area section for negotiation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1284,8 +1270,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -1336,7 +1320,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Approved"
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I wait for "10" seconds
     When I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     When I navigate to "Applications" tab
@@ -1352,7 +1336,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1379,7 +1363,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     When I click on "Save" in the page details
@@ -1392,9 +1376,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I wait for "3" seconds
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     When I click on "Submit to Grantor" in the page details
@@ -1413,7 +1396,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User  |
       | {SavedValue:Automation Runtime Announcement} | ADMIN |
 
-  @234918 @DirectAnnVerifyAdminusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedonSMEreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234918 @DirectAnnVerifyAdminusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedonSMEreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann Admin user should see validation on send to s/r button when negotiation is initiated on SME review step when user select only budget summary by Focus Area section for negotiation
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1424,6 +1407,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -1437,7 +1422,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1463,15 +1448,15 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
     #234369
-    Then I see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Application Sections for Revision - Available"
-    Then I do not see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget: Focus Area" under list "Application Sections for Revision - Available"
+    Then I see multipicklist field "ApplicationSectionsForRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Application Sections for Revision - Available"
+    Then I do not see multipicklist field "ApplicationSectionsForRevision__c" contains value "Budget: Focus Area" under list "Application Sections for Revision - Available"
     #234714
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1497,7 +1482,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     #234368
     And I navigate to "Funding Decision Memo" sub tab
-    Then I see the following rows under the following columns in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following rows under the following columns in table with id "FundingDecisionMemoApplications" :
       | Application Title   | Recommended Budget | Budgeted Amount |
       | <Announcement Name> | $1,000.00          | $1,000.00       |
     Then I can see row level action button "Create Subaward" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -1510,7 +1495,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            |
       | {SavedValue:Automation Runtime Announcement} |
 
-  @234368 @234371 @DirectAnnVerifyEXEusercaninlineedittheRecommendedBudgetfieldunderRecommendedApplicationsectionbeforeFDMapproval @sprint-13-US-224612 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234368 @234371 @DirectAnnVerifyEXEusercaninlineedittheRecommendedBudgetfieldunderRecommendedApplicationsectionbeforeFDMapproval @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann EXE user can inline edit the Recommended Budget field under Recommended Application section before FDM approval
   | DirectAnn>>Verify EXE when negotiation is initiated during FDM or from app layout then it must mandatory for user to select the "Budget: Budget Details " picklist value  for Negotiation field when the budgeted Amount is not equal to the Recommended Budget |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG-Automation EXE user"
@@ -1522,6 +1507,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -1547,19 +1534,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1646,34 +1628,34 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I navigate to "Funding Decision Memo" sub tab
+    And I wait for "3" seconds
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     #234368
-    Then I softly can see row level action button "Edit" against "<Announcement Name>" in flex table with id "flexGridFundingDecisionMemoApplications"
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    Then I softly can see row level action button "Edit" against "<Announcement Name>" in flex table with id "FundingDecisionMemoApplications"
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
-    Then I softly cannot see row level action button "Edit" against "<Announcement Name>" in flex table with id "flexGridFundingDecisionMemoApplications"
+    Then I softly cannot see row level action button "Edit" against "<Announcement Name>" in flex table with id "FundingDecisionMemoApplications"
     #234371
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1685,7 +1667,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | EXE  |
 
-  @234234 @234238 @234240 @DirectAnnSPIusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234234 @234238 @234240 @DirectAnnSPIusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Direct Ann SPI user can see Error message on submit to grantor button when user resubmit the application after negotiation (From FDM), if check when the Budgeted amount must be equal to the  Recommended Amount
   | Direct Ann>> Verify SPI user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Direct Ann>> Verify SPI user can able to edit the Budget details section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)then mandatory to select Budget details from picklist for negotiation |
@@ -1698,6 +1680,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -1723,19 +1707,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1822,30 +1801,30 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -1860,7 +1839,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "5" seconds
     #234234
@@ -1886,7 +1865,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Direct Ann IND user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the Recommended Amount
   | Direct Ann>> Verify IND user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Direct Ann>> Verify IND user can not see Error message on submit to grantor button when user resubmit the application after negotiation (From FDM), if  Budgeted amount is equal to the  Recommended Amount  |
@@ -1899,6 +1878,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -1924,19 +1905,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2023,30 +1999,30 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -2062,7 +2038,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "5" seconds
     #234235
@@ -2092,7 +2068,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234225 @234229 @234228 @CompAnnSPIusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234225 @234229 @234228 @CompAnnSPIusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Comp Ann SPI user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the  Recommended Amount
   | Direct Ann>> Verify SPI user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Direct Ann>> Verify SPI user can able to edit the Budget details section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)then mandatory to select Budget details from picklist for negotiation |
@@ -2105,6 +2081,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -2130,19 +2108,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2229,30 +2202,30 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -2267,7 +2240,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "5" seconds
     #234225
@@ -2297,7 +2270,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @234227 @234231 @234233 @CompAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @Pre-ScreenOnHoldSPI @234227 @234231 @234233 @CompAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Comp Ann IND user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the Recommended Amount
   | Comp Ann>> Verify IND user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Comp Ann>> Verify IND user can able to edit the Budget details section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)then mandatory to select Budget details from picklist for negotiation |
@@ -2310,6 +2283,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "<Announcement Name>"
     When I click on "View" icon for "<Announcement Name>" inside table
     And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -2335,19 +2310,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2434,30 +2404,30 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+    And I wait for "3" seconds
+    And I navigate to "Funding Decision Memo" sub tab
+    When I enter value "AuGr" into field "GrantCode__c"
+    When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -2472,7 +2442,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "5" seconds
     #234227
@@ -2509,21 +2479,18 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "4" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
+    And I wait for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -2547,7 +2514,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants  | Application EGMS ID | Application Status |Last Updated By | Last Updated |
@@ -2565,7 +2532,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants  | Application EGMS ID | Application Status |Last Updated By | Last Updated |
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants  | Application EGMS ID | Application Status |Last Updated By | Last Updated |

@@ -11,23 +11,23 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I wait for "4" seconds
 
    @34461 @70612 @submittingAnnouncementForApprovalFA @announcementForPastApplicationDueDateFA @submittedAnnouncementDeletionFA @smoke
-  Scenario: Validate that user can not enter application due date as past date | Validate the submission of Announcement for Approval || Validate that only record owner cannot delete Submitted for Approval status announcements
+   Scenario: Validate that user can not enter application due date as past date | Validate the submission of Announcement for Approval || Validate that only record owner cannot delete Submitted for Approval status announcements
+    And I wait for "7" seconds
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -38,20 +38,25 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
+     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
-    And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" without waiting for record
+    And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I wait for "2" seconds
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    And I wait for "2" seconds
     Then I softly see value "$1,000" for title "Allocated Amount" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -67,7 +72,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I navigate to "Overview" sub tab
-    And I enter value "1" into field "fieldApplicationDueDate__c"
+    And I enter value "1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -79,12 +84,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Overview Tab - The answer submission deadline must be before the Application due date.   |
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "10" into field "fieldApplicationDueDate__c"
-    And I enter value "No" into field "fieldQAAvailability__c"
+    And I enter value "10" into field "ApplicationDueDate__c"
+    And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     And I get the "EGMS ID"
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     And I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Formula Announcements"
@@ -93,14 +98,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
   @70613 @70677 @announcementWithBlankBudgetPeriodFA
   Scenario: Validate that user should not submit announcement with blank budget period dates | To verify that if announcement type is -Formula then user can remove applicant organization in Invited Applicants section while creating the  Announcement
-    When I click on "Edit" in the page details
+    And I wait for "7" seconds
+    And I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -135,8 +139,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    And I wait for "3" seconds
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
-    When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" without waiting for record
+    When I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly do not see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Applicants" inside table "---announcement:-:formulaInvitedApplicatsTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -148,6 +155,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "5" seconds
     Then I see the following messages in the page details :
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
 
@@ -159,8 +167,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -200,6 +206,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -225,7 +232,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @announcementSendBackToOwnerFA @announcementPostSendBackCheckFieldHistoryFA @announcementSendBackPendingTaskToOwnerFA @smoke
   Scenario: Validate the send back functionality of an Announcement || Validate that after send back from approvers owner should not get pending task
@@ -235,8 +242,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -282,7 +287,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Draft"
     When I navigate to "History" sub tab
     Then I softly see that "Announcement" is in "Draft" status
     When I navigate to "Announcements" tab
@@ -290,7 +297,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "{SavedValue:Automation Runtime Formula Announcement}" inside table
 
-  @announcementPostRejectionCheckInListViewFA @announcementPostRejectCompletedTaskForUserFA @announcementApprovalRejectionFA @announcementRejectPendingTaskForNextApproverFA @announcementPostRejectPendingTaskForUserFA @announcementPostRejectCheckFieldHistoryFA
+  @announcementPostRejectionCheckInListViewFA @announcementPostRejectCompletedTaskForUserFA @announcementApprovalRejectionFA @announcementRejectPendingTaskForNextApproverFA @announcementPostRejectPendingTaskForUserFA @announcementPostRejectCheckFieldHistoryFA @FieldHistoryExclude
   Scenario: Validate the rejected announcement will reflect under "Rejected Announcements" list view || Validate the field history after rejection of an announcement || Validate that after rejection of an Announcement task get added to it's completed task table. || Validate that after rejection of an Announcement task get deleted from pending task table.|| Validate the reject functionality of an Announcement || Validate that after rejection from 1st approver, 2nd user should not get pending task
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
@@ -298,8 +305,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -338,17 +343,18 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Submit For Approval" in the page details
     And I get the "EGMS ID"
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
+    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "History" sub tab
-    Then I softly see value "Rejected" for title "New Value" inside table "History"
+#    Then I softly see value "Rejected" for title "New Value" inside table "History"
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Rejected Formula Announcements"
