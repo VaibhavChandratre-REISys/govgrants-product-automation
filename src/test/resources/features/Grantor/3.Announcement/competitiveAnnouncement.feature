@@ -402,6 +402,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details :
       | Record deleted successfully. |
+    When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel

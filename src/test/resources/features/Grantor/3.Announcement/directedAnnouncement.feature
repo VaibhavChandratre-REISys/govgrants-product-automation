@@ -377,6 +377,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I pause execution for "3" seconds
 #    When I navigate to "History" sub tab

@@ -53,7 +53,7 @@ public class AwardSteps {
 
     @And("^I click \"([^\"]*)\" link present on hovered tooltip$")
     public void iClickLinkPresentOnHoveredTooltip(String text) {
-        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='"+text+"']"));
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='"+text+"'] | //lightning-formatted-lookup//a[text()='"+text+"'] "));
     }
 
     @Then("^I (softly see|see) page title contains as \"([^\"]*)\"$")
@@ -97,7 +97,7 @@ public class AwardSteps {
     @And("^I save the total records from the flex table id \"([^\"]*)\" as \"([^\"]*)\"$")
     public void iGetTheTotalRecordsFromTheFlexTableId(String flexTableId, String key) {
        I.amPerforming().propertiesFileOperationsTo().saveValue(key,I.amPerforming().actionToGet().text(By.xpath(
-             "//div[@id='"+flexTableId+"']//*[@ng-bind='totalRecords'] | //div[@id='"+flexTableId+"']//table//tfoot//tr[last()]//*[contains(@class, 'ng-binding')]"
+             "//div[@id='"+flexTableId+"']//*[@ng-bind='totalRecords'] | //div[@id='"+flexTableId+"']//table//tfoot//tr[last()]//*[contains(@class, 'ng-binding')] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//span[contains(text(),'Total Records')]"
        )));
     }
 

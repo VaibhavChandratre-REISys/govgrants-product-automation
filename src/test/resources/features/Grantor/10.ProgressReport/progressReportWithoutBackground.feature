@@ -8724,7 +8724,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Send Back to Subrecipient" in the page details
     And I refresh the page
-    And I checkout to yopmail with mailid "automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

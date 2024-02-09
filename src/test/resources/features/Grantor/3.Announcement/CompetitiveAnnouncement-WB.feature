@@ -718,6 +718,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Negotiation Initiated"
     #219357
     And I refresh the page
@@ -1631,7 +1632,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Funding Decision Memo" sub tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:recommendedTableId---"
     When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:recommendedTableId---"
-    And I checkout to yopmail with mailid "automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

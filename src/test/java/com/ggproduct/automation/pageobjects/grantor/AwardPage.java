@@ -28,7 +28,7 @@ public class AwardPage extends GrantorProjectManager {
      * @param fieldApiName
      */
     public Boolean isFieldEditable(String fieldApiName) {
-        By field = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//textarea");
+        By field = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "']//textarea | //div[@data-field_api_name='" + fieldApiName + "']");
         try {
             I.amPerforming().getElementReference().of(field);
             return true;

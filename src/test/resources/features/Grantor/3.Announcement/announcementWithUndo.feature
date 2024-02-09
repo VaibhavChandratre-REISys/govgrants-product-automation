@@ -12,15 +12,10 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "--announcement:-:annChecklist---" by clicking "Add" :
-      | Description | Required  | Applies To | Status |
-      | Automation  | Mandatory | Site Visit | Active |
-    When I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -231,8 +226,10 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I pause execution for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    And I pause execution for "2" seconds
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -350,6 +347,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    And I pause execution for "2" seconds
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -910,12 +908,9 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -1111,6 +1106,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1141,6 +1137,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
+    And I pause execution for "2" seconds
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1545,7 +1542,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-     Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}.
+     Sandbox: Notification: Approver initiated undo action onAnnouncement {SavedValue:AnnEGMSID}.
       """
     Then I see the mail text is as follows :
      """
@@ -1553,19 +1550,19 @@ Feature: Validate all scenarios in the Announcement with Undo
 
 
 
-     This email is to notify you that Approver Automation PM has initiated Undo Action for announcement {SavedValue:AnnEGMSID}.
+    This email is to notify you that Approver Automation PM has initiated Undo Action for announcement AN-TAO modified-341.
 
-     Announcement Details:
-     Announcement Title: {SavedValue:AnnEGMSID}
-     Announcement Type: Competitive
-     Associated Program Name: Automation Permanent Internal Program
+    Announcement Details:
+    Announcement Title: {SavedValue:AnnEGMSID}
+    Announcement Type: Competitive
+    Associated Program Name: Automation Permanent Internal Program
 
-     Log in to EGMS and click here to start reviewing the details.
+    Log in to EGMS and click here to start reviewing the details.
 
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-     Thank you.
-     The EGMS Team
+   Thank you.
+   The EGMS Team
      """
 
   @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo

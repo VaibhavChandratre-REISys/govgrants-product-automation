@@ -6916,7 +6916,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
-    And I checkout to yopmail with mailid "automationspi30@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "60" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

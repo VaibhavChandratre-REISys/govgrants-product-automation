@@ -486,7 +486,7 @@ Feature: Validate all scenarios for program
     #279359
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
-    And I click on "Menu" in the page details
+     And I click on Menu icon present on top right corner of the page
     And I wait for "5" seconds
     Then I can see top right button "Activate" in page detail
     When I click on "Activate" in the page details
