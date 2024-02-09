@@ -847,10 +847,10 @@ public final class GovGrantsAssertionObjects {
         List<String> allSubTabNames;
         try {
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
-                    .stream().map(el -> el.getAttributes("name")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
+                    .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         } catch (StaleElementReferenceException e) {
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
-                    .stream().map(el -> el.getAttributes("name")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
+                    .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         }
 
         if (assertCan) {
