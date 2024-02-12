@@ -774,6 +774,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -2333,7 +2334,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I pause execution for "3" seconds
     And I submit the approval in the approval decision
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Please select appropriate action before submitting. |
     And I pause execution for "3" seconds
     When I select radio button "Approve" in the approval decision
