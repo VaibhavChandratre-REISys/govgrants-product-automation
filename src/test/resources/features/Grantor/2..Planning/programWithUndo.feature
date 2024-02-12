@@ -433,7 +433,8 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @Debug @UpdatedUndoFilePooja @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  
+   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -1888,7 +1889,7 @@ Feature: Validate all scenarios for program
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @279515 @VerifyPMusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo
+  @Debug @279515 @VerifyPMusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-3-US-291914 @hitesh @Undo
   Scenario:Verify PM user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1925,6 +1926,7 @@ Feature: Validate all scenarios for program
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I wait for "5" seconds
     And I click toggle button to select "All NGO Programs"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
@@ -2369,6 +2371,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I wait for "4" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2858,7 +2861,7 @@ Feature: Validate all scenarios for program
     Then I softly see snapshot with name containing "External NGO Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
     When I download the file
-#    And I switch to tab number "1"
+#   And I switch to tab number "1"
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
