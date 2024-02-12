@@ -334,6 +334,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 30                 |
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 60                 |
     And I close "Review Form" modal by clicking the top right x button
     And I pause execution for "5" seconds
@@ -5379,7 +5381,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Budget"
     And I wait for "2" seconds
-    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" against the value "5" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "10" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "6" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5517,7 +5519,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     #77105
     When I navigate to "Setup" sub tab
-    And I collapse nested table containing column value "SME Review"
+    And I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record

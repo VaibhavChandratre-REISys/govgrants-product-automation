@@ -1003,7 +1003,6 @@ public final class FlexTable implements FlexTableComponent {
                             By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
 //                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
-                            I.amPerforming().textInput().toClear(inputBox);
 //                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
 //                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
                             I.amPerforming().textInput().toClear(inputBox);
