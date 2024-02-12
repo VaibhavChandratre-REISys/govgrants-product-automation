@@ -64,6 +64,17 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
+    @Then("^I (softly see|see|do not see|softly do not see) value with quote \"([^\"]*)\" for title \"([^\"]*)\" inside table \"([^\"]*)\"$")
+    public void columnValueInFlextableWithQuote(String seeornotsee, String columnValue, String columnTitle, String flextableDivId) {
+        ggAssertionObjects.assertValuesAreInFlexTableWithColumnTitleWithQuote(
+                columnValue,
+                columnTitle,
+                flextableDivId,
+                "softly see".equalsIgnoreCase(seeornotsee) || "see".equalsIgnoreCase(seeornotsee),
+                seeornotsee.contains("softly")
+        );
+    }
+
     @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" against the value \"([^\"]*)\" inside table \"([^\"]*)\"$")
     public void columnValueAgainstUniqueValeInFlextable(String seeornotsee, String columnValue, String columnTitle, String uniqueColumnValue, String flextableDivId) {
         ggAssertionObjects.assertValuesAreInFlexTableAgainstUniqueValue(
