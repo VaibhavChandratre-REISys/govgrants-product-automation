@@ -2032,7 +2032,9 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Completeness   | 0                  |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "5" seconds
+    And I navigate to "Setup" sub tab
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections. |
