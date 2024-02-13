@@ -1304,11 +1304,11 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Edit" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Edit" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Delete" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Send for Review" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Send for Review" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
 #    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
 #    Then I softly can see top right button "Complete Review" in page detail
 #    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
