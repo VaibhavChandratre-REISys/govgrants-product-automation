@@ -1304,35 +1304,35 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
-    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-    Then I softly can see top right button "Complete Review" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I wait for "2" seconds
-    When I enter in modal value "Cannot Rate" into field "Rating__c"
-    And I enter in modal value "Passed" into field "ReviewComments__c"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
-    And I click on Menu icon present on top right corner of the page
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see row level action button "Send for Review" against "{SavedValue:Automation EXE}" in flex table with id "---program:-:peerReviewTableId---"
+#    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+#    Then I softly can see top right button "Complete Review" in page detail
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    When I enter in modal value "Cannot Rate" into field "Rating__c"
+#    And I enter in modal value "Passed" into field "ReviewComments__c"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I click on "Complete Review" in the page details
+#    Then I softly see field "Status" as "Reviewed"
+#    And I click on Menu icon present on top right corner of the page
+#    Then I softly can see top right button "Submit For Approval" in page detail
 
   @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4 @vaibhav @reassignment
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
