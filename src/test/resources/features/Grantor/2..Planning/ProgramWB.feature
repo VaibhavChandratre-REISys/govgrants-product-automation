@@ -19,9 +19,11 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I enter values into "Information" page block
-      | Value                        | Field      |
-      | Test Automation Organization | Account__c |
+    And I click on remove for lookup from field "Account__c"
+    And I enter value "Test Automation Organization" into field "Account__c"
+#    When I enter values into "Information" page block
+#      | Value                        | Field      |
+#      | Test Automation Organization | Account__c |
 #    When I enter in modal value "Test Automation Organization" into field "Account__c"
     And I click on "Save" in the page details
     Then I softly see field "Internal Organization" as "Test Automation Organization"
@@ -272,6 +274,7 @@ Feature: Validate all scenarios for program
     And I "Disapprove" in the approval decision
     Then I can see the message "Successfully disapproved" in the approval decision
     Then I refresh the page
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @111514 @VerifyForwardOfNGOProgram @monu
