@@ -700,7 +700,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Start" against "Record Id" in flex table with id "---program:-:pendingTaskTableId---"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly see fields "input-2" is in edit mode
+    Then I softly see fields "input" is in edit mode
     When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Planning" for title "Phase" inside table "---program:-:grantorTaskReassignTableId---"
