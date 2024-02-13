@@ -58,18 +58,19 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
       | Created By    | Title         | Description       |
-      | Automation PM | Notes Record1 | Automation Notes1 |
+      | Automation PM | Notes Record2 | Automation Notes2 |
     And I wait for "2" seconds
-    Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    Then I softly see value "Automation Notes2" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title         | Description       |
-      | Notes Record2 | Automation Notes2 |
-    Then I softly see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
-    Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+      | Notes Record3 | Automation Notes3 |
+    Then I softly see value "Notes Record3" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    And I click on "Delete" icon for "Notes Record3" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
+    Then I softly do not see value "Notes Record3" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
   @219729 @ValidateEXEusercanAddeditdeletehisnotesonadirectedannouncementincreatedstatus @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate EXE user can Add/edit/delete his notes on a directed announcement in created status
