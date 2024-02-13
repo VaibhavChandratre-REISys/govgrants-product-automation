@@ -1531,7 +1531,9 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
-    When I login to "As a Grantor" app as "PM" user
-    And I halt execution
-   And I softly see value with quote "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
-   And I halt execution
+   And I published "Competitive" type announcement having name "Automation Undo Announcement" and properties "default"
+#
+#   When I login to "As a Grantor" app as "PM" user
+#    And I halt execution
+#   And I softly see value with quote "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
+#   And I halt execution

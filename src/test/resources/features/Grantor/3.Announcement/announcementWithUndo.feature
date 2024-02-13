@@ -1752,7 +1752,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I cannot see top right button "Undo" in page detail
 
   @342504 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinUnderRevisionstate @sprint-13-US-331643 @hitesh @Undo
-  Scenario: Announcement-->Verify that any user will not see Undo button when Announcement record is in Under Revision state
+  Scenario: Announcement that any user will not see Undo button when Announcement record is in Under Revision state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1844,10 +1844,21 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see field "Status" as "Under Revision"
     Then I cannot see top right button "Undo" in page detail
 
-
-
-
-
-
-
-
+  @342506 @ValidateAnnouncementthatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinClosedstate @Sprint-13-US-331643 @vaibhav @Undo
+  Scenario: Validate Announcement that any user will not see Undo button when Announcement record is in Closed state
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{AUTOEnvData:closedAnnouncementForUndo}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:closedAnnouncementForUndo}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{AUTOEnvData:closedAnnouncementForUndo}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:closedAnnouncementForUndo}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
