@@ -1658,6 +1658,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility   | Description                 | Due Date |
       | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+    And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     And I pause execution for "5" seconds
     And I navigate to "Planning" tab
@@ -5267,6 +5268,9 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
