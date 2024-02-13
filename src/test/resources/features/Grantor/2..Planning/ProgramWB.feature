@@ -649,7 +649,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
+  @hitesht @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate reassigned task owner PM user is able to activate the internal program if another PM transfers task of the task type Activate the Program when status of task as Not started
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -686,6 +686,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2063,8 +2064,9 @@ Feature: Validate all scenarios for program
       | Step 1       | Step 1       | Step 1 | Step 1 | Step 1                  | Step 1   |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     And I click on "Complete Review" in the page details
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -2227,7 +2229,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
 
-  @197314 @ValidatereassignedtaskownerEXEuserisabletoactivatetheexternalprogramifanotherEXEtransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment @ownvai @ProgramExcludeScenarios
+  @hitesht @197314 @ValidatereassignedtaskownerEXEuserisabletoactivatetheexternalprogramifanotherEXEtransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment @ownvai @ProgramExcludeScenarios
   Scenario: Validate reassigned task owner EXE user is able to activate the external program if another EXE transfers task of the task type Activate NGO Program when status of task as Not started
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2963,15 +2965,18 @@ Feature: Validate all scenarios for program
       """
     Then I see the mail text is as follows :
       """
-      Hello Automation,
-      This email is to notify you that Program {SavedValue:ProgramEGMSID} has been peer reviewed.
-      Program Details:
-      Program ID: {SavedValue:ProgramEGMSID}
-      Program Name: {SavedValue:Automation Runtime Internal Program}
-      Log in to EGMS and click here to start reviewing the details.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you.
-      The EGMS Team
+      This email is to notify you that {SavedValue:ProgramEGMSID} has been peer reviewed.
+
+   Program Details:
+   Program ID: {SavedValue:ProgramEGMSID}
+   Program Name: {SavedValue:Automation Runtime Internal Program}
+
+   Log in to EGMS and click here to start reviewing the details.
+
+   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at {!$Setup.GNT__GlobalConfig__c.SupportEmail__c} if you have any questions or need assistance with this task.
+
+   Thank you.
+   The EGMS Team
       """
     Then I refresh the page
     And I am on "INTERNAL" portal
