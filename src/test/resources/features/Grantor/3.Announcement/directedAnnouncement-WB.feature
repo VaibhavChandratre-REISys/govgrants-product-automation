@@ -89,7 +89,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-   @219078 @219081 @AdminUserShouldAbleToSeeTwoColumnsInApprovedOrUnderRevisionStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+  @Debug @219078 @219081 @AdminUserShouldAbleToSeeTwoColumnsInApprovedOrUnderRevisionStateForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user should able to see the two columns in Approved Under Revision state for Directed Announcement
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -106,8 +106,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-     And I close modal by clicking the top right x button
-     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     And I wait for "3" seconds
@@ -136,6 +136,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     #219078
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
@@ -144,6 +145,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Publish" in the page details
     And I click on "Unpublish" in the page details
     Then I softly see field "Status" as "Under Revision"
+    When I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
@@ -167,7 +169,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-   @219102 @219104 @VerifyEXeUserAbleToSeeSuccessMessageOnAddOrgModalAfterAddingActiveSubrecipieentOrg @sprint-9-US-208408 @komal @Allocation
+  @219102 @219104 @VerifyEXeUserAbleToSeeSuccessMessageOnAddOrgModalAfterAddingActiveSubrecipieentOrg @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify when EXE user click on the "Add Organization" button then user see modal with all the active SR names for Directed Announcement.
   | Verify EXE user see the Success message after adding Organization & when Applicants are updated and this modal will stay open to associate more applicants: |
     When I login to "As a Grantor" app as "EXE" user
@@ -186,8 +188,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     Then I softly see "Add Organizations" opens in overLay window
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
-   And I wait for "4" seconds
-   Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
+    And I wait for "4" seconds
+    Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
       | Organization                        | Organization Type        |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | For-profit organizations |
     #219104
@@ -681,7 +683,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User  |
       | {SavedValue:Automation Runtime Announcement} | ADMIN |
 
-   @220402 @VerifyAdminusershouldabletoaddmorethanoneBudgetPeriodunderbudgetperioddetailsforDirectedAnnouncement @sprint-8-US-208408 @komal @Allocation
+  @220402 @VerifyAdminusershouldabletoaddmorethanoneBudgetPeriodunderbudgetperioddetailsforDirectedAnnouncement @sprint-8-US-208408 @komal @Allocation
   Scenario: Verify Admin user should able to add more than one Budget Period under budget period details for Directed Announcement
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -705,6 +707,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | BP01               | 50         | 150      |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
+    When I navigate to "Financials" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:budgetPeriodTableId---" :
       | Budget Period Name |
       | BP01               |

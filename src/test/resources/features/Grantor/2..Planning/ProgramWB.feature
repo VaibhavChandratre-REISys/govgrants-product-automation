@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @109448 @VerifySelectionOfChildOrganization @monu @ProgramExcludeScenarios
+   @109448 @VerifySelectionOfChildOrganization @monu @ProgramExcludeScenarios
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -21,9 +21,10 @@ Feature: Validate all scenarios for program
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on remove for lookup from field "Account__c"
     And I enter value "Test Automation Organization" into field "Account__c"
-#    When I enter values into "Information" page block
-#      | Value                        | Field      |
-#      | Test Automation Organization | Account__c |
+#    And I enter value "Test Automation Organization" into field "Account__c" inside pageblock "Information"
+    When I enter values into "Information" page block
+      | Value                        | Field      |
+      | Test Automation Organization | Account__c |
 #    When I enter in modal value "Test Automation Organization" into field "Account__c"
     And I click on "Save" in the page details
     Then I softly see field "Internal Organization" as "Test Automation Organization"
