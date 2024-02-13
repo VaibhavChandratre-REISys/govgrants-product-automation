@@ -334,6 +334,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 30                 |
+    And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 60                 |
     And I close "Review Form" modal by clicking the top right x button
     And I pause execution for "5" seconds
@@ -1436,14 +1438,19 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Delete" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     Then I softly see "No Records Found" inside flex table with id "---program:-:reviewFormPanelId---"
-    And I pause execution for "9" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I navigate to "Setup" sub tab
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: At least one form is required for this review step. |
     And I expand nested table containing column value "Management Review"
     And I click on "Delete" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:reviewFormPanelId---"
-    And I pause execution for "9" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review: At least one form is required for this review step.                                   |
@@ -1490,8 +1497,14 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Schedule"
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
+    And I wait for "2" seconds
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Compliance Review: A weighted form must contain weighted sections. |
 
@@ -1566,6 +1579,10 @@ Feature: Validate all scenarios for program
       | Section Header      | Section Weight (%) |
       | Strategic Alignment | 40                 |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -2027,7 +2044,9 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Completeness   | 0                  |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "5" seconds
+    And I navigate to "Setup" sub tab
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections. |
@@ -2041,7 +2060,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 4              | Test 4   | Date | 0         |
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved successfully! |
     When I collapse nested table containing column value "Environment"
@@ -2514,6 +2533,10 @@ Feature: Validate all scenarios for program
       | Section Header      | Section Weight (%) |
       | Strategic Alignment | 0                  |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review - Management Review: A score cannot be associated to a question in the Return on Investment (ROI) section because it does not have a weight. |
@@ -3065,6 +3088,10 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 1              | Test 1   | Yes/No | 0         |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 130.00%.                             |
@@ -3985,6 +4012,10 @@ Feature: Validate all scenarios for program
       | 1              | Test 1   | Yes/No | 0         |
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 80.00%.                        |
@@ -4047,6 +4078,10 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Program Income"
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: A score must be associated to at least one question in the Program Income section because it is weighted. |
@@ -4111,6 +4146,10 @@ Feature: Validate all scenarios for program
       | 1              | Test 1   | Yes/No | 0         |
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Setup" sub tab
+    And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 110.00%.                                 |
@@ -5379,7 +5418,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Budget"
     And I wait for "2" seconds
-    And I softly see value "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" against the value "5" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I softly see value with quote "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "10" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "6" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5517,7 +5556,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     #77105
     When I navigate to "Setup" sub tab
-    And I collapse nested table containing column value "SME Review"
+    And I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record

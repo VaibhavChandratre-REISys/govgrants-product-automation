@@ -198,6 +198,26 @@ public final class GovGrantsAssertionObjects {
             }
         }
 
+    public void assertValuesAreInFlexTableWithColumnTitleWithQuote(String columnValue, String columnTitle, String flexTableDivId,
+                                                          Boolean checkifpresent, boolean isSoftly) {
+        String columnValueUpdated = columnValue;
+        if (columnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleWithQuote(columnValueUpdated, columnTitle,
+                flexTableDivId)) {
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+        }
+
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId));
+        }
+    }
+
 
     /**
      * Assert a text string is visible on the page

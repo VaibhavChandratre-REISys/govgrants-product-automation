@@ -165,7 +165,6 @@ Feature: Validate all scenarios in Focus Area
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---focusarea:-:ActiveGrantsTableIdFocusArea---"
     And I pause execution for "3" seconds
-    And I switch to tab number "1"
     And I navigate to "Subawards" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---focusarea:-:GrantsSubAwardsTableIdFocusArea---" panel
     And I pause execution for "3" seconds
