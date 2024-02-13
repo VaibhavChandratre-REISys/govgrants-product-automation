@@ -955,6 +955,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     And I reset the table
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID1}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
