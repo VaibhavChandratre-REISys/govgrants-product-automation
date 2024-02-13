@@ -873,8 +873,8 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
     And I wait for "5" seconds
-    And I save the value from row "1" for column name "Owner" as "OwnerName1" from flex table "---program:-:adminTargetOwnerReplaceTableId---"
-    Then I see value "{SavedValue:OwnerName1}" for title "Owner" inside table "---program:-:adminTargetOwnerReplaceTableId---"
+    #And I save the value from row "1" for column name "Owner" as "OwnerName1" from flex table "---program:-:adminTargetOwnerReplaceTableId---"
+    Then I see value "Automation PM1" for title "Owner" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
   @195222 @ValidateuserselectsourceuserasPMuser&targetuserasEXEuserthenusershouldgetanerrorafterclickingontheStarticon @sprint-4 @vaibhav @reassignment
   Scenario: Validate user select source user  as PM user & target user as EXE user then user should get an error after clicking on the Start icon
