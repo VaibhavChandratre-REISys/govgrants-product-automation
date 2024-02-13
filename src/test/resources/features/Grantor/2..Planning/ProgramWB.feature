@@ -1309,30 +1309,30 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Delete" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
     And I pause execution for "3" seconds
     Then I softly can see row level action button "Send for Review" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
-#    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-#    Then I softly can see top right button "Complete Review" in page detail
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-#    And I navigate to "Responsibilities" sub tab
-#    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-#    And I wait for "2" seconds
-#    When I enter in modal value "Cannot Rate" into field "Rating__c"
-#    And I enter in modal value "Passed" into field "ReviewComments__c"
-#    When I click modal button "Save"
-#    And I click on submit review
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Planning" tab
-#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-#    And I click toggle button to select "Internal Programs - All"
-#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-#    When I click on "Complete Review" in the page details
-#    Then I softly see field "Status" as "Reviewed"
-#    And I click on Menu icon present on top right corner of the page
-#    Then I softly can see top right button "Submit For Approval" in page detail
+    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    Then I softly can see top right button "Complete Review" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I enter in modal value "Cannot Rate" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    And I click on Menu icon present on top right corner of the page
+    Then I softly can see top right button "Submit For Approval" in page detail
 
   @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4 @vaibhav @reassignment
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
@@ -5189,7 +5189,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @223481 @ValidateProgramModulaftertransferringthemorethan10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment @ProgramExcludeScenarios
+  @debug @223481 @ValidateProgramModulaftertransferringthemorethan10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Program Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5469,6 +5469,7 @@ Feature: Validate all scenarios for program
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID1}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
@@ -5511,7 +5512,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -5532,7 +5533,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -5553,7 +5554,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
