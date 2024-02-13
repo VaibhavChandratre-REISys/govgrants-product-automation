@@ -1801,7 +1801,6 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID2}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
     When I navigate to "Records of Source User" sub tab
-    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID3}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID3}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
@@ -5469,8 +5468,8 @@ Feature: Validate all scenarios for program
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "Automation Runtime Internal Program For Bulk Records" in "---program:-:adminOwnerReplaceTableId---" panel
-    When I check "Automation Runtime Internal Program For Bulk Records" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program For Bulk Records}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime Internal Program For Bulk Records}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
