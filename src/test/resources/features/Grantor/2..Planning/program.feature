@@ -1492,8 +1492,9 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Schedule"
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
-    And I close "Review Form" modal by clicking the top right x button
     And I wait for "2" seconds
+    And I close "Review Form" modal by clicking the top right x button
+    And I wait for "4" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
