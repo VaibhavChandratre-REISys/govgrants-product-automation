@@ -60,8 +60,8 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-      | Created By    | Title         | Description       |
-      | Automation PM | Notes Record2 | Automation Notes2 |
+      | Created By       | Title         | Description       |
+      | Automation ADMIN | Notes Record2 | Automation Notes2 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "Automation Notes2" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
