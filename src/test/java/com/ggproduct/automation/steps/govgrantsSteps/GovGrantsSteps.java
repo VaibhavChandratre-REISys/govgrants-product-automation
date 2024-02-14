@@ -762,7 +762,7 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
-        I.amPerforming().fileHandling().toDownloadAnyFileUsingURL("govgrants.pdf");
+        I.amPerforming().fileHandling().DownloadAnyFilefromTab();
         File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
         I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");

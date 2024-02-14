@@ -3731,7 +3731,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @222620 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
+  @222620 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenshouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when announcement is in published state then user should add organization & edit the Allocation amount & mail should  be triggered for Organization with updated allocation values (Allocation is By Applicant & focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
