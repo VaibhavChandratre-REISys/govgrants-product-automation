@@ -850,6 +850,22 @@ public final class FlexTable implements FlexTableComponent {
     }
 
     /**
+     * Click on reset table with table id's
+     *
+     * @param flexTableDivId
+     * @param buttonName
+     * @author pooja.gundle
+     */
+    public By getResetButtonLocatorByTableId(String flexTableDivId, String buttonName) {
+        By locator  = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//div[@class='resetIcon']//button");
+        return locator;
+
+    }
+
+
+
+
+    /**
      * returns the By locator for an icon in a flex table row with two given column
      * values
      *

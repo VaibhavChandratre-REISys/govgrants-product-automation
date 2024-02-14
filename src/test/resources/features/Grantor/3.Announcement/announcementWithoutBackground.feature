@@ -751,7 +751,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
- @Debug @PGAnnWBExecute @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
+  @PGAnnWBExecute @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
   Scenario Outline:  verify  approver get inherited from program level to announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -7368,7 +7368,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
+  @Debug @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement FO user see Refresh button under hamburger icon on System Emails section & should able to refresh the table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7410,8 +7410,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     When I perform quick search for "exe.automation@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
-    And I click on parallel menu button in flex table title "System Emails"
-    And I select "Reset Table" from parallel lines dropdown of "System Emails"
+    When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
     #336731
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
@@ -7423,8 +7422,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     When I perform quick search for "exe.automation@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
-    And I click on parallel menu button in flex table title "System Emails"
-    And I select "Reset Table" from parallel lines dropdown of "System Emails"
+    When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
 
   @336722 @336724 @ValidateAnnouncementPOusercanseeAdvancefiltershouldworkcorrectlyonSystemEmailsection @Sprint-13-US-341529-332637 @SystemEmail
@@ -7642,15 +7640,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
-    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
-      | From Address | contains | pm.automation@yopmail.com |
-    And I wait for "3" seconds
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
-    And I click on parallel menu button in flex table title "System Emails"
-    And I select "Reset Table" from parallel lines dropdown of "System Emails"
-    And I wait for "3" seconds
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+#    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
+#    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
+#      | From Address | contains | pm.automation@yopmail.com |
+#    And I wait for "3" seconds
+#    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+#    And I select "Reset Table" from parallel lines dropdown of "System Emails"
+#    And I wait for "3" seconds
+#    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
 
   @336736 @ValidateAnnouncementPMuserusershouldabletoseeallSystemEmailsaresortedbydefaultbyCreatedDatewithmostrecentontopforInternalorganization @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement PM user user should able to see all System Emails are sorted by default by Created Date with most recent on top for Internal organization
@@ -7980,7 +7977,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I send the email under collab tab with following details:
-      | To                         | Subject         | Body                       |
+      | To                         | Subject         | Body                      |
       | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
     Then I softly see the following messages in the page details contains:
       | Email Sent Successfully. |

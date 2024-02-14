@@ -316,6 +316,12 @@ public class GenericSteps {
         grantorProjectManager.clickTableTopRightButton(buttonName, flexTableId);
     }
 
+    @Description("Click on reset button in table")
+    @When("I click on button {string} in flex table with id {string}")
+    public void clickResetIcon(String buttonName,  String flexTableId) {
+        grantorProjectManager.clickButtonNameReset(buttonName, flexTableId);
+    }
+
     @And("I click {string} button in modal")
     public void iClickButtonInModal(String buttonName) {
         I.amPerforming().click().on(By.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')]"));
