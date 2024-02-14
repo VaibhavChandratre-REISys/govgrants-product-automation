@@ -11,6 +11,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
 
@@ -1647,6 +1648,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I get the "EGMS ID"
+    And I pause execution for "3" seconds
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
