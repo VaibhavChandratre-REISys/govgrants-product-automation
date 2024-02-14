@@ -233,6 +233,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the field labeled "Application Due Date" as "ADD"
     And I save the field labeled "Question Deadline" as "QDD"
     And I save the field labeled "Response Deadline" as "RDD"
+    And I pause execution for "2" seconds
     Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
     Then I softly see field "Question Deadline" as "{SavedValue:QDD}"
     Then I softly see field "Response Deadline" as "{SavedValue:RDD}"
@@ -244,6 +245,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "5" into field "AResponseDeadline__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
       | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                    |
@@ -260,7 +262,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "10" into field "AResponseDeadline__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
       | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                    |
@@ -302,7 +304,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I close "Upload Template" modal by clicking the top right x button
+    When I close "Add Files" modal by clicking the top right x button
     Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
@@ -393,6 +395,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "Automation Permanent KPI" inside flex table with id "---announcement:-:kpiflextableid---"
     Then I see the header is "Key Performance Indicator" in the page details
     Then I see the sub-header is "Automation Permanent KPI" in the page details
+    When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click toggle button to select "All Competitive Announcements"
@@ -401,7 +404,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Remove" icon for "Automation Permanent KPI" inside flex table with id "---announcement:-:kpiflextableid---" without waiting for record
     And I pause execution for "3" seconds
     Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
+      | Record removed successfully. |
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
@@ -420,7 +423,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I enter value "State Governments" into field "EligibleApplicantTypes__c"
     Then I softly see multiple selected options in "SelectPicklistCell":
-      | options           |
+      | Chosen            |
       | State Governments |
     And I clear the value from field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
@@ -492,10 +495,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
       | Value                      | Field          |
-      | xy                         | fieldTitle     |
-      | TestFirst                  | fieldFirstName |
-      | TestLast                   | fieldLastName  |
-      | {SavedValue:uniqueEmailID} | fieldEmail     |
+      | xy                         | Title     |
+      | TestFirst                  | FirstName |
+      | TestLast                   | LastName  |
+      | {SavedValue:uniqueEmailID} | Email     |
     And I click modal button "Save"
     And I refresh the page
     Then I softly see value "TestFirst TestLast" for title "Name" inside table "---announcement:-:contactTableId---"
@@ -511,11 +514,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID1"
     And I enter values into fields
-      | Value                       | Field          |
-      | ab                          | fieldTitle     |
-      | SecondTest                  | fieldFirstName |
-      | SecondLast                  | fieldLastName  |
-      | {SavedValue:uniqueEmailID1} | fieldEmail     |
+      | Value                       | Field     |
+      | ab                          | Title     |
+      | SecondTest                  | FirstName |
+      | SecondLast                  | LastName  |
+      | {SavedValue:uniqueEmailID1} | Email     |
     When I enter value "ab" into field "Title"
     When I enter value "SecondTest" into field "FirstName"
     When I enter value "SecondLast" into field "LastName"
