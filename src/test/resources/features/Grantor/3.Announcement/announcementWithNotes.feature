@@ -72,7 +72,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @219729 @ValidateEXEusercanAddeditdeletehisnotesonadirectedannouncementincreatedstatus @sprint-9-US-201923 @hitesh @Notes
+  @219729 @ValidateEXEusercanAddeditdeletehisnotesonadirectedannouncementincreatedstatus @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate EXE user can Add/edit/delete his notes on a directed announcement in created status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -83,12 +83,11 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I get the "EGMS ID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
@@ -153,7 +152,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @219732 @ValidateEXEusercanAddeditdeletehisnotesonacompetitiveannouncementwhenallowrecordeditisYesandevenifreviewissubmitted&announcementismarkedReviewed @sprint-9-US-201923 @hitesh @Notes
+  @219732 @ValidateEXEusercanAddeditdeletehisnotesonacompetitiveannouncementwhenallowrecordeditisYesandevenifreviewissubmitted&announcementismarkedReviewed @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate EXE user can Add/edit/delete his notes on a competitive announcement  when allow record edit is Yes and even if review is submitted & announcement is marked  Reviewed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -164,20 +163,19 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
-    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                      | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | Yes                  |
-    And I refresh the page
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -230,7 +228,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @219734 @ValidateFiscalReviewerPMusercanAddeditdeletehisnotesonadirectedannouncementwhichisinstatusSubmittedforReview&allowrecordeditisno @sprint-9-US-201923 @hitesh @Notes
+  @219734 @ValidateFiscalReviewerPMusercanAddeditdeletehisnotesonadirectedannouncementwhichisinstatusSubmittedforReview&allowrecordeditisno @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate Fiscal Reviewer PM user can Add/edit/delete his notes on a directed announcement which is in status Submitted for Review & allow record edit is no
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -241,20 +239,18 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I refresh the page
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Responsibilities" tab
@@ -301,13 +297,13 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
-    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -422,7 +418,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @219742 @ValidatePMEXEPOusercanAddeditdeletehisnotesonaformulaannouncementwhichisApproved @sprint-9-US-201923 @hitesh @Notes
+  @219742 @ValidatePMEXEPOusercanAddeditdeletehisnotesonaformulaannouncementwhichisApproved @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate PM/EXE/PO user can Add/edit/delete his notes on a formula announcement which  is Approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -438,6 +434,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -568,7 +565,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220087 @220157 @ValidateProgramReviewerEXEusercanAddeditdeletehisnotesonaformulaannouncementwhichisinstatusSubmittedforReviewandallowrecordeditisNo @sprint-9-US-201923 @hitesh @Notes
+  @220087 @220157 @ValidateProgramReviewerEXEusercanAddeditdeletehisnotesonaformulaannouncementwhichisinstatusSubmittedforReviewandallowrecordeditisNo @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate Program Reviewer EXE user can Add/edit/delete his notes on a formula announcement which is in status Submitted for Review and allow record edit is No
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -579,6 +576,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "5" seconds
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -588,8 +586,8 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                      | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | No                   |
-    And I refresh the page
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -653,7 +651,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220094 @ValidatePMEXEFOADMINusercanAddeditdeletehisnotesonaformulaannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220094 @ValidatePMEXEFOADMINusercanAddeditdeletehisnotesonaformulaannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate PM/EXE/FO/ADMIN user can Add/edit/delete his notes on a formula announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -669,6 +667,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -840,7 +839,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record11" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record11" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate PM/EXE/FO user can Add/edit/delete his notes on a competitive announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -851,13 +850,13 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -968,8 +967,8 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly can see row level action button "Edit" against "Notes Record6" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-      | Created By    | Title        | Description       |
-      | Automation FO | Notes Notes7 | Automation Notes7 |
+      | Created By    | Title         | Description       |
+      | Automation FO | Notes Record7 | Automation Notes7 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record7" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
@@ -980,7 +979,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220104 @220163 @ValidatePMEXEFOusercanAddeditdeletehisnotesonadirectedannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220104 @220163 @ValidatePMEXEFOusercanAddeditdeletehisnotesonadirectedannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a directed announcement which  is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -991,10 +990,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -1025,7 +1021,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1133,7 +1129,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220110 @ValidatePMEXEFOusercanAddeditdeletehisnotesonaformulaannouncementwhichisRevised @sprint-9-US-201923 @hitesh @Notes
+  @220110 @ValidatePMEXEFOusercanAddeditdeletehisnotesonaformulaannouncementwhichisRevised @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a formula announcement which  is Revised
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1149,6 +1145,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -1304,13 +1301,13 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1375,7 +1372,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923 @hitesh @Notes
+  @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate PM/PO user cant add notes but edit/delete his notes on competitive announcement which is Rejected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1386,13 +1383,13 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title         | Description       |
@@ -1444,16 +1441,14 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I pause execution for "3" seconds
-    And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
@@ -1492,7 +1487,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220165 @ValidateEXEFDusercantaddnotesbuteditdeletehisnotesondirectedannouncementcreatedbyPMwhichisRejected  @sprint-9-US-201923 @hitesh @Notes
+  @220165 @ValidateEXEFDusercantaddnotesbuteditdeletehisnotesondirectedannouncementcreatedbyPMwhichisRejected  @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate EXE/FD user cant add notes but edit/delete his notes on directed announcement created by PM which is Rejected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1503,13 +1498,11 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -1537,7 +1530,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1648,7 +1641,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220170 @ValidatePMADMINusercantaddnotesondirectedannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
+  @220170 @ValidatePMADMINusercantaddnotesondirectedannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate PM/ADMIN user cant add notes on directed announcement which is Closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1667,7 +1660,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220171 @ValidateFDPOusercantaddnotesonformulaannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
+  @220171 @ValidateFDPOusercantaddnotesonformulaannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate FD/PO user cant add notes on formula announcement which is Closed
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Announcements" tab
@@ -1686,7 +1679,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220175 @ValidatePMEXEADMINcantaddnotesonCompetitiveannouncementhavingstatusasArchived @sprint-9-US-201923 @hitesh @Notes
+  @220175 @ValidatePMEXEADMINcantaddnotesonCompetitiveannouncementhavingstatusasArchived @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate PM/EXE/ADMIN cant add notes on Competitive announcement having status as Archived
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1713,7 +1706,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220177 @ValidatePOFOFDcantaddnotesonDirectedannouncementhavingstatusasArchived @sprint-9-US-201923 @hitesh @Notes
+  @220177 @ValidatePOFOFDcantaddnotesonDirectedannouncementhavingstatusasArchived @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario:Validate PO/FO/FD cant add notes on Directed announcement having status as Archived
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1778,13 +1771,12 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -1851,7 +1843,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220180 @ValidateuserwithAuditorprofilecantaddnotesondirectedannouncementwhichisapproved  @sprint-9-US-201923 @hitesh @Notes
+  @220180 @ValidateuserwithAuditorprofilecantaddnotesondirectedannouncementwhichisapproved  @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate user with Auditor profile cant add notes on directed announcement which is approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1862,10 +1854,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -1896,7 +1885,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1956,7 +1945,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220182 @ValidateuserwithAuditorprofilecantaddnotesonformulaannouncementwhichissubmittedforapproval @sprint-9-US-201923 @hitesh @Notes
+  @220182 @ValidateuserwithAuditorprofilecantaddnotesonformulaannouncementwhichissubmittedforapproval @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate user with Auditor  profile cant add notes on formula announcement which is submitted for approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1972,6 +1961,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -2063,7 +2053,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220166 @ValidateFOADMINPOusercantaddnotesonformulaannouncementwhichcreatedbyPO&isRejected @sprint-9-US-201923 @hitesh @Notes
+  @220166 @ValidateFOADMINPOusercantaddnotesonformulaannouncementwhichcreatedbyPO&isRejected @sprint-9-US-201923 @hitesh @Notes @TBExecutionAnn
   Scenario: Validate FO/ADMIN/PO user cant add notes on formula announcement which created by PO & is Rejected
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -2079,6 +2069,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"

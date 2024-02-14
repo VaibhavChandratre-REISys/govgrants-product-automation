@@ -433,7 +433,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @Debug @UpdatedUndoFilePooja @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @UpdatedUndoFilePooja @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab

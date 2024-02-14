@@ -110,7 +110,9 @@ public final class GovGrantsSteps {
     public void loginToggleToApp(String appName, String userType) {
             govgrants.perform().mainPage().loginWithUserType(userType);
            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-               govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+               if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                   govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+               }
            }
         }
 
