@@ -279,7 +279,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   To Verify that user can preview business forms while creating Announcement|
   To Verify that user can Edit business forms while creating Announcement
     When I navigate to "Announcements" tab
-    And I click toggle button to select "Closed and Archived Announcements"
+    And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I softly see value "Closed" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I click on "View" icon for "Closed" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
