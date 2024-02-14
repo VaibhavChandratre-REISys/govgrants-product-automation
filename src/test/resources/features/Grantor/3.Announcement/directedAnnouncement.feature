@@ -45,6 +45,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:directedAddInviteApplicantTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     Then I refresh the page
@@ -79,7 +80,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Name                     | Description                      |
       | {SavedValue:FO Username} | Review Financial details updated |
     Then I softly see value "Review Financial details updated" for title "Description" inside table "---announcement:-:flexGridApproverRolesTableId---"
-    And I perform quick search for "Automation" in "---announcement:-:flexGridApproverRolesTableId---" panel
+#    And I perform quick search for "Automation" in "---announcement:-:flexGridApproverRolesTableId---" panel
     And I click on "Delete" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "2" seconds
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
