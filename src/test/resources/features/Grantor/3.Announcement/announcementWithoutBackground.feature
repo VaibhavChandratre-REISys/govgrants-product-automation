@@ -135,11 +135,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Overview" sub tab
     When I enter value "45" into field "PreApplicationDueDate__c"
     And I navigate to "Financials" sub tab
+    And I wait for "3" seconds
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    And I wait for "3" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -220,6 +222,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
       | Pre-Application Due Date cannot be after Application Due Date |
+    And I click on "Edit" in the page details
     And I enter value "20" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "Application Due Date" as "ADD"
@@ -721,7 +724,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
@@ -749,7 +751,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
-  @PGAnnWBExecute @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
+ @Debug @PGAnnWBExecute @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
   Scenario Outline:  verify  approver get inherited from program level to announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -788,8 +790,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -828,13 +830,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I save the field labeled "Program Name" as "Automation Runtime Internal Program"
-    And I click on "Edit" in the page details
+    And I wait for "5" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
@@ -2477,16 +2477,15 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    And I wait for "4" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -2502,8 +2501,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | {SavedValue:PM Username} | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -2536,6 +2535,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I wait for "5" seconds
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
@@ -2552,7 +2552,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
@@ -2581,8 +2580,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation PM1 | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name           | Announcement |
+      | Automation PM1 | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -2626,20 +2625,17 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "4" seconds
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "3" seconds
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -2658,17 +2654,18 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation PM1 | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name           | Announcement |
+      | Automation PM1 | Step 1       |
+    And I wait for "3" seconds
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I get the "EGMS ID"
+    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -6692,7 +6689,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | PO   |
       | EXE  |
 
-  @204095 @204136 @ValidateAdminusershouldabletoseetheoptionUploadfilefromComputerafterclickonuploadfile @Sprint-7-US-203239 @vaibhav @SuppDoc
+ @204095 @204136 @ValidateAdminusershouldabletoseetheoptionUploadfilefromComputerafterclickonuploadfile @Sprint-7-US-203239 @vaibhav @SuppDoc
   Scenario: Validate Admin user should able to see the option "Upload file from Computer" after click on upload file
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -6715,7 +6712,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Application" for title "Applies To" inside table "---announcement:-:annChecklist---"
     And I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" with wait for record
     Then I softly see "Add Files" opens in overLay window
-    And I click modal button "Close"
     Then I see "Upload File from Computer" page block displayed
     #204136
     Then I softly see "Classification" inside page block detail
@@ -6753,7 +6749,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @204160 @ValidateinsupportingdocumentchecklistusershouldabletoselectthesectionAppliesTotillPlanningAnnouncementPreApplicaitionandApplication @Sprint-7-US-203239 @vaibhav @SuppDoc
+  @@Pre-ScreenOnHoldSPI @204160 @ValidateinsupportingdocumentchecklistusershouldabletoselectthesectionAppliesTotillPlanningAnnouncementPreApplicaitionandApplication @Sprint-7-US-203239 @vaibhav @SuppDoc
   Scenario: Validate in supporting document checklist user should able to select the section "Applies To" till Planning Announcement Pre-Applicaition and Application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7380,6 +7376,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -7818,12 +7815,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I Click on "Reassign Records" icon for "Announcement" without tableid
+    And I select module "Announcement" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I pause execution for "50" seconds
+    When I check "All" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
+    And I click "Yes" on modal confirmation box
+    And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
