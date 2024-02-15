@@ -923,6 +923,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    Then I refresh the page
     When I navigate to "Overview" sub tab
     And I pause execution for "2" seconds
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
