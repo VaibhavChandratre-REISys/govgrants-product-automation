@@ -7220,6 +7220,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     And I wait for "3" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -7251,6 +7254,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Send to Owner" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -7491,7 +7495,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
     And I checkout to yopmail with mailid "automationspi30@yopmail.com"
     Then I refresh the page
-    And I pause execution for "50" seconds
+    And I pause execution for "100" seconds
     And I click on mail with subject "Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published"
     Then I see the mail subject is as follows :
       """
