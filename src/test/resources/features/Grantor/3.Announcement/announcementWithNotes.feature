@@ -175,6 +175,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Name                      | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     And I wait for "2" seconds
     Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
@@ -251,6 +252,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     And I wait for "2" seconds
     Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
