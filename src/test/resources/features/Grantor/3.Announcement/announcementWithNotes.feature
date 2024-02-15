@@ -258,9 +258,15 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I wait for "2" seconds
     Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
+    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     And I wait for "2" seconds
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I wait for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
@@ -268,6 +274,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     And I pause execution for "5" seconds
     And I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Reviewed"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
