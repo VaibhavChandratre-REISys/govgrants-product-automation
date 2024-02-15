@@ -822,6 +822,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"

@@ -25,6 +25,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -157,6 +159,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -205,6 +209,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -279,6 +285,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -343,6 +351,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    Then I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |

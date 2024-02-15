@@ -212,7 +212,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
-    And I click toggle button to select "Draft Announcements"
+    And I click toggle button to select "Announcements - Draft"
     And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
     Then I softly see value "Created" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
