@@ -574,7 +574,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Publish" in the page details
     And I pause execution for "5" seconds
     And I click on "Unpublish" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Under Revision"
+    And I pause execution for "3" seconds
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
@@ -6097,6 +6099,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
     When I click modal button "Close"
     And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
