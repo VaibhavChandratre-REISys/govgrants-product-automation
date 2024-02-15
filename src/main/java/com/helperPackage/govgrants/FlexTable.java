@@ -13,9 +13,6 @@ import com.helperPackage.register.I;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
-import java.sql.Driver;
-import java.sql.SQLOutput;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
