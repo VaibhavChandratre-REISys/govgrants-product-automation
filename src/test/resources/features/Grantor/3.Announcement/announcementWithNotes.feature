@@ -176,14 +176,15 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
+    And I wait for "2" seconds
+    Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
@@ -251,9 +252,10 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
+    And I wait for "2" seconds
+    Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
@@ -480,9 +482,11 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "5" seconds
     And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
@@ -512,7 +516,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click toggle button to select "All Formula Announcements"
     And I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title         | Description       |
@@ -541,7 +545,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click toggle button to select "All Formula Announcements"
     And I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title         | Description       |
@@ -587,15 +591,17 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Name                      | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
+    And I wait for "2" seconds
+    Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
@@ -1038,6 +1044,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
+    And I wait for "3" seconds
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title        | Description      |
@@ -1190,8 +1197,10 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1442,11 +1451,15 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | {SavedValue:PM Username} | Step 1       |
     And I pause execution for "3" seconds
     When I navigate to "Financials" sub tab
+    And I click on "Edit" in the page details
+    And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     And I "Reject" in the approval decision
     And I refresh the page
     Then I softly see field "Status" as "Rejected"

@@ -911,7 +911,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     #197144
     Then I softly can see page block "Applicants"
     Then I softly can see top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"

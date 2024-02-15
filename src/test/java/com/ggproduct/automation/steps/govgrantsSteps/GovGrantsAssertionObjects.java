@@ -474,9 +474,9 @@ public final class GovGrantsAssertionObjects {
                 foundValue = null;
             }
 
-            if (!fieldValue.equalsIgnoreCase(foundValue)) {
-                I.amPerforming().browserOperationsTo().refreshPage();
-            }
+//            if (!fieldValue.equalsIgnoreCase(foundValue)) {
+//                I.amPerforming().browserOperationsTo().refreshPage();
+//            }
         }
 
         I.amPerforming().assertionsTo().assertThat(foundValue)
