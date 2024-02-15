@@ -492,6 +492,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Published"
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
