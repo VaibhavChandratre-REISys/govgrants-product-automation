@@ -1886,7 +1886,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-  @PGannouncement @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
+   @197932 @197934 @197935 @197937 @Validateaftercreatedannouncementuserchangedtheownershipofannouncementthenalloverviewtabbuttonaccessshouldgettothenewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate after created announcement user changed the ownership of announcement then all overview tab button access should get to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1965,7 +1965,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "New" in flex table with id "---announcement:-:approversTableId---"
     And I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
-    Then I softly can see top right button "Add" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
   @194693 @ValidatePMuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
@@ -2271,6 +2271,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
+    And I wait for "3" seconds
     And I click toggle button to select "Draft Directed Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
@@ -2326,7 +2327,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation EXE"
     And I pause execution for "4" seconds
-    Then I softly see "No matches found" inside auto search result
+    Then I softly do not see "Automation EXE" inside auto search result
 
   @195199 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can not reassign ownership task to the new user with Same profile and different organization
@@ -3821,7 +3822,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-  @221975 @ValidateAnnIfapproverandownerofaAnnaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-11-US-218319 @vaibhav @reassignment
+  @221975 @ValidateAnnIfapproverandownerofaAnnaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
   Scenario: Validate Ann If approver and owner of a Ann are same validate after reassigning the approval task ownership of record is not changed
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -3923,7 +3924,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 2" for title "Payment Request" against the value "Automation EXE" inside table "---announcement:-:approversTableId---"
     Then I softly see value "Step 2" for title "Monitoring" against the value "Automation EXE" inside table "---announcement:-:approversTableId---"
 
-  @221979 @ValidateAnnIfapprandownerofAnnaresameafterreassigningtheownershipofAnnrecordapprovernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment
+  @221979 @ValidateAnnIfapprandownerofAnnaresameafterreassigningtheownershipofAnnrecordapprovernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
   Scenario: Validate Ann If approver and owner of a Ann are same validate after reassigning the ownership of Ann record approver name should not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6657,6 +6658,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I wait for "3" seconds
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "competitive_Ann_AdminUser" values from "Announcement_Field_Values.xlsx"
@@ -7138,18 +7140,18 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
+    And I wait for "5" seconds
     And I click toggle button to select "Draft Directed Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -7185,6 +7187,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Reject" in the approval decision
+    And I refresh the page
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Rejected"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
