@@ -93,7 +93,7 @@ public final class GovGrantsAssertionObjects {
                 By.xpath("//span[text()='" + record + "']"
                         + "/../../../../../../../..//div//dt"
                         + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "']"), true);
+                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "']"), true);
     }
 
     /**
@@ -197,6 +197,26 @@ public final class GovGrantsAssertionObjects {
                         flexTableDivId));
             }
         }
+
+    public void assertValuesAreInFlexTableWithColumnTitleWithQuote(String columnValue, String columnTitle, String flexTableDivId,
+                                                          Boolean checkifpresent, boolean isSoftly) {
+        String columnValueUpdated = columnValue;
+        if (columnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleWithQuote(columnValueUpdated, columnTitle,
+                flexTableDivId)) {
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+        }
+
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId));
+        }
+    }
 
 
     /**
@@ -454,9 +474,9 @@ public final class GovGrantsAssertionObjects {
                 foundValue = null;
             }
 
-            if (!fieldValue.equalsIgnoreCase(foundValue)) {
-                I.amPerforming().browserOperationsTo().refreshPage();
-            }
+//            if (!fieldValue.equalsIgnoreCase(foundValue)) {
+//                I.amPerforming().browserOperationsTo().refreshPage();
+//            }
         }
 
         I.amPerforming().assertionsTo().assertThat(foundValue)
@@ -847,10 +867,10 @@ public final class GovGrantsAssertionObjects {
         List<String> allSubTabNames;
         try {
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
-                    .stream().map(el -> el.getAttributes("name")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
+                    .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         } catch (StaleElementReferenceException e) {
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
-                    .stream().map(el -> el.getAttributes("name")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
+                    .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         }
 
         if (assertCan) {
@@ -2645,7 +2665,7 @@ public final class GovGrantsAssertionObjects {
     private boolean assertFieldPresentInsideSection(String fieldName, String sectionName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "] | //div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {

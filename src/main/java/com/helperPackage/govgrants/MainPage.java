@@ -36,7 +36,7 @@ public final class MainPage {
             egmsHeader = By.xpath("//span[contains(@class, 'navbarBrandText')]"),
             topRightDropDown = By.cssSelector("div>ul>li.dropdown.appDropdown>a"),
             navProfile_CurrentApp = By.cssSelector("div#myNavbarProfile>ul>li>a>span"),
-            loginButton = By.xpath("//*[@type='submit' and not(contains(@value, 'Register')) and not(contains(@value, 'Cancel'))] | //div[@class='loginBtnWrap']//button"),
+            loginButton = By.xpath("//*[@type='submit' and not(contains(@value, 'Register')) and not(contains(@value, 'Cancel'))] | //div[@class='loginBtnWrap']//button | //div//button[@data-aura-class='uiButton--none uiButton']"),
             userName = By.xpath("//input[@name='username' or @id='username' or @name='userName' or @type='email' or @placeholder='Username' or contains(@name,'username')]"),
             password = By.xpath("//input[@type='password' or @placeholder='Password']"),
             acceptTerms = By.xpath("//input[contains(@id,'accept') or contains(@id,'Accept')]"),
@@ -298,7 +298,7 @@ public final class MainPage {
     }
 
     public void clickMainMenuBarForLwc(String tabName) {
-        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "']");
+        By mainMenuButton = By.xpath("//div[@class='slds-no-print oneAppNavContainer']//a[@title='" + tabName + "' or @name='" + tabName + "'] | //nav//ul//li//a[text()='" + tabName + "']");
         if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
             I.amPerforming().waitFor().makeThreadSleep(3000);
         }

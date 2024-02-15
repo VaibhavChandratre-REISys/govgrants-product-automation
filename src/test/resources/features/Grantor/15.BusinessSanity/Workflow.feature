@@ -1529,12 +1529,11 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "5" seconds
-    And I click on "Undo" in the page details without processing
-    And I pause execution for "2" seconds
-    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I mouse hover to link contains "{SavedValue:grantID}"
+    And I click "Test Automation Organization" link present on hovered tooltip
+    Then I see the sub-header is "Test Automation Organization" in the page details

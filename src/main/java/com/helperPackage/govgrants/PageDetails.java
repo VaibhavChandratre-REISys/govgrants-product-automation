@@ -448,7 +448,7 @@ public final class PageDetails {
      */
     public WebElement getMenuItemFromParallelLinesDropDown(String itemName) {
         return I.amPerforming().getElementReference().of(By.xpath("//*[@title='Menu']/following-sibling::ul//li//*["
-                + I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "] | //span//select//option[contains(text(),'" + itemName + "')]"));
+                + I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "] | //span//select//option[contains(text(),'" + itemName + "')] | //lightning-button-menu//*["+ I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "]"));
     }
 
     /**
