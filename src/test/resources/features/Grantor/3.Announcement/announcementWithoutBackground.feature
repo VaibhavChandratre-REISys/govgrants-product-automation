@@ -752,7 +752,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
-  @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu @Debug
+  @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu @OnHoldDueToApproverNotAdded
   Scenario Outline:  verify  approver get inherited from program level to announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -785,39 +785,39 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I wait for "5" seconds
-#    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:approverTableId---"
-#    Then I softly see value "Step 1" for title "Program" inside table "---program:-:approverTableId---"
-#    And I click on "Submit For Approval" in the page details
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Planning" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-#    When I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I navigate to "Planning" tab
-#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-#    And I click toggle button to select "Internal Programs - Draft"
-#    When I perform quick search for "<Program Name>" in "---program:-:programsTableId---" panel
-#    And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:programsTableId---" without waiting for record
-#    And I click on "Activate" in the page details
-#    When I save the field labeled "EGMS ID" as "ActivatedProgramForAnnouncement"
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "Draft Competitive Announcements"
-#    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-#    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-#    And I wait for "3" seconds
-#    And I click on remove for lookup from field "Program__c"
-#    And I enter in modal value "{SavedValue:ActivatedProgramForAnnouncement}" into field "Program__c"
-#    And I click modal button "Continue"
-#    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    When I click on "Save" in the page details
-#    When I navigate to "Responsibilities" sub tab
-#    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:approversTableId---"
-#    Then I softly see value "Step 1" for title "Announcement" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:approverTableId---"
+    Then I softly see value "Step 1" for title "Program" inside table "---program:-:approverTableId---"
+    And I click on "Submit For Approval" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    When I perform quick search for "<Program Name>" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    When I save the field labeled "EGMS ID" as "ActivatedProgramForAnnouncement"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ActivatedProgramForAnnouncement}" into field "Program__c"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "Step 1" for title "Announcement" inside table "---announcement:-:approversTableId---"
     Examples:
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
@@ -920,7 +920,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #169907
     Then I see new tab is opened
 
-  @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
+ @bug-397757 @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -943,9 +943,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I select module "Announcement" from reassign ownership dropdown
       #194682
     Then I softly see "Announcements Available for Reassignment " page block displayed
-    #194683
-    When I navigate to "Records of Target User" sub tab
-    Then I softly see "Announcements Owned by Target User " page block displayed
     When I navigate to "Records of Source User" sub tab
     #194690
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
@@ -960,6 +957,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    #194683
+    Then I softly see "Announcements Owned by Target User " page block displayed
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
 
@@ -993,7 +992,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
 
-  @194694 @194714 @194712 @Validateclickontransferredbuttonthenusershouldabletoseethewarningmessage @sprint-4 @vaibhav @reassignment @ownershipcheck
+ @bug-397757 @194694 @194714 @194712 @Validateclickontransferredbuttonthenusershouldabletoseethewarningmessage @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate click on transferred button then user should able to see the warning message
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2628,6 +2627,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I wait for "5" seconds
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I wait for "4" seconds
@@ -7259,8 +7259,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Send to Owner" in the approval decision
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
