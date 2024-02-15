@@ -483,7 +483,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly cannot see top right button "Publish" in page detail
     Then I softly cannot see top right button "Revise" in page detail
 
-  @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141 @hitesh @Undo
+  @hiteshTemp @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify when all  Approvers approve the Announcement and last approver click on undo button, only last approver's task should get cancelled  from completed task
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -571,6 +571,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Announcements" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:announcementCompletedTaskTable---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:AnnEGMSID}" inside table "---announcement:-:announcementCompletedTaskTable---"
@@ -590,7 +591,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I perform quick search for "Record Id" in "---announcement:-:announcementCompletedTaskTable---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AnnEGMSID}" inside table "---announcement:-:announcementCompletedTaskTable---"
 
-  @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141 @hitesh @Undo 
+  @hiteshTemp @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann is sent to review State
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -673,7 +674,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I refresh the page
+    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
@@ -1177,7 +1178,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     #283968
     Then I cannot see top right button "Undo" in page detail
 
-  @283971 @VerifythatwhensarahpmapproverForwardtheAnnouncementApprovaltaskoriginalApproverwillnotseeUNDObutton @sprint-4-US-295141 @hitesh @Undo 
+  @hiteshTemp @283971 @VerifythatwhensarahpmapproverForwardtheAnnouncementApprovaltaskoriginalApproverwillnotseeUNDObutton @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify that when sarah pm approver Forward the Announcement Approval task , original  Approver will not see UNDO button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
