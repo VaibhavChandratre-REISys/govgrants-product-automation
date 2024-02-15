@@ -748,7 +748,7 @@ public final class GovGrantsAssertionSteps {
     private boolean topRightButtonVisibleOrNot(String buttonName, String tableId) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//span//button[@title='New' or text()='" + buttonName + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//span//button[@title='New' or text()='" + buttonName + "'] | //c-lwc-flex-table[@data-flextablename='GrantorAnnouncementContentNotes']//*[@title='" + buttonName + "' or text()='" + buttonName + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {

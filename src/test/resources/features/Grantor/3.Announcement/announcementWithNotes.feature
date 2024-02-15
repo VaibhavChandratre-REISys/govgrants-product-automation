@@ -200,6 +200,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -258,6 +259,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Responsibilities" sub tab
+    And I wait for "2" seconds
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
@@ -585,7 +587,9 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I wait for "5" seconds
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
@@ -593,9 +597,9 @@ Feature: Validate all notes scenarios in the  Announcement tab
       | Name                      | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Program Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1135,6 +1139,8 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    And I wait for "2" seconds
+    And I navigate to "Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
