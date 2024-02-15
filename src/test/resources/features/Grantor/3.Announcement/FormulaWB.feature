@@ -986,6 +986,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see confirmation box with quotes in body "Unsaved data will be lost due to page refresh on "Add Organization" button . Please save the record to continue." is displayed
     And I click "Yes" on modal confirmation box
     And I refresh the page
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"

@@ -1532,7 +1532,8 @@ Feature: Validate all scenarios of every modules flow
  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
 #   And I published "Directed" type announcement having name "Directed Archived Annoucement" and properties "default"
-   When I login to "As a Grantor" app as "PM" user
+   When I am on "SUBPORTAL" portal
+   And I login to "Grants Portal" app as "SPI3" user
    And I halt execution
-   Then I softly see that "Automation Runtime Competitive Announcement1085757429" is in "Created" status
+   Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "EnhanceAppBudCatGrantorFlexGrid"
    And I halt execution
