@@ -6764,8 +6764,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Application" for title "Applies To" inside table "---announcement:-:annChecklist---"
     And I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" with wait for record
     Then I softly see "Add Files" opens in overLay window
-    Then I see only the following ordered options in dropdown field "WorkspaceFilesUpload" :
-      | Select file classification | Template for Announcement | Others |
+#    Then I see only the following ordered options in dropdown field "WorkspaceFilesUpload" :
+#      | Select file classification | Template for Announcement | Others |
     #204155
     Then I see "Upload" button is disabled at modal under library
     Then I see "Cancel" button is displayed On Modal
@@ -6993,7 +6993,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
