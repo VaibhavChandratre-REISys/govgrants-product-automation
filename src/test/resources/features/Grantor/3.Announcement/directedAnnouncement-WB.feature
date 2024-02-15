@@ -188,10 +188,11 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     Then I softly see "Add Organizations" opens in overLay window
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
       | Organization                        | Organization Type        |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | For-profit organizations |
+    And I wait for "3" seconds
     #219104
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     And I wait for "2" seconds

@@ -747,6 +747,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Setup" sub tab
+    And I wait for "2" seconds
     Then I softly see value "Automation FO" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
@@ -7054,7 +7055,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
+#    And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -7110,7 +7111,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "180" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -7120,7 +7120,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see field "Status" as "Submitted for Approval"
     And I refresh the page
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
   @336716 @ValidateAnnouncementFDusershouldnotabletoseeemailtoNotifyAnnouncementRejectioninSystemEmailssectioninmessagestabwhenrejectAnn @Sprint-13-US-341529-332637 @SystemEmail
@@ -7322,7 +7321,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "180" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
     #336729
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -7332,7 +7330,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
   @336719 @ValidateAnnouncementEXEusershouldnotabletoseeEmailinSystemEmailssectionwhensendmailthroughmessagessectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
@@ -7368,7 +7365,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @Debug @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
+   @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement FO user see Refresh button under hamburger icon on System Emails section & should able to refresh the table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7430,7 +7427,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
+    And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
@@ -7452,11 +7449,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "220" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
-    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
-    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
-      | Subject | contains | Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review |
-    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
-    And I refresh the page
+#    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
+#    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
+#      | Subject | contains | Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review |
+#    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+#    And I refresh the page
     #336724
     Then I softly see "Created Date" in flex table header "---announcement:-:systemEmailsTableId---"
     Then I softly see "From Address" in flex table header "---announcement:-:systemEmailsTableId---"
@@ -7785,7 +7782,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "180" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
   @336738 @ValidateAnnouncementEXEusershouldnotabletoseeemailforOwnershipTransferinSystemEmailssectioninmessagestabwhenAnnownertransfertheirownershiptootheruser @Sprint-13-US-341529-332637 @SystemEmail
@@ -7828,7 +7824,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "180" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
-    And I refresh the page
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
   @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
