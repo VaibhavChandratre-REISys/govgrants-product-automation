@@ -1115,7 +1115,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "7" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
