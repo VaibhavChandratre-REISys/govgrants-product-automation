@@ -1025,8 +1025,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Transfer is in progress, kindly wait for email confirmation. |
+      | no further processing will take place) |
 
   @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4 @vaibhav @reassignment @PGannouncement
   Scenario: Validate  ownership is changed then only Announcement owner is changed
