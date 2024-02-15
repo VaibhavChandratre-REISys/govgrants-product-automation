@@ -350,7 +350,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    And I pause execution for "2" seconds
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -570,7 +569,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:announcementCompletedTaskTable---" panel
@@ -657,7 +656,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward |Send to Owner  | Reject |
@@ -1056,10 +1055,11 @@ Feature: Validate all scenarios in the Announcement with Undo
     #283964
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Reject" in the approval decision
     And I pause execution for "2" seconds
+    Then I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
@@ -1150,7 +1150,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details without processing
     And I pause execution for "2" seconds
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -1262,7 +1262,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD Username}" in the approval decision

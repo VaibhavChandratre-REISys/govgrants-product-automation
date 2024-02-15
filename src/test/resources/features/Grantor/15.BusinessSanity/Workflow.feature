@@ -1532,7 +1532,9 @@ Feature: Validate all scenarios of every modules flow
   @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
-      | EGMS ID | contains | AN-TAO modified-709 |
     And I pause execution for "5" seconds
+    And I click on "Undo" in the page details without processing
+    And I pause execution for "2" seconds
+    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    Then I softly see field "Status" as "Submitted for Approval"
