@@ -1535,5 +1535,5 @@ Feature: Validate all scenarios of every modules flow
    When I am on "SUBPORTAL" portal
    And I login to "Grants Portal" app as "SPI3" user
    And I halt execution
-   Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "EnhanceAppBudCatGrantorFlexGrid"
+   Then I see all values "$200" under column "Total Match" inside flextable with id "EnhanceAppBudCateGrantorFlexTable"
    And I halt execution
