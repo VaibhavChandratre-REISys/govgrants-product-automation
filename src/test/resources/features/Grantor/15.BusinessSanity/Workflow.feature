@@ -1529,11 +1529,11 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
- @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
+  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
-#   And I published "Directed" type announcement having name "Directed Archived Annoucement" and properties "default"
-   Given I am on "SUBPORTAL" portal
-   When I login to "Grants Portal" app as "SPI3" user
-   And I halt execution
-   Then I see all values "$200" under column "Total Match" inside flextable with id "EnhanceAppBudCateGrantorFlexTable"
-   And I halt execution
+    When I login to "As a Grantor" app as "PM" user
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I mouse hover to link contains "{SavedValue:grantID}"
+    And I click "Test Automation Organization" link present on hovered tooltip
+    Then I see the sub-header is "Test Automation Organization" in the page details
