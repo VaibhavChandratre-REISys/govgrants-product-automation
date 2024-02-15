@@ -110,7 +110,9 @@ public final class GovGrantsSteps {
     public void loginToggleToApp(String appName, String userType) {
             govgrants.perform().mainPage().loginWithUserType(userType);
            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-               govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+               if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                   govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+               }
            }
         }
 
@@ -762,7 +764,7 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
-        I.amPerforming().fileHandling().toDownloadAnyFileUsingURL("govgrants.pdf");
+        I.amPerforming().fileHandling().DownloadAnyFilefromTab();
         File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
         I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");

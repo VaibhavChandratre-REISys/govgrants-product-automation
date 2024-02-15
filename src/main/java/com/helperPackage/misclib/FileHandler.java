@@ -22,6 +22,7 @@ package com.helperPackage.misclib;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.helperPackage.actionsfactory.elementfunctions.JavaScript;
 import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.I;
 import com.helperPackage.controller.DeviceBucket;
@@ -50,10 +51,7 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public final class FileHandler {
     private final ExcelReader excelReader;
@@ -267,6 +265,30 @@ public final class FileHandler {
 
         JavascriptExecutor jj = (JavascriptExecutor) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
         jj.executeScript(aa);
+    }
+
+    /**
+     * Function will use to download any file from multiple window tabs using url - Updated function
+     */
+    public void DownloadAnyFilefromTab(){
+        ArrayList<String> tabs = new ArrayList<>(I.amPerforming().switchTo().getWindowsHandlers());
+        I.amPerforming().switchTo().windowHandler(Integer.parseInt((tabs.get(1)))); // Adjust the index if needed incase of multiple window tabs
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            String downloadScript = "var link = document.createElement('a'); " +
+                    "link.href = document.URL; " +
+                    "link.download = 'filename.pdf'; " +
+                    "document.body.appendChild(link); " +
+                    "link.click(); " +
+                    "document.body.removeChild(link);";
+            InstanceRecording.getInstance(JavaScript.class).executeJSCommand().executeScript(downloadScript);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -57,9 +57,9 @@ public class ProgressReportPage extends GrantorProjectManager {
      * @return true if specified column value present inside flex table
      */
     public boolean isColumnValuePresentInsideFlexTable(String valueToBeCheck, String columnName, String tableId) {
-        WebElement row = I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//table//tbody//tr"));
+        WebElement row = I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//table//tbody//tr | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//tbody//tr"));
         Map<String, Integer> columnMapping = govgrants.perform().flexTable().constructColumnMapping(row, Collections.singleton(columnName));
-        By columnSelector = By.xpath("//div[@id='" + tableId + "']//table//tr//td[not(contains(@class, 'ng-hide')) and contains(@class,'tableCell')][" + columnMapping.get(columnName) + "]//descendant-or-self :: *[text()='" + valueToBeCheck + "']");
+        By columnSelector = By.xpath("//div[@id='" + tableId + "']//table//tr//td[not(contains(@class, 'ng-hide')) and contains(@class,'tableCell')][" + columnMapping.get(columnName) + "]//descendant-or-self :: *[text()='" + valueToBeCheck + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//tbody//tr//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnName) + "]//descendant-or-self::*[text()='" + valueToBeCheck + "']");
 
         List<Elements> rowValues = I.amPerforming().getElementReference().forListOfElements().of(columnSelector);
         for (Elements value : rowValues) {

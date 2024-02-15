@@ -1531,9 +1531,9 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
-   And I published "Competitive" type announcement having name "Automation Undo Announcement" and properties "default"
-#
-#   When I login to "As a Grantor" app as "PM" user
-#    And I halt execution
-#   And I softly see value with quote "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
-#   And I halt execution
+#   And I published "Directed" type announcement having name "Directed Archived Annoucement" and properties "default"
+   Given I am on "SUBPORTAL" portal
+   When I login to "Grants Portal" app as "SPI3" user
+   And I halt execution
+   Then I see all values "$200" under column "Total Match" inside flextable with id "EnhanceAppBudCateGrantorFlexTable"
+   And I halt execution

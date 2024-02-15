@@ -1,4 +1,4 @@
-@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @TBExecution
+@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression
 Feature: Validate all scenarios in the Formula Announcement tab
 
   Background: Create Announcement
@@ -34,6 +34,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
@@ -92,12 +93,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     And I get the "EGMS ID"
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Formula Announcements"
-    When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
-    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    When I perform quick search for "{SavedValue:AnnEgmsId}" in "---announcement:-:formulaAnnouncementTableId---" panel
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:AnnEgmsId}" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
 
   @70613 @70677 @announcementWithBlankBudgetPeriodFA
   Scenario: Validate that user should not submit announcement with blank budget period dates | To verify that if announcement type is -Formula then user can remove applicant organization in Invited Applicants section while creating the  Announcement
