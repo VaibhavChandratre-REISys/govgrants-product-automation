@@ -749,6 +749,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Setup" sub tab
     And I wait for "2" seconds
     Then I softly see value "Automation FO" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
+    And I wait for "2" seconds
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
@@ -2763,6 +2764,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM"
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
@@ -7511,7 +7513,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}hasbeen Published
       """
 
-  @336726 @336739 @ValidateAnnouncementPMusershouldabletoviewemailonclickofviewicondisplayontable&emailgeneratedafterclickonUndobuttonbylaststepapproverinSystemEmailssectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
+ @Debug @336726 @336739 @ValidateAnnouncementPMusershouldabletoviewemailonclickofviewicondisplayontable&emailgeneratedafterclickonUndobuttonbylaststepapproverinSystemEmailssectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement PM user should able to view email on click of view icon display on table & email generated after click on Undo button by last step approver in System Emails section in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
