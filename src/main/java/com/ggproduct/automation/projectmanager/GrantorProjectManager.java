@@ -631,7 +631,7 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                     I.amPerforming().click().on(columnSelector);
                     I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
                     govgrants.perform().modal().acceptPopUp();

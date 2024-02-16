@@ -76,7 +76,7 @@ public final class InputForms {
                     }
                     // Switch to relevant tab
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
                            currentSubTab = subTab;
                        }else{
@@ -559,7 +559,7 @@ public final class InputForms {
         handleRichTextInput(fieldWrapper, value, false);
     }
     private void handleRichTextAreaInput(WebElement fieldWrapper, String fieldValue) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")){
             I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if(field.contains("field")) {
@@ -610,7 +610,7 @@ public final class InputForms {
     }
 
     private void handleClearingRichTextAreaInput(WebElement fieldWrapper) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
@@ -632,7 +632,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleTextInput(WebElement fieldWrapper, String fieldValue) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")){
             I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if(field.contains("field")) {
@@ -790,7 +790,7 @@ public final class InputForms {
      * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
      */
     public void handleDateInput(WebElement fieldWrapper, String fieldValue, boolean isDateTime) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
@@ -928,7 +928,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleLookUpInput(WebElement fieldWrapper, String searchTerm) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
 
            openLookupModal(fieldWrapper);
            performLookupQuickSearch(searchTerm);
@@ -983,7 +983,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleMultiSelectInput(WebElement fieldWrapper, String[] valueList) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             By selectList = By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]");
             if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selectList).size() > 1) {
@@ -1046,7 +1046,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleDropdownInput(WebElement fieldWrapper, String value) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")){
             String table = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if(table.contains("field")){
                 String table1 = table.toString().split("field")[1];

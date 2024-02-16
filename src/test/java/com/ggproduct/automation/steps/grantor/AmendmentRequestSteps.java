@@ -28,7 +28,7 @@ public class AmendmentRequestSteps {
     @When("I click {string} after selection of {string} by showing entries {string} in flex table with id {string}")
     public void iClickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberOfEntries, String flexTableId) {
         I.amPerforming().waitFor().makeThreadSleep(3000);
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             amendmentRequestPage.clickAfterSelectionOfInTheTables(buttonName, recordValue, numberOfEntries, flexTableId);
         } else {
             amendmentRequestPage.clickAfterSelectionOfInTheTablesForLwc(buttonName, recordValue, numberOfEntries, flexTableId);

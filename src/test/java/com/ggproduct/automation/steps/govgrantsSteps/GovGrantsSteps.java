@@ -109,7 +109,7 @@ public final class GovGrantsSteps {
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
             govgrants.perform().mainPage().loginWithUserType(userType);
-           if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+           if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                    govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
                }
@@ -133,7 +133,7 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(7000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
-            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
             }
         } catch (Exception e) {
@@ -171,7 +171,7 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().mainPage().clickMainMenuBar(tabName);
         } else {
             govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
