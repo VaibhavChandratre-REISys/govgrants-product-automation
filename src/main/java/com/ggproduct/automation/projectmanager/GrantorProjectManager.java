@@ -459,20 +459,42 @@ public class GrantorProjectManager extends ProjectManager {
      * @author jitendra.pisal
      */
     public void compareContactListEquality(String usage, List<String> projectRoles) {
-        List<String> listofRoles = new ArrayList<>();
-        List<WebElement> ll = I.amPerforming().dropDownSelection().from(By.xpath("//field[@field-name='ProjectRole__c']//select")).getOptions();
-        for (WebElement e :
-                ll) {
-            listofRoles.add(e.getText().trim());
-        }
-        if (usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(
-                    listofRoles.containsAll(projectRoles)
-            ).isTrue();
-        } else {
-            Assert.assertTrue(
-                    listofRoles.containsAll(projectRoles)
-            );
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+
+            List<String> listofRoles = new ArrayList<>();
+            List<WebElement> ll = I.amPerforming().dropDownSelection().from(By.xpath("//field[@field-name='ProjectRole__c']//select")).getOptions();
+            for (WebElement e :
+                    ll) {
+                listofRoles.add(e.getText().trim());
+            }
+            if (usage.contains("softly")) {
+                I.amPerforming().assertionsTo().assertThat(
+                        listofRoles.containsAll(projectRoles)
+                ).isTrue();
+            } else {
+                Assert.assertTrue(
+                        listofRoles.containsAll(projectRoles)
+                );
+            }
+
+        }else{
+            List<String> listofRoles = new ArrayList<>();
+            I.amPerforming().click().withJavaScript(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
+            By Compare = By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//ul/li");
+            List<Elements> ll = I.amPerforming().getElementReference().forListOfElements().of(Compare);
+            for (Elements e :
+                    ll) {
+                listofRoles.add(e.getText().trim());
+            }
+            if (usage.contains("softly")) {
+                I.amPerforming().assertionsTo().assertThat(
+                        listofRoles.containsAll(projectRoles)
+                ).isTrue();
+            } else {
+                Assert.assertTrue(
+                        listofRoles.containsAll(projectRoles)
+                );
+            }
         }
     }
 

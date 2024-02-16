@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-  @Debug @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
+   @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -1598,7 +1598,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @PGannouncement @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+   @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ownership reassignment of announcement field history should get updated
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -6906,7 +6906,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "automationfd@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | pm.automation@yopmail.com                                              |
-      | automationfd@yopmail.com                                               |
+      | automationfd@yopmail.com                                              |
       | Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
