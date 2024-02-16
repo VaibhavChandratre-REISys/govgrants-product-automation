@@ -45,7 +45,7 @@ public final class GovGrantsObjects {
     protected void performQuickSearch(String tableIdForQsearch, String searchTermForQsearch) throws TestingBlazeCustomException {
         this.tableIdForQsearch = tableIdForQsearch;
         this.searchTermForQsearch = searchTermForQsearch;
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch,
                         govgrants.perform().pageDetails().idOfRecord);
@@ -100,7 +100,7 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
@@ -130,7 +130,7 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
             } else {
                 govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);

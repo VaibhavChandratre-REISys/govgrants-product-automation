@@ -254,7 +254,7 @@ public final class PhasePanel {
      * @param anyItemContainedInDropDownnn
      */
     public void clickDoubleArrowDropDownAndSelectItem(String anyItemContainedInDropDownnn) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
            clickDoubleArrowtoggle(anyItemContainedInDropDownnn);
            selectDoubleArrowDropDownItem(anyItemContainedInDropDownnn);
        }else {
