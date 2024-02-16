@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
+  @Debug @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -150,8 +150,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 500      |
-    And I click on "Edit" in the page details
     And I navigate to "Financials" sub tab
+    And I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter value "Automation Testjustification" into field "Justification__c"
     When I click on "Save" in the page details
@@ -224,9 +224,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter value "30" into field "ApplicationDueDate__c"
     And I enter value "40" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Pre-Application Due Date cannot be after Application Due Date |
-    And I click on "Edit" in the page details
     And I enter value "20" into field "PreApplicationDueDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "Application Due Date" as "ADD"
@@ -723,7 +723,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see "{SavedValue:PM Username}" inside flex table with id "---announcement:-:homeCollabFeedId---"
     Then I softly see "Hi" inside flex table with id "---announcement:-:homeCollabFeedId---"
 
-  @78086 @validatingReviewersForSMEAndManagementReviewForm @meenakshi @Debug
+  @78086 @validatingReviewersForSMEAndManagementReviewForm @meenakshi
   Scenario: To validate the Program review steps are copied to Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3389,7 +3389,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
+      | Funding Account               | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     And I wait for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
