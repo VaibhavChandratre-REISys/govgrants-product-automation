@@ -47,9 +47,6 @@ Feature: Validate all scenarios in the Application Intake
     Then I see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
-    #Then I see the following messages in the page details contains:
-     # | Saved Successfully! |
-
   @50967 @addTargetToKPIInApplication
   Scenario: Addition of KPI target to an application
     When I navigate to "Proposal" sub tab

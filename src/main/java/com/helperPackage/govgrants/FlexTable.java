@@ -13,9 +13,6 @@ import com.helperPackage.register.I;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
-import java.sql.Driver;
-import java.sql.SQLOutput;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -862,6 +859,22 @@ public final class FlexTable implements FlexTableComponent {
         }
         return locator;
     }
+
+    /**
+     * Click on reset table with table id's
+     *
+     * @param flexTableDivId
+     * @param buttonName
+     * @author pooja.gundle
+     */
+    public By getResetButtonLocatorByTableId(String flexTableDivId, String buttonName) {
+        By locator  = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//div[@class='resetIcon']//button");
+        return locator;
+
+    }
+
+
+
 
     /**
      * returns the By locator for an icon in a flex table row with two given column

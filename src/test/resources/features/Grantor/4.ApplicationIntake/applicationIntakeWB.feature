@@ -694,7 +694,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate the Aplications are not visible for other organizations Users
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
-    And And I login to "Grants Portal" app as "SA" user
+    And I login to "Grants Portal" app as "SA" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -2499,7 +2499,6 @@ Feature: Application Intake scenarios without background
     Then I softly see field "Status" as "Converted to Award"
     When I navigate to "Budget" sub tab
     Then I softly see field "Recommended Budget" as "$1,000.00"
-
     Examples:
       | Announcement Name                            | Announcement Type |
       | {SavedValue:Automation Runtime Announcement} | Directed          |

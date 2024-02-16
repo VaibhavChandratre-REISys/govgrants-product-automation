@@ -444,6 +444,15 @@ public class GrantorProjectManager extends ProjectManager {
         }
     }
 
+    public void clickButtonNameReset(String buttonName, String flexTableId) {
+        try {
+            I.amPerforming().click().on(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
+        } catch(Exception e){
+            I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
+        }
+    }
+
+
     /**
      * @param usage        softly or not
      * @param projectRoles - list of roles

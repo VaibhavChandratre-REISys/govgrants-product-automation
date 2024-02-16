@@ -23,7 +23,7 @@ public final class GovGrantsProductObjects {
                     + "//div//label[text()='File']/..//input[@type='file'] | "
                     + "//div//label[contains(text(),'File')]/..//input[@type='file'] | "
                     + "//div//span[text()='File']/../..//input[@type='file']"),
-            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm//p | //div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-modal-body");
+            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm |//div[contains(@class,'modal__container')]//lightning-modal-body | //div[contains(@class,'modal__container')]//lightning-modal | //div[contains(@class,'modal__container')]//lightning-confirm//p | //div[contains(@class,'modal__content ')]");
 
     /**
      * Handles entering of Peer review
