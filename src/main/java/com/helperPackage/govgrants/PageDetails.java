@@ -4,6 +4,7 @@ package com.helperPackage.govgrants;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.controller.TestingBlazeGlobal;
+import com.helperPackage.objects.Elements;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
@@ -643,10 +644,11 @@ public final class PageDetails {
      * @param options  -List of selected option
      * @author aashish pardeshi
      */
+
     public void verifyMultipleSelectedOption(String usage, String cellName, List<String> options) {
         List<String> selectedOptions = new ArrayList<>();
-        List<WebElement> ll = I.amPerforming().dropDownSelection().from(By.xpath("//td[@class='" + cellName + "']//following::td/select")).getOptions();
-        for (WebElement e : ll) {
+        List<Elements> ll= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div//span[text()='" + cellName + "']//parent::div//ul//li"));
+        for (Elements e : ll) {
             selectedOptions.add(e.getText().trim());
         }
         if (usage.contains("softly")) {
@@ -655,6 +657,11 @@ public final class PageDetails {
             Assert.assertTrue(options.containsAll(selectedOptions));
         }
     }
+
+
+
+
+
 
     /**
      * get any item from sticky bottom  menu at page details

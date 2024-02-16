@@ -939,8 +939,8 @@ public final class InputForms {
                 String Search1 = Search.toString().split("field")[1];
                 I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ Search1 +"']//input[@type='search']"));
                 By lookupInputBoxSelector = By.xpath("//div[@data-field_api_name='"+ Search1 +"']//input[@type='search']");
-                I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
-                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+                I.amPerforming().textInput().toClear(lookupInputBoxSelector);
+                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm);
                 By selectButtonLocator = By.xpath("//div[@title='"+ searchTerm +"']");
                 I.amPerforming().click().on(selectButtonLocator);
             } else {
