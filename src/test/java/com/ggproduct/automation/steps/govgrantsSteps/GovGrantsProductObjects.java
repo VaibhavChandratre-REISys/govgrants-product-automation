@@ -52,7 +52,7 @@ public final class GovGrantsProductObjects {
      */
     public void chooseRecordForAssociation(String buttonName, String flexTableId, String... recordUniqueValues) {
         for (String recordUniqueValue : recordUniqueValues) {
-            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearch(flexTableId, recordUniqueValue);
             }else {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearchForLWC(flexTableId, recordUniqueValue);
@@ -270,7 +270,7 @@ public final class GovGrantsProductObjects {
      * @modifiled mahadev.hanme
      */
     public void fillInReviewForm(String recommendation) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
         }else {
             govgrants.perform().inputForms().completeFillingReviewFormForLwc(recommendation);
@@ -509,7 +509,7 @@ public final class GovGrantsProductObjects {
      * @author meenakshi.jha
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
         } else {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));

@@ -1532,8 +1532,8 @@ Feature: Validate all scenarios of every modules flow
  @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
 #   And I published "Directed" type announcement having name "Directed Archived Annoucement" and properties "default"
+#   When I login to "As a Grantor" app as "PM" user
    Given I am on "SUBPORTAL" portal
    When I login to "Grants Portal" app as "SPI3" user
-   And I halt execution
-   Then I see all values "$200" under column "Total Match" inside flextable with id "EnhanceAppBudCateGrantorFlexTable"
+   When I navigate to "Opportunities" tab
    And I halt execution

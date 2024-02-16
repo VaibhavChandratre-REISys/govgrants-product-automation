@@ -46,7 +46,7 @@ public class QuickSearch {
      * @author Monu.Kumar
      */
     public void performGlobalQuickSearch(String searchTerm) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
         try {
             I.amPerforming().textInput().toClear(globalSearchInput);
             I.amPerforming().textInput().in(globalSearchInput, searchTerm);

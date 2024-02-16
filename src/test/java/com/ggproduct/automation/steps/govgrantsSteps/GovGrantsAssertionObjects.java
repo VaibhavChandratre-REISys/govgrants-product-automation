@@ -1034,7 +1034,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox']"));
             By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title]");
             List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
