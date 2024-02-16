@@ -1532,8 +1532,7 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
-    And I mouse hover to link contains "{SavedValue:grantID}"
-    And I click "Test Automation Organization" link present on hovered tooltip
-    Then I see the sub-header is "Test Automation Organization" in the page details
+    And I pause execution for "5" seconds
+    And I navigate to "Overview" sub tab
+    Then I see the following headers in table with id "---announcement:-:AnnouncementServiceArea1TableId---" :
+      | EGMS ID | Title | Organization Name | Year Created |
