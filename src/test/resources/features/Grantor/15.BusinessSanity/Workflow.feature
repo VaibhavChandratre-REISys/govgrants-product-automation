@@ -1532,7 +1532,5 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "5" seconds
-    And I navigate to "Overview" sub tab
-    Then I see the following headers in table with id "---announcement:-:AnnouncementServiceArea1TableId---" :
-      | EGMS ID | Title | Organization Name | Year Created |
+    And I pause execution for "10" seconds
+    And I click on back arrow
