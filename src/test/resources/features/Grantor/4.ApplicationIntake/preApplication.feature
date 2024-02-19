@@ -11,12 +11,13 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @67063 @validateVariousRolesAppearsPreApplication @jitendra
+  @67063 @validateVariousRolesAppearsPreApplication @jitendra @Debug
   Scenario: To Validate that various roles appear in the project roles dropdown in contact tableon preapplication of  SPI profile
     When I navigate to "Overview" sub tab
     When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
