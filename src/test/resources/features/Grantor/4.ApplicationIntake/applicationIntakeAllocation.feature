@@ -1763,9 +1763,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I enter in modal value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "7" seconds
     And I refresh the page
@@ -1776,7 +1775,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}"
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     #219360
     When I navigate to "Budget" sub tab
     #Then I softly see field "Recommended Budget" inside page block
