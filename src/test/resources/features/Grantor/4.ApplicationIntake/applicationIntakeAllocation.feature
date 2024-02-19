@@ -1719,7 +1719,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    And I enter in modal value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
+    And I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
@@ -1775,7 +1775,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     #219360
