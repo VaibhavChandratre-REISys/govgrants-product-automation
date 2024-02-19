@@ -65,6 +65,9 @@ public class ProgressReportPage extends GrantorProjectManager {
         for (Elements value : rowValues) {
             if (!"".equalsIgnoreCase(valueToBeCheck) && !value.getText().equalsIgnoreCase(valueToBeCheck))
                 return false;
+       }
+        if(rowValues.size()==0){
+            return false;
         }
         return true;
     }

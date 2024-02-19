@@ -1532,5 +1532,8 @@ Feature: Validate all scenarios of every modules flow
   @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
   Scenario:Validate
     When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "10" seconds
-    And I click on back arrow
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I mouse hover to link contains "{SavedValue:grantID}"
+    And I click "Test Automation Organization" link present on hovered tooltip
+    Then I see the sub-header is "Test Automation Organization" in the page details

@@ -23,7 +23,7 @@ public final class GovGrantsProductObjects {
                     + "//div//label[text()='File']/..//input[@type='file'] | "
                     + "//div//label[contains(text(),'File')]/..//input[@type='file'] | "
                     + "//div//span[text()='File']/../..//input[@type='file']"),
-            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm//p | //div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-modal-body");
+            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm |//div[contains(@class,'modal__container')]//lightning-modal-body | //div[contains(@class,'modal__container')]//lightning-modal | //div[contains(@class,'modal__container')]//lightning-confirm//p | //div[contains(@class,'modal__content ')]");
 
     /**
      * Handles entering of Peer review
@@ -52,7 +52,7 @@ public final class GovGrantsProductObjects {
      */
     public void chooseRecordForAssociation(String buttonName, String flexTableId, String... recordUniqueValues) {
         for (String recordUniqueValue : recordUniqueValues) {
-            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearch(flexTableId, recordUniqueValue);
             }else {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearchForLWC(flexTableId, recordUniqueValue);
@@ -270,7 +270,7 @@ public final class GovGrantsProductObjects {
      * @modifiled mahadev.hanme
      */
     public void fillInReviewForm(String recommendation) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
         }else {
             govgrants.perform().inputForms().completeFillingReviewFormForLwc(recommendation);
@@ -509,7 +509,7 @@ public final class GovGrantsProductObjects {
      * @author meenakshi.jha
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
         } else {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));

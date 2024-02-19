@@ -444,6 +444,15 @@ public class GrantorProjectManager extends ProjectManager {
         }
     }
 
+    public void clickButtonNameReset(String buttonName, String flexTableId) {
+        try {
+            I.amPerforming().click().on(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
+        } catch(Exception e){
+            I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
+        }
+    }
+
+
     /**
      * @param usage        softly or not
      * @param projectRoles - list of roles
@@ -622,7 +631,7 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                     I.amPerforming().click().on(columnSelector);
                     I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
                     govgrants.perform().modal().acceptPopUp();
