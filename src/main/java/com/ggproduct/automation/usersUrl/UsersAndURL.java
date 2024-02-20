@@ -84,8 +84,17 @@ public class UsersAndURL implements UsersController {
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "SARAH PM":
+                password = "Salesforce@2025";
+                break;
             case "SPI3":
-                password = "Salesforce2025";
+                password = "Salesforce@2025";
+                break;
+            case "SA":
+                password = "Salesforce@2025";
+                break;
+            case "SPA":
+                password = "Salesforce@2025";
                 break;
             default:
                 password = "Salesforce2023";
@@ -143,13 +152,24 @@ public class UsersAndURL implements UsersController {
 
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "demoadmin@ggp.test8.qaorg");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");
+        username.put("ADMIN1", "admin1@yopmail.com.qaorg");
         username.put("EXE", "test@gmaildemo.com.qaorg");
         username.put("PM", "pm.automation@yopmail.com.qaorg");
         username.put("FO", "auto.fm@auto.com.atm.qaorg");
-        username.put("SPI3", "automationspi3@yopmail.com");
-        username.put("SPA", "spaautomation@yopmail.com");
-        username.put("PO", "sdgdg45435dj@gmail.com");
+        username.put("PO", "automationpo@yopmail.com.qaorg");
+        username.put("FD", "automationfd@yopmail.com.qaorg");
+        username.put("PM1", "pm1.automation@yopmail.com.qaorg");
+        username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
+        username.put("PO1", "automationpo1@yopmail.com.qaorg");
+        username.put("FO1", "fo1.automation@yopmail.com.qaorg");
+        username.put("FD1", "automationfd1@yopmail.com.qaorg");
+        username.put("SPI3", "automationspi30@yopmail.com.qaorg");
+        username.put("SPA", "spa.automation@yopmail.com");
+        username.put("SA", "automationspi2@yopmail.com");
+        username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
+
         username.put("SIMON PM", "simon_pm@ggp.test7");
         username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
         username.put("ALEX FO", "alex_fo@ggp.test7");

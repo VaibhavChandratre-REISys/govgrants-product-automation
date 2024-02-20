@@ -3569,7 +3569,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel @meenakshi
+  @debug @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel @meenakshi
   Scenario: To validate system generated validation message, When Max score:0, for all review questions under the Capability review panel categories and  Weight is present, in program review form of SME review steps in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab

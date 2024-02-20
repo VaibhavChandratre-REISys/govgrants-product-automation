@@ -1530,3 +1530,10 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Completed"
+
+    When I login to "As a Grantor" app as "PM" user
+    When I navigate to "Setup" sub tab
+    And I expand nested table containing column value "SME Review"
+    When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question | Type   | Max Score |
+      | 1              | Test 1   | Yes/No | 100       |
