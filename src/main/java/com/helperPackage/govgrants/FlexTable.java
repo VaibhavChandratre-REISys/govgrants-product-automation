@@ -760,7 +760,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public List<Elements> getCompleteTableRow(String tableId) {
         By tableRow = By.xpath("//div[@id='" + tableId
-                + "']//div[contains(@class,'panel-body')]//div/table/tbody/tr | //div[@id='" + tableId + "']//div/table/tbody/tr ");
+                + "']//div[contains(@class,'panel-body')]//div/table/tbody/tr | //div[@id='" + tableId + "']//div/table/tbody/tr | //c-lwc-flex-table[@data-flextablename=''" + tableId + "'']//div/table/tbody/tr");
         return I.amPerforming().getElementReference().forListOfElements().of(tableRow);
     }
 

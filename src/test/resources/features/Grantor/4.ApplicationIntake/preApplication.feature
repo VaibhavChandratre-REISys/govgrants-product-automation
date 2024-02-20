@@ -13,11 +13,11 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Create Pre-Application" in the page details
     And I wait for "3" seconds
     When I click modal button "Save and Continue"
-    And I wait for "1" seconds
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @67063 @validateVariousRolesAppearsPreApplication @jitendra @Debug
+  @67063 @validateVariousRolesAppearsPreApplication @jitendra
   Scenario: To Validate that various roles appear in the project roles dropdown in contact tableon preapplication of  SPI profile
     When I navigate to "Overview" sub tab
     When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
@@ -35,7 +35,9 @@ Feature: Validate all scenarios in the Pre-Application
     When I navigate to "Overview" sub tab
     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
     When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-    And I close modal by clicking the top right x button
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+#    And I close modal by clicking the top right x button
     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     When I click on "View" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
     And I save the field labeled "Organization" as "orgName1"
@@ -51,9 +53,10 @@ Feature: Validate all scenarios in the Pre-Application
   @53153 @preApplicationEdition
   Scenario: Validate edition of pre-application
     When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "PreApplication_Field_Values"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @75596 @70248 @70664 @53154 @addBudgetDetailsToPreApplication @smoke
   Scenario: Validate addition of budget in the budget grid to an pre-application |
@@ -63,7 +66,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
-    And I close modal by clicking the top right x button
+    When I close "Associate Focus Area" modal by clicking the top right x button
     And I expand nested table containing column value "BP01"
     Then I softly see "Focus Area :" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     When I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -80,7 +83,12 @@ Feature: Validate all scenarios in the Pre-Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
     Then I see "Other" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
   @70466 @53160 @70467 @submitPreApplication @smoke @deepika
   Scenario: Submitting an pre application to Grantor |To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on pre-application
@@ -98,7 +106,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    Given I expand nested table containing column value "BP01"
+#    Given I expand nested table containing column value "BP01"
     Then I softly see value "$10,150.00" for title "Total Project Cost" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
@@ -108,7 +116,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted" and is "green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
 
   @34150 @70524 @70250 @70249 @75584 @70247 @70251 @53162 @34023 @preApplicationToApplication @deepika  @buglogged169487
@@ -163,6 +171,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -191,14 +200,14 @@ Feature: Validate all scenarios in the Pre-Application
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "Record Id" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Examples:
       | Announcement Name                                        | User |
       | {SavedValue:Automation Runtime Announcement Application} | PM   |
@@ -208,6 +217,7 @@ Feature: Validate all scenarios in the Pre-Application
   @70468 @acknowledgeRequiredForPre-App @deepika
   Scenario: Validate the system should throw an validation message if the pre-application is submitted with Acknowledging it
     Given I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -222,6 +232,7 @@ Feature: Validate all scenarios in the Pre-Application
   @70523 @snapshotAfterPreApplicationIsSubmitted @deepika @skipOnJenkins
   Scenario:  Validate SR user is able to view the Snapshot after Pre- Application is Submitted to Grantor status
     Given I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     Given I expand nested table containing column value "BP01"
@@ -327,9 +338,10 @@ Feature: Validate all scenarios in the Pre-Application
     And I perform quick search for "<Announcement Name>" in "RecipientPreApplications" panel
     Then I softly see value "<Announcement Name>" for title "Pre-Application Title" against the value "Accepted" inside table "RecipientPreApplications"
     When I click on "View" icon for "<Announcement Name>" inside table
-    Then I softly see status in Progress-bar is "Accepted" and is "Green"
+    Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
