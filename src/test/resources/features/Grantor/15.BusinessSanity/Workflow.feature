@@ -1537,3 +1537,4 @@ Feature: Validate all scenarios of every modules flow
     And I mouse hover to link contains "{SavedValue:grantID}"
     And I click "Test Automation Organization" link present on hovered tooltip
     Then I see the sub-header is "Test Automation Organization" in the page details
+    Then I do not see below fields in "Opportunity Overview" page block
