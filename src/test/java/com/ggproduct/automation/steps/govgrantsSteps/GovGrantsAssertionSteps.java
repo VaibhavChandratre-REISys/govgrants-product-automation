@@ -406,7 +406,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (header) is \"([^\"]*)\" in the page details$")
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
                     ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))

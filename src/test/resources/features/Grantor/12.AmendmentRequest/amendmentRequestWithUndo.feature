@@ -4198,7 +4198,8 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see value "Submitted for Approval" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -5172,7 +5173,8 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see value "Submitted for Approval" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
     Then I cannot see top right button "Undo" in page detail
     Then I see only the following ordered radio buttons in the approval decision :
@@ -5353,7 +5355,8 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see value "Submitted for Approval" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
@@ -5577,8 +5580,9 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
     And I navigate to "History" sub tab
-    Then I softly see value "Rejected" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Rejected" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Rejected"
     Then I softly do not see value "{SavedValue:FD Username}" for title "Taken By" inside table "a0t4T000000YQBcQAO"
 
@@ -6419,8 +6423,9 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 4" for title "Amendment Request" against the value "Automation PM1" inside table "---amendment:-:approversTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Submitted for Approval" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Approved" for title "Old Value" inside table "---amendment:-:historyTableId---"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
@@ -11074,8 +11079,9 @@ Feature: Amendment Request scenarios with Undo
     And I see "{SavedValue:PM Username}" against "Re-approval (Pending for first approval)" in approval history
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
     And I perform quick search for "{SavedValue:FundingID}" in "History" panel
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+#    Then I softly see value "Approved" for title "Old Value" inside table "History"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
@@ -11563,8 +11569,9 @@ Feature: Amendment Request scenarios with Undo
     And I see "{SavedValue:PM Username}" against "Re-approval (Pending for first approval)" in approval history
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
     And I perform quick search for "{SavedValue:KPCID}" in "History" panel
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+#    Then I softly see value "Approved" for title "Old Value" inside table "History"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -15051,7 +15058,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo
+  @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo @FieldHistoryExclude
   Scenario: Validate Budget Period Change user see approval history and filed history get updated after last step approver click on undo button
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal

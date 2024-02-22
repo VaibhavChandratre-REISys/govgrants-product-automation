@@ -2354,7 +2354,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Title                           | End Date |
       | Automation Permanent Focus Area | 3500     |
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---amendment:-:projectAreasTableId---"
     Then I softly see value "{SavedValue:endDate}" for title "End Date" inside table "---amendment:-:projectAreasTableId---"
 
@@ -2497,7 +2497,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
-    Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
+    Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
     #148946
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
@@ -2505,7 +2505,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FD Username} | Step 4            |
-    Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
+    Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
   @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu
   Scenario: To verify user can remove the added approver on terms and condition amendment

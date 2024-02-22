@@ -3365,7 +3365,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     And I click on "Submit for Approval" in the page details
-    And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Overview Tab - The Revised Obligation ($2000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($1000.00) |
     #254205,254206
@@ -3459,7 +3458,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
-    And I click on "Submit for Approval" in the page details
     And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Overview Tab - The Revised Obligation ($2000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($1000.00) |
@@ -3592,7 +3590,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Submit for Approval" in the page details
-    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Obligation must be greater than or equal to the Spent amount.                      |
       | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section. |
@@ -3719,7 +3716,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Submit for Approval" in the page details
-    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Obligation must be greater than or equal to the Spent amount.                      |
       | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section. |
@@ -3831,7 +3827,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
-    And I navigate to "Financials" sub tab
     And I navigate to "Financials" sub tab
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
@@ -12469,7 +12464,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    When I navigate to "Management" sub tab
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
