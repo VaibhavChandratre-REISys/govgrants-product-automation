@@ -2195,11 +2195,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I switch to parent tab
+#    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I refresh the page
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:orgCorrectiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
