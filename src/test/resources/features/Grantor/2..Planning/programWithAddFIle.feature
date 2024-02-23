@@ -93,7 +93,7 @@ Feature: Validate all scenarios for program with add file
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                        | Program |
@@ -578,7 +578,6 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "2" seconds
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -598,6 +597,7 @@ Feature: Validate all scenarios for program with add file
       | Reviewer Name | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | Automation PM | Fiscal Reviewer | Automation Test Description | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    When I navigate to "Responsibilities" sub tab
     Then I softly see status in Progress-bar is "Submitted for Review" and is "dark blue"
     And I navigate to "Files" sub tab
     #222096
@@ -616,6 +616,7 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     #222092
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
