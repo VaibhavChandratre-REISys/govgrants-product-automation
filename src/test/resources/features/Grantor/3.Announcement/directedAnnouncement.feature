@@ -139,17 +139,17 @@ Feature: Validate all scenarios in the directed Announcement tab
 #    Additional Information-Overview Tab - Application Due Date cannot be in the past.
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
-#    When I get the "EGMS ID"
-#    When I navigate to "Overview" sub tab
-#    And I enter value "10" into field "ApplicationDueDate__c"
-#    And I click on "Save" in the page details
-#    And I click on "Submit For Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    And I navigate to "Announcements" tab
-#    And I navigate to "Directed" content inside "Announcements" subheader on left panel
-#    When I click toggle button to select "Draft Directed Announcements"
-#    When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
-#    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:annoucementTableId---"
+    When I get the "EGMS ID"
+    When I navigate to "Overview" sub tab
+    And I enter value "10" into field "ApplicationDueDate__c"
+    And I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I navigate to "Announcements" tab
+    And I navigate to "Directed" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Directed Announcements"
+    When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
+    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:annoucementTableId---"
     Examples:
       | Announcement Type |
       | Directed          |
