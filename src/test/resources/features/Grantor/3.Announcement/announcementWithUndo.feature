@@ -1626,7 +1626,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
      """
 
-  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo
+  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo @Pre-ScreenOnHoldSPI
   Scenario: Announcement Verify that any user will not see Undo button when Announcement record is in Submitted for review state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
