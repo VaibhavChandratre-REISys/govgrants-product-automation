@@ -917,7 +917,7 @@ public final class GovGrantsSteps {
     @Description("To handle the alert pop up")
     @When("^I click alert button \"([^\"]*)\"$")
     public void iClickAlertButton(String buttonName) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")){
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")){
             govgrants.perform().modal().clickAlertContentSpecificButton(buttonName);
         }else {
             govgrants.perform().modal().clickAlertContentSpecificButtonForLwc(buttonName);
@@ -1002,7 +1002,7 @@ public final class GovGrantsSteps {
     @Description("Select the value in any specific field and also covers lookup data entry")
     @When("^I (select|select in modal) value \"([^\"]*)\" into field \"([^\"]*)\"$")
     public void selectValue(String usage, String fieldValue, String fieldApiName) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
             I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
         } else {

@@ -2496,7 +2496,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -21423,7 +21422,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "History" sub tab
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Sent Back"
     Then I softly see value "Created" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
 
   @116919 @ValidateUsershouldbeabletoextendorreducetheBudgetperiodforactivesubaward @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate User should be able to extend or reduce the Budget period for active subaward

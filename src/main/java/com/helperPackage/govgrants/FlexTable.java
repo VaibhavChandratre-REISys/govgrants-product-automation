@@ -320,7 +320,7 @@ public final class FlexTable implements FlexTableComponent {
 
           }
       } catch (StaleElementReferenceException e){
-          if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+          if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
               String plusOrMinus = isExpand ? "plus" : "minus";
               By circleIconSelector = By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]"
                       + "//i[contains(@class, 'fa-" + plusOrMinus + "')]");
