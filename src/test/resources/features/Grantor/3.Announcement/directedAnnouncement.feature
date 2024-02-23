@@ -94,6 +94,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly see status in Progress-bar is "Submitted for Review" and is "dark blue"
@@ -134,6 +135,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Overview" sub tab
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
     When I get the "EGMS ID"
@@ -141,7 +143,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "10" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    And I navigate to "Announcements" tab
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
     When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
