@@ -621,7 +621,7 @@ Feature: Validate all scenarios for program with add file
     And I click on submit review
     And I wait for "3" seconds
     #222092
-    Then I cannot see top right button "Edit" in page detail
+    Then I can see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
