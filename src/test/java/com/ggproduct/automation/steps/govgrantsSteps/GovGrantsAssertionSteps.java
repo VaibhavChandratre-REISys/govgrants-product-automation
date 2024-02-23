@@ -26,6 +26,7 @@ public final class GovGrantsAssertionSteps {
     @Description("To verify the status and color on the progress bar")
     @Then("^I (softly see|see) status in Progress-bar is \"([^\"]*)\" and is \"([^\"]*)\"$")
     public void assertStatusProgressBar(String usage, String status, String color) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertStatusProgressBar(
                 status,
                 color,
@@ -125,6 +126,7 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
