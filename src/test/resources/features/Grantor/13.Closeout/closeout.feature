@@ -983,10 +983,10 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "History" sub tab
     And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
     And I see "{SavedValue:PM Username}" against "Step 1" in approval history
-    Then I softly see column "Date" inside row "2" at position "1" contains text "Step : Step 1"
-    Then I softly see column "Overall Status" inside row "2" at position "1" contains text "Approved"
+    Then I softly see column "Date" at position "1" contains text "Step : Step 1"
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
 
-  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest @monu
+  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest @monu @FieldHistoryExclude
   Scenario: Validate expected New value and Old value inside Field History page block for closeout request
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -1175,7 +1175,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "60" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """

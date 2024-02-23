@@ -440,7 +440,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Request Negotiations" in page detail
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
@@ -488,7 +488,7 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
-    When I expand nested table containing column value "BP01"
+#    When I expand nested table containing column value "BP01"
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
   @189567 @ValidatethesubrecipientshouldbeabletoprovideNegotiationSummarycommentsintheNegotiationstabbeforeresubmittingpreapplicationtothegrantorinNegotiationDetailsunderNegotiationTab
