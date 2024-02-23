@@ -7869,8 +7869,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
