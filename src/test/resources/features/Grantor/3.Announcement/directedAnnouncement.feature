@@ -94,6 +94,8 @@ Feature: Validate all scenarios in the directed Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly see status in Progress-bar is "Submitted for Review" and is "dark blue"
@@ -103,7 +105,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -123,17 +125,18 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     And I expand nested table containing column value "Fiscal Reviewer"
     Then I softly see value "Passed" for title "Review Comments" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see value "Passed" for title "Rating" inside table "---announcement:-:flexGridApproverRolesTableId---"
-    And I navigate to "Setup" sub tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I navigate to "Overview" sub tab
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
+    And I pause execution for "2" seconds
+#    Additional Information-Overview Tab - Application Due Date cannot be in the past.
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
     When I get the "EGMS ID"
@@ -141,7 +144,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "10" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
     When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
@@ -251,7 +255,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
