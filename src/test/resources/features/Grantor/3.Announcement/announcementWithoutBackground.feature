@@ -4205,7 +4205,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-#    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
     And I wait for "6" seconds
      And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
