@@ -1059,7 +1059,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Being Amended"
     Then I cannot see top right button "Undo" in page detail
 
-  @PoojaUndo @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
+  @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138 @hitesh @Undo @Temphitesh
   Scenario:Verify step 2 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1156,6 +1156,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE1 Username} | Step 2  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1171,7 +1172,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @PoojaUndo @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude
+   @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude
   Scenario:Verify PO approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
