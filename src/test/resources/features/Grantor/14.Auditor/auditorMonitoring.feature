@@ -30,7 +30,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
-    When And I login to "Grants Portal" app as "SA" user
+    When  I login to "Grants Portal" app as "SA" user
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel

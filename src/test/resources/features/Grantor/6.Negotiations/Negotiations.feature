@@ -285,7 +285,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Submit to Grantor" in the page details
     And I logout
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "60" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -991,7 +991,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     #133251
@@ -1033,7 +1033,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Request Negotiations" in page detail
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
