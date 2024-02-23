@@ -1536,4 +1536,6 @@ Feature: Validate all scenarios of every modules flow
    Given I am on "SUBPORTAL" portal
    When I login to "Grants Portal" app as "SPI3" user
    When I navigate to "Opportunities" tab
+   And I click on "Edit" in the page details
+   And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
    And I halt execution

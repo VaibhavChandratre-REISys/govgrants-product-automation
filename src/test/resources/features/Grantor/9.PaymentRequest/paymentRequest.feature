@@ -2503,7 +2503,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
       | Name                     | Advance |
       | {SavedValue:PM Username} | Step 2  |
-    Then I softly see "Saved Successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
+    Then I softly see "Saved successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
     #148785
     And I refresh the page
     When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
@@ -2512,7 +2512,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
       | Name                     | Advance |
       | {SavedValue:FD Username} | Step 4  |
-    Then I softly see "Saved Successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
+    Then I softly see "Saved successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
 
   @148783 @Verify1StepApprovalForAdvancePaymentRequest-RnRFuntionality @monu 
   Scenario Outline:Verify user can add one step approver for advance payment request and approve it

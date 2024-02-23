@@ -941,8 +941,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
@@ -983,6 +983,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I navigate to "Overview" sub tab
     And I enter value "VA" into field "Addressline1__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -992,29 +993,37 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
+    And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
-    And I switch to parent tab
+    And I wait for "2" seconds
+    And I close the tab
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
+    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
-    And I switch to parent tab
+    And I wait for "2" seconds
+    And I close the tab
     And I wait for "2" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
   @72346 @applicationReviewHappyPath
@@ -1625,13 +1634,16 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
+    And I wait for "3" seconds
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
@@ -1644,22 +1656,28 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    When I re-login as "SA" user on "SUBPORTAL" portal
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I wait for "5" seconds
+    And I enter value "Checked" into field "Acknowledgement__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Submit" in the page details
+    And I wait for "3" seconds
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    Then I see status in Progress-bar is "Active" and is "Green"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @72349 @adhocReimbursementHappyPath
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
@@ -1718,6 +1736,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+#   To Do:- Remove the refresh step once bug resolve for refresh behavior
+    And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath
@@ -1726,10 +1746,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
@@ -1748,8 +1768,12 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    And I wait for "2" seconds
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1781,8 +1805,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "2" seconds
     When I click modal button "Close"
-#    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+#   To Do:- Remove the refresh step once bug resolve for refresh behavior
+    And I refresh the page
     Then I softly see field "Status" as "Paid"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1805,7 +1831,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Advance Applied |
       | Extra Salary | The narrative | 30         | 1        | Feet        | 10              |
     When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1817,8 +1845,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:fundingAccount} | 30                    | 10                          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                      | Reimbursement |
-      | {SavedValue:PM Username}  | NA            |
+      | Name                     | Reimbursement |
+      | {SavedValue:PM Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
@@ -1840,6 +1868,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+#   To Do:- Remove the refresh step once bug resolve for refresh behavior
+    And I refresh the page
     Then I softly see field "Status" as "Paid"
 
   @72351 @scheduledReimbursementPaymentRequestHappyPath
@@ -1864,6 +1894,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1895,6 +1927,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+#   To Do:- Remove the refresh step once bug resolve for refresh behavior
     And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
@@ -2403,12 +2436,12 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I enter value "Automation Test justification" into field "Justification__c"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "Justification__c"
-    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
