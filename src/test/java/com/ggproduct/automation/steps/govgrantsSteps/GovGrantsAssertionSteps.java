@@ -26,6 +26,7 @@ public final class GovGrantsAssertionSteps {
     @Description("To verify the status and color on the progress bar")
     @Then("^I (softly see|see) status in Progress-bar is \"([^\"]*)\" and is \"([^\"]*)\"$")
     public void assertStatusProgressBar(String usage, String status, String color) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertStatusProgressBar(
                 status,
                 color,
@@ -125,6 +126,7 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         ggAssertionObjects.assertFieldValue(
                 fieldName,
                 matchExact != null,
@@ -406,7 +408,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (header) is \"([^\"]*)\" in the page details$")
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             By headerLocator = By.xpath(String.format("//div[contains(@class, 'overview-header') or contains(@class, 'overviewHeader')]//span[contains(@class, '%s')]",
                     ("header".equalsIgnoreCase(isHeader) ? "customLabelstyle" : "overview-title")));
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(headerLocator))

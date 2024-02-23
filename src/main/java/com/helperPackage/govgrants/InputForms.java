@@ -964,7 +964,7 @@ public final class InputForms {
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
         if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
                 || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected()) {
-            I.amPerforming().click().on(checkBox);
+            I.amPerforming().click().withJavaScript(checkBox);
         }
     }
 

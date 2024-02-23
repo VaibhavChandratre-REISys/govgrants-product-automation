@@ -396,7 +396,7 @@ public final class GovGrantsObjects {
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
-            I.amPerforming().click().on(By.xpath("//button[text()='Upload']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(10000);
@@ -427,7 +427,7 @@ public final class GovGrantsObjects {
             I.amPerforming().click().on(selectClassificationType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
-            I.amPerforming().click().on(By.xpath("//button[text()='Upload']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(10000);
@@ -512,7 +512,7 @@ public final class GovGrantsObjects {
      */
     protected void clickTableActionIconsForSpecificSubjectWithoutProcessing(String flextableId, String iconName,
                                                                             String... anycolumnvalue) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().on(govgrants.perform().flexTable().getTableActionIcon(flextableId, iconName, anycolumnvalue));
         } else {
             WebElement desiredAction = null;
