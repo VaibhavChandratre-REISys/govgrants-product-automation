@@ -14,6 +14,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I pause execution for "3" seconds
 
   @73959 @pdfDownloadContacts @jitendra @skipOnJenkins
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
