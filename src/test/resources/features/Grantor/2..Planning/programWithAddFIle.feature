@@ -144,6 +144,9 @@ Feature: Validate all scenarios for program with add file
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
