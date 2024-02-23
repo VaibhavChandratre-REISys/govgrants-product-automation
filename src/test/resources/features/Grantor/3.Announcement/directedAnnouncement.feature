@@ -150,9 +150,9 @@ Feature: Validate all scenarios in the directed Announcement tab
 #    When I click toggle button to select "Draft Directed Announcements"
 #    When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
 #    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:annoucementTableId---"
-#    Examples:
-#      | Announcement Type |
-#      | Directed          |
+    Examples:
+      | Announcement Type |
+      | Directed          |
 
   @announcementWithBlankBudgetPeriod @smoke
   Scenario Outline: Validate that user should not submit announcement with blank budget period dates
