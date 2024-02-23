@@ -4194,7 +4194,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on submit review
     Then I softly see that "Submitted" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-   @221992 @ValidateAnnstepshouldgetupdatedifDavidFOstep1approverreassignapprovertaskofsamerecordtoDanisFOwhosestepisNAforAnn @sprint-11-US-218319 @vaibhav @reassignment
+   @221992 @ValidateAnnstepshouldgetupdatedifDavidFOstep1approverreassignapprovertaskofsamerecordtoDanisFOwhosestepisNAforAnn @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
   Scenario: Validate Ann step should get updated if David FO step 1 approver reassign approver task of same record to Danis FO whose step is NA for Ann
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4493,6 +4493,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I wait for "3" seconds
     And I enter "CompetitiveAnnBulkData" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
@@ -6022,7 +6023,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment
+  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
   Scenario: Validate Ann the correct step & reviewer mapping is done on individual record for respective assignment when records with similar task type for different step and responsibilities are selected and processed/ reassigned simultaneously
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -6048,6 +6049,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     And I wait for "3" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
