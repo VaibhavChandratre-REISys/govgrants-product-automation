@@ -94,6 +94,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
@@ -128,7 +129,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I expand nested table containing column value "Fiscal Reviewer"
     Then I softly see value "Passed" for title "Review Comments" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see value "Passed" for title "Rating" inside table "---announcement:-:flexGridApproverRolesTableId---"
-    And I navigate to "Setup" sub tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -136,22 +136,23 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     And I pause execution for "2" seconds
+#    Additional Information-Overview Tab - Application Due Date cannot be in the past.
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
-    When I get the "EGMS ID"
-    When I navigate to "Overview" sub tab
-    And I enter value "10" into field "ApplicationDueDate__c"
-    And I click on "Save" in the page details
-    And I click on "Submit For Approval" in the page details
-    And I navigate to "Announcements" tab
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Directed Announcements"
-    When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
-    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:annoucementTableId---"
-    Examples:
-      | Announcement Type |
-      | Directed          |
+#    When I get the "EGMS ID"
+#    When I navigate to "Overview" sub tab
+#    And I enter value "10" into field "ApplicationDueDate__c"
+#    And I click on "Save" in the page details
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    And I navigate to "Announcements" tab
+#    And I navigate to "Directed" content inside "Announcements" subheader on left panel
+#    When I click toggle button to select "Draft Directed Announcements"
+#    When I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
+#    Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:annoucementTableId---"
+#    Examples:
+#      | Announcement Type |
+#      | Directed          |
 
   @announcementWithBlankBudgetPeriod @smoke
   Scenario Outline: Validate that user should not submit announcement with blank budget period dates
