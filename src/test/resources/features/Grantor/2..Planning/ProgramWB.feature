@@ -5747,7 +5747,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5762,7 +5762,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5792,7 +5792,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5831,9 +5831,13 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
+    And I pause execution for "5" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I click on "Activate" in the page details
@@ -5846,7 +5850,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5871,7 +5875,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5918,7 +5922,7 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -5928,9 +5932,13 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5985,23 +5993,27 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6038,7 +6050,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6090,7 +6102,7 @@ Feature: Validate all scenarios for program
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     Then I softly see status in Progress-bar is "Submitted for Review" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6104,7 +6116,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6117,7 +6129,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6141,12 +6153,15 @@ Feature: Validate all scenarios for program
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record3" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6160,7 +6175,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6174,7 +6189,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record5 | Automation Notes5 |
     Then I softly see value "Notes Record5" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6225,12 +6240,15 @@ Feature: Validate all scenarios for program
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6244,7 +6262,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6258,7 +6276,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6272,7 +6290,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record3" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6308,12 +6326,15 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6327,7 +6348,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6341,7 +6362,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6357,7 +6378,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6371,7 +6392,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record5 | Automation Notes5 |
     Then I softly see value "Notes Record5" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6385,7 +6406,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record6 | Automation Notes6 |
     Then I softly see value "Notes Record6" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6400,7 +6421,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record7 | Automation Notes7 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6414,7 +6435,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record8 | Automation Notes8 |
     Then I softly see value "Notes Record8" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6428,7 +6449,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record9 | Automation Notes9 |
     Then I softly see value "Notes Record9" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6446,7 +6467,7 @@ Feature: Validate all scenarios for program
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title          | Description        |
       | Notes Record10 | Automation Notes10 |
     Then I softly see value "Notes Record10" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6461,7 +6482,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I softly see field "Status" as "Active"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title          | Description        |
       | Notes Record11 | Automation Notes11 |
     Then I softly see value "Notes Record11" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6476,7 +6497,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I softly see field "Status" as "Active"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title          | Description        |
       | Notes Record12 | Automation Notes12 |
     Then I softly see value "Notes Record12" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -6516,7 +6537,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6531,7 +6552,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6545,7 +6566,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record3" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6560,7 +6581,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record5 | Automation Notes5 |
     Then I softly see value "Notes Record5" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6574,7 +6595,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record6 | Automation Notes6 |
     Then I softly see value "Notes Record6" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6589,7 +6610,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record8 | Automation Notes8 |
     Then I softly see value "Notes Record8" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6616,6 +6637,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
@@ -6630,7 +6654,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6645,7 +6669,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6659,7 +6683,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record3" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6674,7 +6698,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record5 | Automation Notes5 |
     Then I softly see value "Notes Record5" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6688,7 +6712,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record6 | Automation Notes6 |
     Then I softly see value "Notes Record6" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6703,7 +6727,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record8 | Automation Notes8 |
     Then I softly see value "Notes Record8" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6726,7 +6750,7 @@ Feature: Validate all scenarios for program
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6741,7 +6765,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6756,7 +6780,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6771,7 +6795,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
     Then I softly see value "Notes Record3" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6786,7 +6810,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6801,7 +6825,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record5 | Automation Notes5 |
     Then I softly see value "Notes Record5" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -6819,6 +6843,9 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -6998,7 +7025,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -7059,7 +7086,7 @@ Feature: Validate all scenarios for program
     When I click modal button "Save"
     And I click on submit review
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -7134,7 +7161,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
@@ -7170,6 +7197,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
@@ -7182,7 +7212,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7207,7 +7237,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7232,7 +7262,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7257,7 +7287,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7317,7 +7347,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7342,7 +7372,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7367,7 +7397,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7392,7 +7422,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
@@ -7431,7 +7461,7 @@ Feature: Validate all scenarios for program
     Then I see only the following ordered options in dropdown field "WorkspaceFilesUpload" :
       | Select file classification | Template for Planning | Others |
 
-  @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail @wip
+  @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7486,7 +7516,7 @@ Feature: Validate all scenarios for program
     And I close "Reply" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
-  @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail @wip
+  @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that Sarah PM And Peer Reviewer Victor EXE will see system Email after Sarah Pm sends Internal Program for Peer review
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7596,7 +7626,7 @@ Feature: Validate all scenarios for program
     And I save the value from row "2" for column name "Subject" as "oldSubject" from flex table "---program:-:systemEmailsTableId---"
     Then I softly see that the saved value "{SavedValue:oldSubject}" and "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" are equal
 
-  @331854 @ValidatethatSystemEmailwillgenerateinmessagestabwhenlastApproverClickonundobuttononApprovedInternalProgram @Sprint-11-US-327737 @SystemEmail @wip
+  @331854 @ValidatethatSystemEmailwillgenerateinmessagestabwhenlastApproverClickonundobuttononApprovedInternalProgram @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that System Email will generate in messages tab when last Approver Click on undo button on Approved Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7695,7 +7725,7 @@ Feature: Validate all scenarios for program
       | pm.automation@yopmail.com                                                                |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
 
-  @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail @wip
+  @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that Email will not generate System Email in messages tab when Owner of program clicks on Activate button on Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7760,7 +7790,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331476 @331881 @331480 @ValidatethatAmeliafduserwillnotseeEmailsentfrommessageSectioninmessagestabonSystemEmailSectionofCollabtab @Sprint-11-US-327737 @SystemEmail @wip
+  @331476 @331881 @331480 @ValidatethatAmeliafduserwillnotseeEmailsentfrommessageSectioninmessagestabonSystemEmailSectionofCollabtab @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that Amelia fd user will not see Email sent from message section in messages tab on System Email Section of Collab tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7799,7 +7829,7 @@ Feature: Validate all scenarios for program
     #331480
     Then I softly see quick search inside table id "---program:-:systemEmailsTableId---"
 
-  @331489 @331812 @ValidatethatSystemEmailWillnotGenerateafterSarahPmsubmitsinternalProgramforApproval @Sprint-11-US-327737 @SystemEmail @wip
+  @331489 @331812 @ValidatethatSystemEmailWillnotGenerateafterSarahPmsubmitsinternalProgramforApproval @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that System Email Will not Generate after Sarah Pm submits internal Program for Approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7858,7 +7888,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail @wip
+  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that After Approver clicks on Send back button for Internal Program then System Email do not generate in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7946,7 +7976,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331853 @ValidatethatSystemEmailwillnotgenerateinmessagestabwhenApproverApprovesInternalProgramtowhenitisassignedtosubmitforapproval @Sprint-11-US-327737 @SystemEmail @wip
+  @331853 @ValidatethatSystemEmailwillnotgenerateinmessagestabwhenApproverApprovesInternalProgramtowhenitisassignedtosubmitforapproval @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that System Email will not generate in messages tab when Approver Approves Internal Program to when it is assigned to submit for approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8000,7 +8030,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail @wip
+  @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that System Email will not generate in messages tab of Internal Program when Approval task is Reassigns to other user by approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8061,7 +8091,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail @wip
+  @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate EXE user should see value populates in " Subject, From Address, To Address, Attention to, Email subject" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -8103,7 +8133,7 @@ Feature: Validate all scenarios for program
     And I close "Reply" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
-  @330625 @330629 @330617 @330598 @ValidatethatFDusercanSeeSendEmailbuttononmessagessectionofmessagestabinAnystateofInternalProgram @Sprint-11-US-326332 @SystemEmail @wip
+  @330625 @330629 @330617 @330598 @ValidatethatFDusercanSeeSendEmailbuttononmessagessectionofmessagestabinAnystateofInternalProgram @Sprint-11-US-326332 @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate that FD user can See Send Email button on messages section of messages tab in Any state of Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
