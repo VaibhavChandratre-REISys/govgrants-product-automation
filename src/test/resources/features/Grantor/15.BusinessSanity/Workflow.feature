@@ -1528,3 +1528,14 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
+
+  @1111
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Files" sub tab
+    And I pause execution for "5" seconds
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    And I enter value "Notes Record1" into field "Title"
+    And I enter value "Automation Notes1" into field "Content"
