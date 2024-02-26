@@ -3885,10 +3885,10 @@ Feature: Validate all scenarios for program
       | Reviewer Name | Responsibility  | Description                 | Due Date |
       | Automation PM | Fiscal Reviewer | Automation Test Description | 10       |
     And I wait for "3" seconds
-    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I click on "Send for Review" icon for "Program Reviewer" inside table
     And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
-    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -4688,11 +4688,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -5756,10 +5755,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
@@ -5954,13 +5952,12 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title          | Description       |
+      | Automation EXE | Notes Record1 | Automation Notes1  |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
@@ -6021,12 +6018,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record2" into field "Title"
-    And I enter value "Automation Notes2" into field "Body"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record2 | Automation Notes2 |
     And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes2" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
@@ -6527,7 +6524,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     #204587
     Then I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -6546,10 +6543,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6575,10 +6571,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record3" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record4" into field "Title"
-    And I enter value "Automation Notes4" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PO | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6604,10 +6599,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record6" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record7" into field "Title"
-    And I enter value "Automation Notes7" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record7 | Automation Notes7 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6663,10 +6657,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6692,10 +6685,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record3" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record4" into field "Title"
-    And I enter value "Automation Notes4" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6721,10 +6713,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record6" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record7" into field "Title"
-    And I enter value "Automation Notes7" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By       | Title         | Description       |
+      | Automation ADMIN | Notes Record6 | Automation Notes6 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6868,7 +6859,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6889,7 +6880,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6910,7 +6901,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6931,7 +6922,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6952,7 +6943,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6973,7 +6964,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record5" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record5" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -7034,10 +7025,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
@@ -7095,10 +7085,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation P0 | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
@@ -7170,10 +7159,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation FO | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
