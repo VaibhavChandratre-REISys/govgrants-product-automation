@@ -6637,6 +6637,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I pause execution for "4" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6714,7 +6715,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
     And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
       | Created By       | Title         | Description       |
-      | Automation ADMIN | Notes Record6 | Automation Notes6 |
+      | Automation ADMIN | Notes Record7 | Automation Notes7 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
