@@ -6024,7 +6024,6 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
       | Created By    | Title         | Description       |
       | Automation PM | Notes Record2 | Automation Notes2 |
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes2" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
