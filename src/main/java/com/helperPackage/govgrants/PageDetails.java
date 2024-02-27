@@ -83,16 +83,6 @@ public final class PageDetails {
                       I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                       govgrants.perform().modal().acceptPopUp();
                   }
-//               }
-//            }
-//            else if(I.amPerforming().checkToSee().IsElementPresentQuick(topRightButton)) {
-//                I.amPerforming().click().withJavaScript(topRightButton);
-//                govgrants.perform().modal().acceptPopUp();
-//            }else {
-//                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-//                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-//                govgrants.perform().modal().acceptPopUp();
-//            }
 
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
@@ -100,6 +90,29 @@ public final class PageDetails {
             I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
         }
+    }
+
+    /**
+     * click any button on right header inside detail page. Submit, submit for
+     * approval
+     *
+     * @param buttonName
+     * @return
+     * @author john.phillips
+     * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
+     */
+    public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
+        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "']");
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            try {
+                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+                I.amPerforming().click().withJavaScript(topRightButton);
+                govgrants.perform().modal().acceptPopUp();
+            } catch(Exception  ex){
+                I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                govgrants.perform().modal().acceptPopUp();
+            }
     }
 
     /**
@@ -251,6 +264,11 @@ public final class PageDetails {
 //        } catch (Exception e) {
 //            I.amPerforming().click().withJavaScript(desiredTab, false);
 //        }
+    }
+
+    public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
+        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "']");
+        I.amPerforming().click().withJavaScript(desiredTab);
     }
 
     /**

@@ -37,7 +37,6 @@ Feature: Validate all scenarios in the Pre-Application
     When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
     And I wait for "3" seconds
     When I close "Associate Contacts" modal by clicking the top right x button
-#    And I close modal by clicking the top right x button
     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     When I click on "View" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
     And I save the field labeled "Organization" as "orgName1"
@@ -113,9 +112,11 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
@@ -145,13 +146,14 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
-    And I perform quick search for "<Announcement Name>" in "RecipientPreApplications" panel
+    And I perform quick search for "<Announcement Name>" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
     Then I softly cannot see top right button "Create Application" in page detail
@@ -167,8 +169,8 @@ Feature: Validate all scenarios in the Pre-Application
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - Submitted"
-    And I perform quick search for "<Announcement Name>" in "RecipientPreApplications" panel
-    Then I softly see "<Announcement Name>" inside flex table with id "RecipientPreApplications"
+    And I perform quick search for "<Announcement Name>" in "---preApplication:-:recipientPreApplicationsTableId---" panel
+    Then I softly see "<Announcement Name>" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
@@ -182,22 +184,21 @@ Feature: Validate all scenarios in the Pre-Application
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
-    When I click on "Edit" in the page details
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-     | EGMS ID                  | Target |
+      | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+#    Given I click on "Back" in the page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+#    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -241,9 +242,10 @@ Feature: Validate all scenarios in the Pre-Application
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     Then I softly see value "$10,150.00" for title "Total Project Cost" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
-    When I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
@@ -272,10 +274,12 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -289,8 +293,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Start" icon for "Record Id" inside flex table with id "---preApplication:-:pendingTaskTableId---"
     When I click on "Reject" in the page details
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -312,12 +315,23 @@ Feature: Validate all scenarios in the Pre-Application
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files" sub tab
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I wait for "2" seconds
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -331,8 +345,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see that "Record Id" has been added in flextable with Id "---preApplication:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record id" inside flex table with id "---preApplication:-:pendingTaskTableId---"
     When I click on "Accept" in the page details
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - Submitted"
@@ -356,15 +369,15 @@ Feature: Validate all scenarios in the Pre-Application
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I get the "EGMS ID"
-    And I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+#    Given I click on "Back" in the page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+#    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
