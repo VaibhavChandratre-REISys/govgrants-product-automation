@@ -138,6 +138,13 @@ public final class GovGrantsObjects {
     }
 
     /**
+     * Click on Sub Tabs inside Grants and Announcements
+     */
+    protected void clickSubTabInSplitScreen(String subTab) {
+         govgrants.perform().pageDetails().clickSubTabsInsideTableViewForSplitScreen(subTab);
+    }
+
+    /**
      * click any action icon It refreshes the page to get the element after
      * processing is completed.
      */
