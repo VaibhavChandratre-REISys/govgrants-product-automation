@@ -11,8 +11,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -21,13 +19,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -35,9 +31,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -50,8 +46,8 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of PM User | Automation Notes |
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -67,11 +63,11 @@ Feature: Pre-Application scenarios without background
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225099
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -82,11 +78,11 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225099
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -97,11 +93,11 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225099
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -112,11 +108,11 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225099
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -127,11 +123,11 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225099
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
 
@@ -145,8 +141,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -155,13 +149,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -169,9 +161,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -185,8 +177,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of PM User | Automation Notes |
     Then I softly see value "Notes Record Of PM User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -200,14 +192,14 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of EXE User | Automation Notes |
     Then I softly see value "Notes Record Of EXE User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -221,14 +213,14 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of PO User | Automation Notes |
     Then I softly see value "Notes Record Of PO User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -242,14 +234,14 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of FO User | Automation Notes |
     Then I softly see value "Notes Record Of FO User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -263,14 +255,14 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                      | Description      |
       | Notes Record Of ADMIN User | Automation Notes |
     Then I softly see value "Notes Record Of ADMIN User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -287,8 +279,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -297,13 +287,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -311,9 +299,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -327,8 +315,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                        | Description      |
       | Notes Record Of Grantor User | Automation Notes |
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -336,7 +324,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225109
     When I click on "Accept" in the page details
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -360,7 +348,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Status" as "Converted to Application"
     When I navigate to "Forms and Files" sub tab
     #225107
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -381,8 +369,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -397,7 +383,6 @@ Feature: Pre-Application scenarios without background
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -405,9 +390,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -420,8 +405,8 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                        | Description      |
       | Notes Record Of Grantor User | Automation Notes |
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -443,7 +428,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation In Progress"
@@ -454,7 +439,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     Then I softly see field "Status" as "Negotiation In Progress"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -467,7 +452,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation In Progress"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -486,8 +471,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -496,13 +479,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -510,9 +491,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -526,15 +507,15 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                        | Description      |
       | Notes Record Of Grantor User | Automation Notes |
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Accept" in the page details
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -546,7 +527,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Accepted"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -562,8 +543,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -572,13 +551,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -586,9 +563,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -604,8 +581,8 @@ Feature: Pre-Application scenarios without background
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     #226082
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of FD User | Automation Notes |
     Then I softly see value "Notes Record Of FD User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -618,8 +595,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                        | Description      |
       | Notes Record Of Grantor User | Automation Notes |
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -627,7 +604,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Reject" in the page details
     Then I softly see field "Status" as "Rejected"
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -640,7 +617,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Status" as "Rejected"
     When I navigate to "Forms and Files" sub tab
     #226081
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -658,8 +635,6 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    And I save the field containing "Leverage Allowed?" as "Yes"
-    And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -668,13 +643,11 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -682,9 +655,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:preApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+#    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
@@ -700,8 +673,8 @@ Feature: Pre-Application scenarios without background
     Then I see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     #226082
-    Then I softly see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---" by clicking "New" :
       | Title                   | Description      |
       | Notes Record Of FD User | Automation Notes |
     Then I softly see value "Notes Record Of FD User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -730,7 +703,7 @@ Feature: Pre-Application scenarios without background
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
-    Then I softly do not see top right button "Add" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of FD User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of FD User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"

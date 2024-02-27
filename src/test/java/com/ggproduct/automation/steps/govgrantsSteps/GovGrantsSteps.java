@@ -216,6 +216,12 @@ public final class GovGrantsSteps {
         I.amPerforming().waitFor().makeThreadSleep(5000);
     }
 
+    @Description("Click on sub tab in split screen after reaching inside different table page details")
+    @When("^I navigate to \"([^\"]*)\" sub tab in split screen$")
+    public void navigateToSubTabsinSplitScreen(String subtabName) {
+        ggObjects.clickSubTabInSplitScreen(subtabName);
+    }
+
     /******* Flex Table ***********/
 
     @Description("Clicks on action view icon inside a table")
@@ -563,6 +569,13 @@ public final class GovGrantsSteps {
             I.amPerforming().click().on(topRightButton);
         }
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+    }
+
+    @Description("click top right button after reaching to page detail inside Split screen")
+    @When("^I click on \"([^\"]*)\" in the split screen page details$")
+    public void clickPageButtonInsideSplitScreen(String buttonName) {
+            govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 
     @Description("click top right button after reaching to page detail without processing")
