@@ -1,7 +1,7 @@
 @organizationalSiteVisitWB @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Site Visit Without Background
 
-  @235375 @ValidateSiteVisitEXEusercanabletoreassignsitevisitownershipfromEXEtootherEXEuserinNotifiedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235375 @ValidateSiteVisitEXEusercanabletoreassignsitevisitownershipfromEXEtootherEXEuserinNotifiedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit EXE user can able to reassign site visit ownership from EXE to other EXE user in 'Notified' state of site visit
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -118,7 +118,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235408 @ValidateSiteVisitFOusercanablereassignownershipofsitevisitfromFOtootherFOuserinInProgressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235408 @ValidateSiteVisitFOusercanablereassignownershipofsitevisitfromFOtootherFOuserinInProgressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FO user can able to reassign ownership of site visit from FO to other FO user in 'In Progress' state of site visit
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -238,7 +238,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235413 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinApprovedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235413 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinApprovedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PM user can able to reassign site visit ownership from PM to other PM user in 'Approved' state of site visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -378,7 +378,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PM user can able to reassign site visit ownership from PM to other PM user in 'Created' state of site visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -495,7 +495,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235427 @ValidateSiteVisitPOusercanabletoreassignownershipofsitevisitfromPOtootherPOuserinSendtosubrecipientstateofsitevisit
+  @235427 @ValidateSiteVisitPOusercanabletoreassignownershipofsitevisitfromPOtootherPOuserinSendtosubrecipientstateofsitevisit @FieldHistoryExclude
   Scenario: Validate Site Visit PO user can able to reassign ownership of site visit from PO to other PO user in 'Send to subrecipient' state of site visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -638,7 +638,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235432 @ValidateSiteVisitPMusercanabletoreassignownershipofsitevisitfromPMtootherPMinClosedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235432 @ValidateSiteVisitPMusercanabletoreassignownershipofsitevisitfromPMtootherPMinClosedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PM user can able to reassign ownership of site visit from PM to other PM in 'Closed' state of site visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -812,7 +812,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235433 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOinClosedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235433 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOinClosedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FO user can able to reassign ownership of site visit from FO to other FO in 'Closed' state of site visit
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -986,7 +986,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @236108 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOuserinSentforreviewstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @236108 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOuserinSentforreviewstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FO user can able to reassign ownership of site visit from FO to other FO user in 'Sent for review' state of site visit
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -1115,7 +1115,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @236111 @ValidateSiteVisitEXEusercanabletodobusinessflowafterreassignownershiofsitevisitfromEXEtootherEXEuserinINprogressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @236111 @ValidateSiteVisitEXEusercanabletodobusinessflowafterreassignownershiofsitevisitfromEXEtootherEXEuserinINprogressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit EXE user can able to do business flow after reassign ownership of site visit from EXE to other EXE user in 'IN progress' state of site visit
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -1687,7 +1687,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FD1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
 
-  @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PO user can able to reassign site visit ownership from PO to other PO in 'Created' state of site visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -1919,7 +1919,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
       The EGMS Team
       """
 
-  @235409 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmitforApprovalstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235409 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmitforApprovalstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FD user can able to reassign site visit ownership from FD to other FD user in 'Submit for Approval' state of site visit
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
@@ -2057,7 +2057,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235428 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmittoGrantorstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @235428 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmittoGrantorstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FD user can able to reassign site visit ownership from FD to other FD user in 'Submit to Grantor' state of site visit
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
@@ -2232,7 +2232,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @236110 @ValidateSiteVisitFDusercanabletoreassignownershipofsitevisitfromFDtootherFDuserinReviewedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment
+  @236110 @ValidateSiteVisitFDusercanabletoreassignownershipofsitevisitfromFDtootherFDuserinReviewedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FD user can able to reassign ownership of site visit from FD to other FD user in 'Reviewed' state of site visit
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab

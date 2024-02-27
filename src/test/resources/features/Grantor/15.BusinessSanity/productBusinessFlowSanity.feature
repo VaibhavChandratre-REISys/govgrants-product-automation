@@ -1948,7 +1948,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
+    And I click modal button "Close"
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1959,9 +1960,12 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1973,6 +1977,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Progress Report |
       | {SavedValue:EXE Username} | Step 1          |
     When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2013,8 +2018,10 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1     |
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    And I pause execution for "5" seconds
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -2030,11 +2037,15 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "SitevVisitId"
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I switch to parent tab
+#    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -2042,12 +2053,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -2064,17 +2077,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Observation"
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Concern"
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    And I collapse nested table containing column value "Automation Finding"
+    And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2115,6 +2128,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
@@ -2125,16 +2139,20 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
-    And I navigate to "Reports and Outcomes" sub tab
-    And I wait for "2" seconds
-    And I click on "Save" in the page details
-    And I wait for "1" seconds
+    And I switch to parent tab
+#    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
+#    And I navigate to "Reports and Outcomes" sub tab
+#    And I wait for "2" seconds
+#    And I click on "Save" in the page details
+#    And I wait for "1" seconds
     When I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2153,17 +2171,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Observation"
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Concern"
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    And I collapse nested table containing column value "Automation Finding"
+    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2210,11 +2228,15 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I pause execution for "5" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I switch to parent tab
+#    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I refresh the page
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:orgCorrectiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -2237,17 +2259,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Observation"
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Concern"
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    And I collapse nested table containing column value "Automation Finding"
+    And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

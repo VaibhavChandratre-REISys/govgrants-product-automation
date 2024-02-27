@@ -17,7 +17,7 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Save" in the page details
     When I get the "EGMS ID"
 
-  @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling
+  @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude
   Scenario: To edit KPI in Progress Report | To fill and complete the form in Progress Report | To validate KPI for progress report are not editable post submission of prog report to grantor.
   To submit Progress Report to Grantor | To validate Submitted Progress Report Table is updated post report is submitted to Grantor.
     Then I softly see field "Status" as "Created"
@@ -32,7 +32,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "4" seconds
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -45,7 +45,7 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Back" in the page details
     Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressReport:-:kpiTableId---"
     When I navigate to "Monitoring" tab
@@ -67,7 +67,7 @@ Feature: Validate all scenarios in Progress Report
       | {SavedValue:FO Username} | Step 2          |
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---progressReport:-:approversTableId---"
     And I click on "Send Back to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see value "Sent Back to Subrecipient" for title "New Value" inside table "History"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -83,13 +83,13 @@ Feature: Validate all scenarios in Progress Report
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 25     |
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---progressReport:-:peerReviewersTableId---"
     And I navigate to "Monitoring" tab
@@ -97,7 +97,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -115,7 +115,7 @@ Feature: Validate all scenarios in Progress Report
     When I click toggle button to select "Progress Reports - Submitted"
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -128,7 +128,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -164,7 +164,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Terms" sub tab
     Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---progressreport:-:progressReportsScheduleId---"
 
-  @51118 @51119 @51121 @59678 @51122 @51123 @51125 @58887 @sendBacktoOwnerOfProgressReportbyFiscalApprover @smoke
+  @51118 @51119 @51121 @59678 @51122 @51123 @51125 @58887 @sendBacktoOwnerOfProgressReportbyFiscalApprover @smoke @FieldHistoryExclude
   Scenario: To validate Progress Report send back to owner functionality by Fiscal approver. |  To validate progress report are not editable post submission of progress report to grantor.
   To validate  field history update post Progress Report is send back to owner by Fiscal approver.
     And I click on "Edit" in the page details
@@ -193,7 +193,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -206,7 +206,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I navigate to "History" sub tab
     Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -219,7 +219,7 @@ Feature: Validate all scenarios in Progress Report
     When I click toggle button to select "Progress Reports - Submitted"
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -292,7 +292,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -303,7 +303,7 @@ Feature: Validate all scenarios in Progress Report
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressreport:-:RecipientSubAwardTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:recipientAwardProgressReportTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
@@ -329,7 +329,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - Submitted"
     And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
       | progressReportSheet              | kpiTableId                        | formTableId                        |
       | ProgressReport_Field_Values.xlsx | ---progressReport:-:kpiTableId--- | ---progressReport:-:formTableId--- |
@@ -390,15 +390,15 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
-    Then I softly cannot see top right button "Submit for Approval" in page detail
+    When I click on "Submit For Approval" in the page details
+    Then I softly cannot see top right button "Submit For Approval" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
   @59680 @58742 @validateInternalUserIsNotAllowedToEditProgressReportWhoseStatusIsSendBackToSubRecipient @mahadev
   Scenario: Validate Internal User is not allowed to Edit the Progress report generated whose status is Send back to sub-recipient on active award
@@ -456,7 +456,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -664,7 +664,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -711,7 +711,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -847,7 +847,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -909,7 +909,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @59677 @59676 @allowsEditAfterSentBackToSR @jitendra
+  @59677 @59676 @allowsEditAfterSentBackToSR @jitendra @FieldHistoryExclude
   Scenario: Validate SR is able to Edit the Progress report when Award owner Sent Back the Progress report | Validate History Field is getting Updated at Award owner End when Progress report status is Submitted to Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -942,7 +942,7 @@ Feature: Validate all scenarios in Progress Report
       | Title        | Description      |
       | Notes Record | Automation Notes |
     And I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
 
   @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
   Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
@@ -1139,7 +1139,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1179,7 +1179,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1274,7 +1274,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1287,7 +1287,7 @@ Feature: Validate all scenarios in Progress Report
     When I click toggle button to select "Progress Reports - Submitted"
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1442,7 +1442,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1455,7 +1455,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I see status in Progress-bar is "Approved" and is "green"
+    And I see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1511,7 +1511,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    Given I click on "Submit for Approval" in the page details
+    Given I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1524,7 +1524,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I see status in Progress-bar is "Approved" and is "green"
+    And I see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1614,7 +1614,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Grants - Active"
@@ -1651,7 +1651,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1659,14 +1659,14 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     And I pause execution for "1" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2009,7 +2009,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

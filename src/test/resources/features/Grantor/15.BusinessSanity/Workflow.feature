@@ -1529,13 +1529,13 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
- @debug @12121 @ValidateSMEReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectinIdisagreeoptioninCOIsection
-  Scenario:Validate
-#   And I published "Directed" type announcement having name "Directed Archived Annoucement" and properties "default"
-#   When I login to "As a Grantor" app as "PM" user
-   Given I am on "SUBPORTAL" portal
-   When I login to "Grants Portal" app as "SPI3" user
-   When I navigate to "Opportunities" tab
-   And I click on "Edit" in the page details
-   And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
-   And I halt execution
+  @1111
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Files" sub tab
+    And I pause execution for "5" seconds
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    And I enter value "Notes Record1" into field "Title"
+    And I enter value "Automation Notes1" into field "Content"

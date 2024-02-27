@@ -30,7 +30,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     Then I softly see field "Subrecipient Match (%)" as "10.00%"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I cannot see row level action button "Edit" against "Record id" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
@@ -38,7 +38,7 @@ Feature: Validate all common scenarios in the  Announcement tab
   @33936 @announcementCreatedDeleteAccessToOwnerFA
   Scenario: Validate that owner can able to delete created status announcement
     When I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When  I click on "Delete" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -47,7 +47,7 @@ Feature: Validate all common scenarios in the  Announcement tab
   @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
   Scenario: Validate that only owner can able to edit created status announcement | To verify user able to enter the description in the details field of overview tab while creating the Announcemennt
     When I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     Then I softly can see top right button "Save" in page detail
@@ -109,7 +109,8 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate the dissociation of Budget Period to the Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    And I pause execution for "3" seconds
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     When I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
     And I refresh the page
     When I navigate to "Financials" sub tab
@@ -237,7 +238,6 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
-    And I pause execution for "2" seconds
     And I collapse nested table containing column value "Eligibility"
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Completeness"
@@ -271,6 +271,7 @@ Feature: Validate all common scenarios in the  Announcement tab
       | 1              | Question2 | Written | 100       |
     And I pause execution for "2" seconds
     And I collapse nested table containing column value "Environment"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "Permits"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -374,7 +375,7 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate that other users are not able to delete created announcement
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
@@ -382,6 +383,6 @@ Feature: Validate all common scenarios in the  Announcement tab
   Scenario: Validate that other users are not able to Edit created announcement
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I cannot see row level action button "Edit" against "Record id" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"

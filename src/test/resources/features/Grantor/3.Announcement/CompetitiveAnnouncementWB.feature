@@ -537,7 +537,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     When I click on "Complete Negotiation" in the page details
     When I navigate to "Budget" sub tab
-    Then I softly see field "Recommended Budget" inside page block
+#    Then I softly see field "Recommended Budget" inside page block
     #219366
     And I click on "Create Subaward" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"

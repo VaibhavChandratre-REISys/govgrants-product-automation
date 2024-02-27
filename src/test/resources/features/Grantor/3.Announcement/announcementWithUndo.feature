@@ -244,7 +244,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
-      | {SavedValue:PM1 Username} | Step 1       |
+      | {SavedValue:FO Username} | Step 1       |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 2       |
@@ -265,7 +265,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
@@ -691,6 +691,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
     Then I softly see field "Status" as "Submitted for Review"
@@ -1625,7 +1626,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
      """
 
-  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo
+  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo @Pre-ScreenOnHoldSPI
   Scenario: Announcement Verify that any user will not see Undo button when Announcement record is in Submitted for review state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

@@ -40,7 +40,7 @@ public final class Modal {
                 + "//button[text()='" + buttonName + "'] | "
                 + "//span[@value='" + buttonName + "' or @type='" + buttonName + "' or text()='" + buttonName + "'] |"
                 + "//button[contains(text(),'" + buttonName + "') and @id='emailSend'] | "
-                + "//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
+                + "//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
     }
 
     /**

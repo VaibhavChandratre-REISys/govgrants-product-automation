@@ -93,7 +93,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -147,7 +147,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -199,8 +199,8 @@ Feature: Risk Assessment scenarios without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
-    Then I softly cannot see top right button "Submit for approval" in page detail
-    Then I softly cannot see top right button "Submit for approval" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit For Approval" in page detail
     Then I softly cannot see top right button "Complete Review" in page detail
     Examples:
       | Award Name                                                | Grant Name                                                |
@@ -292,7 +292,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -346,7 +346,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -445,7 +445,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -555,7 +555,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -609,7 +609,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -728,7 +728,7 @@ Feature: Risk Assessment scenarios without background
     When I click on "Edit" icon for "{SavedValue:fundingAccount}" inside flex table with id "---amendment:-:amendmentFundingAccountsTableId---" without waiting for record
     When I enter Revised Encumbrance for award "Automation Award for Amendment Request"
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -826,7 +826,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -880,7 +880,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -984,7 +984,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1090,7 +1090,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1144,7 +1144,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1240,7 +1240,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1344,7 +1344,7 @@ Feature: Risk Assessment scenarios without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1398,7 +1398,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "10" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1497,7 +1497,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1598,7 +1598,7 @@ Feature: Risk Assessment scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on "Submit for Approval" in the page details
+    When I click on "Submit For Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
