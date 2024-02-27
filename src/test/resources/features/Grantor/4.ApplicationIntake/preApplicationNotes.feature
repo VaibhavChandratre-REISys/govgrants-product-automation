@@ -1,4 +1,4 @@
-@preAplicationNotes @grantor-regression @grantor-parallel-regression @app @regression
+@preApplicationExecution @preAplicationNotes @grantor-regression @grantor-parallel-regression @app @regression
 Feature: Pre-Application scenarios without background
 
   @225095 @225099 @ValidatePMPOEXEFOAdminsenotabletoEditDeletenoteswhichisaddedbySPIUserwhichisinnegotiationinitiatedstate @Sprint-11-US-224418 @Notes
@@ -29,8 +29,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -159,8 +160,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -297,8 +299,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -388,8 +391,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -489,8 +493,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -561,8 +566,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -653,8 +659,9 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
