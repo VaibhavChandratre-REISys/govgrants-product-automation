@@ -969,7 +969,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @Debug
+  @72345 @submitApplication
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1000,28 +1000,17 @@ Feature: Validate sanity testing of Complete Business Flow
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "2" seconds
-    And I switch to tab number "1"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-#    To Do:- Button is not display hence commented also added below step for now
-#    And I click on "Back" in the page details
-    And I wait for "2" seconds
-    And I close the tab
+    And I wait for "3" seconds
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "2" seconds
-    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-#    To Do:- Button is not display hence commented also added below step for now
-#    And I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
