@@ -35,12 +35,7 @@ public final class Modal {
     }
 
     public By getModalContentSpecificButton(String buttonName) {
-        return By.xpath("//div[@class='modal-footer']//button[text()='" + buttonName + "'] | "
-                + "//input[@value='" + buttonName + "' or @type='" + buttonName + "' or text()='" + buttonName + "' or @id='" + buttonName + "'] | "
-                + "//button[text()='" + buttonName + "'] | "
-                + "//span[@value='" + buttonName + "' or @type='" + buttonName + "' or text()='" + buttonName + "'] |"
-                + "//button[contains(text(),'" + buttonName + "') and @id='emailSend'] | "
-                + "//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
+        return By.xpath("//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
     }
 
     /**

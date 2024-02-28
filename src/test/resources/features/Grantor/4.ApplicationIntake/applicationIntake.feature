@@ -14,6 +14,7 @@ Feature: Validate all scenarios in the Application Intake
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
+    And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
 
   @34044 @70332 @applicationCreation
@@ -81,14 +82,29 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Forms and Files" sub tab
     Then I see only the following headers in table with id "---applicationReview:-:allFormsTableId---" :
       | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |  Actions |
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+#    And I close the tab
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I wait for "2" seconds
+#    And I switch to tab number "1"
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
    Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
    Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
 
@@ -112,14 +128,21 @@ Feature: Validate all scenarios in the Application Intake
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
