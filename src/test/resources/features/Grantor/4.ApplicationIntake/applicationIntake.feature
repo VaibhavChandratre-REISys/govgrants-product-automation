@@ -11,13 +11,14 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
     When I click on "Save" in the page details
 
   @34044 @70332 @applicationCreation
   Scenario: Validate creation of an Application | Validate once application is in created status, the user can view the Submit Application Button in page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see top right button "Submit Application" in page detail
 
   @34045 @applicationEdition
@@ -25,7 +26,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @34303 @addFocusAreaToApplication
   Scenario Outline: Addition of Focus area to an application
@@ -134,7 +135,7 @@ Feature: Validate all scenarios in the Application Intake
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     When I click on "View" icon for "<Application Name>" inside table
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
       | Application Name                                         | User |

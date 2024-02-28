@@ -1532,10 +1532,8 @@ Feature: Validate all scenarios of every modules flow
   @1111
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Files" sub tab
+    When I navigate to "Setup" sub tab
     And I pause execution for "5" seconds
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
+    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
+    Then I see only the following ordered options in dropdown field "Classification" :
+     | Template for Planning | Others |
