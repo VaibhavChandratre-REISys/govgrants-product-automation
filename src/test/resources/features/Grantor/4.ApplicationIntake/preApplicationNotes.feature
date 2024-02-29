@@ -361,9 +361,9 @@ Feature: Pre-Application scenarios without background
     Examples:
       | User  | filter                |
       | PM    | Automation PM user    |
-#      | EXE   | Automation EXE user   |
-#      | PO    | Automation PO user    |
-#      | ADMIN | Automation ADMIN user |
+      | EXE   | Automation EXE user   |
+      | PO    | Automation PO user    |
+      | ADMIN | Automation ADMIN user |
 
   @225130 @226079 @ValidatePMPOEXEADMINusercannotAddnotesbutEditDeletetheirownnotewhenpreappisNegotiationInProgressstate
   Scenario Outline: Validate PM PO EXE ADMIN user can not 'Add' notes but 'Edit/Delete' their own notes when pre-app is 'Negotiation In Progress' state

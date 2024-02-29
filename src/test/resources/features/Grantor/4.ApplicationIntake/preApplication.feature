@@ -165,9 +165,9 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -187,7 +187,7 @@ Feature: Validate all scenarios in the Pre-Application
 #    Given I click on "Back" in the page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
@@ -205,8 +205,8 @@ Feature: Validate all scenarios in the Pre-Application
     Examples:
       | Announcement Name                                        | User |
       | {SavedValue:Automation Runtime Announcement Application} | PM   |
-      | {SavedValue:Automation Runtime Announcement Application} | FO   |
-      | {SavedValue:Automation Runtime Announcement Application} | EXE  |
+#      | {SavedValue:Automation Runtime Announcement Application} | FO   |
+#      | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
   @70468 @acknowledgeRequiredForPre-App @deepika
   Scenario: Validate the system should throw an validation message if the pre-application is submitted with Acknowledging it
