@@ -56,6 +56,8 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+    #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -327,6 +329,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225109
     When I click on "Accept" in the page details
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -418,6 +421,8 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+   #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -610,6 +615,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Reject" in the page details
     Then I softly see field "Status" as "Rejected"
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -695,6 +701,8 @@ Feature: Pre-Application scenarios without background
     Then I see field "Status" as "Submitted to Grantor"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+    #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
