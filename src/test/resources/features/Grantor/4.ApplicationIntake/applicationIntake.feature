@@ -406,7 +406,7 @@ Feature: Validate all scenarios in the Application Intake
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -429,16 +429,15 @@ Feature: Validate all scenarios in the Application Intake
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     And I save the value from row "1" for column name "Funding Opportunity Id" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I enter advance filter values inside id "advfcae"
-#      | Funding Opportunity Id | Contains | Auto Demo |
-#    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I refresh the page
-#    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I enter advance filter values inside id "advfcae"
-#      | Funding Opportunity Id | Contains | {SavedValue:oppId} |
-#    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I refresh the page
-#    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+      | Funding Opportunity Id | contains | Auto Demo |
+    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    And I refresh the page
+    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+      | Funding Opportunity Id | contains | {SavedValue:oppId} |
+    And I refresh the page
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"

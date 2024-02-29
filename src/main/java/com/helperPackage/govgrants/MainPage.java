@@ -238,7 +238,7 @@ public final class MainPage {
         try {
             if (I.amPerforming().checkToSee().isDisplayed(navLogo, false)) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, GREEN, TICK, "Processing the Navigation Logo");
-                I.amPerforming().waitFor().ElementToDisappear(navLogo, 30);
+                I.amPerforming().waitFor().ElementToDisappear(navLogo, 7);
             }
         } catch (Exception e) {
         }
