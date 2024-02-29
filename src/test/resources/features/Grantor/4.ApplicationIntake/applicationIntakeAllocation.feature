@@ -980,8 +980,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 900    | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -995,10 +995,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1007,7 +1006,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I wait for "2" seconds
 #    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1022,7 +1020,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 11000  | 100        | 100            |
-    And I refresh the page
     And I wait for "5" seconds
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
@@ -1110,8 +1107,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 900    | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1125,19 +1122,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1179,8 +1171,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1194,10 +1186,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1206,7 +1197,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I wait for "2" seconds
 #    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1253,8 +1243,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1268,19 +1258,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1328,8 +1313,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+       | Name                       |  Is Key Contact |
+       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1343,19 +1328,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1398,8 +1378,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1413,19 +1393,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1481,19 +1456,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1539,8 +1509,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1554,19 +1524,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1609,8 +1574,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1624,19 +1589,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1691,17 +1651,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
@@ -1745,8 +1701,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1760,19 +1716,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1818,8 +1769,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+    | Name                       |  Is Key Contact |
+    | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1833,19 +1784,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1888,8 +1834,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+    | Name                       |  Is Key Contact |
+    | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1903,19 +1849,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1959,8 +1900,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+     | Name                       |  Is Key Contact |
+     | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1974,19 +1915,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -2123,10 +2059,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
@@ -2172,10 +2107,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2223,10 +2157,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2279,10 +2212,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2342,10 +2274,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2431,10 +2362,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2519,10 +2449,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2534,6 +2463,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2585,10 +2515,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2600,6 +2529,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2671,10 +2601,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2764,10 +2693,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2779,6 +2707,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2844,10 +2773,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2899,10 +2827,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2915,6 +2842,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     #222462
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Revision - Available"
@@ -2973,10 +2901,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -3068,10 +2995,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -3083,6 +3009,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3151,10 +3078,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -3166,6 +3092,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3221,10 +3148,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -3236,6 +3162,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3314,10 +3241,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -3329,6 +3255,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3470,6 +3397,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab- The Budgeted Amount is not matching the Allocation Amount for following Focus Areas {Automation Permanent Focus Area} |
     And I refresh the page
+    And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget |
@@ -3595,6 +3523,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
     And I refresh the page
+    And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -3615,12 +3544,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 0      | 0          | 0              |
+    When I collapse nested table containing column value "BP01"
     When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 0      | 0          | 0              |
     And I refresh the page
+    And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$0.00"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -3633,7 +3564,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I refresh the page
+    And I pause execution for "3" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3657,19 +3588,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -3700,19 +3626,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -3855,17 +3776,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
@@ -3903,8 +3820,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+    | Name                       |  Is Key Contact |
+    | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3918,19 +3835,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -3938,7 +3850,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -3950,7 +3862,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I refresh the page
+    And I pause execution for "3" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3959,7 +3871,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AppId}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
     Then I softly see value "$1,000" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$2,000" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -3972,7 +3884,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AppId1}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
     Then I softly see value "$500" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$500" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$500" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -4018,19 +3930,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -4051,7 +3958,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     When I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$5,000"
+    Then I softly see field "Allocation Amount" as "$5,000.00"
 
   @274246 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplicationseeupdatedAllocationAmountonApplicationFANoAllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can update allocation on Applicant under Applicant section on Announcement before submitting application & see updated Allocation Amount on Application FA No & Allocation Type By Applicant
@@ -4086,7 +3993,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---"
     When I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$5,000"
+    Then I softly see field "Allocation Amount" as "$5,000.00"
 
   @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
@@ -4326,17 +4233,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
@@ -4359,8 +4262,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:IND Username}  |  Checked        |
+    | Name                       |  Is Key Contact |
+    | {SavedValue:IND Username}  |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4374,19 +4277,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
 #    And I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-#    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    And I wait for "2" seconds
-#    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
@@ -4488,7 +4386,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
+    Then I softly see field "Allocation Amount" as "$2,000.00"
 
     Examples:
       | Announcement Name                                |
