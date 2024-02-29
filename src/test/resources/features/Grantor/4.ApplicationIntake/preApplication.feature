@@ -167,11 +167,11 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I navigate to "Overview" sub tab
     And I enter value "New York" into field "City__c"
     And I enter value "GA" into field "State__c"
     And I enter value "12345" into field "Zip4__c"
     When I click on "Save" in the page details
-    And I halt execution
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
