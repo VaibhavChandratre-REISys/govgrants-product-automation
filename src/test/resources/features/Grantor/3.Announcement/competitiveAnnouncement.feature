@@ -209,12 +209,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
+  @report @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Draft"
-    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
+#    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
     Then I softly see value "Created" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
@@ -1545,7 +1545,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" for "---announcement:-:approversTableId---" flex table
 
-  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @monu
+  @report @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @monu
   Scenario: Validate announcement owner cant add same steps for while assigning approvers for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1575,7 +1575,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:FO Username} | Step 1       |
-    Then I softly see "You cannot specify the same step for multiple users for Announcement." inside flex table with id "---announcement:-:approversTableId---"
+    Then I see the following messages in the page details contains:
+      | You cannot specify the same step for multiple users for Announcement. |
 
   @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @monu
   Scenario: Validate owner cant add same user  for multiple steps for announcement
@@ -1647,7 +1648,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920 
+  @report @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1710,7 +1711,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

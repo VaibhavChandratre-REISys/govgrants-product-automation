@@ -1528,7 +1528,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Extra Salary | The narrative | 500          | 50         | 50             |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
 
-  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292 @hitesh
+  @repor t@319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292 @hitesh
   Scenario:Verify IND user can budgeted amount get updated after remove focus area when budget associated with that focus area & also easily remove FAs having zero dollar budget associated with that FA on Application layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION-Automation PM user"
     And I am on "SUBPORTAL" portal
@@ -1556,10 +1556,15 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+#    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I wait for "3" seconds
+    Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

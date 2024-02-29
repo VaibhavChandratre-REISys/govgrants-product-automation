@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73761 @73762 @73764 @73765 @70616 @73766 @70617 @34232 @73611 @73303 @73612 @73613 @73304 @73305 @73306 @73320 @submittingAnnouncementForApprovalDR @submittedAnnouncementDeletion @announcementForPastApplicationDueDate
+  @report @73761 @73762 @73764 @73765 @70616 @73766 @70617 @34232 @73611 @73303 @73612 @73613 @73304 @73305 @73306 @73320 @submittingAnnouncementForApprovalDR @submittedAnnouncementDeletion @announcementForPastApplicationDueDate
   Scenario Outline: Validate the submission of Announcement for Approval || Validate that only record owner cannot delete Submitted for Approval status announcements || Validate that user can not enter application due date as past date
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -111,6 +111,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
+    And I pause execution for "3" seconds
     Then I softly see field "Rating" as "Passed"
     Then I softly see field "Comments" as "Passed"
     Then I softly see field "Reviewed by" as "{SavedValue:FO Username}"
@@ -135,7 +136,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Overview" sub tab
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
-    And I pause execution for "2" seconds
 #    Additional Information-Overview Tab - Application Due Date cannot be in the past.
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
@@ -204,7 +204,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Type |
       | Directed          |
 
-  @73767 @34763 @34765 @34766 @announcementApproval @announcementPendingTaskPostApproval @announcementCompletedTaskPostApproval @smoke
+  @report @73767 @34763 @34765 @34766 @announcementApproval @announcementPendingTaskPostApproval @announcementCompletedTaskPostApproval @smoke
   Scenario Outline: Validate that after approval of an Announcement task get added to its completed task table. || Validate the approval of an Announcement || Validate that after approval of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

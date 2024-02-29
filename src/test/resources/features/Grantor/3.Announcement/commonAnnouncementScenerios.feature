@@ -14,7 +14,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @34461 @52398 @70357 @@52399 @52397 @announcementCreationFA @smoke @annn
+  @report @34461 @52398 @70357 @@52399 @52397 @announcementCreationFA @smoke @annn
   Scenario: Creation of an Announcement |To Verify that if user selects "Subrecipients Match Required"-yes then he can  enter "Subrecipient Match(%)" in the Subrecipient Match(%) field while creating Announcement
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Announcements" tab
@@ -27,7 +27,9 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I click toggle button to select "All Formula Announcements"
     And I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     When  I click on "View" icon for "Record id" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+    And I pause execution for "5" seconds
     Then I softly see field "Subrecipient Match (%)" as "10.00%"
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -44,7 +46,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
+  @report @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
   Scenario: Validate that only owner can able to edit created status announcement | To verify user able to enter the description in the details field of overview tab while creating the Announcemennt
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -67,6 +69,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
+    And I pause execution for "2" seconds
     Then I softly see field "Description" as "Automation test description"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
@@ -96,16 +99,18 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click on "Remove" icon for "{SavedValue:fundingAccount}" inside flex table with id "---announcement:-:fundingAccountsTableId---" without waiting for record
     Then I do not see value "{SavedValue:fundingAccount}" for title "EGMS ID" inside table "---announcement:-:fundingAccountsTableId---"
 
-  @52405 @announcementBudgetPeriodAdditionFA
+  @report @52405 @announcementBudgetPeriodAdditionFA
   Scenario: Budget Period Addition to an Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 0          | 500      |
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     Then I see that "BP01" has been added in flextable with Id "---announcement:-:budgetPeriodTableId---"
 
-  @52406 @announcementBudgetPeriodDissociationFA
+  @report @52406 @announcementBudgetPeriodDissociationFA
   Scenario: Validate the dissociation of Budget Period to the Announcement
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
@@ -222,7 +227,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click modal button "Close"
     Then I softly see "Funding Opportunity Announcement" has been added in "Announcement Files" flex table
 
-  @52414 @reviewStepsBeforeSubmitForApprovalFA
+  @report @52414 @reviewStepsBeforeSubmitForApprovalFA
   Scenario: Validate the Review steps of Announcement before submit for Approval
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
@@ -345,6 +350,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "Management Review"
+    And I pause execution for "2" seconds
     When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
