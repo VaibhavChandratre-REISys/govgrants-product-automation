@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
+  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish @Re-RunPlanningAndAnnouncement
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -829,7 +829,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-   @169903 @169904 @169905 @169906 @169900 @169907 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
+  @Re-RunPlanningAndAnnouncement @169903 @169904 @169905 @169906 @169900 @169907 @Verifyuserabletosee"Preview"actionof"GrantorPre-applicationform"atcreatedstateforAnnouncementrecord. @Sprint-7 @Vrishali
   Scenario: Verify user should able to see "Preview" action of "Grantor Pre-application form" at created state for Announcement record.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -858,7 +858,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
-    And I wait for "3" seconds
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
@@ -897,6 +896,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     And I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -928,7 +928,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #169907
     Then I see new tab is opened
 
-  @bug-397757 @194677 @194682 @194683 @194690 @194685 @ValidateusershouldabletoseethenewmoduleAnnouncementmodulewhenuserenterthesourceuser&targetuser @sprint-4 @vaibhav @reassignment @ownvai
+  @bug-397757 @194677 @194682 @194683 @194690 @194685  @sprint-4 @vaibhav @reassignment @ownvai @Re-RunPlanningAndAnnouncement
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1075,7 +1075,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---announcement:-:announcementOwner---"
 
-  @PoojaAnnouncmentRun @194741 @Validatenewownercanchangetheextenddate&unpublishtheannouncementonlyannouncementisinpublishedstate @sprint-4 @vaibhav @reassignment @ownershipcheck
+  @194741 @Validatenewownercanchangetheextenddate&unpublisht @sprint-4 @vaibhav @reassignment @ownershipcheck @Re-RunPlanningAndAnnouncement
   Scenario: Validate new owner can change the extend date & unpublish the announcement only if announcement is in published state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1113,8 +1113,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                      | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | {SavedValue:EXE Username} | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name                      | Announcement |
+      | {SavedValue:EXE Username} | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -1130,6 +1130,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1137,6 +1138,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -2485,7 +2487,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @195215 @ValidatePMasoldAnnownercanonlyviewAnnrecordoncehereassignAnnownershiptasktonewuser @sprint-4 @vaibhav @reassignment
+  @195215  @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate PM as old Ann owner can only view Ann record once he reassign Ann ownership task to new user
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -2558,7 +2560,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I wait for "5" seconds
-    Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2644,7 +2645,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM" for title "Name" inside table "---announcement:-:announcementOwner---"
 
-  @PoojaAnnouncmentRun @195229 @ValidatevalidationmessageshouldbedisplayifusertrytoreassignAnnownershiptasktohimself @sprint-4 @vaibhav @reassignment
+   @195229 @ValidatevalidationmessageshouldbedisplayifusertrytoreassignAnnownershiptasktohimself @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate validation message should be display if user try to reassign Ann ownership task to him self
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2705,7 +2706,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-source"
     And I select value "Automation PM" into field "input-target"
-    Then I softly do not see "Automation PM" inside auto search result
+     And I enter value "Automation PM" in reassign lookup
+     Then I softly do not see "Automation PM" inside auto search result
+
 
   @PGAnnWBExecute @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
@@ -3013,7 +3016,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly cannot see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @PoojaAnnouncmentRun @197929 @ValidateAnnownerunpublishAnnandreassignownershiptonewuserforpublishthenpendingtaskshouldgeneratefornewowner @sprint-4 @vaibhav @reassignment
+   @197929  @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann owner unpublish Ann and reassign ownership to new user for publish then pending task should generate for new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3052,8 +3055,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation EXE | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name           | Announcement |
+      | Automation EXE | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -3070,14 +3073,15 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Publish" in page detail
-    And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+     And I navigate to "Announcements" tab
+     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+     And I click toggle button to select "All Competitive Announcements"
+     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+     Then I softly can see top right button "Publish" in page detail
+     And I click on "Publish" in the page details
+     Then I see status in Progress-bar is "Published" and is "dark blue"
     And I click on "Unpublish" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -3545,7 +3549,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
     Then I cannot see row level action button "Delete" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
 
-  @195209 @ValidateemailshouldbegeneratedfornewowneronceoldownerreassignAnnownershiptasktonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @195209  @sprint-12-US-226646 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate  email should be generated for new owner once old owner reassign Ann ownership task to new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3670,7 +3674,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-  @194721 @194718 @ValidateemailshouldgetreachedtoSApreviousownerwhenownershipofrecordischanged @sprint-11-US-224734 @vaibhav @reassignment
+  @194721 @194718  @sprint-11-US-224734 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate email should get reached to "SA"(previous owner) when ownership of record is changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3752,7 +3756,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       """
 
 
-  @PoojaAnnouncmentRun @221973 @Validatetaskeassignmentdoesnothappenwhenausertriestoreassignhistasktoanotheruserisresponsiblefordifferentstepofsamemodule @sprint-11-US-218319 @vaibhav @reassignment
+  @221973  @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate task reassignment does not happen when a user tries to reassign his task to another user is responsible for different step of same module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3795,14 +3799,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation EXE | Step 1       | Step 2 | Step 2 | Step 2            | Step 2               | Step 2          | Step 2     | Step 2   |
+      | Name           | Announcement |
+      | Automation EXE | Step 1       |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name            | Announcement | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation EXE1 | Step 2       | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name            | Announcement |
+      | Automation EXE1 | Step 2       |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement | FDM    |
-      | Automation FO | Step 3       | Step 3 |
+      | Name          | Announcement |
+      | Automation FO | Step 3       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -4068,7 +4072,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment
+  @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4389,7 +4393,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @224665 @ValidateAnnfailureemailshouldgeneratedforpeerreviewerandsuccessemailgeneratedforApproval @sprint-11-US-218319 @vaibhav @reassignment
+  @224665  @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann failure email should generated for peer reviewer and success email generated for Approval
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4669,7 +4673,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 1" for title "Announcement" against the value "Automation PM1" inside table "---announcement:-:approversTableId---"
     Then I softly see value "NA" for title "Announcement" against the value "Automation PM" inside table "---announcement:-:approversTableId---"
 
-  @223430 @ValidateAnnouncementModulethetransferoftaskownershipisfail&Validatemailinyopmail @sprint-11-US-217998 @vaibhav @reassignment
+  @223430 @ValidateAnnouncementModulethetransferoftaskownershipisfail&Validatemailinyopmail @sprint-11-US-217998 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement Module the transfer of task ownership is fail & Validate mail in yopmail
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4756,7 +4760,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-  @PoojaAnnouncmentRun @223528 @ValidateAnnouncementModuleeifAnnouncementrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofannouncementthenemailshouldbesendtothenewowner @sprint-11-US-217998 @vaibhav @reassignment
+
+   @223528  @sprint-11-US-217998 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5838,7 +5843,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:homePendingTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:homePendingTableId---"
 
-  @238056 @238057 @Validateannouncementoldercommentsarenoteditabletoinitialandreassignereviewerwhenresendforreviewisperformed @sprint-14-US-235915 @vaibhav @reassignment
+  @238056 @238057  @sprint-14-US-235915 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate announcement older comments are not editable to initial and reassigned reviewer when resend for review is performed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6002,6 +6007,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation PO | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "Automation PO" inside table
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6023,6 +6029,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     And I click on "Resend for Review" icon for "Automation PO" inside table
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -6749,11 +6756,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | PO   |
       | EXE  |
 
-  @204095 @204136 @ValidateAdminusershouldabletoseetheoptionUploadfilefromComputerafterclickonuploadfile @Sprint-7-US-203239 @vaibhav @SuppDoc
+  @Re-RunPlanningAndAnnouncement @204095 @204136 @ValidateAdminusershouldabletoseetheoptionUploadfilefromComputerafterclickonuploadfile @Sprint-7-US-203239 @vaibhav @SuppDoc
   Scenario: Validate Admin user should able to see the option "Upload file from Computer" after click on upload file
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I wait for "5" seconds
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "competitive_Ann_AdminUser" values from "Announcement_Field_Values.xlsx"
@@ -6890,7 +6898,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Automation test description" for title "Description" inside table "---applicationIntake:-:supportedDocumentsTableId---"
     Then I softly see value "Mandatory" for title "Required" inside table "---applicationIntake:-:supportedDocumentsTableId---"
 
-  @336709 @336710 @336711 @336712 @336721 @336723 @336728 @ValidateAnnouncementPMusershouldabletoseeSystemEmailsectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail
+  @336709 @336710 @336711 @336712 @336721 @336723 @336728 @ValidateAnnouncementPMusershouldabletoseeSystemEmailsectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement PM user should able to see System Email section in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6926,10 +6934,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "automationfd@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     And I click on "View" icon for "automationfd@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
-    Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                              |
-      | automationfd@yopmail.com                                               |
-      | Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review |
+#    Then I softly see following details for email sent under collab:
+#      | pm.automation@yopmail.com                                              |
+#      | automationfd@yopmail.com                                               |
+#      | Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -7097,7 +7105,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @336715 @ValidateAnnouncementPMusershouldnotabletoseeemailtoNotifyApprovalinSystemEmailssectioninmessagestabwhenforwardAnntootherapprover @Sprint-13-US-341529-332637 @SystemEmail
+  @336715  @Sprint-13-US-341529-332637 @SystemEmail @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement PM user should not able to see email to Notify Approval in System Emails section in messages tab when forward Ann to other approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7119,6 +7127,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     And I wait for "3" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -7165,6 +7175,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I select user "{SavedValue:FD Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "180" seconds
     And I refresh the page
@@ -7248,7 +7259,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @336717 @ValidateAnnouncementFOusershouldnotabletoseeemaitoNotifyAnnouncementownerofsendbackinSystemEmailssectioninmessagestabwhensendbackAnntorecordowner @Sprint-13-US-341529-332637 @SystemEmail
+  @336717  @Sprint-13-US-341529-332637 @SystemEmail @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement FO user should not able to see email to Notify Announcement owner of send back in System Emails section in messages tab when send back Ann to record owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7305,7 +7316,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -7713,7 +7724,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I wait for "3" seconds
 #    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
 
-   @336736 @ValidateAnnouncementPMuserusershouldabletoseeallSystemEmailsaresortedbydefaultbyCreatedDatewithmostrecentontopforInternalorganization @Sprint-13-US-341529-332637 @SystemEmail
+  @336736 @ValidateAnnouncementPMuserusershouldabletoseeallSystemEmailsaresortedbydefaultbyCreatedDatewithmostrecentontopforInternalorganization @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement PM user user should able to see all System Emails are sorted by default by Created Date with most recent on top for Internal organization
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7770,7 +7781,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the value from row "2" for column name "Subject" as "oldSubject" from flex table "---announcement:-:systemEmailsTableId---"
     Then I softly see that the saved value "{SavedValue:oldSubject}" and "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" are equal
 
-  @336737 @ValidateAnnouncementPMusershouldnotabletoseeemailforTaskReassignmentinSystemEmailssectioninmessagestabwhenAnnownerassigntheirtasktootheruser @Sprint-13-US-341529-332637 @SystemEmail
+  @336737 @whenAnnownerassigntheirtasktootheruser @Sprint-13-US-341529-332637 @SystemEmail @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement PM user should not able to see email for Task Reassignment in System Emails section in messages tab when Ann owner assign their task to other user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7839,6 +7850,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "50" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal

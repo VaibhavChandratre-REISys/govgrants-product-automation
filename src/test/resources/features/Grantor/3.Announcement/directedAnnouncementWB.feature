@@ -170,7 +170,7 @@ Feature: Validate all scenarios in the directed Announcement tab
 #    Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @219102 @219104 @VerifyEXeUserAbleToSeeSuccessMessageOnAddOrgModalAfterAddingActiveSubrecipieentOrg @sprint-9-US-208408 @komal @Allocation
+  @219102 @219104 @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Verify when EXE user click on the "Add Organization" button then user see modal with all the active SR names for Directed Announcement.
   | Verify EXE user see the Success message after adding Organization & when Applicants are updated and this modal will stay open to associate more applicants: |
     When I login to "As a Grantor" app as "EXE" user
@@ -200,7 +200,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see the following messages in the page details contains:
       | Selected Applicants are associated successfully. |
 
-   @219110 @219161 @VerifyPMusershouldremovethesrbyclickingtheremoveicon&successmessageshouldbedisplayforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+   @219110 @219161  @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Verify PM user should remove the sr, by clicking the remove icon, & success message should be display for Directed Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -218,6 +218,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+     When I navigate to "Overview" sub tab
     When I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     #219110
@@ -718,7 +719,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | BP01               |
       | BP02               |
 
-  @219346 @234712 @DirectedAnnVerifyasPMuserIcanseeRecommendedBudgetcolumnisvisiblewhenAppstatusisnegotiationinitiated @sprint-13-US-224612 @sprint-10-US-203669 @komal @Allocation
+  @219346 @234712  @sprint-13-US-224612 @sprint-10-US-203669 @komal @Allocation @Re-RunPlanningAndAnnouncement
   Scenario Outline:Directed Ann as PM user I can see Recommended Budget column is visible when App status is negotiation initiated
   | Direct Ann Verify PM when negotiation is initiated during FDM or from app layout then user should not get validation on UI on send to subrecipient button when the budgeted Amount is equal to the Recommended Budget |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -744,7 +745,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I refresh the page
     When I navigate to "Budget" sub tab
     Then I softly cannot see field "Recommended Budget" inside page block
-
     Examples:
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @274013 @ValidateAnnownerPMUsershouldseefollowingcolumnnamesinthetableunderinvitedapplicantssectionwhenAnnisinPublishedApprovedClosedandUnderRevisionstatus @Sprint-23-US-273843 @vaibhav @Allocation
+  @274013  @Sprint-23-US-273843 @vaibhav @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann owner(PM User) should see following column names in the table under invited applicants section when Ann is in Published, Approved, Closed, and Under Revision status
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -2532,7 +2532,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |

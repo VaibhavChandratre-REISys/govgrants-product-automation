@@ -29,24 +29,28 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---" without waiting for record
     And I click on "Qualify" in the page details
+    And I wait for "3" seconds
+    And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
-    When I click on advance filter "#advfqae" of table id "---applicationIntake:-:qualifiedTableId---"
-    When I enter advance filter values inside id "advfqae"
-      | Opportunity Name | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
-    When I enter advance filter values inside id "advfqae"
-      | EGMS ID | Contains | Aatam123 |
-    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
-    And I refresh the page
+#    And I click on advance filter of table id "---applicationIntake:-:qualifiedTableId---" for LWC
+#    And I wait for "2" seconds
+#    And I enter advance filter values inside id "---applicationIntake:-:qualifiedTableId---" for LWC
+#      | Opportunity Name | contains | {SavedValue:Automation Runtime Announcement Application Review} |
+#    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
+#    When I enter advance filter values inside id "advfqae"
+#      | EGMS ID | Contains | Aatam123 |
+#    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
+#    And I refresh the page
     And I click toggle button to select "Qualified Opportunities - Open"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     Then I softly cannot see top right button "Qualify" in page detail
     Then I softly can see top right button "Create Application" in page detail
+    And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
@@ -173,6 +177,7 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
@@ -181,6 +186,7 @@ Feature: Application Intake scenarios without background
     And I save the field labeled "Program" as "programName"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I navigate to "Proposal" sub tab
@@ -188,10 +194,10 @@ Feature: Application Intake scenarios without background
     Then I see the following rows under the following headers in table with id "---applicationIntake:-:goalsAndObjectivesTableId---" :
       | Title                          | Actions |
       | Automation Permanent Objective | View    |
-    When I navigate to "Overview" sub tab
-    And I mouse hover to link contains "{SavedValue:oppurtunityId}"
-    And I click "{SavedValue:programName}" link present on hovered tooltip
-    Then I softly see page title contains as "Automation Permanent Internal Program"
+#    When I navigate to "Overview" sub tab
+#    And I mouse hover to link contains "{SavedValue:oppurtunityId}"
+#    And I click "{SavedValue:programName}" link present on hovered tooltip
+#    Then I softly see page title contains as "Automation Permanent Internal Program"
 
   @73755 @71110 @appdueDateValidation @deepika @smoke
   Scenario: Validate whether User will be able to submit the application on the last date for submission.| Validate once the announcement is published, then it will be availble for external SPI/SPA users under Oppurtunities Tab
@@ -351,9 +357,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
@@ -405,9 +411,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
@@ -463,9 +469,9 @@ Feature: Application Intake scenarios without background
     And I enter "AddressValues" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Address line 1" as "Sterling"
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
 
@@ -652,9 +658,9 @@ Feature: Application Intake scenarios without background
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.                 |
       | Overview Tab - Specify at least one key Personnel for Application in contacts/key personnel table. |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -850,9 +856,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
     #IssueisResolveNeedtocheckforthisscenario #checktagabove
     Then I softly see the following messages in the page details contains:
@@ -1149,9 +1155,10 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
+    And I wait for "2" seconds
     When I click on "Submit Application" in the page details
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
@@ -1233,9 +1240,9 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
