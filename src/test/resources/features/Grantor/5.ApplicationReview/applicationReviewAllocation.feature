@@ -359,7 +359,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
@@ -524,7 +524,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
 
@@ -905,7 +905,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | Yes                   | Recommended | 3000                    |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
@@ -1377,7 +1377,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | Yes                   | Recommended | 1000                    |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
@@ -2350,7 +2350,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Then I softly see the following messages in the page details contains:
@@ -3447,7 +3447,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "9" seconds
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -3905,7 +3905,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -4089,7 +4089,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Funding Decision Memo" sub tab
     Then I cannot see top right button "Notify Selected Applicants" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "9" seconds
     Then I can see top right button "Notify Selected Applicants" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
