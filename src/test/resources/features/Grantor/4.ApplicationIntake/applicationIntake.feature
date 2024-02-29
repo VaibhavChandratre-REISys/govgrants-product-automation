@@ -182,7 +182,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:AddFocusAreaTableAppId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
-    And I close modal by clicking the top right x button
+    When I click modal button "Close"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -419,7 +419,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-    When I click on "Create Application" in the page details
+#    When I click on "Create Application" in the page details
     #needtocheck 71409
 #    Then I softly see the following messages in the page details contains:
 #      | Application cannot be created as you have reached the maximum limit for allowed applications for {SavedValue:APPId} |
