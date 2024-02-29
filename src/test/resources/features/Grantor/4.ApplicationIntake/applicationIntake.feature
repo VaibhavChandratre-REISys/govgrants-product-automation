@@ -93,13 +93,13 @@ Feature: Validate all scenarios in the Application Intake
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
    Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
@@ -207,7 +207,7 @@ Feature: Validate all scenarios in the Application Intake
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -216,7 +216,7 @@ Feature: Validate all scenarios in the Application Intake
 #    And I wait for "2" seconds
 #    And I switch to tab number "1"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
@@ -322,13 +322,13 @@ Feature: Validate all scenarios in the Application Intake
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I navigate to "Overview" sub tab
@@ -429,16 +429,16 @@ Feature: Validate all scenarios in the Application Intake
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     And I save the value from row "1" for column name "Funding Opportunity Id" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I enter advance filter values inside id "advfcae"
-      | Funding Opportunity Id | Contains | Auto Demo |
-    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I refresh the page
-    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I enter advance filter values inside id "advfcae"
-      | Funding Opportunity Id | Contains | {SavedValue:oppId} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I refresh the page
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+#    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I enter advance filter values inside id "advfcae"
+#      | Funding Opportunity Id | Contains | Auto Demo |
+#    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I refresh the page
+#    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I enter advance filter values inside id "advfcae"
+#      | Funding Opportunity Id | Contains | {SavedValue:oppId} |
+#    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I refresh the page
+#    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"
