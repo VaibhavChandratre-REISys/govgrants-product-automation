@@ -386,8 +386,8 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I navigate to "Forms and Files" sub tab
+##    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
 #    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
@@ -396,6 +396,7 @@ Feature: Validate all scenarios in the Application Intake
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
@@ -428,16 +429,16 @@ Feature: Validate all scenarios in the Application Intake
     And I click toggle button to select "Opportunities Converted to Application - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I save the value from row "1" for column name "Funding Opportunity Id" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-      | Funding Opportunity Id | contains | Auto Demo |
-    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I refresh the page
-    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-      | Funding Opportunity Id | contains | {SavedValue:oppId} |
-    And I refresh the page
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I save the value from row "1" for column name "Opportunity Name" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+#    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+#      | Funding Opportunity Id | contains | Auto Demo |
+#    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I refresh the page
+#    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+#    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+#      | Funding Opportunity Id | contains | {SavedValue:oppId} |
+#    And I refresh the page
+#    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"

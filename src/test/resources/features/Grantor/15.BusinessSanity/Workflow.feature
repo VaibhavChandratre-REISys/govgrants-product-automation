@@ -1531,11 +1531,23 @@ Feature: Validate all scenarios of every modules flow
 
   @1111
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Files" sub tab
-    And I pause execution for "5" seconds
-    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPA" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Opportunities Converted to Application - All"
+#    When I perform quick search for "AN-TAO modified-977" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+#    Then I softly see value "AN-TAO modified-977" for title "EGMS ID" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I save the value from row "1" for column name "Opportunity Name" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
+    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+      | Opportunity Name | contains | Auto Demo |
+    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    And I refresh the page
+    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+      | Opportunity Name | contains | {SavedValue:oppId} |
+    And I refresh the page
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"
