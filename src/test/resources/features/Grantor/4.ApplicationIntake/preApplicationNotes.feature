@@ -489,8 +489,8 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -525,6 +525,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Accept" in the page details
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"

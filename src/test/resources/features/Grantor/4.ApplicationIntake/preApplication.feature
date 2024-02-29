@@ -78,17 +78,6 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see value "$5,000.00" for title "Non-Cash Match" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
 
-  @53155 @PreApplicationAttachmentChecklistCA
-  Scenario: Validate the attachment checklist of the PreApplication
-    When I navigate to "Forms and Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    When I navigate to "Forms and Files" sub tab
-    Then I see "Other" has been added in "Supporting Documents Checklist" flex table
-
   @70466 @53160 @70467 @submitPreApplication @smoke @deepika
   Scenario: Submitting an pre application to Grantor |To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on pre-application
   Validate whether SPI user can view the edit button once pre - application has been submitted to Grantor |  Validate whether the user can submit the Pre Application Submission before the due date
@@ -132,8 +121,8 @@ Feature: Validate all scenarios in the Pre-Application
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -205,7 +194,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
+    Then I see status in Progress-bar is "Submitted" and is "dark blue"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel

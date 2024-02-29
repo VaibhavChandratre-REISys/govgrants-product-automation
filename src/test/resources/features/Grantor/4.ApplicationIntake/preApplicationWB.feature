@@ -1,6 +1,30 @@
 @preAplicationWB @grantor-regression @grantor-parallel-regression @app @regression
 Feature: Pre-Application scenarios without background
 
+  @53155 @PreApplicationAttachmentChecklistCA
+  Scenario: Validate the attachment checklist of the PreApplication
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Optional" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I see "View" has been added in "Supporting Documents Checklist" flex table
+
   @71921 @71411 @71412 @71410 @70252 @70254 @71925 @verifyCreateApplicationandQualifyButtons
   Scenario: Verify whether SPI user is able to qualify opportunity a Pre-Application| Verify Create Pre- Application button is displayed to SR User when User click on Qualify Button.
   Validate whether user is able to view the qualify button and qualify the opportunity before creating the pre-application
