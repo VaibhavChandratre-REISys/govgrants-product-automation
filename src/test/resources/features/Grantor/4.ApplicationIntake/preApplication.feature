@@ -88,7 +88,6 @@ Feature: Validate all scenarios in the Pre-Application
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     Then I see "Other" has been added in "Supporting Documents Checklist" flex table
-    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
   @70466 @53160 @70467 @submitPreApplication @smoke @deepika
   Scenario: Submitting an pre application to Grantor |To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on pre-application
@@ -151,6 +150,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel

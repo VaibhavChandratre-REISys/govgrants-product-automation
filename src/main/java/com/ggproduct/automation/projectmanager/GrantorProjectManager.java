@@ -480,6 +480,7 @@ public class GrantorProjectManager extends ProjectManager {
         }else{
             List<String> listofRoles = new ArrayList<>();
             I.amPerforming().click().withJavaScript(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
+            I.amPerforming().scroll().withMouseToElement(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
             By Compare = By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//ul/li");
             List<Elements> ll = I.amPerforming().getElementReference().forListOfElements().of(Compare);
             for (Elements e :
