@@ -3693,7 +3693,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | PM    | {SavedValue:Automation Runtime Formula Announcement} |
       | ADMIN | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @222580 @ValidateformulaannouncementisinpublishedstateaddedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicantformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamountmaiandisByApplicant @sprint-12-US-221459 @komal @Allocation
+  @222580 @sprint-12-US-221459 @komal @Allocation
   Scenario: Validate formula when announcement is in published state then user should add organization edit the Allocation amount & mail should  be triggered for Organization with updated allocation values (Allocation is By Applicant)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     When I login to "As a Grantor" app as "PM" user
@@ -3748,7 +3748,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @222620 @ValidateformulawhenannouncementisinpublishedstatethenusershouldaddorganizationedittheAllocationamounthouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationformulawhenannouncementisinpublishedstatethenshouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
+  @222620 @ValidateformulawhenannouncementisinpublishedstatethenshouldaddorganizationedittheAllocationamounthouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationformulawhenannouncementisinpublishedstatethenshouldaddorganizationedittheAllocationamountmailshouldbetriggeredforOrganizationwithupdatedallocationvaluesAllocationisByApplicant @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when announcement is in published state then user should add organization & edit the Allocation amount & mail should  be triggered for Organization with updated allocation values (Allocation is By Applicant & focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user

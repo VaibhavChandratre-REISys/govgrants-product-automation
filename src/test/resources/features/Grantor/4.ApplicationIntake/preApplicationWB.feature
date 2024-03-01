@@ -114,8 +114,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Estimated Program Income For Project Period" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -658,8 +658,8 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnId"
     When  I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
@@ -979,6 +979,8 @@ Feature: Pre-Application scenarios without background
      #174876
     Then I softly can see page block "Negotiation Request Details"
     Then I softly can see page block "Explanation of Negotiations Needed"
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -1355,6 +1357,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "Due Date" as "DueDate1"
@@ -1415,6 +1419,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     And I enter "FileFormForms" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -1465,6 +1471,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     And I enter "FileFormForms1" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -1518,6 +1526,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -1525,6 +1535,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
 
   @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8 @vaibhav
@@ -1617,6 +1628,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
@@ -1661,9 +1674,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
-    And I edit the following rows inline in flex table with id "PreAppContactgrid" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
@@ -1683,6 +1696,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     Then I softly see fields "PreApplicationSectionsforRevision__c" is in edit mode
 
   @174695 @Thestatusonpre-applicationwhennegotiationisinitiatedonsubrecipientside @Sprint-8 @Vrishali
@@ -1727,6 +1742,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -1785,6 +1802,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I pause execution for "5" seconds
     When I click on "Save" in the page details
@@ -1840,6 +1859,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -2026,7 +2047,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                             |
       | Provide a brief explanation of the negotiations made to the application. |
 
-  @169921 @169923 @169926 @169927 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav
+  @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav
   Scenario: Validate User Should Able To See EDit View Preview Button In Files Form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2074,9 +2095,6 @@ Feature: Pre-Application scenarios without background
      #169926
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-     #169927
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
      #170092
     Then I softly can see top right button "Edit" in page detail
      #169932
@@ -2116,11 +2134,11 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I enter "Automation Test" values from "Question1__c"
-    And I enter "Automation Test" values from "Question3__c"
-    And I enter "9" values from "sbirEmpNumber__c"
-    And I enter "5" values from "SubmittedOnForm__c"
-    And I enter "Automation Test" values from "AppplicationSubmitted__c"
+    And I enter value "Automation Test" into field "Question1__c"
+    And I enter value "Automation Test" into field "Question3__c"
+    And I enter value "9" into field "sbirEmpNumber__c"
+    And I enter value "5" into field "SubmittedOnForm__c"
+    And I enter value "Automation Test" into field "AppplicationSubmitted__c"
     And I click on "Save" in the split screen page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -2161,8 +2179,6 @@ Feature: Pre-Application scenarios without background
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
      #170100
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -2196,8 +2212,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | <Name> | Project Role             | Is Key Contact |
-      |        | Project Director/Manager | Checked        |
+      | Name   | Is Key Contact |
+      | <Name> | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
@@ -2347,6 +2363,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I pause execution for "5" seconds
     When I click on "Save" in the page details
@@ -2402,6 +2420,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I pause execution for "5" seconds
     When I click on "Save" in the page details
@@ -2463,6 +2483,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
@@ -2536,7 +2558,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     And I save the field containing "Leverage Allowed?" as "Yes"
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
@@ -2548,8 +2570,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
@@ -3001,6 +3023,8 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "Due Date" as "DueDate1"

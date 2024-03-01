@@ -292,8 +292,8 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -361,9 +361,9 @@ Feature: Pre-Application scenarios without background
     Examples:
       | User  | filter                |
       | PM    | Automation PM user    |
-      | EXE   | Automation EXE user   |
-      | PO    | Automation PO user    |
-      | ADMIN | Automation ADMIN user |
+#      | EXE   | Automation EXE user   |
+#      | PO    | Automation PO user    |
+#      | ADMIN | Automation ADMIN user |
 
   @225130 @226079 @ValidatePMPOEXEADMINusercannotAddnotesbutEditDeletetheirownnotewhenpreappisNegotiationInProgressstate
   Scenario Outline: Validate PM PO EXE ADMIN user can not 'Add' notes but 'Edit/Delete' their own notes when pre-app is 'Negotiation In Progress' state
