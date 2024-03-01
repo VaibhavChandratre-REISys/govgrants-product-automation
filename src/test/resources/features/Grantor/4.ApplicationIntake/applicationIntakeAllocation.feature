@@ -55,13 +55,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
     #219158 #219164 #219195
     Then I softly see "Budget Summary" page block displayed
@@ -124,13 +127,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     #219242
     And I navigate to "Overview" sub tab
     Then I softly cannot see field "Subaward Floor" inside page block
@@ -194,13 +199,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
     #219176
     Then I softly see "Budget Summary" page block displayed
@@ -259,13 +266,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
     #219230
     Then I softly do not see "Focus Area" page block displayed
@@ -295,8 +304,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-  | Name                       |  Is Key Contact |
-  | {SavedValue:SPI3 Username} |  Checked        |
+    | Name                       |  Is Key Contact |
+    | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -322,7 +331,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -390,7 +401,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -455,7 +468,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -517,7 +532,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -582,6 +599,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -649,7 +667,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -715,6 +735,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -780,7 +801,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -918,7 +941,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -967,6 +992,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1017,6 +1043,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1072,6 +1099,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1309,6 +1337,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1375,6 +1404,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1399,6 +1429,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter value "Automation Test" into field "fieldApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1553,6 +1584,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2648,6 +2680,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
@@ -2706,6 +2739,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
@@ -2801,10 +2835,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
@@ -2839,7 +2875,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I save the field labeled "EGMS ID" as "AppEGMSID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
