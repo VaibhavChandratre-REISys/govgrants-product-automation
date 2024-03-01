@@ -148,7 +148,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
      | Name                       |  Is Key Contact |
-     | {SavedValue:SPI3 Username} |  Checked        |
+     | {SavedValue:IND Username}  |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -182,8 +182,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I navigate to "Budget" sub tab
     #219158 #219164 #219195
     Then I softly see "Budget Summary" page block displayed
@@ -251,8 +251,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219242
     And I navigate to "Overview" sub tab
     Then I softly cannot see field "Subaward Floor" inside page block
@@ -321,8 +321,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I navigate to "Budget" sub tab
     #219176
     Then I softly see "Budget Summary" page block displayed
@@ -386,8 +386,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I navigate to "Budget" sub tab
     #219230
     Then I softly do not see "Focus Area" page block displayed
@@ -449,8 +449,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219297
     And I navigate to "Overview" sub tab
     Then I softly cannot see field "Subaward Floor" inside page block
@@ -517,8 +517,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219300
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
@@ -582,8 +582,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I navigate to "Budget" sub tab
     #219308
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
@@ -635,7 +635,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -645,8 +644,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219303
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
@@ -709,8 +708,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219334
     And I navigate to "Overview" sub tab
     Then I softly cannot see field "Subaward Floor" inside page block
@@ -777,8 +776,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219338
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
@@ -842,8 +841,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     #219336
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
@@ -998,8 +997,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     #219360
     When I navigate to "Budget" sub tab
@@ -3307,8 +3306,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -3359,8 +3358,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$2,000.00"
 
