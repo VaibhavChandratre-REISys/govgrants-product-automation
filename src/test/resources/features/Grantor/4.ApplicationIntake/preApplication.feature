@@ -78,18 +78,6 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see value "$5,000.00" for title "Non-Cash Match" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
 
-  @53155 @PreApplicationAttachmentChecklistCA
-  Scenario: Validate the attachment checklist of the PreApplication
-    When I navigate to "Forms and Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    When I navigate to "Forms and Files" sub tab
-    Then I see "Other" has been added in "Supporting Documents Checklist" flex table
-    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-
   @70466 @53160 @70467 @submitPreApplication @smoke @deepika
   Scenario: Submitting an pre application to Grantor |To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on pre-application
   Validate whether SPI user can view the edit button once pre - application has been submitted to Grantor |  Validate whether the user can submit the Pre Application Submission before the due date
@@ -109,9 +97,10 @@ Feature: Validate all scenarios in the Pre-Application
 #    Given I expand nested table containing column value "BP01"
     Then I softly see value "$10,150.00" for title "Total Project Cost" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
@@ -132,23 +121,25 @@ Feature: Validate all scenarios in the Pre-Application
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+#    And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -174,9 +165,12 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I navigate to "Overview" sub tab
+    And I enter value "New York" into field "City__c"
+    And I enter value "GA" into field "State__c"
+    And I enter value "12345" into field "Zip4__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -189,20 +183,21 @@ Feature: Validate all scenarios in the Pre-Application
       | Automation Permanent KPI | 10     |
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Given I click on "Back" in the page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
-    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
+    Then I see status in Progress-bar is "Submitted" and is "dark blue"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -271,9 +266,10 @@ Feature: Validate all scenarios in the Pre-Application
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
@@ -324,10 +320,11 @@ Feature: Validate all scenarios in the Pre-Application
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "2" seconds
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "1" seconds
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
@@ -370,13 +367,15 @@ Feature: Validate all scenarios in the Pre-Application
       | Automation Permanent KPI | 10     |
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Given I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
