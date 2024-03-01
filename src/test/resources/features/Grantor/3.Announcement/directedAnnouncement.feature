@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @report @73761 @73762 @73764 @73765 @70616 @73766 @70617 @34232 @73611 @73303 @73612 @73613 @73304 @73305 @73306 @73320 @submittingAnnouncementForApprovalDR @submittedAnnouncementDeletion @announcementForPastApplicationDueDate
+  @73761 @73762 @73764 @73765 @70616 @73766 @70617 @34232 @73611 @73303 @73612 @73613 @73304 @73305 @73306 @73320 @submittingAnnouncementForApprovalDR @submittedAnnouncementDeletion @announcementForPastApplicationDueDate
   Scenario Outline: Validate the submission of Announcement for Approval || Validate that only record owner cannot delete Submitted for Approval status announcements || Validate that user can not enter application due date as past date
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -205,7 +205,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Type |
       | Directed          |
 
-  @report @73767 @34763 @34765 @34766 @announcementApproval @announcementPendingTaskPostApproval @announcementCompletedTaskPostApproval @smoke
+  @73767 @34763 @34765 @34766 @announcementApproval @announcementPendingTaskPostApproval @announcementCompletedTaskPostApproval @smoke
   Scenario Outline: Validate that after approval of an Announcement task get added to its completed task table. || Validate the approval of an Announcement || Validate that after approval of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

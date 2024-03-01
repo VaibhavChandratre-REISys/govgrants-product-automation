@@ -2578,3 +2578,60 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
+
+  @219631 @219632 @219654 @CompetitiveAnnVerifyasSPIuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinopportunityoverviewsectiononApp @sprint-11-US-203541 @komal @Allocation
+  Scenario Outline: Competitive Ann_ Verify as SPA/SPI  user I see new 'Budget summary' and 'Budget Summary by Focus Area' section on App in budget tab only if Focus area set as 'Yes' on Ann
+  | Competitive Ann_ Verify as SPI user I cannot see  sub-award floor, sub-award ceiling and Budgeted Amount under the overview tab in opportunity overview section on App |
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "<User>" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I pause execution for "3" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Edition-app" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    #219631
+    Then I softly cannot see field "Subaward Floor" inside page block
+    Then I softly cannot see field "Subaward Ceiling" inside page block
+    #219661
+    Then I softly see field "Budgeted Amount" inside page block
+    #219632
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Summary" page block displayed
+    #219654
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Examples:
+      | User |
+      | SPA  |
+      | SPI3 |
+
+  @219633 @219656 @219662 @CompetitiveAnnVerifyasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisNo @sprint-11-US-203541 @komal @Allocation
+  Scenario: Competitive Ann_ Verify as IND user I see new 'Budget summary' and 'Budgeted Amount' section on top of budget tab on App set as focus area is 'No'
+  | Competitive  Ann_ Verify as IND user I should not see 'Budget Summary by Focus Area' section on App in budget tab if Focus area set as 'No' on Ann |
+    Given I published "Competitive " type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I pause execution for "3" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Edition-app" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    #219662
+    Then I softly see field "Budgeted Amount" inside page block
+    #219633
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Summary" page block displayed
+    #219656
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed

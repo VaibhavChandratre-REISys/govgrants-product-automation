@@ -209,7 +209,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @report @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -1546,7 +1546,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" for "---announcement:-:approversTableId---" flex table
 
-  @report @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @monu
+  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @monu
   Scenario: Validate announcement owner cant add same steps for while assigning approvers for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1649,7 +1649,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @report @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920
+  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
