@@ -58,7 +58,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "2" seconds
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -88,7 +88,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -160,7 +160,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -227,7 +227,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -292,7 +292,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -362,7 +362,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -429,7 +429,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -493,7 +493,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -559,7 +559,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -628,7 +628,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -695,7 +695,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -761,7 +761,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
     When I navigate to "Budget" sub tab
@@ -1584,7 +1584,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2186,7 +2186,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2229,7 +2229,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2270,7 +2270,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2322,7 +2322,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
@@ -2403,7 +2403,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2425,7 +2425,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2455,7 +2455,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2552,7 +2552,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
@@ -2639,7 +2639,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2680,7 +2680,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
@@ -2694,7 +2694,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2739,7 +2739,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
@@ -2755,7 +2755,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2795,7 +2795,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2837,7 +2837,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Submit Application" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -2867,7 +2867,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -2961,7 +2961,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field labeled "EGMS ID" as "annEgmsId"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
     And I click on "Save" in the page details
@@ -3012,7 +3012,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3043,7 +3043,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3087,10 +3087,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Approved"
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
@@ -3101,7 +3101,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3148,7 +3148,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3198,7 +3198,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
