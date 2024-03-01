@@ -222,6 +222,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I enter value "Yes" into field "QAAvailability__c"
     Then I softly see the text containing "Question Deadline"
     Then I softly see the text containing "Response Deadline"

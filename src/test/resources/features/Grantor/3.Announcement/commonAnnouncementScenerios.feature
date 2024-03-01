@@ -351,7 +351,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I collapse nested table containing column value "SME Review"
     And I expand nested table containing column value "Management Review"
     And I pause execution for "2" seconds
-    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:ReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |

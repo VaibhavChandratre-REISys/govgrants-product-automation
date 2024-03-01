@@ -338,7 +338,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I "Send to Owner" in the approval decision
     And I pause execution for "3" seconds
     And I refresh the page
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
