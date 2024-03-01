@@ -78,7 +78,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -130,7 +129,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -189,7 +187,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -242,7 +239,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     #219100
@@ -306,7 +302,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     #219112
     Then I softly can see page block "Budget Summary by Focus Area"
@@ -329,7 +324,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     #221116
@@ -398,7 +392,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     #221170
     Then I softly cannot see page block "Budget Summary by Focus Area"
@@ -415,7 +408,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     When I navigate to "Overview" sub tab
     #221113
@@ -437,7 +429,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -506,7 +497,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -596,7 +586,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
      And I click on "Create Pre-Application" in the page details
      And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -691,7 +680,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -774,7 +762,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -829,7 +816,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -905,7 +891,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -1002,7 +987,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1087,7 +1071,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
     When I click modal button "Save and Continue"
-    When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1158,7 +1141,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -1253,7 +1235,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "3" seconds
-    When I click modal button "Save and Continue"
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
