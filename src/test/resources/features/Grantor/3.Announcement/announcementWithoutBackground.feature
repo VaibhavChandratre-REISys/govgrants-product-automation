@@ -2540,8 +2540,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2705,7 +2705,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-source"
-    And I select value "Automation PM" into field "input-target"
      And I enter value "Automation PM" in reassign lookup
      Then I softly do not see "Automation PM" inside auto search result
 
@@ -7316,12 +7315,13 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     And I wait for "150" seconds
     And I refresh the page

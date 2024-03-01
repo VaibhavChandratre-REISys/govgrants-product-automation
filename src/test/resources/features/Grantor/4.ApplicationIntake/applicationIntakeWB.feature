@@ -218,7 +218,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside table
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
     Then I softly can see top right button "Create Application" in page detail
 
@@ -242,7 +242,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside table
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
@@ -263,17 +263,6 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "Record Id" in "---announcement:-:NotYetQualifiedTableId---" panel
     Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---announcement:-:NotYetQualifiedTableId---"
-      # This is bug - 77149
-    #When I pause execution for "120" seconds
-    #Then I softly can see mail notification for "EXTERNAL" user with following subject:
-    #  | Announcement {SavedValue:unpublished} has been Unpublished |
-    When I navigate to "Opportunities" tab
-    And I navigate to "Qualified" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:qualifiedTableId---" panel
-    And I wait for "1" seconds
-   # When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside table without waiting for record
-   # Then I softly cannot see top right button "Qualify" in page detail
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
