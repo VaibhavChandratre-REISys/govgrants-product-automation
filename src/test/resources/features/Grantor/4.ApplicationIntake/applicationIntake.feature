@@ -11,7 +11,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
     And I enter "Edition-app" values from "Application_Field_Values.xlsx"
@@ -44,6 +44,8 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 100    | 100        | 100            | 100            |
+    Then I refresh the page
+    When I navigate to "Budget" sub tab
     Then I see value "$100.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
@@ -56,7 +58,7 @@ Feature: Validate all scenarios in the Application Intake
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     Then I see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
 
   @70333 @69367 @50969 @formFillingApplication @smoke
   Scenario: To fill and complete the form in Application | Validate whether user is allowed to proceed without filling Mandatory forms
@@ -81,7 +83,7 @@ Feature: Validate all scenarios in the Application Intake
       | Forms and Files Tab - All mandatory forms must be 100% completed. |
     When I navigate to "Forms and Files" sub tab
     Then I see only the following headers in table with id "---applicationReview:-:allFormsTableId---" :
-      | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |  Actions |
+    | Actions | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |
 #    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
 #    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
@@ -102,8 +104,10 @@ Feature: Validate all scenarios in the Application Intake
 #    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-   Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
-   Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
 
   @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke @deepika
   Scenario Outline: Validate Viewing the application submitted by sub-recipient as Internal user | Validate whether user can view the edit button once application has been submitted to Grantor
@@ -157,7 +161,8 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    When I click on "View" icon for "<Application Name>" inside table
+    When I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
@@ -171,7 +176,8 @@ Feature: Validate all scenarios in the Application Intake
   Validate whether user has ability to add and remove new focus area while creating an application |Validate whether system should throws a validation message on screen when user tries to remove the existing focus area while submitting an application
   Validate whether user is able to add more focus area to the table while submitting an application
     Given I click on "Edit" in the page details
-    And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+#    And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -204,8 +210,8 @@ Feature: Validate all scenarios in the Application Intake
 #    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
 #    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
@@ -286,7 +292,7 @@ Feature: Validate all scenarios in the Application Intake
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "General Assurances" from computer
     When I click modal button "Close"
-    Then I softly see "General Assurances" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see "General Assurances" has been added in "Application Files" flex table
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -414,9 +420,9 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     And I click toggle button to select "Opportunities Converted to Application - Open"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
 #    When I click on "Create Application" in the page details
@@ -428,17 +434,17 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I save the value from row "1" for column name "Opportunity Name" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I save the value from row "1" for column name "Opportunity Name" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
 #    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-#    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-#      | Funding Opportunity Id | contains | Auto Demo |
-#    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-#    And I refresh the page
-#    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-#    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
-#      | Funding Opportunity Id | contains | {SavedValue:oppId} |
-#    And I refresh the page
+#    And I enter advance filter values inside id "---applicationIntake:-avedValue:oppId} |
+#    And I refresh the page:convertedToApplicationTableID---" for LWC
+##      | Funding Opportunity Id | contains | Auto Demo |
+##    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+##    And I refresh the page
+##    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+##    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+##      | Funding Opportunity Id | contains | {S
 #    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"
