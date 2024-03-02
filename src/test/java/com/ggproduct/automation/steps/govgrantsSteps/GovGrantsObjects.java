@@ -226,7 +226,6 @@ public final class GovGrantsObjects {
         } catch (Exception e) {
             refreshActionIcon++;
             if (!validationActionFlag && refreshActionIcon < 2) {
-                I.amPerforming().browserOperationsTo().refreshPage();
                 if (searchTermForQsearch != null) {
                     handlePerformSearchForActions();
                 }
