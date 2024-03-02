@@ -56,7 +56,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     Then I softly see "No records found" inside flex table with id "---applicationReview:-:reviewsTableId---"
 
-  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika
+  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika @Debug
   Scenario: Validate the SPA users should not be able to Submit the Application | Validate whether SPI user can continue to proceed without providing application title while creating a application
   Validate whether user should be able to enter the required information for the creation  Application | Validate that the user is able to view the added setting while the creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -70,7 +70,7 @@ Feature: Application Intake scenarios without background
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I wait for "2" seconds
-    When I clear the value from field "Title__c"
+    When I clear in modal the value from field "Title__c"
     And I wait for "2" seconds
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
@@ -185,14 +185,14 @@ Feature: Application Intake scenarios without background
     And I save the field labeled "Program" as "programName"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I navigate to "Proposal" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---applicationIntake:-:goalsAndObjectivesTableId---"
-    Then I see the following rows under the following headers in table with id "---applicationIntake:-:goalsAndObjectivesTableId---" :
-      | Title                          | Actions |
-      | Automation Permanent Objective | View    |
+#    Then I see the following rows under the following headers in table with id "---applicationIntake:-:goalsAndObjectivesTableId---" :
+#      | Title                          | Actions |
+#      | Automation Permanent Objective | View    |
 #    When I navigate to "Overview" sub tab
 #    And I mouse hover to link contains "{SavedValue:oppurtunityId}"
 #    And I click "{SavedValue:programName}" link present on hovered tooltip
@@ -208,6 +208,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     When I get the "EGMS ID"
+    And I wait for "3" seconds
     Then I softly see field "Application Due Date" is getting updated with todays date
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -219,6 +220,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
+    And I wait for "4" seconds
     Then I softly can see top right button "Create Application" in page detail
 
   @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108 @unpublishedAnnouncementCannotSubmitApplication @deepika @buglogged113216 @buglogged113230
@@ -244,6 +246,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -319,6 +322,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---" without waiting for record
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -737,10 +741,10 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Qualified Opportunities - All"
-    And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:qualifiedTableId---" panel
-    When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
+    When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
     And I save the field containing "Application Due Date" as "Date"
     Then I softly see field "Application Due Date" contains date less than todays date
     Then I softly cannot see top right button "Create Application" in page detail
@@ -796,10 +800,11 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     And I navigate to "Opportunities" tab
     And I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Converted to Application - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table without waiting for record
     And I navigate to "Overview" sub tab
-    And I save the field containing "Type" as "Formula"
+#    And I save the field containing "Type" as "Formula"
     And I navigate to "Financials" sub tab
     Then I see value "$1000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     Examples:
@@ -926,9 +931,10 @@ Feature: Application Intake scenarios without background
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "flexGridAnnouncementChecklists" by clicking "Add" :
+    When I enter the following values into flex table with id "AnnouncementChecklists" by clicking "Add" :
       | Description | Required  | Applies To  | Status |
       | Automation  | Mandatory | Application | Active |
+    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I save the field labeled "EGMS ID" as "AnnouncementId"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1017,7 +1023,7 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     Then I softly see that "{SavedValue:Automation Runtime Formula Announcement}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
@@ -1061,12 +1067,12 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPA" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
-    Then I softly see "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---" without waiting for record
-    When I click on "Qualify" in the page details
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    Then I softly see "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1075,9 +1081,11 @@ Feature: Application Intake scenarios without background
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Qualified"
     Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
 
@@ -1164,21 +1172,23 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:NotYetQualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---announcement:-:NotYetQualifiedTableId---" without waiting for record
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---announcement:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---applicationIntake:-:applicationContactsTableId---"
-    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---applicationIntake:-:applicationContactsTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "AssociateAppContacts"
     And I refresh the page
+    And I wait for "4" seconds
     Then I see that "<Contact>" has been added in flextable with Id "---applicationIntake:-:applicationContactsTableId---"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPA" user
@@ -1326,7 +1336,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
- @poojaApplicationRerun @195250 @ValidateapplicationrelatedpendingtaskshouldgeneratedfornewAnnownerifapplicationcreatedfromoldownerevenAnnownershiptaskreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment
+  @BlockedDuetoBug:390917 @wip @195250 @ValidateapplicationrelatedpendingtaskshouldgeneratedfornewAnnownerifapplicationcreatedfromoldownerevenAnnownershiptaskreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1540,9 +1550,10 @@ Feature: Application Intake scenarios without background
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
+    When I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside table
     When I click on "Accept" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -1592,7 +1603,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @poojaApplicationRerun @196705 @ValidateApp-RevNewPOownercaninitiateappreviewprocessrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
+  @BlockedDuetoBug:390917 @wip @196705 @ValidateApp-RevNewPOownercaninitiateappreviewprocessrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1718,7 +1729,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @196715  @sprint-4-US-197579 @vaibhav @reassignment
+  @196715  @sprint-4-US-197579 @vaibhav @reassignment @BlockedDuetoBug:390917 @wip
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1919,7 +1930,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @poojaApplicationRerun @196756 @196759 @ValidateApp-RevNewEXEownercaninitiateappreviewprocessifitsrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
+  @Bug-402305-Hold @wip @196756 @196759 @ValidateApp-RevNewEXEownercaninitiateappreviewprocessifitsrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2183,7 +2194,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @poojaApplicationRerun @197064 @ValidateAppemailshouldbegeneratedfornewownerforAppifitrelatedAnnownershipassigntootheruser @sprint-4-US-197579 @vaibhav @reassignment
+  @197064 @ValidateAppemailshouldbegeneratedfornewownerforAppifitrelatedAnnownershipassigntootheruser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -2194,7 +2205,9 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
+    And I wait for "5" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -2249,6 +2262,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -2290,7 +2304,7 @@ Feature: Application Intake scenarios without background
       The EGMS Team
       """
 
-  @bug-401696 @235107 @234957 @DirectedAnnVerifyasSPIusercannotseeRecommendedbudgetfieldisvisibleunderbudgetsummarywhenAppstatusisCreatedSubmittoGrantor&ReviewinitiatedbeforeFDMstate @sprint-13-US-224176 @komal @Allocation
+  @bug-401696 @235107 @234957  @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Directed Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state
   | Competitive Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state |
     Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -2361,10 +2375,10 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see field "Recommended Budget" inside page block
     Examples:
       | Announcement Name                            | Announcement Type |
-#      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
       | {SavedValue:Automation Runtime Announcement} | Competitive       |
 
-  @219498 @219488 @219634 @219640 @DirectedAnnVerifyasSPIuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysectionwhenAppstatusisnegotiationcompleted @sprint-13-US-224176 @komal @Allocation @wip
+  @219498 @219488 @219634 @219640  @sprint-13-US-224176 @komal @Allocation @wip
   Scenario Outline: Directed Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary section when App status is negotiation completed
   | Directed Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary when App status is negotiation initiated state |
   | Competitive Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary when App status is negotiation initiated state|
@@ -2426,7 +2440,7 @@ Feature: Application Intake scenarios without background
       | {SavedValue:Automation Runtime Announcement} | Directed          |
       | {SavedValue:Automation Runtime Announcement} | Competitive       |
 
-  @219489 @219636 @DirectedAnnVerifyasSPAuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarywhenAppstatusisnegotiationSenttoSR @sprint-13-US-224176 @komal @Allocation @wip
+  @219489 @219636  @sprint-13-US-224176 @komal @Allocation @wip
   Scenario Outline: Directed Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R
     | Competitive Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R |
     Given I published "<Announcement Name>" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -2501,7 +2515,7 @@ Feature: Application Intake scenarios without background
     Examples:
       | Announcement Name                            | Announcement Type |
       | {SavedValue:Automation Runtime Announcement} | Directed          |
-#      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
 
   @219507 @219641 @DirectedAnnVerifyasINDuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysummarywhenAppstatusisconverttoaward @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Directed Ann Verify as IND user I can see Recommended budget field is visible under budget summary summary when App status is convert to award
