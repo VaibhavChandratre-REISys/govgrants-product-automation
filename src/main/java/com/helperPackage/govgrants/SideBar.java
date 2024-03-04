@@ -50,7 +50,6 @@ public final class SideBar {
     public void clickSideBarContent(String subHeaderName, String contentName) {
         if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
            handleSideBarContentExpanded(subHeaderName);
-           I.amPerforming().waitFor().makeThreadSleep(2000);
            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
        }else{
 //           handleSideBarContentExpanded(subHeaderName);
