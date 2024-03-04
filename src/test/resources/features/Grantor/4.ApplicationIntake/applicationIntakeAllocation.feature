@@ -857,7 +857,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Create Application" in the page details
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
-    And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     #226907
@@ -1255,6 +1254,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1837,7 +1837,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2790,7 +2792,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2799,13 +2803,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222462
     When I click on "Request Negotiation" in the page details
     And I click on "Edit" in the page details
+    And I halt execution
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "PreApplicationSectionsforRevision__c"
-    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Revision - Available"
+    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Negotiation"
     #222477
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2817,7 +2824,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
     And I navigate to "Negotiations" sub tab
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
     And I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"

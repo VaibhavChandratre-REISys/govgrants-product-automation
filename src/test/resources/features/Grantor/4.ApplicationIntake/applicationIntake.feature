@@ -176,8 +176,8 @@ Feature: Validate all scenarios in the Application Intake
   Validate whether user has ability to add and remove new focus area while creating an application |Validate whether system should throws a validation message on screen when user tries to remove the existing focus area while submitting an application
   Validate whether user is able to add more focus area to the table while submitting an application
     Given I click on "Edit" in the page details
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-#    And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
+    #And I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
@@ -226,6 +226,7 @@ Feature: Validate all scenarios in the Application Intake
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
     Then I see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement for project cost before submitting this Application. |
 
