@@ -2523,7 +2523,6 @@ Feature: Application Intake scenarios without background
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Budget" sub tab
     Then I softly cannot see field "Recommended Budget" inside page block
-
     Examples:
       | Announcement Name                            | Announcement Type |
       | {SavedValue:Automation Runtime Announcement} | Directed          |
