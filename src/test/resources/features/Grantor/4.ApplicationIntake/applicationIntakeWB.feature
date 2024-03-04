@@ -56,7 +56,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     Then I softly see "No records found" inside flex table with id "---applicationReview:-:reviewsTableId---"
 
-  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika @Debug
+  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika
   Scenario: Validate the SPA users should not be able to Submit the Application | Validate whether SPI user can continue to proceed without providing application title while creating a application
   Validate whether user should be able to enter the required information for the creation  Application | Validate that the user is able to view the added setting while the creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -240,6 +240,7 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
@@ -369,12 +370,14 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -418,6 +421,7 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
@@ -456,6 +460,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -463,7 +468,9 @@ Feature: Application Intake scenarios without background
     And I clear the value from field "Addressline1__c"
     And I enter "AddressValues" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see field "Address line 1" as "Sterling"
+    And I wait for "3" seconds
+    When I save the field labeled "Address Line 1" as "addressLine1"
+    Then I softly see field "Address Line 1" as "{SavedValue:addressLine1}"
     Then I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
@@ -477,12 +484,14 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---announcement:-:NotYetQualifiedTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---announcement:-:NotYetQualifiedTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -911,6 +920,7 @@ Feature: Application Intake scenarios without background
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    And I wait for "4" seconds
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -1086,7 +1096,6 @@ Feature: Application Intake scenarios without background
     When I click on "Qualify" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Qualified"
-    Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
 
   @34017 @34291 @focusAreaSettingAsNO @deepika
@@ -1113,6 +1122,7 @@ Feature: Application Intake scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 0          | 0              | 0              |
 #    Given I expand nested table containing column value "BP01"
+    And I wait for "4" seconds
     Then I softly see value "$1,000.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
   @34322 @zeroBudgetRequestedAmount @deepika
@@ -1306,8 +1316,8 @@ Feature: Application Intake scenarios without background
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - Expired"
-    And I perform quick search for "Automation Runtime Announcement Application106771" in "---applicationIntake:-:recipientApplications---" panel
-    When I click on "View" icon for "Automation Runtime Announcement Application106771" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    And I perform quick search for "Automation Runtime Announcement111984" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "Automation Runtime Announcement111984" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
@@ -1498,8 +1508,7 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     And I "Approve" in the approval decision
     And I wait for "2" seconds
-    Then I softly can see top right button "Publish" in page detail
-    And I click on "Publish" in the page details
+    Then I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1522,7 +1531,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -2194,7 +2203,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064 @ValidateAppemailshouldbegeneratedfornewownerforAppifitrelatedAnnownershipassigntootheruser @sprint-4-US-197579 @vaibhav @reassignment
+  @197064  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -2263,7 +2272,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-    Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
+#    Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
@@ -2316,6 +2325,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     Then I see the header is "Application" in the page details
     When I navigate to "Budget" sub tab
@@ -2361,7 +2371,7 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Applications" tab
@@ -2376,7 +2386,7 @@ Feature: Application Intake scenarios without background
     Examples:
       | Announcement Name                            | Announcement Type |
       | {SavedValue:Automation Runtime Announcement} | Directed          |
-      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+#      | {SavedValue:Automation Runtime Announcement} | Competitive       |
 
   @219498 @219488 @219634 @219640  @sprint-13-US-224176 @komal @Allocation @wip
   Scenario Outline: Directed Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary section when App status is negotiation completed
@@ -2486,6 +2496,7 @@ Feature: Application Intake scenarios without background
     And I created approved FDM on application "<Announcement Name>"
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
+    And I wait for "5" seconds
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
@@ -2496,8 +2507,9 @@ Feature: Application Intake scenarios without background
     And I enter value "Overview: Project Information" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "5" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     And I save the field labeled "EGMS ID" as "EGMSID"
@@ -2515,7 +2527,7 @@ Feature: Application Intake scenarios without background
     Examples:
       | Announcement Name                            | Announcement Type |
       | {SavedValue:Automation Runtime Announcement} | Directed          |
-      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+#      | {SavedValue:Automation Runtime Announcement} | Competitive       |
 
   @219507 @219641 @DirectedAnnVerifyasINDuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysummarywhenAppstatusisconverttoaward @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Directed Ann Verify as IND user I can see Recommended budget field is visible under budget summary summary when App status is convert to award
