@@ -2229,12 +2229,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
     And I refresh the page
     And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
+#    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 11000  | 100        | 100            |
-    And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
@@ -2319,12 +2319,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
     And I refresh the page
     And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
+#    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 11000  | 100        | 100            |
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
@@ -2611,9 +2612,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I pause execution for "2" seconds
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I pause execution for "2" seconds
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I am on "SUBPORTAL" portal
@@ -2669,6 +2673,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #222483
+    And I navigate to "Negotiations" sub tab
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2692,6 +2698,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
   @222463 @VerifyEXEusercanseeBudgetTabBudgetSummarybyFocusAreaoptioninsteadofBudgetTabFocusAreainPreApplicationsectionforNegotiation @sprint-10-US-221062 @komal @Allocation
@@ -2830,7 +2837,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
     And I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
+#    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222473 @DirectiveAnnVerifyINDusercaneditBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiationSPISPAusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforpreapplicationfornegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI SPA user can't edit Budget Tab Budget Summary by Focus Area" section if grantor not selected Budget Tab Budget Summary by Focus Area for pre application for negotiation
@@ -2930,10 +2938,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
@@ -3136,6 +3148,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3147,8 +3160,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
+    And I navigate to "Negotiations" sub tab
+    And I wait for "2" seconds
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area;Budget Tab: Budget Details"
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -3159,6 +3177,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly cannot see page block "Budget Summary by Focus Area"
     And I navigate to "Negotiations" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
 
   @222501 @DirectiveAnnVerifySPIuserseevalidationmessageifbudgetamountnotmatcheswithsubawardceilingAmtduetouserremovefocusareaandtrytosubmitpreapptograntor @sprint-10-US-221062 @komal @Allocation
@@ -3186,10 +3205,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I wait for "2" seconds
     And I click on "Publish" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -3230,6 +3254,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3243,14 +3268,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #222501
+    And I navigate to "Negotiations" sub tab
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside table
-    And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -3281,9 +3308,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
-    And I navigate to "Negotiations" sub tab
-    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     And I pause execution for "5" seconds
+    And I navigate to "Negotiations" sub tab
+    And I pause execution for "2" seconds
+    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3326,9 +3354,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3343,8 +3371,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab- The Budgeted Amount is not matching the Allocation Amount for following Focus Areas {Automation Permanent Focus Area} |
     Examples:
@@ -3438,6 +3466,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I pause execution for "3" seconds
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -4119,9 +4148,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4137,8 +4166,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab- The Budgeted Amount is not matching the Allocation Amount for following Focus Areas {Automation Permanent Focus Area} |
     Examples:
