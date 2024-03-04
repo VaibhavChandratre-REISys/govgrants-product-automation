@@ -2,7 +2,7 @@
 Feature: Validate all scenarios in the Application Review with Allocation Feature
 
 
-  @239509 @239522 @239528 @239530  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @239509 @239522 @239528 @239530  @sprint-15-US-236836 @vaibhav @Allocation
   Scenario Outline: Validate that EXE user will see a new column, "Total commitment Amount " in the recommended application section of FDM layout
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
