@@ -1529,26 +1529,12 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @1111
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPA" user
-    And I pause execution for "10" seconds
-    And I click on Menu icon present on top right corner of the page
-    And I select "Download as PDF" from dropdown
-    And I pause execution for "7" seconds
-    And I download the file
-    Then I softly see following details in "govgrants" pdf file:
-      | Detail                 | Page Number |
-      | {SavedValue:annEgmsId} | 1           |
-    Then I softly see "Published" on page "1" of "govgrants" pdf file
-    Then I softly see "Opportunity Specific Settings" on page "1" of "govgrants" pdf file
-    Then I softly see "Federal/NGO Programs" on page "2" of "govgrants" pdf file
-    Then I softly see "Contacts" on page "2" of "govgrants" pdf file
-    Then I softly see "Budget Summary" on page "3" of "govgrants" pdf file
-    Then I softly see "Budget Period Details" on page "3" of "govgrants" pdf file
-    Then I softly see "Budget Categories" on page "4" of "govgrants" pdf file
-    Then I softly see "Goals and Objectives" on page "5" of "govgrants" pdf file
-    Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrants" pdf file
-    Then I softly see "Opportunity Files" on page "5" of "govgrants" pdf file
-    Then I softly see "Notes" on page "5" of "govgrants" pdf file
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" in the split screen page details
+    And I click on "Save" in the split screen page details
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"

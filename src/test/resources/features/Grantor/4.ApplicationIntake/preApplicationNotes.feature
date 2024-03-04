@@ -1,4 +1,4 @@
-@preAplicationNotes @grantor-regression @grantor-parallel-regression @app @regression
+@preApplicationExecution @preAplicationNotes @grantor-regression @grantor-parallel-regression @app @regression
 Feature: Pre-Application scenarios without background
 
   @225095 @225099 @ValidatePMPOEXEFOAdminsenotabletoEditDeletenoteswhichisaddedbySPIUserwhichisinnegotiationinitiatedstate @Sprint-11-US-224418 @Notes
@@ -28,9 +28,10 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -55,6 +56,8 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+    #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -158,9 +161,10 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -288,17 +292,18 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -324,6 +329,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     #225109
     When I click on "Accept" in the page details
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -387,9 +393,10 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -414,6 +421,8 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+   #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -480,17 +489,18 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -515,6 +525,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Accept" in the page details
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -560,9 +571,10 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -604,6 +616,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Delete" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     When I click on "Reject" in the page details
     Then I softly see field "Status" as "Rejected"
+    When I navigate to "Forms and Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly see value "Notes Record Of Grantor User" for title "Title" inside table "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of Grantor User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
@@ -652,9 +665,10 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
@@ -688,6 +702,8 @@ Feature: Pre-Application scenarios without background
     Then I see field "Status" as "Submitted to Grantor"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
+    #Added below steps once bug resolved remove the step
+    And I click on "Edit" in the page details
     When I enter "Nego_Edit_Notes" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
