@@ -704,7 +704,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1911,6 +1911,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---preApplication:-:notYetQualifiedTable---"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "preAppId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2707,7 +2708,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "IND" user
     When I navigate to "Opportunities" tab
-    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -4166,6 +4166,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
