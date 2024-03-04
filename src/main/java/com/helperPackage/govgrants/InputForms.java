@@ -204,7 +204,7 @@ public final class InputForms {
     public void clearFormDataByFieldApiName(String fieldApiName, boolean isModal) {
         By fieldWrapperLocator;
         if (isModal) {
-            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "']");
         } else {
             fieldWrapperLocator = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
         }
@@ -675,7 +675,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleClearingTextInput(WebElement fieldWrapper) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
                 String field1 = field.toString().split("field")[1];

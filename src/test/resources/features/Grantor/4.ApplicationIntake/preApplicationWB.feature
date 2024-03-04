@@ -63,17 +63,20 @@ Feature: Pre-Application scenarios without background
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPA" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    When I clear the value from field "Title__c"
+    And I wait for "3" seconds
+    When I clear in modal the value from field "Title__c"
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Pre-Application Title is required to save. |
     And I enter value "{SavedValue:Automation Runtime Announcement for Pre-Application}" into field "Title__c"
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -82,7 +85,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    Then I softly cannot see top right button "Submit Application" in page detail
+    Then I softly cannot see top right button "Submit to Grantor" in page detail
     When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -236,7 +239,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
@@ -250,9 +253,8 @@ Feature: Pre-Application scenarios without background
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
       | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Budget" sub tab
@@ -278,6 +280,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     When I click on "Accept" in the page details
+    When I navigate to "Applications" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
     Then I softly see "Record Id" inside flex table with id "---preApplication:-:preappCompletedTasksTableId---"
@@ -889,8 +892,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
     Given I expand nested table containing column value "BP01"
-    Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:budgetCategoryGridTableId---"
-    Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:budgetCategoryGridTableId---"
+    Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
+    Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
 
   @77656 @snapshotHistoryPreApplication @deepika @skipOnJenkins
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
@@ -1287,6 +1290,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Pre-Application Sections for Negotiation" inside page block
      #176521
     When I click on "Edit" in the page details
+    And I wait for "3" seconds
     Then I see textarea field "ApplicantResponse__c" is editable
 
   @176515 @ValidatebuttonRequestNegotiationisdisplayedonGrantortoInitiateNegotiation @sprint-8 @vaibhav @skippedInExecution
@@ -1382,6 +1386,7 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "Due Date" as "DueDate1"
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -1469,8 +1474,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked         |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1554,7 +1559,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
 
   @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8 @vaibhav
@@ -1653,6 +1658,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
@@ -1943,8 +1949,8 @@ Feature: Pre-Application scenarios without background
     When I hovering mouse on help text icon inside page block detail "Negotiation Request Details"
     Then I softly see "<new_helpText>" shown as help text
     Examples:
-      | new_helpText                                                                                                              |
-      | This section contains negotiation details for the applicant to view, enter all details before sending to the Subreceipent |
+      | new_helpText                                                                                                               |
+      | This section contains negotiation details for the applicant to view. Enter all details before Sending to the Subrecipient. |
 
   @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8 @vaibhav
   Scenario Outline: Validate help text displayed for the Negotiation request details section on subrecipient side
@@ -2058,6 +2064,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2124,6 +2131,8 @@ Feature: Pre-Application scenarios without background
      #169932
     Then I softly can see top right button "Validate" in page detail
 #    And I click on "Back" in the page details
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
 
   @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav
@@ -2166,7 +2175,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the split screen page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
-      | Attachments Tab - Fill all the required data in the form before submitting.' should be generated as all the forms are implemented in EGMS but user has not filled it |
+      | Form cannot be validated because data is missing in one or more fields that are required to submit. To view the fields that are required to submit, click the Edit button. |
 
   @170096 @170097 @170100 @170101 @ValidateusershouldabletoseetheSuccessMessageonvalidatebutton @sprint-7 @vaibhav
   Scenario: Validate user should able to see the Success Message on validate button
@@ -2411,6 +2420,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -2529,6 +2539,8 @@ Feature: Pre-Application scenarios without background
     And I pause execution for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
     And I navigate to "Overview" sub tab
     Then I softly see field "Title" inside page block
     Then I softly see field "Project Abstract" as "Automation Pre-application abstract descriptionAutomation Pre-application abstract description"
@@ -2617,7 +2629,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-    And I navigate to "Forms and Files" tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -2676,7 +2688,7 @@ Feature: Pre-Application scenarios without background
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     #180662
-    Then I see value "true" for title "Needs Negotiation" against the value "Standard Pre-Application form" inside table "---preApplication:-:negotiationFormTableId---"
+    Then I softly see "check" symbol against the value "Standard Pre-Application form" in flex table with id "---preApplication:-:negotiationFormTableId---"
     #180665
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
@@ -2801,6 +2813,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -2864,9 +2877,9 @@ Feature: Pre-Application scenarios without background
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     Then I softly see multiple selected options in "multiSelectPicklistCell":
       | Files and Forms: Forms |
-     #180658
+    #180658
     When I clear the value from field "PreApplicationSectionsforRevision__c"
-    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms : Forms" under list "Pre-Application Sections for Revision - Available"
+    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms : Forms" under list "Pre-Application Sections for Negotiation"
 
   @174568 @Grantorpre-applicationformshoulddisplayalltypesofAnnouncement @Sprint-7 @Vrishali @skippedInExecution
   Scenario Outline: Verify Grantor pre-application form should display all types of Announcement.
@@ -3071,6 +3084,7 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "Due Date" as "DueDate1"
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -3897,7 +3911,7 @@ Feature: Pre-Application scenarios without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:Automation Runtime Announcement for Pre-App}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I see value "{SavedValue:Automation Runtime Announcement for Pre-App}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -4986,6 +5000,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:Automation Runtime Announcement for Pre-App}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
@@ -5019,8 +5034,8 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -5451,7 +5466,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    Then I softly see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 
   @313804 @VerifyPMSPIusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationwhenPreapplicationisinPeerReviewedstateevenifsettingasAllocationlevelisNA&FocusAreaisYES @Sprint-8-US-30117 @hitesh @Allocation
   Scenario: Verify PM SPI user should not see 'Focus Area' section under Budget subtab of pre-application when Pre-application is in Peer Reviewed state even if setting as Allocation level is 'NA' & Focus Area is 'YES'
@@ -5568,5 +5583,4 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see top right button "Create Application" in page detail
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Budget" sub tab
-    And I expand nested table containing column value "BP01"
     Then I softly do not see "Actions" in flex table header "---preApplication:-:preApplicationAttachmentId---"

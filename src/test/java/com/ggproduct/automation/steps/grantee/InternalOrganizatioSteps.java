@@ -197,6 +197,11 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.assertSymbolIsDisplayed(symbol, tableId);
     }
 
+    @Then("^I softly see \"([^\"]*)\" symbol against the value \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
+    public void iSoftlySeeSymbolInFlexTableWithIdAgainstTheValue(String symbol, String rowValue, String tableId) {
+        internalOrganizationPage.assertSymbolIsDisplayedAgainstTheValue(symbol, rowValue, tableId);
+    }
+
     @Then("^I see Reporting Period End Date with Schedule Base \"([^\"]*)\" inside flex table with id \"([^\"]*)\"$")
     public void iSeeReportingPeriodEndDateWithScheduleBaseInsideFlexTableWithId(String scheduleBase, String tableId) {
         internalOrganizationPage.assertEndDateAgainstScheduleBase(scheduleBase, tableId);

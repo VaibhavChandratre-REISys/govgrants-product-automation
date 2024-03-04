@@ -1529,12 +1529,12 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-#  @debug
-#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
-    And I click on "Save" in the split screen page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+  @debug
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms : Forms" under list "Pre-Application Sections for Negotiation"
+
+
