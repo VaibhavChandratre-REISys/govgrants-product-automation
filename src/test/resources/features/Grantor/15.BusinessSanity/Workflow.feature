@@ -1545,5 +1545,5 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    And I halt execution
+
 
