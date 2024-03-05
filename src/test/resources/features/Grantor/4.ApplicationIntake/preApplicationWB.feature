@@ -208,7 +208,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-  @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487 @testExecution
+  @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -247,8 +247,8 @@ Feature: Pre-Application scenarios without background
       | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
@@ -283,7 +283,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
-    Then I softly see "Record Id" inside flex table with id "---preApplication:-:preappCompletedTasksTableId---"
+    Then I softly see value "Record Id" for title "EGMS ID" inside table "---preApplication:-:preappCompletedTasksTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -336,8 +336,7 @@ Feature: Pre-Application scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside flex table with id "---announcement:-:competitiveTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnId"
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -399,6 +398,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
@@ -481,12 +481,13 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     Then I see total records count "Total Records: 1" in flex table "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @34006 @preApplicationVisibity @deepika @testExecution
+  @34006 @preApplicationVisibity @deepika
   Scenario Outline: Validate the Pre-applications are visible for their own organization and for child organizations.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -540,8 +541,10 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I wait for "5" seconds
     And I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Qualified Opportunities - All"
+    And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application Intake}" in "---preApplication:-:qualifiedOpprtunitesTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement for Application Intake}" for title "Opportunity Name" inside table "---preApplication:-:qualifiedOpprtunitesTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "egms id" from flex table "---preApplication:-:qualifiedOpprtunitesTableId---"
@@ -552,7 +555,7 @@ Feature: Pre-Application scenarios without background
       | SPI3  |
       | SPA   |
 
-  @34045 @editCreatedApplication @deepika @testExecution
+  @34045 @editCreatedApplication @deepika
   Scenario Outline: Verify SPI & SPA user (Record owner of Application) is able to edit created Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -598,7 +601,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Budget" sub tab
     Then I cannot see page block "Focus Area"
 
-  @35054 @34353 @33998 @validateListOfSubmittedApplication @deepika  @buglogged169487 @testExecution
+  @35054 @34353 @33998 @validateListOfSubmittedApplication @deepika  @buglogged169487
   Scenario: Verify when SPI (Record owner of Pre-Application) submit the Pre-Application to Grantor then it is displayed in the list of Submitted Pre-Applications and disappeared from the list of Not yet qualified Opputunities
   Verify if the opportunity has only one focus area, then the application budget periods are automatically associated to that focus area |
   Validate whether SPI user can edit the pre-application once it is submitted to grantor.
@@ -874,9 +877,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @77583 @preApplicationMatchrequiredYes @deepika @testExecution
+  @77583 @preApplicationMatchrequiredYes @deepika
   Scenario: Validate whether User will be able to view the Match column in the budget grid when the value set as Yes while announcement creation with pre-application is set as yes
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES_AND_NO_MATCH"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
@@ -893,7 +896,7 @@ Feature: Pre-Application scenarios without background
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
-    Then I softly see field "Match Required?" as "No"
+    Then I softly see field "Match Required?" as "Yes"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
     Given I expand nested table containing column value "BP01"
@@ -1239,6 +1242,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -1341,7 +1345,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I softly can see top right button "Request Negotiation" in page detail
 
-  @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8 @vaibhav @testExecution
+  @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8 @vaibhav
   Scenario: Subrecipient  user is able to  submit to grantor the negotiation request  preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1512,7 +1516,7 @@ Feature: Pre-Application scenarios without background
      #174903
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
-  @175041 @ValidateusershouldabletoclickonSendtoSubrecipientbuttononGrantorSide @sprint-8 @vaibhav @testExecution
+  @175041 @ValidateusershouldabletoclickonSendtoSubrecipientbuttononGrantorSide @sprint-8 @vaibhav
   Scenario: Validate user should able to click on Send to Subrecipient button  on Grantor Side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1614,7 +1618,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see fields "PreApplicationSectionsforRevision__c" is in edit mode
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
-  @175045 @175053 @Validatesubrecipientshouldabletotoseethestatusofpre-applicationisNegotiationInitiated @sprint-8 @vaibhav @testExecution
+  @175045 @175053 @Validatesubrecipientshouldabletotoseethestatusofpre-applicationisNegotiationInitiated @sprint-8 @vaibhav
   Scenario: Validate subrecipient should able to to see the status of pre-application is Negotiation Initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1905,7 +1909,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     Then I can see top right button "Edit" in page detail
 
-  @174878 @ValidateNegotiationRequestDetailssectionshouldcontaintheNegotiationdetailsfortheapplicanttoviewonGrantorSide @sprint-8 @vaibhav @testExecution
+  @174878 @ValidateNegotiationRequestDetailssectionshouldcontaintheNegotiationdetailsfortheapplicanttoviewonGrantorSide @sprint-8 @vaibhav
   Scenario Outline: Validate Negotiation Request Details section should contain the Negotiation details for the applicant to view on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1955,9 +1959,9 @@ Feature: Pre-Application scenarios without background
     Then I softly see "<new_helpText>" shown as help text
     Examples:
       | new_helpText                                                                                                               |
-      | This section contains negotiation details for the applicant to view. Enter all details before Sending to the Subrecipient. |
+      | This section contains negotiation details for the applicant to view, enter all details before sending to the Subreceipent  |
 
-  @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8 @vaibhav @testExecution
+  @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8 @vaibhav
   Scenario Outline: Validate help text displayed for the Negotiation request details section on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2026,6 +2030,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -2034,6 +2039,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2083,7 +2089,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                             |
       | Provide a brief explanation of the negotiations made to the application. |
 
-  @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav @testExecution
+  @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav
   Scenario: Validate User Should Able To See EDit View Preview Button In Files Form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2140,7 +2146,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
 
-  @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav @testExecution
+  @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav
   Scenario: Validate user should able to see Error Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2546,6 +2552,7 @@ Feature: Pre-Application scenarios without background
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     Then I softly see field "Title" inside page block
     Then I softly see field "Project Abstract" as "Automation Pre-application abstract descriptionAutomation Pre-application abstract description"
@@ -2599,6 +2606,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -2639,7 +2647,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
-  @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav @testExecution
+  @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
   Scenario: Validate announcement owner should able to see the Forms and Files:Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2761,6 +2769,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -2841,6 +2850,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -3039,7 +3049,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
-  @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 @vaibhav @testExecution
+  @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 @vaibhav
   Scenario: Validate the pending task is created for the grantor on submit to grantor  negotiation request
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3101,6 +3111,7 @@ Feature: Pre-Application scenarios without background
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3824,7 +3835,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @196941 @Validatenewownerofpre-appshouldgetpre-appnegotiationpendingtaskwhenAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646 @vaibhav @reassignment @testExecution
+  @196941 @Validatenewownerofpre-appshouldgetpre-appnegotiationpendingtaskwhenAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate new owner of pre-app should get pre-app negotiation pending task when Ann owner is change and assign to new owner before s/r user submit the pre-app to grantor
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -4915,7 +4926,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation SPI3" for title "Name" inside table "---preApplication:-:preApplicationOwnerTableId---"
 
-  @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment @testExecution
+  @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate Pre-app new owner should see the below buttons when s/r user submit the pre-application negotiation to grantor after it's related Ann owner will change its ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5031,7 +5042,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
-  @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579 @vaibhav @reassignment @testExecution
+  @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate Pre-app email should be generated for new owner for pre-app if it's related Ann ownership assign to new Ann user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5418,6 +5429,7 @@ Feature: Pre-Application scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     When I navigate to "Opportunities" tab
+    And I wait for "2" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -5425,6 +5437,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -5533,7 +5546,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I cannot see page block "Focus Area"
 
-  @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843 @vaibhav @Allocation @testExecution
+  @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Pre App the effects of pre App rejection created on Comp Ann
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
