@@ -1322,8 +1322,8 @@ Feature: Application Intake scenarios without background
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - Expired"
-    And I perform quick search for "Automation Runtime Announcement111984" in "---applicationIntake:-:recipientApplications---" panel
-    When I click on "View" icon for "Automation Runtime Announcement111984" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    And I perform quick search for "Automation Permanent Announcement111984" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "Automation Permanent Announcement111984" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |

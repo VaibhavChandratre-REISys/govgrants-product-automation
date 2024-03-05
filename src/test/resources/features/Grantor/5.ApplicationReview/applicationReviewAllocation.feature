@@ -4285,6 +4285,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "1" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I switch to tab number "1"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -4326,6 +4327,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "5" seconds
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I switch to tab number "1"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -4336,6 +4338,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I enter value "AuGr" into field "GrantCode__c"
     And I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommend for Funding | Comments    | Total Commitment Amount |
@@ -4345,6 +4348,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Name                     | FDM    |
       | {SavedValue:PO Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Funding Decision Memo" sub tab
     Then I cannot see top right button "Notify Selected Applicants" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
