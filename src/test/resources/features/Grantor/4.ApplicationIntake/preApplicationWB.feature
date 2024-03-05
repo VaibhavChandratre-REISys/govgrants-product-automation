@@ -323,7 +323,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     Then I softly do not see "{SavedValue:Automation Runtime Announcement for Pre-Application}" has been added in "---preApplication:-:notYetQualifiedTable---" flex table
 
-  @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487  @testExecution
+  @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
   Scenario: Validate whether user can change the pre-application due date while creating the pre-application
   Validate whether pre-application title field is editable while creating the pre-application | Validate whether the Announcement owner receives an email notification when the pre-application is submitted to grantor |
   Validate whether the external user recieves an email notification when the pre-application is accepted by the grantor
@@ -392,7 +392,7 @@ Feature: Pre-Application scenarios without background
       Pre-Application {SavedValue:Automation Runtime Announcement for Pre-Application} {SavedValue:AnnId} has been Accepted
       """
 
-  @72523 @SPIUserCannotdeleteTheCreatedPreApplication @testExecution
+  @72523 @SPIUserCannotdeleteTheCreatedPreApplication
   Scenario Outline: Validate whether SPI/SPA user has the ability to delete the created pre-Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -529,7 +529,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
-  @73866 @73870 @qualifyAnnSPAUser @jitendra @testExecution
+  @73866 @73870 @qualifyAnnSPAUser @jitendra
   Scenario Outline: To verify user allow to view Qualified opportunity  in opportunity tab
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1236,7 +1236,7 @@ Feature: Pre-Application scenarios without background
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
 
-  @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav @testExecution
+  @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav
   Scenario: Validate Due date field is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2024,7 +2024,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                |
       | This section contains negotiation details from the Grantor. |
 
-  @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8 @vaibhav @testExecution
+  @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8 @vaibhav
   Scenario Outline: help text is displayed on subrecipient side for pre-application for applicant  response section
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2488,7 +2488,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
-  @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali @testExecution
+  @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
   Scenario: Verify the subrecipient user is able to save details
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2601,7 +2601,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Files Tab - All mandatory forms must be 100% completed. |
 
-  @174523 @InternalUsercanview&previewthepre-applicationform&internalusershouldnotedittheform. @Sprint-7 @Vrishali @testExecution
+  @174523 @InternalUsercanview&previewthepre-applicationform&internalusershouldnotedittheform. @Sprint-7 @Vrishali
   Scenario: Verify Internal User can view & preview the pre-application form & internal user should not edit the form .
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2764,7 +2764,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form to allow edits on, because Form section is added for negotiation. |
 
-  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 @vaibhav @testExecution
+  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 @vaibhav
   Scenario: Validate user should able to see the changes after feeling the format grantor & Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2846,7 +2846,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
     Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
 
-  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav @testExecution
+  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
   Scenario: Validate announcement owner should able to see the Forms and Files Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5425,7 +5425,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "{SavedValue:AwardFloor}" is "Equals to" the value "{SavedValue:AwardFloor1}"
     Then I softly see value "{SavedValue:BudgetedAmount}" is "Equals to" the value "{SavedValue:BudgetedAmount1}"
 
-  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843 @hitesh @testExecution
+  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843 @hitesh
   Scenario: Directive Ann Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for application for negotiation
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user"
     When I am on "SUBPORTAL" portal
