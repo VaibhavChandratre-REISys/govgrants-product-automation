@@ -408,6 +408,7 @@ Feature: Application Intake scenarios without background
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
   @71408 @71488 @71490 @71489 @preApplicationSettinsAsNowhileAnnouncementCreation @deepika @ReRunApplicationPooja
