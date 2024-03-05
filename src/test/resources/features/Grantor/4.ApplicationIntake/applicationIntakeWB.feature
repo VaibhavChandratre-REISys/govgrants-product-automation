@@ -899,7 +899,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Proposal" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---applicationIntake:-:goalsAndObjectivesTableId---"
 
-  @73753 @announcementInApprovedStatusWillNotBeAOppurtunity @deepika
+  @73753 @announcementInApprovedStatusWillNotBeAOppurtunity @deepika @ReRunApplicationPooja
   Scenario: Validate if the announcment is in Approved status and not published status then the record will not be available for SPI/SPA users under oppurtunity
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -992,6 +992,7 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Directed Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -1313,7 +1314,7 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @77585 @expiredApplicationErrorMessage @deepika
+  @77585 @expiredApplicationErrorMessage @deepika @ReRunApplicationPooja
   Scenario: Validate user should not be able to Qualify on the Closed opportunity and an error message is displayed as "Funding Opportunity Cannot be Qualified after Deadline"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2317,19 +2318,20 @@ Feature: Application Intake scenarios without background
       The EGMS Team
       """
 
-  @bug-401696 @235107 @234957  @sprint-13-US-224176 @komal @Allocation
+  @bug-401696 @235107 @234957  @sprint-13-US-224176 @komal @Allocation @ReRunApplicationPooja
   Scenario Outline: Directed Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state
   | Competitive Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state |
     Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     Then I see the header is "Application" in the page details
     When I navigate to "Budget" sub tab
