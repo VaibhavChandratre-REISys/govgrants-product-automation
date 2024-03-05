@@ -1813,7 +1813,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see field "Created by" as "Automation SPI3"
 
-  @poojaApplicationRerun @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @vaibhav @reassignment
+   @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App old owner can only view the application once the Ann owner change his ownership from EXE to new EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1851,9 +1851,8 @@ Feature: Application Intake scenarios without background
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation PM | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
-    And I click on "Edit" in the page details
+      | Name          | Announcement |
+      | Automation PM | Step 1       |
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I get the "EGMS ID"
@@ -1945,7 +1944,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold @wip @196756 @196759 @ValidateApp-RevNewEXEownercaninitiateappreviewprocessifitsrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
+  @Bug-402305-Hold @wip @196756 @196759  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
