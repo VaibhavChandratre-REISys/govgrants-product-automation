@@ -204,7 +204,7 @@ public final class InputForms {
     public void clearFormDataByFieldApiName(String fieldApiName, boolean isModal) {
         By fieldWrapperLocator;
         if (isModal) {
-            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "']");
         } else {
             fieldWrapperLocator = By.xpath("//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
         }
@@ -238,6 +238,15 @@ public final class InputForms {
                 if (checkTextAreaPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
                     I.amPerforming().textInput().toClear(getTextAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     I.amPerforming().textInput().in(getTextAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "Automation test description");
+                }
+            }
+        }
+
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkInputAreaPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getInputAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getInputAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "Automation description");
                 }
             }
         }
@@ -286,7 +295,7 @@ public final class InputForms {
             for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
                 if (checkTextInputDatePresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
                     I.amPerforming().textInput().toClear(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "05/05/2020");
+                    I.amPerforming().textInput().in(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "11/05/2024");
                 }
             }
         }
@@ -675,7 +684,7 @@ public final class InputForms {
      * @author john.phillips
      */
     private void handleClearingTextInput(WebElement fieldWrapper) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if (field.contains("field")) {
                 String field1 = field.toString().split("field")[1];
@@ -1239,6 +1248,10 @@ public final class InputForms {
         return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//textarea"), false).size();
     }
 
+    private int checkInputAreaPresentReviewFormForLwc(String title, int qNumber) {
+        return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input"), false).size();
+    }
+
     private By getTextAreaReviewForm(String title, int qNumber) {
         return By.xpath("//div[@class='panel-heading']//h3[text()='" + title
                 + "']/../../..//div[contains(@class,'panel-body')]/div[@class='row reviewRow'][" + qNumber
@@ -1247,6 +1260,10 @@ public final class InputForms {
 
     private By getTextAreaReviewFormForLwc(String title, int qNumber) {
         return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//textarea");
+    }
+
+    private By getInputAreaReviewFormForLwc(String title, int qNumber) {
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input");
     }
 
     private int checkTextInputScorePresentReviewForm(String title, int qNumber) {

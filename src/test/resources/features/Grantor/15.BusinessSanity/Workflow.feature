@@ -22,6 +22,9 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
+      | {SavedValue:FO Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
       | {SavedValue:FO Username} | Step 1  |
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -1529,12 +1532,12 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-#  @debug
-#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
-    And I click on "Save" in the split screen page details
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+  @debug
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+    When I login to "As a Grantor" app as "EXE" user
+    And I halt execution
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I halt execution
+

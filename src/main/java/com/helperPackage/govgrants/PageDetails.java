@@ -19,7 +19,7 @@ import java.util.List;
 
 public final class PageDetails {
     private final By textInsideHelpText = By.xpath(
-            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span");
+            "//div[@class='tooltipster-base tooltipster-noir tooltipster-fade tooltipster-fade-show'] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'ng-binding')] | //span[contains(@class,'fa fa-info helpIcon')]/following-sibling::span[contains(@class,'hidden508')] | //i[contains(@class,'fa fa-thumbs-up')]/parent::a | //i[contains(@class,'fa fa-clock-o')]/parent::a | //div[contains(@class,'tooltipster-content')]/span | //i[contains(@class,'fa fa-ban')]/parent::a | //span[@role='tooltip']//span | //lightning-primitive-bubble[@role='tooltip']//div//div");
     public String idOfRecord = null;
 
     /**
@@ -825,7 +825,7 @@ public final class PageDetails {
      * @modifier saranjit.modak added xpath
      */
     public void getHelpTextAtPageBlockDetail(String pageBlockDetailTitle) {
-        I.amPerforming().scroll().toMoveToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')]|//span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')]|//span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**
