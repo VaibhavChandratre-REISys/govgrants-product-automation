@@ -369,22 +369,22 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
-    #buglogged125701
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "80" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Pre-Application Submitted for Announcement{SavedValue:AnnId} by SAN DIEGO ELECTRICAL TRAINING TRUST
-#      """
-    Given I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "dynamicUser" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:preappID}" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:preappID}" inside table
     When I click on "Accept" in the page details
-    And I pause execution for "150" seconds
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "50" seconds
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Pre-Application Submitted for Announcement{SavedValue:AnnId} by SAN DIEGO ELECTRICAL TRAINING TRUST
+      """
+    Given I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "dynamicUser" user
+    And I pause execution for "80" seconds
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I refresh the page
     Then I see the mail subject is as follows :
