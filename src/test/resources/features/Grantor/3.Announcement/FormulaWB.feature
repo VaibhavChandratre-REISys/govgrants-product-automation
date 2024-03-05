@@ -1920,6 +1920,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
@@ -1990,6 +1992,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2088,6 +2092,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2133,6 +2139,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2366,6 +2374,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2577,6 +2587,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2916,6 +2928,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3097,6 +3111,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3262,6 +3278,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3671,6 +3689,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3717,6 +3737,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4349,6 +4371,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     #227840
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
@@ -4558,6 +4582,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     #227797
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4992,6 +5018,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5122,6 +5150,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the sub-header is "Management Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5176,6 +5206,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Next Review Step" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5226,6 +5258,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I switch to tab number "1"
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
