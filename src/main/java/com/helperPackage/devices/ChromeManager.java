@@ -48,7 +48,6 @@ public final class ChromeManager implements qrYoTsOWwA {
     public void setupController() {
 //        System.setProperty("webdriver.chrome.driver","C:\\Users\\DELL\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         System.setProperty("webdriver.chrome.driver",".\\src\\test\\resources\\ChromeDrivers\\chromedriver_for_browserVersion122.exe");
-//        System.setProperty("webdriver.chrome.driver",".\\src\\test\\resources\\ChromeDrivers\\chromedriver_for_browserVersion120.exe");
 
 
 
