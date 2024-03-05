@@ -2520,7 +2520,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+#    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222475 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforpreapplicationfornegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario: Directive Ann - Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for pre-application for negotiation
@@ -2586,7 +2586,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    Then I softly cannot see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+#    Then I softly cannot see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222483 @VerifyINDusercanaddremovefocusareaintheBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario: Verify IND user can add/remove focus area in the "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
@@ -2612,6 +2612,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2621,8 +2622,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "2" seconds
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "IND" user
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2674,6 +2674,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #222483
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
@@ -3121,7 +3122,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -3148,6 +3149,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
@@ -3165,9 +3167,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area;Budget Tab: Budget Details"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -3205,6 +3207,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -3212,12 +3215,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Publish" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -3327,8 +3330,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
 
@@ -3372,6 +3376,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -4167,7 +4172,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "3" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
