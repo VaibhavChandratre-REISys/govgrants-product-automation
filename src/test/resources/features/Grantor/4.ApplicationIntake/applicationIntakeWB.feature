@@ -56,13 +56,14 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     Then I softly see "No records found" inside flex table with id "---applicationReview:-:reviewsTableId---"
 
-  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika
+  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika @ReRunApplicationPooja
   Scenario: Validate the SPA users should not be able to Submit the Application | Validate whether SPI user can continue to proceed without providing application title while creating a application
   Validate whether user should be able to enter the required information for the creation  Application | Validate that the user is able to view the added setting while the creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPA" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
@@ -101,13 +102,10 @@ Feature: Application Intake scenarios without background
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I wait for "2" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I wait for "2" seconds
-    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     Then I cannot see top right button "Submit Application" in page detail
@@ -356,7 +354,7 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @71112 @71113 @appDueDateValidation @deepika
+  @71112 @71113 @appDueDateValidation @deepika @ReRunApplicationPooja
   Scenario: Validate the Application Submission before the due date | Validate whether the application due date on Announcement is reflecting same while creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for App Intake and PreApp" and properties "TODAY_APP_DUE_DATE"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -412,7 +410,7 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @71408 @71488 @71490 @71489 @preApplicationSettinsAsNowhileAnnouncementCreation @deepika
+  @71408 @71488 @71490 @71489 @preApplicationSettinsAsNowhileAnnouncementCreation @deepika @ReRunApplicationPooja
   Scenario: Validate whether user is able to create Application only when the Opportunity setting for Pre Application (No)
   Validate whether User will be able to view the Match column in the budget grid when the value set as Yes
   Validate whether User will be able to view the Leverage column in the budget grid when the value set as Yes.
@@ -478,7 +476,7 @@ Feature: Application Intake scenarios without background
 #    Then I softly see the following messages in the page details contains:
 #      | Saved Successfully! |
 
-  @72307 @34330 @newApplicationOncetheOppurtunitySubmittedToGrantor @deepika
+  @72307 @34330 @newApplicationOncetheOppurtunitySubmittedToGrantor @deepika @ReRunApplicationPooja
   Scenario: Validate whether user is able to create a new/multiple applications from same Oppurtunity once it is Converted to an Application | Verify snapshot is not added to the Snapshot History after Application is submitted to Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -534,7 +532,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "History" sub tab
     Then I softly cannot see field "Snapshot History" inside page block
 
-  @72308 @77658 @34324 @72309 @userCanEditApplicationInCreatedStatusAndCannotInSubmitTedStatus @deepika
+  @72308 @77658 @34324 @72309 @userCanEditApplicationInCreatedStatusAndCannotInSubmitTedStatus @deepika @ReRunApplicationPooja
   Scenario: Validate whether the User can view the edit icon for the application that is in Created Status and Submiited to Grantor Status
   Validate whether SPI user have delete access to delete the Application that is in Created Sttaus
   Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount is less than or equal to the Subaward Floor Amount
@@ -542,6 +540,7 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:NotYetQualifiedTableId---" panel
@@ -600,18 +599,20 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:recipientApplications---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationIntake:-:recipientApplications---"
 
-  @72511 @SPIUserCannotdeleteTheCreatedApplication
+  @72511 @SPIUserCannotdeleteTheCreatedApplication @ReRunApplicationPooja
   Scenario: Validate whether SPI user has the ability to delete the created Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -762,12 +763,13 @@ Feature: Application Intake scenarios without background
       | SPI3 | Automation SPI3 |
       | SPA  | Automation SPA  |
 
-  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @deepika @buglogged129432
+  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @deepika @buglogged129432 @ReRunApplicationPooja
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -820,7 +822,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication @deepika @needSupportingDocuSupportInAPI
+  @73516 @73517 @supportingDocValidationOnApplication @deepika  @ReRunApplicationPooja
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -828,6 +830,7 @@ Feature: Application Intake scenarios without background
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -880,10 +883,11 @@ Feature: Application Intake scenarios without background
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     When I click on "Create Application" in the page details
@@ -1455,7 +1459,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @poojaApplicationRerun @196695 @ValidateAppApplicationistransfertonewuserafterAnnownershipwillgetchangewithsettingpre-appasYes @sprint-4-US-197579 @vaibhav @reassignment
+   @196695 @ValidateAppApplicationistransfertonewuserafterAnnownershipwillgetchangewithsettingpre-appasYes @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

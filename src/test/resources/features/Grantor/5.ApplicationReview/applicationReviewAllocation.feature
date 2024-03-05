@@ -399,7 +399,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja @Debug
   Scenario Outline: Validate that The maximum limit visible to Admin user is of 16 digits on field 'Total Commitment Amount' on the recommended Application section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
