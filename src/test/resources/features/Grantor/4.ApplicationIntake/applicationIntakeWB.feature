@@ -92,8 +92,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPA Username}  |  Checked        |
+      | Name                      | Is Key Contact |
+      | {SavedValue:SPA Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -349,8 +349,8 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
@@ -405,8 +405,8 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
@@ -471,8 +471,8 @@ Feature: Application Intake scenarios without background
     When I save the field labeled "Address Line 1" as "addressLine1"
     Then I softly see field "Address Line 1" as "{SavedValue:addressLine1}"
     Then I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     #MessageDisapper Immediatlly
 #    Then I softly see the following messages in the page details contains:
 #      | Saved Successfully! |
@@ -504,8 +504,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                        |  Is Key Contact |
-      | {SavedValue:SPI3 Username}  |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -567,8 +567,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 100    | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                        |  Is Key Contact |
-      | {SavedValue:SPI3 Username}  |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -667,8 +667,8 @@ Feature: Application Intake scenarios without background
       | Overview Tab - Specify at least one key Personnel for Application in contacts/key personnel table. |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -790,9 +790,9 @@ Feature: Application Intake scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-      And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                        |  Is Key Contact |
-      | {SavedValue:SPI3 Username}  |  Checked        |
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -868,8 +868,8 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
     #IssueisResolveNeedtocheckforthisscenario #checktagabove
     Then I softly see the following messages in the page details contains:
@@ -1171,16 +1171,16 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     And I wait for "2" seconds
     When I click on "Submit Application" in the page details
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
-      | Budget Tab - Provide the match (Cash Match/Non-Cash Match) details to submit this application.                                                                |
-      | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                                  |
-      | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                            |
+      | Budget Tab - Provide the match (Cash Match/Non-Cash Match) details to submit this application.                                                      |
+      | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                        |
+      | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                  |
 
   @76376 @76378 @contactAssociationforApplication @deepika
   Scenario Outline: Validate whether SPI user is allowed to add contacts while creating an Application | Validate whether created Application by SPI user(Record owner of Application)are visible for their child (SPA) organizations
@@ -1258,8 +1258,8 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
@@ -1294,8 +1294,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                        |  Is Key Contact |
-      | {SavedValue:SPI3 Username}  |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1430,8 +1430,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1461,7 +1461,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-   @196695 @ValidateAppApplicationistransfertonewuserafterAnnownershipwillgetchangewithsettingpre-appasYes @sprint-4-US-197579 @vaibhav @reassignment
+  @196695 @ValidateAppApplicationistransfertonewuserafterAnnownershipwillgetchangewithsettingpre-appasYes @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1590,8 +1590,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1699,8 +1699,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1769,9 +1769,9 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
-     When I navigate to "Proposal" sub tab
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+    When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
@@ -1813,7 +1813,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see field "Created by" as "Automation SPI3"
 
-   @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @vaibhav @reassignment
+  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App old owner can only view the application once the Ann owner change his ownership from EXE to new EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1854,12 +1854,14 @@ Feature: Application Intake scenarios without background
       | Name          | Announcement |
       | Automation PM | Step 1       |
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    When I get the "EGMS ID"
-    When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
+    And I wait for "3" seconds
+    When I navigate to "Financials" sub tab
+    When I click on "Edit" in the page details
+    And I enter value "Justified" into field "Justification__c"
+    When I get the "EGMS ID"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1878,7 +1880,7 @@ Feature: Application Intake scenarios without background
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
-     And I wait for "3" seconds
+    And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
@@ -1897,9 +1899,9 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
-     When I navigate to "Proposal" sub tab
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+    When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
@@ -2029,8 +2031,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2163,8 +2165,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2232,8 +2234,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2347,8 +2349,8 @@ Feature: Application Intake scenarios without background
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2459,7 +2461,7 @@ Feature: Application Intake scenarios without background
 
   @219489 @219636  @sprint-13-US-224176 @komal @Allocation @wip
   Scenario Outline: Directed Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R
-    | Competitive Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R |
+  | Competitive Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R |
     Given I published "<Announcement Name>" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation SPA user"
     And I created approved FDM on application "<Announcement Name>"

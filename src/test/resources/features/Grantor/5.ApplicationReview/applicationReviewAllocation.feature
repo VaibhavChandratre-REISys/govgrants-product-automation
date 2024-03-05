@@ -4284,8 +4284,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I wait for "5" seconds
     And I navigate to "Related Log" sub tab
-    And I wait for "1" seconds
+    And I wait for "5" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I switch to tab number "1"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -4326,6 +4327,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I wait for "5" seconds
     And I navigate to "Related Log" sub tab
     And I wait for "5" seconds
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
