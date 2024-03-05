@@ -1931,6 +1931,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2000,6 +2002,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2098,6 +2102,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2143,6 +2149,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2376,6 +2384,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2587,6 +2597,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -2926,6 +2938,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -3107,6 +3121,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -3272,6 +3288,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
@@ -5003,6 +5021,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5134,6 +5154,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5242,6 +5264,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5297,6 +5321,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5428,6 +5454,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5478,6 +5506,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5533,6 +5563,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5678,6 +5710,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     #225418
@@ -5746,6 +5780,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     #225419
@@ -5817,6 +5853,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
+    And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     #226387
