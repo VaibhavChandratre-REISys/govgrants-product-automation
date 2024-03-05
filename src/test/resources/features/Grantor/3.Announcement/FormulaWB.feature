@@ -2014,7 +2014,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted" and is "green"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
