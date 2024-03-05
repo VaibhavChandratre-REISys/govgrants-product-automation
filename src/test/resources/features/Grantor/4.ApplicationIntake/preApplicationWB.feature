@@ -1294,7 +1294,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     And I navigate to "Negotiations" sub tab
-    Then I softly see field "Due Date" as "{Date:MM/dd/yyyy::d+43707}" in "Negotiation Request Details" pageblock
+    Then I softly see field "Due Date" as "{Date:M/d/yyyy::d+43707}" in "Negotiation Request Details" pageblock
      #176525
     Then I softly see field "Pre-Application Sections for Negotiation" inside page block
      #176521
@@ -2552,6 +2552,7 @@ Feature: Pre-Application scenarios without background
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     Then I softly see field "Title" inside page block
@@ -2778,6 +2779,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -5484,7 +5486,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Budget" sub tab
-    Then I softly see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
+    Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 
   @313804 @VerifyPMSPIusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationwhenPreapplicationisinPeerReviewedstateevenifsettingasAllocationlevelisNA&FocusAreaisYES @Sprint-8-US-30117 @hitesh @Allocation
   Scenario: Verify PM SPI user should not see 'Focus Area' section under Budget subtab of pre-application when Pre-application is in Peer Reviewed state even if setting as Allocation level is 'NA' & Focus Area is 'YES'

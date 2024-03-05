@@ -5002,6 +5002,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5132,6 +5133,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5186,6 +5188,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5236,6 +5239,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5290,6 +5294,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5420,6 +5425,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5469,6 +5475,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5523,6 +5530,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
