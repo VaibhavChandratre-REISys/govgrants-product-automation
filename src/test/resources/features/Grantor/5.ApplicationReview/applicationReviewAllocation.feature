@@ -4290,7 +4290,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Related Log" sub tab
     And I wait for "5" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I switch to tab number "2"
+    And I wait for "5" seconds
+    And I switch to tab number "1"
     And I halt execution
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "Automation Runtime Announcement Application Review69400" boxes in flex table with id "---applicationReview:-:appTableId---"
