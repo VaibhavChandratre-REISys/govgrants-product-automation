@@ -295,7 +295,8 @@ public final class InputForms {
             for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
                 if (checkTextInputDatePresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
                     I.amPerforming().textInput().toClear(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "11/05/2024");
+                    I.amPerforming().textInput().in(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "11/5/2024");
+                    I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
                 }
             }
         }
