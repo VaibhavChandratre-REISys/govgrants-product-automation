@@ -399,7 +399,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja @Debug
   Scenario Outline: Validate that The maximum limit visible to Admin user is of 16 digits on field 'Total Commitment Amount' on the recommended Application section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -501,7 +501,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -540,7 +540,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "3"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
