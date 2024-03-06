@@ -2757,7 +2757,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I refresh the page
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
     Then I see field "Status" as "Submitted to Grantor"
