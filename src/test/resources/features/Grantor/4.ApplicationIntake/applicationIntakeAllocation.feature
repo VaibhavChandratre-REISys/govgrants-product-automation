@@ -828,7 +828,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1837,9 +1837,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1852,6 +1851,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #Then I softly see field "Recommended Budget" inside page block
     #219366
     And I click on "Create Subaward" in the page details
+    And I pause execution for "3" seconds
     And I click on back arrow
     Then I softly see that "{SavedValue:Automation Runtime FDM Announcement}" is in "Converted to Award" status
     When I navigate to "Budget" sub tab
@@ -2379,7 +2379,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -2420,6 +2420,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "5" seconds
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2488,6 +2490,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2495,11 +2499,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside table
     #222478
-    And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2520,6 +2525,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "5" seconds
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 #    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222475 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforpreapplicationfornegotiation @sprint-10-US-221062 @komal @Allocation
@@ -2605,6 +2611,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
+    And I pause execution for "3" seconds
     And I enter value "Justified" into field "Justification__c"
     And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
@@ -2613,6 +2620,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
     And I refresh the page
+    And I pause execution for "2" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2717,7 +2725,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
@@ -2882,6 +2890,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
@@ -2897,6 +2906,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Edition_PreApp" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
@@ -3272,6 +3282,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #222501
+    And I pause execution for "5" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
@@ -3398,14 +3409,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
+    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3422,6 +3434,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 2000   | 100        | 100            | 100            |
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab- The Budgeted Amount is not matching the Allocation Amount for following Focus Areas {Automation Permanent Focus Area} |
     And I refresh the page
