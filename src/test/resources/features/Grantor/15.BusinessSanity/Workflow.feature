@@ -1541,6 +1541,7 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "View" icon for "Automation Runtime FDM Announcement109509" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
     And I halt execution
