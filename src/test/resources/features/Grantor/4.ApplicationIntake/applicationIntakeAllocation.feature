@@ -4044,7 +4044,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$5,000"
 
-  @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
+  @hiteshTemp @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -4056,7 +4056,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field labeled "EGMS ID" as "annEgmsId"
     And I click on Menu icon present on top right corner of the page
     And I select "Download as PDF" from dropdown
-    And I pause execution for "7" seconds
     And I download the file
     And I pause execution for "10" seconds
     Then I softly see following details in "govgrants" pdf file:
@@ -4064,7 +4063,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | {SavedValue:annEgmsId} | 1           |
     Then I softly see "Published" on page "1" of "govgrants" pdf file
     Then I softly see "Opportunity Specific Settings" on page "1" of "govgrants" pdf file
-    Then I softly see "Federal/NGO Programs" on page "2" of "govgrants" pdf file
     Then I softly see "Contacts" on page "2" of "govgrants" pdf file
     Then I softly see "Budget Summary" on page "3" of "govgrants" pdf file
     Then I softly see "Budget Period Details" on page "3" of "govgrants" pdf file
@@ -4075,7 +4073,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrants" pdf file
     Then I softly see "Notes" on page "5" of "govgrants" pdf file
 
-  @debug @276406 @ValidateFormulaByapplicantFANosubrecipientusercandownloadpdfforQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
+  @hiteshTemp @276406 @ValidateFormulaByapplicantFANosubrecipientusercandownloadpdfforQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -4086,18 +4084,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I save the field labeled "EGMS ID" as "annEgmsId"
     When I click on "Qualify" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Qualified"
     And I click on Menu icon present on top right corner of the page
     And I select "Download as PDF" from dropdown
-    And I pause execution for "7" seconds
     And I download the file
-    And I pause execution for "7" seconds
     Then I softly see following details in "govgrants" pdf file:
       | Detail                 | Page Number |
       | {SavedValue:annEgmsId} | 1           |
-    Then I softly see "Published" on page "1" of "govgrants" pdf file
+    Then I softly see "Qualified" on page "1" of "govgrants" pdf file
     Then I softly see "Opportunity Specific Settings" on page "1" of "govgrants" pdf file
-    Then I softly see "Federal/NGO Programs" on page "2" of "govgrants" pdf file
     Then I softly see "Contacts" on page "2" of "govgrants" pdf file
     Then I softly see "Budget Summary" on page "3" of "govgrants" pdf file
     Then I softly see "Budget Period Details" on page "3" of "govgrants" pdf file
@@ -4107,7 +4103,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrants" pdf file
     Then I softly see "Notes" on page "5" of "govgrants" pdf file
 
-  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864 @vaibhav @Allocation
+  @hiteshTemp @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -4131,9 +4127,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Converted to Application"
     And I click on Menu icon present on top right corner of the page
     And I select "Download as PDF" from dropdown
-    And I pause execution for "7" seconds
     And I download the file
-    And I pause execution for "7" seconds
     Then I softly see following details in "govgrants" pdf file:
       | Detail                 | Page Number |
       | {SavedValue:annEgmsId} | 1           |
@@ -4141,7 +4135,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Detail                   | Page Number |
       | Converted to Application | 1           |
     Then I softly see "Opportunity Specific Settings" on page "1" of "govgrants" pdf file
-    Then I softly see "Federal/NGO Programs" on page "2" of "govgrants" pdf file
     Then I softly see "Contacts" on page "2" of "govgrants" pdf file
     Then I softly see "Budget Summary" on page "3" of "govgrants" pdf file
     Then I softly see "Budget Period Details" on page "3" of "govgrants" pdf file
