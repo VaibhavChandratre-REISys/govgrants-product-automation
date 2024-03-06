@@ -87,7 +87,7 @@ public class CommonSteps {
     }
 
 
-    @Then("I softly see value {string} for the field {string}")
+    @Then("I (softly see|do not see) value \"([^\"]*)\" for the field \"([^\"]*)\"$")
     public void iSoftlySeeValueForTheField(String labelName, String labelValue, String usage) {
         projectManager.assertFieldValues(usage, labelName, labelValue);
     }

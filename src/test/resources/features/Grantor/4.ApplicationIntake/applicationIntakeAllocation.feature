@@ -3099,6 +3099,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
