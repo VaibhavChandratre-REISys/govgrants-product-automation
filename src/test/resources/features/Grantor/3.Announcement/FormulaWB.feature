@@ -5607,6 +5607,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -5682,15 +5683,18 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
     Then I see the sub-header is "Management Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
