@@ -3088,6 +3088,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
