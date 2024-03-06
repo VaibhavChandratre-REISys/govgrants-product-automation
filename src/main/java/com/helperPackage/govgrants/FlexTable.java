@@ -154,7 +154,11 @@ public final class FlexTable implements FlexTableComponent {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
-            I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+            try {
+                I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+            } catch(Exception e){
+                I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+            }
         } else {
             I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         }
