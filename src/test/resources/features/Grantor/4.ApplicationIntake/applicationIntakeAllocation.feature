@@ -4053,7 +4053,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I save the field labeled "EGMS ID" as "annEgmsId"
     And I click on Menu icon present on top right corner of the page
+    And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
+    And I pause execution for "3" seconds
     And I download the file
     And I pause execution for "10" seconds
     Then I softly see following details in "govgrants" pdf file:
@@ -4085,7 +4087,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Qualified"
     And I click on Menu icon present on top right corner of the page
+    And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
+    And I pause execution for "3" seconds
     And I download the file
     Then I softly see following details in "govgrants" pdf file:
       | Detail                 | Page Number |
@@ -4124,7 +4128,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     And I click on Menu icon present on top right corner of the page
+    And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
+    And I pause execution for "3" seconds
     And I download the file
     Then I softly see following details in "govgrants" pdf file:
       | Detail                 | Page Number |
