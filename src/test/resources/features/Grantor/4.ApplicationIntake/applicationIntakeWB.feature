@@ -2084,7 +2084,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Related Log" sub tab
     Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
-  @poojaApplicationRerun @196855 @ValidateApp-RevnewAppownercanseerelatedlogtabafterAnnownershipwillgetchange @sprint-4-US-197579 @vaibhav @reassignment
+   @196855 @ValidateApp-RevnewAppownercanseerelatedlogtabafterAnnownershipwillgetchange @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab

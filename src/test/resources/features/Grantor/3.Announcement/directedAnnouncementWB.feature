@@ -191,14 +191,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
     And I wait for "2" seconds
     Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
-      | Organization                        | Organization Type        |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | For-profit organizations |
+    | EGMS ID                | Organization                        | Organization Type        |
+    | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST | For-profit organizations |
     And I wait for "3" seconds
     #219104
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Selected Applicants are associated successfully. |
+      | Selected Applicants are associated successfully |
 
    @219110 @219161  @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Verify PM user should remove the sr, by clicking the remove icon, & success message should be display for Directed Announcement
