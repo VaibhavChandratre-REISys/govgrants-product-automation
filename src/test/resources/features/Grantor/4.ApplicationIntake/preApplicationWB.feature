@@ -5500,6 +5500,10 @@ Feature: Pre-Application scenarios without background
       | Form Name                     | Needs Negotiation |
       | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
+    And I navigate to "Negotiations" sub tab
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
     Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
     Then I softly see field "Details" as "Negotiation Initiated"

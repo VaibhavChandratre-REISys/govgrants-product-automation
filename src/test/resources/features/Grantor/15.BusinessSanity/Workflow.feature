@@ -1536,16 +1536,16 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SA8wYAG/view?c__tabname=UmVsYXRlZCBMb2c%3D"
-#    When I click on "View" icon for "Automation Runtime FDM Announcement109509" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I wait for "3" seconds
-    And I switch to tab number "1"
+    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SA8wYAG/view?c__tabname=UmVsYXRlZCBMb2c%3D"
+##    When I click on "View" icon for "Automation Runtime FDM Announcement109509" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    And I navigate to "Related Log" sub tab
+#    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+#    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+#    And I wait for "3" seconds
+#    And I switch to tab number "1"
     And I halt execution
-      #    Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
-#    Then I softly see field "Details" as "Negotiation Initiated"
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
+    Then I softly see field "Details" as "Negotiation Initiated"
     And I halt execution
 
