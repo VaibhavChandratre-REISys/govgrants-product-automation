@@ -2515,8 +2515,8 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     And I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly see field "Other Leverage" inside page block
@@ -2562,9 +2562,9 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     Then I softly see field "Title" inside page block
-    Then I softly see field "Project Abstract" as "Automation Pre-application abstract descriptionAutomation Pre-application abstract description"
-    Then I softly see field "Project Goals (Provide performance metrics, if any)" as "Automation Pre-application goals descriptionAutomation Pre-application goals description"
-    Then I softly see field "Project Beneficiaries (Target Population)" as "Automation Pre-application beneficiary descriptionAutomation Pre-application beneficiary description"
+    Then I softly see value "Project Abstract" for the field "Automation Pre-application abstract descriptionAutomation Pre-application abstract description"
+    Then I softly see value "Project Goals (Provide performance metrics, if any)" for the field "Automation Pre-application goals descriptionAutomation Pre-application goals description"
+    Then I softly see value "Project Beneficiaries (Target Population)" for the field "Automation Pre-application beneficiary descriptionAutomation Pre-application beneficiary description"
     And I navigate to "Forms and Files" sub tab
     Then I softly see value "Other" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
@@ -2842,8 +2842,8 @@ Feature: Pre-Application scenarios without background
     And I enter "Form_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
+    And I refresh the page
     And I wait for "2" seconds
-    And I halt execution
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

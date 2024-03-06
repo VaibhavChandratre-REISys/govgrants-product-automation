@@ -164,4 +164,22 @@ public class ProjectManager extends ProjectWebServices {
     }
 
 
+    public void assertFieldValues(String usage, String labelName, String labelValue) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(assertFieldValuewithLabel(labelName, labelValue)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(assertFieldValuewithLabel(labelName, labelValue)).isFalse();
+        }
+    }
+
+    private boolean assertFieldValuewithLabel(String labelName, String labelValue) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//lightning-formatted-rich-text//span[contains(text(),'" + labelName + "')]/../parent::div//lightning-output-field//p[text()='" + labelValue + "']")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
 }
