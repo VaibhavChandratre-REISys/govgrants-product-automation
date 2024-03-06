@@ -3436,6 +3436,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -3756,6 +3757,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
+    And I pause execution for "2" seconds
     When I click "Add" after selection of "Automation IND" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
@@ -4415,7 +4417,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Related Log" sub tab
     And I pause execution for "2" seconds
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I halt execution
     And I pause execution for "2" seconds
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
