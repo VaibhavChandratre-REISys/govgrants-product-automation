@@ -1236,7 +1236,7 @@ Feature: Pre-Application scenarios without background
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
 
-  @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav @TBExecution
+  @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav
   Scenario: Validate Due date field is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1913,7 +1913,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     Then I can see top right button "Edit" in page detail
 
-  @174878 @ValidateNegotiationRequestDetailssectionshouldcontaintheNegotiationdetailsfortheapplicanttoviewonGrantorSide @sprint-8 @vaibhav @TBExecution
+  @174878 @ValidateNegotiationRequestDetailssectionshouldcontaintheNegotiationdetailsfortheapplicanttoviewonGrantorSide @sprint-8 @vaibhav
   Scenario Outline: Validate Negotiation Request Details section should contain the Negotiation details for the applicant to view on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2770,7 +2770,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form to allow edits on, because Form section is added for negotiation. |
 
-  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 @vaibhav @TBExecution
+  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 @vaibhav
   Scenario: Validate user should able to see the changes after feeling the format grantor & Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2843,6 +2843,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     And I wait for "2" seconds
+    And I halt execution
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2857,7 +2858,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
     Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
 
-  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav @TBExecution
+  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
   Scenario: Validate announcement owner should able to see the Forms and Files Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2910,7 +2911,8 @@ Feature: Pre-Application scenarios without background
       | Files and Forms: Forms |
     #180658
     When I clear the value from field "PreApplicationSectionsforRevision__c"
-    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms : Forms" under list "Pre-Application Sections for Negotiation"
+    And I wait for "2" seconds
+    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms: Forms" under list "Pre-Application Sections for Negotiation"
 
   @174568 @Grantorpre-applicationformshoulddisplayalltypesofAnnouncement @Sprint-7 @Vrishali
   Scenario Outline: Verify Grantor pre-application form should display all types of Announcement.
@@ -3065,7 +3067,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
-  @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 @vaibhav @TBExecution
+  @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 @vaibhav
   Scenario: Validate the pending task is created for the grantor on submit to grantor  negotiation request
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5444,7 +5446,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "{SavedValue:AwardFloor}" is "Equals to" the value "{SavedValue:AwardFloor1}"
     Then I softly see value "{SavedValue:BudgetedAmount}" is "Equals to" the value "{SavedValue:BudgetedAmount1}"
 
-  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843 @hitesh @TBExecution
+  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843 @hitesh
   Scenario: Directive Ann Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for application for negotiation
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user"
     When I am on "SUBPORTAL" portal

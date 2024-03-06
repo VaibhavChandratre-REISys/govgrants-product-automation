@@ -1534,10 +1534,12 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-#    When I login to "As a Grantor" app as "EXE" user
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+    When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    Then I see textarea field "ApplicantResponse__c" is editable
+    When I clear the value from field "PreApplicationSectionsforRevision__c"
+    And I wait for "2" seconds
+    Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Files and Forms: Forms" under list "Pre-Application Sections for Negotiation"
     And I halt execution
 
