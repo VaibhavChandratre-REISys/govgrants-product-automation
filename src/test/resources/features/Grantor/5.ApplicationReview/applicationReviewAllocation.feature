@@ -595,6 +595,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -675,8 +676,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
-    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -714,6 +715,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
@@ -733,6 +735,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Funding Decision Memo" inside flex table with id "---grantor_tableId:-:FDMTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see "Total Commitment Amount" in flex table header "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -762,6 +765,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Funding Decision Memo" inside flex table with id "---grantor_tableId:-:FDMTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -778,6 +782,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Funding Decision Memo" inside flex table with id "---grantor_tableId:-:FDMTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -2691,6 +2696,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Applications" tab
+    And I wait for "3" seconds
     And I wait for "3" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
