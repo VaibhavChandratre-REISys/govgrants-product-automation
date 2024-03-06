@@ -4052,6 +4052,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I save the field labeled "EGMS ID" as "annEgmsId"
+    And I pause execution for "3" seconds
     And I click on Menu icon present on top right corner of the page
     And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
@@ -4086,6 +4087,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Qualified"
+    And I pause execution for "3" seconds
     And I click on Menu icon present on top right corner of the page
     And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
@@ -4127,6 +4129,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
+    And I pause execution for "3" seconds
     And I click on Menu icon present on top right corner of the page
     And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
