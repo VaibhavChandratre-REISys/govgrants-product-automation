@@ -2475,7 +2475,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2503,6 +2503,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
     And I navigate to "Negotiations" sub tab
