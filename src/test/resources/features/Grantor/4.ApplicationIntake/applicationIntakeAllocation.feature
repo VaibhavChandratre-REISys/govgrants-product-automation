@@ -3227,6 +3227,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -3799,6 +3801,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I click on "Publish" in the page details
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Published"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -3855,7 +3858,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
