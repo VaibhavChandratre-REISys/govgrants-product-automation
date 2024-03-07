@@ -3557,6 +3557,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I click on "Publish" in the page details
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Published"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -3698,7 +3699,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$0.00"
-    Then I softly see field "Allocation Amount" as "$0"
+    Then I softly see field "Allocation Amount" as "$0.00"
     Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$0" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$0" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
