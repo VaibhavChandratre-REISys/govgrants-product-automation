@@ -2751,7 +2751,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
       | Announcement Name                                |
@@ -3371,7 +3371,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     And I navigate to "Financials" sub tab
-    Then I see value "$2,000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     When I click on "Qualify" in the page details
     And I wait for "3" seconds
     And I navigate to "Opportunities" tab
