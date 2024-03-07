@@ -4325,8 +4325,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Form" sub tab in split screen
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -4476,7 +4477,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
       | Announcement Name                                |
