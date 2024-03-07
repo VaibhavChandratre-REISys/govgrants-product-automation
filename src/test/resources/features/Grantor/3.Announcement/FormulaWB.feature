@@ -3388,7 +3388,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
     #222555 #222479
     When I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -5873,8 +5873,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "5" seconds
     And I refresh the page
+    And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details

@@ -665,7 +665,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -703,12 +704,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I enter values into fields
-      | Value  | Field             |
-      | Passed | Rating__c         |
-      | Passed | ReviewComments__c |
+    And I wait for "2" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -718,10 +718,11 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I click on "Complete Review" in the page details
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
-    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
+      | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Eligibility"
@@ -737,12 +738,15 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+      | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+      | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Schedule"
@@ -764,13 +768,17 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     And I collapse nested table containing column value "Permits"
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+      | Section Header | Section Weight (%) |
       | Match          | 40                 |
+      | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Budget"
@@ -792,14 +800,18 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     And I collapse nested table containing column value "Program Income"
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I pause execution for "4" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+      | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+      | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Capability"
@@ -821,12 +833,15 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     When I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "Management Review"
-    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
+      | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 50                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Return on Investment (ROI)"
@@ -841,8 +856,11 @@ Feature: Validate sanity testing of Complete Business Flow
       | 1              | Question1 | Written | 100       |
     And I pause execution for "4" seconds
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "4" seconds
     When I collapse nested table containing column value "Management Review"
     And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    Then I softly see the following messages in the page details :
+      | There are no errors with the review step templates. |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -911,6 +929,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I click modal button "Close"
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -991,16 +1010,15 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction  | 5000   | 5000       | 50             | 100            |
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "2" seconds
-    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
-    And I switch to parent tab
-    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
