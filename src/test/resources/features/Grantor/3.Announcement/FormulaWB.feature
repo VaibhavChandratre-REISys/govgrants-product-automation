@@ -2989,9 +2989,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 2000         | 100        | 100            |
     When I click modal button "Close"
-    Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000.00"
     And I refresh the page
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budgeted Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
     And I refresh the page
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -3050,6 +3051,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3108,7 +3110,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
       | Announcement Name                                |

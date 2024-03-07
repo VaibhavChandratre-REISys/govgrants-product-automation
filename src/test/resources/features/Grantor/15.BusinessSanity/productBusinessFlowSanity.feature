@@ -2018,13 +2018,12 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I pause execution for "3" seconds
-    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
-    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2095,15 +2094,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
+    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I pause execution for "3" seconds
-    And I switch to tab number "1"
+    And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I save the field labeled "EGMS ID" as "SitevVisitId"
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I switch to parent tab
 #    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
@@ -2137,16 +2135,19 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     When I collapse nested table containing column value "Automation Observation"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     When I collapse nested table containing column value "Automation Concern"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     And I collapse nested table containing column value "Automation Finding"
+    And I wait for "2" seconds
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2197,14 +2198,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
+    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I pause execution for "3" seconds
-    And I switch to tab number "1"
+    And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I switch to parent tab
 #    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
 #    And I navigate to "Reports and Outcomes" sub tab
 #    And I wait for "2" seconds
@@ -2286,14 +2286,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
     And I navigate to "Reports and Outcomes" sub tab
+    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I pause execution for "5" seconds
-    And I switch to tab number "1"
+    And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
-    And I switch to parent tab
 #    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
     And I refresh the page
     And I navigate to "Reports and Outcomes" sub tab
@@ -2303,9 +2302,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I "Approve" in the approval decision
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2372,9 +2371,11 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
+    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Below button is not display for now logged the bug
 #    When I click on "Back" in the page details
     And I navigate to "{SavedValue:DeskReviewID} | Site Visit" tab
