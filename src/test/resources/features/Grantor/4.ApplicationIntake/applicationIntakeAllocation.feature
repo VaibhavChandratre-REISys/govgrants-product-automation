@@ -3423,6 +3423,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     When I click on "Send to Subrecipient" in the page details
     And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
@@ -3437,6 +3438,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I pause execution for "3" seconds
+    And I refresh the page
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -3613,7 +3615,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    And I expand nested table containing column value "Automation IND"
+#    And I expand nested table containing column value "Automation IND"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
