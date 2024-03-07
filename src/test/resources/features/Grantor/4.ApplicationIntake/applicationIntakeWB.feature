@@ -85,6 +85,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Overview" sub tab
     Then I softly see field "Project Abstract" as "Automation application Project abstract"
     And I navigate to "Budget" sub tab
+    And I wait for "3" seconds
     Then I softly see field "Justification for Project Cost" as "Justified"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
