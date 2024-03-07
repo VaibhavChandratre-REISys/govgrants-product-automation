@@ -542,6 +542,17 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     }
 
     /**
+     * It will check symbol is displayed
+     *
+     * @param symbol
+     * @param tableId
+     * * @param row value
+     */
+    public void assertSymbolIsDisplayedAgainstTheValue(String symbol, String rowValue, String tableId) {
+        Assert.assertTrue(assertSymbolIsDisplayedInsideTable(symbol, rowValue, tableId));
+    }
+
+    /**
      * It will check End date is displayed as per schedule base
      *
      * @param scheduleBase
@@ -949,6 +960,25 @@ public class InternalOrganizationPage extends GranteeProjectManager {
         try {
             if (("cross".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[contains(@class,'fa-close')]")))
                     || ("check".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[contains(@class,'fa-check')]")))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    /**
+     * return true/false if symbol is displayed/ not displayed
+     *
+     * @param symbol
+     * @param tableId
+     *  * @param rowValue
+     */
+    private boolean assertSymbolIsDisplayedInsideTable(String symbol, String rowValue,  String tableId) {
+        boolean flag = false;
+        try {
+            if (("cross".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[text()='" + rowValue + "']/ancestor::tr//*[contains(@class,'close')]")))
+                    || ("check".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[text()='" + rowValue + "']/ancestor::tr//*[contains(@class,'check')]")))) {
                 flag = true;
             }
         } catch (Exception e) {

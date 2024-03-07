@@ -165,6 +165,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click on "View" icon for "<Announcement Name>" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     And I navigate to "Overview" sub tab

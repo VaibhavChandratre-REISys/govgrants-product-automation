@@ -21,6 +21,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -1001,7 +1002,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     Then I softly see field "Status" as "Review Completed"
 #    Then I softly see that "Status" is in "Review Completed" status
     And I navigate to "Applications" tab
