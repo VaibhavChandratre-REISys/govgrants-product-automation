@@ -3227,7 +3227,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -4274,6 +4273,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Submit For Approval" in the page details
     And I pause execution for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
+    And I pause execution for "2" seconds
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     Then I softly see field "Status" as "Approved"
