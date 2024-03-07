@@ -1943,8 +1943,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Negotiation In Progress" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2014,6 +2015,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2116,7 +2118,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Negotiation In Progress" and is "dark blue"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2407,8 +2411,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Negotiation In Progress" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2626,8 +2631,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2986,7 +2992,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$2,000.00"
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Negotiation In Progress" and is "dark blue"
+    And I refresh the page
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3178,6 +3185,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000.00"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3351,8 +3359,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     #222556
@@ -4375,6 +4384,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
+    And I wait for "2" seconds
     Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
