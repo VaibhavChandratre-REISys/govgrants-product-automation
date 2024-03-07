@@ -2166,6 +2166,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2332,7 +2333,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "View" icon for "<Announcement Name>" inside table
     And I navigate to "Budget" sub tab
     #226436
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
 
     Examples:
       | Announcement Name                                |
@@ -4204,7 +4205,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Funding Decision Memos (FDM)"
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I see the following rows under the following headers in table with id "flexGridFundingDecisionMemoApplications" :
+    Then I see the following rows under the following headers in table with id "FundingDecisionMemoApplications" :
       | Allocation Amount | Budgeted Amount |
       | $2,000            | $1,000.00       |
 
@@ -5085,7 +5086,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter values into fields
       | Value                       | Field                 |
       | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Automation Test Description | Justification__c      |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
@@ -5717,7 +5718,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000"
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     #226381
@@ -5877,7 +5878,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
-    Then I softly see field "Allocation Amount" as "$2,000.00"
+    Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Submitted"

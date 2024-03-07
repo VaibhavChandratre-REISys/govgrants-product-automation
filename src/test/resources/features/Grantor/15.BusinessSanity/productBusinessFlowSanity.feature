@@ -1317,14 +1317,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
     And I pause execution for "5" seconds
-#    When I click on "Edit" in the page details
+    When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
-    And I pause execution for "5" seconds
     When I click on "Save" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "2" seconds
     When I click on "Send to Subrecipient" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1377,7 +1376,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
 #    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
-    And I wait for "1" seconds
     When I click modal button "Save"
     And I wait for "1" seconds
     When I click modal button "Close"
@@ -1385,7 +1383,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
 #    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
-    And I wait for "1" seconds
     When I click modal button "Save"
     And I wait for "1" seconds
     When I click modal button "Close"
@@ -1394,17 +1391,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
-    And I wait for "1" seconds
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 2 |
-    And I wait for "1" seconds
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
-    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1424,7 +1418,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Reviewer Name            | Role            | Description            | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Created" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1559,7 +1553,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "10" seconds
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1645,10 +1639,11 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1810,7 +1805,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
@@ -2414,7 +2409,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2547,7 +2542,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
