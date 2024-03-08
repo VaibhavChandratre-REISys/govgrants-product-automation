@@ -4631,7 +4631,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | <Announcement Name> | Yes                   | Recommended |
     And I refresh the page
     Then I softly see field "Total Allocation Funding" as "$1,000"
-    Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text for label "Total Allocation Funding"
+    When I hovering mouse on help text icon inside page block detail "Total Allocation Funding"
+    Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text
     #227729
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
