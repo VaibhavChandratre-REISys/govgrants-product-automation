@@ -2626,6 +2626,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
     And I refresh the page
+    And I pause execution for "2" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
