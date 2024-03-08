@@ -91,10 +91,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I expand nested table containing column value "<Application Name>"
-    When I login to "As a Grantor" app as "EXE" user
-    And I wait for "2" seconds
     And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
-    And I wait for "2" seconds
     Then I softly see "Automation PO: Review Declined" shown as help text
 
     Examples:
@@ -188,7 +185,6 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
