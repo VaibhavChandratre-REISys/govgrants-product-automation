@@ -1317,7 +1317,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
-    When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
