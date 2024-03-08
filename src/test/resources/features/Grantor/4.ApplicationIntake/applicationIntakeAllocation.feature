@@ -2944,6 +2944,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I click on "Edit" in the page details
+    And I pause execution for "2" seconds
     When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
@@ -2951,6 +2952,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter value "Justified" into field "Justification__c"
     And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -2966,8 +2969,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Publish" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
