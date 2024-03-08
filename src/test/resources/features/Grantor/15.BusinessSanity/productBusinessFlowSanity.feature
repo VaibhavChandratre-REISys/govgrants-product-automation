@@ -1773,6 +1773,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
+      | {SavedValue:EXE Username} | NA            |
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
@@ -1962,6 +1965,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 30                    |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                      | Reimbursement |
+      | {SavedValue:EXE Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
