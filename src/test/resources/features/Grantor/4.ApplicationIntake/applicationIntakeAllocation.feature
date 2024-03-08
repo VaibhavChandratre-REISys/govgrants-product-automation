@@ -2621,6 +2621,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I enter value "Justified" into field "Justification__c"
     And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
