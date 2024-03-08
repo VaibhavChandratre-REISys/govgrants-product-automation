@@ -3024,6 +3024,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #222481
+    And I wait for "2" seconds
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
