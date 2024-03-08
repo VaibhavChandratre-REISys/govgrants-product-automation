@@ -3224,14 +3224,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
+    And I pause execution for "2" seconds
     And I enter value "Justified" into field "Justification__c"
     And I enter value "No" into field "DetailedBudgetingRequired__c"
     When I click on "Save" in the page details
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
