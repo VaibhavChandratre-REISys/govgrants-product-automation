@@ -419,7 +419,7 @@ public final class GovGrantsAssertionSteps {
                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
                Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
            } else {
-               By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[(@title='" + headerText + "' or text()='" + headerText + "')]");
+               By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
                Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
            }
 
