@@ -1533,25 +1533,33 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
   @debug
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+  Scenario Outline: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SA8wYAG/view?c__tabname=UmVsYXRlZCBMb2c%3D"
-#    When I click on "View" icon for "Automation Runtime FDM Announcement109509" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-#    When I click on drop down for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    When I click on "View" icon for "SME Review" inside flex table "---applicationReview:-:reviewStepsTableId---"
-#     And I click on "Back to Announcement" in the page details
-     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-     And I click on "Back to Announcement" in the page details
-#    And I wait for "2" seconds
-#    And I click on "Back to Announcement" in the page details
-#    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    And I wait for "2" seconds
-#    And I click on "Back to Announcement" in the page details
-    And I halt execution
-#    Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
-#    Then I softly see field "Details" as "Negotiation Initiated"
-#    And I halt execution
+    When I login to "As a Grantor" app as "PO" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001AQ9h2AG/view"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
+      | {SavedValue:<User> Username} | Step 1 |
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
+    And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Funding Decision Memo" sub tab
+    And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
+    #227740
+    And I pause execution for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Budgeted Amount must be equal to the Allocation Amount in the applications. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
+
+    Examples:
+      | Announcement Name                                    | User |
+      | Automation Runtime Formula Announcement89976         | PO   |
 

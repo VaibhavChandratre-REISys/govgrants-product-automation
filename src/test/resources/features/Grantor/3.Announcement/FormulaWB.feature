@@ -4389,6 +4389,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
@@ -4882,7 +4883,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 500              |
@@ -4901,6 +4904,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
@@ -5097,6 +5102,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
       | <Announcement Name> | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
