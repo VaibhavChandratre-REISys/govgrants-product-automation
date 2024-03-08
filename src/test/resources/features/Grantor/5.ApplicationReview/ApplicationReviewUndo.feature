@@ -99,8 +99,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see "Automation PO: Review Declined" shown as help text
 
     Examples:
-      | Announcement Name                         | Application Name                          |
-      | Automation Runtime FDM Announcement115506 | Automation Runtime FDM Announcement115506 |
+      | Announcement Name                                | Application Name                                 |
+      | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
   @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657 @vaibhav @Undo
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
