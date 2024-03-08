@@ -162,9 +162,8 @@ public final class FlexTable implements FlexTableComponent {
         } else {
             I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         }
-       govgrants.perform().modal().acceptPopUp();
+        govgrants.perform().modal().acceptPopUp();
     }
-
 
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         WebElement desiredAction=null;
@@ -907,7 +906,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
                         + "/ancestor::tr[1]";
             }
-            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "]";
+            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
         }
         return By.xpath(desiredAction);
     }

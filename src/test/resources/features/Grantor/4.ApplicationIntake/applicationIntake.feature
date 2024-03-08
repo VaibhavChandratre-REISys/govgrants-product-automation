@@ -1,4 +1,4 @@
-@applicationIntake @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
+@hiteshApllication @applicationIntake @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
 Feature: Validate all scenarios in the Application Intake
 
   Background: Qualify Announcement and Create Application
@@ -11,13 +11,15 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
+    And I enter "Edition-app" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
 
   @34044 @70332 @applicationCreation
   Scenario: Validate creation of an Application | Validate once application is in created status, the user can view the Submit Application Button in page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly can see top right button "Submit Application" in page detail
 
   @34045 @applicationEdition
@@ -25,7 +27,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @34303 @addFocusAreaToApplication
   Scenario Outline: Addition of Focus area to an application
@@ -42,6 +44,8 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 100    | 100        | 100            | 100            |
+    Then I refresh the page
+    When I navigate to "Budget" sub tab
     Then I see value "$100.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
@@ -54,7 +58,7 @@ Feature: Validate all scenarios in the Application Intake
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     Then I see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
 
   @70333 @69367 @50969 @formFillingApplication @smoke
   Scenario: To fill and complete the form in Application | Validate whether user is allowed to proceed without filling Mandatory forms
@@ -67,9 +71,9 @@ Feature: Validate all scenarios in the Application Intake
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -79,17 +83,31 @@ Feature: Validate all scenarios in the Application Intake
       | Forms and Files Tab - All mandatory forms must be 100% completed. |
     When I navigate to "Forms and Files" sub tab
     Then I see only the following headers in table with id "---applicationReview:-:allFormsTableId---" :
-      | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |  Actions |
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    | Actions | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
+#    And I click on "Edit" in the split screen page details
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-   Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
-   Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
+    And I click on "Save" in the split screen page details
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
+    Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
 
   @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke @deepika
   Scenario Outline: Validate Viewing the application submitted by sub-recipient as Internal user | Validate whether user can view the edit button once application has been submitted to Grantor
@@ -103,22 +121,32 @@ Feature: Validate all scenarios in the Application Intake
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -133,8 +161,9 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    When I click on "View" icon for "<Application Name>" inside table
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    When I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
       | Application Name                                         | User |
@@ -147,6 +176,7 @@ Feature: Validate all scenarios in the Application Intake
   Validate whether user has ability to add and remove new focus area while creating an application |Validate whether system should throws a validation message on screen when user tries to remove the existing focus area while submitting an application
   Validate whether user is able to add more focus area to the table while submitting an application
     Given I click on "Edit" in the page details
+    #And I enter "Edition" values from "Application_Field_Values.xlsx"
     And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -158,29 +188,45 @@ Feature: Validate all scenarios in the Application Intake
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:AddFocusAreaTableAppId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
-    And I close modal by clicking the top right x button
+    When I click modal button "Close"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
+#    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+#    And I close the tab
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I wait for "2" seconds
+#    And I switch to tab number "1"
+    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" in the split screen page details
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
     Then I see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement for project cost before submitting this Application. |
 
@@ -195,18 +241,33 @@ Feature: Validate all scenarios in the Application Intake
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
+#    And I click on "Edit" in the split screen page details
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+#    And I close the tab
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I wait for "2" seconds
+#    And I switch to tab number "1"
+    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
     Then I see the following messages in the page details contains:
       | Proposal Tab - Provide Target Values for all Key Performance Indicators. |
@@ -231,8 +292,9 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "General Assurances" from computer
-    Then I softly see "General Assurances" has been added in "Supporting Documents Checklist" flex table
-    When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "Add" :
+    When I click modal button "Close"
+    Then I softly see "General Assurances" has been added in "Application Files" flex table
+    When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
@@ -248,22 +310,34 @@ Feature: Validate all scenarios in the Application Intake
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
+#    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" in the split screen page details
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -312,36 +386,47 @@ Feature: Validate all scenarios in the Application Intake
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
+#    And I navigate to "Forms and Files" sub tab
+##    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    Given I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
     And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
     When I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     And I click toggle button to select "Opportunities Converted to Application - Open"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-    When I click on "Create Application" in the page details
+#    When I click on "Create Application" in the page details
     #needtocheck 71409
 #    Then I softly see the following messages in the page details contains:
 #      | Application cannot be created as you have reached the maximum limit for allowed applications for {SavedValue:APPId} |
@@ -350,18 +435,17 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I save the value from row "1" for column name "Funding Opportunity Id" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I enter advance filter values inside id "advfcae"
-      | Funding Opportunity Id | Contains | Auto Demo |
-    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I refresh the page
-    And I click on advance filter "#advfcae" of table id "---applicationIntake:-:convertedToApplicationTableID---"
-    And I enter advance filter values inside id "advfcae"
-      | Funding Opportunity Id | Contains | {SavedValue:oppId} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
-    And I refresh the page
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Opportunity Name" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I save the value from row "1" for column name "Opportunity Name" as "oppId" from flex table "---applicationIntake:-:convertedToApplicationTableID---"
+#    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+#    And I enter advance filter values inside id "---applicationIntake:-avedValue:oppId} |
+#    And I refresh the page:convertedToApplicationTableID---" for LWC
+##      | Funding Opportunity Id | contains | Auto Demo |
+##    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
+##    And I refresh the page
+##    And I click on advance filter of table id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+##    And I enter advance filter values inside id "---applicationIntake:-:convertedToApplicationTableID---" for LWC
+##      | Funding Opportunity Id | contains | {S
+#    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     Then I softly see field "Opportunity Name" as "{SavedValue:Automation Runtime Announcement Application}"

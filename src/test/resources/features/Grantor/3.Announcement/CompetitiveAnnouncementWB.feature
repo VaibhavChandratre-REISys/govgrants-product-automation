@@ -1556,10 +1556,15 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+#    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I wait for "3" seconds
+    Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

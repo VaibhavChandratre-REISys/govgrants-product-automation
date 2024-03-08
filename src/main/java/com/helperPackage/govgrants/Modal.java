@@ -71,6 +71,7 @@ public final class Modal {
             }
         } catch (Exception e) {
 
+
         }
 
         //Comment box handler
