@@ -2625,8 +2625,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
-    And I refresh the page
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2827,7 +2826,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222462
     When I click on "Request Negotiation" in the page details
     And I click on "Edit" in the page details
-    And I halt execution
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Negotiation"
@@ -3008,6 +3006,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

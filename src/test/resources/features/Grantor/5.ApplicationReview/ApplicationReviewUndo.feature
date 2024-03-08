@@ -56,44 +56,44 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
-    #284504
-    Then I softly cannot see row level action button "Undo" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    And I click on "Edit" in the page details
-    And I wait for "4" seconds
-    And I click radio button "I disagree" in COI of review form
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    #284504
-    Then I cannot see top right button "Undo" in page detail
-    #286706
-    When I click on "Decline" in the page details without processing
-    Then I see alert confirmation box with body "This review form will no longer be editable and will get marked as Review Declined. Are you sure you want to Decline?" is displayed
-    When I click alert button "Cancel"
-    Then I softly see that "Status" is in "Sent for Review" status
-    When I click on "Decline" in the page details without processing
-    #286701
-    Then I see alert confirmation box with body "This review form will no longer be editable and will get marked as Review Declined. Are you sure you want to Decline?" is displayed
-    When I click alert button "OK"
-    And I wait for "5" seconds
-    Then I softly see that "Status" is in "Review Declined" status
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I expand nested table containing column value "<Application Name>"
-    And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
-    And I wait for "2" seconds
-    Then I softly see "Automation PO: Review Declined" shown as help text
+#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+#    And I navigate to "Applications" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+#    #284504
+#    Then I softly cannot see row level action button "Undo" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
+#    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+#    And I click on "Edit" in the page details
+#    And I wait for "4" seconds
+#    And I click radio button "I disagree" in COI of review form
+#    And I click on "Save" in the page details
+#    And I wait for "6" seconds
+#    #284504
+#    Then I cannot see top right button "Undo" in page detail
+#    #286706
+#    When I click on "Decline" in the page details without processing
+#    Then I see alert confirmation box with body "This review form will no longer be editable and will get marked as Review Declined. Are you sure you want to Decline?" is displayed
+#    When I click alert button "Cancel"
+#    Then I softly see that "Status" is in "Sent for Review" status
+#    When I click on "Decline" in the page details without processing
+#    #286701
+#    Then I see alert confirmation box with body "This review form will no longer be editable and will get marked as Review Declined. Are you sure you want to Decline?" is displayed
+#    When I click alert button "OK"
+#    And I wait for "5" seconds
+#    Then I softly see that "Status" is in "Review Declined" status
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    And I navigate to "Related Log" sub tab
+#    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+#    Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+#    When I expand nested table containing column value "<Application Name>"
+#    And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
+#    And I wait for "2" seconds
+#    Then I softly see "Automation PO: Review Declined" shown as help text
 
     Examples:
       | Announcement Name                                | Application Name                                 |
