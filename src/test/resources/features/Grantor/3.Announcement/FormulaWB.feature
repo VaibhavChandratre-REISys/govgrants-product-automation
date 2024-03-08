@@ -4395,6 +4395,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                        | FDM    |
+      | {SavedValue:ADMIN Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                        | FDM    |
       | {SavedValue:ADMIN Username} | Step 1 |
     Then I softly see that "{SavedValue:ADMIN Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
@@ -4909,6 +4912,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
@@ -5105,6 +5111,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |

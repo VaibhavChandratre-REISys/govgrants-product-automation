@@ -1249,7 +1249,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "1" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
@@ -1287,7 +1289,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
+    And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "Automation Runtime Announcement Application Review118292" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "Automation Runtime Announcement Application Review118292" inside flex table with id "---applicationReview:-:announcementListTableId---"
