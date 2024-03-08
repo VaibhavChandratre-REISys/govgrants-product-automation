@@ -1118,7 +1118,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    When I click on "Back" in the page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    Then I see status in Progress-bar is "Submitted" and is "dark green"
+    Then I see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1317,14 +1317,11 @@ Feature: Validate sanity testing of Complete Business Flow
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
-    And I pause execution for "5" seconds
     When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I pause execution for "2" seconds
     When I click on "Send to Subrecipient" in the page details
-    And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2019,17 +2016,21 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I pause execution for "3" seconds
+    And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                      | Progress Report |
+      | {SavedValue:EXE Username} | NA              |
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                      | Progress Report |
       | {SavedValue:EXE Username} | Step 1          |
@@ -2070,6 +2071,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | NA         |
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
@@ -2179,6 +2183,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA          |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
@@ -2364,6 +2371,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA          |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
