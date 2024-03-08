@@ -906,7 +906,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
                         + "/ancestor::tr[1]";
             }
-            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "]";
+            desiredAction += "//td//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", iconName) + "] | //td//*[" + I.amPerforming().sanityOfXpathTo().equals("@title", iconName) + "]";
         }
         return By.xpath(desiredAction);
     }
