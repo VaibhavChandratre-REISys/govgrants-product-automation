@@ -1532,18 +1532,25 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-   @formCheck
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Review__c/a3TDV000003aTyW2AU/view"
-    When I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001AQCH2A4/view"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+#      | Name                        | FDM    |
+#      | {SavedValue:ADMIN Username} | NA     |
+#    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+#      | Name                        | FDM    |
+#      | {SavedValue:ADMIN Username} | Step 1 |
+#    Then I softly see that "{SavedValue:ADMIN Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
+#    And I click on "Submit for Approval" in the page details
+#    And I wait for "3" seconds
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I "Approve" in the approval decision
+#    And I wait for "3" seconds
+#    Then I see status in Progress-bar is "Approved" and is "dark blue"
 
 
