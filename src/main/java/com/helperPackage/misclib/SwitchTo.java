@@ -125,7 +125,6 @@ public final class SwitchTo {
         driver.switchTo().window(getWindowsHandlers().get(handlerNumber));
         I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Switch to new tab ");
     }
-
     /**
      * get text of the alert
      *

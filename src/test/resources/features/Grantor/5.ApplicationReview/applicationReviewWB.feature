@@ -71,7 +71,6 @@ Feature: Validate all scenarios in the Application Review without background
     #As we cannot get this error message, same time page getting refreshed
 #    Then I softly see the following messages in the page details contains:
 #      | The review process has been initiated |
-
     Examples:
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
