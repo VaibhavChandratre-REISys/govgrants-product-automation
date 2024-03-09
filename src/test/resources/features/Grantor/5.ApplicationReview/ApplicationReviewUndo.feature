@@ -208,8 +208,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation EXE | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
+      | Name                     | Announcement |
+      | {SavedValue:EXE Username} | Step 1       |
+#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+#      | Name           | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
+#      | Automation EXE | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -223,7 +226,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
       | Step Order | Step Name       | Description |
       | 4          | Automation Test | Testing     |
-    And I expand nested table containing column value "Automation Test"
+   And I expand nested table containing column value "Automation Test"
+    And I pause execution for "2" seconds
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
       | Form Name       |
       | Automation Test |
@@ -234,6 +238,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -300,6 +305,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -578,6 +584,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
@@ -667,6 +674,25 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+#    And I expand nested table containing column value "Pre-Screen Review"
+#    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+#      | Section Header | Section Weight (%) |
+#      | Eligibility    | 50                 |
+#      | Completeness   | 50                 |
+#    And I pause execution for "2" seconds
+#    And I expand nested table containing column value "Eligibility"
+#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+#      | Question Order | Question  | Type    | Max Score |
+#      | 1              | Question1 | Written | 100       |
+#    And I pause execution for "2" seconds
+#    #And I collapse nested table containing column value "Eligibility"
+#    And I expand nested table containing column value "Completeness"
+#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+#      | Question Order | Question  | Type    | Max Score |
+#      | 1              | Question1 | Written | 100       |
+#    And I pause execution for "2" seconds
+#    When I close "Review Form" modal by clicking the top right x button
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name           | Announcement |
