@@ -237,6 +237,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
