@@ -1538,7 +1538,8 @@ Feature: Validate all scenarios of every modules flow
 #    And I login to "Grants Portal" app as "SPI3" user
     When I login to "As a Grantor" app as "ADMIN" user
     And I halt execution
-    And I navigate to "History" sub tab
-    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    And I submit the approval in the approval decision without processing
+    Then I softly see the following messages in the page details contains:
+      | Please select appropriate action before submitting. |
     And I halt execution
 
