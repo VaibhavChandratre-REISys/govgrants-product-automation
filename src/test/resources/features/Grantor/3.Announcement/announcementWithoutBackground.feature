@@ -302,7 +302,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 150.00%. |
     And I pause execution for "3" seconds
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Fiscal Review  | 20              |
@@ -313,7 +313,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 40.00%. |
     And I pause execution for "3" seconds
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Fiscal Review  | 0               |
@@ -324,7 +324,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
     And I pause execution for "3" seconds
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Fiscal Review  | 60              |
@@ -335,19 +335,19 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | There are no errors with the review step templates. |
     And I pause execution for "3" seconds
     And I refresh the page
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name      | Form Weight (%) |
       | Program Review | 70              |
     And I pause execution for "3" seconds
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     When I enter the following values into flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "New" :
       | Step Order | Step Name           | Description | Step Weight (%) |
       | 4          | Program Review Form | Test        | 70.00%          |
     And I pause execution for "2" seconds
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
     And I pause execution for "3" seconds
-    And I expand nested table containing column value "SME Review"
+#    And I expand nested table containing column value "SME Review"
     And I click on "Delete" icon for "Program Review Form" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted successfully. |

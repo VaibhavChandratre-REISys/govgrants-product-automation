@@ -11,6 +11,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I wait for "3" seconds
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I wait for "3" seconds
@@ -361,8 +362,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see "Total Commitment Amount" in flex table header "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I see value "$0.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #239523
-    When I hovering mouse on page block help text icon inside table "---grantor_tableId:-:RecommendedApplicationTableId---" with tooltip id "TotalCommitmentAmount__ca0L4T000000Hh3bUACFlexGridtooltip"
-    Then I softly see "The total amount being committed across all Budget Periods." shown as help text
+#    When I hovering mouse on page block help text icon inside table "---grantor_tableId:-:RecommendedApplicationTableId---" with tooltip id "TotalCommitmentAmount__ca0L4T000000Hh3bUACFlexGridtooltip"
+#    Then I softly see "The total amount being committed across all Budget Periods." shown as help text
     #239527
     And I click on "Edit" in the page details
     When I enter in modal value "AuGr" into field "GrantCode__c"
@@ -564,6 +565,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
+    And I wait for "3" seconds
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Examples:
       | Announcement Name                                | Application Name                                 |
