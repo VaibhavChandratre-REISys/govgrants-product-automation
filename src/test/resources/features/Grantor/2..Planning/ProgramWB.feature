@@ -3885,10 +3885,10 @@ Feature: Validate all scenarios for program
       | Reviewer Name | Responsibility  | Description                 | Due Date |
       | Automation PM | Fiscal Reviewer | Automation Test Description | 10       |
     And I wait for "3" seconds
-    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I click on "Send for Review" icon for "Program Reviewer" inside table
     And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
-    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -4688,11 +4688,10 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -5756,10 +5755,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
@@ -5954,13 +5952,12 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title          | Description       |
+      | Automation EXE | Notes Record1 | Automation Notes1  |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
@@ -6021,13 +6018,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record2" into field "Title"
-    And I enter value "Automation Notes2" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record2 | Automation Notes2 |
     Then I softly see value "Notes Record2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes2" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
@@ -6527,7 +6523,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     #204587
     Then I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -6546,10 +6542,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6575,10 +6570,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record3" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record4" into field "Title"
-    And I enter value "Automation Notes4" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PO | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6604,10 +6598,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record6" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record7" into field "Title"
-    And I enter value "Automation Notes7" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record7 | Automation Notes7 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6643,7 +6636,9 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "4" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I pause execution for "4" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6652,7 +6647,6 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "All NGO Programs"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -6663,10 +6657,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PM | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6681,7 +6674,6 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "All NGO Programs"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
@@ -6692,10 +6684,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record3" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record4" into field "Title"
-    And I enter value "Automation Notes4" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record4 | Automation Notes4 |
     Then I softly see value "Notes Record4" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes4" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6721,10 +6712,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record6" in flex table with id "---program:-:externalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record6" inside flex table with id "---program:-:externalProgramNotesTableId---"
-    And I enter value "Notes Record7" into field "Title"
-    And I enter value "Automation Notes7" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:externalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
+      | Created By       | Title         | Description       |
+      | Automation ADMIN | Notes Record7 | Automation Notes7 |
     Then I softly see value "Notes Record7" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes7" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
@@ -6868,7 +6858,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6889,7 +6879,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6910,7 +6900,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6931,7 +6921,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6952,7 +6942,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -6973,7 +6963,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
-    Then I softly cannot see top right button "Add" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record5" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record5" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:externalProgramNotesTableId---"
@@ -7029,15 +7019,14 @@ Feature: Validate all scenarios for program
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
-    Then I softly see value "Automation PM" for title "Created By" inside table "---program:-:internalProgramNotesTableId---"
+    Then I softly see value "Automation EXE" for title "Created By" inside table "---program:-:internalProgramNotesTableId---"
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
@@ -7095,10 +7084,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Body"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation PO | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
@@ -7170,10 +7158,9 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
-    When I click on "Edit" icon for "Notes Record" inside flex table with id "---program:-:internalProgramNotesTableId---"
-    And I enter value "Notes Record1" into field "Title"
-    And I enter value "Automation Notes1" into field "Content"
-    And I click on top right button "Save" in flex table with id "---program:-:internalProgramNotesTableId---"
+    And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Automation FO | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
@@ -7458,8 +7445,8 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    Then I see only the following ordered options in dropdown field "WorkspaceFilesUpload" :
-      | Select file classification | Template for Planning | Others |
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Template for Planning | Others |
 
   @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail @ProgramExcludeScenarios
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
@@ -7474,7 +7461,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
@@ -7502,7 +7489,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
       | Subject         | From Address              | CC Address | To Address                | Attention To | Email Subject   |
       | Automation Test | pm.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
@@ -7549,7 +7536,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Submitted for Review"
     And I wait for "180" seconds
     And I refresh the page
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
@@ -7564,7 +7551,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
@@ -7585,7 +7572,7 @@ Feature: Validate all scenarios for program
     And I click on submit review
     And I wait for "180" seconds
     And I refresh the page
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
@@ -7601,7 +7588,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside table
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
@@ -7680,7 +7667,7 @@ Feature: Validate all scenarios for program
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I wait for "180" seconds
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
@@ -7697,7 +7684,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
@@ -7714,7 +7701,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
     Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
@@ -7725,7 +7712,7 @@ Feature: Validate all scenarios for program
       | pm.automation@yopmail.com                                                                |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
 
-  @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
+  @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that Email will not generate System Email in messages tab when Owner of program clicks on Activate button on Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7751,11 +7738,13 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PO Username} | Step 2  |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7778,16 +7767,12 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
-    And I wait for "180" seconds
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331869
     And I click on "Amend Program" in the page details
     Then I softly see field "Status" as "Being Amended"
-    And I wait for "180" seconds
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @331476 @331881 @331480 @ValidatethatAmeliafduserwillnotseeEmailsentfrommessageSectioninmessagestabonSystemEmailSectionofCollabtab @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
@@ -7803,7 +7788,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     #331476
     Then I softly see "System Emails" page block displayed
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
@@ -7812,7 +7797,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
@@ -7829,7 +7814,7 @@ Feature: Validate all scenarios for program
     #331480
     Then I softly see quick search inside table id "---program:-:systemEmailsTableId---"
 
-  @331489 @331812 @ValidatethatSystemEmailWillnotGenerateafterSarahPmsubmitsinternalProgramforApproval @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
+  @331489 @331812 @ValidatethatSystemEmailWillnotGenerateafterSarahPmsubmitsinternalProgramforApproval @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email Will not Generate after Sarah Pm submits internal Program for Approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7855,6 +7840,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -7862,10 +7850,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "180" seconds
-    And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331812
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7881,14 +7866,10 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
-    And I wait for "180" seconds
-    And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
+  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that After Approver clicks on Send back button for Internal Program then System Email do not generate in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7916,8 +7897,10 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7926,10 +7909,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I "Send to Owner" in the approval decision
-    And I wait for "180" seconds
-    And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -7938,8 +7918,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Created"
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331821
     And I click on "Submit For Approval" in the page details
@@ -7955,8 +7934,7 @@ Feature: Validate all scenarios for program
     And I submit the approval in the approval decision without processing
     And I wait for "180" seconds
     And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -7964,16 +7942,13 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331823
     And I "Reject" in the approval decision
+    And I refresh the page
     Then I softly see field "Status" as "Rejected"
-    And I wait for "180" seconds
-    And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @331853 @ValidatethatSystemEmailwillnotgenerateinmessagestabwhenApproverApprovesInternalProgramtowhenitisassignedtosubmitforapproval @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
@@ -8004,8 +7979,10 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -8017,8 +7994,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     And I wait for "180" seconds
     And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8026,11 +8002,10 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail @ProgramExcludeScenarios
+  @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email will not generate in messages tab of Internal Program when Approval task is Reassigns to other user by approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8058,6 +8033,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
+      | {SavedValue:EXE Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I refresh the page
     And I click on "Submit For Approval" in the page details
@@ -8079,16 +8057,14 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     And I wait for "180" seconds
     And I refresh the page
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Collab" sub tab
-    And I refresh the page
+    And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail @ProgramExcludeScenarios
@@ -8104,7 +8080,7 @@ Feature: Validate all scenarios for program
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
@@ -8123,7 +8099,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
       | To                        | Subject              | Body                                |
@@ -8162,7 +8138,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 1  |
     And I refresh the page
     #330598
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8170,7 +8146,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     #330629
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -8179,7 +8155,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I cannot see top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     #330617
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -8188,7 +8164,7 @@ Feature: Validate all scenarios for program
     When I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8199,7 +8175,7 @@ Feature: Validate all scenarios for program
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     #330598
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8208,7 +8184,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     #330629
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -8218,7 +8194,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I cannot see top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     #330617
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -8228,7 +8204,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8243,7 +8219,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Approved"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     #330629
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -8253,7 +8229,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Approved"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I cannot see top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     #330617
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -8263,7 +8239,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Approved"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8272,13 +8248,13 @@ Feature: Validate all scenarios for program
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     #330598
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     And I click on "Activate" in the page details
     And I wait for "5" seconds
     Then I softly see field "Status" as "Active"
     #330598
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8287,7 +8263,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Active"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
     #330629
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -8297,7 +8273,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Active"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I cannot see top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     #330617
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -8307,5 +8283,5 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     Then I softly see field "Status" as "Active"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"

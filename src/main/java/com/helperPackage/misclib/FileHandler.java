@@ -45,6 +45,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -271,8 +272,10 @@ public final class FileHandler {
      * Function will use to download any file from multiple window tabs using url - Updated function
      */
     public void DownloadAnyFilefromTab(){
-        ArrayList<String> tabs = new ArrayList<>(I.amPerforming().switchTo().getWindowsHandlers());
-        I.amPerforming().switchTo().windowHandler(Integer.parseInt((tabs.get(1)))); // Adjust the index if needed incase of multiple window tabs
+//        ArrayList<String> tabs = new ArrayList<>(I.amPerforming().switchTo().getWindowsHandlers());
+//        I.amPerforming().switchTo().windowHandler(Integer.parseInt((tabs.get(1))));
+        Set<String> tabs =driver.getWindowHandles();
+        I.amPerforming().switchTo().windowHandler((tabs.size()-1));
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

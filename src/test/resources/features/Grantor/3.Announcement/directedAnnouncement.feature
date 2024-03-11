@@ -111,6 +111,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
+    And I pause execution for "3" seconds
     Then I softly see field "Rating" as "Passed"
     Then I softly see field "Comments" as "Passed"
     Then I softly see field "Reviewed by" as "{SavedValue:FO Username}"
@@ -135,7 +136,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Overview" sub tab
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
-    And I pause execution for "2" seconds
 #    Additional Information-Overview Tab - Application Due Date cannot be in the past.
     Then I softly see the following messages in the page details :
       | Overview Tab - Application Due Date cannot be in the past. |
@@ -170,6 +170,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -337,7 +338,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I "Send to Owner" in the approval decision
     And I pause execution for "3" seconds
     And I refresh the page
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab

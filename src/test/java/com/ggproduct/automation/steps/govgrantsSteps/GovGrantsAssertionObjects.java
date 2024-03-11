@@ -93,7 +93,7 @@ public final class GovGrantsAssertionObjects {
                 By.xpath("//span[text()='" + record + "']"
                         + "/../../../../../../../..//div//dt"
                         + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "']"), true);
+                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='Status']//following-sibling::div//lightning-formatted-text[text()='" + status + "']"), true);
     }
 
     /**
@@ -1035,8 +1035,8 @@ public final class GovGrantsAssertionObjects {
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox']"));
-            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title]");
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "']"));
+            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item");
             List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
                     .stream().map(Elements::getText).collect(Collectors.toList());
 

@@ -214,7 +214,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Draft"
-    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
+#    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
     Then I softly see value "Created" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
@@ -222,6 +222,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I enter value "Yes" into field "QAAvailability__c"
     Then I softly see the text containing "Question Deadline"
     Then I softly see the text containing "Response Deadline"
@@ -1575,7 +1576,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:FO Username} | Step 1       |
-    Then I softly see "You cannot specify the same step for multiple users for Announcement." inside flex table with id "---announcement:-:approversTableId---"
+    Then I see the following messages in the page details contains:
+      | You cannot specify the same step for multiple users for Announcement. |
 
   @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @monu
   Scenario: Validate owner cant add same user  for multiple steps for announcement
@@ -1647,7 +1649,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920 
+  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1710,7 +1712,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
