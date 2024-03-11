@@ -73,6 +73,7 @@ public final class GovGrantsObjects {
                         counter++;
                     }
                 }
+            }
                 if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
                     govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
                             govgrants.perform().pageDetails().idOfRecord);
@@ -81,7 +82,7 @@ public final class GovGrantsObjects {
                 }
             }
         }
-    }
+
 
     /**
      * perform click on advance filter with table id
