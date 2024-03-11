@@ -1587,7 +1587,7 @@ Feature: Validate all scenarios for program
     And I select value "Automation PM1" into field "input-1"
     And I select value "Automation PM" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
