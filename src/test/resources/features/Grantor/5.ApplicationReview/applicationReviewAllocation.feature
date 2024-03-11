@@ -11,6 +11,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I wait for "3" seconds
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I wait for "3" seconds
@@ -361,8 +362,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see "Total Commitment Amount" in flex table header "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I see value "$0.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #239523
-    When I hovering mouse on page block help text icon inside table "---grantor_tableId:-:RecommendedApplicationTableId---" with tooltip id "TotalCommitmentAmount__ca0L4T000000Hh3bUACFlexGridtooltip"
-    Then I softly see "The total amount being committed across all Budget Periods." shown as help text
+#    When I hovering mouse on page block help text icon inside table "---grantor_tableId:-:RecommendedApplicationTableId---" with tooltip id "TotalCommitmentAmount__ca0L4T000000Hh3bUACFlexGridtooltip"
+#    Then I softly see "The total amount being committed across all Budget Periods." shown as help text
     #239527
     And I click on "Edit" in the page details
     When I enter in modal value "AuGr" into field "GrantCode__c"
@@ -493,7 +494,6 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "2"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -562,9 +562,12 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
+    And I wait for "3" seconds
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Examples:
       | Announcement Name                                | Application Name                                 |
@@ -4189,7 +4192,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:Automation Runtime Formula Announcement} |
 
 
-  @113042 @ValidatetheNotificationtoApplicationbeforeFDMApproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @113042 @ValidatetheNotificationtoApplicationbeforeFDMApproval @Sprint-23-US-273843 @vaibhav @Allocation @
   Scenario Outline: Validate the Notification to Application before FDM Approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"

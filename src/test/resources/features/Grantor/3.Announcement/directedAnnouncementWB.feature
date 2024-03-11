@@ -42,9 +42,9 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "Automation SPI3" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -83,6 +83,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see value "{SavedValue:AppEgmdId}" for title "Application EGMS ID" inside table "---announcement:-:directedInvitedApplicatsTableId---"
     Then I softly see value "Submitted to Grantor" for title "Application Status" inside table "---announcement:-:directedInvitedApplicatsTableId---"
     And I click on hyperlink containing value "{SavedValue:AppEgmdId}"
+    And I wait for "3" seconds
     Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
@@ -96,6 +97,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "ActiveFundingOpportunities" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
@@ -177,7 +179,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see value "Submitted to Grantor" for title "Application Status" inside table "---announcement:-:directedInvitedApplicatsTableId---"
     And I click on hyperlink containing value "{SavedValue:AppEgmdId}"
     And I wait for "5" seconds
-#    Then I see the header is "Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
   @219102 @219104 @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
@@ -410,17 +411,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2011,17 +2012,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2085,7 +2086,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    Then I close "Assign Applications" modal by clicking the top right x button
+    When I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2228,17 +2229,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2302,7 +2303,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    Then I close "Assign Applications" modal by clicking the top right x button
+    When I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2444,17 +2445,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2518,7 +2519,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    Then I close "Assign Applications" modal by clicking the top right x button
+    When I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2696,5 +2697,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
     And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |

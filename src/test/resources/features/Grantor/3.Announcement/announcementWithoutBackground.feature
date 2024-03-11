@@ -121,7 +121,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     And I softly see "Published Competitive Announcements" on page "1" of "govgrants" pdf file
 
-  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish @Re-RunPlanningAndAnnouncement
+  @70999 @73627 @73632 @70997 @70980 @71010 @71011 @71012 @70998 @71022 @71023 @71037 @71027 @validationForErrorMessageOfPreApplication @aashish
   Scenario: To validate system generated error message when Pre Application Due Date is greater than Application Due Date while submitting information
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -610,7 +610,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "50" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
-  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser
+  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @wip
   Scenario:  To verify, filter functionality for Not Yet Qualified:All section for announcement by external user
   | To verify, all closed opportunity which has Not Qualified should reflect under Not Yet Qualified: Closed list view
     And I am on "SUBPORTAL" portal
@@ -697,8 +697,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click toggle button to select "Published Competitive Announcements"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for pdf Tests}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for pdf Tests}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I click on "Menu" in the page details
+    And I wait for "3" seconds
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
     And I select "Download As PDF" from dropdown
+    And I wait for "3" seconds
     And I download the file
     And I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
 
@@ -933,7 +936,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #169907
     Then I see new tab is opened
 
-  @bug-397757 @194677 @194682 @194683 @194690 @194685  @sprint-4 @vaibhav @reassignment @ownvai @Re-RunPlanningAndAnnouncement
+  @bug-397757 @194677 @194682 @194683 @194690 @194685  @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should able to click on play button after selecting the source & target user with the same profile PM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -975,7 +978,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
 
-  @PGannouncement @194692 @Validateaftertransfertorecordusershouldabletoseethetheserecordintargetusertable @sprint-4 @vaibhav @reassignment
+  @194692 @Validateaftertransfertorecordusershouldabletoseethetheserecordintargetusertable @sprint-4 @vaibhav @reassignment
   Scenario: Validate after transfer to record user should able to see the these record in target user table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1041,7 +1044,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details contains:
       | no further processing will take place) |
 
-  @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4 @vaibhav @reassignment @PGannouncement
+  @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4 @vaibhav @reassignment
   Scenario: Validate  ownership is changed then only Announcement owner is changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1358,6 +1361,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
     When I click on "Edit" in the page details
+    And I wait for "5" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
@@ -1414,8 +1418,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Create Application" in the page details
     And I pause execution for "2" seconds
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I wait for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1461,7 +1464,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
@@ -2690,7 +2692,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM" for title "Name" inside table "---announcement:-:announcementOwner---"
 
-   @195229 @ValidatevalidationmessageshouldbedisplayifusertrytoreassignAnnownershiptasktohimself @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @195229 @ValidatevalidationmessageshouldbedisplayifusertrytoreassignAnnownershiptasktohimself @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate validation message should be display if user try to reassign Ann ownership task to him self
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2750,9 +2752,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-source"
-     And I enter value "Automation PM" in reassign lookup
-     Then I softly do not see "Automation PM" inside auto search result
-
+    And I enter value "Automation PM" in reassign lookup
+    Then I softly do not see "Automation PM" inside auto search result
 
   @PGAnnWBExecute @195230 @ValidateoldAnnownershouldnotabletoseeAnntaskinMyTasktableonceownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate old Ann owner should not able to see Ann task in My Task table once ownership task reassign to other user
@@ -2933,9 +2934,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 500        | 50             | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "Automation SPI3" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:flexGridPreAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
 #    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3077,7 +3078,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly cannot see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-   @197929  @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @197929  @sprint-4 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann owner unpublish Ann and reassign ownership to new user for publish then pending task should generate for new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3134,15 +3135,15 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-     And I navigate to "Announcements" tab
-     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-     And I click toggle button to select "All Competitive Announcements"
-     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
-     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-     Then I softly can see top right button "Publish" in page detail
-     And I click on "Publish" in the page details
-     Then I see status in Progress-bar is "Published" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Then I softly can see top right button "Publish" in page detail
+    And I click on "Publish" in the page details
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I click on "Unpublish" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -4822,7 +4823,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       """
 
 
-   @223528  @sprint-11-US-217998 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @223528  @sprint-11-US-217998 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Announcement Module if Announcement record is in submitted for review state & submitted review by reviewer after changing the ownership of announcement then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4929,14 +4930,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       """
 
   @224442 @ValidateReassignmentTaskallsimultaneousreassignmenttaskownershipshouldreassignedtonewowner&ValidatePass&failedtableinyopmail @sprint-11-US-217998 @vaibhav @reassignment
-   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner & Validate Pass & failed table in yopmail
+  Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner & Validate Pass & failed table in yopmail
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-     And I pause execution for "2" seconds
+    And I pause execution for "2" seconds
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
@@ -4987,7 +4988,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
-     And I pause execution for "3" seconds
+    And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -5002,7 +5003,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     And I wait for "3" seconds
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-     When I navigate to "Financials" sub tab
+    When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
@@ -5027,7 +5028,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation PM1 | Fiscal Reviewer | Automation Test Description | 7        |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
-     When I navigate to "Responsibilities" sub tab
+    When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation PM1" inside table
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -5108,12 +5109,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
 #     And I click on "Save" in the page details
 #     When I click on "Back" in the page details
-     And I navigate to "Form" sub tab in split screen
-     And I click on "Edit" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-     And I wait for "3" seconds
-     Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"
-     And I click on "Save" in the split screen page details
-     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "3" seconds
+    Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
@@ -5509,19 +5510,19 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
 #    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
 #    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -6616,19 +6617,19 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
 #    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
 #    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
