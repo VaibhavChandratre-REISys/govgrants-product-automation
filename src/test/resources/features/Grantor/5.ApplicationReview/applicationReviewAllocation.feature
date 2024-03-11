@@ -493,7 +493,6 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "2"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -4189,7 +4188,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:Automation Runtime Formula Announcement} |
 
 
-  @113042 @ValidatetheNotificationtoApplicationbeforeFDMApproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @113042 @ValidatetheNotificationtoApplicationbeforeFDMApproval @Sprint-23-US-273843 @vaibhav @Allocation @
   Scenario Outline: Validate the Notification to Application before FDM Approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
