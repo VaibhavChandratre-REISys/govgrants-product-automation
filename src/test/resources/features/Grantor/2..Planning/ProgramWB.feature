@@ -7287,7 +7287,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---program:-:externalProgramNotesTableId---" by clicking "Edit" :
       | Created By       | Title         | Description       |
-      | Automation Admin | Notes Record1 | Automation Notes1 |
+      | Automation ADMIN | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
