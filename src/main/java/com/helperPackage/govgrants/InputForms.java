@@ -302,6 +302,8 @@ public final class InputForms {
         }
     }
 
+
+
     public void completeFillingReviewForm(String recommendation) {
 //        try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
@@ -379,75 +381,161 @@ public final class InputForms {
      * @author hema.ananthan
      * @modified mahadev.hanme
      * @modifier vaibhav.chandratre updated values for check the score
+     *
+     *
      */
+
     public void completeFillReviewForm(String recommendation) {
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
-                I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewForLwcFromPath)) {
+                I.amPerforming().click().withJavaScript(ConflictOfInterestReviewForLwcFromPath);
             }
-            I.amPerforming().dropDownSelection().from(getSummaryRecommendationXpath()).selectByValue(recommendation);
-            I.amPerforming().textInput().in(getSummaryComments(), "Automation test description");
+            I.amPerforming().click().on(By.xpath("//div[@class='slds-tabs_default']//li[@title='Review' or @name='Review']"));
+            I.amPerforming().click().on(getSummaryRecommendationForLwcXpath());
+            I.amPerforming().click().on(selectRecommendationForLwcXpath(recommendation));
+            I.amPerforming().textInput().in(getSummaryCommentsForLwc(), "Automation test description");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkTextAreaPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    I.amPerforming().textInput().toClear(getTextAreaReviewForm(getTitlesInForm().get(i), j));
-                    I.amPerforming().textInput().in(getTextAreaReviewForm(getTitlesInForm().get(i), j), "Automation test description");
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkTextAreaPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getTextAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getTextAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "Automation test description");
                 }
             }
         }
 
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkTextInputScorePresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    I.amPerforming().textInput().toClear(getTextInputScoreReviewForm(getTitlesInForm().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputScoreReviewForm(getTitlesInForm().get(i), j), "4");
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkInputAreaPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getInputAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getInputAreaReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "Automation description");
                 }
             }
         }
 
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkDropdownPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    Select select = I.amPerforming().dropDownSelection().from(checkDropdownReviewForm(getTitlesInForm().get(i), j));
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkTextInputScorePresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getTextInputScoreReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getTextInputScoreReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "4");
+                }
+            }
+        }
+
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkDropdownPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().click().withJavaScript(checkDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     try {
-                        select.selectByVisibleText("No");
+                        I.amPerforming().click().withJavaScript(selectDropdownReviewFormForLwc1(getTitlesInFormForLwc().get(i), j));
                     } catch (Exception e) {
-                        select.selectByVisibleText("Low");
+                        I.amPerforming().click().withJavaScript(selectDropdownReviewFormForLwc1(getTitlesInFormForLwc().get(i), j));
                     }
                 }
             }
         }
 
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkTextInputPercentPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    I.amPerforming().textInput().toClear(getTextInputPercentReviewForm(getTitlesInForm().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputPercentReviewForm(getTitlesInForm().get(i), j), "20");
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if ( checkTextInputPercentPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getTextInputPercentReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getTextInputPercentReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "20");
                 }
             }
         }
 
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkTextInputDollarPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    I.amPerforming().textInput().toClear(getTextInputDollarReviewForm(getTitlesInForm().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputDollarReviewForm(getTitlesInForm().get(i), j), "2000");
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <=  getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkTextInputDollarPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getTextInputDollarPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getTextInputDollarPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "2000");
                 }
             }
         }
 
-        for (int i = 0; i < getTitlesInForm().size(); i++) {
-            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
-                if (checkTextInputDatePresentReviewForm(getTitlesInForm().get(i), j) > 0) {
-                    I.amPerforming().textInput().toClear(getTextInputDateReviewForm(getTitlesInForm().get(i), j));
-                    I.amPerforming().textInput().in(getTextInputDateReviewForm(getTitlesInForm().get(i), j), "09/09/2023");
+        for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
+            for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
+                if (checkTextInputDatePresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
+                    I.amPerforming().textInput().toClear(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().textInput().in(getTextInputDateReviewFormForLwc(getTitlesInFormForLwc().get(i), j), "09/09/2023");
+                    I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
                 }
             }
         }
     }
+
+//    public void completeFillReviewForm(String recommendation) {
+//        try {
+//            if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
+//                I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
+//            }
+//            I.amPerforming().dropDownSelection().from(getSummaryRecommendationXpath()).selectByValue(recommendation);
+//            I.amPerforming().textInput().in(getSummaryComments(), "Automation test description");
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkTextAreaPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    I.amPerforming().textInput().toClear(getTextAreaReviewForm(getTitlesInForm().get(i), j));
+//                    I.amPerforming().textInput().in(getTextAreaReviewForm(getTitlesInForm().get(i), j), "Automation test description");
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkTextInputScorePresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    I.amPerforming().textInput().toClear(getTextInputScoreReviewForm(getTitlesInForm().get(i), j));
+//                    I.amPerforming().textInput().in(getTextInputScoreReviewForm(getTitlesInForm().get(i), j), "4");
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkDropdownPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    Select select = I.amPerforming().dropDownSelection().from(checkDropdownReviewForm(getTitlesInForm().get(i), j));
+//                    try {
+//                        select.selectByVisibleText("No");
+//                    } catch (Exception e) {
+//                        select.selectByVisibleText("Low");
+//                    }
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkTextInputPercentPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    I.amPerforming().textInput().toClear(getTextInputPercentReviewForm(getTitlesInForm().get(i), j));
+//                    I.amPerforming().textInput().in(getTextInputPercentReviewForm(getTitlesInForm().get(i), j), "20");
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkTextInputDollarPresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    I.amPerforming().textInput().toClear(getTextInputDollarReviewForm(getTitlesInForm().get(i), j));
+//                    I.amPerforming().textInput().in(getTextInputDollarReviewForm(getTitlesInForm().get(i), j), "2000");
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getTitlesInForm().size(); i++) {
+//            for (int j = 1; j <= getcountForRowsReviewForm(getTitlesInForm().get(i)); j++) {
+//                if (checkTextInputDatePresentReviewForm(getTitlesInForm().get(i), j) > 0) {
+//                    I.amPerforming().textInput().toClear(getTextInputDateReviewForm(getTitlesInForm().get(i), j));
+//                    I.amPerforming().textInput().in(getTextInputDateReviewForm(getTitlesInForm().get(i), j), "09/09/2023");
+//                }
+//            }
+//        }
+//    }
+
+
 
     /******* "Private methods with limited functonality - Private" **************/
 
@@ -1393,6 +1481,12 @@ public final class InputForms {
     private By selectDropdownReviewFormForLwc(String title, int qNumber) {
         return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button[@role='combobox']/../..//span[text()='Yes' or text()='Medium' ]");
     }
+
+    private By selectDropdownReviewFormForLwc1(String title, int qNumber) {
+        return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//button[@role='combobox']/../..//span[text()='No' or text()='Low' ]");
+    }
+
+
 
     /**
      * clear value from fields present on form page

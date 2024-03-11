@@ -1632,7 +1632,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
      """
 
-  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo @Pre-ScreenOnHoldSPI
+  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo
   Scenario: Announcement Verify that any user will not see Undo button when Announcement record is in Submitted for review state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1642,6 +1642,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
     And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
@@ -1677,6 +1678,7 @@ Feature: Validate all scenarios in the Announcement with Undo
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 7        |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Review" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
