@@ -4104,7 +4104,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Average Weighted Score" as "AverageWeightedScore" from flex table "---applicationReview:-:appTableId---"
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
