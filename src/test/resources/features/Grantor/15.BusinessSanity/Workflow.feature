@@ -1536,8 +1536,9 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "As a Grantor" app as "ADMIN" user
     And I halt execution
-    When I complete filling in the Review form with recommendation "Recommended"
+    And I navigate to "History" sub tab
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     And I halt execution
 
