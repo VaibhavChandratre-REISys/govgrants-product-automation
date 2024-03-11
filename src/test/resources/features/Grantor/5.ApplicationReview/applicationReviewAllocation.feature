@@ -562,7 +562,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "3" seconds
