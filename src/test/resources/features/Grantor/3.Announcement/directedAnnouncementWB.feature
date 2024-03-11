@@ -2286,7 +2286,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @Pre-ScreenOnHoldSPI @234227 @234231 @234233 @CompAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @234227 @234231 @234233 @CompAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Comp Ann IND user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the Recommended Amount
   | Comp Ann>> Verify IND user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Comp Ann>> Verify IND user can able to edit the Budget details section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)then mandatory to select Budget details from picklist for negotiation |
@@ -2296,8 +2296,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
-    When I click on "View" icon for "<Announcement Name>" inside table
+    When I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AppEgmdId"
     And I wait for "2" seconds
     When I navigate to "Applications" tab
@@ -2326,23 +2326,28 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -2354,6 +2359,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -2365,6 +2371,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -2393,6 +2400,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    Then I close "Assign Applications" modal by clicking the top right x button
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2400,6 +2408,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -2450,6 +2459,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Save" in the page details
     And I wait for "5" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I navigate to "Negotiations" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
     Given I am on "SUBPORTAL" portal
@@ -2458,6 +2469,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+#   Added below extra steps due to bug once resolved remove the step
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I wait for "5" seconds
