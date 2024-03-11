@@ -53,7 +53,7 @@ public final class GovGrantsObjects {
                 govgrants.perform().quickSearch().performTableSpecificQuickSearch(this.tableIdForQsearch, this.searchTermForQsearch);
             }
         } else {
-            if (this.tableIdForQsearch.contains("PendingTasks")) {
+            if (this.tableIdForQsearch.contains("PendingTasks") || this.tableIdForQsearch.contains("CompletedTasks")) {
                 boolean recordPresent = false;
                 int counter = 0;
                 while (!recordPresent && counter < 15) {
@@ -61,18 +61,24 @@ public final class GovGrantsObjects {
                         recordPresent = true;
                         break;
                     } else {
-                        I.amPerforming().browserOperationsTo().refreshPage();
-                        govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
-                        I.amPerforming().waitFor().makeThreadSleep(9000);
+                        if (this.tableIdForQsearch.contains("PendingTasks")) {
+                            I.amPerforming().browserOperationsTo().refreshPage();
+                            govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
+                            I.amPerforming().waitFor().makeThreadSleep(9000);
+                        } else if (this.tableIdForQsearch.contains("CompletedTasks")) {
+                            I.amPerforming().browserOperationsTo().refreshPage();
+                            govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Completed Tasks");
+                            I.amPerforming().waitFor().makeThreadSleep(9000);
+                        }
+                        counter++;
                     }
-                    counter++;
                 }
-            }
-            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                        govgrants.perform().pageDetails().idOfRecord);
-            } else {
-                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
+                if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
+                            govgrants.perform().pageDetails().idOfRecord);
+                } else {
+                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
+                }
             }
         }
     }
