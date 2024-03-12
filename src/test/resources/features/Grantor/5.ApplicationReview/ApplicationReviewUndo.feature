@@ -728,7 +728,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2051,7 +2051,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -3083,7 +3083,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -3952,7 +3952,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
