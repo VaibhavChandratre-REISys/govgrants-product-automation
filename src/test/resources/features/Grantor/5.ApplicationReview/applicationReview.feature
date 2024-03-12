@@ -769,7 +769,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
       | Announcement Name                                               |
@@ -822,7 +822,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---" with wait for record
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     Then I softly can see page block "Reviewers"
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
@@ -832,7 +832,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
       | Announcement Name                                               |
@@ -901,7 +901,7 @@ Feature: Validate all scenarios in the Application Review
       | Fiscal Review     | 5           |
       | Compliance Review | 5           |
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:appTableId---"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly can see "Overview" sub tab at view detail page
     And I softly can see "Budget" sub tab at view detail page
     And I softly can see "Proposal" sub tab at view detail page
@@ -1007,7 +1007,7 @@ Feature: Validate all scenarios in the Application Review
       | Reviewer                 |
       | {SavedValue:FO Username} |
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationReview:-:appTableId---"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly can see "Overview" sub tab at view detail page
     And I softly can see "Budget" sub tab at view detail page
     And I softly can see "Proposal" sub tab at view detail page
