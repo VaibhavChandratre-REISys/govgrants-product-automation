@@ -469,7 +469,7 @@ public final class GovGrantsAssertionObjects {
         String foundValue = null;
         for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
             try {
-                foundValue = govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, matchesExactly);
+                foundValue = govgrants.perform().pageDetails().getFieldValue(fieldLabel, matchesExactly);
             } catch (Exception e) {
                 foundValue = null;
             }
