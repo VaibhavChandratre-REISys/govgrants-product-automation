@@ -1403,7 +1403,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Status" is in "Sent for Review" status
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
-    And I save the field labeled "Score" as "Score"
+    And I save the field in form labeled "Score" as "Score"
     Then I softly see field "Score" as "{SavedValue:Score}"
     And I save the field in form labeled "Budgeted Amount" as "BudgetedAmount"
     Then I softly see field "Budgeted Amount" as "{SavedValue:BudgetedAmount}"
