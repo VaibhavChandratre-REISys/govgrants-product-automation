@@ -211,7 +211,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239521 @239523 @239527 @239529  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @239521 @239523 @239527 @239529  @sprint-15-US-236836 @vaibhav @Allocation
   Scenario Outline: Validate that PO user will see "Total commitment Amount" in the recommended application section of FDM layout is a dollar field
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3749,8 +3749,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I wait for "9" seconds
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Then I softly see the following messages in the page details contains:
-      | The Budgeted Amount must be equal to the Allocation Amount in the application for each focus area. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
-
+      | The Budgeted Amount must be equal to the Allocation Amount in the applications.So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
