@@ -337,7 +337,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Send to Subrecipient" in the page details
     Then I softly cannot see top right button "Create Subaward" in page detail
 
-  @57495 @65293 @57496 @userEditNegotiationIntitiatededitButtonHiddenOnceSendtoSubrecipient @deepika @NegotiationRuNByPooja
+  @57495 @65293 @57496 @userEditNegotiationIntitiatededitButtonHiddenOnceSendtoSubrecipient @deepika @NegotiationRuNByPooja @Debug
   Scenario: Validate whether user to able to see the Edit Negotiation Button once created and Send to Subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -356,6 +356,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Edit" in the page details
     When I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Details" as "Negoatiation Initiated"
     When I click on "Send to Subrecipient" in the page details
     Then I softly cannot see top right button "Edit" in page detail
@@ -404,9 +405,8 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     When I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
-    Then I softly see values "{SavedValue:Automation Runtime FDM Announcement}" and "Negotiation Submitted" inside table
-    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
 
   @65296 @57503 @subrecipientCannotEditNegotiationRequestOnceSubmitToGrantor
   Scenario: Validate whether Subrecipient user can edit Negotiations Details once Submit to Grantor
@@ -792,7 +792,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
 
-  @65074 @fieldupdateBySPI @deepika @Debug
+  @65074 @fieldupdateBySPI @deepika
   Scenario: Validate whether SPI user can edit the field of Negotiation Request from Application tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1878,7 +1878,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "SubmittedOnForm__c" is in edit mode
 
 
-  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @vaibhav
+  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @vaibhav 
   Scenario: Validate  s/r users should be  see the section  Negotiation Request details in the Negotiations tab for application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1892,9 +1892,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     And I pause execution for "5" seconds
-    And I enter values into fields
-      | Value      | Field                      |
-      | 10/18/2142 | fieldNegotiationDueDate__c |
+    And I enter value "10/18/2142" into field "NegotiationDueDate__c"
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     #189548

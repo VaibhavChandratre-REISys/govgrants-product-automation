@@ -374,6 +374,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 400                     |
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
@@ -390,7 +391,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
+    And I refresh the page
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
@@ -548,6 +551,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title                                | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 1234567890234567        |
+    And I refresh the page
     Then I softly see value "$1,234,567,890,234,567.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #239525
     When I click on "Edit" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -569,6 +573,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 500                     |
+    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -1501,6 +1506,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | Yes                   | Recommended | 1000                    |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
@@ -3322,14 +3329,13 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
-      | {SavedValue:EXE Username} | NA     |
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 2 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | 1000               | Yes                   | Recommended | 7000                    |
+    And I refresh the page
+    And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "$7,000.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
 
     Examples:
@@ -3534,6 +3540,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | Yes                   | Recommended | 200                     |
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "ReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
@@ -4398,6 +4405,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | Yes                   | Recommended | 6000                    |
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
