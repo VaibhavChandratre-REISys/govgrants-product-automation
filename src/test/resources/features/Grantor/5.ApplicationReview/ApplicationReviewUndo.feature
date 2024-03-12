@@ -1411,6 +1411,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see field "Recommendation" as "{SavedValue:Recommendation}"
     And I click on "Edit" in the page details
     #280694
+    And I navigate to "Conflict of Interest" sub tab
     Then I softly see radio button " I agree" in view mode for COI section
     Then I softly see radio button " I disagree" in view mode for COI section
     When I complete filling in the Review form with recommendation "Recommended" in review step
@@ -3108,7 +3109,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @hiteshTemp @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @hitesh @Undo
+  @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @hitesh @Undo
   Scenario: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3207,7 +3208,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
 
-  @hiteshTemp @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25 @hitesh @Undo
+  @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25 @hitesh @Undo
   Scenario Outline: Verify assigned reviewer cannot see undo button on reviews section and on review details page when negotiation is initiated for application on any review step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3406,7 +3407,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @hiteshTemp @280709 @ManagementRSCompetitiveAnnFAYesVerifyafterreviewerhassubmittedreviewformafterundothenallthescoreswillgetupdatedundertheApplicationsectionandRecommendationwillalsogetupdated @Sprint-25 @Undo
+  @280709 @ManagementRSCompetitiveAnnFAYesVerifyafterreviewerhassubmittedreviewformafterundothenallthescoreswillgetupdatedundertheApplicationsectionandRecommendationwillalsogetupdated @Sprint-25 @Undo
   Scenario Outline: Management RS>>Competitive Ann (FA=Yes)>>Verify after reviewer has submitted review form after undo, then all the scores will get updated under the Application section and Recommendation  will also get updated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3915,7 +3916,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
-    When I collapse nested table containing column value "Completeness"
+    When I collapse nested table containing column value "Eligibility"
     And I wait for "2" seconds
     And I expand nested table containing column value "Completeness"
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
