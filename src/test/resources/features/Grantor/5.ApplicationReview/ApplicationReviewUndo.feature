@@ -1403,11 +1403,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Status" is in "Sent for Review" status
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
-    And I save the field labeled "Score" as "Score"
+    And I save the field in form labeled "Score" as "Score"
     Then I softly see field "Score" as "{SavedValue:Score}"
-    And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
+    And I save the field in form labeled "Budgeted Amount" as "BudgetedAmount"
     Then I softly see field "Budgeted Amount" as "{SavedValue:BudgetedAmount}"
-    And I save the field labeled "Recommendation" as "Recommendation"
+    And I save the field in form labeled "Recommendation" as "Recommendation"
     Then I softly see field "Recommendation" as "{SavedValue:Recommendation}"
     And I click on "Edit" in the page details
     #280694
@@ -3908,7 +3908,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Order | Section Header | Section Weight (%) |
       | 2             | Completeness   | 50                 |
-    When I collapse nested table containing column value "Pre-Screen Review"
+#    When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Eligibility"
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
