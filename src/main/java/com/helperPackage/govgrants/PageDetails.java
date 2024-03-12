@@ -506,7 +506,7 @@ public final class PageDetails {
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
              fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div//label[contains(@class,'field-label') and %s] | //span[contains(@class,'label')]",
+                                    + "//div//label[contains(@class,'field-label') and %s]",
                             matchLabelExactly
                                     ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
                                     : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)

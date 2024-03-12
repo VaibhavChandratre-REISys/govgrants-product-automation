@@ -30,7 +30,7 @@ public final class MainPage {
     public static By navLogo = By.xpath(""
             + "//div[@id='holdon-overlay']" // https://bit.ly/2WgAkE1
             + " | "
-            + "//div[@class='rowLevelOverlay'] | //div[@class='modalLoadIcon' and @style='display: block;'] | //div[@class='rowLevelOverlay1']");
+            + "//div[@class='rowLevelOverlay'] | //div[@class='modalLoadIcon' and @style='display: block;']");
     private final By
             loginDropDown = By.xpath("//div[contains(@class,'navTopHeader')]//li[@class='dropdown userDropdown']//a[@class='dropdown-toggle'] | //div[contains(@class,'global-header')]//li//span[contains(@class,'oneUserProfileCardTrigger')] | //button//div[contains(@class,'comm-user-profile-menu__trigger-icon')]"),
             egmsHeader = By.xpath("//span[contains(@class, 'navbarBrandText')]"),
