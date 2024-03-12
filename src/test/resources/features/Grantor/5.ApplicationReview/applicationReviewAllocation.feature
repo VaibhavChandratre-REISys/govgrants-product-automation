@@ -366,14 +366,18 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
 #    Then I softly see "The total amount being committed across all Budget Periods." shown as help text
     #239527
     And I click on "Edit" in the page details
-    When I enter in modal value "AuGr" into field "GrantCode__c"
-    And I enter in modal value "Automation Test Description" into field "Justification__c"
+    When I enter value "AuGr" into field "GrantCode__c"
+    And I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended | 400                     |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                      | FDM    |
+      | {SavedValue:EXE Username} | NA     |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -393,7 +397,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja @Debug
+  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
   Scenario Outline: Validate that The maximum limit visible to Admin user is of 16 digits on field 'Total Commitment Amount' on the recommended Application section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3311,6 +3315,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
+      | {SavedValue:EXE Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 2 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
@@ -3521,7 +3528,10 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                               | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | Yes                   | Recommended | 200                     |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "GridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "ReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                      | FDM    |
+      | {SavedValue:EXE Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "10" seconds
