@@ -1392,7 +1392,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I softly can see row level action button "Start" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    Then I softly see field "Form Name" as "Management Review"
+    And I wait for "2" seconds
+    Then I softly see field in the form "Form Name" as "Management Review"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -1430,7 +1431,7 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
       | Form Name      | Due in Days | Required? | Minimum # of Reviews Required |
-      | Program Review | 7           | Checked   | 0                             |
+      | Program Review | 7           | Checked   | 1                             |
     Then I softly see the following messages in the page details :
       | Saved successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
