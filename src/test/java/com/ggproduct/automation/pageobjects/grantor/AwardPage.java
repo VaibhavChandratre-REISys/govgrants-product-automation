@@ -170,7 +170,7 @@ public class AwardPage extends GrantorProjectManager {
     private Boolean isFieldIsEditableAtEnhancedTable(String fieldApiName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldApiName + "']//input[@type='text']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='text']"))) {
                 flag = true;
             }
         } catch (Exception e) {
