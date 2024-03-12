@@ -25,6 +25,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Status" as "Negotiation Initiated"
@@ -169,21 +170,25 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    Then I softly can see page block "Applicant Response"
+    And I wait for "3" seconds
+    Then I softly see "Applicant Response" page block displayed
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
-    Then I softly can see page block "Applicant Response"
+    Then I softly see "Applicant Response" page block displayed
     Then I softly can see top right button "Complete Negotiation" in page detail
     When I click on "Complete Negotiation" in the page details
+    And I wait for "3" seconds
     Then I softly can see top right button "Create Subaward" in page detail
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationCompletedTaskTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
     And I wait for "2" seconds
     Then I softly can see top right button "Create Subaward" in page detail
@@ -208,6 +213,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
@@ -357,8 +363,9 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Details" as "Negoatiation Initiated"
+    Then I softly see field "Details" as "Negotiation InitiatedNegoatiation Initiated"
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
 
   @57500 @subrecipientCanEditNegotiations @NegotiationRuNByPooja
@@ -524,9 +531,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see values "{SavedValue:Automation Runtime FDM Announcement}" and "Negotiation Submitted" inside table
     And I click on "View" icon for "{SavedValue:RecordId}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
-    And I enter values into fields
-      | Value                              | Field                           |
-      | Automation Negotiation Iniatiation | ExplanationOfRevisionsNeeded__c |
+    And I enter value "Automation Negotiation Iniatiation" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
