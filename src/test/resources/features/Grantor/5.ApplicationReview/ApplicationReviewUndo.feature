@@ -1405,10 +1405,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I can see top right button "Submit" in page detail
     And I save the field in the form labeled "Score" as "Score"
     Then I softly see field in the form "Score" as "{SavedValue:Score}"
-    And I save the field in form in the labeled "Budgeted Amount" as "BudgetedAmount"
+    And I save the field in the form labeled "Budgeted Amount" as "BudgetedAmount"
     Then I softly see field "Budgeted Amount" as "{SavedValue:BudgetedAmount}"
     And I save the field in the form labeled "Recommendation" as "Recommendation"
-    Then I softly see field "Recommendation" as "{SavedValue:Recommendation}"
+    Then I softly see field in the form "Recommendation" as "{SavedValue:Recommendation}"
     And I click on "Edit" in the page details
     #280694
     And I navigate to "Conflict of Interest" sub tab
