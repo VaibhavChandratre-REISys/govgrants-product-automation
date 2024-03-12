@@ -243,7 +243,10 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I navigate to "Announcements" tab
+    And I wait for "2" seconds
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I wait for "2" seconds
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
@@ -253,8 +256,10 @@ Feature: Validate all scenarios in the Application Review
     Then I softly can see top right button "Back to Announcement" in page detail
     Then I softly can see top right button "Next Review Step" in page detail
     And I navigate to "Applications" tab
+    And I wait for "2" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "2" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
@@ -645,6 +650,7 @@ Feature: Validate all scenarios in the Application Review
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I wait for "5" seconds
     And I navigate to "Related Log" sub tab
     Then I softly see value "Pre-Screen Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
