@@ -1536,8 +1536,11 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "2" seconds
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
-
+    When I login to "As a Grantor" app as "FO" user
+    And I pause execution for "7" seconds
+    And I save the field labeled "Score" as "Score"
+    Then I softly see field "Score" as "{SavedValue:Score}"
+    And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
+    Then I softly see field "Budgeted Amount" as "{SavedValue:BudgetedAmount}"
+    And I save the field labeled "Recommendation" as "Recommendation"
+    Then I softly see field "Recommendation" as "{SavedValue:Recommendation}"
