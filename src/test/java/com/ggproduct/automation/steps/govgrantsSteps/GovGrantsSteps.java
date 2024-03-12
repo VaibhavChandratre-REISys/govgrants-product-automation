@@ -746,7 +746,7 @@ public final class GovGrantsSteps {
         I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValue(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
     }
 
-    @When("^I save the field in form (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")
+    @When("^I save the field in the form (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")
     public void saveFieldValueInForm(String labeledOrContaining, String fieldLabel, String fieldKey) {
         I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
     }
