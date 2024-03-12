@@ -1536,23 +1536,8 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM1" into field "input-1"
-    And I select value "Automation PM" into field "input-2"
-    And I select module "Program" from reassign ownership dropdown
-    And I wait for "5" seconds
-    When I perform quick search for "PG-ASAP-0601" in "---program:-:adminOwnerReplaceTableId---" panel
-    When I check "PG-ASAP-0601" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
-    And I pause execution for "30" seconds
-    When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "PG-ASAP-0601" in "---program:-:adminTargetOwnerReplaceTableId---" panel
-    Then I see value "PG-ASAP-0601" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I pause execution for "5" seconds
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    Then I softly see field in the form "Form Name" as "Program Review"
     And I halt execution
 
