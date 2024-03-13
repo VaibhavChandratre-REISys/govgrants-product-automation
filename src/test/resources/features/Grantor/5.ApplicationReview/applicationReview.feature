@@ -5,7 +5,7 @@ Feature: Validate all scenarios in the Application Review
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
 
-  @51066 @38463 @38462 @38464 @65082 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke @jitendra @TBExecution
+  @51066 @38463 @38462 @38464 @65082 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke @jitendra
   Scenario Outline: Enter Due in Days for all review forms in SME-review | Verify Pending Task is created for Reviewer
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -385,7 +385,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65083  @verifyValidationMessageOnSendForReview @mahadev @TBExecution
+  @65083  @verifyValidationMessageOnSendForReview @mahadev
   Scenario Outline: Verify Validation message is shown if application is not selected for submitting the review process
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -530,7 +530,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78320 @79661 @79662 @79663 @SMEReviewStepSMEReviewFormIcon @keerti @TBExecution
+  @78320 @79661 @79662 @79663 @SMEReviewStepSMEReviewFormIcon @keerti
   Scenario Outline: To verify User will be able to click the view icon on the SME review step under announcement related log tab review step section
   | To verify user able to click "Review Form" Icon and see the review panel categories for Program Review in forms section of related log tab in SME review step of Application phase
   | To verify user able to click "Review Form" Icon and see the review panel categories for Fiscal Review in forms section of related log tab in SME review step of Application phase
@@ -581,7 +581,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78090 @validatingApplicationUnderReviewTable @keerti @TBExecution
+  @78090 @validatingApplicationUnderReviewTable @keerti
   Scenario Outline: To Validate the Announcement owner will be able to view the announcement under "Application Under Review" table
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -606,7 +606,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78321 @managementReviewStep @keerti @TBExecution
+  @78321 @managementReviewStep @keerti
   Scenario Outline: To verify User will be able to click the view icon on the management review step under announcement related log tab review step section
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -638,7 +638,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78322 @ValidatingprescreenReviewStepFormWithRequired @keerti @TBExecution
+  @78322 @ValidatingprescreenReviewStepFormWithRequired @keerti
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -670,7 +670,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78323 @ValidatingprescreenReviewStepForm @keerti @TBExecution
+  @78323 @ValidatingprescreenReviewStepForm @keerti
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -702,7 +702,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78328 @validatingComplianceReviewStepForm @keerti @TBExecution
+  @78328 @validatingComplianceReviewStepForm @keerti
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -739,7 +739,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti @TBExecution
+  @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
   Scenario Outline: To verify user,able to set the maximum number of reviewers for each application in prescreening review step
   | To verify that,user able to delete Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -802,7 +802,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79202 @deleteReviewersInSMERview @keerti @TBExecution
+  @79202 @deleteReviewersInSMERview @keerti
   Scenario Outline:  To verify that,user able to delete Reviewers in SME review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -838,7 +838,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79664 @79665 @TabOfApplicationPhase @keerti @TBExecution
+  @79664 @79665 @TabOfApplicationPhase @keerti
   Scenario Outline: To verify that,user able to click view icon for Application in SME review step in related log tab of Appliction phase
   | To verify that,user able to click view icon for Application in Management review step in related log tab of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1410,7 +1410,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78324 @ValidatingProgramReviewStepForm @meenakshi @TBExecution
+  @78324 @ValidatingProgramReviewStepForm @meenakshi
   Scenario Outline: To verify user able to setup the Due Days  for the review & set field "Required" :Checked in program review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
