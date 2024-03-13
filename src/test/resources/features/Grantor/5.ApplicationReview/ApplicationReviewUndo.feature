@@ -2017,9 +2017,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
     When I collapse nested table containing column value "Eligibility"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     And I expand nested table containing column value "Completeness"
-    And I wait for "3" seconds
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
@@ -2038,9 +2037,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I wait for "9" seconds
+    And I wait for "5" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
