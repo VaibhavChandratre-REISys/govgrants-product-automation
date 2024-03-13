@@ -12,8 +12,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "EGMSID"
-    When I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application}" in "---applicationReview:-:reviewsTableId---" panel
@@ -99,8 +98,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
     And I save the field labeled "EGMS ID" as "EGMSID"
-    When I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application}" in "---applicationReview:-:reviewsTableId---" panel

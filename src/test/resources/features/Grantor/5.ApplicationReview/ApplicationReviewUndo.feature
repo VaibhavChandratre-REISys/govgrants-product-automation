@@ -1636,7 +1636,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    And I wait for "4" seconds
+    And I click on "Edit" in the page details
     And I click radio button "I disagree" in COI of review form
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -3942,9 +3942,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I wait for "9" seconds
+    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
