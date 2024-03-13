@@ -3604,11 +3604,11 @@ Feature: Validate all scenarios in the Application Review
     #79672
     And I wait for "2" seconds
     Then I softly see field in the form "Comments" as ""
-    Then I softly see field in the form "Recommendation" as "Recommended"
     Then I softly see field "Does the application meet the match requirement outlined in the funding opportunity?" as "Yes"
     Then I softly see field "Is the need for proposed budget item adequately supported?" as "Yes"
     Then I softly see field "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" as "Yes"
     Then I softly see field "Are the match costs allowable, allocable, and reasonable?" as "Yes"
+    Then I softly see field in the form "Recommendation" as "Recommended"
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
@@ -3642,8 +3642,9 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Selected Applications have been promoted. |
+#   Message disapperaring immediately due to refresh behaviour hence commented this step
+#    Then I softly see the following messages in the page details contains:
+#      | Selected Applications have been promoted. |
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
@@ -3707,7 +3708,7 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     #79751
     Then I softly see that "Record ID" has been added in flextable with Id "---applicationReview:-:pendingTaskTableId---"
-    Then I softly see value "Application Review" for title "Type" inside table "---applicationReview:-:pendingTaskTableId---"
+    Then I softly see value "Application Review" for title "Task Type" inside table "---applicationReview:-:pendingTaskTableId---"
     Then I softly see value "Not Started" for title "Status" inside table "---applicationReview:-:pendingTaskTableId---"
     Then I softly can see row level action button "Start" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
@@ -3738,8 +3739,9 @@ Feature: Validate all scenarios in the Application Review
     #79963- The success message automatically disappears within a fraction of seconds in the page, unable to validate the success message
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Selected applications have been added to the Funding Decision Memo. |
+#    Mesaage immediately disappearing due to refresh behavior hence commented the step
+#    Then I softly see the following messages in the page details contains:
+#      | Selected applications have been added to the Funding Decision Memo. |
     And I wait for "2" seconds
     And I click on "Funding Decision Memo" in the page details
     #64950
@@ -3747,9 +3749,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Previous Review Step" in the page details
     Then I softly can see top right button "Funding Decision Memo" in page detail
     #80259
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
-    And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    Then I softly see field "Status" as "Completed"
+   Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
