@@ -172,7 +172,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
+  @hitesh1 @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -195,8 +195,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I get the "Announcement EGMS ID"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
+      | Form Name  | Due in Days | Minimum # of Reviews Required | Required? |
+      | Pre-Screen | 5           | 1                             | Checked   |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
@@ -411,7 +411,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I pause execution for "3" seconds
+    And I pause execution for "7" seconds
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -505,7 +506,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @hitesh1 @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
+  @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
   Scenario Outline: To validate system generated success message ,after notifying applicants for Rejected Application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -708,7 +709,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "9" seconds
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:rejectedApplicationTableId---"
     When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:rejectedApplicationTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     #issue at reject application step
     Then I softly see the following messages in the page details contains:
       | Rejection Notification has been initiated for selected applications. |
@@ -1015,6 +1016,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I wait for "10" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1880,7 +1882,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hitesh2 @81354 @ValidateInitiateNegotiationIconForRecommendedApplication @monu
+  @81354 @ValidateInitiateNegotiationIconForRecommendedApplication @monu
   Scenario Outline: Validate user is able to see initiate negotiation icon at recommended application for Approved FDM
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1894,15 +1896,14 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I click on "Funding Decision Memo" in the page details
-    And I navigate to "Related Log" sub tab
-    And I wait for "2" seconds
-    Then I softly see that "Initiate Negotiation" has been added in flextable with Id "---subAwardFromFDM:-:recommendedAppTableId---"
+    And I wait for "7" seconds
+    Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
     Examples:
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hitesh2 @81589 @80904 @verifyCreateSubAwardThroughRecommendedApplication @monu
+  @81589 @80904 @verifyCreateSubAwardThroughRecommendedApplication @monu
   Scenario Outline: validate user is able to create sub award through recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1917,9 +1918,11 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Funding Decision Memo" inside flex table with id "---grantor_tableId:-:FDMTableId---"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     Then I softly see that "Subaward" is in "Created" status
     #80904 #monu
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
