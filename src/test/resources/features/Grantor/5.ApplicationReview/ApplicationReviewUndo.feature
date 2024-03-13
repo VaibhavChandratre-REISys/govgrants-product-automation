@@ -710,6 +710,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Automation EXE | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
+    And I pause execution for "3" seconds
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
     And I refresh the page
