@@ -2020,7 +2020,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @PoojaAppReviewAlloocation @274898 @ValidateFormulaannouncementownercannotchangeallocationamountforapplicationwhen @FirstRunApplicationReviewPooja
+  @PoojaAppReviewAlloocation @274898 @ValidateFormulaannouncementownercannotchangeallocationamountforapplicationwhen
   Scenario Outline: Validate Formula announcement owner cannot change allocation amount for application when FDM is submitted for approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3331,6 +3331,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "5" seconds
     And I "Send Back" in the approval decision
     And I wait for "3" seconds
     And I refresh the page
@@ -3351,7 +3352,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274235 @ValidateFANOwhennegotiationisinitiatedduringthereviewstepsthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @Sprint-23-US-273843 @vaibhav @Allocation
+  @274235  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate FA NO when negotiation is initiated during the review steps then it should must mandatory for user to select the Budget: Budget Details picklist value for Negotiation field when the budgeted Amount is not equal to the Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
