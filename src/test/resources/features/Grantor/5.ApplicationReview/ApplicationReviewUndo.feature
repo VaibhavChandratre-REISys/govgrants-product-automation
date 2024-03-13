@@ -2011,8 +2011,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Order | Section Header | Section Weight (%) |
       | 2             | Completeness   | 50                 |
+    And I wait for "2" seconds
     And I expand nested table containing column value "Eligibility"
-    And I wait for "3" seconds
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
