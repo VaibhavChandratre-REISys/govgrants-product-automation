@@ -679,25 +679,31 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Management Review | 25              |
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I edit the following rows inline in flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "Edit" :
+      | Form Name  | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Pre-Screen | 100             | Checked   | 1                                         |
 #    And I expand nested table containing column value "Pre-Screen Review"
-#    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Eligibility    | 50                 |
-#      | Completeness   | 50                 |
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "Eligibility"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "2" seconds
-#    #And I collapse nested table containing column value "Eligibility"
-#    And I expand nested table containing column value "Completeness"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "2" seconds
-#    When I close "Review Form" modal by clicking the top right x button
+    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
+    When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Order | Section Header | Section Weight (%) |
+      | 1             | Eligibility    | 50                 |
+    When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Order | Section Header | Section Weight (%) |
+      | 2             | Completeness   | 50                 |
+#    When I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
+      | Question Order | Question | Type   | Max Score |
+      | 5              | Test 5   | Yes/No | 50        |
+    When I collapse nested table containing column value "Eligibility"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
+      | Question Order | Question | Type   | Max Score |
+      | 5              | Test 5   | Yes/No | 50        |
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name           | Announcement |
@@ -779,7 +785,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "Score" from flex table "---applicationReview:-:appreviewsTableId---"
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     When I save the value from row "1" for column name "Average Score" as "AverageScore" from flex table "---applicationReview:-:reviewFormsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -879,6 +885,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I close "Assign Applications" modal by clicking the top right x button
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -947,7 +954,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "ScoreUpdated" from flex table "---applicationReview:-:appreviewsTableId---"
     Then I softly see value "{SavedValue:Score}" is "less than" the value "{SavedValue:ScoreUpdated}"
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     When I save the value from row "1" for column name "Average Score" as "AverageScoreUpdated" from flex table "---applicationReview:-:reviewFormsTableId---"
     Then I softly see value "{SavedValue:AverageScore}" is "less than" the value "{SavedValue:AverageScoreUpdated}"
 
@@ -1508,7 +1515,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hiteshTemp @280399 @ValidateSMEReviewStepCompetitiveAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonSMEreviewstep @Sprint-26-US-282727 @vaibhav @Undo
+  @280399 @ValidateSMEReviewStepCompetitiveAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonSMEreviewstep @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate SME Review Step Competitive Ann FA Yes assigned reviewer cannot see row-level undo button in reviews section and on the review detail page when the review is Review incomplete or Review is declined on SME review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2592,7 +2599,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @279692 @Validateaftercompletingnegotiationusershouldnotbeabletopromoteapplicationtonextstepifminimumreviewrequirementisnotcompletedonthereviewstep @Sprint-25-US-227292 @vaibhav @Undo @ErrorMessageTimeout
+  @279692 @Validateaftercompletingnegotiationusershouldnotbeabletopromoteapplicationtonextstepifminimumreviewrequirementisnotcompletedonthereviewstep @Sprint-25-US-227292 @vaibhav @Undo @ErrorMessageTimeout
   Scenario Outline: Validate after completing negotiation user should not be able to promote application to next step if minimum review requirement is not completed on the review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2878,7 +2885,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    Then I close "Assign Applications" modal by clicking the top right x button
+    When I click modal button "Close"
     And I refresh the page
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3870,7 +3877,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hiteshTemp @337305 @ValidatePre-screenReviewStepDirectedAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonprescreenreviewstep @Undo
+  @337305 @ValidatePre-screenReviewStepDirectedAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonprescreenreviewstep @Undo
   Scenario Outline: Validate Pre-screen Review Step Directed Ann FA Yes assigned reviewer cannot see row-level undo button in reviews section and on the review detail page when the review is Review incomplete or Review is declined on prescreen review step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4030,7 +4037,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @329495 @ValidateAppReviewwhenapplicationispromotedtoFDMandassignedreviewerhasclickedundoonSMEreviewstepthenonclickofcancelscoreshouldnotbeupdatedonthereviewssectiononreviewstep @Undo
+  @329495 @ValidateAppReviewwhenapplicationispromotedtoFDMandassignedreviewerhasclickedundoonSMEreviewstepthenonclickofcancelscoreshouldnotbeupdatedonthereviewssectiononreviewstep @Undo
   Scenario Outline: Validate App Review when application is promoted to FDM, and assigned reviewer has clicked undo on SME review step then on click of cancel score should not be updated on the reviews section on review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
