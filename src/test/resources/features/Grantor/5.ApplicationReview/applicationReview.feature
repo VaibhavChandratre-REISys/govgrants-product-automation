@@ -1679,7 +1679,7 @@ Feature: Validate all scenarios in the Application Review
     #79199
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewStepFormId---"
-    Then I softly see "Review Panel Categories" inside flex table with id "---applicationReview:-:reviewPanelCategoriesTableId---"
+    Then I softly see "Review Categories" inside flex table with id "---applicationReview:-:reviewPanelCategoriesTableId---"
     And I close "Review Form" modal by clicking the top right x button
     And I wait for "2" seconds
     #79200
@@ -2411,7 +2411,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field                 |
-      | Automation Test Description | fieldJustification__c |
+      | Automation Test Description | Justification__c      |
     And I click on "Save" in the page details
     Then I see the following messages in the page details :
       | Subaward Abbreviation is required to save under Funding Decision Memo. |
