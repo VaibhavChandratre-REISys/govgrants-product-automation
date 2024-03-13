@@ -798,7 +798,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241132 @241135 @241140 @241147 @sprint-15-US-238637 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @241132 @241135 @241140 @241147 @sprint-15-US-238637 @vaibhav @Allocation
   Scenario Outline: Validate admin user can edit Total Commitment Amount when user click on the row level edit button of application
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -2169,6 +2169,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I click on "Edit" in the page details
@@ -2955,12 +2956,11 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see value "$1,000.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #274257
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
-      | Application Title                                               | Total Commitment Amount |
-      | {SavedValue:Automation Runtime Announcement Application Review} | 12345678902345678       |
+      | Application Title                                | Total Commitment Amount |
+      | {SavedValue:Automation Runtime FDM Announcement} | 1234567890234567        |
     And I refresh the page
-    And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "$1,234,567,890,234,567.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
-    Examples:
+     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
@@ -3332,7 +3332,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     And I wait for "3" seconds
     And I refresh the page
     Then I softly see field "Status" as "Created"
