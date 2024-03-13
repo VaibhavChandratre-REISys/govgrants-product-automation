@@ -321,7 +321,7 @@ Feature: Validate all scenarios in the Application Review
     When I enter values into fields
       | Value                       | Field                 |
       | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Automation Test Description | Justification__c      |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
