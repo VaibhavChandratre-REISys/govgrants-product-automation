@@ -1200,17 +1200,18 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "1" seconds
     Then I softly can see row level action button "Start" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    Then I softly see field "Form Name" as "Management Review"
+    Then I softly see field in the form "Form Name" as "Management Review"
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
     Then I softly see field in the form "Recommendation" as "Recommended"
     Then I softly see field "Is the project cost effective and has a cost estimate been provided?" as "Yes"
     Then I softly see field "Are the performance goals adequate?" as "Yes"
-    Then I softly see field "Rate and describe overall value of the Project." as "Automation test description"
-    Then I softly see field "Provide your assessment of project alignment with Agency Goals and Objectives." as "Automation test description"
-    Then I softly see field "Assess the overall impact of this project." as "Automation test description"
+    Then I softly see field "Rate and describe overall value of the Project." as "Automation description"
+    Then I softly see field "Provide your assessment of project alignment with Agency Goals and Objectives." as "Automation description"
+    Then I softly see field "Assess the overall impact of this project." as "Automation description"
     Then I softly see field "Score (Max: 20)" as "3"
     Examples:
       | Announcement Name                                               | Application Name                                                |
@@ -2561,7 +2562,7 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Announcements" tab
     And I wait for "3" seconds
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click toggle button to select "All Competitive Announcements"
     And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
@@ -3700,9 +3701,8 @@ Feature: Validate all scenarios in the Application Review
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     #79751
     Then I softly see that "Record ID" has been added in flextable with Id "---applicationReview:-:pendingTaskTableId---"
-    Then I softly see value "Automation PM" for title "Assigned By" inside table "{applicationReview:pendingTaskTableId}"
-    Then I softly see value "Application Review" for title "Type" inside table "{applicationReview:pendingTaskTableId}"
-    Then I softly see value "Not Started" for title "Status" inside table "{applicationReview:pendingTaskTableId}"
+    Then I softly see value "Application Review" for title "Type" inside table "---applicationReview:-:pendingTaskTableId---"
+    Then I softly see value "Not Started" for title "Status" inside table "---applicationReview:-:pendingTaskTableId---"
     Then I softly can see row level action button "Start" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field in the form "Form Name" as "Management Review"
@@ -3750,7 +3750,7 @@ Feature: Validate all scenarios in the Application Review
     When I enter values into fields
       | Value                       | Field                 |
       | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Automation Test Description | Justification__c      |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
