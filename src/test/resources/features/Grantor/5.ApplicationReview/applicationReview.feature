@@ -1206,13 +1206,13 @@ Feature: Validate all scenarios in the Application Review
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    Then I softly see field in the form "Recommendation" as "Recommended"
     Then I softly see field "Is the project cost effective and has a cost estimate been provided?" as "Yes"
     Then I softly see field "Are the performance goals adequate?" as "Yes"
     Then I softly see field "Rate and describe overall value of the Project." as "Automation description"
     Then I softly see field "Provide your assessment of project alignment with Agency Goals and Objectives." as "Automation description"
     Then I softly see field "Assess the overall impact of this project." as "Automation description"
     Then I softly see field "Score (Max: 20)" as "3"
+    Then I softly see field in the form "Recommendation" as "Recommended"
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
@@ -2834,6 +2834,13 @@ Feature: Validate all scenarios in the Application Review
   Scenario Outline: validate user is able to modify pre-encumbrance at FDM page
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside table
+    And I get the "EGMS ID"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -2858,9 +2865,8 @@ Feature: Validate all scenarios in the Application Review
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I wait for "3" seconds
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
