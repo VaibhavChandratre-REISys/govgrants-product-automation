@@ -1,7 +1,7 @@
 @applicationReviewWB @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review without background
 
-  @78088 @InitiateReviewProcessIcon @keerti
+  @hitesh1 @78088 @InitiateReviewProcessIcon @keerti
   Scenario Outline: To verify Announcement owner should be able view  "Initiate Review process " icon , If Program and Announcement owner is same
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     And I login to "As a Grantor" app as "PM" user
@@ -20,6 +20,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -86,7 +87,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @78089 @InitiateReviewProcessIconForDifferentOwner @keerti
+  @hitesh1 @78089 @InitiateReviewProcessIconForDifferentOwner @keerti
   Scenario Outline: To verify Announcement owner should be able view  "Initiate Review process " icon , If Program and Announcement owner is different
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     And I login to "As a Grantor" app as "PM" user
@@ -170,7 +171,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
+  @hitesh1 @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -350,7 +351,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @80149 @verifyErrorMessageForApplication @monu
+  @hitesh1 @80149 @verifyErrorMessageForApplication @monu
   Scenario Outline: Validate user should be getting error message while promoting to next step if no application is selected
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -434,7 +435,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @35301 @verifyInitiateReviewProcessButton @monu
+  @hitesh1 @35301 @verifyInitiateReviewProcessButton @monu
   Scenario Outline: Validate owner should be able to see Initiate Review Process button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -445,6 +446,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I pause execution for "5" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -454,9 +456,9 @@ Feature: Validate all scenarios in the Application Review without background
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       |  Is Key Contact |
+      | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -496,7 +498,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
+  @hitesh1 @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
   Scenario Outline: To validate system generated success message ,after notifying applicants for Rejected Application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
