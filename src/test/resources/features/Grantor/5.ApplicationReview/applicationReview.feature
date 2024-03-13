@@ -524,7 +524,7 @@ Feature: Validate all scenarios in the Application Review
     And I softly can see "Proposal" sub tab at view detail page
     And I softly can see "Forms and Files" sub tab at view detail page
     And I softly can see "History" sub tab at view detail page
-    Then I softly can see "Collab" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
@@ -654,7 +654,6 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "5" seconds
     And I navigate to "Related Log" sub tab
-    And I halt execution
     Then I softly see value "Pre-Screen Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
