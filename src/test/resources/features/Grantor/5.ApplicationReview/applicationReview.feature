@@ -1205,7 +1205,7 @@ Feature: Validate all scenarios in the Application Review
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    Then I softly see field "Recommendation" as "Recommended"
+    Then I softly see field in the form "Recommendation" as "Recommended"
     Then I softly see field "Is the project cost effective and has a cost estimate been provided?" as "Yes"
     Then I softly see field "Are the performance goals adequate?" as "Yes"
     Then I softly see field "Rate and describe overall value of the Project." as "Automation test description"
