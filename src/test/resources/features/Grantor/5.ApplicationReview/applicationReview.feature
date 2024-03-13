@@ -2559,7 +2559,11 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I navigate to "Announcements" tab
+    And I wait for "3" seconds
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I wait for "3" seconds
+    When I click toggle button to select "All Competitive Announcements"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
