@@ -1105,7 +1105,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280686 @ValidateCompetitiveAnnFAYesonclickofrowlevelundobuttonthestatusofreviewshouldchangeSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-26-US-282727 @vaibhav @Undo
+  @280686 @ValidateCompetitiveAnnFAYesonclickofrowlevelundobuttonthestatusofreviewshouldchangeSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate Competitive Ann FAYes on click of row level undo button, the status of review should change to 'Send for Review' and already entered information on review form should be as it is and reviewer should be able to Edit and submit review again
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1209,6 +1209,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I save the value from row "2" for column name "Average Score" as "AverageScore" from flex table "---applicationReview:-:reviewFormsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
