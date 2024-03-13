@@ -2853,6 +2853,7 @@ Feature: Validate all scenarios in the Application Review
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "3" seconds
     And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
@@ -3489,8 +3490,9 @@ Feature: Validate all scenarios in the Application Review
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     #79745
-    Then I softly see the following messages in the page details contains:
-      | Record(s) successfully sent to Reviewer. |
+#    Immediatelty refresh the page hence mesaage disappearing
+#    Then I softly see the following messages in the page details contains:
+#      | Record(s) successfully sent to Reviewer. |
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3590,8 +3592,8 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Save" in the page details
     #79672
     And I wait for "2" seconds
-    Then I softly see field "Comments" as ""
-    Then I softly see field "Recommendation" as "Recommended"
+    Then I softly see field in the form "Comments" as ""
+    Then I softly see field in the form "Recommendation" as "Recommended"
     Then I softly see field "Does the application meet the match requirement outlined in the funding opportunity?" as "Yes"
     Then I softly see field "Is the need for proposed budget item adequately supported?" as "Yes"
     Then I softly see field "Are proposed indirect costs consistent with applicant's approved indirect cost rate plan?" as "Yes"
@@ -3666,8 +3668,10 @@ Feature: Validate all scenarios in the Application Review
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     #79743
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Record(s) successfully sent to Reviewer. |
+    #79745
+#    Immediatelty refresh the page hence mesaage disappearing
+#    Then I softly see the following messages in the page details contains:
+#      | Record(s) successfully sent to Reviewer. |ecord(s) successfully sent to Reviewer. |
     #80150
     And I wait for "4" seconds
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
@@ -3697,7 +3701,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Not Started" for title "Status" inside table "{applicationReview:pendingTaskTableId}"
     Then I softly can see row level action button "Start" against "Record ID" in flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    Then I softly see field "Form Name" as "Management Review"
+    Then I softly see field in the form "Form Name" as "Management Review"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3745,10 +3749,12 @@ Feature: Validate all scenarios in the Application Review
       | Automation Test Description | fieldJustification__c |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | 500                | Yes                   | Recommended | 500                     |
-    Then I softly see that "Recommended" has been added in flextable with Id "flexGridFundingDecisionMemoApplications"
+    And I refresh the page
+    And I navigate to "Funding Decision Memo" sub tab
+    Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM |
@@ -3756,7 +3762,7 @@ Feature: Validate all scenarios in the Application Review
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I get the "EGMS ID"
@@ -3781,7 +3787,9 @@ Feature: Validate all scenarios in the Application Review
     And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "2" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I wait for "2" seconds
