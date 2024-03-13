@@ -2198,7 +2198,6 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 5000             |
     Then I softly see the following messages in the page details contains:
       | "Allocation Amount" update is not allowed for organization, As Application's FDM is under approval. |
-
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
@@ -3333,7 +3332,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
     And I "Send back" in the approval decision
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I refresh the page
     Then I softly see field "Status" as "Created"
     When I navigate to "Responsibilities" sub tab
