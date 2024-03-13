@@ -172,7 +172,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @hitesh1 @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
+  @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -1061,7 +1061,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "10" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
