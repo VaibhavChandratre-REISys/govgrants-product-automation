@@ -1980,6 +1980,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+     When I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -4192,7 +4193,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Average Weighted Score" as "AverageWeightedScore1" from flex table "---applicationReview:-:appTableId---"
-    Then I softly see value "{SavedValue:AverageWeightedScore}" is "Equals to" the value "{SavedValue:AverageWeightedScore1}"
+    Then I softly see value "{SavedValue:AverageWeightedScore}" is "Equals to" value "{SavedValue:AverageWeightedScore1}"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
