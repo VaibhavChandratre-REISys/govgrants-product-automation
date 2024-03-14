@@ -24,7 +24,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -38,7 +38,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |

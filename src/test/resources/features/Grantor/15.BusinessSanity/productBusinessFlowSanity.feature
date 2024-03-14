@@ -1372,32 +1372,25 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-#    When I navigate to "Performance" sub tab
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-#    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-#    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 2 |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     And I click on "Send to Subrecipient" in the page details
