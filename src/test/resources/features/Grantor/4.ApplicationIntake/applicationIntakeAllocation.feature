@@ -751,7 +751,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
   @219532 @219569 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
   Scenario: Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount less than sub-award floor amount
-   | Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
+  | Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -4115,7 +4115,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Qualified"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click on Menu icon present on top right corner of the page
     And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown

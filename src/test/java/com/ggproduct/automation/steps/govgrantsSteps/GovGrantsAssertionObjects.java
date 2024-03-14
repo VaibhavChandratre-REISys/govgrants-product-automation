@@ -488,6 +488,43 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
+    /**
+     * Takes a field label from a View page layout and a checks if its associated
+     * field value matches the given parameter
+     *
+     * @param fieldLabel
+     * @param fieldValue
+     * @modifier Vaibhav Chandratre
+     * Note: added parameter @param matchesExactly for validating the value of a exact field label
+     */
+
+    /* ***************Important to Notice / Remember ****************************************
+    a. The first option (the original) is meant for View pages, and the second is for Edit pages
+       the original:- //span[@class='customLabelstyle' and contains(text(),'" + fieldLabel
+     + "')]/ancestor::dl[1]//dd//*[text()='" + fieldValue + "']
+    b. The second option is needed due to a bug in Framework
+    c. A “TODO”, with a date a month or two in the future to check if the issue has been resolved.
+           Then, once framework fixes the issue we can remove the second xpath option.
+    ******************************************************************************************* */
+    public void assertFieldValueInTheForm(String fieldLabel, boolean matchesExactly, String fieldValue, boolean isSoftly) {
+        String foundValue = null;
+        for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
+            try {
+                foundValue = govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, matchesExactly);
+            } catch (Exception e) {
+                foundValue = null;
+            }
+        }
+
+        I.amPerforming().assertionsTo().assertThat(foundValue)
+                .as("Checking value of field with label '%s'", fieldLabel)
+                .isEqualToIgnoringCase(fieldValue);
+
+        if (!isSoftly && !I.amPerforming().assertionsTo().wasSuccess()) {
+            I.amPerforming().assertionsTo().assertAll();
+        }
+    }
+
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
             By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "']");
@@ -2266,7 +2303,7 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //div[@data-field_api_name='" + fieldApiName + "'] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)]");
+        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //div[@data-field_api_name='" + fieldApiName + "'] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[not(@disabled)]");
         boolean flag = false;
         try {
             if (I.amPerforming().actionToGet().attribute(fieldsAtPageDetails, "id").toLowerCase().contains("j_id0") || I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {

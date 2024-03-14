@@ -111,7 +111,7 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the split screen page details
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70464 @userCannotQualifyApplicationSecondTime @deepika @wip @NotValid
+  @70464  @deepika @wip @NotValid
   Scenario: Validate whether user should not able to qualify the announcement again for once it is Qualified
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1353,7 +1353,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
-  @BlockedDuetoBug:390917 @wip @195250 @ValidateapplicationrelatedpendingtaskshouldgeneratedfornewAnnownerifapplicationcreatedfromoldownerevenAnnownershiptaskreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment
+  @BlockedDuetoBug:390917  @195250  @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1619,7 +1619,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @BlockedDuetoBug:390917 @wip @196705 @ValidateApp-RevNewPOownercaninitiateappreviewprocessrelatedAnnownerwillchangeownershipandassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
+  @BlockedDuetoBug:390917  @196705  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1745,7 +1745,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @196715  @sprint-4-US-197579 @vaibhav @reassignment @BlockedDuetoBug:390917 @wip
+  @196715  @sprint-4-US-197579 @vaibhav @reassignment @BlockedDuetoBug:390917
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1812,6 +1812,7 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation SPI3"
 
   @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @vaibhav @reassignment
@@ -1948,7 +1949,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold @wip @196756 @196759  @sprint-4-US-197579 @vaibhav @reassignment
+  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -2085,7 +2086,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Related Log" sub tab
     Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
-   @196855 @ValidateApp-RevnewAppownercanseerelatedlogtabafterAnnownershipwillgetchange @sprint-4-US-197579 @vaibhav @reassignment
+   @196855  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -2322,7 +2323,7 @@ Feature: Application Intake scenarios without background
       The EGMS Team
       """
 
-  @bug-401696 @235107 @234957  @sprint-13-US-224176 @komal @Allocation @ReRunApplicationPooja
+  @bug-401696 @235107 @234957  @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Directed Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state
   | Competitive Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state |
     Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"

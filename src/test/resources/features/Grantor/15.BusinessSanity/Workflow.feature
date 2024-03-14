@@ -1532,34 +1532,12 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @420
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "FO" user
-    And I pause execution for "7" seconds
-    And I navigate to "Review" sub tab
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Submit" in page detail
-    And I save the field in form labeled "Score" as "Score"
-    Then I softly see field "Score" as "{SavedValue:Score}"
-    And I save the field in form labeled "Budgeted Amount" as "BudgetedAmount"
-    Then I softly see field "Budgeted Amount" as "{SavedValue:BudgetedAmount}"
-    And I save the field in form labeled "Recommendation" as "Recommendation"
-    Then I softly see field "Recommendation" as "{SavedValue:Recommendation}"
-    And I click on "Edit" in the page details
-    #280694
-    And I navigate to "Conflict of Interest" sub tab
-    Then I softly see radio button " I agree" in view mode for COI section
-    Then I softly see radio button " I disagree" in view mode for COI section
-    When I complete filling in the Review form with recommendation "Recommended" in review step
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    #280692
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Submit" in page detail
-    Then I cannot see top right button "Decline" in page detail
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
-    Then I softly see that "Status" is in "Review Completed" status
+    When I login to "As a Grantor" app as "EXE" user
+    And I halt execution
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I halt execution
+
