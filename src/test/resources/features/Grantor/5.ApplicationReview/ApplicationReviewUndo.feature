@@ -706,6 +706,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
     And I refresh the page
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime FDM Announcement"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name           | Announcement |
