@@ -1537,11 +1537,8 @@ Feature: Validate all scenarios of every modules flow
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
     When I login to "As a Grantor" app as "PM" user
-    And I halt execution
-    And I click on advance filter of table id "---announcement:-:AnnouncementGrantsTableId---" for LWC
-    And I enter advance filter values inside id "---announcement:-:AnnouncementGrantsTableId---" for LWC
-      | EGMS ID | contains | Invalid |
-    And I pause execution for "5" seconds
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:AnnouncementGrantsTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - Approved"
     And I halt execution
 
