@@ -4225,7 +4225,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see top right button "Previous Review Step" in page detail
     Then I softly can see top right button "Back to Announcement" in page detail
     Then I softly can see top right button "Next Review Step" in page detail
-    And I navigate to "Applications" tab
+    And I navigate to "Applications" ta
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
