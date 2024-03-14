@@ -1532,12 +1532,16 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-#  @debug
-#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+  @debug
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    Then I softly see field in the form "Form Name" as "Program Review"
+    And I click on advance filter of table id "---announcement:-:AnnouncementGrantsTableId---" for LWC
+    And I enter advance filter values inside id "---announcement:-:AnnouncementGrantsTableId---" for LWC
+      | EGMS ID | contains | Invalid |
+    And I pause execution for "5" seconds
+    Then I softly see "No Records Found" inside flex table with id "---announcement:-:AnnouncementGrantsTableId---"
     And I halt execution
 
