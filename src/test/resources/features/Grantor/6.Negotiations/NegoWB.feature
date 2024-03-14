@@ -1,7 +1,7 @@
 @negotiations @negotiationWB @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Negotiations
 
-  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @Debug
+  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
   Scenario: Validate EXE User Allow Edit Select At Least One Form Error Message
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -60,9 +60,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -75,9 +75,11 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-    And I enter value "Checked" into field "AllowEdit__c"
-    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
+    And I navigate to "Negotiations" sub tab
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     Then I see value "true" for title "Needs Negotiation" against the value "Standard Assurances Form" inside table "---negotiation:-:NegotiationFormsTableId---"
@@ -106,9 +108,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -211,9 +213,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -254,9 +256,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -306,9 +308,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -389,9 +391,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -431,9 +433,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -449,7 +451,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
-  @274714 @ValidateCompetitiveValidateusercansendtheApplicationforNegotiationpostFDMisapprovedwhenFAisno @Sprint-23-US-273843 @vaibhav @Allocation
+  @274714  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Competitive Validate user can send the Application for Negotiation post FDM is approved when FA is no
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION_YES_FOCUS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -492,10 +494,9 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
-#    When I expand nested table containing column value "BP01"
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
-  @189567 @ValidatethesubrecipientshouldbeabletoprovideNegotiationSummarycommentsintheNegotiationstabbeforeresubmittingpreapplicationtothegrantorinNegotiationDetailsunderNegotiationTab
+  @189567 @sprint-23-US-273843
   Scenario: Validate the subrecipient should be able to provide Negotiation  Summary comments in the Negotiations tab before re-submitting  pre-application to the grantor in Negotiation Details under Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -581,9 +582,9 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
