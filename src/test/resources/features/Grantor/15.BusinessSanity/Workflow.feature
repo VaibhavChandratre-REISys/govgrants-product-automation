@@ -1532,12 +1532,10 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @420
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
     When I login to "As a Grantor" app as "EXE" user
-    And I halt execution
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I halt execution
+
 
