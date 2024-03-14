@@ -865,7 +865,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit @aashish @FieldHistoryExclude @Pre-ScreenOnHoldSPI
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit @aashish @FieldHistoryExclude
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Pre-Encumbrance field of Announcement
@@ -1173,7 +1173,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @keerti @Pre-ScreenOnHoldSPI
+  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @keerti
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1244,8 +1244,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     And I pause execution for "3" seconds
-    And I perform quick search for "Record Id" in "popupflextable" panel
-    Then I do not see value "Record Id" for title "Announcement ID" inside table "popupflextable"
+    And I perform quick search for "Record Id" in "---applicationIntake:-:publishedOpputunityTableId---" panel
+    Then I do not see value "Record Id" for title "Announcement ID" inside table "---applicationIntake:-:publishedOpputunityTableId---"
     Examples:
       | Announcement Type |
       | Competitive       |

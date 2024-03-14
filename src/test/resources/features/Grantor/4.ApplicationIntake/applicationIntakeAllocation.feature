@@ -4105,7 +4105,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrants" pdf file
     Then I softly see "Notes" on page "5" of "govgrants" pdf file
 
-  @hiteshTemp @276406 @ValidateFormulaByapplicantFANosubrecipientusercandownloadpdfforQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
+  @hiteshTemp @276406  @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -4118,7 +4118,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Qualified"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click on Menu icon present on top right corner of the page
     And I pause execution for "3" seconds
     And I select "Download as PDF" from dropdown
@@ -4463,6 +4463,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
