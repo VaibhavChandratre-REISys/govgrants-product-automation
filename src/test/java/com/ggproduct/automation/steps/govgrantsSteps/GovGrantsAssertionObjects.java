@@ -488,15 +488,6 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
-    /**
-     * Takes a field label from a View page layout and a checks if its associated
-     * field value matches the given parameter
-     *
-     * @param fieldLabel
-     * @param fieldValue
-     * @modifier Vaibhav Chandratre
-     * Note: added parameter @param matchesExactly for validating the value of a exact field label
-     */
 
     /* ***************Important to Notice / Remember ****************************************
     a. The first option (the original) is meant for View pages, and the second is for Edit pages
@@ -506,24 +497,7 @@ public final class GovGrantsAssertionObjects {
     c. A “TODO”, with a date a month or two in the future to check if the issue has been resolved.
            Then, once framework fixes the issue we can remove the second xpath option.
     ******************************************************************************************* */
-    public void assertFieldValueInTheForm(String fieldLabel, boolean matchesExactly, String fieldValue, boolean isSoftly) {
-        String foundValue = null;
-        for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
-            try {
-                foundValue = govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, matchesExactly);
-            } catch (Exception e) {
-                foundValue = null;
-            }
-        }
 
-        I.amPerforming().assertionsTo().assertThat(foundValue)
-                .as("Checking value of field with label '%s'", fieldLabel)
-                .isEqualToIgnoringCase(fieldValue);
-
-        if (!isSoftly && !I.amPerforming().assertionsTo().wasSuccess()) {
-            I.amPerforming().assertionsTo().assertAll();
-        }
-    }
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
