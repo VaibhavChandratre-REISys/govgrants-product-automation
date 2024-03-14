@@ -1,7 +1,7 @@
 @negotiations @negotiationWB @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Negotiations
 
-  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
+  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @Debug
   Scenario: Validate EXE User Allow Edit Select At Least One Form Error Message
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -13,8 +13,10 @@ Feature: Validate all scenarios in Negotiations
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I softly see that "Initiate Negotiation" has been added in flextable with Id "---subAwardFromFDM:-:recommendedAppTableId---"
+    And I wait for "3" seconds
+    Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime Competitive Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I wait for "3" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -22,10 +24,11 @@ Feature: Validate all scenarios in Negotiations
     When I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationAppReviewListTableId---" panel
     Then I softly see values "{SavedValue:EGMSID}" and "Reviewed" inside table
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationAppReviewListTableId---"
+    And I wait for "3" seconds
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -68,7 +71,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
@@ -114,7 +117,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
@@ -149,7 +152,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
@@ -178,7 +181,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
@@ -219,7 +222,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -241,7 +244,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -262,7 +265,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
@@ -314,7 +317,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
@@ -354,7 +357,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
@@ -398,7 +401,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Request Negotiations" in page detail
     When I click on "Request Negotiations" in the page details
     And I navigate to "Negotiations" sub tab
-    When I clear the value from field "fieldApplicationSectionsForRevision__c"
+    When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
@@ -462,7 +465,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     And I navigate to "Negotiations" sub tab
-    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -548,8 +551,8 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     When I click on "Edit" in the page details
-    Then I see textarea field "fieldApplicantResponse__c" is editable
-    When I enter value "Automation Test" into field "fieldApplicantResponse__c"
+    Then I see textarea field "ApplicantResponse__c" is editable
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     Then I softly see field "Details" as "Automation Test"
 
