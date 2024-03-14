@@ -14,10 +14,10 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "GrantorActiveGrantsgrid" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "GrantorActiveGrants" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "RelatedAwards1" without waiting for record
     When I navigate to "Management" sub tab
     When I click on top right button "Initiate Site Visit" in flex table with id "GrantorSiteVisitsAward"
     And I enter "Site Visit" values from "Award_Field_Values.xlsx"
@@ -54,7 +54,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     Then I softly see value "<Grant Name>" for title "Grant Title" inside table "---subAwardFromFDM:-:relatedloggrant---"
     And I click on advance filter of table id "---announcement:-:AnnouncementGrantsTableId---" for LWC
     And I enter advance filter values inside id "---announcement:-:AnnouncementGrantsTableId---" for LWC
-      | EGMS ID | Contains | Invalid |
+      | EGMS ID | contains | Invalid |
     And I pause execution for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:AnnouncementGrantsTableId---"
     And I refresh the page
@@ -65,7 +65,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I save the value from row "1" for column name "EGMS ID" as "GrantEGMSID" from flex table "---announcement:-:AnnouncementGrantsTableId---"
     And I click on advance filter of table id "---announcement:-:AnnouncementGrantsTableId---" for LWC
     And I enter advance filter values inside id "---announcement:-:AnnouncementGrantsTableId---" for LWC
-      | EGMS ID | Contains | {SavedValue:GrantEGMSID} |
+      | EGMS ID | contains | {SavedValue:GrantEGMSID} |
     Then I softly see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "---subAwardFromFDM:-:relatedloggrant---"
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardFromFDM:-:relatedloggrant---" without waiting for record
     And I save the field labeled "Active Subaward" as "ActiveSubaward"
@@ -203,12 +203,12 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I navigate to "Related Log" sub tab
     And I click on advance filter "#advfGranteeGrantsByAccount" of table id "---announcement:-:activeFederalTableId---"
     And I enter advance filter values inside id "advfGranteeGrantsByAccount"
-      | EGMS ID | Contains | Invalid |
+      | EGMS ID | contains | Invalid |
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:activeFederalTableId---"
     And I refresh the page
     And I click on advance filter "#advfGranteeGrantsByAccount" of table id "---announcement:-:activeFederalTableId---"
     And I enter advance filter values inside id "advfGranteeGrantsByAccount"
-      | EGMS ID | Contains | Record Id |
+      | EGMS ID | contains | Record Id |
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:activeFederalTableId---"
     Examples:
       | Grant Name                                       |
