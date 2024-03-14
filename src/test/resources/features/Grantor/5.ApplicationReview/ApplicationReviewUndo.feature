@@ -790,7 +790,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "Score" from flex table "---applicationReview:-:appreviewsTableId---"
-#    When I expand nested table containing column value "<Application Name>"
+    When I expand nested table containing column value "<Application Name>"
     When I save the value from row "1" for column name "Average Score" as "AverageScore" from flex table "---applicationReview:-:reviewFormsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
