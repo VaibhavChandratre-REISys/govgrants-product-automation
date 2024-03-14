@@ -2143,6 +2143,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see field "Status" as "Completed"
+    And I pause execution for "5" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -2171,7 +2172,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I pause execution for "3" seconds
     And I click on "Funding Decision Memo" in the page details
+    And I pause execution for "5" seconds
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Submitted for Approval"
