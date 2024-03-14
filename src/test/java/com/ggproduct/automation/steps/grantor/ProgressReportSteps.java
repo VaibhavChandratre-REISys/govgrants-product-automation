@@ -144,4 +144,14 @@ public class ProgressReportSteps {
     public void clickOnRowLevelButton(String buttonName) {
         progressReportPage.clickRowLevelActionIconUnderAttachmentFlexTable(buttonName);
     }
+
+    @Description("To compare two saved values")
+    @Then("^I (see|softly see) value \"([^\"]*)\" is \"([^\"]*)\" value \"([^\"]*)\"$")
+    public void iSeeCompareTheValue(String usage, String savedValue1, String compare, String savedValue2) {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.compareTwoValues(savedValue1, compare, savedValue2)).isTrue();
+        } else {
+            Assert.assertTrue(progressReportPage.compareTwoValues(savedValue1, compare, savedValue2));
+        }
+    }
 }

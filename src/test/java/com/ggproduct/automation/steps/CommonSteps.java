@@ -91,6 +91,10 @@ public class CommonSteps {
         projectManager.assertFieldValues(usage, labelName, labelValue);
     }
 
+    @Then("I (see|softly see) radio button \"([^\"]*)\" in view mode for COI section$")
+    public void iSeeRadioButtonInViewModeForCOISection(String usage, String radioButtonName) {
+        projectManager.assertCOISectionInViewMode(radioButtonName, usage.contains("softly"));
+    }
 }
 
 

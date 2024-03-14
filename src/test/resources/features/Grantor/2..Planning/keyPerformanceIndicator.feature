@@ -236,7 +236,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     And I wait for "3" seconds
     When I click "Add" after selection of "{SavedValue:KPINAME}" in the table "---strategicplan:-:ListOfActiveKPITableId---"
-    When I click modal button "Close"
+#    When I click modal button "Close"
     And I refresh the page
     When I navigate to "Related Log" sub tab
     And I wait for "3" seconds

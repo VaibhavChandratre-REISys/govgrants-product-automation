@@ -1536,9 +1536,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001AThT2AW/view"
-    Then I softly can see row level action button "Edit" against "Automation Runtime FDM Announcement63208" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
+    When I login to "As a Grantor" app as "EXE" user
     And I halt execution
     When I complete filling in the Review form with recommendation "Recommended"
     And I halt execution

@@ -757,4 +757,15 @@ public final class GovGrantsAssertionSteps {
         }
         return flag;
     }
+
+    @Then("^I (softly see|see) field in the form (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
+    public void assertFieldValueInTheForm(String usage, String matchExact, String fieldName, String fieldValue) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        ggAssertionObjects.assertFieldValueInTheForm(
+                fieldName,
+                matchExact != null,
+                fieldValue,
+                usage.contains("softly")
+        );
+    }
 }
