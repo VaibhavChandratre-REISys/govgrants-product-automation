@@ -960,7 +960,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "1" for column name "Score" as "ScoreUpdated" from flex table "---applicationReview:-:appreviewsTableId---"
     Then I softly see value "{SavedValue:Score}" is "less than" the value "{SavedValue:ScoreUpdated}"
-#    When I expand nested table containing column value "<Application Name>"
+    When I expand nested table containing column value "<Application Name>"
     When I save the value from row "1" for column name "Average Score" as "AverageScoreUpdated" from flex table "---applicationReview:-:reviewFormsTableId---"
     Then I softly see value "{SavedValue:AverageScore}" is "less than" the value "{SavedValue:AverageScoreUpdated}"
 
