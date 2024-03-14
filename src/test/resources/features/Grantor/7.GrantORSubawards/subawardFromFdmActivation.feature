@@ -126,29 +126,30 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
     When I click on "Save" in the page details
-    And I save the field labeled "Project Period Start Date" as "Project Period Start Date"
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
     And I get the "EGMS ID"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | Start Date                             | End Date                         |
-      | Automation Permanent Focus Area | {SavedValue:Project Period Start Date} | {SavedValue:updatedBudgetPeriod} |
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request  |
-      | {SavedValue:PM Username} | NA                 |
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request  |
-      | {SavedValue:PM Username} | Step 1             |
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
       | {SavedValue:EXE Username} | Step 2            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request  |
-      | {SavedValue:FO Username} | Step 3             |
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 3            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
