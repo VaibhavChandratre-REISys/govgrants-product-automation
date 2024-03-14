@@ -127,18 +127,20 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
-    And I refresh the page
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
     And I get the "EGMS ID"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date                             | End Date                         |
       | Automation Permanent Focus Area | {SavedValue:Project Period Start Date} | {SavedValue:updatedBudgetPeriod} |
-    And I refresh the page
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request  |
+      | {SavedValue:PM Username} | NA                 |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request  |
       | {SavedValue:PM Username} | Step 1             |
