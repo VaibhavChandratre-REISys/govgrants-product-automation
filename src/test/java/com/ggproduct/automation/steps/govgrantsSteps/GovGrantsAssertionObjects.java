@@ -3646,4 +3646,24 @@ public final class GovGrantsAssertionObjects {
         }
         return false;
     }
+
+    public void assertFieldValueInTheForm(String fieldLabel, boolean matchesExactly, String fieldValue, boolean isSoftly) {
+        String foundValue = null;
+        for (int i = 0; i < 2 && !fieldValue.equalsIgnoreCase(foundValue); i++) {
+            try {
+                foundValue = govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, matchesExactly);
+            } catch (Exception e) {
+                foundValue = null;
+            }
+        }
+
+        I.amPerforming().assertionsTo().assertThat(foundValue)
+                .as("Checking value of field with label '%s'", fieldLabel)
+                .isEqualToIgnoringCase(fieldValue);
+
+        if (!isSoftly && !I.amPerforming().assertionsTo().wasSuccess()) {
+            I.amPerforming().assertionsTo().assertAll();
+        }
+    }
+
 }
