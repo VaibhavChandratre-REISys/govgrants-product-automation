@@ -285,6 +285,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I wait for "2" seconds
     Then I softly see field "Appropriation Amount" as "$2,500.00"
 
   @196552 @196555 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048 @vaibhav
