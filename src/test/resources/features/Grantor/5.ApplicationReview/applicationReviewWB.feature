@@ -21811,7 +21811,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see the following messages in the page details contains:
       | Selected application(s) cannot be promoted as FDM has been rejected |
-
     Examples:
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |

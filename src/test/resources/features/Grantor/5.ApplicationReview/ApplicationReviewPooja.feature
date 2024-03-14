@@ -1,6 +1,6 @@
 @applicationReviewWB @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE @wip
-Feature: Validate all scenarios in the Application Review without background
 
+Feature: Validate all scenarios in the Application Review without background
 
   @236758 @236762 @ValidateuserchangeownershipoftheAnnouncementthenusershouldsharetheReviewswiththenewowneriealltheassignereviewsshouldvisibleonlytothenewannouncementowner @sprint-14-US-236321 @vaibhav @reassignment
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
@@ -4609,7 +4609,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see the following messages in the page details contains:
       | Selected application(s) cannot be promoted as FDM has been rejected |
-
     Examples:
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM
