@@ -119,9 +119,6 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I navigate to "Budget" sub tab
-    And I save the field labeled "Project Period Start Date" as "Project Period Start Date"
-    And I save the field labeled "Project Period End Date" as "Project Period End Date"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -129,6 +126,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I save the field labeled "Project Period Start Date" as "Project Period Start Date"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
     And I get the "EGMS ID"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
