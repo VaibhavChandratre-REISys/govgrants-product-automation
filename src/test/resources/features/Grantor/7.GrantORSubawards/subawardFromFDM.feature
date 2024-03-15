@@ -1393,17 +1393,17 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Financials" sub tab
-    And I get the value from row "1" for column name "Funding Account" in flex table "flexGridAnnouncementFundingAccountGrantor"
+    And I get the value from row "1" for column name "Funding Account" in flex table "AnnouncementFundingAccountGrantor"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
-    When I perform quick search for "<Award Name>" in "flexGridRelatedAwards1" panel
+    When I perform quick search for "<Award Name>" in "RelatedAwards1" panel
     And I click on "View" icon for "<Award Name>" inside table
     When I navigate to "Budget" sub tab
-    Then I see value "{SavedValue:lastValueFromTableForCol}" for title "Funding Account" inside table "flexGridAwardFundingAccounts"
+    Then I see value "{SavedValue:lastValueFromTableForCol}" for title "Funding Account" inside table "AwardFundingAccounts"
     Examples:
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
@@ -1423,7 +1423,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
-    When I perform quick search for "<Award Name>" in "flexGridRelatedAwards1" panel
+    When I perform quick search for "<Award Name>" in "RelatedAwards1" panel
     And I click on "View" icon for "<Award Name>" inside table
     When I navigate to "Performance" sub tab
     Then I see value "{SavedValue:Domain}" for title "Domain" inside table "GrantorAwardKeyOutcomes"
@@ -1460,16 +1460,17 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
-    And I click on "View" icon for "Automation Permanent Focus Area" inside table
+    And I save the value from row "1" for column name "EGMS ID" as "egms id" from flex table "---announcement:-:AnnouncementServiceArea1TableId---"
+    And I click on hyperlink containing value "{SavedValue:egms id}"
     And I save the field labeled "GAT Title" as "title"
 #    And I close modal by clicking the top right x button
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I save the value from row "1" for column name "EGMS ID" as "egms id" from flex table "---announcement:-:AnnouncementServiceArea1TableId---"
-    And I click "{SavedValue:egms id}" lookup link
+    And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
+    And I halt execution
     Then I see value "{SavedValue:title}" for title "Title" inside table "GrantFocusAreas"
     Examples:
       | Grant Name                                       |
