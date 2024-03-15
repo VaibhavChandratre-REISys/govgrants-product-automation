@@ -102,7 +102,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I click on top right button "New" in flex table with id "---subAwardFromFDM:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I navigate to "Risk Assessment" sub tab
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -1275,6 +1275,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "3" seconds
     And I click on "Reject" in the page details
     And I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
