@@ -499,6 +499,9 @@ Feature: Validate all scenarios in the award created from FDM
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -1275,7 +1278,8 @@ Feature: Validate all scenarios in the award created from FDM
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Reject" in the page details
     And I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
@@ -1669,7 +1673,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Budget" sub tab
     And I click on hyperlink containing value "{SavedValue:fundingAccount}"
     And I wait for "2" seconds
-    Then I see field "Title" as "Automation Permanent Funding Account"
+    Then I see field "Title" as "Automation Funding Account"
 
   @67673 @validateFundingAccountEditActionNotDisplayed
   Scenario Outline: Validate that Funding account table is not editable after submitted for approval
@@ -1765,6 +1769,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     Then I cannot see row level action button "Edit" against "{SavedValue:fundingAccount}" in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---"
     Examples:

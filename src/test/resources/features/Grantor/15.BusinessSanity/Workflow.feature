@@ -1534,11 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    When I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - Approved"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+#    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - Approved"
+    And I click on "Reject" in the page details
+    And I refresh the page
+    Then I see status in Progress-bar is "Rejected" and is "Red"
     And I halt execution
 
