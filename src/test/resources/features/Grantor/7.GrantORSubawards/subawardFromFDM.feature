@@ -1462,15 +1462,13 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Overview" sub tab
     And I save the value from row "1" for column name "EGMS ID" as "egms id" from flex table "---announcement:-:AnnouncementServiceArea1TableId---"
     And I click on hyperlink containing value "{SavedValue:egms id}"
-    And I save the field labeled "GAT Title" as "title"
-#    And I close modal by clicking the top right x button
+    And I save the field labeled "Title" as "title"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
-    And I halt execution
     Then I see value "{SavedValue:title}" for title "Title" inside table "GrantFocusAreas"
     Examples:
       | Grant Name                                       |
