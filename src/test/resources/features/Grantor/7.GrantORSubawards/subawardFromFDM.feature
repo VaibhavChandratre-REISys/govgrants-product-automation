@@ -1040,7 +1040,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I enter in modal "Payment_Request_Wt_Frequency" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
-    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
     And I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
@@ -1332,6 +1332,7 @@ Feature: Validate all scenarios in the award created from FDM
   @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate @keerti
   Scenario Outline: Verify Work Plan Required? field setting entered at announcement is same on grant which is created with application.
     When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
@@ -1384,6 +1385,7 @@ Feature: Validate all scenarios in the award created from FDM
   @64788 @VerifyFundingAccountFieldOnBudgetTab  @keerti
   Scenario Outline: Verify Funding Account field on Budget Tab Subaward overview is same as announcement financial tab.
     When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Financials" sub tab
@@ -1405,6 +1407,7 @@ Feature: Validate all scenarios in the award created from FDM
   @64791 @VerifyKeyPerformanceIndicatorsValue @keerti
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as announcement Key Performance Indicators (KPIs) table setup Tab.
     When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Setup" sub tab
@@ -1427,6 +1430,7 @@ Feature: Validate all scenarios in the award created from FDM
   @64790 @VerifyObjectivesFieldValueOnPerformanceTab  @keerti @buglogged127817
   Scenario Outline: Verify Objectives field value Performance tab Subaward overview is same as announcement Objectives table setup Tab.
     When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Setup" sub tab
@@ -1448,6 +1452,7 @@ Feature: Validate all scenarios in the award created from FDM
   @64722 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Related Focus Areas field value setup tab overview at announcement is same on grant which is created with application Overview Tab.
     When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
