@@ -1279,7 +1279,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I click on "Reject" in the page details
     And I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "Red"
