@@ -828,6 +828,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -957,9 +958,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "3" seconds
     When I save the value from row "1" for column name "Score" as "ScoreUpdated" from flex table "---applicationReview:-:appreviewsTableId---"
     Then I softly see value "{SavedValue:Score}" is "less than" the value "{SavedValue:ScoreUpdated}"
-#    When I expand nested table containing column value "<Application Name>"
+    When I expand nested table containing column value "<Application Name>"
     When I save the value from row "1" for column name "Average Score" as "AverageScoreUpdated" from flex table "---applicationReview:-:reviewFormsTableId---"
     Then I softly see value "{SavedValue:AverageScore}" is "less than" the value "{SavedValue:AverageScoreUpdated}"
 
