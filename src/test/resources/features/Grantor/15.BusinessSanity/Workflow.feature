@@ -1554,34 +1554,13 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
-    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
-    When I perform quick search for "Automation SPA" in "---subAwardFromFDM:-:keyContactsTableId---" panel
-    When I click "Associate" after selection of "Automation SPA" in the table "---subAwardFromFDM:-:keyContactsTableId---"
-#    When I close "Associate Contacts" modal by clicking the top right x button
-    And I wait for "2" seconds
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Title          |  Is Key Personnel |
-      | Automation SPA |  Checked          |
-    When I navigate to "Budget" sub tab
-    Given I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
-    Given I navigate to "Performance" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    When I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardFromFDM:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
     And I halt execution
-    And I refresh the page
-    And I wait for "5" seconds
-    And I click on "Reject" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I halt execution
 
