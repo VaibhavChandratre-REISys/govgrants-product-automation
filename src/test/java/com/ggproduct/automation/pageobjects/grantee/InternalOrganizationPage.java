@@ -155,7 +155,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * assert previous date on leads detail page for application due date
      */
     public void assertPreviousDate(String savedValue) {
-        Assert.assertEquals(savedValue, I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        Assert.assertEquals(savedValue, I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("M/d/yyyy")));
     }
 
     /**
