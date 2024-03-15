@@ -747,7 +747,7 @@ Feature: Validate all scenarios in the award created from FDM
     Then I see that "Automation Permanent Objective2" has been added in flextable with Id "---subAwardFromFDM:-:objectivesTableId---"
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
-      | Automation Permanent KPI |        |
+      | Automation Permanent KPI |   0    |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
