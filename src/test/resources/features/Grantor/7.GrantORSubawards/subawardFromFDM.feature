@@ -1039,11 +1039,6 @@ Feature: Validate all scenarios in the award created from FDM
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
-    When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I enter in modal "Payment_Request_Wt_Frequency" values from "Award_Field_Values.xlsx"
-    And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
-    And I wait for "2" seconds
     When I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
     And I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
@@ -1468,7 +1463,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
-    When I navigate to "Overview" sub tab
+    When I navigate to "Budget" sub tab
     Then I see value "{SavedValue:title}" for title "Title" inside table "GrantFocusAreas"
     Examples:
       | Grant Name                                       |
