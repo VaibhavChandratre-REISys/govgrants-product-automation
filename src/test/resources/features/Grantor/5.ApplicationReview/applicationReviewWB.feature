@@ -2430,7 +2430,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hitesh1 @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
+  @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
   Scenario Outline: Validate  user is able to enter information of negotiation request under negotiation sub tab
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3971,6 +3971,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Funding Decision Memo" in the page details
     When I navigate to "Responsibilities" sub tab
     #144050
+    And I wait for "3" seconds
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "GrantorReviewStepRolesandResponsibilities"
     Then I softly see value "Step 1" for title "FDM" inside table "GrantorReviewStepRolesandResponsibilities"
     #143968
@@ -4197,6 +4198,8 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Status" as "Completed"
     And I wait for "3" seconds
     When I click on "Funding Decision Memo" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "Edit" :
       | Name                     | FDM |
@@ -4826,6 +4829,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I click modal button "Close"
     And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
