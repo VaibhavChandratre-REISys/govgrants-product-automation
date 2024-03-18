@@ -7578,7 +7578,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     When I navigate to "Overview" sub tab
-    When I enter value "ProjectAbstract" into field "fieldProjectAbstract__c"
+    When I enter value "ProjectAbstract" into field "ProjectAbstract__c"
     And I navigate to "Negotiations" sub tab
     And I enter values into fields
       | Value                              | Field                |
