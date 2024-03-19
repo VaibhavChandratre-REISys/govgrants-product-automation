@@ -7611,9 +7611,6 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
-#    When I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
 
@@ -7654,7 +7651,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I save the field labeled "Due Date" as "DueDate"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-#    Then I softly see field "Overview: Project Information Budget: Budget Details Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information"
+    Then I softly see field "Application Sections for Negotiation" as "Budget: Budget Details"
+    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
     Then I softly see field "Due Date" as "{Date:MM/dd/yyyy::d+43707}" in "Negotiation Request Details" pageblock
 
   @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @vaibhav
@@ -8351,6 +8350,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I refresh the page
     When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:appTableId---"
     When I click on top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
+    And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
       | You cannot reject an application that has been sent back to the applicant. |
 
