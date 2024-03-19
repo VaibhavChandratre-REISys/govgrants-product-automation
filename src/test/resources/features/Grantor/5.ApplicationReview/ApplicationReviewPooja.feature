@@ -4201,6 +4201,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -4236,6 +4237,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4280,6 +4282,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I pause execution for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -4294,8 +4297,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4316,6 +4321,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
@@ -4340,6 +4346,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Reject" in the approval decision
