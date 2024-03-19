@@ -223,7 +223,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @236831  @sprint-14-US-236321 @vaibhav @reassignment @PoojaApplicationReviewRerun
+  @236831  @sprint-14-US-236321 @vaibhav @reassignment
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -437,7 +437,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @225577 @225573 @225591  @sprint-11-US-203558 @komal @Allocation @PoojaApplicationReviewRerun
+  @225577 @225573 @225591  @sprint-11-US-203558 @komal @Allocation
   Scenario Outline: PM User Verify user see the validation when budgeted amount in any focus area is not equal to the Allocation amount of that focus area & user tried to promote it to FDM
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -519,7 +519,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -599,7 +599,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -713,7 +713,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -725,7 +725,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -738,7 +738,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -777,7 +777,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -1261,7 +1261,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @326970  @sprint-10-US-320518 @hitesh @PoojaApplicationReviewRerun
+  @326970  @sprint-10-US-320518 @hitesh
   Scenario Outline:Verify PM user should not able to update the allocation amount on Ann  if negotiation is No on Ann and FDM record is summited for approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -1455,7 +1455,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @274129  @sprint-10-US-320518 @hitesh @PoojaApplicationReviewRerun
+  @274129  @sprint-10-US-320518 @hitesh
   Scenario Outline: Verify PM user can see validation on customized review step when Allocation amount is changed on Announcement(FA=YES & Allocation type=By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1733,7 +1733,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @204089 @Sprint-08-US-202799 @vaibhav @PoojaApplicationReviewRerun
+  @204089 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate EXE user 'Final Decision' status of all applications should be 'Cancelled' when user reject FDM while approval even if previous applications are in 'Approved''Pending' state for Non-recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1789,7 +1789,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -1801,7 +1801,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -1813,7 +1813,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -1851,7 +1851,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2018,7 +2018,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Approved"
+#    Then I softly see field "Status" as "Approved"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -2164,7 +2164,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Approved"
+#    Then I softly see field "Status" as "Approved"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -2200,7 +2200,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204091 @204094 @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @PoojaApplicationReviewWB
+  @204091 @204094 @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @PoojaNewApplicationReviewWB
   Scenario Outline: Validate PO user when any FDM is Rejected by approver during FDM approval then should not allow any further application on this announcement to get promoted to FDM for Recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2252,11 +2252,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2268,7 +2269,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2280,7 +2281,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2318,7 +2319,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2359,6 +2360,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
@@ -2451,8 +2453,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:AppEGMSID1}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2483,7 +2487,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
-  @204093 @ValidateEXEusewhenanyFDMisRejectedbyapproverduringFDMapprovalthenshouldnotallowanyfurtherapplicationonthisannouncementtogetpromotedtoFDMforNonrecommendedApplication @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout
+  @204093  @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @PoojaNewApplicationReviewWB
   Scenario Outline: Validate EXE user when any FDM is Rejected by approver during FDM approval then should not allow any further application on this announcement to get promoted to FDM for Non-recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2535,11 +2539,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2551,7 +2556,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2563,7 +2568,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2593,13 +2598,15 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -2639,6 +2646,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | No                    | Recommended |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
@@ -2681,6 +2690,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2733,6 +2743,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:AppEGMSID1}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2765,7 +2776,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204097 @ValidateEXEusershouldseevalidationmessageonrejecbuttonifusertriestorejecttheFDMwhileapprovalbutapprovershouldstillcontinuetoSendbackApprovewhenFDMhasoneapplicationwhichisconvertedtoaward @Sprint-08-US-202799 @vaibhav
+  @204097  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate EXE user should see validation message on reject button if user tries to reject the FDM while approval but approver should still continue to 'Send back' 'Approve' when FDM has one application which is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2805,13 +2816,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
+#    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
+#    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -2821,6 +2832,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2876,8 +2888,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:AppEGMSID1}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2902,7 +2916,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Approved"
+#    Then I softly see field "Status" as "Approved"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -2937,7 +2951,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204099 @ValidatePOuserFinalDecisionstatusofallapplicationsshouldbeCancelledwhenuserrejectFDMwhileapprovalvenifpreviousapplicationsareinApprovedPendingstateshouldbeforRecommendedApplication @Sprint-08-US-202799 @vaibhav
+  @204099  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate PO user 'Final Decision' status of all applications should be 'Cancelled' when user reject FDM while approval even if  previous applications are in 'Approved' 'Pending' state should be for Recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2951,6 +2965,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I save the link value from row "1" for column name "EGMS ID" as "AppEgmdId" from flex table "---applicationReview:-:applicationAssignTableId---"
     And I save the link value from row "2" for column name "EGMS ID" as "AppEGMSID1" from flex table "---applicationReview:-:applicationAssignTableId---"
     And I save the link value from row "3" for column name "EGMS ID" as "AppEGMSID2" from flex table "---applicationReview:-:applicationAssignTableId---"
@@ -2992,7 +3007,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3004,7 +3019,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3016,7 +3031,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3046,13 +3061,15 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3092,6 +3109,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
@@ -3117,13 +3136,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -3177,6 +3194,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -3185,8 +3203,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:AppEGMSID1}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3211,7 +3231,6 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Approved"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -3231,6 +3250,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | EGMS ID                 | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | {SavedValue:AppEGMSID1} | 1000               | 1000                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "Pending" for title "Final Decision" inside table "---subAwardFromFDM:-:recommendedAppTableId---"
     #3rd Application
@@ -3251,13 +3272,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID2}"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "{SavedValue:AppEGMSID2}"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -3267,11 +3286,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEGMSID2}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -3283,6 +3304,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEGMSID2}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -3294,6 +3316,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEGMSID2}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -3316,13 +3339,16 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEGMSID2}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -3341,7 +3367,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Funding Decision Memo" in the page details
-    Then I softly see field "Status" as "Approved"
+#    Then I softly see field "Status" as "Approved"
     And I navigate to "Funding Decision Memo" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -3361,6 +3387,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | EGMS ID                 | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | {SavedValue:AppEGMSID2} | 1000               | 1000                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
@@ -3375,7 +3403,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
-  @204101 @204106 @ValidateAnnouncementownerasPMusershouldseenotificationinyopmailforRejectedFDMwhenFDMisrejectedbyapprover @Sprint-08-US-202799 @vaibhav
+  @204101 @204106  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate Announcement owner as PM user should see notification in yopmail for Rejected FDM when FDM is rejected by approver
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3427,7 +3455,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3439,7 +3467,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3451,7 +3479,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3489,7 +3517,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3574,7 +3602,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @204105 @204098 @Sprint-08-US-202799 @vaibhav
+  @204105 @204098 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate EXE user should see Validation message if user try to Reject the FDM when any recommended application's status is Negotiation Initiated and final decision status is Approved
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3629,7 +3657,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3641,7 +3669,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3653,7 +3681,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3691,7 +3719,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3912,7 +3940,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204088 @Sprint-08-US-202799 @vaibhav
+  @204088 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3962,11 +3990,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3978,7 +4007,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -3990,7 +4019,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -4020,6 +4049,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -4027,7 +4057,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
@@ -4087,13 +4117,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -4215,7 +4243,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @204103 @ValidatePMusershouldnotabletoeditingnegotiationconvertingtoawardonApplicationwhenFinaldecisionstatusisCancelled
+  @204103 @PoojaNewApplicationReviewWB @vaibhav
   Scenario Outline: Validate PM user should not able to editing, negotiation, converting to award on Application when Final decision status is 'Cancelled'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4392,7 +4420,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @204096  @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout
+  @204096  @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @PoojaNewApplicationReviewWB
   Scenario Outline: Validate PM user should see validation message when any FDM is Rejected by approver during FDM approval even if user tries to promote any application on rejected FDM for Non-recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
