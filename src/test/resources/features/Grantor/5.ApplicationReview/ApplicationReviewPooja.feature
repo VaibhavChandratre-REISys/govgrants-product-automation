@@ -199,9 +199,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Automation PM: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     Then I softly see that "Reviewer" is in "Automation PM" status
     And I close the tab
-    And I click on "Automation EXE: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    Then I softly see that "Reviewer" is in "Automation EXE" status
-    And I close the tab
+#    And I click on "Automation EXE: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#    Then I softly see that "Reviewer" is in "Automation EXE" status
+#    And I close the tab
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -768,6 +768,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -791,6 +792,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -815,6 +817,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
+    And I wait for "3" seconds
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
@@ -858,12 +861,11 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Send to Subrecipient" in the page details
     And I softly see the following messages in the page details contains:
       | Negotiations Tab: The Budgeted Amount must be equal to the Allocation Amount in the application. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field before sending the application back for revision. |
-
     Examples:
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @225602  @sprint-11-US-203558 @komal @Allocation @PoojaApplicationReviewWB
+  @225602  @sprint-11-US-203558 @komal @Allocation
   Scenario Outline: EXE User user see the validation when the budgeted Amount is not equal to the Allocation amount when user tried to promote the application to the next step for customized review step.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

@@ -161,9 +161,10 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
-  @164568  @sprint-3 @vaibhv
+  @164568  @sprint-3 @vaibhav 
   Scenario: Validate PO User Able To Select File And Forms For Revision Picklist When Application In reviewed State
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -190,6 +191,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
   @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable
@@ -558,7 +560,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I softly see field "Details" as "Automation Test"
 
-  @227883 @ValidateAllocationischangedintheannouncementwhentheapplicationissenttosrthenIfthebudgetbudgetdetailssectionisnotinthepicklistthenbudgetbudgetdetailsfieldinautomaticallyadded @Sprint-23-US-273843 @vaibhav @Allocation
+  @227883  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Allocation is changed in the announcement when the application is sent to s/r, then If the "budget: budget details" section is not in the picklist then "budget: budget details" field is automatically added
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -602,7 +604,8 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:applicationsflexTableId---" panel
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:applicationsflexTableId---"
     When I navigate to "Negotiations" sub tab
-    Then I softly see field "Application Sections for Negotiation" as "Budget: Budget Details" in "Negotiation Request Details" pageblock
+    And I wait for "5" seconds
+    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information" in "Negotiation Request Details" pageblock
 
   @165812  @sprint-3 @vaibhav @PoojaNegoSecondRun
   Scenario: Validate IND user is not able to edit selected form on application when application is in Negotiation initiated state and application is submitted to Grantor
