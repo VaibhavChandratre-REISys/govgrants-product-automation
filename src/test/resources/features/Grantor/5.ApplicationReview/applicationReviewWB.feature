@@ -7651,9 +7651,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     And I save the field labeled "Due Date" as "DueDate"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information"
-    Then I softly see field "Application Sections for Negotiation" as "Budget: Budget Details"
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
     Then I softly see field "Due Date" as "{Date:MM/dd/yyyy::d+43707}" in "Negotiation Request Details" pageblock
 
   @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @vaibhav
@@ -8199,13 +8197,13 @@ Feature: Validate all scenarios in the Application Review without background
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Ed_Over" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-    And I enter value "Checked" into field "AllowEdit__c"
-    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
-    When I click on "Form Name" column header inside table with id "---negotiation:-:NegotiationFormsTableId---"
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-    And I enter value "Checked" into field "AllowEdit__c"
-    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
+    And I pause execution for "5" seconds
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Applications" tab
@@ -8230,31 +8228,46 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     And I enter values into fields
-      | Value                       | Field                        |
-      | Automation Test Description | fieldTitle__c                |
-      | 100                         | fieldGranteeProgramincome__c |
+      | Value                       | Field                   |
+      | Automation Test Description | Title__c                |
+      | 100                         | GranteeProgramincome__c |
     And I navigate to "Negotiations" sub tab
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+#    When I click on "Back" in the page details
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
-    When I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
-    When I click on "Back" in the page details
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
