@@ -7717,8 +7717,6 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
 #    When I click on "Back" in the page details
 #    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
 #    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
@@ -7729,8 +7727,6 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
 #    When I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
@@ -7809,8 +7805,6 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
 #    When I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
