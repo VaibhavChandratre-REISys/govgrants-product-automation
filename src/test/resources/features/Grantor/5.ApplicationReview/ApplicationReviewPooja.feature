@@ -4195,7 +4195,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "3" seconds
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -4371,6 +4373,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "3" seconds
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
