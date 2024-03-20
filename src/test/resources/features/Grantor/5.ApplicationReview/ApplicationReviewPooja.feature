@@ -2202,7 +2202,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click toggle button to select "Applications - All"
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "AppEgmdId"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -2488,8 +2488,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
-    When I click on "View" icon for "<Announcement Name>" inside table
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "AppEgmdId"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -2644,7 +2645,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
-    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I softly see value "Cancelled" for title "Final Decision" against the value "{SavedValue:AppEgmdId}" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
     #2nd Application
@@ -2656,6 +2658,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "AppEGMSID1" from flex table "---applicationReview:-:appTableId---"
     When I perform quick search for "{SavedValue:AppEGMSID1}" in "---applicationReview:-:appTableId---" panel
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -2739,6 +2742,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Close"
     When I check "{SavedValue:AppEGMSID1}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
