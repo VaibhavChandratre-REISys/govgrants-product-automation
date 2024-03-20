@@ -2934,6 +2934,7 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                 | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | {SavedValue:AppEGMSID1} | 1000               | 1000                    | Yes                   | Recommended |
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Funding Decision Memo" sub tab
@@ -2942,6 +2943,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
     When I "Send to Owner" in the approval decision
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -3570,8 +3572,9 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "Cancelled" for title "Final Decision" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
+    And I wait for "3" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "80" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
