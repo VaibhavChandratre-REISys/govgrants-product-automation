@@ -469,7 +469,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @219974 @219982 @ValidateSPIUseronopportunityoverviewsectionSubawardfloor&SubawardCellingfieldshouldbehideforformulaannouncement @sprint-11-US-203038 @vaibhav @Allocation
+  @219974 @219982  @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPI User on opportunity overview section Subaward floor & Subaward Celling field should be hide for formula announcement
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -2854,7 +2854,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 #    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
-  @222473 @DirectiveAnnVerifyINDusercaneditBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiationSPISPAusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforpreapplicationfornegotiation @sprint-10-US-221062 @komal @Allocation
+  @222473  @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI SPA user can't edit Budget Tab Budget Summary by Focus Area" section if grantor not selected Budget Tab Budget Summary by Focus Area for pre application for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3055,7 +3055,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
-  @222470 @VerifySPISPAusercaneditBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062 @komal @Allocation
+  @222470  @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3095,7 +3095,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
@@ -3205,7 +3206,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
 
-  @222501 @DirectiveAnnVerifySPIuserseevalidationmessageifbudgetamountnotmatcheswithsubawardceilingAmtduetouserremovefocusareaandtrytosubmitpreapptograntor @sprint-10-US-221062 @komal @Allocation
+  @222501  @sprint-10-US-221062 @komal @Allocation
   Scenario: Directive Ann - Verify SPI user see validation message if budget amount not matches with sub award ceiling Amt due to user remove focus area and try to submit pre-app to grantor
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I login to "As a Grantor" app as "PM" user
@@ -3410,7 +3411,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @227874 @VerifywhenINDuserresubmittheapplicationafternegotiationfromApplicationcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection&usershouldabletocreatethesubaward @sprint-13-US-224692 @komal @Allocation
+  @227874  @sprint-13-US-224692 @komal @Allocation @bug-
   Scenario Outline:  Verify when IND user  resubmit the application after negotiation(from Application) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section  & user should able to create the subaward
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -4102,7 +4103,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrants" pdf file
     Then I softly see "Notes" on page "5" of "govgrants" pdf file
 
-   @276406 @ValidateFormulaByapplicantFANosubrecipientusercandownloadpdfforQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
+   @276406  @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -4406,7 +4407,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     Then I softly see field "Estimated Program Income For Project Period" as "$500.00"
 
-  @274238 @FormulaFANoVerifyupdatedvaluesofAllocationAmountshouldgetupdatedinopportunityandQualifiedopportunityaswell @Sprint-23-US-273843 @vaibhav @Allocation
+  @274238  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Formula FA No Verify updated values of Allocation Amount should get updated in opportunity and Qualified opportunity as well.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_NEGOTIATION_YES"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
