@@ -3612,7 +3612,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isButtonPresent(String buttonLabel) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "'] | //div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
                 return true;
             }
         } catch (Exception e) {
