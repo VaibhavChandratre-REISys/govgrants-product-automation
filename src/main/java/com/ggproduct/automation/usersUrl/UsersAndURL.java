@@ -77,12 +77,8 @@ public class UsersAndURL implements UsersController {
         String password = null;
         if (EnvironmentFactory.getEnvironmentName().contains("QA")) {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
-            password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
-            password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else
-            password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
+            password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
     }
 
@@ -94,6 +90,9 @@ public class UsersAndURL implements UsersController {
                 break;
             case "ADMIN":
                 password = "Salesforce2035";
+                break;
+            case "SPA":
+                password = "Salesforce2031";
                 break;
             default:
                 password = "Salesforce2033";
