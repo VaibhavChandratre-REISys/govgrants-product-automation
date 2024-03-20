@@ -9778,7 +9778,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-
   @202575 @202625 @ValidatePMuserinitiatethenegotiationthenusershouldabletoeeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation
   Scenario Outline: Validate PM user initiate the negotiation then user should able to see application is come back to current review step after cancel the negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
@@ -9805,6 +9804,7 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
     #202625
