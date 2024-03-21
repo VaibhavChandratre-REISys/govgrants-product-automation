@@ -77,8 +77,12 @@ public class UsersAndURL implements UsersController {
         String password = null;
         if (EnvironmentFactory.getEnvironmentName().contains("QA")) {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
-        } else
+        } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
+            password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
+        } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
+        } else
+            password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
     }
 

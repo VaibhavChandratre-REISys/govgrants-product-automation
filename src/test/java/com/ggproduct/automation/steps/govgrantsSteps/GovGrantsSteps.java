@@ -138,6 +138,7 @@ public final class GovGrantsSteps {
             }
         } catch (Exception e) {
             if (I.amPerforming().checkToSee().isElementDisplayed(ByUsing.xpath("//a[@title='GovGrants Launcher Tab']"))) {
+                I.amPerforming().waitFor().makeThreadSleep(5000);
                 By GovtGrantLauncher = ByUsing.xpath("//a[@title='GovGrants Launcher Tab']");
                 I.amPerforming().click().on(GovtGrantLauncher);
                 I.amPerforming().waitFor().ElementToDisappear(GovtGrantLauncher);
