@@ -3716,6 +3716,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I wait for "3" seconds
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3944,7 +3945,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-
     Examples:
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
