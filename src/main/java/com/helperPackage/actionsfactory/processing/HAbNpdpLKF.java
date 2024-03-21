@@ -177,7 +177,6 @@ public class HAbNpdpLKF implements ElementProcessing {
                         if (magicWaitRetry == 0) {
                             magicWaitRetry++;
                             I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "No context is available, so re-trying one more time");
-                            I.amPerforming().waitFor().makeThreadSleep(4000);
                             elementWaitProcessing(locatorOrElement);
                         } else {
                             displayedFlag = false;
