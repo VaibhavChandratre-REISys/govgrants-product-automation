@@ -718,7 +718,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-#    When I close "Enter Review" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I close "Enter Review" modal by clicking the top right x button
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
