@@ -9365,6 +9365,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -9761,6 +9762,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I pause execution for "2" seconds
     And I click on "Next Review Step" in the page details
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
@@ -10144,6 +10146,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Request Negotiations" in the page details
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
     Then I see the sub-header is "Pre-Screen Review" in the page details
