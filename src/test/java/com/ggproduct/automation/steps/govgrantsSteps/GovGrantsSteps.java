@@ -138,6 +138,7 @@ public final class GovGrantsSteps {
             }
         } catch (Exception e) {
             if (I.amPerforming().checkToSee().isElementDisplayed(ByUsing.xpath("//a[@title='GovGrants Launcher Tab']"))) {
+                I.amPerforming().waitFor().makeThreadSleep(5000);
                 By GovtGrantLauncher = ByUsing.xpath("//a[@title='GovGrants Launcher Tab']");
                 I.amPerforming().click().on(GovtGrantLauncher);
                 I.amPerforming().waitFor().ElementToDisappear(GovtGrantLauncher);
@@ -744,6 +745,11 @@ public final class GovGrantsSteps {
     @When("^I save the field (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")
     public void saveFieldValue(String labeledOrContaining, String fieldLabel, String fieldKey) {
         I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValue(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
+    }
+
+    @When("^I save the field in the form (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")
+    public void saveFieldValueInForm(String labeledOrContaining, String fieldLabel, String fieldKey) {
+        I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
     }
 
     /******* stickey Notes ***********/

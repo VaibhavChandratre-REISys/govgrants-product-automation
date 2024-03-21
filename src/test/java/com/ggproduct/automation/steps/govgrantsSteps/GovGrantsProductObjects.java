@@ -667,4 +667,40 @@ public final class GovGrantsProductObjects {
         I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module']"));
         I.amPerforming().click().on(By.xpath("//div[@role='listbox']//lightning-base-combobox-item//span[@title='" + option + "']"));
     }
+
+    public void iSavedSpecificLinkValueFromFlexTableInsideGivenKey(String columnValueFromRow, String columnName, String key, String flexTableId) {
+        I.amPerforming().propertiesFileOperationsTo().saveValue(key, getValueOfSpecifiedLinkColFromTableHavingColumnNameAs(columnValueFromRow,
+                columnName, flexTableId));
+    }
+
+    private String getValueOfSpecifiedLinkColFromTableHavingColumnNameAs(String rowNumber, String columnName, String flexTableId) {
+        int columnValueFromRowInInt = 0;
+        int counter = 1;
+        By columnHeaders = By.xpath("//div[@id='" + flexTableId + "']//th[not(contains(@class,'hide'))] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[not(contains(@class,'hide'))]");
+        List<Elements> columnList = I.amPerforming().getElementReference().forListOfElements().of(columnHeaders);
+
+        // get the column index of required column.
+        for (Elements columnEle : columnList) {
+            if (columnEle.getText().equalsIgnoreCase(columnName)) {
+                break;
+            }
+            counter++;
+        }
+        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//a"));
+        if (listOfDataInColumn.size() == 0) {
+            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//a"));
+            if (listOfDataInColumn.size() == 0) {
+                listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//a"));
+                if (listOfDataInColumn.size() == 0) {
+                    listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//a"));
+                    if (listOfDataInColumn.size() == 0) {
+                        listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter-1) + "]//a"));
+                    }
+                }
+            }
+        }
+        columnValueFromRowInInt = rowNumber.equalsIgnoreCase("last row") ? listOfDataInColumn.size()
+                : Integer.parseInt(rowNumber);
+        return listOfDataInColumn.get(columnValueFromRowInInt - 1).getText();
+    }
 }

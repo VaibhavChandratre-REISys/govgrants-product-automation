@@ -182,19 +182,19 @@ public final class GovGrantsAssertionSteps {
     @When("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertTopRightButtonInFlexTableById(String usage, String buttonName, String tableId) {
 //        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
-            ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
-                    tableId,
-                    buttonName,
-                    ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                    usage.contains("softly")
-            );
+        ggAssertionObjects.assertCanOrCannotSeeTopRightButtonInFlexTableById(
+                tableId,
+                buttonName,
+                ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                usage.contains("softly")
+        );
     }
 
 
     @Description("Tests for the presence of row level button on a table")
     @When("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in flex table with id \"([^\"]*)\"$")
     public void assertRowLevelButtonInFlexTableById(String usage, String buttonName, String uniqueColumnValue, String tableId) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableByIdForLWC(
                     tableId,
                     uniqueColumnValue,
@@ -203,7 +203,7 @@ public final class GovGrantsAssertionSteps {
                     usage.contains("softly")
             );
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
-        } else{
+        } else {
             ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInFlexTableById(
                     tableId,
                     uniqueColumnValue,
@@ -415,13 +415,13 @@ public final class GovGrantsAssertionSteps {
                     .as("Verifying overview header is as expected")
                     .isEqualToNormalizingWhitespace(headerText);
         } else {
-           if("header".equalsIgnoreCase(isHeader)){
-               By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
-               Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
-           } else {
-               By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
-               Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
-           }
+            if ("header".equalsIgnoreCase(isHeader)) {
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
+                Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
+            } else {
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
+                Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
+            }
 
         }
     }
@@ -526,8 +526,8 @@ public final class GovGrantsAssertionSteps {
     }
 
     @Then("^I (see|do not see|softly see|softly do not see) (fields|Date Box) \"([^\"]*)\" is in edit mode$")
-    public void assertEditModeOfFields(String usage,String fields, String text) {
-        ggAssertionObjects.assertEditModeOfPageDetailsFields(usage,fields, text);
+    public void assertEditModeOfFields(String usage, String fields, String text) {
+        ggAssertionObjects.assertEditModeOfPageDetailsFields(usage, fields, text);
     }
 
     @Then("^I see for \"([^\"]*)\" field value is \"([^\"]*)\" inside dynamic form$")
@@ -741,9 +741,9 @@ public final class GovGrantsAssertionSteps {
     @Then("I (softly see|softly do not see) top right button \"([^\"]*)\" inside flex table \"([^\"]*)\"$")
     public void iSoftlyDoNotSeeTopRightButtonInsideFlexTable(String usage, String buttonName, String tableId) {
         if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName,tableId)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
-            I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName,tableId)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isFalse();
         }
     }
 

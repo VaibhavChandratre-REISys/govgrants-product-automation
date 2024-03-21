@@ -578,6 +578,7 @@ public final class PageDetails {
      *
      * @author john.phillips
      */
+
     public void clickFormValidationButtonAndWaitForResult() {
         By buttonSelector = By.xpath("//div[@id='FormComponent']//button[text()='Validate']");
         I.amPerforming().click().on(buttonSelector);
