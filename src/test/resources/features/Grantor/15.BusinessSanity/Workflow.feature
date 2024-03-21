@@ -1536,6 +1536,8 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "EXE" user
-
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Review__c/a3TDV000003aTxT2AU/view"
+    Then I softly see that "Reviewer" is in "Automation PM" status
+    And I halt execution
 

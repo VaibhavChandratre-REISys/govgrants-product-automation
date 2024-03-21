@@ -5262,7 +5262,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-  @223181 @ValidateAnnouncementModuleusershouldabletoreassigntheownershiptonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998 @vaibhav @reassignment
+  @223181 @sprint-11-US-217998 @vaibhav @reassignment
   Scenario Outline: Validate Announcement Module user should able to reassign the ownership to new user of more than 10 records & 1 email should be triggered for all records
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

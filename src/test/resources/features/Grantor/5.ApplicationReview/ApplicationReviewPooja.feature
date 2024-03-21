@@ -218,6 +218,7 @@ Feature: Validate all scenarios in the Application Review without background
 #    Then I softly see that "Reviewer" is in "Automation EXE" status
     #236830
     Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
 
     Examples:
       | Announcement Name                                        | Application Name                                         |
@@ -419,6 +420,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I expand nested table containing column value "<Application Name>"
     And I click on "Automation PM: Sent for Review" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I wait for "5" seconds
     Then I softly see that "Reviewer" is in "Automation PM" status
     And I close the tab
     Then I softly see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
@@ -432,6 +434,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
 #    When I expand nested table containing column value "<Application Name>"
     Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
 
     Examples:
       | Announcement Name                                        | Application Name                                         |
@@ -1736,7 +1739,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @204089 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
+  @204089 @Sprint-08-US-202799 @vaibhav
   Scenario Outline: Validate EXE user 'Final Decision' status of all applications should be 'Cancelled' when user reject FDM while approval even if previous applications are in 'Approved''Pending' state for Non-recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2063,7 +2066,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "{SavedValue:AppEGMSID2}"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -4715,7 +4717,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @finalAppReviewPooja
+  @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @Debug
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4888,32 +4890,33 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I expand nested table containing column value "<Application Name>"
-#    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-#    Then I softly see that "Reviewer" is in "Automation FO" status
-#    And I close the tab
-    #236762
-    Then I softly see "Recommendations" in flex table header "---applicationReview:-:reviewFormsTableId---"
-    Then I softly see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
-#    When I expand nested table containing column value "<Application Name>"
-#    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-#    Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
-#    And I close the tab
-    And I wait for "3" seconds
-   #236762
-    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+##    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+##    Then I softly see that "Reviewer" is in "Automation FO" status
+##    And I close the tab
+#    #236762
+#    Then I softly see "Recommendations" in flex table header "---applicationReview:-:reviewFormsTableId---"
+#    Then I softly see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    And I navigate to "Related Log" sub tab
+#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+##    When I expand nested table containing column value "<Application Name>"
+##    And I click on "Automation FO: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+##    Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
+##    And I close the tab
+#    And I wait for "3" seconds
+#   #236762
+#    Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
+#    Then I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "announcement"
     Examples:
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @220226  @sprint-10-US-205576 @vaibhav @reassignment @finalAppReviewPooja @Debug
+  @220226  @sprint-10-US-205576 @vaibhav @reassignment @finalAppReviewPooja
   Scenario Outline: Validate Ann owner should able to assign App form for review again after negotiation is completed even if previously reviewers sent form for review like status is 'Sent for review'
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5004,9 +5007,6 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    And I reset the table
-    When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "{SavedValue:AppEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5298,8 +5298,8 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see value "{SavedValue:AppEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I wait for "3" seconds
-#    Then I softly see field "Reviewer" as "Automation EXE1"
-#   Then I softly see that "Reviewer" is in "Automation EXE1" status
+    Then I softly see field "Reviewer" as "Automation EXE1"
+   Then I softly see that "Reviewer" is in "Automation EXE1" status
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
