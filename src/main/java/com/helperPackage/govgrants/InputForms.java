@@ -141,7 +141,7 @@ public final class InputForms {
             I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
         } else {
             fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
-           int size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+            int size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
             if (size > 2){
                 fieldWrapperLocator=By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
                 size=  I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
@@ -154,7 +154,6 @@ public final class InputForms {
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         I.amPerforming().waitFor().makeThreadSleep(2000);
         I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
-//        I.amPerforming().scroll().onPageToSpecificElement(fieldWrapperLocator);
         if ("".equalsIgnoreCase(fieldValue)) {
             handleClearingFormDataInputs(fieldWrapper);
         } else {

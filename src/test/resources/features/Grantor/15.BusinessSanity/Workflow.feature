@@ -1532,12 +1532,35 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @420
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Review__c/a3TDV000003aTxT2AU/view"
-    Then I softly see that "Reviewer" is in "Automation PM" status
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardFromFDM:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
+    And I halt execution
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I halt execution
 
