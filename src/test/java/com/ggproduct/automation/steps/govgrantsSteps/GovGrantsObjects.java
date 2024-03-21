@@ -100,7 +100,7 @@ public final class GovGrantsObjects {
      * @param tableId
      */
     public void performClickOnAdvanceFilterWithTableIdForLWC(String tableId) {
-        I.amPerforming().click().on(govgrants.perform().phasePanel().getAdvanceFilterItemForLWC(tableId));
+        I.amPerforming().click().withJavaScript(govgrants.perform().phasePanel().getAdvanceFilterItemForLWC(tableId));
     }
 
     /**

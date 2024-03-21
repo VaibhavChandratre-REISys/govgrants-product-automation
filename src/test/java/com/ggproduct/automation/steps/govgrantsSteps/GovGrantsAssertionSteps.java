@@ -92,7 +92,7 @@ public final class GovGrantsAssertionSteps {
     public void textVisibleOnPage(String usage, String isContains, String desiredText) {
         ggAssertionObjects.assertTextVisibleOnPage(
                 isContains != null,
-                desiredText, "can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage),
+                desiredText,"can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage),
                 usage.contains("softly")
         );
     }
@@ -107,7 +107,7 @@ public final class GovGrantsAssertionSteps {
         for (String messages : list) {
             ggAssertionObjects.assertTextVisibleOnPage(
                     contains != null,
-                    messages, "can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage),
+                    messages,"can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage),
                     usage.contains("softly")
             );
         }
