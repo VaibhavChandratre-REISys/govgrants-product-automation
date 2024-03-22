@@ -894,6 +894,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
+    And I pause execution for "2" seconds
     When I save the field labeled "EGMS ID" as "AppEGMSID"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
