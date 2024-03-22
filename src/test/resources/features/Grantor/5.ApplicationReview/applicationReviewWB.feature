@@ -12337,9 +12337,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    And I reset the table
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -12530,7 +12529,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -12608,7 +12607,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -12657,7 +12656,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -12675,7 +12674,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly can see top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -12755,7 +12754,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -12776,7 +12775,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly can see top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -12939,7 +12938,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    And I check "Select All" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I check "All" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
