@@ -707,7 +707,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -729,7 +729,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
@@ -935,7 +935,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Applications" tab

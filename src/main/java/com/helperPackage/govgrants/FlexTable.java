@@ -247,17 +247,11 @@ public final class FlexTable implements FlexTableComponent {
     public void selectCheckBoxes(String flexTableId, String... uniqueColumnTexts) {
         // if passed no strings, it will check the "select all" box at the top
         if (uniqueColumnTexts.length == 0) {
-            By checkAllSelector = By.xpath("//div[@id='" + flexTableId + "']"
-                    + "//div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId' or @id='flexGridEnhancedDivIdStepReviews']"
-                    + "//th//input[(@type='checkbox' or @id='StepReviewscheckBox') and not(parent::label)] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//input[@type='checkbox']");
+            By checkAllSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//input[@type='checkbox']");
             I.amPerforming().click().withJavaScript(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
-            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr//input[@type='checkbox'] | //div[@id='" + flexTableId
-                    + "']/div[@id='flexTableDivId' or @id='flexGridDivId' or @id='flexGridEnhancedDivId']"
-                    + "//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//td//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox']" +
-                    "| //div[@id='" + flexTableId + "']//th//*[text()='" + uniqueColumn + "']/ancestor::tr[1]//input[@type='checkbox' or @type='radio']");
+            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr[@class='inputRows']//input[@type='checkbox']");
                 I.amPerforming().click().withJavaScript(rowCheckboxSelector);
         }
     }
