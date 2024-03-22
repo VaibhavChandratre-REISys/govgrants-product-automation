@@ -1683,7 +1683,7 @@ Feature: Validate all scenarios in the Application Review without background
 
   @220315 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewer1alreadySentforreviewforsameform @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate reviewer 2 can reassign App review task to reviewer 1 only after negotiation complete if reviewer 1 already 'Sent for review' for same form
-    And I published "Competitive" type announcement having name "Automation Runtime Amendment Award" and properties "default-Automation EXE user"
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Applications" tab
