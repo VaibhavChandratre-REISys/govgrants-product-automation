@@ -1902,7 +1902,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Funding Decision Memo" in the page details
     And I wait for "7" seconds
     Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
-
     Examples:
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |

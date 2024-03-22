@@ -5493,21 +5493,22 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}"
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
     When I save the field labeled "EGMS ID" as "AppEGMSID"
     And I pause execution for "3" seconds
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}"
 #    When I click on "EGMS ID" column header inside table with id "---negotiation:-:negotiationAppReviewListTableId---"
 #    And I wait for "5" seconds
 #    When I click on "EGMS ID" column header inside table with id "---negotiation:-:negotiationAppReviewListTableId---"
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
+    And I wait for "3" seconds
     When I save the field labeled "EGMS ID" as "AppEGMSID1"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
