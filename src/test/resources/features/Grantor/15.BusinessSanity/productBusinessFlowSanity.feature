@@ -728,6 +728,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside table
     Given I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
