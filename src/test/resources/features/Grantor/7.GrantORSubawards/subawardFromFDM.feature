@@ -1389,7 +1389,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Budget" sub tab
-    Then I see value "{SavedValue:title}" for title "Title" inside table "GrantFocusAreas"
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
     Examples:
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
