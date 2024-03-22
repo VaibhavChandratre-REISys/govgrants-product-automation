@@ -4210,7 +4210,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hitesh1 @143972 @Verify1StepApprovalForFDM-RnRFunctnality @monu
+  @143972 @Verify1StepApprovalForFDM-RnRFunctnality @monu
   Scenario Outline: Verify FDM can be approved by adding one step approver
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -5821,7 +5821,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @hitesh2 @81227 @ValidateDecisionStatusChangesFromPendingToSentBackWhenAnnouncementOwnerClickingSendBackToApplicantButtonInSMEReviewStepApplicationSectionForApplicationPhase @vaibhav @wip @NotApplicable
+  @81227 @ValidateDecisionStatusChangesFromPendingToSentBackWhenAnnouncementOwnerClickingSendBackToApplicantButtonInSMEReviewStepApplicationSectionForApplicationPhase @vaibhav @wip @NotApplicable
   Scenario Outline: Validate Decision Status Changes From Pending To SentBack When Announcement Owner Clicking SendBack To Applicant Button In SME Review Step Application Section For Application Phase
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -12354,7 +12354,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly can see top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -12939,6 +12939,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "All" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AppEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -13650,7 +13651,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
@@ -15615,7 +15616,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I can see row level action button "Assign" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I can see row level action button "Remove from Form" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:FO Username}" in flex table with id "---applicationReview:-:reviewersTableId---"
     Then I softly can see top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Reject" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly can see top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
