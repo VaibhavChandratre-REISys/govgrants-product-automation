@@ -6775,7 +6775,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -6848,7 +6847,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I refresh the page
     And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -11705,7 +11703,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hit1 @202807 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clickonBacktoCurrentReviewStepthanIwillbedirectedtothestepfromwhereuserstartednegotiation @sprint-7-US-183693  @vaibhav
+  @202807 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clickonBacktoCurrentReviewStepthanIwillbedirectedtothestepfromwhereuserstartednegotiation @sprint-7-US-183693  @vaibhav
   Scenario Outline: Validate grantor sends requests negotiation & s/r send it back to grantor but the grantor does not complete the negotiation  & click on "Back to Current Review Step" than I will be directed to the step from where user started negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -11884,7 +11882,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hit1 @202810 @ValidateaftercreatinganothernegotiationifthegrantorclicksonCancelRevisionwithoutsendingittos/rthenitshouldredirectedtofirststepandthenifuserclickonBacktoCurrentReviewStepthanitgetsdirectedtofirststep @sprint-7-US-183693  @vaibhav
+  @202810 @ValidateaftercreatinganothernegotiationifthegrantorclicksonCancelRevisionwithoutsendingittos/rthenitshouldredirectedtofirststepandthenifuserclickonBacktoCurrentReviewStepthanitgetsdirectedtofirststep @sprint-7-US-183693  @vaibhav
   Scenario Outline: Validate  after creating another negotiation if the grantor clicks on "Cancel Revision" without sending it to s/r then it should redirected to first step and then if user click on "Back to Current Review Step" than it gets directed to first step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -12035,7 +12033,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hit1 @202811 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntor&grantorclicksonCompleteNegotiationthenuserclickonBacktoCurrentReviewStepthenitredirecttofirststep @sprint-7-US-183693  @vaibhav
+  @202811 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntor&grantorclicksonCompleteNegotiationthenuserclickonBacktoCurrentReviewStepthenitredirecttofirststep @sprint-7-US-183693  @vaibhav
   Scenario Outline: Validate grantor sends requests negotiation & s/r send it back to grantor & grantor clicks on "Complete Negotiation" then user click on "Back to Current Review Step" then it redirect to first step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -12094,7 +12092,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hit1 @202812 @Validategrantorsendrequestnegotiation&s/rsendbacktothegrantor&grantorclickoncompletenegotiationthenclickonBacktocurrentReviewStepthenitredirectstothefirststep @sprint-7-US-183693  @vaibhav
+  @202812 @Validategrantorsendrequestnegotiation&s/rsendbacktothegrantor&grantorclickoncompletenegotiationthenclickonBacktocurrentReviewStepthenitredirectstothefirststep @sprint-7-US-183693  @vaibhav
   Scenario Outline: Validate grantor send request negotiation & s/r send back to the grantor & grantor click on complete negotiation  then click on “Back to current Review Step”  then it redirects to the first step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -12190,7 +12188,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @hit1 @196889 @ValidatenewownercanseefollowingbuttonsonManagementreviewlayoutafterit'srelateAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @196889 @ValidatenewownercanseefollowingbuttonsonManagementreviewlayoutafterit'srelateAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate new owner can see following buttons on Management review layout after it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12365,7 +12363,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit2 @196944 @Validatependingtaskshouldnotgenerateforoldownerofappit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @196944 @Validatependingtaskshouldnotgenerateforoldownerofappit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: pending task should not generate for old owner of app if it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12553,7 +12551,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit2 @196958 @ValidatenewownercancompleteapplicationnegotiationifitsrelatedAnnownershipwillassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
+  @196958 @ValidatenewownercancompleteapplicationnegotiationifitsrelatedAnnownershipwillassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate new owner can complete application negotiation if it's related Ann ownership will assign to new owner
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12623,7 +12621,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit2 @203488 @Validatenewownercanseefollowingbuttonsonprescreenreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @203488 @Validatenewownercanseefollowingbuttonsonprescreenreviewlayoutafterit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate new owner can see following buttons on prescreen review layout after it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12683,7 +12681,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit2 @202975 @ValidatenewownercanseefollowingbuttonsonSMEreviewlayoutafteritsrelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @202975 @ValidatenewownercanseefollowingbuttonsonSMEreviewlayoutafteritsrelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate new owner can see following buttons on SME review layout after it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12784,7 +12782,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit2 @202653 @Validate#ofReviewsAssignedvalueshouldbeupdatedinreviewertableafterthePMreviewertaskreassigntootherreviewer @sprint-12-US-226646 @vaibhav @reassignment
+  @202653 @Validate#ofReviewsAssignedvalueshouldbeupdatedinreviewertableafterthePMreviewertaskreassigntootherreviewer @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate # of Reviews Assigned" value should be updated in reviewer table after the PM reviewer task reassign to other reviewer
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
