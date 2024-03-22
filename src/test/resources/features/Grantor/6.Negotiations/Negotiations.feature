@@ -71,7 +71,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Create Subaward" in page detail
 
-  @57036 @57035 @TaskCreatedforSPinegotiationIconAfterFDMApproved @deepika @NegotiationRuNByPooja
+  @57036 @57035 @TaskCreatedforSPinegotiationIconAfterFDMApproved @deepika
   Scenario: Validate Applicants will be able to view Negotiation Icon after FDM Approved and receive the Negotiation request from the Internal Agency
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
