@@ -1839,6 +1839,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Complete Negotiation" in the page details
+    And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
