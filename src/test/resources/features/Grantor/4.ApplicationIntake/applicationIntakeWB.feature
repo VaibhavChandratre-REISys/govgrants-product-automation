@@ -249,6 +249,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -534,7 +535,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "History" sub tab
     Then I softly cannot see field "Snapshot History" inside page block
 
-  @72308 @77658 @34324 @72309 @userCanEditApplicationInCreatedStatusAndCannotInSubmitTedStatus @deepika @ReRunApplicationPooja
+  @72308 @77658 @34324 @72309  @deepika @ApplicationPooja
   Scenario: Validate whether the User can view the edit icon for the application that is in Created Status and Submiited to Grantor Status
   Validate whether SPI user have delete access to delete the Application that is in Created Sttaus
   Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount is less than or equal to the Subaward Floor Amount
@@ -579,10 +580,12 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2302,6 +2305,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details

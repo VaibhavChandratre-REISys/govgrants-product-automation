@@ -1003,6 +1003,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     When I click on "Complete Negotiation" in the page details
     And I click on "Create Subaward" in the page details
+    And I wait for "4" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Published Competitive Announcements"
