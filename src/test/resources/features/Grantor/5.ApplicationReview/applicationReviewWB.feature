@@ -11874,6 +11874,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Request Negotiations" in the page details
     When I click on "Save" in the page details
     When I click on "Cancel Negotiation" in the page details
+    And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Cancelled" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
     Then I see the sub-header is "Pre-Screen Review" in the page details
@@ -12336,6 +12337,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Title" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "2" seconds
