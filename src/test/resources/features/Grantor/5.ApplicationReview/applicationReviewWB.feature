@@ -4003,6 +4003,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | FDM    |
+      | {SavedValue:PM Username} | NA     |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
