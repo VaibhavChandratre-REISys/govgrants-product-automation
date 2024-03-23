@@ -177,6 +177,7 @@ public class HAbNpdpLKF implements ElementProcessing {
                         if (magicWaitRetry == 0) {
                             magicWaitRetry++;
                             I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "No context is available, so re-trying one more time");
+                            I.amPerforming().waitFor().makeThreadSleep(1000);
                             elementWaitProcessing(locatorOrElement);
                         } else {
                             displayedFlag = false;
@@ -291,7 +292,7 @@ public class HAbNpdpLKF implements ElementProcessing {
 
         } catch (WebDriverException noSuchWindowAndTypeError) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "No initial context is available to switch, so re-trying one more time");
-//            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             InstanceRecording.getInstance(DeviceBucket.class).getDriver().switchTo().defaultContent();
             I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Default Context Enabled");
         } catch (StackOverflowError stackOverflowError) {
