@@ -1,4 +1,4 @@
-@preApplicationExecution @preAplicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@preApplicationExecution @preAplicationNotes @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Pre-Application scenarios without background
 
   @225095 @225099 @ValidatePMPOEXEFOAdminsenotabletoEditDeletenoteswhichisaddedbySPIUserwhichisinnegotiationinitiatedstate @Sprint-11-US-224418 @Notes
