@@ -93,7 +93,7 @@ public final class GovGrantsAssertionObjects {
                 By.xpath("//span[text()='" + record + "']"
                         + "/../../../../../../../..//div//dt"
                         + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "']"), true);
+                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
     }
 
     /**
@@ -3612,7 +3612,7 @@ public final class GovGrantsAssertionObjects {
      */
     private boolean isButtonPresent(String buttonLabel) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='" + buttonLabel + "'] | //div[contains(@class, 'modal__footer')]//button[text()='" + buttonLabel + "']")))) {
                 return true;
             }
         } catch (Exception e) {

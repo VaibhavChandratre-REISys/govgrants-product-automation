@@ -82,18 +82,18 @@ public final class PhasePanel {
      */
     public void handleDropdownInputForAdvanceFilterForLWC(String advanceFilterId, List rowvalues) {
         By filterAction = null;
-        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Column')]/..//c-multi-select-pick-list//input");
-        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Operator')]/..//c-multi-select-pick-list//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//c-multi-select-pick-list//input");
+        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Column')]/..//c-outer-picklist//input");
+        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Operator')]/..//c-outer-picklist//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//c-outer-picklist//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
         I.amPerforming().textInput().toClear(dropDownSelector1);
         I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
-        By selectDropdown1 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
+        By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
         I.amPerforming().click().withJavaScript(selectDropdown1);
         I.amPerforming().textInput().toClear(dropDownSelector2);
         I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
-        By selectDropdown2 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
+        By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
         I.amPerforming().click().withJavaScript(selectDropdown2);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
             I.amPerforming().textInput().toClear(inputField);
@@ -101,10 +101,10 @@ public final class PhasePanel {
         } else {
             I.amPerforming().textInput().toClear(dropDownSelector3);
             I.amPerforming().textInput().in(dropDownSelector3, rowvalues.get(2).toString());
-            By selectDropdown3 = By.xpath("//c-multi-select-pick-list//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
+            By selectDropdown3 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
             I.amPerforming().click().withJavaScript(selectDropdown3);
         }
-        I.amPerforming().click().on(filterAction);
+        I.amPerforming().click().withJavaScript(filterAction);
     }
 
     /**

@@ -147,14 +147,16 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I refresh the page
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -491,8 +493,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
@@ -523,8 +527,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "4" seconds
@@ -556,8 +562,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "4" seconds
@@ -588,6 +596,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 50                 |
     And I pause execution for "4" seconds
@@ -709,7 +718,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
-#    When I close "Enter Review" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -717,12 +728,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside table
     Given I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I pause execution for "4" seconds
@@ -745,8 +758,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
@@ -777,8 +792,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "4" seconds
@@ -810,8 +827,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "4" seconds
@@ -842,6 +861,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 50                 |
     And I pause execution for "4" seconds
@@ -866,11 +886,15 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "4" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
@@ -879,8 +903,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -909,6 +933,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I click on "Publish" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
   @72343 @publishingFormulaAnnouncementByApplicant
@@ -940,7 +965,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation ADMIN1" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
@@ -1165,7 +1190,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1249,9 +1273,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
-    And I wait for "1" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
@@ -1293,8 +1315,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime Announcement Application Review118292" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime Announcement Application Review118292" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -1621,13 +1643,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    When I click modal button "Close"
-    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+#    When I click modal button "Close"
+#    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "RAEGMSID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
@@ -1638,7 +1664,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1646,12 +1672,12 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside table
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
-    When I click modal button "Close"
+#    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -1690,6 +1716,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
+    And I halt execution
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2416,19 +2443,20 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Observation"
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    When I collapse nested table containing column value "Automation Concern"
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-#    And I collapse nested table containing column value "Automation Finding"
+    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2455,17 +2483,18 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
-    And I click on "Save" in the page details
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
-    When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "4" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
@@ -2490,7 +2519,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2498,6 +2527,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2512,6 +2542,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Approved" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     When I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"

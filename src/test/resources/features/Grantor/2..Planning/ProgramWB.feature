@@ -5043,7 +5043,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "Program" against the value "Automation PM1" inside table "---program:-:extapproverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM" inside table "---program:-:extapproverTableId---"
 
-  @226835 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfailsKeeptargetuserincreatedstate @sprint-11-US-218319 @vaibhav @reassignment
+  @226835  @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails Keep target user in created state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
