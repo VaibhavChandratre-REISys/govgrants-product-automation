@@ -157,7 +157,6 @@ public final class GovGrantsAssertionObjects {
 //                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
 //        }
 //        }else {
-
             if (isSoftly) {
                 I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
                         columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
