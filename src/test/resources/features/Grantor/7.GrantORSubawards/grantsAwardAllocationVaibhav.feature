@@ -1,7 +1,7 @@
 @grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression
 Feature: Validate all scenarios of grants and award for Allocation
 
-  @243736 @ValidatePOasreviewershouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243736 @ValidatePOasreviewershouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PO as reviewer I should able to edit the "Total Commitment" field in sent for review states of award if allow edit access is 'Yes' for reviewer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -38,7 +38,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see fields "TotalCommitment__c" is in edit mode
 
-  @243744 @ValidatePMusershouldnotseevalidationmessagewhileapprovalofawardifTotalCommitmentamountnotequaltoorgreaterthantheCumulativeObligationinBudgetSummarysectionFANo @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243744 @ValidatePMusershouldnotseevalidationmessagewhileapprovalofawardifTotalCommitmentamountnotequaltoorgreaterthantheCumulativeObligationinBudgetSummarysectionFANo @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PM user should not see validation message while approval of award if Total Commitment amount not equal to or greater than the Cumulative Obligation in Budget Summary section(FA=No)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -386,7 +386,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243937
     Then I cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @243782 @243784 @ValidatePMuserseeMatchthisBudgetPeriodfieldonawardinbudgetsummarysectionifSRmatchthisissetasYeFAYes @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243782 @243784 @ValidatePMuserseeMatchthisBudgetPeriodfieldonawardinbudgetsummarysectionifSRmatchthisissetasYeFAYes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario Outline: Validate PM user see "Match this Budget Period" field on award in budget summary section if S\R match this % is set as Ye(FA=Yes)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -432,9 +432,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     #243786
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    And I select value inside table "---subAwardStandAlone:-:associateModalTableId---" is "All"
-    And I check "Automation Permanent Focus Area2" boxes in flex table with id "---subAwardStandAlone:-:associateModalTableId---"
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associateModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -655,7 +653,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -793,6 +792,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -844,7 +844,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243929 @243930 @ValidatePMuserseevalidationmessageifBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243929 @243930 @ValidatePMuserseevalidationmessageifBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PM user see validation message if Budgeted Amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1094,7 +1094,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
