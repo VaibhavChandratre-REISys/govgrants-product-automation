@@ -1,4 +1,4 @@
-@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
+@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton @keerti @smoke
@@ -56,7 +56,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     Then I softly see "No records found" inside flex table with id "---applicationReview:-:reviewsTableId---"
 
-  @72579 @77380 @76374 @70258 @spaUsersCannotSubmitAnApplication @deepika @ReRunApplicationPooja
+  @72579 @77380 @76374 @70258  @deepika @PoojaAppRe-run
   Scenario: Validate the SPA users should not be able to Submit the Application | Validate whether SPI user can continue to proceed without providing application title while creating a application
   Validate whether user should be able to enter the required information for the creation  Application | Validate that the user is able to view the added setting while the creating an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -83,10 +83,10 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
-    Then I softly see field "Project Abstract" as "Automation application Project abstract"
+    Then I softly see value "Project Abstract" for the field "Automation Test Description"
     And I navigate to "Budget" sub tab
     And I wait for "3" seconds
-    Then I softly see field "Justification for Project Cost" as "Justified"
+    Then I softly see value "Justification for Project Cost" for the field "Justified"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -102,10 +102,12 @@ Feature: Application Intake scenarios without background
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     And I wait for "2" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     And I wait for "2" seconds
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -222,7 +224,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly can see top right button "Create Application" in page detail
 
-  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108 @unpublishedAnnouncementCannotSubmitApplication @deepika @buglogged113216 @buglogged113230
+  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108  @deepika @PoojaAppRe-run
   Scenario: Validate once the Announcement is published and Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit Application
   Validate whether the Applicant will be able to view qualify button on the same funding opportunity after republish
   Validate whether the Applicant will be able to create a New Application from the republish announcement and oppurtunity |Validate whether the Applicant will be able to Submit the New Application from the republish announcement and oppurtunity
@@ -249,6 +251,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -341,10 +344,12 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -534,7 +539,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "History" sub tab
     Then I softly cannot see field "Snapshot History" inside page block
 
-  @72308 @77658 @34324 @72309 @userCanEditApplicationInCreatedStatusAndCannotInSubmitTedStatus @deepika @ReRunApplicationPooja
+  @72308 @77658 @34324 @72309  @deepika @PoojaAppRe-run
   Scenario: Validate whether the User can view the edit icon for the application that is in Created Status and Submiited to Grantor Status
   Validate whether SPI user have delete access to delete the Application that is in Created Sttaus
   Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount is less than or equal to the Subaward Floor Amount
@@ -579,10 +584,12 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -860,11 +867,13 @@ Feature: Application Intake scenarios without background
     And I navigate to "Form" sub tab in split screen
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -1465,7 +1474,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695 @ValidateAppApplicationistransfertonewuserafterAnnownershipwillgetchangewithsettingpre-appasYes @sprint-4-US-197579 @vaibhav @reassignment
+  @196695  @sprint-4-US-197579 @vaibhav @reassignment @PoojaAppRe-run
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1604,11 +1613,13 @@ Feature: Application Intake scenarios without background
     And I navigate to "Form" sub tab in split screen
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2017,6 +2028,8 @@ Feature: Application Intake scenarios without background
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
+
+
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -2216,7 +2229,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064  @sprint-4-US-197579 @vaibhav @reassignment
+  @197064  @sprint-4-US-197579 @vaibhav @reassignment @PoojaAppRe-run
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -2302,6 +2315,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details

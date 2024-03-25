@@ -21,13 +21,13 @@ Feature: Validate all scenarios in the directed Announcement tab
 
   @219077 @VerifyAdminuserseetheEGMSIDshouldbeclickablelinkinthecolumnofApplicationEGMSIDforDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify Admin user see the EGMS ID should be clickable link  in the column of Application EGMS ID for Directed Announcement
-    Given I published "Directed" type announcement having name "Automation Directed Announcement" and properties "default"
+    Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
@@ -61,11 +61,13 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit Application" in the page details
@@ -523,6 +525,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     #238301
@@ -530,6 +535,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 2000               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Funding Decision Memo Tab - Recommended budget must be equal to the Budgeted Amount. |
@@ -569,6 +576,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -598,7 +606,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -648,6 +655,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -686,6 +694,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -697,6 +706,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     #237897
@@ -704,6 +716,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
+    Then I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -920,6 +934,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I navigate to "Funding Decision Memo" sub tab
@@ -985,7 +1000,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1035,6 +1049,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -1084,12 +1099,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
@@ -1185,7 +1205,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1283,11 +1302,15 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
@@ -1358,7 +1381,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -1391,7 +1413,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
       | Form Name       |
       | Automation Test |
-    And I expand nested table containing column value "Automation Test"
+#    And I expand nested table containing column value "Automation Test"
     And I click on "Review Form" icon for "Automation Test" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     When I enter the following values into flex table with id "---applicationReview:-:reviewPanelCategoriesTableId---" by clicking "New" :
       | Section Order | Section Header  |
@@ -1461,7 +1483,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I wait for "3" seconds
+    And I navigate to "Negotiations" sub tab
+    And I click on "Edit" in the page details
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
@@ -1568,6 +1591,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the following rows under the following columns in table with id "FundingDecisionMemoApplications" :
       | Application Title   | Recommended Budget | Budgeted Amount |
       | <Announcement Name> | $1,000.00          | $1,000.00       |
+    And I refresh the page
+    And I pause execution for "2" seconds
     Then I can see row level action button "Create Subaward" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Then I can see row level action button "Initiate Negotiation" against "<Announcement Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
@@ -1630,7 +1655,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1718,6 +1742,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -1729,6 +1754,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
@@ -1737,6 +1765,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1753,6 +1783,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     And I softly see the following messages in the page details contains:
       | Negotiation Tab: Please select "Budget Tab: Budget Details" with "Budget Tab: Budget Summary by Focus Area" in the Application Sections for the Negotiation field. |
 
@@ -1813,7 +1844,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1901,6 +1931,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -1912,12 +1943,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1951,10 +1987,10 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "5" seconds
     #234234
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     #234238
-    And I refresh the page
     When I navigate to "Budget" sub tab
     And I wait for "3" seconds
     Then I softly see "Budget Summary by Focus Area" page block displayed
@@ -2025,7 +2061,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2114,6 +2149,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -2125,12 +2161,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2164,6 +2205,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "5" seconds
     #234235
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     #234239
@@ -2242,7 +2284,6 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click modal button "Close"
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2330,6 +2371,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
@@ -2341,12 +2383,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2380,6 +2427,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "5" seconds
     #234225
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     #234229
@@ -2397,6 +2445,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,500.00"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I cannot see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the Recommended Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
@@ -2556,12 +2605,17 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
+      | {SavedValue:<User> Username} | NA     |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1500               | 1500                    | Yes                   | Recommended |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"

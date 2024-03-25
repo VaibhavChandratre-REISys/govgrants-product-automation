@@ -1,4 +1,4 @@
-@hiteshApllication @applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
+@applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Validate all scenarios in the Formula Announcement tab
 
   @219696 @sprint-11-US-203038 @vaibhav @Allocation
