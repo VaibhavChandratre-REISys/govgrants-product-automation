@@ -1593,7 +1593,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Budget" sub tab
     And I click on hyperlink containing value "{SavedValue:fundingAccount}"
     And I wait for "2" seconds
-    Then I see field "Title" as "Automation Funding Account"
+    Then I see field "Title" as "Automation Permanent Funding Account"
 
   @67673 @validateFundingAccountEditActionNotDisplayed
   Scenario Outline: Validate that Funding account table is not editable after submitted for approval
