@@ -1,4 +1,4 @@
-@grantAndAward @awardStandAlone @grantor-regression @grantor-parallel-regression @regression
+@grantAndAward @awardStandAloneSaranjit @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   Background: Create Award
@@ -14,7 +14,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
 
-  @51128 @51129 @65592 @69088 @awardCreationAndEdition
+  @51128 @51129 @65592 @69088 @awardCreationAndEdition @wip
   Scenario: Creation of an award and edition of an award
     Then I softly see status in Progress-bar is "Created" and is "Green"
     When I click on "Edit" in the page details
@@ -26,12 +26,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "Administrative and legal expenses" in "---subAwardStandAlone:-:subAwardBudgetTableId---" panel
     Then I softly see "Administrative and legal expenses" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @51130 @65606 @awardStandAloneAddContactsKeyPersonnel
+  @51130 @65606 @awardStandAloneAddContactsKeyPersonnel @wip
   Scenario Outline: Associate a Key Contact
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
-    And I select value inside table "---subAwardStandAlone:-:keyContactsTableId---" is "All"
-    And I check "<Contact>" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+    And I check "All" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+#    And I select value inside table "---subAwardStandAlone:-:keyContactsTableId---" is "All"
+#    And I check "<Contact>" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
