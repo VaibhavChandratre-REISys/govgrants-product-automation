@@ -1258,8 +1258,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+      | Name  | Project Role             | Is Key Personnel |
+      | <Key> | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award |
@@ -1281,9 +1281,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budget Summary by Focus Area" page block displayed
 
     Examples:
-      | User |
-      | SPI3 |
-      | IND  |
+      | User | filter             | Key                        |
+      | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
+      | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
   @244258 @244262 @244304 @244306 @ValidateSPISPAusershouldnotseebudgetedamountcolumnonbudgetsummarybyfocusareatableinRejectedstateofaward @sprint-16-US-238299 @vaibhav @Allocation @TBExecution1
   Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column on budget summary by focus area table in Rejected state of award
@@ -2710,8 +2710,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | Award |
+      | {SavedValue:EXE Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
