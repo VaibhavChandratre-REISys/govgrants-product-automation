@@ -326,7 +326,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -355,15 +355,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -375,6 +371,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -385,6 +382,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "1" seconds
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -469,15 +467,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
