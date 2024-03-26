@@ -1570,7 +1570,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Budget" sub tab
     Then I softly see value "$1,000.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
@@ -1608,8 +1608,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I refresh the page
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
