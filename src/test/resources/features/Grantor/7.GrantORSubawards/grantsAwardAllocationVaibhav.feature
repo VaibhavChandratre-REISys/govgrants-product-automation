@@ -2445,7 +2445,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I click on "Send for Review" icon for "Automation EXEr" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I click on "Send for Review" icon for "Automation EXE" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
