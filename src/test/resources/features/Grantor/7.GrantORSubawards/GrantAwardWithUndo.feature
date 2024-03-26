@@ -635,6 +635,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "Yes" on modal confirmation box
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:completeTaskTableId---" panel
@@ -1520,7 +1521,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I click "No" on modal confirmation box
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @286505 @VerifyAuditorprofileusershouldnotseeUndobuttononaward @sprint-1-US-295145 @hitesh @Undo
+  @286505  @sprint-1-US-295145 @hitesh @Undo @PoojaGrantUndo
   Scenario: Verify Auditor profile user should not see Undo button on award.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2473,7 +2474,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @286507  @sprint-1-US-295145 @hitesh @Undo
+  @286507  @sprint-1-US-295145 @hitesh @Undo @PoojaGrantUndo
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
