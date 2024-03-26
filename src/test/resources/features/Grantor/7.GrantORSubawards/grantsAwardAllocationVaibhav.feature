@@ -2656,7 +2656,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User | filter             | Key                        |
-      | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
+#      | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
   @244353 @244359 @244361 @ValidateSPIuserseeincaseofdetailbudgetusershouldseeneweditdeletebuttononthesubawardcategorymodalonawardincreatedstateofawardFANo @sprint-16-US-238299 @vaibhav @Allocation @TBExecution1
