@@ -433,9 +433,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243786
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
@@ -444,7 +446,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | PM   |
       | EXE  |
 
-  @243793 @243794 @243914 @ValidatePOuserseeeditactionforstartdateandenddateoffocusareaonbudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoSRsentforreviewandreviewedstateofaward @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243793 @243794 @243914 @ValidatePOuserseeeditactionforstartdateandenddateoffocusareaonbudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoSRsentforreviewandreviewedstateofaward @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PO user see edit action for start date and end date of focus area on budget summary by focus area table in created,(before approval) sent to S\R, sent for review and reviewed state of award
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -688,7 +690,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     #243848
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     #244199
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -701,7 +703,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" inside page block detail
 
-  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -1016,7 +1018,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
 
-  @243938 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-237985 @vaibhav @Allocation @TBExecution
+  @243938 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PO user see incase of detail budget user should not able to edit/delete  sub-award section on award in Rejected and close state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab

@@ -1547,4 +1547,4 @@ Feature: Validate all scenarios of every modules flow
 #    And I perform quick search for "AP-TAO modified-2342" in "---applicationReview:-:pendingTaskTableId---" panel
 #    Then I softly see value "AP-TAO modified-2342" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
 #    And I halt execution
-    And I activated standalone subaward "Automation By Applicant Admin Closed Award" with properties "default-Automation ADMIN user" of type "Formula_By_Applicant"
+    And I activated standalone subaward "Automation IND By Applicant Admin Closed Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant"
