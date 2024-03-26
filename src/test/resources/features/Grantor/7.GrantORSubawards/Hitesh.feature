@@ -875,7 +875,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate PM user should see 'New obligation' & 'Cumulative Obligation' column in Rejected state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -954,7 +954,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239817 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinCreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @hit @239817 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinCreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM new owner of award should have edit access on budget summary by focus area table and other sections on award after award ownership reassign to new owner in Created state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -976,17 +976,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
@@ -1021,17 +1020,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM1" into field "s2id_autogen1"
-    And I select value "Automation PM" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM1" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
@@ -1053,10 +1051,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
 
-  @239820 @ValidatePMuserofawardshouldnothaveeditaccessbudgetsummarybyfocusareatableandothersectiononawardinsubmitforapproval @sprint-15-US-237846 @vaibhav @Allocation @vanch
+  @hit @239820 @ValidatePMuserofawardshouldnothaveeditaccessbudgetsummarybyfocusareatableandothersectiononawardinsubmitforapproval @sprint-15-US-237846 @vaibhav @Allocation @vanch
   Scenario Outline: Validate PM user of award should not have edit access budget summary by focus area table and other section on award in submit for approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1130,17 +1128,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
@@ -1176,17 +1173,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM1" into field "s2id_autogen1"
-    And I select value "Automation PM" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM1" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
@@ -1213,7 +1209,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit @239828 @ValidatereviewerofawardshouldhaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisYesforreviewerinsentforreviewstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @239828 @ValidatereviewerofawardshouldhaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisYesforreviewerinsentforreviewstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate reviewer of award should have edit access for start date and end date in 'budget summary by focus area' table if edit access allow is 'Yes' for reviewer in sent for review state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1255,7 +1251,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @hit @240348 @ValidatePMuserseehideeditaccessonsubawarbudgetsectiononawarditshouldberead-onlysection @sprint-15-US-237846 @vaibhav @Allocation
+  @240348 @ValidatePMuserseehideeditaccessonsubawarbudgetsectiononawarditshouldberead-onlysection @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM user see hide edit access on 'subaward budget section' on award it should be read-only section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1276,7 +1272,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @240349 @ValidatePMuserseeincaseofdetailbudgetusershouldnotseenew/edit/deletebuttononthesub-awardcategorymodalonawardincreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @hit @240349 @ValidatePMuserseeincaseofdetailbudgetusershouldnotseenew/edit/deletebuttononthesub-awardcategorymodalonawardincreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM user see incase of detail budget user should not see new/edit/delete button on the sub-award category modal on award in created state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
@@ -1289,10 +1285,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Unpublish" in the page details
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "fieldAnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1315,7 +1311,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
