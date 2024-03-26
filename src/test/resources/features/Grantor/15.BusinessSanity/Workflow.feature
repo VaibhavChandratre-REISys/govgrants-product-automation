@@ -1539,11 +1539,4 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "PM1" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/n/Applications"
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I wait for "4" seconds
-    And I perform quick search for "AP-TAO modified-2342" in "---applicationReview:-:pendingTaskTableId---" panel
-    Then I softly see value "AP-TAO modified-2342" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
-    And I halt execution
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default-Automation PO user" of type "Competitive"
