@@ -1019,8 +1019,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "input-1"
-    And I select value "Automation PM1" into field "input-2"
+    And I select value "Automation PM1" into field "input-1"
+    And I select value "Automation PM" into field "input-2"
     And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
