@@ -699,6 +699,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
     And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+    And I wait for "2" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
