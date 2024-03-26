@@ -923,6 +923,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I refresh the page
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -959,6 +960,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
@@ -987,6 +989,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
@@ -1016,6 +1019,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Status" as "Reviewed"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
@@ -1164,7 +1168,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243954 @ValidateEXEnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-237985 @vaibhav @Allocation @TBExecution1
+  @243954 @ValidateEXEnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate EXE new reviewer should able to edit total commitment amount and new obligation amount in sent for review state and submit the review comments of award if allow edit is 'Yes' on award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
