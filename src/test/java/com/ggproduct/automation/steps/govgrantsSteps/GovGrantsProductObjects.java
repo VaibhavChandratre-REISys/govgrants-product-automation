@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled]");
+        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div//label[contains(text(),'" + fieldApiName + "')]");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {

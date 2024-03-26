@@ -257,7 +257,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
-    And I refresh the page
+#    And I refresh the page
 #    When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -303,7 +303,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
