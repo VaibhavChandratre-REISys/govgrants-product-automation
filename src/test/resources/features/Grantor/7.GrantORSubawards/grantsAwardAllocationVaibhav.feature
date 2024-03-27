@@ -3201,6 +3201,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "4" seconds
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3218,6 +3219,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3225,6 +3227,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
     And I navigate to "Budget" sub tab
     Then I softly see field "Match this Budget Period" inside page block
