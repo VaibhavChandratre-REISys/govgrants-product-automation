@@ -3955,6 +3955,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
