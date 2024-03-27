@@ -3284,6 +3284,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 1000         | 100        | 100            |
+    And I refresh the page
+    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
 
@@ -3305,7 +3308,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
@@ -3421,7 +3424,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
@@ -3526,7 +3529,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I navigate to "Budget" sub tab
     Then I softly see fields "TotalCommitment__c" is in edit mode
     And I click on "Save" in the page details
@@ -3594,7 +3597,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I navigate to "Budget" sub tab
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -3631,7 +3634,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     #243812
@@ -3886,7 +3889,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -3931,7 +3934,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -3990,7 +3993,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @243943 @243381 @ValidatePMnewownerofawardshouldhaveeditaccessonNewobligationcolumnanddatescolumnonbudgetsummarybyfocusareatableandtotalcommitmentfiledinbudgetsummarysection @sprint-16-US-238049 @vaibhav @Allocation
+  @243943 @243381 @ValidatePMnewownerofawardshouldhaveeditaccessonNewobligationcolumnanddatescolumnonbudgetsummarybyfocusareatableandtotalcommitmentfiledinbudgetsummarysection @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM new owner of award should have edit access on New obligation column and dates column on budget summary by focus area table and total commitment filed in budget summary section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4008,7 +4011,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -4096,7 +4099,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
@@ -4139,7 +4142,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -4238,7 +4241,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
