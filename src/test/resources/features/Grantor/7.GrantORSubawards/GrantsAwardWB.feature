@@ -1528,7 +1528,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Source is required to save under Overview. |
 
-  @66410 @validateInstructionFieldInDeskReview  @mahadev
+  @66410 @validateInstructionFieldInDeskReview  @mahadev @AwardPooja
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
