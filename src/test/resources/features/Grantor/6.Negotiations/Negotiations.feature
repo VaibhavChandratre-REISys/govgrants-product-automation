@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see that "Negotiation Request" has been added in flextable with Id "---negotiation:-:homePendingTasks---"
 
-  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationRuNByPooja
+  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationPooja
   Scenario: Validate whether the users receive the pending Task when  Submit to Grantor and able to select Send Back to Subrecipient for further changes
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -189,7 +189,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly can see top right button "Create Subaward" in page detail
 
-  @57212 @57217 @createEditNegotiationButton @deepika @PoojaNegoSecondRun
+  @57212 @57217 @createEditNegotiationButton @deepika
   Scenario: Validate whether users Applicant try to edit the Application after Submit to Grantor and will not be able to perform Negotiation on the Application once it is completed
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
-  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest @deepika @bug-408966-2024
+  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest @deepika @bug-408966-2024 @NegotiationPooja
   Scenario: Validate whether users will review the information and Applicant will be able to edit the respective application section(s) that the Agency mentioned
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -258,7 +258,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see the following messages in the page details :
       | Details is Required to save under Negotiations |
 
-  @34387 @negotiationWhenOpenUserCannotCreateOther @deepika @NegotiationRuNByPooja
+  @34387 @negotiationWhenOpenUserCannotCreateOther @deepika
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -275,7 +275,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I cannot see top right button "Complete Negotiation" in page detail
 
-  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab @deepika @NegotiationRuNByPooja
+  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab @deepika
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negotiation is completed and user is able to view the completed Negotiation on Applications Tab| Validate that Applicant receives Email notification when sent to subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -325,7 +325,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---negotiation:-:negotiationAppReviewListTableId---"
     Then I softly can see top right button "Create Subaward" in page detail
 
-  @57494 @57499 @initiateNegotiationsButtonOnApplicatioAndHiddenCreateSubaward @deepika @NegotiationRuNByPooja
+  @57494 @57499 @initiateNegotiationsButtonOnApplicatioAndHiddenCreateSubaward @deepika @
   Scenario: Validate whether user to able to Initiate Negotiation from Application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -341,7 +341,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Send to Subrecipient" in the page details
     Then I softly cannot see top right button "Create Subaward" in page detail
 
-  @57495 @65293 @57496 @userEditNegotiationIntitiatededitButtonHiddenOnceSendtoSubrecipient @deepika @NegotiationRuNByPooja
+  @57495 @65293 @57496 @userEditNegotiationIntitiatededitButtonHiddenOnceSendtoSubrecipient @deepika
   Scenario: Validate whether user to able to see the Edit Negotiation Button once created and Send to Subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -366,7 +366,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
 
-  @57500 @subrecipientCanEditNegotiations @NegotiationRuNByPooja
+  @57500 @subrecipientCanEditNegotiations
   Scenario: Validate whether Subrecipient User can edit Negotiations once Send to Subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -392,7 +392,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I can see top right button "Edit" in page detail
 
-  @57502 @viewApplicationStatusOnceSubmitToGrantorFromApplicationListViewPage @NegotiationRuNByPooja
+  @57502 @viewApplicationStatusOnceSubmitToGrantorFromApplicationListViewPage
   Scenario: Validate whether the user is able to see the Negotiation Initiated from the Application List View Page
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -413,7 +413,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
 
-  @65296 @57503 @subrecipientCannotEditNegotiationRequestOnceSubmitToGrantor @NegotiationRuNByPooja
+  @65296 @57503 @subrecipientCannotEditNegotiationRequestOnceSubmitToGrantor
   Scenario: Validate whether Subrecipient user can edit Negotiations Details once Submit to Grantor
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -693,7 +693,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I cannot see top right button "Send to Subrecipient" in page detail
 
-  @62669 @AddedAttachmentForNegotiations @keerti @NegotiationRuNByPooja
+  @62669 @AddedAttachmentForNegotiations @keerti @NegotiationPooja
   Scenario: Validate the Addition of  attachment to Negotiations
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -710,8 +710,8 @@ Feature: Validate all scenarios in Negotiations
     And I upload attachment "Announcement_Field_Values.xlsx" of type "General Assurances" from computer
     And I click modal button "Close"
     And I wait for "3" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "GrantorApplicationFiles"
-    Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "GrantorApplicationFiles"
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "GrantorApplicationFiles"
+    Then I see value "General Assurances" for title "Classification" inside table "GrantorApplicationFiles"
 
   @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor @keerti @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot after Negotiation  is in "Submitted to Grantor" status
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in Negotiations
     Then I see the following messages in the page details :
       | Due Date is required to save under Negotiations |
 
-  @66381 @66451 @createSubawardFromNegotiation @deepika @smoke @PoojaNegoSecondRun @bug-411045-2024
+  @66381 @66451 @createSubawardFromNegotiation @deepika @smoke  @bug-411045-2024 @NegotiationPooja
   Scenario: Validate whether User will be able to create draft award created from Complete Negotiation | Validate when Negotiation Request is completed and user clicks on Create Subaward then the sttaus changes to 'Converted to Award'
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -936,7 +936,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly see that "{SavedValue:Automation Runtime FDM Announcement}" is in "Converted to Award" status
 
-  @66447 @verifyTopRightButtonsOnNegotiationsPage @deepika @PoojaNegoSecondRun
+  @66447 @verifyTopRightButtonsOnNegotiationsPage @deepika
   Scenario: Validate Negotiations have Edit Negotiation, Create Subaward and Send to Subrecipient button on top of the page
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -953,7 +953,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send to Subrecipient" in page detail
 
-  @66446 @addNewValueToApplicationSectionForRevision @deepika @PoojaNegoSecondRun
+  @66446 @addNewValueToApplicationSectionForRevision @deepika
   Scenario: Validate whether for the Negotiation Request the record owner can add new Values to ApplicationSection for Revision
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -971,7 +971,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I see field "Details" as "Negotiation Initiated"
 
-  @67255  @validateAnnouncementHyperlinkOnGrant @mahadev @PoojaNegoSecondRun
+  @67255  @validateAnnouncementHyperlinkOnGrant @mahadev @NegotiationPooja
   Scenario: To validate that the announcement page is navigable from the Grant page through the Grantor(PM profile Internal user)
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1020,7 +1020,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
 
-  @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @PoojaNegoSecondRun
+  @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1051,7 +1051,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form for negotiation, because Form section is added for negotiation. |
 
-  @133252  @sprint-3 @vaibhav @PoojaNegoSecondRun
+  @133252  @sprint-3 @vaibhav
   Scenario: Validate PM user is able to select Allow Edit for atleast one form in the Available Forms for Revisionstable when application is submitted to grantor
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1096,7 +1096,7 @@ Feature: Validate all scenarios in Negotiations
       | Saved successfully! |
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @133264 @ValidatethateditactionisdisplayedforAlloweditcolumnwhenSubrecipientuserhassubmittedapplicationtograntorandApplicationisinNegotiationInitiatedstate @sprint-3 @vaibhav
+  @133264  @sprint-3 @vaibhav @NegotiationPooja
   Scenario: that edit action is displayed for "Allow edit" column when Subrecipient user has submitted application to grantor and Application is in Negotiation Initiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1114,10 +1114,7 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
-#    When I click on "Form Name" column header inside table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I pause execution for "5" seconds
-#    When I click on "Form Name" column header inside table with id "---negotiation:-:NegotiationFormsTableId---"
-    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+   And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
     And I wait for "2" seconds
@@ -1217,7 +1214,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @165880  @sprint-3 @Vrishali @PoojaNegoSecondRun
+  @165880  @sprint-3 @Vrishali
   Scenario:Verify PM user is not able to select Files:Forms in Application Sections for Revision multi picklist when Application is sent to Subrecipient user and is in Negotiation Initiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1247,7 +1244,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Application Sections for Revision" is not editable
 
-  @133979 @ValidatePMUserSelectAllowEditMoreThanONeFormSubmittedToGrantor @sprint-3 @vaibhav @PoojaNegoSecondRun
+  @133979 @ValidatePMUserSelectAllowEditMoreThanONeFormSubmittedToGrantor @sprint-3 @vaibhav @NegotiationPooja
   Scenario: Validate PM User Select Allow Edit More Than ONe Form Submitted To Grantor
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1760,7 +1757,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see top right button "Edit" in page detail
 
-  @191292 @ValidateusershouldabletocreatedirectsubawardwithoutnegotiationInitiated  @sprint-1 @vaibhav @PoojaNegoSecondRun
+  @191292 @ValidateusershouldabletocreatedirectsubawardwithoutnegotiationInitiated  @sprint-1 @vaibhav
   Scenario: Validate user should able to create direct subaward without negotiation Initiated
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1909,7 +1906,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
    Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
 
-  @189521 @sprint-13 @vaibhav @PoojaNegoSecondRun
+  @189521 @sprint-13 @vaibhav
   Scenario: Validate re-submitting the revised application, the application sections and forms should be locked  for the S/R user
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2015,7 +2012,7 @@ Feature: Validate all scenarios in Negotiations
     #189539
     Then I softly can see top right button "Complete Negotiation" in page detail
 
-  @189563  @sprint-13 @vaibhav @PoojaNegoSecondRun
+  @189563  @sprint-13 @vaibhav
   Scenario: Validate subrecipient should be able to provide Negotiation  Summary comments in the Negotiations tab before re-submitting the application to the grantor in Negotiation Details under Negotiation Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2432,7 +2429,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I softly cannot see row level action button "Create Subaward" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
-  @197056  @sprint-12-US-226646 @vaibhav @reassignment @PoojaNegoSecondRun
+  @197056  @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate AppRev new owner PM can create initiate negotiation after FDM is approves from app after it's related Ann ownership will assign to other PM user
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab

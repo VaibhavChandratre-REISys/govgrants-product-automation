@@ -63,7 +63,6 @@ Feature: Validate all scenarios of grants and award without background
       | Automation  | Mandatory | Award      | Active |
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-
   @68057 @createGrantEXE @jitendra
   Scenario: Valiadate EXE user can create Direct Grant
     When I login to "As a Grantor" app as "EXE" user
