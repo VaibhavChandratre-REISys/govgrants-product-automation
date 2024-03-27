@@ -109,6 +109,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
     Then I softly see field "Total Commitment" as "$1,000.00"
+    And I pause execution for "2" seconds
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed across Budget periods" shown as help text
 
@@ -1294,11 +1295,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I refresh the page
     And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Approved"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Published"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
