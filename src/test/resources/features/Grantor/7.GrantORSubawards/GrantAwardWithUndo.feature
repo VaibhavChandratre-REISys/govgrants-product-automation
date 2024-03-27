@@ -955,6 +955,7 @@ Feature: Validate all scenarios of grants and award with undo
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name          | Closeout |
       | Automation PM | Step 1   |
+    And I wait for "3" seconds
     And I click on "Send To Subrecipient" in the page details
     And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
