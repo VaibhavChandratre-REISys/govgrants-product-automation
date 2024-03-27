@@ -255,8 +255,9 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     When I click on "Save" in the page details
+    #408966 spell mistake for required also
     Then I softly see the following messages in the page details :
-      | Details is Required to save under Negotiations |
+      | Details is required to save under Negotiations |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther @deepika
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -1016,6 +1017,7 @@ Feature: Validate all scenarios in Negotiations
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---"
     And I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     When I click on hyperlink containing value "{SavedValue:AnnID}"
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
@@ -1119,6 +1121,7 @@ Feature: Validate all scenarios in Negotiations
       | Program Application Form | Checked           |
     And I wait for "2" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

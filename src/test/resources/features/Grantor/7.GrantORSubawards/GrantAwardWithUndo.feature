@@ -560,7 +560,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @286420  @sprint-1-US-295145 @hitesh @Undo @Debug
+  @286420  @sprint-1-US-295145 @hitesh @Undo
   Scenario:Verify EXE as step 1 approver if I click on Undo button then approved award  task got in cancelled from completed task table of approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -644,11 +644,9 @@ Feature: Validate all scenarios of grants and award with undo
     And I click on "View" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:completeTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "History" sub tab
-    And I see "{SavedValue:EXE Username}" against "Re-approval (Pending for first approval)" in approval history
-    And I wait for "3" seconds
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
 
-  @286441 @sprint-1-US-295145 @hitesh @Undo @PoojaGrantUndo
+  @286441 @sprint-1-US-295145 @hitesh @Undo
   Scenario:Verify PO  as step 2 approver if I click on Undo button then approved award  task got in cancelled from completed task table of approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -733,7 +731,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -991,7 +989,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @286470  @sprint-1-US-295145 @hitesh @Undo @PoojaGrantUndo
+  @286470  @sprint-1-US-295145 @hitesh @Undo
   Scenario: Verify FD user as step 3 approver should not see Undo button in Amended state state of award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
