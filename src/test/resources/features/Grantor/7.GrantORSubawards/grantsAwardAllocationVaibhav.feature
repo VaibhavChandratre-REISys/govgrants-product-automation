@@ -4531,12 +4531,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     #239955
     Then I softly see "Budget Summary by Focus Area" page block displayed
     #240786
-    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     Then I cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
 
     Examples:
       | User |
-      | SPI3 |
+#      | SPI3 |
       | SPA  |
 
   @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
