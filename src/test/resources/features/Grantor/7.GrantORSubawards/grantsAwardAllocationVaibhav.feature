@@ -4380,12 +4380,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
     And I navigate to "Management" sub tab
+    And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
@@ -4535,7 +4537,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User |
-#      | SPI3 |
+      | SPI3 |
       | SPA  |
 
   @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
