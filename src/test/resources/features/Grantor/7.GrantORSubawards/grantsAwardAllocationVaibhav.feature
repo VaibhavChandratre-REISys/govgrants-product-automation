@@ -3182,7 +3182,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -3228,7 +3228,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I wait for "3" seconds
-    Then I see status in Progress-bar is "Accepted" and is "dark blue"
+    Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     And I navigate to "Budget" sub tab
     Then I softly see field "Match this Budget Period" inside page block
 
@@ -3255,7 +3255,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" inside page block

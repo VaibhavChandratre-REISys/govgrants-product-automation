@@ -1533,23 +1533,26 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
   @debug
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    When I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "SPI3" user
-#    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-#    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Award__c/a1oDV000007xevWYAQ/view"
-#    And I navigate to "Budget" sub tab
-#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-#    And I wait for "2" seconds
-#    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-#    When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
-#      | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
-#      | Extra Salary | The narrative | 1000         | 100        | 100            |
-#    Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-#    Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-#    When I close "Subaward Budget Category" modal by clicking the top right x button
+  Scenario Outline: end-to-end-flow-paymentrequest-progressreport-closeout
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<User>" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Records>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+    And I wait for "2" seconds
+    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+
+    Examples:
+      | User | AllocationType     | Contacts                   | Records                                       |
+      | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} | {AUTOEnvData:ClosedAwardByAppDetailBudget}    |
+      | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  | {AUTOEnvData:ClosedIndAwardByAppDetailBudget} |
 #    And I halt execution
-     And I activated standalone subaward "Automation Ind By Applicant Focus No Admin Closed Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area_No"
+#     And I activated standalone subaward "Automation Ind Closed Award By App Details Budget Yes" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Formula_By_Applicant"
