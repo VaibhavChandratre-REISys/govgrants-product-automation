@@ -3024,7 +3024,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @vaibhav @Allocation
+  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI user see incase of detail budget user should not able to edit/delete sub-award section on award in Rejected and close state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3123,7 +3123,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} | {AUTOEnvData:ClosedAwardByAppDetailBudget}    |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  | {AUTOEnvData:ClosedIndAwardByAppDetailBudget} |
 
-  @244368 @244369 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrant @sprint-16-US-238299 @vaibhav @Allocation
+  @244368 @244369 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrant @sprint-16-US-238299 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI user should able to accept award after approval with setting of subrecipient match % is 'Yes' on grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3234,7 +3234,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
-  @243010 @243017 @243112 @243518 @ValidatePMuserseeNewObligationvalueshouldRollupfromtheNeObligationColumninbudgetsummarybyfocusareasectionnhelptextisHelpTextHelpTextNewamountawardedinthisversionoftheaward @sprint-16-US-238049 @vaibhav @Allocation
+  @243010 @243017 @243112 @243518 @ValidatePMuserseeNewObligationvalueshouldRollupfromtheNeObligationColumninbudgetsummarybyfocusareasectionnhelptextisHelpTextHelpTextNewamountawardedinthisversionoftheaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see 'New Obligation' value should be Roll up from the New Obligation Column in budget summary by focus area section and it's help text is Help Text New amount awarded in this version of the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3284,7 +3284,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
 
-  @243038 @243780 @ValidateEXEusershouldseeBudgetedAmountfieldonawardcreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238049 @vaibhav @Allocation
+  @243038 @243780 @ValidateEXEusershouldseeBudgetedAmountfieldonawardcreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate EXE user should see 'Budgeted Amount' field on award in created, Sent to S/r before approval, in review and peer-reviewed states
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3314,6 +3314,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -3355,7 +3356,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Automation PM | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
-    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
@@ -3374,6 +3375,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3398,7 +3400,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
-  @243125 @243287 @243289 @ValidateFormulaPMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-238049 @vaibhav @Allocation
+  @243125 @243287 @243289 @ValidateFormulaPMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user should see 'Cumulative Obligation' field value same as Total award amount and Encumbrance value in funding account grid on award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3503,7 +3505,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @243128 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstatesofaward @sprint-16-US-238049 @vaibhav @Allocation
+  @243128 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstatesofaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate Admin user I should able to edit the "Total Commitment" field in Created, in review, peer-reviewed states of award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -3532,6 +3534,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
@@ -3550,6 +3553,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3569,7 +3573,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$4,000.00"
 
-  @243156 @ValidateFOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-238049 @vaibhav @Allocation
+  @243156 @ValidateFOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate FO as reviewer I should able to edit the "Total Commitment" field in sent for review states of award if allow edit access is 'Yes' for reviewer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -3595,6 +3599,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Automation FO | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3605,7 +3610,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see fields "TotalCommitment__c" is in edit mode
 
-  @243787 @243812 @243557 @ValidateEXEusershouldnotabltoedittheNewobligationcolumninsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstates @sprint-16-US-238049 @vaibhav @Allocation
+  @243787 @243812 @243557 @ValidateEXEusershouldnotabltoedittheNewobligationcolumninsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstates @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate EXE user should not able to edit the "New obligation" column in  submit for approval, Approved,, Sent to S/r After approval, Amended, or Pending Activation or Activated states
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3631,7 +3636,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -3671,6 +3676,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Automation PM | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
     #243812
@@ -3685,6 +3691,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3858,7 +3865,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243557
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243862 @243868 @ValidatePMuserseevalidationmessageifawardamountBudgetedamountisnotequaltotheNewObligation @sprint-16-US-238049 @vaibhav @Allocation
+  @243862 @243868 @ValidatePMuserseevalidationmessageifawardamountBudgetedamountisnotequaltotheNewObligation @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see validation message if award amount (Budgeted amount) is not equal to the New Obligation
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3882,6 +3889,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -3901,7 +3909,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Actions" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I can see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @243911 @ValidatePMuserseeincaseofdetailbudgetusershouldseeneweditdeletebuttononthsubawardcategorymodalonawardinsentforreviewstateofaward @sprint-16-US-238049 @vaibhav @Allocation
+  @243911 @ValidatePMuserseeincaseofdetailbudgetusershouldseeneweditdeletebuttononthsubawardcategorymodalonawardinsentforreviewstateofaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see incase of detail budget user should see new/edit/delete button on the sub-award category modal on award in sent for review state of award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3926,6 +3934,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -3960,12 +3969,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
+      | {SavedValue:PO Username} | NA     |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
@@ -3998,6 +4011,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     #243381
     Then I softly see "Budget Summary by Focus Area" page block displayed
     Then I softly can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -4020,18 +4034,21 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:PO Username} | NA     |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
@@ -4040,6 +4057,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4051,6 +4069,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4066,21 +4085,20 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -4092,7 +4110,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly see fields "fieldTotalCommitment__c" is in edit mode
+    Then I softly see fields "TotalCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -4100,7 +4118,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     Then I softly see fields "NewObligation__c" is in edit mode
 
-  @243949 @ValidatePOnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-238049 @vaibhav @Allocation
+  @243949 @ValidatePOnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PO new reviewer should able to edit total commitment amount and new obligation amount in sent for review state and submit the review comments of award if allow edit is 'Yes' on award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -4124,6 +4142,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -4140,18 +4159,21 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:PO Username} | NA     |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
@@ -4160,6 +4182,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Automation PO | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4169,6 +4192,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I check "{SavedValue:AwardEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4177,7 +4201,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly see fields "fieldTotalCommitment__c" is in edit mode
+    Then I softly see fields "TotalCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -4189,9 +4213,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
 
-  @243932 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstate @sprint-16-US-238049 @vaibhav @Allocation
+  @243932 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstate @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
   Scenario: Validate PO user see incase of detail budget user should not able to edit/delete  sub-award section on award in submit for approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -4216,6 +4241,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -4223,6 +4249,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -4235,13 +4262,13 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -4251,6 +4278,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -4272,10 +4300,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4293,18 +4323,23 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4321,6 +4356,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
@@ -4329,35 +4365,36 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Subaward" is in "Activated" status
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+   And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-    And I enter value "1000" into field "NewObligation__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           | New Obligation |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
+       And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name          | Amendment Request |
+      | Automation PO | NA                |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name          | Amendment Request |
       | Automation PO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4380,18 +4417,23 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -4401,11 +4443,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @239920 @239944 @239955 @240786 @ValidateSPI/SPAuserseeBudgetperiodnumberNewObligationCumulativeObligatioTotalCommitmentMatchthisBudgetPeriodandBudgeteAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-15-US-238705 @vaibhav @Allocation
+  @239920 @239944 @239955 @240786 @ValidateSPI/SPAuserseeBudgetperiodnumberNewObligationCumulativeObligatioTotalCommitmentMatchthisBudgetPeriodandBudgeteAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA user see 'Budget period number', 'New Obligation', 'Cumulative Obligation', 'Total Commitment', 'Match this Budget Period' and 'Budgeted Amount' fields should be read only in budget summary section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4418,9 +4461,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -4447,19 +4488,21 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name           | Award  |
+      | Automation EXE | NA     |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name           | Award  |
       | Automation EXE | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4488,7 +4531,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 |
       | SPA  |
 
-  @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation
+  @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column in submit for approval, approved, sent to S\R after approval, Accept after approval, active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4501,9 +4544,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -4520,24 +4561,25 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
+#    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name          | Award  |
+      | Automation PM | NA     |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name          | Award  |
       | Automation PM | Step 1 |
@@ -4546,6 +4588,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4557,6 +4600,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4569,6 +4613,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4712,6 +4757,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
@@ -4795,7 +4843,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240781 @ValidateSPI/SPAincaseofdetailbudgetusershouldnotseeneweditdeletebuttononthesubawardcategorymodalonawardinreviewedstateofaward @sprint-15-US-238705 @vaibhav @Allocation
+  @240781 @ValidateSPI/SPAincaseofdetailbudgetusershouldnotseeneweditdeletebuttononthesubawardcategorymodalonawardinreviewedstateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA incase of detail budget user should not see new/edit/delete button on the sub-award category modal on award in reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I login to "As a Grantor" app as "PM" user
@@ -4808,13 +4856,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Unpublish" in the page details
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | NA           |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
@@ -4834,9 +4885,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -4852,28 +4901,30 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name  | Project Role             | Is Key Personnel |
       | <Key> | Project Director/Manager | Checked          |
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
+#    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name          | Award  |
+      | Automation PM | NA     |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4894,6 +4945,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4905,6 +4957,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
