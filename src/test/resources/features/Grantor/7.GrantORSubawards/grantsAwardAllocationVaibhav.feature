@@ -2271,7 +2271,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
-     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
@@ -3350,8 +3350,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | Award |
+      | {SavedValue:EXE Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
@@ -3462,8 +3462,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | Award |
+      | {SavedValue:PO Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
@@ -3493,8 +3493,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
     And I enter values into fields
-      | Value | Field                   |
-      | 700   | TotalCommitment__c      |
+      | Value | Field              |
+      | 700   | TotalCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
@@ -3503,8 +3503,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
     And I enter values into fields
-      | Value | Field                   |
-      | 2000  | TotalCommitment__c      |
+      | Value | Field              |
+      | 2000  | TotalCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
@@ -3673,16 +3673,16 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | Award |
+      | {SavedValue:PO Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | Automation PM | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
+      | Automation PM | Program Reviewer | Automation Description | 5        | No                   |
+    And I click on "Send for Review" icon for "Program Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     And I navigate to "Budget" sub tab
@@ -3813,7 +3813,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
-     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
@@ -3977,8 +3977,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | Award |
+      | {SavedValue:PO Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
@@ -4056,8 +4056,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | Award |
+      | {SavedValue:PO Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
@@ -4181,16 +4181,16 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | Award |
+      | {SavedValue:PO Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | Automation PO | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
+      | Automation PO | Program Reviewer | Automation Description | 5        | Yes                  |
+    And I click on "Send for Review" icon for "Program Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -4394,7 +4394,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
-       And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
@@ -4498,8 +4498,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name           | Award  |
-      | Automation EXE | NA     |
+      | Name           | Award |
+      | Automation EXE | NA    |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name           | Award  |
       | Automation EXE | Step 1 |
@@ -4588,8 +4588,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name          | Award  |
-      | Automation PM | NA     |
+      | Name          | Award |
+      | Automation PM | NA    |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name          | Award  |
       | Automation PM | Step 1 |
@@ -4933,8 +4933,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name          | Award  |
-      | Automation PM | NA     |
+      | Name          | Award |
+      | Automation PM | NA    |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name          | Award  |
       | Automation PM | Step 1 |
