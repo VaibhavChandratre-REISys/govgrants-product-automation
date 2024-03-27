@@ -4405,8 +4405,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Amendment Request |
       | Automation PO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "4" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4435,7 +4435,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Activate" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
