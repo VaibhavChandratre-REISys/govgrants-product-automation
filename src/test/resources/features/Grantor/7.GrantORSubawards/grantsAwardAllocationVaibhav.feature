@@ -5620,16 +5620,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "--subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "--subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -6174,6 +6176,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6192,6 +6195,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6215,7 +6219,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Accepted after Approval" and is "dark blue"
     And I navigate to "Budget" sub tab
     Then I softly see field "Match this Budget Period" inside page block
 
