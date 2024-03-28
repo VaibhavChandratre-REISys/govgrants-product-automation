@@ -3024,7 +3024,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @vaibhav @Allocation @TBExecution
+  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @vaibhav @Allocation
   Scenario Outline: Validate SPI user see incase of detail budget user should not able to edit/delete sub-award section on award in Rejected and close state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3123,7 +3123,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} | {AUTOEnvData:ClosedAwardByAppDetailBudget}    |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  | {AUTOEnvData:ClosedIndAwardByAppDetailBudget} |
 
-  @244368 @244369 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrant @sprint-16-US-238299 @vaibhav @Allocation @TBExecution
+  @244368 @244369 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrant @sprint-16-US-238299 @vaibhav @Allocation
   Scenario Outline: Validate SPI user should able to accept award after approval with setting of subrecipient match % is 'Yes' on grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3237,7 +3237,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
-  @243010 @243017 @243112 @243518 @ValidatePMuserseeNewObligationvalueshouldRollupfromtheNeObligationColumninbudgetsummarybyfocusareasectionnhelptextisHelpTextHelpTextNewamountawardedinthisversionoftheaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243010 @243017 @243112 @243518 @ValidatePMuserseeNewObligationvalueshouldRollupfromtheNeObligationColumninbudgetsummarybyfocusareasectionnhelptextisHelpTextHelpTextNewamountawardedinthisversionoftheaward @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PM user see 'New Obligation' value should be Roll up from the New Obligation Column in budget summary by focus area section and it's help text is Help Text New amount awarded in this version of the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3290,7 +3290,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
 
-  @243038 @243780 @ValidateEXEusershouldseeBudgetedAmountfieldonawardcreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243038 @243780 @ValidateEXEusershouldseeBudgetedAmountfieldonawardcreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate EXE user should see 'Budgeted Amount' field on award in created, Sent to S/r before approval, in review and peer-reviewed states
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3407,7 +3407,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
-  @243125 @243287 @243289 @ValidateFormulaPMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243125 @243287 @243289 @ValidateFormulaPMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PM user should see 'Cumulative Obligation' field value same as Total award amount and Encumbrance value in funding account grid on award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3512,7 +3512,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @243128 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstatesofaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243128 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstatesofaward @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate Admin user I should able to edit the "Total Commitment" field in Created, in review, peer-reviewed states of award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -3580,7 +3580,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$4,000.00"
 
-  @243156 @ValidateFOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243156 @ValidateFOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate FO as reviewer I should able to edit the "Total Commitment" field in sent for review states of award if allow edit access is 'Yes' for reviewer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -3617,7 +3617,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see fields "TotalCommitment__c" is in edit mode
 
-  @243787 @243812 @243557 @ValidateEXEusershouldnotabltoedittheNewobligationcolumninsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstates @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243787 @243812 @243557 @ValidateEXEusershouldnotabltoedittheNewobligationcolumninsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstates @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate EXE user should not able to edit the "New obligation" column in  submit for approval, Approved,, Sent to S/r After approval, Amended, or Pending Activation or Activated states
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3877,7 +3877,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243557
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243862 @243868 @ValidatePMuserseevalidationmessageifawardamountBudgetedamountisnotequaltotheNewObligation @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243862 @243868 @ValidatePMuserseevalidationmessageifawardamountBudgetedamountisnotequaltotheNewObligation @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PM user see validation message if award amount (Budgeted amount) is not equal to the New Obligation
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3921,7 +3921,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Actions" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I can see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @243911 @ValidatePMuserseeincaseofdetailbudgetusershouldseeneweditdeletebuttononthsubawardcategorymodalonawardinsentforreviewstateofaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243911 @ValidatePMuserseeincaseofdetailbudgetusershouldseeneweditdeletebuttononthsubawardcategorymodalonawardinsentforreviewstateofaward @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PM user see incase of detail budget user should see new/edit/delete button on the sub-award category modal on award in sent for review state of award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -4000,7 +4000,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @243943 @243381 @ValidatePMnewownerofawardshouldhaveeditaccessonNewobligationcolumnanddatescolumnonbudgetsummarybyfocusareatableandtotalcommitmentfiledinbudgetsummarysection @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243943 @243381 @ValidatePMnewownerofawardshouldhaveeditaccessonNewobligationcolumnanddatescolumnonbudgetsummarybyfocusareatableandtotalcommitmentfiledinbudgetsummarysection @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PM new owner of award should have edit access on New obligation column and dates column on budget summary by focus area table and total commitment filed in budget summary section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4131,7 +4131,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     Then I softly see fields "NewObligation__c" is in edit mode
 
-  @243949 @ValidatePOnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243949 @ValidatePOnewreviewershouldabletoedittotalcommitmentamountandnewobligationamountinsentforreviewstateandsubmitthereviewcommentsofawardifalloweditisYesonaward @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PO new reviewer should able to edit total commitment amount and new obligation amount in sent for review state and submit the review comments of award if allow edit is 'Yes' on award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -4229,7 +4229,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
 
-  @243932 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstate @sprint-16-US-238049 @vaibhav @Allocation @TBExecution
+  @243932 @ValidatePOuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstate @sprint-16-US-238049 @vaibhav @Allocation
   Scenario: Validate PO user see incase of detail budget user should not able to edit/delete  sub-award section on award in submit for approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -4464,7 +4464,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @239920 @239944 @239955 @240786 @ValidateSPI/SPAuserseeBudgetperiodnumberNewObligationCumulativeObligatioTotalCommitmentMatchthisBudgetPeriodandBudgeteAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
+  @239920 @239944 @239955 @240786 @ValidateSPI/SPAuserseeBudgetperiodnumberNewObligationCumulativeObligatioTotalCommitmentMatchthisBudgetPeriodandBudgeteAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @sprint-15-US-238705 @vaibhav @Allocation
   Scenario Outline: Validate SPI/SPA user see 'Budget period number', 'New Obligation', 'Cumulative Obligation', 'Total Commitment', 'Match this Budget Period' and 'Budgeted Amount' fields should be read only in budget summary section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4546,7 +4546,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 |
       | SPA  |
 
-  @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
+  @239968 @240081 @240083 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoSRafterapprovalAcceptafterapprovalactiveandclosestateofaward @sprint-15-US-238705 @vaibhav @Allocation
   Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column in submit for approval, approved, sent to S\R after approval, Accept after approval, active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4858,7 +4858,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240781 @ValidateSPI/SPAincaseofdetailbudgetusershouldnotseeneweditdeletebuttononthesubawardcategorymodalonawardinreviewedstateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
+  @240781 @ValidateSPI/SPAincaseofdetailbudgetusershouldnotseeneweditdeletebuttononthesubawardcategorymodalonawardinreviewedstateofaward @sprint-15-US-238705 @vaibhav @Allocation
   Scenario Outline: Validate SPI/SPA incase of detail budget user should not see new/edit/delete button on the sub-award category modal on award in reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES-<userName>"
@@ -4870,6 +4870,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I halt execution
     And I pause execution for "5" seconds
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -4960,9 +4961,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Examples:
       | User | userName             | Key                        | Award Name                                       | Grant Name                                       |
       | SPI3 | Automation SPI3 user | {SavedValue:SPI3 Username} | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
-      | SPA  | Automation SPA user  | {SavedValue:SPA Username}  | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
+#      | SPA  | Automation SPA user  | {SavedValue:SPA Username}  | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240790 @ValidateSPIusershouldabletoaccepttheawardbeforeapprovalwithsettingofsubrecipientmatchisYesonAnn @sprint-15-US-238705 @vaibhav @Allocation
+  @240790 @ValidateSPIusershouldabletoaccepttheawardbeforeapprovalwithsettingofsubrecipientmatchisYesonAnn @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario: Validate SPI user should able to accept the award before approval with setting of subrecipient match % is 'Yes' on Ann
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4975,9 +4976,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -4995,7 +4994,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
+#    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -5007,16 +5006,17 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation ADMIN1 | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "2" seconds
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5024,9 +5024,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Accepted"
 
-  @244874 @ValidateSRusershouldnotgetvalidationmessageifnewobligationorcumulativeobligationamountismismatchwithawardamount @sprint-15-US-238705 @vaibhav @Allocation
+  @244874 @ValidateSRusershouldnotgetvalidationmessageifnewobligationorcumulativeobligationamountismismatchwithawardamount @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario: Validate S\R user should not get validation message if new obligation or cumulative obligation amount is mismatch with award amount
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5039,9 +5040,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -5059,29 +5058,33 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
+#    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "2" seconds
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name           | Award  |
+      | Automation EXE | NA     |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5111,7 +5114,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$800.00"
 
-  @244097 @244114 @244116 @244157 @ValidateSPISPAuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-16-US-239751 @vaibhav @Allocation
+  @244097 @244114 @244116 @244157 @ValidateSPISPAuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-16-US-239751 @vaibhav @Allocation @TBExecution
   Scenario: Validate SPI/SPA user see section name of Budget Period Details should rename with "Budget Summary" section on award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5129,12 +5132,13 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
@@ -5151,13 +5155,13 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -5165,8 +5169,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
+      | {SavedValue:PO Username} | NA     |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
       | {SavedValue:PO Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -5194,6 +5202,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5219,6 +5228,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I navigate to "Responsibilities" sub tab
     Then I softly see that "Submitted" has been added in flextable with Id "---subAwardFromFDM:-:peerReviewersTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab

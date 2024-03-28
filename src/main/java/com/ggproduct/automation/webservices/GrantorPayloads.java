@@ -60,7 +60,7 @@ public class GrantorPayloads {
         JsonObject budgetCategory1 = new JsonObject();
         budgetCategory1.addProperty("Title", "Construction");
         budgetCategory1.addProperty("Narrative", "Construction");
-        budgetCategory1.addProperty("BudgetRequest", 500);
+        budgetCategory1.addProperty("BudgetRequest", 1000);
         budgetCategory1.addProperty("CashMatch", 100);
         budgetCategory1.add("NonCashMatch", JsonNull.INSTANCE);
         budgetCategory1.add("OtherLeverageOptional", JsonNull.INSTANCE);
