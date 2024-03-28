@@ -1534,21 +1534,21 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Applications" tab
-    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I navigate to "Budget" sub tab
-    And I halt execution
-#     And I activated standalone subaward "Automation Ind Closed Award By App Details Budget Yes" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Formula_By_Applicant"
+#    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+#    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+#    When I login to "As a Grantor" app as "dynamicUser" user
+#    And I navigate to "Applications" tab
+#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+#    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+#    And I pause execution for "3" seconds
+#    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+#    And I pause execution for "5" seconds
+#    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I navigate to "Budget" sub tab
+#    And I halt execution
+    And I activated standalone subaward "Automation By Applicant Focus Area Admin Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
