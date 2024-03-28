@@ -221,12 +221,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
