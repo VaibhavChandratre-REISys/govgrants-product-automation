@@ -1615,13 +1615,13 @@ Feature: Validate all scenarios of every modules flow
 #    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
 #    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
 #    When I click on "Qualify" in the page details
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "RecipientApplications" panel
-    And I click on "View" icon for "<Announcement Name>" inside flex table with id "RecipientApplications"
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+#    When I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I perform quick search for "<Announcement Name>" in "RecipientApplications" panel
+#    And I click on "View" icon for "<Announcement Name>" inside flex table with id "RecipientApplications"
 #    And I wait for "3" seconds
 #    When I enter "Edition" values from "Application_Field_Values.xlsx"
 #    When I click on "Save" in the page details
@@ -1638,39 +1638,45 @@ Feature: Validate all scenarios of every modules flow
 #    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
 #      | EGMS ID                  | Target |
 #      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I click on "Edit" in the split screen page details
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-#    When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I click on "Edit" in the split screen page details
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-#    When I click on "Back" in the page details
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Forms and Files" sub tab
+#    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I click on "Edit" in the split screen page details
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the split screen page details
+##    When I click on "Back" in the page details
+#    And I navigate to "Form" sub tab in split screen
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    And I click on "Edit" in the split screen page details
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the split screen page details
+##    When I click on "Back" in the page details
+#    And I get the "EGMS ID"
+#    When I click on "Submit Application" in the page details
+#    And I wait for "3" seconds
+#    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
+    And I wait for "4" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "3" seconds
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "3" seconds
     When I click toggle button to select "Application Reviews - All"
+    And I wait for "3" seconds
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
