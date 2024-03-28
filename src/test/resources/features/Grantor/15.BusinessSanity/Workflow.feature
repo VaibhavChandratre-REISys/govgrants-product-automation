@@ -1588,6 +1588,7 @@ Feature: Validate all scenarios of every modules flow
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     And I "Approve" in the approval decision
@@ -1597,7 +1598,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1606,7 +1607,8 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -1644,7 +1646,8 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Back" in the page details
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
-    Then I see status in Progress-bar is "Submitted" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1824,7 +1827,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
-    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Funding Decision Memo" in the page details
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -1852,7 +1856,7 @@ Feature: Validate all scenarios of every modules flow
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
     Examples:
