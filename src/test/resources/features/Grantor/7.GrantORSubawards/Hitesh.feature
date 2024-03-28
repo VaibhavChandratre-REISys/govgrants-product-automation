@@ -3858,7 +3858,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     Then I softly see that "Subaward" is in "Closed" status
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
 
@@ -4023,7 +4023,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{AUTOEnvData:IndByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see that "Subaward" is in "Closed" status
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
 
@@ -4220,7 +4220,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -4245,15 +4245,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -4311,10 +4307,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Unpublish" in the page details
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -4326,7 +4322,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<userName>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4337,7 +4333,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -4362,15 +4358,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -4406,7 +4398,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -4431,15 +4423,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -4465,27 +4453,27 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     Then I softly see field "Focus Area Required?" inside page block
     Then I softly see field "Allocation Level" inside page block
-    Then I see only the following ordered options in dropdown field "fieldAllocationLevel__c" :
+    Then I see only the following ordered options in dropdown field "AllocationLevel__c" :
       | --None-- | By Applicant | By Applicant and Focus Area | N/A |
     #237036
     Then I softly see "Grant Type" inside page block detail
-    Then I see only the following ordered options in dropdown field "fieldGrantType__c" :
+    Then I see only the following ordered options in dropdown field "GrantType__c" :
       | --None-- | Competitive | Directed | Formula |
     #237217
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
-      | Value                       | Field                   |
-      | Directed                    | fieldGrantType__c       |
-      | By Applicant and Focus Area | fieldAllocationLevel__c |
+      | Value                       | Field              |
+      | Directed                    | GrantType__c       |
+      | By Applicant and Focus Area | AllocationLevel__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Grant type other than Formula must have the Allocation Level 'N/A'. |
     #237222
     And I enter values into fields
-      | Value                       | Field                     |
-      | Formula                     | fieldGrantType__c         |
-      | By Applicant and Focus Area | fieldAllocationLevel__c   |
-      | No                          | fieldFocusAreaRequired__c |
+      | Value                       | Field                |
+      | Formula                     | GrantType__c         |
+      | By Applicant and Focus Area | AllocationLevel__c   |
+      | No                          | FocusAreaRequired__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | If Focus Area is not required for a Formula grant, Allocation Level must be " By Applicant " |
@@ -4500,18 +4488,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
-      | Value                       | Field                     |
-      | Formula                     | fieldGrantType__c         |
-      | By Applicant and Focus Area | fieldAllocationLevel__c   |
-      | No                          | fieldFocusAreaRequired__c |
+      | Value                       | Field                |
+      | Formula                     | GrantType__c         |
+      | By Applicant and Focus Area | AllocationLevel__c   |
+      | No                          | FocusAreaRequired__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | If Focus Area is not required for a Formula grant, Allocation Level must be " By Applicant " |
     #237228
     And I enter values into fields
-      | Value                       | Field                   |
-      | Directed                    | fieldGrantType__c       |
-      | By Applicant and Focus Area | fieldAllocationLevel__c |
+      | Value                       | Field              |
+      | Directed                    | GrantType__c       |
+      | By Applicant and Focus Area | AllocationLevel__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Grant type other than Formula must have the Allocation Level 'N/A'. |
@@ -4527,8 +4515,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
       | Value   | Field                   |
-      | Formula | fieldGrantType__c       |
-      | N/A     | fieldAllocationLevel__c |
+      | Formula | GrantType__c       |
+      | N/A     | AllocationLevel__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | For a Formula grant, the Allocation Level must be one of the following - By Applicant or By Applicant and Focus Area. |
@@ -4543,9 +4531,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
-      | Value   | Field                   |
-      | Formula | fieldGrantType__c       |
-      | N/A     | fieldAllocationLevel__c |
+      | Value   | Field              |
+      | Formula | GrantType__c       |
+      | N/A     | AllocationLevel__c |
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | For a Formula grant, the Allocation Level must be one of the following - By Applicant or By Applicant and Focus Area. |
