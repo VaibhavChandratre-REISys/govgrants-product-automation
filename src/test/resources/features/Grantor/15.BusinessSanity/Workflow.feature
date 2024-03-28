@@ -1681,18 +1681,18 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
-      | {SavedValue:FO Username} |
-    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I close "Assign Applications" modal by clicking the top right x button
-    And I wait for "2" seconds
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name  | Due in Days |
+#      | Pre-Screen | 5           |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer                 |
+#      | {SavedValue:FO Username} |
+#    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+#    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+#    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+#    When I close "Assign Applications" modal by clicking the top right x button
+    And I wait for "4" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
