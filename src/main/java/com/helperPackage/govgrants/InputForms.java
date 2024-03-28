@@ -559,6 +559,9 @@ public final class InputForms {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
                 handleRichTextAreaInput(fieldWrapper, fieldValue);
                 break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
+                handleCheckBoxInput(fieldWrapper, fieldValue);
+                break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
                     By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
