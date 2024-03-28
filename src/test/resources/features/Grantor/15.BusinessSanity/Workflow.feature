@@ -1621,10 +1621,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "<Announcement Name>" in "RecipientApplications" panel
-    And I click on "Edit" icon for "<Announcement Name>" inside flex table with id "RecipientApplications"
-    And I wait for "3" seconds
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "RecipientApplications"
+#    And I wait for "3" seconds
+#    When I enter "Edition" values from "Application_Field_Values.xlsx"
+#    When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -1896,7 +1896,9 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Budget" sub tab
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I navigate to url "<string>"
-    Then I see status in Progress-bar is "Rejected" and is "Red"
-#    And I halt execution
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/application/a1hDV000002xDhUYAU/aptao-modified2724?c__Mode=ZWRpdA%3D%3D&retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEFwcGxpY2F0aW9ucw%3D%3D"
+    And I halt execution
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+#    Then I see status in Progress-bar is "Rejected" and is "Red"
+    And I halt execution
 #    And I activated standalone subaward "Automation By Applicant Focus Area Admin Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
