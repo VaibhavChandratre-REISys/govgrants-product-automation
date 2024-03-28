@@ -3855,6 +3855,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243557
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -4859,44 +4860,10 @@ Feature: Validate all scenarios of grants and award for Allocation
 
   @240781 @ValidateSPI/SPAincaseofdetailbudgetusershouldnotseeneweditdeletebuttononthesubawardcategorymodalonawardinreviewedstateofaward @sprint-15-US-238705 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA incase of detail budget user should not see new/edit/delete button on the sub-award category modal on award in reviewed state of award
-    Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Formula Announcements"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
-    And I wait for "4" seconds
-    And I click on "Unpublish" in the page details
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
-    And I enter value "Test" into field "AnnouncementDescription__c"
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
-      | {SavedValue:PM Username} | NA           |
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
-      | {SavedValue:PM Username} | Step 1       |
-    And I wait for "3" seconds
-    And I click on "Submit For Approval" in the page details
-    And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I wait for "2" seconds
-    And I "Approve" in the approval decision
-    And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Publish" in the page details
-    And I wait for "2" seconds
-    Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<userName>"
+    Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO"
+    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES-<userName>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -4934,14 +4901,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "2" seconds
-    And I navigate to "Responsibilities" sub tab
-    And I get the "EGMS ID"
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name          | Award |
-      | Automation PM | NA    |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name          | Award  |
-      | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
