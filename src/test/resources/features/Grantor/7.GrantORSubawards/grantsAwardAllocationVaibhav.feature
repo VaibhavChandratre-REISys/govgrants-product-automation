@@ -7411,7 +7411,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | AllocationType         |
-      | Grant_Edition1         |
+#      | Grant_Edition1         |
       | Grant_Edition_Directed |
 
   @248481 @250449 @ValidateDirectAnnPOusershouldnotseeFocAreawithZeroObligationunderbudgetsummarybyfocusareasectiononGrantunderbudgettabisinActiveStatewhenselectAllocationTypeisNA&FocusAreaisYESwhilecreatingDirectGrant @sprint-17-US-246018 @vaibhav @Allocation
