@@ -1617,6 +1617,7 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Qualify" in the page details
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
     And I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     When I perform quick search for "Automation Runtime Competitive Announcement3495057661" in "QualifiedAnnouncementsExternal" panel
     When I click on "View" icon for "Automation Runtime Competitive Announcement3495057661" inside flex table with id "QualifiedAnnouncementsExternal"
