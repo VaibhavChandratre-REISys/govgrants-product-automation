@@ -1539,4 +1539,4 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I activated standalone subaward "Automation Closed Directed Award" with properties "default" of type "Directed"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
