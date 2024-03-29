@@ -1617,6 +1617,7 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Qualify" in the page details
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "Automation Runtime Competitive Announcement3495057661" in "RecipientApplications" panel
