@@ -1885,7 +1885,7 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-#    When I login to "As a Grantor" app as "dynamicUser" user
+   When I login to "As a Grantor" app as "dynamicUser" user
 #    And I navigate to "Applications" tab
 #    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
 #    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -1898,13 +1898,11 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "Save" in the page details
 #    And I get the "EGMS ID"
 #    And I navigate to "Budget" sub tab
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
     And I wait for "2" seconds
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/award/a1oDV000007xoNPYAY/adga321?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEF3YXJkcyUzRmNfX2F0dHJpYnV0ZXMlM0QlMjU3QiUyNTIydGFiTmFtZSUyNTIyJTI1M0ElMjUyMlIzSmhiblJmWDJNJTI1M0QlMjUyMiUyNTJDJTI1MjJVUkwlMjUyMiUyNTNBJTI1MjJjX19mdDElMjUzRFVtVmphWEJwWlc1MGMxSmxiR0YwWldSQmQyRnlaSE15JTI1MjIlMjU3RA%3D%3D"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SFiaYAG/view"
     And I halt execution
-#    When I enter "Edition" values from "Application_Field_Values.xlsx"
-#    Then I softly see status in Progress-bar is "Amended" and is "dark blue"
-    Then I see status in Progress-bar is "Rejected" and is "Red"
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | Step 1       |
     And I halt execution
 #    And I activated standalone subaward "Automation By Applicant Focus Area Admin Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
