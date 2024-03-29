@@ -1,5 +1,6 @@
 package com.ggproduct.automation.steps.grantor;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.ggproduct.automation.webservices.GrantorWebServices;
@@ -318,7 +319,7 @@ public class GenericSteps {
 
     @Description("Click on reset button in table")
     @When("I click on button {string} in flex table with id {string}")
-    public void clickResetIcon(String buttonName,  String flexTableId) {
+    public void clickResetIcon(String buttonName, String flexTableId) {
         grantorProjectManager.clickButtonNameReset(buttonName, flexTableId);
     }
 
@@ -382,7 +383,7 @@ public class GenericSteps {
 
     @Description("Check the users status against value in Approval History table inside Hsitory Tab")
     @Then("I see {string} against {string} in approval history")
-    public void  seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
+    public void seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
         By listOfsUsers = By.xpath("//div[@id='chevronBarId']//ul[1]//li//a");
         List<Elements> listOfLoc = I.amPerforming().getElementReference().forListOfElements().of(listOfsUsers);
         int expectedIndex = 0;
@@ -569,5 +570,12 @@ public class GenericSteps {
     @Then("^I (see|softly see|do not see|softly do not see) value \"([^\"]*)\" against the value \"([^\"]*)\" for title \"([^\"]*)\" in approval history$")
     public void iSeeValueAgainstTheValueForTitleInApprovalHistory(String usage, String expectedValue, String againstValue, String columnname) {
         grantorProjectManager.assertValueAgainstTheValueForTitleInApprovalHistory(usage, expectedValue, againstValue, columnname);
+    }
+
+    @And("I check the checkbox in modal with field value {string}")
+    public void iCheckTheCheckboxInModalWithFieldAPI(String arg0) {
+        By checkbox = ByUsing.xpath("//span[contains(text(),'" + arg0 + "')]/..//span[@class='slds-checkbox_faux']");
+        I.amPerforming().waitFor().ElementToBeClickable(checkbox);
+        I.amPerforming().click().withJavaScript(checkbox, true);
     }
 }
