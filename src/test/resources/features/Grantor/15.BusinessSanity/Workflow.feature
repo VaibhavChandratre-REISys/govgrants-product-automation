@@ -1905,7 +1905,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Budget" sub tab
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/application/a1hDV000002xDhUYAU/aptao-modified2724?c__Mode=ZWRpdA%3D%3D&retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEFwcGxpY2F0aW9ucw%3D%3D"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/application/a1hDV000002wbeTYAQ/aptao-modified1018?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEFwcGxpY2F0aW9ucw%3D%3D"
     And I halt execution
     When I enter "Edition" values from "Application_Field_Values.xlsx"
 #    Then I see status in Progress-bar is "Rejected" and is "Red"
