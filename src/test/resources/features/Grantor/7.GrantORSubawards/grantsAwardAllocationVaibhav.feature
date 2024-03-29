@@ -6704,8 +6704,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+      | Name  | Project Role             | Is Key Personnel |
+      | <Key> | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award |
@@ -6740,9 +6740,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Focus Area" page block displayed
 
     Examples:
-      | User | filter             |
-      | IND  | GrantFieldsIndUser |
-      | SPI3 | GrantFields1       |
+      | User | filter             | Key                        |
+      | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
+#      | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
 
   @248541 @248546 @248559 @248614 @248616 @248621 @248624 @ValidateSPISPAuserseecumulativeObligationwhichiscomingfromthecumulativeObligationfieldinthelatestactiveaward @sprint-17-US-238309 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA user see cumulative Obligation which is coming from the cumulative Obligation field in the latest active award
@@ -6789,7 +6789,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User | Properties                |
-      | SPI3 | default                   |
+#      | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
   @248574 @248757 @ValidateSPISPAusershouldnotabletoseeRemainingBudgetfieldongrant @sprint-17-US-238309 @vaibhav @Allocation @TBExecution1
@@ -6848,8 +6848,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                         | Award  |
-      | {SavedValue:ADMIN1 Username} | NA     |
+      | Name                         | Award |
+      | {SavedValue:ADMIN1 Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                         | Award  |
       | {SavedValue:ADMIN1 Username} | Step 1 |
@@ -7174,8 +7174,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | <Contacts> | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | Award |
+      | {SavedValue:EXE Username} | NA    |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |

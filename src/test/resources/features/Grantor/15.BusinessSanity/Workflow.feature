@@ -1906,10 +1906,10 @@ Feature: Validate all scenarios of every modules flow
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I wait for "2" seconds
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/award/a1oDV000007xrVRYAY/adga352?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEF3YXJkcw%3D%3D"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/award/a1oDV000007xoNPYAY/adga321?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudEF3YXJkcyUzRmNfX2F0dHJpYnV0ZXMlM0QlMjU3QiUyNTIydGFiTmFtZSUyNTIyJTI1M0ElMjUyMlIzSmhiblJmWDJNJTI1M0QlMjUyMiUyNTJDJTI1MjJVUkwlMjUyMiUyNTNBJTI1MjJjX19mdDElMjUzRFVtVmphWEJwWlc1MGMxSmxiR0YwWldSQmQyRnlaSE15JTI1MjIlMjU3RA%3D%3D"
     And I halt execution
 #    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    Then I softly see status in Progress-bar is "Amended" and is "dark blue"
-#    Then I see status in Progress-bar is "Rejected" and is "Red"
+#    Then I softly see status in Progress-bar is "Amended" and is "dark blue"
+    Then I see status in Progress-bar is "Rejected" and is "Red"
     And I halt execution
 #    And I activated standalone subaward "Automation By Applicant Focus Area Admin Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
