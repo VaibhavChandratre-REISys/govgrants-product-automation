@@ -1861,7 +1861,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
-      | <Announcement Name> | 500                | Yes                   | Recommended | 500                     |
+      | <Announcement Name> | 1000                | Yes                   | Recommended | 1000                     |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
