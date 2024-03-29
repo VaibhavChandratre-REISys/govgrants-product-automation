@@ -6792,7 +6792,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
-  @248574 @248757 @ValidateSPISPAusershouldnotabletoseeRemainingBudgetfieldongrant @sprint-17-US-238309 @vaibhav @Allocation
+  @248574 @248757 @ValidateSPISPAusershouldnotabletoseeRemainingBudgetfieldongrant @sprint-17-US-238309 @vaibhav @Allocation @TBExecution1
   Scenario: Validate SPI/SPA user should not able to see "Remaining Budget" field on grant
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -6868,7 +6868,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #248757
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @243677 @ValidateAdminusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-237985 @vaibhav @Allocation
+  @243677 @ValidateAdminusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-237985 @vaibhav @Allocation @TBExecution1
   Scenario Outline: Validate Admin user should not see 'Budgeted Amount' field on award in close state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "<User1>" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "<User>" user
@@ -6930,7 +6930,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | PM   | {SavedValue:PM Username} | default |
 #    |ADMIN| {SavedValue:ADMIN Username} | Automation ADMIN user |
 
-  @243775 @ValidateAdminusershouldnoteditTotalCommitmentfieldonawardinclosestateFAYes @sprint-16-US-237985 @vaibhav @Allocation
+  @243775 @ValidateAdminusershouldnoteditTotalCommitmentfieldonawardinclosestateFAYes @sprint-16-US-237985 @vaibhav @Allocation @TBExecution1
   Scenario Outline: Validate  Admin user should not edit 'Total Commitment' field on award in close state(FA=Yes)
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "<User1>" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "<User>" user
@@ -6993,7 +6993,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | PM   | {SavedValue:PM Username} | default |
 #    |ADMIN| {SavedValue:ADMIN Username} | Automation ADMIN user |
 
-  @247401 @248370 @248465 @248503 @ValidateCompPMusershouldseefollowingfieldsunderBudgetSummarysectionBudgettabisinDraftstateonGrantlayout @sprint-17-US-246018 @vaibhav @Allocation
+  @247401 @248370 @248465 @248503 @ValidateCompPMusershouldseefollowingfieldsunderBudgetSummarysectionBudgettabisinDraftstateonGrantlayout @sprint-17-US-246018 @vaibhav @Allocation @TBExecution1
   Scenario Outline: Validate Comp PM user should see following fields under Budget Summary section of Budget tab is in Draft state on Grant layout
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7031,7 +7031,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Grant_Edition1         |
       | Grant_Edition_Directed |
 
-  @247412 @248569 @ValidateCompEXEusershouldseebudgetsummarybyfocusareasectiononGrantunderbudgettabisinActiveStatewhenselectAllocationTypeisNA&FocusAreaisYESwhilecreatingDirectGrant @sprint-17-US-246018 @vaibhav @Allocation
+  @247412 @248569 @ValidateCompEXEusershouldseebudgetsummarybyfocusareasectiononGrantunderbudgettabisinActiveStatewhenselectAllocationTypeisNA&FocusAreaisYESwhilecreatingDirectGrant @sprint-17-US-246018 @vaibhav @Allocation @TBExecution1
   Scenario: Validate Comp EXE user should see 'budget summary by focus area' section on Grant under budget tab is in Active State when select Allocation Type is NA & Focus Area is 'YES' while creating Direct Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation EXE user" of type "Competitive"
     And I login to "As a Grantor" app as "EXE" user
