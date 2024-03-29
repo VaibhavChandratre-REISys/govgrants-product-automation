@@ -1021,26 +1021,23 @@ public final class FlexTable implements FlexTableComponent {
                 By inputBoxSelector = By.xpath(".//lightning-input[contains(@id,'combobox-id')]//input[@type='text' and @placeholder='Select an Option'] | .//lightning-input//input[@type='text' or @placeholder='Select an Option'] | .//textarea");
                 WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
 //                I.amPerforming().scroll().onPageToSpecificElement(inputBox);
-                I.amPerforming().click().withJavaScript(inputBoxSelector);
-                    for (int i = 0; i < 50; i++) {
-                        try {
-                            By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
-//                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-//                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
-//                            WebDriver driver = (WebDriver) InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-//                            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,80)");
-                            I.amPerforming().textInput().toClear(inputBox);
-                            I.amPerforming().textInput().in(inputBox, fieldValue);
-                            I.amPerforming().scroll().withMouseToElement(inputBox);
-                            if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
-                                try {
-                                    I.amPerforming().click().on(selectText);
-                                } catch (Exception e) {
-                                    I.amPerforming().click().withJavaScript(selectText);
-                                }
+                I.amPerforming().click().withJavaScript(inputBox);
+                for (int i = 0; i < 50; i++) {
+                    try {
+                        By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
+                        I.amPerforming().textInput().toClear(inputBox);
+                        I.amPerforming().textInput().in(inputBox, fieldValue);
+//                            I.amPerforming().scroll().withMouseToElement(inputBox);
+                        I.amPerforming().click().on(inputBox);
+                        if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
+                            try {
+                                I.amPerforming().click().on(selectText);
+                            } catch (Exception e) {
+                                I.amPerforming().click().withJavaScript(selectText);
                             }
-                            break;
-                        } catch (Exception e) {
+                        }
+                        break;
+                    } catch (Exception e) {
 
                         }
 
