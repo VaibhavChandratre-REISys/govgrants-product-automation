@@ -4760,7 +4760,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Grant Type" inside page block
     Then I softly see that "Grant Type" rendered in view mode only
 
-  @hit @241705 @ValidateSPIusercanseeCompetitiveasgrantstypeonGrantlayoutifAdminuserhasselectedCompetitiveonthecreategrantsmodule @sprint-15-US-238850 @vaibhav @Allocation
+  @241705 @ValidateSPIusercanseeCompetitiveasgrantstypeonGrantlayoutifAdminuserhasselectedCompetitiveonthecreategrantsmodule @sprint-15-US-238850 @vaibhav @Allocation
   Scenario: Validate SPI user can see Competitive as grants type on Grant layout if Admin user has selected Competitive on the create grants module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4872,7 +4872,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table
     Then I softly see field "Grant Type" as "Directed"
 
-  @hit @241709 @ValidateINDusercanseeFormulaasgranttypeonGrantlayoutifPOuserhasselectedFormulaonthecreategrantsmodule @sprint-15-US-238850 @vaibhav @Allocation
+  @241709 @ValidateINDusercanseeFormulaasgranttypeonGrantlayoutifPOuserhasselectedFormulaonthecreategrantsmodule @sprint-15-US-238850 @vaibhav @Allocation
   Scenario: Validate IND user can see Formula as grant type on Grant layout if PO user has selected Formula on the create grants module
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -4929,7 +4929,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     Then I softly see field "Grant Type" as "Formula"
 
-  @hit @243547 @243860 @ValidateCompAnnPMusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122 @vaibhav @Allocation
+  @243547 @243860 @ValidateCompAnnPMusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann PM user should see following read only fields under Budget Summary section in Created, Send to Subrecipient before Approval, Sent for Review, Reviewed Status
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5062,7 +5062,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit @243728 @ValidateCompEXEusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226122 @vaibhav @Allocation
+  @243728 @ValidateCompEXEusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann EXE user should see following read only fields  & Budget Amount field should not see under Budget Summary section in submitted to approval, Approved, Sent to S/r after approval, activated or closed status
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -5219,7 +5219,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243871 @ValidateCompEXEusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamoundintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @243871 @ValidateCompEXEusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamoundintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann EXE user should see validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5232,7 +5232,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5264,15 +5264,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5291,7 +5287,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     And I navigate to "Budget" sub tab
@@ -5299,7 +5295,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1200        |
     And I pause execution for "9" seconds
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
@@ -5307,12 +5303,12 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243927 @ValidateCompFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @243927 @ValidateCompFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp Ann FO as reviewer user should not see new/edit/delete button on sub-award Budget category modal on award in Send for Review state in case of detail budget even if edit access is YES
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     And I wait for "4" seconds
@@ -5320,21 +5316,26 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
-    And I click on "Submit For Approval" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I navigate to "Applications" tab
@@ -5344,7 +5345,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5367,12 +5368,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @243940 @ValidateCompEXEuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @243940 @ValidateCompEXEuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp EXE user has focus area with zero Budgeted amount should not be copied on award from Application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     And I wait for "4" seconds
@@ -5381,21 +5382,25 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
-    And I click on "Submit For Approval" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I navigate to "Applications" tab
@@ -5424,8 +5429,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
-    And I refresh the page
-    When I expand nested table containing column value "BP01"
+#    And I refresh the page
+#    When I expand nested table containing column value "BP01"
+    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
@@ -5447,7 +5453,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
@@ -5457,7 +5463,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @244014 @244024 @ValidateDirectPOusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244014 @244024 @ValidateDirectPOusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Direct Ann PO user should see following read only fields under Budget Summary section in Created, Send to Subrecipient before Approval, Sent for Review, Reviewed Status
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5470,7 +5476,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5507,15 +5513,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -5594,7 +5596,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244025 @ValidateDirectAnnAdinusershouldseeNewObligation&CumulativeObligationreadonlycolumnandshouldnotseeBudgetedAmountreadonlycolumninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstateofAward @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244025 @ValidateDirectAnnAdinusershouldseeNewObligation&CumulativeObligationreadonlycolumnandshouldnotseeBudgetedAmountreadonlycolumninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstateofAward @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Direct Ann Admin user should see New Obligation & Cumulative Obligation read only column and should not see 'Budgeted Amount' read only column in submitted to approval Approved Sent to S/r after approval activated or closed state of Award
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5607,7 +5609,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5632,15 +5634,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -5664,7 +5662,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -5732,7 +5730,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244027 @ValidateDirectAnnPOusershouldseeNewObligation&CumulativeObligationreadonlycolumnandshouldnotseeBudgetedAmountreadonlycolumninRejectedstateofAward @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244027 @ValidateDirectAnnPOusershouldseeNewObligation&CumulativeObligationreadonlycolumnandshouldnotseeBudgetedAmountreadonlycolumninRejectedstateofAward @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Direct PO user should see 'New Obligation & Cumulative Obligation' read only column and should not see 'Budgeted Amount' read only column in Rejected state of Award
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5745,7 +5743,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5770,15 +5768,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -5802,7 +5796,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
@@ -5817,7 +5811,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244028 @ValidateDirectAdminusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamoundintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244028 @ValidateDirectAdminusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamoundintheawardgridonawardwhilesubmittheawardforapproval @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Direct Admin user should see validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5830,7 +5824,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5862,15 +5856,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation ADMIN | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5889,7 +5879,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     And I navigate to "Budget" sub tab
@@ -5897,7 +5887,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1200        |
     And I pause execution for "9" seconds
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
@@ -5905,7 +5895,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244031 @ValidateDirectAnnFOasreviewerofawardshouldhaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisYesforreviewerinsentforreviewstateofawardbutremoveinReviewedstate @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244031 @ValidateDirectAnnFOasreviewerofawardshouldhaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisYesforreviewerinsentforreviewstateofawardbutremoveinReviewedstate @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct Ann FO as reviewer of award should have edit access for start date and end date in 'budget summary by focus area' table if edit access allow is 'Yes' for reviewer in sent for review state of award but remove in 'Reviewed' state
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -5918,7 +5908,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -5950,15 +5940,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation PO | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Responsibilities" sub tab
@@ -6005,7 +5991,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATStartDate__c" is in edit mode
     Then I softly see fields "GATEndDate__c" is in edit mode
 
-  @244032 @ValidateDirectFDasreviewerofawardshouldnothaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisNOforreviewerinsentforreviestateofaward @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244032 @ValidateDirectFDasreviewerofawardshouldnothaveeditaccessforstartdateandenddateinbudgetsummarybyfocusareatableifeditaccessallowisNOforreviewerinsentforreviestateofaward @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct FD as reviewer of award should not have edit access for start date and end date in 'budget summary by focus area' table if edit access allow is 'NO' for reviewer in sent for review state of award
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6018,7 +6004,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6045,15 +6031,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -6102,34 +6084,39 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATStartDate__c" is in edit mode
     Then I softly see fields "GATEndDate__c" is in edit mode
 
-  @244033 @ValidateDirectAnnFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244033 @ValidateDirectAnnFOasreviewerusershouldnotseeneweditdeletebuttononsubawardBudgetcategorymodalonawardinSendforReviewstateincaseofdetailbudgetevenifeditaccessisYES @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct Ann FO as reviewer user should not see new/edit/delete button on sub-award Budget category modal on award in 'Send for Review' state in case of detail budget even if edit access is YES
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     And I wait for "4" seconds
     And I click on "Unpublish" in the page details
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                        | Announcement |
       | {SavedValue:ADMIN Username} | Step 1       |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I navigate to "Applications" tab
@@ -6139,7 +6126,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6162,12 +6149,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @244034 @ValidateDirectAnnAdminuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244034 @ValidateDirectAnnAdminuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct Ann Admin user has focus area with zero Budgeted amount should not be copied on award from Application
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     And I wait for "4" seconds
@@ -6176,10 +6163,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
-    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
+    And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -6210,6 +6197,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -6219,8 +6208,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
-    And I refresh the page
-    When I expand nested table containing column value "BP01"
+#    And I refresh the page
+#    When I expand nested table containing column value "BP01"
+    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
@@ -6242,7 +6232,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
@@ -6252,7 +6242,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @244216 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244216 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Comp Ann SPI/SPA user should see following read only fields under Budget Summary section in  Send to Subrecipient before Approval, Sent for Review, Reviewed Status
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6265,7 +6255,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6295,15 +6285,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation PO | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -6381,7 +6367,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Total Commitment" inside page block
     Then I softly see field "Match this Budget Period" inside page block
 
-  @244217 @244229 @ValidateCompAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244217 @244229 @ValidateCompAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226926 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann IND user should see following read only fields  & Budget Amount field should not see under Budget Summary section in submitted to approval, Approved, Sent to S/r after approval, activated or closed status
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -6394,7 +6380,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6426,15 +6412,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation PM | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
@@ -6453,7 +6435,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6593,7 +6575,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244222 @ValidateCompAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninRejectedbyAssignedApprover @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244222 @ValidateCompAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninRejectedbyAssignedApprover @sprint-16-US-226926 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann IND user should see following read only fields & Budget Amount field should not see under Budget Summary section in Rejected by Assigned Approver
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -6606,7 +6588,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6638,15 +6620,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation PM | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
@@ -6665,7 +6643,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6695,7 +6673,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244241 @ValidateCompAnnINDusershouldnothaveeditaccessforstartdateandenddateunderBudgetSummarybyFocusAreasectioninSendtosrstate @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244241 @ValidateCompAnnINDusershouldnothaveeditaccessforstartdateandenddateunderBudgetSummarybyFocusAreasectioninSendtosrstate @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Comp Ann IND user should not have edit access for start date and end date under 'Budget Summary by Focus Area' section in Send to s/r state
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -6708,7 +6686,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6735,15 +6713,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -6757,9 +6731,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244336 @244349 @ValidateDirectAnnINDusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244336 @244349 @ValidateDirectAnnINDusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Direct Ann IND user should see following read only fields under Budget Summary section in Created, Send to Subrecipient before Approval, Sent for Review, Reviewed Status
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -6772,7 +6746,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6802,15 +6776,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation ADMIN | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
@@ -6900,7 +6870,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244339 @244352 @ValidateDirectAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244339 @244352 @ValidateDirectAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226926 @vaibhav @Allocation
   Scenario Outline: Validate Direct Ann SPI/SPA user should see following read only fields & Budget Amount field should not see under Budget Summary section in submitted to approval, Approved, Sent to S/r after approval, activated or closed status
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6913,7 +6883,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -6940,15 +6910,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
@@ -6972,7 +6938,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7117,7 +7083,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @244345 @244355 @ValidateDirectAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninRejectedbyAssignedApprover @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244345 @244355 @ValidateDirectAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninRejectedbyAssignedApprover @sprint-16-US-226926 @vaibhav @Allocation
   Scenario Outline: Validate Direct Ann SPI/SPA user should see following read only fields & Budget Amount field should not see under Budget Summary section in Rejected by Assigned Approver
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -7130,7 +7096,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -7162,15 +7128,11 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation FO | Step 1 |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -7189,7 +7151,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -7224,7 +7186,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243607 @243649 @244161 @244166 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-16-US-237985-238299 @vaibhav @Allocation
+  @hit @243607 @243649 @244161 @244166 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-16-US-237985-238299 @vaibhav @Allocation
   Scenario Outline: Validate PM user see section name of Budget Period Details should rename with "Budget Summary" section on award
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7270,11 +7232,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -7302,7 +7262,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
-  @243655 @243658 @244181 @244183 @244252 @ValidateEXEuserseeBudgetedAmountfieldinsteadofTotalSubawardAmountthisBudgetPeriodfieldonbudgetsummarysection @sprint-16-US-237985 @vaibhav @Allocation
+  @hit @243655 @243658 @244181 @244183 @244252 @ValidateEXEuserseeBudgetedAmountfieldinsteadofTotalSubawardAmountthisBudgetPeriodfieldonbudgetsummarysection @sprint-16-US-237985 @vaibhav @Allocation
   Scenario Outline: Validate EXE user see 'Budgeted Amount' field instead of 'Total Subaward Amount this Budget Period' field on budget summary section
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -7344,11 +7304,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -7374,7 +7332,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budgeted Amount" inside page block
     #244252
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7404,7 +7362,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budgeted Amount" inside page block
     #244252
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -7441,7 +7399,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budgeted Amount" inside page block
     #244252
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
 
