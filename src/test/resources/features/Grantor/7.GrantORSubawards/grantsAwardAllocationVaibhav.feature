@@ -5517,7 +5517,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244165
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244135 @244152 @244154 @244162 @244198 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinrejectedstate @sprint-16-US-239751 @vaibhav @Allocation @TBExecution
+  @244135 @244152 @244154 @244162 @244198 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinrejectedstate @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI user should not see 'Budgeted Amount' field on award in rejected state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5599,7 +5599,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244198
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @vaibhav @Allocation @TBExecution1
+  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI user should not see 'Budgeted Amount' field on award in close state
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -5615,7 +5615,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244170
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244148 @ValidateSPI/SPAuserseeCarryforwardfiledshouldbeonlydisplayawardwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-239751 @vaibhav @Allocation @TBExecution
+  @244148 @ValidateSPI/SPAuserseeCarryforwardfiledshouldbeonlydisplayawardwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI/SPA user see 'Carry forward' filed should be only display on award when budget period change to BP02 and beyond
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -5687,7 +5687,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
 
-  @244175 @244186 @244202 @ValidateSPIuserseshouldseeNewobligationcolumninallstatesofawardsenttosrbeforeandafterapprovalinpeerreviewreviewcompletedsubmittedtograntorSubmittedforapprovalapprovedRejectedAmendedPendingActivation @sprint-16-US-239751 @vaibhav @Allocation @TBExecution1
+  @244175 @244186 @244202 @ValidateSPIuserseshouldseeNewobligationcolumninallstatesofawardsenttosrbeforeandafterapprovalinpeerreviewreviewcompletedsubmittedtograntorSubmittedforapprovalapprovedRejectedAmendedPendingActivation @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI user se should see "New obligation" column in all states of award sent to s/r before and after approval, in peer review, review completed , submitted to grantor, Submitted for approval, approved, Rejected, Amended, Pending Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6023,7 +6023,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244186
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244235 @244246 @244875 @244107 @ValidateSPISPAuserseevalidationmessageifawardamountisnotequaltotheNewObligation @sprint-16-US-239751 @vaibhav @Allocation @TBExecution
+  @244235 @244246 @244875 @244107 @ValidateSPISPAuserseevalidationmessageifawardamountisnotequaltotheNewObligation @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validation SPI/SPA user see validation message if award amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6116,7 +6116,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
 
-  @244268 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrantandinternalusercanactivateit @sprint-16-US-239751 @vaibhav @Allocation @TBExecution1
+  @244268 @ValidateSPIusershouldabletoacceptawardafterapprovalwithsettingofsubrecipientmatchisYesongrantandinternalusercanactivateit @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI user should able to accept award after approval with setting of subrecipient match % is 'Yes' on grant and internal user can activate it
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -6224,7 +6224,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Match this Budget Period" inside page block
 
-  @244265 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedstate @sprint-16-US-239751 @vaibhav @Allocation @TBExecution
+  @244265 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedstate @sprint-16-US-239751 @vaibhav @Allocation
   Scenario: Validate SPI user see incase of detail budget user should not able to edit/delete  sub-award section on award in Rejected state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6305,7 +6305,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @247585 @247901 @ValidatePMuserseefollowingfieldsongrantEstimatedFundingCumulativeObligationTotalCommitmentEstimatedprogramincomefortheProjectPeriod @sprint-17-US-237045 @vaibhav @Allocation @TBExecution1
+  @247585 @247901 @ValidatePMuserseefollowingfieldsongrantEstimatedFundingCumulativeObligationTotalCommitmentEstimatedprogramincomefortheProjectPeriod @sprint-17-US-237045 @vaibhav @Allocation
   Scenario: Validate PM user see following fields on grant  Estimated Funding, Cumulative Obligation, Total Commitment, Estimated program income for the Project Period
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6329,7 +6329,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Overview" sub tab
     Then I softly do not see "Focus Area" page block displayed
 
-  @247593 @ValidateEXEuserseeEstimatedFundingfieldiseditableindraftstateandusercanactivateawardwithoutenteringEstimatedFundingkeepingasfieldasblankongrant @sprint-17-US-237045 @vaibhav @Allocation @TBExecution
+  @247593 @ValidateEXEuserseeEstimatedFundingfieldiseditableindraftstateandusercanactivateawardwithoutenteringEstimatedFundingkeepingasfieldasblankongrant @sprint-17-US-237045 @vaibhav @Allocation
   Scenario: Validate EXE user see 'Estimated Funding' field is editable in draft state and user can activate award without entering 'Estimated Funding' keeping as field as blank on grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -6448,7 +6448,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
 
-  @247603 @ValidatePMuserseecumulativeobligationwhichiscomingfromthecumulativeObligationfieldinthelatestactiveaward @sprint-17-US-237045 @vaibhav @Allocation @TBExecution1
+  @247603 @ValidatePMuserseecumulativeobligationwhichiscomingfromthecumulativeObligationfieldinthelatestactiveaward @sprint-17-US-237045 @vaibhav @Allocation
   Scenario: Validate PM user see cumulative Obligation which is coming from the cumulative Obligation field in the latest active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     And I login to "As a Grantor" app as "PM" user
@@ -6460,7 +6460,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
 
-  @247764 @ValidatePOuserseereadonlyTotalcommitmentamounwhichiscomingfromtheTotalcommitmentfieldinthelatestactiveawardwithhelptextTotalamountcommittedthroughthisandpriorawardsinthisBudgetperiod @sprint-17-US-237045 @vaibhav @Allocation
+  @247764 @ValidatePOuserseereadonlyTotalcommitmentamounwhichiscomingfromtheTotalcommitmentfieldinthelatestactiveawardwithhelptextTotalamountcommittedthroughthisandpriorawardsinthisBudgetperiod @sprint-17-US-237045 @vaibhav @Allocation @TBExecution
   Scenario: Validate PO user see read only Total commitment amount which is coming from the Total commitment field in the latest active award with help text: Total amount committed through this and prior awards in this Budget period)
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     And I login to "As a Grantor" app as "PO" user
@@ -6474,7 +6474,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
 
-  @247839 @247844 @248977 @ValidatePMuserseenewcolumnofBudgetperiodNumberinsteadofBudgetperiodtitleBP01populatesonlyafterawardactivationinsteadofthefiscalyear @sprint-17-US-237045 @vaibhav @Allocation
+  @247839 @247844 @248977 @ValidatePMuserseenewcolumnofBudgetperiodNumberinsteadofBudgetperiodtitleBP01populatesonlyafterawardactivationinsteadofthefiscalyear @sprint-17-US-237045 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see new column of "Budget period Number" instead of "Budget period title" (BP01 populates only after award activation instead of the fiscal year)
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     And I login to "As a Grantor" app as "PM" user
@@ -6513,7 +6513,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
-  @250440 @247898 @ValidatePMusershouldnotseeFocusAreawithZeroObligationunderbudgetsummarybyfocusaresectiononGrantunderbudgettabisinActiveStatewhenselectAllocationTypeisbyapplicantfocuswhilecreatingDirectGrant @sprint-17-US-237045 @vaibhav @Allocation
+  @250440 @247898 @ValidatePMusershouldnotseeFocusAreawithZeroObligationunderbudgetsummarybyfocusaresectiononGrantunderbudgettabisinActiveStatewhenselectAllocationTypeisbyapplicantfocuswhilecreatingDirectGrant @sprint-17-US-237045 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user should not see Focus Area with Zero Obligation under 'budget summary by focus area' section on Grant under budget tab is in Active State when select Allocation Type is by applicant focus area while creating Direct Grant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6646,7 +6646,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Status" as "Active"
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
-  @248520 @248521 @248522 @248529 @248530 @248764 @248765 @ValidateINDuserseesectionnameBudgetSummaryinsteadoffundinginformationongrant @sprint-17-US-238309 @vaibhav @Allocation
+  @248520 @248521 @248522 @248529 @248530 @248764 @248765 @ValidateINDuserseesectionnameBudgetSummaryinsteadoffundinginformationongrant @sprint-17-US-238309 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate IND user see section name "Budget Summary" instead of 'funding information' on grant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6743,7 +6743,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | IND  | GrantFieldsIndUser |
       | SPI3 | GrantFields1       |
 
-  @248541 @248546 @248559 @248614 @248616 @248621 @248624 @ValidateSPISPAuserseecumulativeObligationwhichiscomingfromthecumulativeObligationfieldinthelatestactiveaward @sprint-17-US-238309 @vaibhav @Allocation
+  @248541 @248546 @248559 @248614 @248616 @248621 @248624 @ValidateSPISPAuserseecumulativeObligationwhichiscomingfromthecumulativeObligationfieldinthelatestactiveaward @sprint-17-US-238309 @vaibhav @Allocation @TBExecution
   Scenario Outline: Validate SPI/SPA user see cumulative Obligation which is coming from the cumulative Obligation field in the latest active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I am on "SUBPORTAL" portal
@@ -6881,13 +6881,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name       | Closeout |
+      | <Approver> | NA       |
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name       | Closeout |
       | <Approver> | Step 1   |
