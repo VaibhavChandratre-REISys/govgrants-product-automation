@@ -5315,7 +5315,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Unpublish" in the page details
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    When I enter value "For-profit organizations" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -5393,7 +5393,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:EXE Username} | Step 1       |
     And I refresh the page
     And I wait for "2" seconds
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
