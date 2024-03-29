@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @debug @PoojaHappyPath
   Scenario Outline: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal
