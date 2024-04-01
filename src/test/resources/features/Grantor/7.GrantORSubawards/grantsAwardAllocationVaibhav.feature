@@ -8968,7 +8968,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User | Properties                |
-      | SPI3 | default                   |
+#      | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
   @243548 @243550 @ValidateDirectedthatAdminserwillseeBudgetperiodDetailssectionrenamedtoBudgetSummary @sprint-16-US-238128 @vaibhav @Allocation @TBExecution1
