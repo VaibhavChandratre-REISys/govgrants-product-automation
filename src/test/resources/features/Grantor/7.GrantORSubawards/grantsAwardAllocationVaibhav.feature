@@ -8334,6 +8334,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
@@ -8392,13 +8393,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Cumulative Obligation" as "$0.00"
     Then I softly see field "Total Commitment" as ""
 
-  @247830 @ValidateAdminUserusershouldseenewcolumnofBudgetperiodNumberinsteadofBudgetperiodtitleBP01populatesonlyafterawardactivationinsteadofthefiscalyearFANO @sprint-17-US-245898 @vaibhav @Allocation @TBExecution
+  @247830 @ValidateAdminUserusershouldseenewcolumnofBudgetperiodNumberinsteadofBudgetperiodtitleBP01populatesonlyafterawardactivationinsteadofthefiscalyearFANO @sprint-17-US-245898 @vaibhav @Allocation
   Scenario: Validate Admin User user should see new column of Budget period Number  instead of Budget period title(BP01 populates only after award activation instead of the fiscal year)(FA NO)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     Then I softly see field "Status" as "Active"
