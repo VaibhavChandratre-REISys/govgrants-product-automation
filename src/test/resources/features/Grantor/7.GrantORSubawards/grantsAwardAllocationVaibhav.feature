@@ -8296,7 +8296,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User | filter             | Properties                |
-#      | SPI3 | GrantFields1       | default                  |
+      | SPI3 | GrantFields1       | default                  |
       | IND  | GrantFieldsIndUser | SUBRECIPIENT_ORG_IND_USER |
 
   @247614 @247834 @ValidateAdminUsertheTotalcommitmentfieldFAYes @sprint-17-US-245898 @vaibhav @Allocation
