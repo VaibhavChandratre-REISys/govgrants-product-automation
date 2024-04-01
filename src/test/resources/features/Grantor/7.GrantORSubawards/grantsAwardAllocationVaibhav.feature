@@ -8329,7 +8329,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budget period title" in flex table header "---subAwardStandAlone:-:paymentSummaryFocusAreaTableid---"
     Then I softly see value "BP01" for title "Budget period Number" inside table "---subAwardStandAlone:-:paymentSummaryFocusAreaTableid---"
 
-  @247646 @247664 @247743 @247796 @ValidatePOUsertheEstimatedProgramIncomefieldFAYes @sprint-17-US-245898 @vaibhav @Allocation @TBExecution
+  @247646 @247664 @247743 @247796 @ValidatePOUsertheEstimatedProgramIncomefieldFAYes @sprint-17-US-245898 @vaibhav @Allocation
   Scenario: Validate PO User the Estimated Program Income field (FA Yes)
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -8373,7 +8373,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Award Amount" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly do not see "Awarded Budget" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @247802 @ValidateAdminusershouldnotseecumulativeObligationandtotalcommitmentfieldongrantifgrantisindraftstateandawardisincreatedstate @sprint-17-US-245898 @vaibhav @Allocation @TBExecution
+  @247802 @ValidateAdminusershouldnotseecumulativeObligationandtotalcommitmentfieldongrantifgrantisindraftstateandawardisincreatedstate @sprint-17-US-245898 @vaibhav @Allocation
   Scenario: Validate Admin user should not see cumulative Obligation and total commitment field on grant if grant is in draft state and award is in created state
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -8666,7 +8666,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | ADMIN | IND   | GrantFieldsIndUser1 | {SavedValue:ADMIN Username} | {SavedValue:IND Username}  |
       | EXE   | SPI3  | GrantFields1        | {SavedValue:EXE Username}   | {SavedValue:SPI3 Username} |
 
-  @248348 @248384 @ValidateSPISPAUsertheEstimatedfundingfieldFANo @sprint-17-US-245897 @vaibhav @Allocation @TBExecution
+  @248348 @248384 @ValidateSPISPAUsertheEstimatedfundingfieldFANo @sprint-17-US-245897 @vaibhav @Allocation
   Scenario: Validate SPISPA User the Estimated funding field FA No
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9277,7 +9277,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | ADMIN | GrantFields3 |
       | PM    | GrantFields1 |
 
-  @243583 @ValidateDirectedThatPOusercaneditTotalCommitementfieldwhentherecordisCreatedinreviewpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation
+  @243583 @ValidateDirectedThatPOusercaneditTotalCommitementfieldwhentherecordisCreatedinreviewpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed <PO> user can edit Total Commitement field when the record is Created, in review, peer-reviewed states
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -9374,7 +9374,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     Then I softly see fields "TotalCommitment__c" is in edit mode
 
-  @243589 @243590 @243592 @243596 @ValidateDirectedThatEXEusercanInlineedittheStartdateandEnddateinBudgetSummarybyfocusarea @sprint-16-US-238128 @vaibhav @Allocation
+  @243589 @243590 @243592 @243596 @ValidateDirectedThatEXEusercanInlineedittheStartdateandEnddateinBudgetSummarybyfocusarea @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed <EXE> user can Inline edit the Start date and End date in Budget Summary by focus area
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -9414,7 +9414,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see field "BudgetedAmount__c" not in edit mode
 
-  @243611 @ValidateDirectedthatTheNewobligationwillbereadonlycolumninBudgetSummarybyfocusareasectionwhenAwardIsinActivestate @sprint-16-US-238128 @vaibhav @Allocation
+  @243611 @ValidateDirectedthatTheNewobligationwillbereadonlycolumninBudgetSummarybyfocusareasectionwhenAwardIsinActivestate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed The New obligation will be read-only column in Budget Summary by focus area section when Award Is in Active state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Directed"
     And I login to "As a Grantor" app as "EXE" user
@@ -9428,7 +9428,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243616 @243623 @ValidateDirectedThatPMuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-238128 @vaibhav @Allocation
+  @243616 @243623 @ValidateDirectedThatPMuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed That <PM> user will see New Obligation in Budget Summary by focus Area section when award is in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9506,7 +9506,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243623
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243622 @ValidateDirectedThatPOuserwillseeCumulativeobligationinBudgetSummarybyfocusAreasectionaftertheawardissubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedstate @sprint-16-US-238128 @vaibhav @Allocation
+  @243622 @ValidateDirectedThatPOuserwillseeCumulativeobligationinBudgetSummarybyfocusAreasectionaftertheawardissubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed That PO user will see Cumulative obligation in Budget Summary by focus Area section after the award is submitted to approval, Approved Sent to S/r after approval, activated state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -9629,7 +9629,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243630 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleinSubawardbudgetsection @sprint-16-US-238128 @vaibhav @Allocation
+  @243630 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleinSubawardbudgetsection @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed That In case of detail budget, Action column with the Add line item option will be visible in Subaward budget section
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -9673,7 +9673,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
 
-  @243631 @243632 @ValidateDirectedthatPMuserwillseeHighlightedneweditdeletebuttononthesubawardcategorymodaltoeditthebudgetincaseofdetailbudget @sprint-16-US-238128 @vaibhav @Allocation
+  @243631 @243632 @ValidateDirectedthatPMuserwillseeHighlightedneweditdeletebuttononthesubawardcategorymodaltoeditthebudgetincaseofdetailbudget @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed that <PM> user will see Highlighted new/edit/delete button on the subaward category modal to edit the budget in case of detail budget
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9806,7 +9806,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
 
-  @243636 @243637 @ValidateDirectedSPIseevalidationontheSubmittoGrantorButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-238128 @vaibhav @Allocation
+  @243636 @243637 @ValidateDirectedSPIseevalidationontheSubmittoGrantorButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed <SPI> see validation on the Submit to Grantor Button when the Budgeted Amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9904,7 +9904,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I softly see field "Status" as "Accepted"
 
-  @243640 @ValidateDirectedonceownershipistransferredalltheeditaccessofallocationfieldsshouldalsomovetonewowner @sprint-16-US-238128 @vaibhav @Allocation
+  @243640 @ValidateDirectedonceownershipistransferredalltheeditaccessofallocationfieldsshouldalsomovetonewowner @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed once ownership is transferred, all the edit access of allocation fields should also move to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
