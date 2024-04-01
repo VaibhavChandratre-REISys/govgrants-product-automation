@@ -8900,7 +8900,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I save the field labeled "Cumulative Obligation" as "CumuObligation2"
     Then I softly see value "{SavedValue:CumuObligation}" is "Equals to" the value "{SavedValue:CumuObligation2}"
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -8963,7 +8963,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I save the field labeled "Cumulative Obligation" as "CumuObligation3"
     Then I softly see value "{SavedValue:CumuObligation}" is "Equals to" the value "{SavedValue:CumuObligation3}"
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
 
     Examples:
       | User | Properties                |
@@ -9217,6 +9217,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account              | Encumbrance |
       | {SavedValue:fundingAccount1} | 1000        |
+    And I refresh the page
+    And I navigate to "Budget" sub tab
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount1}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$2,000.00" for title "Encumbrance" against the value "Total" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
