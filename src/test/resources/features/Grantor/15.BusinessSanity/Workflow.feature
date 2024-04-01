@@ -1539,8 +1539,4 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    When I navigate to "Budget" sub tab
-    Then I softly see field "NewObligation__c" not in edit mode
-    Then I softly see field "CumulativeObligation__c" not in edit mode
+    Given I activated standalone subaward "Automation Ind Closed Competitive Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
