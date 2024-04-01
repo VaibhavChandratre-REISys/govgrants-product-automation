@@ -3336,7 +3336,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
-    And I "Send back" in the approval decision
+    And I "Send Back" in the approval decision
     And I wait for "10" seconds
     And I refresh the page
     Then I softly see field "Status" as "Created"

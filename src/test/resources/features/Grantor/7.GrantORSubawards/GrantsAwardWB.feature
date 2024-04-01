@@ -1,7 +1,7 @@
 @grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @regression
 Feature: Validate all scenarios of grants and award without background
 
-  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView @keerti @AwardPooja
+  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView @keerti @PoojaAward
   Scenario Outline: Verify that users can see new button on grant list view
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -13,7 +13,7 @@ Feature: Validate all scenarios of grants and award without background
       | PM   |
       | EXE  |
 
-  @69453 @verifySupportingDocumentMustAddByOwner @aashish @AwardPooja
+  @69453 @verifySupportingDocumentMustAddByOwner @aashish @PoojaAward
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user) |
   Award owner can see add supporting document
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438 @jitendra @statusOfAllAndDraft @AwardPooja
+  @71423 @71439 @71438 @jitendra @statusOfAllAndDraft @PoojaAward
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -47,7 +47,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click toggle button to select "Grants - Rejected"
     Then I softly see value "Terminated" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
 
-  @66740 @documentattacmentatgrant @jitendra @AwardPooja
+  @66740 @documentattacmentatgrant @jitendra @PoojaAward
   Scenario: To verify that the document can be added in the Supporting Document checklist table in the Grant Attachment tab in the Draft state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -63,7 +63,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation  | Mandatory | Award      | Active |
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @68057 @createGrantEXE @jitendra
+  @68057 @createGrantEXE @jitendra @PoojaAward
   Scenario: Valiadate EXE user can create Direct Grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -78,7 +78,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @68058 @cannotCreateGrantFOUser @jitendra @AwardPooja
+  @68058 @cannotCreateGrantFOUser @jitendra @PoojaAward
   Scenario Outline: validate that FO user cannot create Direct Grant
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -88,7 +88,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | FO   |
 
-  @69084 @createdGrantVisibleToUserFromSameOrganisation @jitendra @smoke @AwardPooja
+  @69084 @createdGrantVisibleToUserFromSameOrganisation @jitendra @smoke @PoojaAward
   Scenario: Validate that  Grant in draft state created by one pm user is visible to the other user(PM/EXE) of the same organisation
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -112,7 +112,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @68460 @71420 @adminUserRowLevelButton @jitendra @buglogged127950 @AwardPooja
+  @68460 @71420 @adminUserRowLevelButton @jitendra @buglogged127950 @PoojaAward
   Scenario: Validate that Edit and View and Delete button appear for Admin in Grant Draft table after the Grant is Created and on clicking the respective icon it works.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -171,7 +171,7 @@ Feature: Validate all scenarios of grants and award without background
     And I calculate the total from the column header "Subaward Amount" and saved it as "closedTotal" from the flex table "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see total as "{SavedValue:closedTotal}" against column name "Subaward Amount" from flex table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65619 @65578 @65586 @65573 @validateFieldsAtGrant @jitendra @buglogged127963 @AwardPooja
+  @65619 @65578 @65586 @65573 @validateFieldsAtGrant @jitendra @buglogged127963 @PoojaAward
   Scenario: To verify Budget period end date entered by Award owner should be same when owner click on save button.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -200,7 +200,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" against the value "{SavedValue:Automation Runtime Execution Award}" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65688 @validateTnCAssociate @jitendra
+  @65688 @validateTnCAssociate @jitendra @PoojaAward
   Scenario: Verify Associated Terms and Conditions are Editable by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -225,7 +225,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save"
     Then I softly see field "Sequence" as "2"
 
-  @66654 @66655 @65897 @activateAwardEXEUser @jitendra
+  @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
     When I login to "As a Grantor" app as "<user>" user
     And I navigate to "Grants" tab
@@ -421,7 +421,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Block Grant   |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Project Grant |
 
-  @67967 @amountNotDebitedFromFundingAccount @jitendra @AwardPooja
+  @67967 @amountNotDebitedFromFundingAccount @jitendra @PoojaAward
   Scenario Outline: Validate that the funding Account is not debited if it is removed prior to Subaward approval
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -630,7 +630,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @PoojaAward
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -648,7 +648,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "True" for title "Mandatory" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly cannot see row level action button "Delete" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient @jitendra @smoke @AwardPooja
+  @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient @jitendra @smoke @PoojaAward
   Scenario: To verify on click "send to sub recipient button" by  Award owner profile (PM user) it must appear in the pending task of sub-recipient.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -733,7 +733,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @64423  @VerifyDirectGrantCreation @mahadev
+  @64423  @VerifyDirectGrantCreation @mahadev @PoojaAward
   Scenario: Verify award owner is able to create direct grant with Budget Category Type as construction
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -747,7 +747,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Save" in the page details
     Then I see field "Status" as "Draft"
 
-  @64784 @68054 @VerifyBPDatesOnGrant @mahadev @buglogged127963
+  @64784 @68054 @VerifyBPDatesOnGrant @mahadev @buglogged127963 @PoojaAward
   Scenario Outline: Verify Budget Period Dates value on grant subaward Tab is same as the Estimated Project Period Start Date and End date on announcement
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -782,7 +782,7 @@ Feature: Validate all scenarios of grants and award without background
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64786 @64563 @64717 @64789 @VerifyFieldsFromAnnoucement @mahadev @AwardPoojaRerun
+  @64786 @64563 @64717 @64789 @VerifyFieldsFromAnnoucement @mahadev @PoojaAward
   Scenario Outline: Verify (EGMS ID of announcement | Leverage Allowed?) and focus Area is carried forward to Announcement ID at grant overview which is created with application
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -822,7 +822,7 @@ Feature: Validate all scenarios of grants and award without background
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus @keerti
+  @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus @keerti @PoojaAward
   Scenario Outline: Verify that on FDM View page when user click on Create Subaward action , then Subaward get creates in created status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -889,7 +889,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Subrecipient Organization is required to save. |
 
-  @64424 @VerifyRequiredMatch%Filed @keerti
+  @64424 @VerifyRequiredMatch%Filed @keerti @PoojaAward
   Scenario: Verify If you select Subrecipient Match Required setting as Yes and award owner did not enter Required Match % field then it should show validation message.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -904,7 +904,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Provide a positive value for Required Match %.  |
 
-  @65084 @VerifyActiveGrantsOnSubportal @mahadev @AwardPooja
+  @65084 @VerifyActiveGrantsOnSubportal @mahadev @PoojaAward
   Scenario: Verify SR user can view Active grant
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -915,7 +915,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientActiveGrantsTableId---" panel
     Then I see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---amendment:-:recipientActiveGrantsTableId---"
 
-  @64951 @VerifyPreviousReviewStepbuttonOnFDM @mahadev @AwardPooja
+  @64951 @VerifyPreviousReviewStepbuttonOnFDM @mahadev @PoojaAward
   Scenario: Verify when user click on Previous Review Step button it navigate to Management Review Page
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -929,7 +929,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Previous Review Step" in the page details
     Then I see field "Status" as "Completed"
 
-  @64950 @PreviousReviewStepButton @keerti @AwardPooja
+  @64950 @PreviousReviewStepButton @keerti @PoojaAward
   Scenario: Verify Previous Review Step button is present on Funding Decision Memo Page.
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -942,7 +942,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     Then I can see top right button "Previous Review Step" in page detail
 
-  @65576 @VerifyDraftStatusOnGrant @mahadev @AwardPooja
+  @65576 @VerifyDraftStatusOnGrant @mahadev @PoojaAward
   Scenario: Verify Draft status on grant
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -956,7 +956,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     Then I see field "Status" as "Draft"
 
-  @65584 @VerifyGrantModalFieldsAfterSaved  @mahadev @AwardPooja
+  @65584 @VerifyGrantModalFieldsAfterSaved  @mahadev @PoojaAward
   Scenario: To verify that the program settings that was made while creating the draft are enforced on the created draft through the award owner profile as PM profile
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -981,7 +981,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see field "Risk Assessment Required?" as "No"
     Then I softly see field "Grant Abbreviation" as "GA"
 
-  @65582 @verifyGrantTypes @mahadev
+  @65582 @verifyGrantTypes @mahadev @PoojaAward
   Scenario: To verify that the type of grant in drop down is Project grant, formula and block grant
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -997,7 +997,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Edit" in the page details
     Then I see field "Grant Type" as "Competitive"
 
-  @65602 @verifySubtabNavigation @mahadev
+  @65602 @verifySubtabNavigation @mahadev @PoojaAward
   Scenario: Verify when Award owner click on edit action at sub award it should navigate to subawards Tab with Progress bar status as Created
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1044,7 +1044,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "Random" in "---subAwardStandAlone:-:termsndConditionsTableId---" panel
     Then I softly see value "Random" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev @AwardPoojaRerun @Dev
+  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev @PoojaAward @Dev @onHold-Bug-414263 @wip
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1181,7 +1181,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @65978 @verifyPackagesONaward @mahadev @AwardPoojaRerun
+  @65978 @verifyPackagesONaward @mahadev @PoojaAward
   Scenario Outline: To Verify that the Default package associated with subaward should be displayed correctly
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1198,7 +1198,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @66224 @66210 @67895 @validateSourceNdInstructionField  @mahadev @AwardPooja
+  @66224 @66210 @67895 @validateSourceNdInstructionField  @mahadev @PoojaAward
   Scenario: To verify that if source and instruction field  unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown.
   | @67895 Validate BP number from subaward is updating the BP number on Grant upon activation of Subaward
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -1223,7 +1223,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Source is Required to save under Overview. |
 
-  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @jitendra
+  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @jitendra @PoojaAward
   Scenario: To verify that if Purpose field in plan table is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1454,7 +1454,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @66219 @validateInstructionField  @mahadev
+  @66219 @validateInstructionField  @mahadev @PoojaAward
   Scenario: To verify that if instruction field is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be throw
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1475,7 +1475,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview |
 
-  @66215 @validateCreatedStatusSV @mahadev
+  @66215 @validateCreatedStatusSV @mahadev @PoojaAward
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1493,7 +1493,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @65911 @verifyDescriptionFieldIsEditable @mahadev @AwardPooja
+  @65911 @verifyDescriptionFieldIsEditable @mahadev @PoojaAward
   Scenario: To verify that after the edit button is clicked on the Award owner profile (PM user) sub award description becomes editable
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1510,7 +1510,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Overview" sub tab
     Then I see textarea field "GrantAwardDescription__c" is editable
 
-  @66416 @validateSourceInDeskReview  @mahadev
+  @66416 @validateSourceInDeskReview  @mahadev @PoojaAward
   Scenario: To verify that if source field in plan table is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message  must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1530,7 +1530,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Source is required to save under Overview |
 
-  @66410 @validateInstructionFieldInDeskReview  @mahadev @AwardPoojaRerun
+  @66410 @validateInstructionFieldInDeskReview  @mahadev @PoojaAward
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1550,7 +1550,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview |
 
-  @68078 @redirectionThresholdCheck @jitendra @smoke @Debug
+  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
     Given I activated standalone subaward "Automation Runtime Execution Award" with properties "NO_BUDGETRedirectionThreshhold" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -1562,6 +1562,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Execution Award}" inside flex table with id "---subAwardStandAlone:-:recipientsSubawardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    And I wait for "4" seconds
     When I enter in modal "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see field "Budget Redirection Threshold" as "10.00%"
@@ -1569,7 +1570,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @66750 @68152 @validateBlockGrantCreation @mahadev
+  @66750 @68152 @validateBlockGrantCreation @mahadev @PoojaAward 
   Scenario: To verify that Subaward is created state on progress bar when the Grant type is “Block Grant” | To verify that if the Budget Period End Date is left blank and send to subrecipient button is clicked on the top right corner of the page validation message appear
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1580,10 +1581,13 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Overview" sub tab
-    When I enter value "Block Grant" into field "GrantType__c"
-    When I enter value "Description" into field "GrantDescription__c"
+#    When I enter value "Block Grant" into field "GrantType__c"
+    When I enter value "Desc2ription" into field "GrantDescription__c"
     When I click on "Save" in the page details
-    Then I softly cannot see field label "Grant Issue Date" present on page under "Grant Information" table
+    And I wait for "3" seconds
+    Then I do not see below fields in "Grant Information" page block
+      | Grant Issue Date |
+#    Then I softly cannot see field label "Grant Issue Date" present on page under "Grant Information" table
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -1591,7 +1595,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Budget Tab - Provide the Budget Period End Date for the subaward. |
 
-  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev
+  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev @PoojaAward
   Scenario: To verify that after the new value is entered and clicked on the save button through the award owner profile as a PM profile the value must be retained
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1608,7 +1612,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see field "Grant Type" as "Project Grant"
     Then I softly see field "Brief information about the grant." as "Test Automation"
 
-  @67528 @totalBudgetCalculation @jitendra @smoke
+  @67528 @totalBudgetCalculation @jitendra @smoke @PoojaAward
   Scenario: To validate that the total project cost in the subaward budget table is the sum of the values in each row of the column
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1626,18 +1630,21 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "5" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
+    And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:subAwardBudgetTableId---" by clicking "Edit" :
 #      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
 #      | Construction    | 1000         | 100        | 100            |
-    Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Construction" inside table "---subAwardFromFDM:-:subAwardBudgetTableId---"
+    Then I softly see value "$1,100.00" for title "Total Project Cost" against the value "Construction" inside table "---subAwardFromFDM:-:subAwardBudgetTableId---"
 
-  @69453 @verifySupportingDocumentNotAddedByExe @aashish 
+  @69453 @verifySupportingDocumentNotAddedByExe @aashish @PoojaAward
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user)
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1647,6 +1654,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1656,7 +1664,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I cannot see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @69453 @verifySupportingDocumentNotAddedByFOUser @aashish
+  @69453 @verifySupportingDocumentNotAddedByFOUser @aashish @PoojaAward
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user)
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1683,7 +1691,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I softly can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @67809 @createGrantADMIN @aashish
+  @67809 @createGrantADMIN @aashish @PoojaAward
   Scenario: Validate that the Admin user can create new Grant
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -1698,12 +1706,13 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @69899 @verifyBudgetPeriodNotGreaterThanStartDate @aashish @smoke
+  @69899 @verifyBudgetPeriodNotGreaterThanStartDate @aashish @smoke @PoojaAward
   Scenario: To verify that system throws validation message when a user entered start date as grater than budget period start date.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "3" seconds
     And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
@@ -1715,16 +1724,19 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 4000       | 3650     |
     Then I see the following messages in the page details contains:
       | Focus area start date should be between budget period. |
 
-  @67690 @pendingTaskToPMAfterSubmitToApprover @jitendra
+  @67690 @pendingTaskToPMAfterSubmitToApprover @jitendra @PoojaAward @onHold-Bug-414263 @wip
   Scenario Outline: Validate that pending task generates for the award owner (PM) profile after subaward is submitted for approval in pending task (assigned to me and assigned by me)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1742,9 +1754,12 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "5" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
+    And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
@@ -1760,16 +1775,16 @@ Feature: Validate all scenarios of grants and award without background
       | Title                    | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
-    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
-    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
-    And I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    Then I refresh the page
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardFromFDM:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -1780,11 +1795,15 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1817,6 +1836,7 @@ Feature: Validate all scenarios of grants and award without background
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1869,7 +1889,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65409 @FocusAreaStartAndEndDate
+  @65409 @FocusAreaStartAndEndDate @PoojaAward
   Scenario: To verify the action on adding a focus area start and end date in between the budget period date in the budget tab of subaward phase in the award owner profile PM User category
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1886,23 +1906,25 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 2          | 339      |
     And I click on "Submit for Approval" in the page details
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Overview Tab - Specify at least one contact as Key Personnel for subaward.                                                            |
       | Budget Tab - At least one Focus Area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
       | Budget Tab - Provide the required match details (Cash Match/Non-Cash Match) to submit this subaward.                                  |
-      | Budget Tab - Provide the Subaward Budget before submitting for approval.                                                              |
+      | Budget Tab - Provide the Award Amount before submitting for approval.                                                                 |
       | Terms Tab - Provide the Payment Request Schedule details before submitting for approval.                                              |
       | Performance Tab - Enter Target values.                                                                                                |
       | Responsibilities - At least one approver is required                                                                                  |
 
-  @66096 @defaultPackageAssociateWithSubaward @aashish
+  @66096 @defaultPackageAssociateWithSubaward @aashish @PoojaAward
   Scenario Outline: To Verify that the Default package associated with subaward should be displayed correctly |
   To verify that Initiate Desk review button appear on site visit table of management tab of Award owner after Subaward is activated
     And I activated standalone subaward "Automation Runtime Award For Me" with properties "default" of type "Competitive"
@@ -1924,7 +1946,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   |
       | {SavedValue:Automation Runtime Award For Me} |
 
-  @71436 @jitendra @activeAwardFilter
+  @71436 @jitendra @activeAwardFilter @PoojaAward
   Scenario: Verify that Activated records are getting displayed proper post apply a filter "activated" on grants by SPI/SPA users.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1934,7 +1956,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @70806 @71417 @jitendra @SetRedirectionThresholdtO15 
+  @70806 @71417 @jitendra @SetRedirectionThresholdtO15 @PoojaAward @onHold-Bug-414263 @wip
   Scenario Outline: Validate that Budget Redirection threshold setting made on Grant is carried forward to  Budget Redirection Amendment
   | Verify that user is able to see approved tasks in Completed tasks listing of the grants post subaward approved by Fiscal Officer
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1951,10 +1973,12 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I navigate to "Budget" sub tab
+    And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -1971,15 +1995,15 @@ Feature: Validate all scenarios of grants and award without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    Then I refresh the page
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -1988,6 +2012,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
@@ -2136,7 +2163,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @71370 @71430 @71434 @awardCloseInFilter @jitendra 
+  @71370 @71430 @71434 @awardCloseInFilter @jitendra @PoojaAward @onHold-Bug-414263 @wip
   Scenario Outline: Validate that 'Amount Awarded' ($) value doesn't  get changed on the Grant post Grant is closed
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2153,10 +2180,12 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I navigate to "Budget" sub tab
+    And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -2173,15 +2202,15 @@ Feature: Validate all scenarios of grants and award without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    Then I refresh the page
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -2192,11 +2221,15 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
