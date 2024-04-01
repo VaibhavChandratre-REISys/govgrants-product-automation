@@ -255,7 +255,7 @@ public final class GovGrantsProductObjects {
         titleName = titleName.trim();
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//h3//a[contains(text(),'" + titleName + "')] | //a[@title='" + titleName + "'] | //a[not(parent::li)]/span[" + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //a[text()='" + titleName + "'] | //h3[text()='" + titleName + "'] | //h2[(text()='" + titleName + "')] | //c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
