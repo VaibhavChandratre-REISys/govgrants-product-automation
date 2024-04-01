@@ -1429,9 +1429,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
