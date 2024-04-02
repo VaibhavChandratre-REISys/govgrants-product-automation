@@ -5439,7 +5439,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 0      | 0          | 0              |
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -8219,9 +8219,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -8407,9 +8404,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
