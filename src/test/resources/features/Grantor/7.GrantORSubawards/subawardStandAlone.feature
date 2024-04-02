@@ -112,6 +112,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Management" sub tab
+    And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I pause execution for "5" seconds
     And I check the checkbox in modal with field value "I Agree"
@@ -128,8 +129,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Risk Assessment | Name                     |
       | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name   | Risk Assessment          |
-      | Step 2 | {SavedValue:FO Username} |
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1287,7 +1288,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -4912,7 +4913,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I pause execution for "5" seconds
@@ -5428,7 +5429,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6366,7 +6367,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see that "Budgeted Amount" rendered in view mode only
