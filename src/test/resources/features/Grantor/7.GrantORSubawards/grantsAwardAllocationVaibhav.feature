@@ -9398,7 +9398,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly can see page block "Budget Summary by Focus Area"
+    Then I softly see "Budget Summary by Focus Area" page block displayed
     #243590
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see fields "GATStartDate__c" is in edit mode
