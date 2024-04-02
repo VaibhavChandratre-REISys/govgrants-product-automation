@@ -8406,6 +8406,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
     And I enter value "1000" into field "ActualEncumbrance__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
