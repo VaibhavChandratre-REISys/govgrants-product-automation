@@ -2078,32 +2078,24 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-#    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-#   When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Applications" tab
-#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-#    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-#    And I pause execution for "3" seconds
-#    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-#    And I pause execution for "5" seconds
-#    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
-#    When I click on "Save" in the page details
-#    And I get the "EGMS ID"
-#    And I navigate to "Budget" sub tab
-#    And I wait for "2" seconds
-#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SFiaYAG/view"
-#    And I halt execution
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                     | Announcement |
-#      | {SavedValue:PM Username} | Step 1       |
-#    And I halt execution
-#    And I activated standalone subaward "Automation By Applicant Focus Area Admin Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
-    Given I published "Formula" type announcement having name "Automation Executable Award" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
-    When I initiated an application review for application "{SavedValue:Automation Executable Award}" on announcement "{SavedValue:Automation Executable Award}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Executable Award}"
-    Given I created award from approved FDM with announcement "{SavedValue:Automation Executable Award}" and properties "Automation PM user"
-    And I activate award from FDM having application name "{SavedValue:Automation Executable Award}"
+    Given I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Applications" tab
+    And I wait for "1" seconds
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I wait for "2" seconds
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "Automation Runtime FDM Announcement61807" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "Automation Runtime FDM Announcement61807" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:FD Username} |
+    And I click on "Assign" icon for "{SavedValue:FD Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "Automation Runtime FDM Announcement61807" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "Automation Runtime FDM Announcement61807" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I check "Automation Runtime FDM Announcement61807" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
