@@ -7525,7 +7525,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    When I navigate to "Budget" sub tab
     #244254,244257
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
