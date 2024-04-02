@@ -8166,7 +8166,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Budget" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
@@ -8218,6 +8218,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
     And I enter value "1000" into field "ActualEncumbrance__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
