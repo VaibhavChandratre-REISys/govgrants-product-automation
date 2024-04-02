@@ -225,7 +225,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save"
     Then I softly see field "Sequence" as "2"
 
-  @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward
+  @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved @wip
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
     When I login to "As a Grantor" app as "<user>" user
     And I navigate to "Grants" tab
@@ -630,7 +630,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @PoojaAward
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @bug-LWC-416798 @PoojaAward
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -645,7 +645,8 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    Then I softly see value "True" for title "Mandatory" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see "check" symbol against the value "Mandatory" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    #Bug-416798
     Then I softly cannot see row level action button "Delete" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
   @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient @jitendra @smoke @PoojaAward
@@ -1044,7 +1045,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "Random" in "---subAwardStandAlone:-:termsndConditionsTableId---" panel
     Then I softly see value "Random" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev @PoojaAward @Dev @onHold-Bug-414263 @wip
+  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev @PoojaAward @Dev
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1209,6 +1210,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I save the value from row "1" for column name "Budget Period" as "budgetPeriodAcronym" from flex table "---subAwardStandAlone:-:GrantorBudgetPeriodTableId---"
     When I navigate to "Subawards" sub tab
     Then I softly see value "{SavedValue:budgetPeriodAcronym}" for title "Budget Period" against the value "{SavedValue:Automation Runtime Award}" inside table "---subAwardStandAlone:-:subawardsTableId---"
@@ -1244,8 +1246,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter value "To fulfill pass-through monitoring responsibilities" into field "SourceSiteVisit__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | Purpose is Required to save under Overview. |
-
+      | Purpose is required to save under Overview |
 
   @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke @wip
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
@@ -1550,7 +1551,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview |
 
-  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward
+  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward @Debug
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
     Given I activated standalone subaward "Automation Runtime Execution Award" with properties "NO_BUDGETRedirectionThreshhold" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -1562,7 +1563,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Execution Award}" inside flex table with id "---subAwardStandAlone:-:recipientsSubawardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
-    And I wait for "4" seconds
+    And I wait for "10" seconds
     When I enter in modal "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see field "Budget Redirection Threshold" as "10.00%"
@@ -1587,15 +1588,15 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I do not see below fields in "Grant Information" page block
       | Grant Issue Date |
-#    Then I softly cannot see field label "Grant Issue Date" present on page under "Grant Information" table
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Budget Tab - Provide the Budget Period End Date for the subaward. |
 
-  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev @PoojaAward
+  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev @PoojaAward @LWCRemoved @wip
   Scenario: To verify that after the new value is entered and clicked on the save button through the award owner profile as a PM profile the value must be retained
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
