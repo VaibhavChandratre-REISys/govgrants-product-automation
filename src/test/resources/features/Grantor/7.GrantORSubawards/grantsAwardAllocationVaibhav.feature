@@ -8737,7 +8737,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #248384
     Then I softly do not see field "Remaining Budget" inside "Budget Summary" section
 
-  @248365 @248378 @248405 @248417 @248428 @248440 @ValidateINDtheCumulativeobligationfieldFANo @sprint-17-US-245897 @vaibhav @Allocation @TBExecution1
+  @248365 @248378 @248405 @248417 @248428 @248440 @ValidateINDtheCumulativeobligationfieldFANo @sprint-17-US-245897 @vaibhav @Allocation
   Scenario Outline: Validate IND User the Cumulative obligation field (FA No)
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE" user
@@ -8799,7 +8799,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | IND  | SUBRECIPIENT_ORG_IND_USER |
       | SPI3 | default                   |
 
-  @248376 @248379 @248388 @248392 @248395 @248400 @248404 @248413 @248425 @248439 @248441 @ValidateSPASPIUsertheTotalcommitmentfieldFAYes @sprint-17-US-245897 @vaibhav @Allocation @TBExecution1
+  @248376 @248379 @248388 @248392 @248395 @248400 @248404 @248413 @248425 @248439 @248441 @ValidateSPASPIUsertheTotalcommitmentfieldFAYes @sprint-17-US-245897 @vaibhav @Allocation
   Scenario Outline: Validate SPASPI User the Total commitment field (FA Yes)
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation PM user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PM" user
@@ -8862,7 +8862,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
-  @248453 @248455 @248463 @ValidateSPISPAthefocusareaisyesthenusershouldabletoseereadonlysectionofBudgetedsummarybyfocusareaunderbudgettabbelowBudgetSummarySection @sprint-17-US-245897 @vaibhav @Allocation @TBExecution1
+  @248453 @248455 @248463 @ValidateSPISPAthefocusareaisyesthenusershouldabletoseereadonlysectionofBudgetedsummarybyfocusareaunderbudgettabbelowBudgetSummarySection @sprint-17-US-245897 @vaibhav @Allocation
   Scenario Outline: Validate SPI/SPA the focus area is yes then user should able to  see read only section of Budgeted summary by focus area under budget tab below Budget Summary Section
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation PM user" of type "Formula_By_Applicant"
     Given I login to "As a Grantor" app as "PM" user
@@ -8968,10 +8968,10 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User | Properties                |
-#      | SPI3 | default                   |
+      | SPI3 | default                   |
       | IND  | SUBRECIPIENT_ORG_IND_USER |
 
-  @243548 @243550 @ValidateDirectedthatAdminserwillseeBudgetperiodDetailssectionrenamedtoBudgetSummary @sprint-16-US-238128 @vaibhav @Allocation @TBExecution1
+  @243548 @243550 @ValidateDirectedthatAdminserwillseeBudgetperiodDetailssectionrenamedtoBudgetSummary @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed that <Admin> User will see Budget period Details section renamed to Budget Summary
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -9082,7 +9082,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see "Budget Summary" page block displayed
 
-  @243563 @ValidateDirectedThatPMusercanaddvalueinnewobligationfieldwhenrecordisincreatedinpeerreviewreviewedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution1
+  @243563 @ValidateDirectedThatPMusercanaddvalueinnewobligationfieldwhenrecordisincreatedinpeerreviewreviewedstate @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed That <PM> user can add value in new obligation field when record is in created,in peer review,reviewed state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9179,7 +9179,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     Then I softly see fields "NewObligation__c" is in edit mode
 
-  @243566 @ValidateDirectedthatCumulativeObligationisthetotalofthEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-16-US-238128 @vaibhav @Allocation @TBExecution1
+  @243566 @ValidateDirectedthatCumulativeObligationisthetotalofthEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed that Cumulative Obligation is the total of the 'Encumbrance' column from the Award Funding Account information
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -9225,7 +9225,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$2,000.00" for title "Encumbrance" against the value "Total" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see field "Cumulative Obligation" as "$2,000.00"
 
-  @243567 @243569 @243576 @ValidateDirectedthatvalidationwillthroughwhentheTotalEncumbranceisnotequaltoTotalawardamountintheawardgrid @sprint-16-US-238128 @vaibhav @Allocation @TBExecution1
+  @243567 @243569 @243576 @ValidateDirectedthatvalidationwillthroughwhentheTotalEncumbranceisnotequaltoTotalawardamountintheawardgrid @sprint-16-US-238128 @vaibhav @Allocation
   Scenario Outline: Validate Directed validation will through when the Total Encumbrance is not equal to Total award amount in the award grid
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -9280,7 +9280,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | ADMIN | GrantFields3 |
       | PM    | GrantFields1 |
 
-  @243583 @ValidateDirectedThatPOusercaneditTotalCommitementfieldwhentherecordisCreatedinreviewpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243583 @ValidateDirectedThatPOusercaneditTotalCommitementfieldwhentherecordisCreatedinreviewpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed <PO> user can edit Total Commitement field when the record is Created, in review, peer-reviewed states
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -9407,7 +9407,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243592
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
-    And I select value inside table "---subAwardStandAlone:-:associateModalTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -9417,7 +9416,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see field "BudgetedAmount__c" not in edit mode
 
-  @243611 @ValidateDirectedthatTheNewobligationwillbereadonlycolumninBudgetSummarybyfocusareasectionwhenAwardIsinActivestate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243611 @ValidateDirectedthatTheNewobligationwillbereadonlycolumninBudgetSummarybyfocusareasectionwhenAwardIsinActivestate @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed The New obligation will be read-only column in Budget Summary by focus area section when Award Is in Active state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Directed"
     And I login to "As a Grantor" app as "EXE" user
@@ -9436,6 +9435,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
@@ -9509,7 +9509,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243623
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243622 @ValidateDirectedThatPOuserwillseeCumulativeobligationinBudgetSummarybyfocusAreasectionaftertheawardissubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243622 @ValidateDirectedThatPOuserwillseeCumulativeobligationinBudgetSummarybyfocusAreasectionaftertheawardissubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedstate @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed That PO user will see Cumulative obligation in Budget Summary by focus Area section after the award is submitted to approval, Approved Sent to S/r after approval, activated state
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -9668,7 +9668,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Actions" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly can see row level action button "Add Line Items" against "Construction" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -9809,7 +9809,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
 
-  @243636 @243637 @ValidateDirectedSPIseevalidationontheSubmittoGrantorButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243636 @243637 @ValidateDirectedSPIseevalidationontheSubmittoGrantorButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed <SPI> see validation on the Submit to Grantor Button when the Budgeted Amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -10006,7 +10006,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
