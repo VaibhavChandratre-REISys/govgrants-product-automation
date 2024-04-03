@@ -451,6 +451,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
   @274714  @Sprint-23-US-273843 @vaibhav @Allocation
@@ -607,7 +608,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information" in "Negotiation Request Details" pageblock
 
-  @165812  @sprint-3 @vaibhav @PoojaNegoSecondRun
+  @165812  @sprint-3 @vaibhav @PoojaNegoSecondRun @Debug
   Scenario: Validate IND user is not able to edit selected form on application when application is in Negotiation initiated state and application is submitted to Grantor
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"

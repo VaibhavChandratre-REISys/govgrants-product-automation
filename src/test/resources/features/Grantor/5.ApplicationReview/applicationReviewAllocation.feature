@@ -4046,6 +4046,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I refresh the page
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4087,6 +4088,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4187,6 +4189,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"

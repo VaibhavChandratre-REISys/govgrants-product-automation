@@ -577,14 +577,14 @@ public class GrantorProjectManager extends ProjectManager {
         if (usage.contains("softly")) {
             ids.forEach(
                     id -> I.amPerforming().assertionsTo().assertThat(
-                            I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "']"))
+                            I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@data-field_api_name='" + id + "']"))
                     ).isTrue().as("Field having Id " + id + " is not present on page")
             );
         } else {
             ids.forEach(
                     id -> Assert.assertTrue(
                             "Field having Id " + id + " is not present on page",
-                            I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + id + "']"))
+                            I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@data-field_api_name='" + id + "']"))
                     )
             );
         }
