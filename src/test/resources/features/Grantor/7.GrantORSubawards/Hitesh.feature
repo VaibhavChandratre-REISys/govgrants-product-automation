@@ -7911,7 +7911,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Budgeted Amount" rendered in view mode only
     Then I softly see that "Match this Budget Period" rendered in view mode only
 
-  @hit @243685 @ValidateEXEusershouldabletoentertheinitialvalueinnewobligationfieldinbudgetsummarybyfocusareaSectionFAyes @sprint-16-US-237985 @vaibhav @Allocation
+  @243685 @ValidateEXEusershouldabletoentertheinitialvalueinnewobligationfieldinbudgetsummarybyfocusareaSectionFAyes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate EXE user should able to enter the initial value in new obligation field in budget summary by focus area section FAyes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -7936,7 +7936,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$1,000.00"
 
-  @hit @243686 @ValidateAdminusershouldableenterthevalueinnewobligationfieldinbudgetsummarysectionFANo @sprint-16-US-237985 @vaibhav @Allocation
+  @243686 @ValidateAdminusershouldableenterthevalueinnewobligationfieldinbudgetsummarysectionFANo @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate Admin user should able to enter the value in new obligation field in budget summary section FA=No
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -7960,7 +7960,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$1,000.00"
 
-  @hit @243687 @243808 @ValidateusershouldentertheNewObligationvaluewhentherecordisCreatedinreviewpeerreviewedstatesFAYes @sprint-16-US-237985 @vaibhav @Allocation
+  @243687 @243808 @ValidateusershouldentertheNewObligationvaluewhentherecordisCreatedinreviewpeerreviewedstatesFAYes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario Outline: Validate user should enter the New Obligation value when the record is Created, in review, peer-reviewed states FA=Yes
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -8032,7 +8032,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | PM   |
 
 
-  @hit @243690 @ValidateusershouldentertheNewObligationvaluewhentherecordisCreatedinreviewpeerreviewedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
+  @243690 @ValidateusershouldentertheNewObligationvaluewhentherecordisCreatedinreviewpeerreviewedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate user should enter the New Obligation value when the record is Created, in review, peer-reviewed states FA=No
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8098,7 +8098,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$3,000.00"
 
-  @hit @243693 @243779 @ValidateUsershouldnoteditthenewobligationvalueinSentSRsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstateFAYes @sprint-16-US-237985 @vaibhav @Allocation
+  @243693 @243779 @ValidateUsershouldnoteditthenewobligationvalueinSentSRsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstateFAYes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate User should not edit the new obligation value in Sent to S/R, Submit For Approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated states (FA=Yes)
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -8275,7 +8275,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
 
-  @hit @243696 @243778 @243806 @244205 @ValidateUsershouldnoteditthenewobligationvalueinsubmitforapprovalApprovedSenttosrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
+  @243696 @243778 @243806 @244205 @ValidateUsershouldnoteditthenewobligationvalueinsubmitforapprovalApprovedSenttosrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate User should not edit the new obligation value in Submit For Approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated states (FA=No)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8476,7 +8476,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Carry-Forward" inside page block detail
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @hit @244189 @243705 @243772 @244191 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinrejectedstate @sprint-16-US-238299-237985 @vaibhav @Allocation
+  @244189 @243705 @243772 @244191 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinrejectedstate @sprint-16-US-238299-237985 @vaibhav @Allocation
   Scenario Outline: Validate SPI & IND user should not see 'Budgeted Amount' field on award in rejected state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -8588,7 +8588,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | GrantFields1       | {SavedValue:SPI3 Username} |
       | IND  | GrantFieldsIndUser | {SavedValue:IND Username}  |
 
-  @hit @243697 @243704 @243863 @243952 @ValidateUsershouldnoteditthenewobligationvalueinRejectedState @sprint-16-US-237985 @vaibhav @Allocation
+  @243697 @243704 @243863 @243952 @ValidateUsershouldnoteditthenewobligationvalueinRejectedState @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate User should not edit the new obligation value in Rejected State
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -8690,7 +8690,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @hit @243708 @243739 @243748 @ValidatePMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-237985 @vaibhav @Allocation
+  @243708 @243739 @243748 @ValidatePMusershouldseevalidationmessagewhileapprovalofawardifbudgetedamountnotequaltoencumbranceamount @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PM user should see validation message while approval of award if budgeted amount not equal to encumbrance amount
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8787,7 +8787,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @hit @243735 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstateofawardFAYes
+  @243735 @ValidateAdminuserIshouldabletoedittheTotalCommitmentfieldinCreatedinreviewpeerreviewedstateofawardFAYes
   Scenario: Validate Admin user I should able to edit the "Total Commitment" field in Created, in review, peer-reviewed states of award(FA=Yes)
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -8926,7 +8926,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I enter "<Value>" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_Directed" values from "Award_Field_Values.xlsx"
     When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
@@ -9170,9 +9170,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
     Examples:
-      | User |
-      | SPI3 |
-      | IND  |
+      | User | Value             |
+      | SPI3 | GrantFields1      |
+      | IND  | GrantFieldsIndUser|
 
   @245237 @245241 @ValidateDirectedThatSPAuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed - Verify That <SPA> user will seeNew Obligation in Budget Summary by focus Area section when award is in rejected state
