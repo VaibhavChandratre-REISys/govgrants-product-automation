@@ -9286,7 +9286,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
+    And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_Directed" values from "Award_Field_Values.xlsx"
    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
@@ -9526,7 +9526,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -9653,7 +9653,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_Comp_Focus_No" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -10193,10 +10193,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
+    And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
