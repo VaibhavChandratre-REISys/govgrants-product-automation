@@ -9286,7 +9286,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
+    And I enter "GrantFieldsIndUser1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_Directed" values from "Award_Field_Values.xlsx"
    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
@@ -9366,7 +9366,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
+    And I enter "GrantFieldsIndUser1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_Directed" values from "Award_Field_Values.xlsx"
     When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
