@@ -10283,7 +10283,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243981
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243960 @243969 @ValidateCompetativeThatPMusercanaddvalueinnewobligationfieldwhenrecordincreatedinpeerreviewreviewedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243960 @243969 @ValidateCompetativeThatPMusercanaddvalueinnewobligationfieldwhenrecordincreatedinpeerreviewreviewedstate @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Competative That <PM> user can add value in new obligation field when record iis in created,in peer review,reviewed state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -10597,7 +10597,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "2" seconds
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243976 @243990 @ValidateCompetetiveThatPOuserwillseebudgetedamountcolumninBudgetSummarybyfocusAreasectionwhentheawardiscreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243976 @243990 @ValidateCompetetiveThatPOuserwillseebudgetedamountcolumninBudgetSummarybyfocusAreasectionwhentheawardiscreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Competetive That <PO> user will see  budgeted amount column in Budget Summary by focus Area section when the award is created, Sent to S/r before approval, in review and peer reviewed states
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -11207,7 +11207,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The proposed amount cannot be less than zero. |
 
-  @245956 @245967 @245969 @245292 @ValidateDirectedThatAdminuserwillseeNewObligationinBudgetSummarybyfocusAreasectiowhenawardisinpendingActivationAmendedstate @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @245956 @245967 @245969 @245292 @ValidateDirectedThatAdminuserwillseeNewObligationinBudgetSummarybyfocusAreasectiowhenawardisinpendingActivationAmendedstate @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed That <Admin> user will see New Obligation in Budget Summary by focus Area section when award is in pending Activation/Amended state
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -11641,7 +11641,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @246597 @ValidateDirectedreviewerwillseebudgetedamounbudgetsummarysectionbudgtedamountinbudgetsummarybyfocusareasection @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @246597 @ValidateDirectedreviewerwillseebudgetedamounbudgetsummarysectionbudgtedamountinbudgetsummarybyfocusareasection @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed reviewer will see budgeted amount in budget summary section, budgted amount in budget summary by focus area section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
