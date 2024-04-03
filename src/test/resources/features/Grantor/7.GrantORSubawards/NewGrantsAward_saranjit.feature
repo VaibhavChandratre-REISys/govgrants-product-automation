@@ -24,7 +24,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see the following messages in the page details contains:
       | The Estimated Funding must be equal to or greater than the Cumulative Obligation 1000.00 |
 
-  @269839 @269843 @ValidateEXEusercannotenternegativevalueinProposedEstimatedFundingfield @sprint-21-US-265547 @vaibhav @Allocation
+  @check1 @269839 @269843 @ValidateEXEusercannotenternegativevalueinProposedEstimatedFundingfield @sprint-21-US-265547 @vaibhav @Allocation
   Scenario: Validate EXE user can not enter negative value in Proposed Estimated Funding field
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
@@ -35,17 +35,17 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly can see top right button "Revise Estimated Funding" in page detail
     When I click on "Revise Estimated Funding" in the page details
-    And I enter in modal value "-2000" into field "fieldProposedEstimatedFunding__c"
+    And I enter in modal value "-2000" into field "ProposedEstimatedFunding__c"
     When I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | The Estimated Funding must be equal to or greater than the Cumulative Obligation 1000.00 |
     #269843
-    And I enter in modal value "2000" into field "fieldProposedEstimatedFunding__c"
+    And I enter in modal value "2000" into field "ProposedEstimatedFunding__c"
     When I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
     Then I softly see field "Estimated Funding" as "$2,000.00"
 
-  @269842 @270487 @ValidatePOuserwillseeCumulativeObligationasreadOnlyFieldandValuesandvalueswillpopulatefromActivegrant @sprint-21-US-265547 @vaibhav @Allocation
+  @check1 @269842 @270487 @ValidatePOuserwillseeCumulativeObligationasreadOnlyFieldandValuesandvalueswillpopulatefromActivegrant @sprint-21-US-265547 @vaibhav @Allocation
   Scenario: Validate PO user will see Cumulative Obligation as read Only Field and Values and values will populate from Active grant
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PO" user
@@ -87,12 +87,12 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly can see top right button "Revise Estimated Funding" in page detail
     When I click on "Revise Estimated Funding" in the page details
-    And I enter in modal value "2000" into field "fieldProposedEstimatedFunding__c"
+    And I enter in modal value "2000" into field "ProposedEstimatedFunding__c"
     When I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
     Then I softly see field "Estimated Funding" as "$2,000.00"
 
-  @270802 @ValidateARisinProgressValueofProposedEstimatedfundingwillbecomparedwiththevalueofcumulativeobligationatthatmomentonGrant @sprint-21-US-265547 @vaibhav @Allocation
+  @check1 @270802 @ValidateARisinProgressValueofProposedEstimatedfundingwillbecomparedwiththevalueofcumulativeobligationatthatmomentonGrant @sprint-21-US-265547 @vaibhav @Allocation
   Scenario: Validate AR is in Progress Value of Proposed Estimated funding will be compared with the value of cumulative obligation at that moment on Grant
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -205,7 +205,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on "Revise Estimated Funding" in the page details
     Then I see field "Cumulative Obligation" as "$3,000.00" on modal
 
-  @267400 @ValidateFormulaGrantvalidationisdisplayedtoPMuseroncreateGrantmodalwhenuserselectallocationlevelasByapplicantwithFocusareaasYesandAdvancepaymentasYes @sprint-21-US-265727 @vaibhav @Allocation
+  @check1 @267400 @ValidateFormulaGrantvalidationisdisplayedtoPMuseroncreateGrantmodalwhenuserselectallocationlevelasByapplicantwithFocusareaasYesandAdvancepaymentasYes @sprint-21-US-265727 @vaibhav @Allocation
   Scenario: Validate Formula Grant validation is displayed to PM user on create Grant modal, when user select allocation level as By applicant with Focus area as Yes and Advance payment as Yes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -216,12 +216,12 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I enter "Grant_Edition_By_App_Focus_Yes" values from "Award_Field_Values.xlsx"
     And I enter values into fields
       | Value | Field                      |
-      | Yes   | fieldIsAdvancePermitted__c |
+      | Yes   | IsAdvancePermitted__c |
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | If the Focus Area Required is Yes, then the Advance Payment Allowed must be selected as No. |
 
-  @275291 @ValidatetheFunctionalityofMultipleFundingAccounts @Sprint-23-US-273843 @vaibhav @Allocation
+  @check1 @275291 @ValidatetheFunctionalityofMultipleFundingAccounts @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the Functionality of Multiple Funding Accounts
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -230,7 +230,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldIsBuildUpFunctionality__c"
+    And I enter value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -241,7 +241,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-    And I enter value "2000" into field "fieldNewObligation__c"
+    And I enter value "2000" into field "NewObligation__c"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -440,7 +440,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
     Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
 
-  @327067 @VerifyPMasnewownershouldabletoeditalleditablefieldsonawardaftergrantorchangehisownership @Sprint-21-US-266911 @hitesh @Allocation
+  @check1 @327067 @VerifyPMasnewownershouldabletoeditalleditablefieldsonawardaftergrantorchangehisownership @Sprint-21-US-266911 @hitesh @Allocation
   Scenario:Verify PM as new owner should able to edit all editable fields on award after grantor change his ownership
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -453,7 +453,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -603,9 +603,9 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I navigate to "Budget" sub tab
     Then I can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldTotalCommitment__c" is in edit mode
+    Then I softly see fields "TotalCommitment__c" is in edit mode
 
-  @329672 @329830 @ValidatePMusercannotsee0allocationamountFocusAreaonActiveGrant @Sprint-11-US-328848 @vaibhav @Allocation
+  @check1 @329672 @329830 @ValidatePMusercannotsee0allocationamountFocusAreaonActiveGrant @Sprint-11-US-328848 @vaibhav @Allocation
   Scenario: Validate PM user cannot see 0 allocation amount Focus Area on Active Grant
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "THREE_FOCUS_BY_APP_FOCUS_AREA_RISK_NO_PROGRAM_INCOME_NO_SUB_MATCH_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -678,7 +678,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "$500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
     Then I softly do not see value "Test Focus Area" for title "Title" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
-  @329840 @ValidatePMuserseeEstimatedFundingCumulativeObligationTotalCommitmentRequiredMatchAmountForProjectPeriodfieldsinBudgetSummarysectionandvaluesaregettingpopulatedfromAwardBudgetSummarysection @Sprint-11-US-328848 @vaibhav @Allocation
+  @check1 @329840 @ValidatePMuserseeEstimatedFundingCumulativeObligationTotalCommitmentRequiredMatchAmountForProjectPeriodfieldsinBudgetSummarysectionandvaluesaregettingpopulatedfromAwardBudgetSummarysection @Sprint-11-US-328848 @vaibhav @Allocation
   Scenario: Validate PM user see Estimated Funding Cumulative Obligation Total Commitment Required Match Amount  For Project Period fields in Budget Summary section and values are getting populated from Award Budget Summary section
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -731,7 +731,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @276331 @ValidateDirectGrantByapplicantandFABalanceisnotdeductedfromFundingaccountwhensubawardisrejectedfromapprovalprocess @Sprint-24-US-275864 @vaibhav @Allocation
+  @check1 @276331 @ValidateDirectGrantByapplicantandFABalanceisnotdeductedfromFundingaccountwhensubawardisrejectedfromapprovalprocess @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Direct Grant By applicant and FA Balance is not deducted from Funding account when subaward is rejected from approval process
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -854,7 +854,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @275076 @275273 @Validatecorrectspentamountdisplayonawardinpaymentsummarybyfocusareasectionforeachfocusarea @Sprint-23-US-273843 @vaibhav @Allocation
+  @check1 @275076 @275273 @Validatecorrectspentamountdisplayonawardinpaymentsummarybyfocusareasectionforeachfocusarea @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate correct spent amount display on award in payment summary by focus area section for each focus area
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -916,7 +916,8 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     Then I softly see status in Progress-bar is "Paid" and is "green"
     And I save the field labeled "Subaward" as "Subaward"
     And I click "{SavedValue:Subaward}" lookup link
@@ -935,7 +936,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:grantActualsTabFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Spent" against the value "Total" inside table "---subAwardStandAlone:-:grantActualsTabFocusAreaTableId---"
 
-  @274260 @ValidatePMuserseeBudgetperiodnumberNewObligationCumulativeObligationTotalCommitmentMatchthisBudgetPeriodandBudgetedAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @Sprint-23-US-273843 @vaibhav @Allocation
+  @check1 @274260 @ValidatePMuserseeBudgetperiodnumberNewObligationCumulativeObligationTotalCommitmentMatchthisBudgetPeriodandBudgetedAmountfieldsshouldbereadonlyinbudgetsummarysectiononaward @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate  PM user see 'Budget period number', 'New Obligation', 'Cumulative Obligation', 'Total Commitment', 'Match this Budget Period' and 'Budgeted Amount' fields should be read only in budget summary section on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-<UserName>"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -948,7 +949,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
-    And I enter value "Automation Test Description" into field "fieldGrantAwardDescription__c"
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
@@ -1099,7 +1100,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Spent     |
       | $1,000.00 |
 
-  @272148 @Validatecorrectspentamountshouldgetupdatedonpaymentrequestwhichcreatedpreviouslyanditisincreatedstate @Sprint-22-US-270869 @vaibhav @Allocation
+  @check1 @272148 @Validatecorrectspentamountshouldgetupdatedonpaymentrequestwhichcreatedpreviouslyanditisincreatedstate @Sprint-22-US-270869 @vaibhav @Allocation
   Scenario: Validate correct spent amount should get updated on payment request which created previously and it is in created state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1174,7 +1175,8 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId1}" modal by clicking the top right x button
+    And I pause execution for "3" seconds
+    When I click modal button "Close"
     Then I softly see status in Progress-bar is "Paid" and is "green"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
@@ -1573,7 +1575,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I cannot see top right button "Edit" in page detail
     Then I softly see that "New Obligation" rendered in view mode only
 
-  @274080 @ValidateDirectedAnnEXEusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @check1 @274080 @ValidateDirectedAnnEXEusershouldseevalidationmessageshouldbedisplayiftheTotalEncumbrancevaluenotequaltototalawardamountintheawardgridonawardwhilesubmittheawardforapproval @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Directed Ann EXE user should see validation message should be display if the Total Encumbrance value not equal to total award amount in the award grid on award while submit the award for approval
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
