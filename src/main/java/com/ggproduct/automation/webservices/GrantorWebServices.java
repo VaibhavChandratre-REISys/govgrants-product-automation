@@ -1,9 +1,9 @@
 package com.ggproduct.automation.webservices;
 
-import com.automation.rei.handlers.govgrants;
+import com.helperPackage.handlers.govgrants;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.testingblaze.register.I;
+import com.helperPackage.register.I;
 import io.restassured.response.Response;
 import org.apache.commons.lang.StringUtils;
 
@@ -189,6 +189,13 @@ public class GrantorWebServices extends ProjectWebServices {
         createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDM(announcementName));
     }
 
+    public void createAwardFromFDM(String announcementName, String... Type ) {
+        if(Type.length>0)
+            createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName,Type[0]));
+        else
+            createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName));
+    }
+
 
     /**
      * @param applicationName name of application from which we have to create activate FDM
@@ -213,10 +220,13 @@ public class GrantorWebServices extends ProjectWebServices {
      * @param grantName name of award
      * @param filter    if we want to change anything from default payload then we can create
      *                  our own filter in payloadForCreateStandaloneAward(String, String) method
-     * @see GrantorPayloads#payloadForCreateStandaloneAward(String, String)
+     * @see GrantorPayloads# payloadForCreateStandaloneAward(String, String, String,String)
      */
-    public void activateSubaward(String grantName, String filter) {
-        activateSubawardGetCall(projectApis.payloadForCreateStandaloneAward(grantName, filter), grantName);
+    public void activateSubaward(String grantName, String filter, String... Type) {
+        if(Type.length>0)
+            activateSubawardGetCall(projectApis.payloadForCreateStandaloneAward(grantName, filter, Type[0]), grantName);
+        else
+            activateSubawardGetCall(projectApis.payloadForCreateStandaloneAward(grantName, filter), grantName);
     }
 
     private void activateSubawardGetCall(JsonObject jsonObject, String awardName) {
@@ -225,7 +235,7 @@ public class GrantorWebServices extends ProjectWebServices {
                 createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
         response.prettyPrint();
         assertStatusCode(response);
-
+        I.amPerforming().waitFor().makeThreadSleep(60000);
         String activateAwardEndPoint = endPoint + "/services/apexrest/activateAwardFromGrant/v2?AwardId=" + getIdOf("Award__c", awardName);
         Response response1 = I.amPerforming().restHttp().getCall(
                 activateAwardEndPoint, "Authorization", "Bearer " + tokenString);
@@ -242,14 +252,14 @@ public class GrantorWebServices extends ProjectWebServices {
     }
 
     private void initiateApplicationReview(JsonObject jsonObject) {
-        String finalEndPoint = endPoint + "/services/apexrest/CreateFDM/v1";
+        String finalEndPoint = endPoint + "/services/apexrest/CreateFDMCopy/v1";
         Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
                 finalEndPoint, "Authorization", "Bearer " + tokenString, null);
         assertStatusCode(response);
     }
 
     private void createAwardFromFDMPostCall(JsonObject jsonObject) {
-        String finalEndPoint = endPoint + "/services/apexrest/activateAwardFromFDM/v1";
+        String finalEndPoint = endPoint + "/services/apexrest/activateAwardFromFDM/v1.1";
         I.amPerforming().waitFor().makeThreadSleep(5000);
         Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
                 finalEndPoint, "Authorization", "Bearer " + tokenString, null);

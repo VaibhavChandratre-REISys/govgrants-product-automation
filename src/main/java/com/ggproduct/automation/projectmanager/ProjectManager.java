@@ -1,11 +1,11 @@
 package com.ggproduct.automation.projectmanager;
 
-import com.automation.rei.handlers.govgrants;
+import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.usersUrl.UsersAndURL;
 import com.ggproduct.automation.webservices.ProjectWebServices;
-import com.testingblaze.actionsfactory.api.ByUsing;
-import com.testingblaze.register.I;
-import com.testingblaze.report.LogLevel;
+import com.helperPackage.actionsfactory.api.ByUsing;
+import com.helperPackage.register.I;
+import com.helperPackage.report.LogLevel;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -76,7 +76,7 @@ public class ProjectManager extends ProjectWebServices {
     private boolean imageIsVisibleOrNot(String imageName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//img[contains(@title,'"+imageName+"')] | //img[contains(@alt,'"+imageName+"')]")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//img[contains(@title,'" + imageName + "')] | //img[contains(@alt,'" + imageName + "')]")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -91,24 +91,84 @@ public class ProjectManager extends ProjectWebServices {
      * @author- vaibhav.chandratre
      */
     public void assertTextOnPage(String desiredText) {
-        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='messageText']"))
+        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='messageText'] | //div[@class='tabheaderinstruction']//div"))
                 .getAttribute("innerText").contains(desiredText));
     }
 
     /**
-     * Method to navigate to the current org URL by appending given record-ID
-     * @param recordId
-     * @author- komal.mukhekar
+     * assert if message with quotes is displayed on confirmation box pop up
+     *
+     * @param message
+     * @author komal.mukhekar
      */
-    public void navigateToCurrentOrgUrlWithGivenRecordId(String recordId) {
-        try {
-            String urlWithRecordId= I.amPerforming().browserOperationsTo().getCurrentUrl().split("apex")[0]+recordId;
-            I.amPerforming().browserOperationsTo().navigateToUrl(urlWithRecordId);
-        }catch (Exception e)
-        {
-            //Handled exception to continue execution
+    public void assertMessageOfConfirmationBoxPopUp(String message, boolean isSoftly) {
+        By confirmationBoxMessage = By.xpath("//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')]");
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(message).isEqualTo(
+                    I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " ")
+            );
+        } else {
+            Assert.assertEquals(I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " "), message);
         }
     }
 
+    public void assertFieldIsNotInEditMode(String fieldAPIName, boolean isSoftly) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFieldNotInEditMode(fieldAPIName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldNotInEditMode(fieldAPIName));
+        }
+    }
 
+    private boolean isFieldNotInEditMode(String fieldAPIName) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    public void assertLengthOfFieldValues(String usage, String fieldLabel, String charCount) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(assertLengthOfFieldValuewithLabel(fieldLabel, charCount)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(assertLengthOfFieldValuewithLabel(fieldLabel, charCount)).isFalse();
+        }
+    }
+
+    private boolean assertLengthOfFieldValuewithLabel(String fieldLabel, String charCount) {
+        Boolean flag = false;
+        By fieldAPIName = By.xpath("//div[@id='" + fieldLabel + "']");
+        String actualValue = I.amPerforming().getElementReference().of(fieldAPIName).getText();
+        try {
+            return actualValue.length() == Integer.parseInt(charCount) ? true : false;
+        } catch (Exception e) {
+            /* Ignore Exception */
+        }
+        return flag;
+
+    }
+
+    public void clickOnCOIOption(String radioButtonName) {
+        try {
+            By ConflictOfInterestReviewFromPath = By.xpath("//span//input[@type='radio'][@value='"+radioButtonName+"']");
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
+                I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void assertCOISectionInViewMode(String radioButtonName, boolean isSoftly) {
+        By pageBlockFields = By.xpath("//span//label[text()='"+radioButtonName+"']/../input[@readonly or @disabled]");
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
+        } else {
+            Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(pageBlockFields));
+        }
+    }
 }

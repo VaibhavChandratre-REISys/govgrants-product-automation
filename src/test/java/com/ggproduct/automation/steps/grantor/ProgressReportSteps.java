@@ -1,7 +1,7 @@
 package com.ggproduct.automation.steps.grantor;
 
 import com.ggproduct.automation.pageobjects.grantor.ProgressReportPage;
-import com.testingblaze.register.I;
+import com.helperPackage.register.I;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -105,6 +105,48 @@ public class ProgressReportSteps {
             I.amPerforming().assertionsTo().assertThat(progressReportPage.compareTwoFieldValues(savedValue1, compare, savedValue2)).isTrue();
         } else {
             Assert.assertTrue(progressReportPage.compareTwoFieldValues(savedValue1, compare, savedValue2));
+        }
+    }
+
+    @Description("To compare two saved values")
+    @Then("^I (see|softly see) value \"([^\"]*)\" is \"([^\"]*)\" value \"([^\"]*)\"$")
+    public void iSeeCompareTheValue(String usage, String savedValue1, String compare, String savedValue2) {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.compareTwoValues(savedValue1, compare, savedValue2)).isTrue();
+        } else {
+            Assert.assertTrue(progressReportPage.compareTwoValues(savedValue1, compare, savedValue2));
+        }
+    }
+
+    @Description("To make Addition of two saved values")
+    @Then("^I (see|softly see|softly do not see|do not see) addition of two fields \"([^\"]*)\" and \"([^\"]*)\" is equal to \"([^\"]*)\"$")
+    public void iSeeAdditionValueValue(String usage, String savedValue1, String savedValue2, String expectedValue) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.addTwoFieldValues(savedValue1, savedValue2, expectedValue)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(progressReportPage.addTwoFieldValues(savedValue1, savedValue2, expectedValue));
+        }
+        else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.addTwoFieldValues(savedValue1, savedValue2, expectedValue)).isFalse();
+        }
+        else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(progressReportPage.addTwoFieldValues(savedValue1, savedValue2, expectedValue));
+        }
+    }
+
+    @Description("To make Substraction of two saved values")
+    @Then("^I (see|softly see|softly do not see|do not see) substraction of two fields \"([^\"]*)\" and \"([^\"]*)\" is equal to \"([^\"]*)\"$")
+    public void iSeeSubstractionValueValue(String usage, String savedValue1, String savedValue2, String expectedValue) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.substractTwoFieldValues(savedValue1, savedValue2, expectedValue)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(progressReportPage.substractTwoFieldValues(savedValue1, savedValue2, expectedValue));
+        }
+        else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(progressReportPage.substractTwoFieldValues(savedValue1, savedValue2, expectedValue)).isFalse();
+        }
+        else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(progressReportPage.substractTwoFieldValues(savedValue1, savedValue2, expectedValue));
         }
     }
 

@@ -8,15 +8,16 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     And I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I click modal button "Send"
     And I refresh the page
     And I pause execution for "180" seconds
-    And I navigate to yopmail portal for "smereviewer@yopmail.com"
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
     #34840 #monu
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
@@ -39,15 +40,16 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     And I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I click modal button "Send"
     And I refresh the page
     And I pause execution for "180" seconds
-    And I navigate to yopmail portal for "smereviewer@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
@@ -67,8 +69,9 @@ Feature: Validate all scenarios for SME Registration
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     And I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     Then I softly see "Full Name" in flex table header "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -76,7 +79,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see "Invited By" in flex table header "---grantor_tableId:-:PotentialReviewerContactTableId---"
     Then I softly see "Status" in flex table header "---grantor_tableId:-:PotentialReviewerContactTableId---"
     Then I softly see "Sponsoring Agency" in flex table header "---grantor_tableId:-:PotentialReviewerContactTableId---"
-    When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
+    When I click on "Send Invitation" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I click modal button "Send"
     #34836 #monu
     Then I see the following messages in the page details :
@@ -90,12 +93,11 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside table
+    When I click on "View" icon for "{SavedValue:uniqueEmailID}" inside table
     Then I see field "Type" as "Reviewers" on modal
     Then I see field "Status" as "Invitation Sent" on modal
-    And I softly see the text containing :
-      | Overview    |
-      | Attachments |
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
 
   @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke @monu @wip
   Scenario: Validate created SME user should get reflected at salesforce page inside Active Partnet usersall expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
@@ -105,7 +107,6 @@ Feature: Validate all scenarios for SME Registration
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
     And I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
@@ -127,29 +128,29 @@ Feature: Validate all scenarios for SME Registration
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
-    When I navigate to "{grantor_sidebar:InternalLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:InternalContacts}" in "{grantor_tableId:InternalContactsTableId}" panel
-    Then I softly see value "{grantee_testData:InternalContacts}" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
-    When I navigate to "{grantor_sidebar:SubrecipientsLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:SMEContact}" in "{grantor_tableId:InternalContactsTableId}" panel
-    Then I softly see value "{grantee_testData:SMEContact}" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
-    When I navigate to "{grantor_sidebar:SMEReviewersLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:SMEReviewerContact}" in "{grantor_tableId:PotentialReviewerContactTableId}" panel
-    Then I softly see value "{grantee_testData:SMEReviewerContact}" for title "Full Name" inside table "{grantor_tableId:PotentialReviewerContactTableId}"
+    When I navigate to "Internal" content inside "Contacts" subheader on left panel
+    When I perform quick search for "Automation PM" in "{grantor_tableId:InternalContactsTableId}" panel
+    Then I softly see value "Automation PM" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
+    When I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I perform quick search for "Automation SPI3" in "{grantor_tableId:InternalContactsTableId}" panel
+    Then I softly see value "Automation SPI3" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
+    When I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
+    When I perform quick search for "SME1 USER" in "{grantor_tableId:PotentialReviewerContactTableId}" panel
+    Then I softly see value "SME1 USER" for title "Full Name" inside table "{grantor_tableId:PotentialReviewerContactTableId}"
 
   @33837 @VerifySystemDisplayAllRelatedTasks @monu
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
-    When I navigate to "{grantor_sidebar:PendingTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
-    Then I softly can see page block "Pending Tasks (Assigned To Me)"
-    Then I softly can see page block "Pending Tasks (Assigned By Me)"
-    Then I softly see "In Progress" value in flex table id "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
-    Then I softly see "Not Started" value in flex table id "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
-    When I navigate to "{grantor_sidebar:CompletedTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
-    Then I softly can see page block "Completed Tasks (Assigned To Me)"
-    Then I softly can see page block "Completed Tasks (Assigned By Me)"
-    Then I softly see "Completed" value in flex table id "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    Then I softly see "Pending Tasks (Assigned To Me) " page block displayed
+    Then I softly see "Pending Tasks (Assigned By Me) " page block displayed
+    Then I softly see value "In Progress" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
+    Then I softly see value "Not Started" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    Then I softly see "Completed Tasks (Assigned To Me) " page block displayed
+    Then I softly see "Completed Tasks (Assigned By Me) " page block displayed
+    Then I softly see value "Completed" for title "Status" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
 
   @94345 @validatingEmailNotificationForSMEReviewer @meenakshi
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user
@@ -159,7 +160,6 @@ Feature: Validate all scenarios for SME Registration
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
     When I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I wait for "2" seconds
@@ -181,7 +181,6 @@ Feature: Validate all scenarios for SME Registration
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
     And I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
