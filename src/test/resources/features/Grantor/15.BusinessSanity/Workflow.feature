@@ -2079,6 +2079,6 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I login to "As a Grantor" app as "EXE" user
-    And I halt execution
-    And I check "AP-TAO modified-2814" boxes in flex table with id "AssignAppToUser"
-    And I halt execution
+    And I wait for "4" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I wait for "5" seconds
