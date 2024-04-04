@@ -1,9 +1,9 @@
-@paymentRequest @grantor-regression @grantor-parallel-regression @regression
+@paymentRequestWithBackground @ScheduleRequest @paymentRequest @grantor-regression @grantor-parallel-regression @regression
 Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @38313 @taskCreationForSubrecipientUser @mahadev
   Scenario Outline: Validate task is getting created for SPI user
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -19,7 +19,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @55398 @submittedPRDisplayedInCompletedTask @mahadev
   Scenario Outline: Validate submitted payment request displays under completed task for SPI user
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -47,7 +47,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3 @mahadev
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
-    And I activated standalone subaward "Automation Runtime Award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
@@ -64,11 +64,11 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     Then I can see "1" record value is checked for field name "TaskCreated__c"
     Examples:
       | Award Name                            | Grant Name                            | User |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPA  |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPI3  |
 
   @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPA @mahadev
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
-    And I activated standalone subaward "Automation Runtime Award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
@@ -89,7 +89,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @153111 @Verify3StepApprovalFor-ScheduledPaymentRequest-RnRFunctionality @monu
   Scenario Outline: Verify user is able to add three step approver for schedule reimbursement payment request and reject it on step three
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -153,7 +153,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @153110 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-ScheduledPaymentRequest-RnRFunctionality @monu
   Scenario Outline: Verify the validation message when approval step has <NA>  on schedule reimbursement payment request
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -184,6 +184,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                     | Reimbursement |
       | {SavedValue:PM Username} | NA            |
+    And I refresh the page
     When I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
@@ -194,7 +195,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @153108 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-ScheduledPaymentrequest-RnRFunctionality @monu
   Scenario Outline: Verify validation displayed when same step is added for different approver for schedule Payment Request
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -236,7 +237,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @153107 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-SchedulePaymentRequest-RnRFunctionality @monu
   Scenario Outline: Verify validation displayed when same approver is added on different  step for schedule reimbursement Payment Request
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -278,7 +279,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu
   Scenario Outline: Validate Approvers are getting inherited from award record to schedule reimbursement payment request
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -326,7 +327,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @152781 @Verify3StepApprovalFor-ScheduledReimbursementPaymentRequest-RnRFunctionality @monu
   Scenario Outline: Verify user is able to add three step approver for Reimbursement payment request and forward it on step three
-    And I activated standalone subaward "Automation Runtime award" with properties "default"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -386,6 +387,62 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+
+    Examples:
+      | Award Name                            |
+      | {SavedValue:Automation Runtime award} |
+
+  @152888 @VerifyUserIsAbleApproveTheScheduleReimbursementPaymentRequestInTwoStepApprover  @vaibhav
+  Scenario Outline: Verify User Is Able Approve The Schedule Reimbursement Payment Request In Two Step Approver
+    And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
+    Given I delete the record "<Award Name>" from the object "Payment Request"
+    When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Unit Price | Quantity | Measurement |
+      | Extra Salary | The narrative | 10         | 1        | Feet        |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Net Spent This Action |
+      | {SavedValue:fundingAccount} | 10                    |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                     | Reimbursement |
+      | {SavedValue:PM Username} | Step 1        |
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                     | Reimbursement |
+      | {SavedValue:FO Username} | Step 2        |
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "green"
 
     Examples:
       | Award Name                            |

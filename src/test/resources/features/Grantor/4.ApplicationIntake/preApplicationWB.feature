@@ -1,4 +1,4 @@
-@preAplicationWB @grantor-regression @grantor-parallel-regression @app @regression
+@preApplicationExecution @preAplicationWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationClassic
 Feature: Pre-Application scenarios without background
 
   @71921 @71411 @71412 @71410 @70252 @70254 @71925 @verifyCreateApplicationandQualifyButtons
@@ -8,7 +8,7 @@ Feature: Pre-Application scenarios without background
   Validate whether User will be able to enter the required information for the creation on Pre Application before the Due date
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPA" user
+    And I login to "Grants Portal" app as "SPA" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -35,7 +35,7 @@ Feature: Pre-Application scenarios without background
   Validate whether users from other organizations will be able to create Pre-Applications
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
-    And I login as "SPA" user
+    And I login to "Grants Portal" app as "SPA" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -49,18 +49,16 @@ Feature: Pre-Application scenarios without background
       | Pre-Application Title is required to save. |
     And I enter value "{SavedValue:Automation Runtime Announcement for Pre-Application}" into field "Title__c"
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     Then I softly cannot see top right button "Submit Application" in page detail
     Given I am on "SUBPORTAL" portal
-    And I login as "SA" user
+    And And I login to "Grants Portal" app as "SA" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -75,7 +73,7 @@ Feature: Pre-Application scenarios without background
   Validate whether User is able to view the Leverage column in the budget grid when the value set as Yes. |Validate the user  will be able to view the the Program Income field on the overview tab when the value set as Yes.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -88,11 +86,9 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Create Pre-Application" in page detail
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     Then I softly see field "Estimated Program Income For Project Period" inside page block
@@ -114,7 +110,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate whether the User is able to create Pre Application when the Opportunity setting for Pre Application (No)
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for PreApp and App" and properties "default"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -137,7 +133,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly see field "PreApplication Due Date" is getting updated with todays date
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -157,14 +153,15 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside table without waiting for record
     And I click on "Unpublish" in the page details
+    And I pause execution for "6" seconds
     Given I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside table
-    Then I softly cannot see top right button "Submit to Grantor" in page detail
+    Then I softly can see top right button "Submit to Grantor" in page detail
 
   @71413 @userCannotCreatePreAppWhenSettingIsNo @deepika
   Scenario: Validate whether User is able to create Pre Application only when the Opportunity setting for Pre Application (No)
@@ -196,38 +193,39 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I save the field labeled "Subaward Floor" as "subawardfloor"
-    And I save the field labeled "Subaward Ceiling" as "subawardcieling"
-    And I save the field labeled "Match Required?" as "matchrequired"
     And I get the "EGMS ID"
-    And I click on "Edit" in the page details
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I navigate to "Files and Forms" sub tab
-    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor1"
+    And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
+    #And I save the field labeled "Match Required?" as "matchrequired"
+    When I navigate to "Forms and Files" sub tab
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Requested Amount should be greater than or equal to the Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
-      | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application.                                                                                 |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                             |
-      | Budget Tab - Provide the match details (Cash Match/Non-Cash Match) to submit this application.                                                                  |
-      | Budget Tab - The Subrecipient Match cannot be less than the match requirement.                                                                                  |
+      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application.                                                                                     |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Requested Amount should be greater than or equal to the Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                             |
-      | Budget Tab - Provide the match details (Cash Match/Non-Cash Match) to submit this application.                                                                  |
-      | Budget Tab - The Subrecipient Match cannot be less than the match requirement.                                                                                  |
+      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
@@ -266,10 +264,11 @@ Feature: Pre-Application scenarios without background
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I navigate to "Overview" sub tab
-    Then I softly see selected element "{SavedValue:subawardfloor}"
-    Then I softly see selected element "{SavedValue:subawardcieling}"
-    Then I softly see selected element "{SavedValue:matchrequired}"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor2"
+    And I save the field labeled "Subaward Ceiling" as "subawardcieling2"
+    Then I softly see value "{SavedValue:subawardfloor1}" is "Equals to" the value "{SavedValue:subawardfloor2}"
+    Then I softly see value "{SavedValue:subawardcieling2}" is "Equals to" the value "{SavedValue:subawardcieling2}"
 
   @72522 @preapplicationQualifiedIsAddedToTheTable @deepika @smoke
   Scenario: Validate once Application is qualified then user can view the Qualified Application from Qualfied Table and it is removed from Non -yet qualified table
@@ -304,7 +303,7 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnId"
     Given I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -316,10 +315,9 @@ Feature: Pre-Application scenarios without background
     And I pause execution for "5" seconds
     Then I softly see fields "fieldTitle__c" is in edit mode
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "preAppId"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -331,17 +329,22 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     #buglogged125701
-    And I pause execution for "200" seconds
-    Then I softly can see mail notification for "INTERNAL" user with following subject:
-      | Pre-Application Submitted for Announcement {SavedValue:AnnId} by SAN DIEGO ELECTRICAL TRAINING TRUST |
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "30" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Pre-Application Submitted for Announcement {SavedValue:AnnId} by SAN DIEGO ELECTRICAL TRAINING TRUST
+      """
+    Given I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:preappID}" in "---preApplication:-:pendingTaskTableId---" panel
@@ -361,7 +364,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate whether SPI/SPA user has the ability to delete the created pre-Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "<User>" user
+    And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -370,11 +373,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -389,7 +390,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate whether user can edit the Opportunity Overview page block fields when the pre-application is in draft status |Validate whether SPI & SPA users are able to view the qualified and created Status of Qualified Pre-Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -398,11 +399,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     Then I softly see field "Opportunity Title" is not editable
     And I softly see field "Opportunity Type" is not editable
     And I softly see field "Pre-Application Due Date" is not editable
@@ -439,7 +438,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate the Pre-applications are visible for other organizations
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SA" user
+    And And I login to "Grants Portal" app as "SA" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -450,7 +449,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate the Pre-applications are visible for their own organization and for child organizations.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "<User>" user
+    And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -475,24 +474,22 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When  I navigate to "Overview" sub tab
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 100    | 1000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - Requested Amount should be greater than or equal to the Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
   @73866 @73870 @qualifyAnnSPAUser @jitendra
   Scenario: To verify user allow to view Qualified opportunity  in opportunity tab
@@ -527,6 +524,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I refresh the page
     And I click on "Save" in the page details
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
@@ -542,7 +540,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate when the focus area setting from the funding opportunity is No, then SPI User should be able to view the focus area settings as No and cannot see the page block
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APP_YES_FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -553,11 +551,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     Then I cannot see page block "Focus Area"
 
@@ -579,29 +575,27 @@ Feature: Pre-Application scenarios without background
     Then I softly can see page block "Focus Areas"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I navigate to "Budget" sub tab
-    Then I softly see "Focus Areas" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Back" in the page details
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click on "Submit to Grantor" in the page details
     Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Opportunities" tab
@@ -630,12 +624,10 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnId"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnId"
     When  I navigate to "Overview" sub tab
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -644,7 +636,7 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "data.xlsx" of type "Other"
+    And I upload attachment without random number "data.xlsx" of type "Other"
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on Menu icon present on top right corner of the page
@@ -667,7 +659,7 @@ Feature: Pre-Application scenarios without background
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
-  @34146 @preAppCannotBeSubmittedWithZeroAmount @deepika  @buglogged169487
+  @34146 @preAppCannotBeSubmittedWithZeroAmount @deepika
   Scenario: Verify SPI user is not able to Submit Pre-Application to Grantor with zero budget/requested amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -681,28 +673,26 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Performance" sub tab
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     When  I navigate to "Overview" sub tab
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 0      | 0          | 0              | 0              |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                              |
-      | Budget Tab - Requested Amount should be greater than or equal to the Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                             |
-      | Files Tab - All mandatory forms must be 100% completed.                                                                                                         |
+      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Files Tab - All mandatory forms must be 100% completed.                                                                                                             |
 
   @76379 @spaCannotViewCreatedPreApplicationBySPI @deepika
   Scenario: Validate whether created Pre-Application by SPI user(Record owner of pre- Application)are visible for their child (SPA) organizations
@@ -718,11 +708,9 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Performance" sub tab
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPA" user
     When I navigate to "Applications" tab
@@ -732,7 +720,7 @@ Feature: Pre-Application scenarios without background
     And I save the total records from the flex table id "---preApplication:-:recipientPreApplicationsTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---preApplication:-:recipientPreApplicationsTableId---"
 
-  @77449 @77450 @77451 @77452 @77453 @77454 @77455 @unpublishedAnnouncementCannotSubmitpreApplication @deepika @buglogged113216 @buglogged113230
+  @77449 @77450 @77451 @77452 @77453 @77454 @77455 @unpublishedAnnouncementCannotSubmitpreApplication @deepika @buglogged113216 @buglogged113230 @wip
   Scenario: Validate whether User will be able to view the submit to grantor button if the application due date changes to the future date
   Validate once the Announcement is published and Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit to Grantor Button
   Validate whether the Applicant will be able to view qualify button of pre-application on the same funding opportunity after republish
@@ -748,7 +736,7 @@ Feature: Pre-Application scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I get the "EGMS ID"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -778,43 +766,33 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Opportunities" tab
     And I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:qualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
-    Then I softly cannot see top right button "Qualify" in page detail
+    And I perform quick search for "{SavedValue:AnnouncementId}" in "---applicationIntake:-:qualifiedTableId---" panel
+    Then I softly do not see value "{SavedValue:AnnouncementId}" for title "Announcement ID" inside table "---applicationIntake:-:qualifiedTableId---"
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record Id" in "---announcement:-:competitiveTableId---" panel
     When I click on "View" icon for "Record Id" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name          | Announcement |
+      | Automation PM | Step 1       |
+    And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    And I enter value "Test" into field "fieldAnnouncementDescription__c"
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    When I get the "EGMS ID"
+    And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    And I wait for "4" seconds
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in the approval decision
-    And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    When I navigate to "Announcements" tab
-    And I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Competitive Announcements"
-    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    When I click on "View" icon for "Record Id" inside table
+    And I wait for "4" seconds
     And I click on "Publish" in the page details
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -826,21 +804,22 @@ Feature: Pre-Application scenarios without background
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
     Then I softly can see top right button "Submit to Grantor" in page detail
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnId"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When  I navigate to "Overview" sub tab
-    When I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "green"
 
@@ -848,7 +827,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate whether User will be able to view the Match column in the budget grid when the value set as Yes while announcement creation with pre-application is set as yes
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES_AND_NO_MATCH"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -860,14 +839,12 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Match Required?" as "No"
     And I navigate to "Budget" sub tab
-    Then I softly can see page block "Focus Areas"
+    Then I softly can see page block "Budget Summary by Focus Area"
     Given I expand nested table containing column value "BP01"
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:budgetCategoryGridTableId---"
     Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:budgetCategoryGridTableId---"
@@ -876,7 +853,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -885,8 +862,6 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on Menu icon present on top right corner of the page
@@ -901,7 +876,7 @@ Feature: Pre-Application scenarios without background
   Validate the title entered while creating the pre-application reflects same under Oppurtunity Name
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement PreApplication" and properties "PRE_APP_YES_PROGRAM_INCOME_NO"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement PreApplication}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
@@ -909,6 +884,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I refresh the page
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     Then I softly see status in Progress-bar is "Created" and is "Green"
@@ -921,7 +897,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate submitted pre application send back to negotiation from grantor side after selecting the Request Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -932,11 +908,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -948,7 +922,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -999,7 +973,7 @@ Feature: Pre-Application scenarios without background
   Scenario: when pre-application is Accept then "Request Negotiation" button is hide  from Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1010,11 +984,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -1026,7 +998,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1047,7 +1019,7 @@ Feature: Pre-Application scenarios without background
   Scenario: on Rejected preapplication negotiation tab should be hidden if the negotiation is not initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1058,11 +1030,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -1074,7 +1044,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1096,7 +1066,7 @@ Feature: Pre-Application scenarios without background
   Scenario: task is created when negotiation request preapplication  is send to subrecipient
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1107,11 +1077,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -1123,7 +1091,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1151,7 +1119,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate save and cancel button is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1162,11 +1130,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -1178,7 +1144,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1209,7 +1175,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate Due date field is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1220,11 +1186,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -1236,7 +1200,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1271,7 +1235,7 @@ Feature: Pre-Application scenarios without background
   Scenario: button Request Negotiation is displayed on Grantor to Initiate Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1282,9 +1246,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1298,7 +1260,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1315,7 +1277,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Subrecipient  user is able to  submit to grantor the negotiation request  preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1326,9 +1288,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1342,7 +1302,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1377,7 +1337,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Due Date field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1388,9 +1348,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1404,7 +1362,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1429,7 +1387,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Explanation of negotiation needed field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1440,9 +1398,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1456,7 +1412,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1483,7 +1439,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate user should able to click on Send to Subrecipient button  on Grantor Side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1494,9 +1450,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1510,7 +1464,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1536,7 +1490,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate Internal User should able to edit the field after in click on Request negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1547,9 +1501,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1563,7 +1515,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1584,7 +1536,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate subrecipient should able to to see the status of pre-application is Negotiation Initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1595,9 +1547,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1611,7 +1561,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1624,7 +1574,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-    When I enter "FileFormForms2" values from "PreApplication_Field_Values.xlsx"
+    When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
@@ -1652,7 +1602,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify user should able to select the picklist value at "Negotiations Request Details" section in "Pre-Application Section for Negotiation" multi-pick list.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1663,9 +1613,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1679,7 +1627,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1697,7 +1645,7 @@ Feature: Pre-Application scenarios without background
   Scenario:The status on pre-application when negotiation is initiated on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1708,9 +1656,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1724,7 +1670,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1755,7 +1701,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify the Applicant Response section is displayed for the Negotiation tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I pause execution for "3" seconds
@@ -1767,9 +1713,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1783,7 +1727,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1812,7 +1756,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify the edit button is displayed on pre-applications on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1823,9 +1767,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1839,7 +1781,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1869,7 +1811,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate Negotiation Request Details section should contain the Negotiation details for the applicant to view on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1880,6 +1822,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     Given I click on "Edit" in the page details
@@ -1896,7 +1839,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1919,7 +1862,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate help text displayed for the Negotiation request details section on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1930,9 +1873,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1946,7 +1887,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1980,7 +1921,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: help text is displayed on subrecipient side for pre-application for applicant  response section
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1991,9 +1932,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2007,7 +1946,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2041,7 +1980,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate User Should Able To See EDit View Preview Button In Files Form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2052,9 +1991,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2068,7 +2005,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -2101,7 +2038,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate user should able to see Error Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2112,9 +2049,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2128,13 +2063,9 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I enter "Automation Test" values from "fieldQuestion1__c"
-    And I enter "Automation Test" values from "fieldQuestion3__c"
-    And I enter "9" values from "fieldsbirEmpNumber__c"
-    And I enter "Automation Test" values from "fieldAppplicationSubmitted__c"
-    And I enter "5" values from "fieldSubmittedOnForm__c"
+    And I enter "Form_EditNewValidate" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -2144,7 +2075,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate user should able to see the Success Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2155,9 +2086,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2171,7 +2100,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2194,7 +2123,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate SPI & SPA both user can edit the form many times before submitting the pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "<User>" user
+    And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2205,9 +2134,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2221,7 +2148,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2236,7 +2163,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate user should able to see the Edit Validate Back button after saving the preapplication form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2247,9 +2174,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2263,7 +2188,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2275,7 +2200,7 @@ Feature: Pre-Application scenarios without background
   Scenario Outline: Validate preapplication is accepted/rejected then user should only view preview the form in form table
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2286,9 +2211,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2302,7 +2225,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2314,7 +2237,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "<Button>" in the page details
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -2327,7 +2250,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify the Explanation of Revisions needed section  displayed on negotiation section is read only on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2338,9 +2261,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2354,7 +2275,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2383,7 +2304,7 @@ Feature: Pre-Application scenarios without background
   Scenario: the user can edit only those section which are selected by grantor while initiating the negotiation request on pre-application on Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2394,9 +2315,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2410,7 +2329,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2437,14 +2356,14 @@ Feature: Pre-Application scenarios without background
     Then I softly see fields "fieldProjectAbstract__c" is in edit mode
     Then I softly see fields "fieldProjectGoal__c" is in edit mode
     Then I softly see fields "fieldProjectBeneficiaries__c" is in edit mode
-    And I navigate to "Files and Forms" sub tab
+    And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
   @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
   Scenario: Verify the subrecipient user is able to save details
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2455,9 +2374,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2471,7 +2388,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2497,7 +2414,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Edit" in the page details
     And I enter "Edition_v" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I navigate to "Files and Forms" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I pause execution for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
@@ -2506,14 +2423,14 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Project Abstract" as "Automation Pre-application abstract descriptionAutomation Pre-application abstract description"
     Then I softly see field "Project Goals (Provide performance metrics, if any)" as "Automation Pre-application goals descriptionAutomation Pre-application goals description"
     Then I softly see field "Project Beneficiaries (Target Population)" as "Automation Pre-application beneficiary descriptionAutomation Pre-application beneficiary description"
-    And I navigate to "Files and Forms" sub tab
+    And I navigate to "Forms and Files" sub tab
     Then I softly see value "Other" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
   @174537 @ValidateUsershouldnotsubmitthepre-applicationifpre-applicationformisnotfillthe100%&asperfillingfield%shouldbedisplayontheform @Sprint-7 @Vrishali
   Scenario: Verify user should not submit the pre-application if pre-application form is not fill the 100% & as per filling field % should be display on the form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2524,9 +2441,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2540,7 +2455,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_v" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2553,7 +2468,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify Internal User can view & preview the pre-application form & internal user should not edit the form .
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2564,9 +2479,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2580,7 +2493,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2591,16 +2504,16 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-    And I navigate to "Files and Forms" tab
+    And I navigate to "Forms and Files" tab
     Then I softly can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
   @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
-  Scenario: Validate announcement owner should able to see the Files and Forms:Forms option in the pre application section for Negotiation tab at grantor side
+  Scenario: Validate announcement owner should able to see the Forms and Files:Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2611,9 +2524,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2627,7 +2538,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2658,14 +2569,14 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
   @180691 @ValidateuserselecttheFilesandFormsFormsandhavenotselectedanyformfornegotiationToShowErrorMessage @sprint-10 @vaibhav
-  Scenario: Validate user select the Files and Forms Forms and have not selected any form for negotiation To Show Error Message
+  Scenario: Validate user select the Forms and Files Forms and have not selected any form for negotiation To Show Error Message
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2676,9 +2587,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2692,7 +2601,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2714,7 +2623,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate user should able to see the changes after feeling the format grantor & Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2725,9 +2634,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2741,7 +2648,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2769,7 +2676,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "fieldApplicantResponse__c"
     When I click on "Save" in the page details
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2779,7 +2686,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly see field "1a. Describe the activities and/or services to be provided. (10 points)" as "Automation Test"
     Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline. (10 points)" as "Automation Test"
@@ -2787,10 +2694,10 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
 
   @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
-  Scenario: Validate announcement owner should able to see the Files and Forms Forms option in the pre application section for Negotiation tab at grantor side
+  Scenario: Validate announcement owner should able to see the Forms and Files Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2801,9 +2708,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2817,7 +2722,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2834,73 +2739,11 @@ Feature: Pre-Application scenarios without background
       | Files and Forms: Forms |
      #180658
     When I clear the value from field "fieldPreApplicationSectionsforRevision__c"
-    Then I see multipicklist field "fieldPreApplicationSectionsforRevision__c" contains value "Files and Forms: Forms" under list "Pre-Application Sections for Revision - Available"
+    Then I see multipicklist field "fieldPreApplicationSectionsforRevision__c" contains value "Files and Forms": Forms" under list "Pre-Application Sections for Revision - Available"
 
   @174568 @Grantorpre-applicationformshoulddisplayalltypesofAnnouncement @Sprint-7 @Vrishali
   Scenario Outline: Verify Grantor pre-application form should display all types of Announcement.
     When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I save the field labeled "Program Name" as "Automation Runtime Internal Program"
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I perform quick search for "Automation Permanent Focus Area" in "---program:-:associateFocusAreaTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I perform quick search for "Automation Permanent Objective" in "---program:-:associateObjectivesTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
-    When I pause execution for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I perform quick search for "Automation Permanent KPI" in "---program:-:associateKPITableId---" panel
-    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
-      | Description                 | Required  | Applies To  | Status |
-      | Automation test description | Mandatory | Application | Active |
-    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "green"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---"
-    And I click on "Activate" in the page details
-    Then I see status in Progress-bar is "Active" and is "green"
     And I navigate to "Announcements" tab
     When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft <Announcement Type> Announcements"
@@ -2908,10 +2751,10 @@ Feature: Pre-Application scenarios without background
     And I enter values into fields
       | Value                                               | Field                      |
       | Automation Runtime <Announcement Type> Announcement | AnnouncementName__c        |
-      | {SavedValue:ProgramEGMSID}                          | Program__c                 |
+      | Automation Permanent Internal Program               | Program__c                 |
       | Construction                                        | Budget_Category_Package__c |
     And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    When I enter "<Excel Data>" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -2922,20 +2765,19 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "<TableId Type>" panel
     And I click on "View" icon for "Record Id" inside flex table with id "<TableId Type>" without waiting for record
     And I navigate to "Setup" sub tab
-    And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
+    #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Examples:
-      | Announcement Type | TableId Type                                        |
-      | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
-      | Directed          | ---announcement:-:annoucementTableId---             |
-      | Formula           | ---announcement:-:formulaAnnouncementTableId---     |
-
+      | Announcement Type | TableId Type                                        | Excel Data                   |
+      | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- | Creation Second Modal        |
+      | Directed          | ---announcement:-:annoucementTableId---             | Creation Second Modal        |
+      | Formula           | ---announcement:-:formulaAnnouncementTableId---     | Creation_Formula_ByApplicant |
 
   @180699 @VerifyIfFormselectedforedit&usernotadded"Files&Forms:Forms"inApplicationsection,usershouldgeterroronsenttos/rclickatgrantorside. @Sprint-10 @Vrishali
-  Scenario: Verify If the Form is selected for edit, and user have not added the "Files and Forms: Forms" in the Application section, then user should get error on sent to s/r click at grantor side.
+  Scenario: Verify If the Form is selected for edit, and user have not added the "Forms and Files: Forms" in the Application section, then user should get error on sent to s/r click at grantor side.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2946,9 +2788,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -2962,7 +2802,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2993,7 +2833,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Verify spi user (pre-application record owner)should edit only sections and the forms which internal user selected while requesting negotiation for the pre-application.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -3004,9 +2844,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3020,7 +2858,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3047,14 +2885,14 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     And I click on "Start" icon for "Record Id" inside table
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
   @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 @vaibhav
   Scenario: Validate the pending task is created for the grantor on submit to grantor  negotiation request
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -3065,11 +2903,9 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
@@ -3081,7 +2917,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3137,7 +2973,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -3148,7 +2984,7 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation ADMIN1" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
@@ -3186,10 +3022,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3203,7 +3037,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3218,68 +3052,9 @@ Feature: Pre-Application scenarios without background
 
   @197939 @ValidatePreApplicationReviewtaskshouldnotgenerateforEXEuseronreassignmytaskpage @sprint-7-US-197384 @vaibhav @reassignment @taskreassign
   Scenario: Validate Pre-Application Review Negotiation task should not generate for admin user on reassign my task page
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
-    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation PM | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    When I get the "EGMS ID"
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Publish" in page detail
-    And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "green"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -3288,10 +3063,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3305,7 +3078,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3338,7 +3111,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -3349,10 +3122,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -3390,10 +3163,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3407,7 +3178,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3440,7 +3211,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -3451,7 +3222,7 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation ADMIN1" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
@@ -3489,10 +3260,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3506,7 +3275,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3542,11 +3311,11 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384 @vaibhav @reassignment @taskreassign
+  @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384 @vaibhav @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PM user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -3555,10 +3324,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3571,7 +3338,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3627,7 +3394,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -3638,10 +3405,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -3679,10 +3446,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3696,7 +3461,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3732,7 +3497,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384 @vaibhav @reassignment @ownvai
+  @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384 @vaibhav @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PO user on reassign my task page
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -3752,7 +3517,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -3763,10 +3528,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -3804,10 +3569,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3821,7 +3584,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3870,10 +3633,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -3886,7 +3647,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3917,6 +3678,7 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -3957,7 +3719,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3997,7 +3759,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4008,10 +3770,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -4049,6 +3811,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4089,7 +3852,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4123,6 +3886,7 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4163,7 +3927,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4242,7 +4006,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4253,10 +4017,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -4294,6 +4058,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4334,7 +4099,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4413,7 +4178,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4424,10 +4189,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -4465,6 +4230,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4505,7 +4271,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4539,7 +4305,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4550,10 +4316,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -4591,6 +4357,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4631,7 +4398,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4667,12 +4434,10 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -4683,7 +4448,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4765,7 +4530,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate Pre-app Pre-application review task should not generate for new owner of Ann after Ann owner change his ownership
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -4774,6 +4539,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4814,7 +4580,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4851,7 +4617,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4862,10 +4628,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -4903,6 +4669,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -4943,7 +4710,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -4975,7 +4742,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -4986,10 +4753,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5027,10 +4794,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -5044,7 +4809,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5100,7 +4865,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5111,10 +4876,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5152,10 +4917,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -5169,7 +4932,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5232,7 +4995,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5243,7 +5006,7 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation ADMIN1" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
@@ -5281,10 +5044,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -5298,7 +5059,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5391,7 +5152,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5402,10 +5163,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5443,6 +5204,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5484,7 +5246,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5522,7 +5284,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5533,10 +5295,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5574,6 +5336,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5615,7 +5378,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5655,7 +5418,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5666,10 +5429,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5707,6 +5470,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5748,7 +5512,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5790,7 +5554,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -5801,10 +5565,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -5842,6 +5606,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5882,7 +5647,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -5943,7 +5708,7 @@ Feature: Pre-Application scenarios without background
   Scenario: Validate Pre-app new owner should see the below buttons when s/r user submit the pre-application negotiation to grantor after it's related Ann owner will change its ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -5952,6 +5717,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -5992,7 +5758,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -6070,7 +5836,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -6081,10 +5847,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -6122,10 +5888,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -6138,7 +5902,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -6236,7 +6000,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -6247,10 +6011,10 @@ Feature: Pre-Application scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -6288,10 +6052,8 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -6305,7 +6067,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -6372,10 +6134,8 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -6388,7 +6148,7 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -6470,9 +6230,9 @@ Feature: Pre-Application scenarios without background
       The EGMS Team
       """
 
-  @162100 @Preapplication-VerifyEXEUserCanReassignPeerReviewTaskToOtherEXEUser @sprint-2-US-151916 @komal @reassignment
-  Scenario: Preapplication - Verify EXE user can reassign Peer review task to other EXE user
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
+  @274555 @ValidatepeerreviewerPOcanseeappropriatefields&tablesregarding$whenpreapplicationissentforreview @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario: Validate peer reviewer PO can see appropriate fields & tables regarding $ when preapplication is sent for review
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
@@ -6484,23 +6244,155 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    Then I see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "---preApplication:-:preAppPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+      | {SavedValue:PO Username} | Fiscal Reviewer | Automation Test Description | 7        |
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---preApplication:-:preAppPeerReviewTableId---" without waiting for record
+    Then I softly see that "Sent for Review" has been added in flextable with Id "---preApplication:-:preAppPeerReviewTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Subaward Ceiling" as "$10,000.00"
+    Then I softly see field "Subaward Floor" as "$1,000.00"
+    And I save the field labeled "Subaward Ceiling" as "AwardCeiling"
+    And I save the field labeled "Subaward Floor" as "AwardFloor"
+    Given I expand nested table containing column value "BP01"
+    Then I see the following rows under the following headers in table with id "---preApplication:-:preApplicationAttachmentId---" :
+      | Budget    |
+      | $5,000.00 |
+    And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
+    Then I softly see field "Budgeted Amount" as "$5,000.00"
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Ceiling" as "AwardCeiling1"
+    And I save the field labeled "Subaward Floor" as "AwardFloor1"
+    Then I softly see field "Subaward Ceiling" as "$10,000.00"
+    Then I softly see field "Subaward Floor" as "$1,000.00"
+    Given I expand nested table containing column value "BP01"
+    Then I see the following rows under the following headers in table with id "---preApplication:-:preApplicationAttachmentId---" :
+      | Budget    |
+      | $5,000.00 |
+    And I save the field labeled "Budgeted Amount" as "BudgetedAmount1"
+    Then I softly see field "Budgeted Amount" as "$5,000.00"
+    Then I softly see value "{SavedValue:AwardCeiling}" is "Equals to" the value "{SavedValue:AwardCeiling1}"
+    Then I softly see value "{SavedValue:AwardFloor}" is "Equals to" the value "{SavedValue:AwardFloor1}"
+    Then I softly see value "{SavedValue:BudgetedAmount}" is "Equals to" the value "{SavedValue:BudgetedAmount1}"
+
+  @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843 @hitesh
+  Scenario: Directive Ann Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for application for negotiation
+    Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user"
+    When I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    When I click on "Qualify" in the page details
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I click on "Create Pre-Application" in the page details
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                      | Project Role             | Is Key Contact |
+      | {SavedValue:IND Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    When I click on "Request Negotiation" in the page details
+    And I navigate to "Negotiations" sub tab
+    When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+      | Form Name                     | Needs Negotiation |
+      | Standard Pre-Application form | Checked           |
+    When I click on "Save" in the page details
+    Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
+    Then I softly see field "Details" as "Negotiation Initiated"
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Negotiation Initiated"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Budget" sub tab
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+
+  @313804 @VerifyPMSPIusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationwhenPreapplicationisinPeerReviewedstateevenifsettingasAllocationlevelisNA&FocusAreaisYES @Sprint-8-US-30117 @hitesh @Allocation
+  Scenario: Verify PM SPI user should not see 'Focus Area' section under Budget subtab of pre-application when Pre-application is in Peer Reviewed state even if setting as Allocation level is 'NA' & Focus Area is 'YES'
+    Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation PM user"
+    When I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    When I click on "Qualify" in the page details
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I click on "Create Pre-Application" in the page details
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -6514,28 +6406,76 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Responsibilities" sub tab
     And I enter the following values into flex table with id "---preApplication:-:preAppPeerReviewTableId---" by clicking "New" :
-      | Reviewer Name             | Responsibility  | Description                 | Due Date |
-      | {SavedValue:EXE Username} | Fiscal Reviewer | Automation Test Description | 7        |
+      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+      | {SavedValue:FD Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---preApplication:-:preAppPeerReviewTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---preApplication:-:preAppPeerReviewTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
-    Then I see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation EXE1"
-    When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    When I check "{SavedValue:PreappEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
-    And I refresh the page
-    When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
-    Then I softly see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly can see page block "Budget Summary by Focus Area"
+    Then I cannot see page block "Focus Area"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+    And I navigate to "Budget" sub tab
+    Then I softly can see page block "Budget Summary by Focus Area"
+    Then I cannot see page block "Focus Area"
 
+  @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario: Validate Pre App the effects of pre App rejection created on Comp Ann
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I navigate to "Overview" sub tab
+    When I save the field containing "Program Income Allowed?" as "Yes"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    Then I softly can see top right button "Accept" in page detail
+    Then I softly can see top right button "Reject" in page detail
+    When I click on "Reject" in the page details
+    Then I softly see field "Status" as "Rejected"
+    And I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---preApplication:-:preAppPeerReviewTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "RecipientPreApplications" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    Then I softly cannot see top right button "Create Application" in page detail
+    Then I cannot see top right button "Edit" in page detail
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    Then I softly do not see "Actions" in flex table header "---preApplication:-:preApplicationAttachmentId---"

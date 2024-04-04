@@ -1,10 +1,10 @@
 package com.ggproduct.automation.steps.grantor;
 
-import com.automation.rei.handlers.govgrants;
+import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.ggproduct.automation.webservices.GrantorWebServices;
-import com.testingblaze.objects.Elements;
-import com.testingblaze.register.I;
+import com.helperPackage.objects.Elements;
+import com.helperPackage.register.I;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -12,7 +12,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.springframework.context.annotation.Description;
 
 import javax.mail.MessagingException;
@@ -34,6 +33,7 @@ public class GenericSteps {
     @Description("API call used to create a post award records i.e. Payment Request, Progress Report and Closout and will fetch the record ID for that record. These step we can only use after Award Activation")
     @When("^I create a post award record \"([^\"]*)\" for the Award \"([^\"]*)\" having object api name as \"([^\"]*)\"$")
     public void iCreateAPostAwardRecordForTheAwardHavingObjectApiNameAs(String objectType, String recordName, String objectApiName) {
+        I.amPerforming().waitFor().makeThreadSleep(20000);
         grantorWebServices.getRecordIdFromResponse(objectType, recordName, objectApiName);
     }
 
@@ -456,6 +456,7 @@ public class GenericSteps {
 
     @Given("I initiated an application review for application {string} on announcement {string} with properties {string}")
     public void iInitiatedAnApplicationReviewOnAnnouncement(String applicationTitle, String announcmentTitle, String filter) {
+        I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
         grantorWebServices.initateApplicationReviewOnAnnouncement(applicationTitle, announcmentTitle, filter);
     }
 
@@ -481,6 +482,11 @@ public class GenericSteps {
         grantorWebServices.createAwardFromFDM(announcementName);
     }
 
+    @Given("I created award from approved FDM with announcement {string} and properties {string}")
+    public void iCreatedAwardFromApprovedFDMWithAnnouncement(String announcementName, String Type) {
+        grantorWebServices.createAwardFromFDM(announcementName, Type);
+    }
+
     @And("I published {string} type announcement having name {string} and properties {string}")
     public void iPublishedTypeAnnouncementHavingNameAndProperties(String annType, String annName, String filter) {
         String newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
@@ -495,6 +501,14 @@ public class GenericSteps {
         I.amPerforming().propertiesFileOperationsTo().saveValue(grantName, newGrantName);
         grantName = newGrantName;
         grantorWebServices.activateSubaward(grantName, filter);
+    }
+
+    @And("I activated standalone subaward {string} with properties {string} of type {string}")
+    public void iActivatedStandaloneSubawardWithPropertiesAndType(String grantName, String filter, String Type) {
+        String newGrantName = grantName + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(grantName, newGrantName);
+        grantName = newGrantName;
+        grantorWebServices.activateSubaward(grantName, filter, Type);
     }
 
     @And("I click on submit review")

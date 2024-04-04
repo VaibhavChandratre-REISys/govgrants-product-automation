@@ -1,4 +1,4 @@
-@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression
+@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg @ApplicationClassic
 Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton @keerti @smoke
@@ -40,6 +40,7 @@ Feature: Application Intake scenarios without background
     When I enter advance filter values inside id "advfqae"
       | EGMS ID | Contains | Aatam123 |
     Then I softly see "No records found" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
+    And I refresh the page
     And I click toggle button to select "Qualified Opportunities - Open"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:qualifiedTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
@@ -90,7 +91,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -155,6 +156,7 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
+    Given I expand nested table containing column value "BP01"
     Then I softly see value "$1,300.00" for title "Total Project Cost" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
   @70460 @70461 @goalsAndObjectivesInApplication @deepika
@@ -196,7 +198,7 @@ Feature: Application Intake scenarios without background
     When I get the "EGMS ID"
     Then I softly see field "Application Due Date" is getting updated with todays date
     Given I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
     Then I softly see "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---applicationIntake:-:publishedOpputunityTableId---"
@@ -222,7 +224,7 @@ Feature: Application Intake scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     When I get the "EGMS ID"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -334,7 +336,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -352,7 +354,7 @@ Feature: Application Intake scenarios without background
 
   @71112 @71113 @appDueDateValidation @deepika
   Scenario: Validate the Application Submission before the due date | Validate whether the application due date on Announcement is reflecting same while creating an application
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for App Intake and PreApp" and properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for App Intake and PreApp" and properties "TODAY_APP_DUE_DATE"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -386,7 +388,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -429,7 +431,7 @@ Feature: Application Intake scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Match Required?" as "Yes"
     And I navigate to "Budget" sub tab
-    Then I softly can see page block "Focus Area"
+    Then I softly can see page block "Budget Summary by Focus Area"
     When I expand nested table containing column value "BP01"
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---applicationIntake:-:budgetPeriodTableId---"
     And I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---applicationIntake:-:budgetPeriodTableId---"
@@ -494,7 +496,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -553,7 +555,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -564,7 +566,7 @@ Feature: Application Intake scenarios without background
     When I click on "Back" in the page details
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Requested Amount should be greater than or equal to Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
+      | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -590,6 +592,7 @@ Feature: Application Intake scenarios without background
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -624,7 +627,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -691,7 +694,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate the Aplications are not visible for other organizations Users
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
-    And I login as "SA" user
+    And And I login to "Grants Portal" app as "SA" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -724,53 +727,16 @@ Feature: Application Intake scenarios without background
 
   @34315 @appDueDatepassed @deepika @needStaticRecordsForThis
   Scenario Outline: Validate SPI & SPA user is not able to Create an Application if Application Due Date is passed
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for DueDateValidation" and properties "default"
     When I am on "SUBPORTAL" portal
-    And I login as "<User>" user
+    And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for DueDateValidation}" in "---announcement:-:NotYetQualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for DueDateValidation}" inside flex table with id "---announcement:-:NotYetQualifiedTableId---" without waiting for record
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Proposal" sub tab
-    Then I softly cannot see page block "Work Plan"
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 1000   | 100        | 100            | 100            |
-    When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "<Key User>" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    Given I click on "Back" in the page details
-    When I click on "Submit Application" in the page details
-    When I navigate to "Opportunities" tab
-    And I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for DueDateValidation}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for DueDateValidation}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---" without waiting for record
+    When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Qualified Opportunities - All"
+    And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:qualifiedTableId---" panel
+    When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     And I save the field containing "Application Due Date" as "Date"
     Then I softly see field "Application Due Date" contains date less than todays date
-    And I softly cannot see top right button "Create Application" in page detail
+    Then I softly cannot see top right button "Create Application" in page detail
     Examples:
       | User | Key User        |
       | SPI3 | Automation SPI3 |
@@ -778,9 +744,9 @@ Feature: Application Intake scenarios without background
 
   @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @deepika @buglogged129432
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
-    Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT"
     When I am on "SUBPORTAL" portal
-    And I login as "<User>" user
+    And I login to "Grants Portal" app as "<User>" user
     When I navigate to "Opportunities" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -809,7 +775,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -825,18 +791,17 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table without waiting for record
     And I navigate to "Overview" sub tab
     And I save the field containing "Type" as "Formula"
-    Then I see value "$2,000" for title "Allocated Amount" against the value "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+    And I navigate to "Financials" sub tab
+    Then I see value "$1000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     Examples:
       | User | userType        |
       | SPI3 | Automation SPI3 |
-      #As per comment on bug 129432 discarding this test case for SPA user
-      #| SPA  | Automation SPA  |
 
   @73516 @73517 @supportingDocValidationOnApplication @deepika @needSupportingDocuSupportInAPI
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
@@ -852,8 +817,8 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:focusAreaTableId---" panel
-    Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:focusAreaTableId---"
+    #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" panel
+    Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -862,7 +827,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -879,7 +844,7 @@ Feature: Application Intake scenarios without background
     #IssueisResolveNeedtocheckforthisscenario #checktagabove
     Then I softly see the following messages in the page details contains:
       | Attachments Tab - Each mandatory item listed in the checklist must be completed before submitting this Application. |
-    When I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     When I upload attachment "Announcement_Field_Values.xlsx" of type "Supporting Documents"
     Then I softly see "Supporting Documents" has been added in "Attachments" flex table
 
@@ -903,7 +868,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
     And I save the value from row "1" for column name "Title" as "SavedTitle" from flex table "---applicationIntake:-:goalsAndObjectivesTableId---"
-    And I perform quick search for "{SavedValue:SavedTitle}" in "---applicationIntake:-:goalsAndObjectivesTableId---" panel
+    #And I perform quick search for "{SavedValue:SavedTitle}" in "---applicationIntake:-:goalsAndObjectivesTableId---" panel
     Then I softly see value "{SavedValue:SavedTitle}" for title "Title" inside table "---applicationIntake:-:goalsAndObjectivesTableId---"
 
   @73753 @announcementInApprovedStatusWillNotBeAOppurtunity @deepika
@@ -932,10 +897,10 @@ Feature: Application Intake scenarios without background
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1030,7 +995,7 @@ Feature: Application Intake scenarios without background
   @73822 @73823 @75503 @75504 @formulaPublishedAnnouncementUnderOppurtunitiesTab @deepika
   Scenario: Validate whether SPI user is able to view the Formula Announcement under Oppurtunities Tab once it is published |Validate whether the SPI user can qualify and create the Application from published Formula Announcement
   Validate all the invited applicants can view the published announcement under Oppurtunities when selected announcement of type Formula| Validate other than invited applications, other users cannot view the Published announcement under oppurtunities when selected announcement of type Formula
-    Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "default"
+    Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1114,7 +1079,7 @@ Feature: Application Intake scenarios without background
   Validate whether the user is able to Edit the budget category while creating an Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -1133,6 +1098,7 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 0          | 0              | 0              |
+    Given I expand nested table containing column value "BP01"
     Then I softly see value "$1,000.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
   @34322 @zeroBudgetRequestedAmount @deepika
@@ -1161,7 +1127,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1175,9 +1141,9 @@ Feature: Application Intake scenarios without background
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    And I wait for "1" seconds
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Requested Amount should be greater than or equal to Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
+      | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
       | Budget Tab - Provide the match (Cash Match/Non-Cash Match) details to submit this application.                                                                |
       | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                                  |
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                            |
@@ -1201,7 +1167,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---applicationIntake:-:applicationContactsTableId---"
-    When I click "Add" after selection of "Automation SPA" in the table "---applicationIntake:-:applicationAssociateTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---applicationIntake:-:associateNewContactsTableId---"
     And I refresh the page
     Then I see that "<Contact>" has been added in flextable with Id "---applicationIntake:-:applicationContactsTableId---"
     Given I am on "SUBPORTAL" portal
@@ -1242,7 +1208,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I pause execution for "5" seconds
     #77044
    # Then I softly see "No records found" inside flex table with id "---applicationIntake:-:supportedDocumentsTableId---"
@@ -1259,9 +1225,8 @@ Feature: Application Intake scenarios without background
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Requested Amount should be greater than or equal to Subaward Floor Amount. Adjust the requested budget in Budget period section on Budget tab. |
+      | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
 
   @77046 @77045 @77047 @77048 @budgetGridColumnValidation @deepika
   Scenario: Validate the SPI cannot view the Goals and Objectives page block when it is set as No while Announcement creation| Validate the SPI cannot view the Work Plan required page block when it is set as No while Announcement creation
@@ -1269,7 +1234,7 @@ Feature: Application Intake scenarios without background
   Validate when the Funding Opportunity Detailed budget Grid Setup as Yes then User will be able to view the Bulid up Line in the Budget Grid
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -1300,7 +1265,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1319,8 +1284,8 @@ Feature: Application Intake scenarios without background
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - Expired"
-    And I perform quick search for "Automation Runtime Announcement for Site Visit104651" in "---applicationIntake:-:recipientApplications---" panel
-    When I click on "View" icon for "Automation Runtime Announcement for Site Visit104651" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    And I perform quick search for "Automation Runtime Announcement Application106771" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "Automation Runtime Announcement Application106771" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
@@ -1363,7 +1328,7 @@ Feature: Application Intake scenarios without background
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "AppEGMSID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "Green"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I click toggle button to select "All Announcements"
@@ -1430,7 +1395,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1483,10 +1448,10 @@ Feature: Application Intake scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -1542,10 +1507,8 @@ Feature: Application Intake scenarios without background
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1559,7 +1522,7 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Files and Forms" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1584,6 +1547,30 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "AppEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "Green"
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 1000   | 100        | 100            |
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I enter value "Checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    And I get the "EGMS ID"
+    When I click on "Submit Application" in the page details
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1623,10 +1610,10 @@ Feature: Application Intake scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -1678,7 +1665,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1720,7 +1707,7 @@ Feature: Application Intake scenarios without background
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
-    And I login as "SPI3" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -1748,7 +1735,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1816,10 +1803,10 @@ Feature: Application Intake scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -1872,7 +1859,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1943,10 +1930,10 @@ Feature: Application Intake scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -1998,7 +1985,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -2074,10 +2061,10 @@ Feature: Application Intake scenarios without background
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -2129,7 +2116,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -2194,7 +2181,7 @@ Feature: Application Intake scenarios without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -2273,3 +2260,438 @@ Feature: Application Intake scenarios without background
       Thank you.
       The EGMS Team
       """
+
+  @235107 @234957 @DirectedAnnVerifyasSPIusercannotseeRecommendedbudgetfieldisvisibleunderbudgetsummarywhenAppstatusisCreatedSubmittoGrantor&ReviewinitiatedbeforeFDMstate @sprint-13-US-224176 @komal @Allocation
+  Scenario Outline: Directed Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state
+  | Competitive Ann_ Verify as SPI user can not see Recommended budget field is visible under budget summary when App status is Created, Submit to Grantor & Review initiated before FDM state |
+    Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    Then I see the header is "Application" in the page details
+    When I navigate to "Budget" sub tab
+    #235107 #234957
+    Then I softly cannot see field "Recommended Budget" inside page block
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 1000   | 100        | 100            |
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I enter value "Checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I click on "Back" in the page details
+    And I get the "EGMS ID"
+    When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Budget" sub tab
+    #235107 #234957
+    Then I softly cannot see field "Recommended Budget" inside page block
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I wait for "3" seconds
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:EGMSID}" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    Then I softly see field "Status" as "Review Initiated"
+    When I navigate to "Budget" sub tab
+    #235107 #234957
+    Then I softly cannot see field "Recommended Budget" inside page block
+    Examples:
+      | Announcement Name                            | Announcement Type |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+
+  @219498 @219488 @219634 @219640 @DirectedAnnVerifyasSPIuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysectionwhenAppstatusisnegotiationcompleted @sprint-13-US-224176 @komal @Allocation @wip
+  Scenario Outline: Directed Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary section when App status is negotiation completed
+  | Directed Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary when App status is negotiation initiated state |
+  | Competitive Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary when App status is negotiation initiated state|
+  | Competitive Ann_ Verify as SPI user I can see Recommended budget field is visible under budget summary section when App status is negotiation completed |
+    Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
+    And I created approved FDM on application "<Announcement Name>"
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I navigate to "Negotiations" sub tab
+    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "Overview: Project Information" into field "ApplicationSectionsForRevision__c"
+    And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
+    When I click on "Save" in the page details
+    When I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    #219488 #219634
+    Then I softly see field "Status" as "Negotiation Initiated"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Recommended Budget" inside page block
+    #219498 #219640
+    And I navigate to "Negotiations" sub tab
+    And I enter values into fields
+      | Value                              | Field                |
+      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    When I click on "Save" in the page details
+    And I pause execution for "5" seconds
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Negotiation Submitted"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
+    When I click on "Complete Negotiation" in the page details
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:EGMSID}" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    Then I softly see field "Status" as "Reviewed"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Recommended Budget" inside page block
+
+    Examples:
+      | Announcement Name                            | Announcement Type |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+
+  @219489 @219636 @DirectedAnnVerifyasSPAuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarywhenAppstatusisnegotiationSenttoSR @sprint-13-US-224176 @komal @Allocation @wip
+  Scenario Outline: Directed Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R
+    | Competitive Ann_ Verify as SPA user I can see Recommended budget field is visible under budget summary when App status is negotiation Sent to S\R |
+    Given I published "<Announcement Name>" type announcement having name "Automation Runtime Announcement" and properties "default"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation SPA user"
+    And I created approved FDM on application "<Announcement Name>"
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I navigate to "Negotiations" sub tab
+    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "Overview: Project Information" into field "ApplicationSectionsForRevision__c"
+    And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
+    When I click on "Save" in the page details
+    When I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:EGMSID}" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    #219489 #219636
+    When I navigate to "Negotiations" sub tab
+    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Recommended Budget" inside page block
+
+    Examples:
+      | Announcement Name                            | Announcement Type |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+
+  @219494 @219638 @DirectedAnnVerifyasINDuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysectionwhenAppstatusisnegotiationinitiated @sprint-13-US-224176 @komal @Allocation
+  Scenario Outline: Directed Ann_ Verify as IND user I can see Recommended budget field is visible under budget summary section when App status is negotiation initiated
+    Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
+    And I created approved FDM on application "<Announcement Name>"
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I navigate to "Negotiations" sub tab
+    And I enter value "7" into field "fieldNegotiationDueDate__c"
+    And I enter value "Overview: Project Information" into field "ApplicationSectionsForRevision__c"
+    And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    When I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:EGMSID}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
+    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---applicationIntake:-:publishedOpputunityTableId---" without waiting for record
+    #219494 #219638
+    Then I softly see field "Status" as "Negotiation Initiated"
+    When I navigate to "Budget" sub tab
+    Then I softly cannot see field "Recommended Budget" inside page block
+
+    Examples:
+      | Announcement Name                            | Announcement Type |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+
+  @219507 @219641 @DirectedAnnVerifyasINDuserIcanseeRecommendedbudgetfieldisvisibleunderbudgetsummarysummarywhenAppstatusisconverttoaward @sprint-13-US-224176 @komal @Allocation
+  Scenario Outline: Directed Ann Verify as IND user I can see Recommended budget field is visible under budget summary summary when App status is convert to award
+    Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
+    And I created approved FDM on application "<Announcement Name>"
+    And I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I save the value from row "1" for column name "EGMS ID" as "appEGMSID" from flex table "---subAwardFromFDM:-:recommendedAppTableId---"
+    And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
+    And I pause execution for "3" seconds
+    Then I softly see that "Subaward" is in "Created" status
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---applicationIntake:-:publishedOpputunityTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside flex table with id "---applicationIntake:-:publishedOpputunityTableId---" without waiting for record
+    #219507 #219641
+    Then I softly see field "Status" as "Converted to Award"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Recommended Budget" as "$1,000.00"
+
+    Examples:
+      | Announcement Name                            | Announcement Type |
+      | {SavedValue:Automation Runtime Announcement} | Directed          |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       |
+
+  @219584 @219679 @DirectedAnnVerifyRecommendedbudgetfieldshouldnotdisplayforSPIonapplicationifitsrelatedFDMwillrejectduringapproval @sprint-13-US-204132 @komal @Allocation @wip
+  Scenario Outline: Directed Ann_ Verify 'Recommended budget' field should not display for SPI on application if it's related FDM will reject during approval
+  | Competitive Ann 'Recommended budget' field should not display for SPI on application if it's related FDM will reject during approval |
+    Given I published "<Announcement Type>" type announcement having name "Automation Runtime Announcement" and properties "default-Automation EXE user"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
+    When I login to "As a Grantor" app as "<User>" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Announcement Name>"
+    When I click on "View" icon for "<Announcement Name>" inside table
+    And I save the field labeled "EGMS ID" as "AppEgmdId"
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:EXE Username} |
+      | {SavedValue:FO Username}  |
+      | {SavedValue:PM Username}  |
+    When I expand nested table containing column value "<Announcement Name>"
+    And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I expand nested table containing column value "<Announcement Name>"
+    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
+    When I expand nested table containing column value "<Announcement Name>"
+    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I close "Assign Reviewers" modal by clicking the top right x button
+    And I pause execution for "5" seconds
+    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:FO Username} |
+    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    When I click on "Funding Decision Memo" in the page details
+    Then I softly see field "Status" as "Created"
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value                       | Field                 |
+      | AuGr                        | GrantCode__c          |
+      | Automation Test Description | fieldJustification__c |
+    And I click on "Save" in the page details
+    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+      | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
+      | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                         | FDM    |
+      | {SavedValue:<User> Username} | Step 1 |
+    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+    And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    And I "Disapprove" in the approval decision
+    Then I see status in Progress-bar is "Rejected" and is "Red"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    When I perform quick search for "<Announcement Name>" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:recipientApplications---"
+    When I navigate to "Budget" sub tab
+    #219584 #219679
+    Then I softly see field "Recommended Budget" inside page block
+
+    Examples:
+      | Announcement Name                            | Announcement Type | User |
+      | {SavedValue:Automation Runtime Announcement} | Directed          | EXE  |
+      | {SavedValue:Automation Runtime Announcement} | Competitive       | EXE  |
+
+  @313662 @VerifyPMusercanseethevalueBudgetTabFocusAreareplacedwithBudgetTabBudgetSummarybyFocusAreaintheApplicationsectionforNegotiationonFDMFANO @sprint-8-US-308117 @hitesh
+  Scenario Outline: Verify PM user can see the value "Budget Tab: Focus Area" replaced with "Budget Tab: Budget Summary by Focus Area" in the Application section for Negotiation on FDM (FA= NO)
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION_YES_FOCUS_NO-Automation PM user"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I navigate to "Negotiations" sub tab
+    Then I see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Application Sections for Revision - Available"
+    Then I do not see multipicklist field "fieldApplicationSectionsForRevision__c" contains value "Budget: Focus Area" under list "Application Sections for Revision - Available"
+
+    Examples:
+      | Announcement Name                                |
+      | {SavedValue:Automation Runtime FDM Announcement} |
+

@@ -1,10 +1,10 @@
 package com.ggproduct.automation.usersUrl;
 
 
-import com.testingblaze.controller.UsersController;
-import com.testingblaze.misclib.Properties_Logs;
-import com.testingblaze.register.EnvironmentFactory;
-import com.testingblaze.register.I;
+import com.helperPackage.controller.UsersController;
+import com.helperPackage.misclib.Properties_Logs;
+import com.helperPackage.register.EnvironmentFactory;
+import com.helperPackage.register.I;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,19 +13,24 @@ import java.util.Map;
 public class UsersAndURL implements UsersController {
 
     public UsersAndURL() {
+        I.amPerforming().propertiesFileOperationsTo().saveValue("ADMIN Username", "Automation ADMIN");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("ADMIN1 Username", "Automation ADMIN1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("EXE Username", "Automation EXE");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("EXE1 Username", "Automation EXE1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("FO Username", "Automation FO");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("FO1 Username", "Automation FO1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("PO Username", "Automation PO");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("PO1 Username", "Automation PO1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("FD Username", "Automation FD");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("FD1 Username", "Automation FD1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("PM Username", "Automation PM");
         I.amPerforming().propertiesFileOperationsTo().saveValue("PM1 Username", "Automation PM1");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("EXE1 Username", "Automation EXE1");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("FO1 Username", "Automation FO1");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("PO1 Username", "Automation PO1");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("FD1 Username", "Automation FD1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("AUDITOR Username", "Automation AUDITOR");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI Username", "Automation SPI");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI3 Username", "Automation SPI3");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPA Username", "Automation SPA");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI4 Username", "Automation SPI4");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("IND Username", "Automation IND");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "Grantee ADMIN");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE PO Username", "Grantee PO");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE FD Username", "Grantee FD");
@@ -79,11 +84,14 @@ public class UsersAndURL implements UsersController {
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "SARAH PO":
-                password = "test72018";
+            case "SARAH PM":
+                password = "Salesforce@2025";
+                break;
+            case "SPI3":
+                password = "Salesforce2025";
                 break;
             default:
-                password = "welcome@2022";
+                password = "Salesforce2023";
         }
         return password;
     }
@@ -91,8 +99,32 @@ public class UsersAndURL implements UsersController {
     private String getTest8EnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "ADMIN":
+                password = "Salesforce@2031";
+                break;
+            case "ADMIN1":
+                password = "Salesforce@2031";
+                break;
+            case "SPI3":
+                password = "Salesforce@2032";
+                break;
+            case "SA":
+                password = "Salesforce@2032";
+                break;
+            case "IND":
+                password = "Salesforce@2031";
+                break;
+            case "PM":
+                password = "Salesforce@2031";
+                break;
+            case "PM1":
+                password = "Salesforce@2031";
+                break;
+            case "SPA":
+                password = "Salesforce@2031";
+                break;
             default:
-                password = "Salesforce@2025";
+                password = "Salesforce@2030";
         }
         return password;
     }
@@ -100,22 +132,41 @@ public class UsersAndURL implements UsersController {
     private String getAUTOEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "SPI4":
+                password = "Salesforce@2028";
+                break;
+            case "SPA":
+                password = "Salesforce2030";
+                break;
+            case "FD":
+                password = "Salesforce2030";
+                break;
             default:
-                password = "Salesforce2024";
+                password = "Salesforce2028";
         }
         return password;
     }
 
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "demoadmin@ggp.test8.qaorg");
-        username.put("EXE", "test@gmaildemo.com");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
-        username.put("FO", "auto.fm@auto.com");
-        username.put("SPI", "primary.sa@yopmail.com.qaorg");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");
+        username.put("ADMIN1", "admin1@yopmail.com.qaorg");
+        username.put("EXE", "test@gmaildemo.com.qaorg");
+        username.put("PM", "pm.automation@yopmail.com.qaorg");
+        username.put("FO", "auto.fm@auto.com.atm.qaorg");
+        username.put("PO", "automationpo@yopmail.com.qaorg");
+        username.put("FD", "automationfd@yopmail.com.qaorg");
+        username.put("PM1", "pm1.automation@yopmail.com.qaorg");
+        username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
+        username.put("PO1", "automationpo1@yopmail.com.qaorg");
+        username.put("FO1", "fo1.automation@yopmail.com.qaorg");
+        username.put("FD1", "automationfd1@yopmail.com.qaorg");
+        username.put("SPI3", "automationspi3@yopmail.com");
         username.put("SPA", "spaautomation@yopmail.com");
+        username.put("SA", "automationspi212@yopmail.com");
+        username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
 
-        username.put("PO", "sdgdg45435dj@gmail.com");
         username.put("SIMON PM", "simon_pm@ggp.test7");
         username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
         username.put("ALEX FO", "alex_fo@ggp.test7");
@@ -133,7 +184,7 @@ public class UsersAndURL implements UsersController {
     private String getAUTOEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com");
-        username.put("ADMIN1", "shambhavi.admin@ggp.test8.automation");
+        username.put("ADMIN1", "admin1@yopmail.com.automation");
         username.put("EXE", "test@gmaildemo.com.atm.automation");
         username.put("PM", "donald_pm@ggp.test7.atm.automation");
         username.put("FO", "auto.fm@auto.com.atm.automation");
@@ -150,9 +201,10 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "automationpo1@yopmail.com");
         username.put("FO1", "fo1.automation@yopmail.com");
         username.put("FD1", "automationfd1@yopmail.com");
-        username.put("SME", "product.ucs.sme1@yopmail.com.automation");
-
+        username.put("SME", "sme@yopmail.com.automation");
+        username.put("SPI4", "signingauthority.sa@yopmail.com.automation");
         username.put("SARAH PM", "sarah.pm@ggp.test9.automation");
+
         username.put("SIMON PM", "simon@ggp.test8.automation");
         username.put("ALEX FO", "alex_fo@ggp.test7.automation");
         username.put("CATHY PM", "cathy_pm@ggp.test7.automation");
@@ -182,7 +234,7 @@ public class UsersAndURL implements UsersController {
         username.put("PM", "donald_pm@ggp.test7.atm");
         username.put("FO", "auto.fm@auto.com.atm");
         username.put("SPA", "automation.spa@yopmail.com");
-        username.put("IND", "ind.automation@yopmail.com");
+        username.put("IND", "ind1.automation@yopmail.com");
         username.put("SA", "automationspi1@yopmail.com");
         username.put("SPI3", "automationspi30@yopmail.com");
         username.put("AUDITOR", "test8.automationauditor@yopmail.com");
@@ -194,6 +246,8 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "test8.automationpo1@yopmail.com");
         username.put("FD1", "test8.automationfd1@yopmail.com");
         username.put("SME", "sme1@yopmail.com");
+        username.put("SARAH PM", "sarah.pm@ggp.test8");
+
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

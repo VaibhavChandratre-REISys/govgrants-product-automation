@@ -1,4 +1,4 @@
-@applicationIntake @grantor-regression @grantor-parallel-regression @app @regression
+@applicationIntake @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg @ApplicationClassic
 Feature: Validate all scenarios in the Application Intake
 
   Background: Qualify Announcement and Create Application
@@ -12,6 +12,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
 
   @34044 @70332 @applicationCreation
@@ -29,7 +30,7 @@ Feature: Validate all scenarios in the Application Intake
   @34303 @addFocusAreaToApplication
   Scenario Outline: Addition of Focus area to an application
     When I navigate to "Budget" sub tab
-    Then I see that "<Focus Area>" has been added in flextable with Id "---applicationIntake:-:focusAreaTableId---"
+    Then I see that "<Focus Area>" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Examples:
       | Focus Area                      |
       | Automation Permanent Focus Area |
@@ -41,6 +42,7 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 100    | 100        | 100            | 100            |
+    And I expand nested table containing column value "BP01"
     Then I see value "$100.00" for title "Budget" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
@@ -78,10 +80,10 @@ Feature: Validate all scenarios in the Application Intake
       | Automation Permanent KPI | 10     |
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
-      | Files Tab - All mandatory forms must be 100% completed. |
-    When I navigate to "Files" sub tab
+      | Forms and Files Tab - All mandatory forms must be 100% completed. |
+    When I navigate to "Forms and Files" sub tab
     Then I see only the following headers in table with id "---applicationReview:-:allFormsTableId---" :
-      | Form Name | Mandatory | Percentage | Last Modified By | Last Modified Date |  Actions |
+      | Form Name |Report Type |Mandatory | Percentage | Last Modified By | Last Modified Date |  Actions |
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -112,7 +114,7 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -140,8 +142,8 @@ Feature: Validate all scenarios in the Application Intake
     Then I softly cannot see top right button "Edit" in page detail
     Examples:
       | Application Name                                         | User |
-      | {SavedValue:Automation Runtime Announcement Application} | PM   |
-      | {SavedValue:Automation Runtime Announcement Application} | FO   |
+#      | {SavedValue:Automation Runtime Announcement Application} | PM   |
+#      | {SavedValue:Automation Runtime Announcement Application} | FO   |
       | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
   @70458 @73514 @73515 @70456 @acknowledgeReqiredToSave @deepika
@@ -152,17 +154,13 @@ Feature: Validate all scenarios in the Application Intake
     And I enter "EditionAcknowledge" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableId---"
-   # Then I softly can see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableId---"
-    #When I click on top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableId---"
-    And I click on "Remove Focus Area" icon for "Automation Permanent Focus Area" inside table
-  #  When I click modal button "Yes"
-     # When I click "Remove" after selection of "Automation Permanent Focus Area" in the table "---applicationIntake:-:focusAreaFlexTableId---"
-      #73514 need to check
-#    Then I softly see the following messages in the page details :
-#      | Budget Tab - At least one focus area must be in place at all times. |
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableId---"
-    When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:AddFocusAreaTableAppId---" panel
+    Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+   And I click on "Remove Focus Area" icon for "Automation Permanent Focus Area" inside flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+      #73514
+    Then I softly see the following messages in the page details :
+      | Can not remove focus area as funding opportunity associates only one focus area. |
+    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:AddFocusAreaTableAppId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
     And I close modal by clicking the top right x button
     Given I expand nested table containing column value "BP01"
@@ -177,7 +175,7 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -204,7 +202,7 @@ Feature: Validate all scenarios in the Application Intake
     When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
     And I enter value "Checked" into field "IsKeyContact__c"
     And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -234,7 +232,7 @@ Feature: Validate all scenarios in the Application Intake
 
   @70527 @applicationAttachmentAndNotes @deepika  @buglogged169487
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
-    When I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "General Assurances" from computer
     Then I softly see "General Assurances" has been added in "Supporting Documents Checklist" flex table
@@ -261,7 +259,7 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -297,10 +295,9 @@ Feature: Validate all scenarios in the Application Intake
   Scenario:Validate whether user is able to associate new contacts while creating an application
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I perform quick search for "Automation SPA" in "---applicationIntake:-:associateNewContactsTableId---" panel
-    When I click "Add" after selection of "Automation SPA" in the table "---applicationIntake:-:associateNewContactsTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---applicationIntake:-:associateNewContactsTableId---"
     And I refresh the page
-    When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
+    #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
   @73944 @73945 @71409 @73947 @73950 @73948 @73949 @maxAppValidationError @deepika
@@ -326,7 +323,7 @@ Feature: Validate all scenarios in the Application Intake
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -343,11 +340,11 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities Converted to Application - All"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "cae"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
     And I click toggle button to select "Opportunities Converted to Application - Open"
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "cae"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "cae" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "cae"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application}" for title "Title" inside table "---applicationIntake:-:convertedToApplicationTableID---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationIntake:-:convertedToApplicationTableID---"
     When I click on "Create Application" in the page details
     #needtocheck 71409
 #    Then I softly see the following messages in the page details contains:

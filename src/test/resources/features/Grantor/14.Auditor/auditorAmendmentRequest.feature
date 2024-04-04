@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
   @69172 @auditorCannotCreateAmendmentRequest @smoke
   Scenario: Validate Auditor should not be  able to  Create Amendment request
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "Auditor" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -18,7 +18,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
   @69174 @auditorViewAccessToAmendmentRequest
   Scenario: Validate Auditor should have view Amendment Request Record that is created by PM user - Budget Period Change
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -32,6 +32,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details

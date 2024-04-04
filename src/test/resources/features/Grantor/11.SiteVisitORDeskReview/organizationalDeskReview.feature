@@ -2,7 +2,7 @@
 Feature: Validate all scenarios in Organizational Desk Review
 
   Background: Creation of Organizational Desk Review
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -340,17 +340,17 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
 
@@ -434,17 +434,17 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:receipientTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -659,7 +659,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
-    And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
+    When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:EXE Username}" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -840,7 +843,6 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -856,14 +858,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
     And I choose the file "Program_Field_Values.xlsx" to upload for "Checklist" of type "Program"
     When I close "Upload Template" modal by clicking the top right x button
-   Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+    Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
 
   @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment @Keerti @buglogged150045
   Scenario: Validate the Created Date of Desk Review display on Overview Tab and Adding Attachments- Organizational Desk Review
-    When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" by clicking "Add" :
-      | Description | Required  |  Status |
-      | Automation  | Mandatory |  Active |
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
@@ -873,9 +871,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     Given I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
     When I navigate to "Files" sub tab
-    And I choose the file "Program_Field_Values.xlsx" to upload for "Checklist" of type "Program"
-    When I close "Upload Template" modal by clicking the top right x button
-    Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
   @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @skipOnJenkins
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
@@ -1245,7 +1244,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
+#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
   @148330 @VerifyErrorMessageAtApproverSectionWhileSkippingForDeskReviewOrgLevel-RnRFunctnality @monu

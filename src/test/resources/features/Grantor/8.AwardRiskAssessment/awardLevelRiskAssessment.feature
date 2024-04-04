@@ -98,7 +98,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "History" sub tab
     Then I softly see value "Active" for title "New Value" inside table "History"
 
-  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika @buglogged101142
+  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika
   Scenario: Validate the field history after rejection of Risk Assessment and whether user is able to view the pending task once submitted for approval under Monitoring Tab and First Approver is able to reject the Risk Assessment then status in Progress bar is Rejected.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -241,6 +241,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
+    And I refresh the page
     And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Assessment Tab - Complete all of the questions on the Risk Assessment form. |
@@ -386,8 +387,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -397,8 +397,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -434,6 +434,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -450,8 +452,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    When I navigate to "Terms" sub tab
-    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
     And I "Approve" in the approval decision
@@ -548,8 +548,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -594,8 +594,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    Then I softly see that "Approve Subaward Risk Assessment" has been added in flextable with Id "---subAwardStandAlone:-:pendingTaskTableId---"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    Then I softly see that "Approve Subaward Risk Assessment" has been added in flextable with Id "---subAwardStandAlone:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I get the "EGMS ID"
@@ -741,8 +741,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     When I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -752,8 +751,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -819,6 +818,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 3 |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1313,7 +1313,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see "Overall Risk Level" image as "b-red.png"
+    Then I see "Risk Level" image as "b-red.png"
 
   @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika
   Scenario: To Validate field history update post Risk Assessment is send back to owner by program approver.
@@ -1636,8 +1636,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1973,8 +1973,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2541,8 +2541,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2749,8 +2749,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3040,7 +3040,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see "Risk Level" image as "yellow.png"
+    Then I see "Risk Level" image as "b-ylw.png"
 
   @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @deepika
   Scenario:  Verify whether SPI profile User can view the section Overview for Overall Risk Calculation for a Sub Recipient Organization
@@ -3089,7 +3089,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    Then I see field "Overall Risk" as "40.00%"
+    Then I see field "Overall Risk" as "36.00%"
 
   @addAttachmentForRecordOnwerInTable @deepika
   Scenario: Validate attachment is added to the flex table after submiting the risk assessment for approval.
@@ -3211,6 +3211,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Save and Continue" in the page details
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3220,7 +3221,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    Then I see total records count "Total Records:1" in flex table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
 
   @65464 @riskFieldAvailbilityOnOverviewTab @deepika
   Scenario: Validate Risk Level field on Overview Tab is not availbale for Risk Assessment that is in Created Status
@@ -3351,19 +3352,11 @@ Feature: Validate all scenarios in the Risk Assessment
 
   @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo @deepika
   Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
-    Given I delete the record "{SavedValue:Automation Runtime Execution Award}" from the object "Award"
-    And I delete the record "{SavedValue:Automation Runtime Execution Award}" from the object "Grant"
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Expired" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    And I click on "View" icon for "Expired" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "Grant_Creation4" values from "Award_Field_Values.xlsx"
+    And I enter "Grant_Creation5" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -3374,8 +3367,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     When I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "Automation Permanent Funding Account1" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account1" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -3385,8 +3377,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account              | Encumbrance |
       | {SavedValue:fundingAccount1} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3395,16 +3387,14 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
-    And I enter "Contact_Creation" values from "RiskAssessment_Field_Values.xlsx"
-    And I click modal button "Save"
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+      | Name        | Project Role             | Is Key Personnel |
+      | Product SA  | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -3417,7 +3407,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 3 |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -3461,7 +3451,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -3534,6 +3524,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | NA              |
     And I pause execution for "5" seconds
+    And I refresh the page
     And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
@@ -3567,8 +3558,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3583,13 +3574,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -3759,8 +3743,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3875,8 +3859,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4022,8 +4006,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4160,8 +4144,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4280,8 +4264,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4402,8 +4386,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4521,8 +4505,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4630,19 +4614,18 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     And I refresh the page
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
+      | Funding Account             | Encumbrance|
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4793,8 +4776,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4916,8 +4899,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -5012,8 +4995,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Awarded Budget | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -5244,7 +5227,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on submit review
     And I logout
     And I checkout to yopmail with mailid "automationpo1@yopmail.com"
-    And I pause execution for "10" seconds
+    And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6203,7 +6186,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "green"
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
@@ -6526,6 +6509,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "Yes" into field "fieldIsAdvancePermitted__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -6639,7 +6624,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name           | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | Automation FO1 | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---riskassessment:-:raPeerReviewFlexTableId---" without waiting for record
-    And I click on "Send for Review" icon for "Automation FO1" inside flex table with id "---riskassessment:-:raPeerReviewFlexTableId---" without waiting for record
+#    And I click on "Send for Review" icon for "Automation FO1" inside flex table with id "---riskassessment:-:raPeerReviewFlexTableId---" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -6738,8 +6723,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
-   And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -6764,8 +6749,8 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
-   And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -6790,7 +6775,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6816,7 +6801,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6842,7 +6827,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6868,7 +6853,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6900,7 +6885,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6932,7 +6917,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6964,7 +6949,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6996,7 +6981,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-   And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7031,15 +7016,25 @@ Feature: Validate all scenarios in the Risk Assessment
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID2}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID2}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID3}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID3}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID4}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID4}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID5}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID5}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID6}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID6}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID7}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID7}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID8}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID8}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID9}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID9}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID10}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID10}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    When I perform quick search for "{SavedValue:RAEGMSID11}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID11}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
     And I pause execution for "2" seconds
     And I close the tab
@@ -7052,7 +7047,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7066,7 +7060,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7080,7 +7073,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7094,7 +7086,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7108,7 +7099,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7122,7 +7112,6 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     When I navigate to "Files" sub tab
@@ -7198,3 +7187,727 @@ Feature: Validate all scenarios in the Risk Assessment
       Thank you,
       The EGMS Team
       """
+
+  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @vaibhav @Allocation @wip
+  Scenario: Validate Risk Assessments are read only for SR User
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date | End Date |
+      | Automation Permanent Focus Area | 0          | 3650     |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                      | Project Role             | Is Key Personnel |
+      | {SavedValue:IND Username} | Project Director/Manager | Checked          |
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    When I navigate to "Management" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    Then I softly see value "Create Subaward Risk Assessment for Organization Automation IND" for title "Subject" against the value "{SavedValue:AwardEGMSID}" inside table "---home:-:internalHomePendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    Then I see status in Progress-bar is "Created" and is "Green"
+    And I click "{SavedValue:AwardEGMSID}" lookup link
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "5" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    And I wait for "5" seconds
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    And I logout
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "80" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: An Subaward Risk Assessment has been createdfor {SavedValue:AwardEGMSID}
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM,
+
+      This email to notify you that an Subaward Risk Assessment has been created for Subaward {SavedValue:AwardEGMSID} for Subrecipient Automation IND.
+
+      Log in to EGMS and click here to review the Subaward risk assessment details and access the task.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "4" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I wait for "5" seconds
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "5" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "green"
+    And I click "{SavedValue:AwardEGMSID}" lookup link
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "5" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    And I wait for "5" seconds
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "4" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I wait for "5" seconds
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "5" seconds
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    Then I softly see that "Approve Subaward Risk Assessment" has been added in flextable with Id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    And I logout
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "80" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello,
+      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "5" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I wait for "3" seconds
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "green"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    Then I softly see that "Approve Subaward Risk Assessment" has been added in flextable with Id "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:PO Username}" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Submitted For Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see that "EGMS ID" is in "Active" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "120" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "RAEGMSID1"
+    When I get the "EGMS ID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID1}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID1}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    When I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation IND" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "Automation IND" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "3" seconds
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    Then I softly do not see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
+
+  @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:PM Username} | Step 1 |
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I wait for "9" seconds
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name          | Risk Assessment |
+      | Automation PM | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    And I "Approve" in the approval decision
+    Then I softly see that "EGMS ID" is in "Active" status
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "8" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "Accept" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I get the "EGMS ID"
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
+    And I "Approve" in the approval decision
+    And I pause execution for "5" seconds
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---riskassessment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "Green"
+    And I save the field labeled "EGMS ID" as "RAEGMSID1"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    Examples:
+      | Award Name                                                | Grant Name                                                |
+      | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
+
+  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name          | Risk Assessment |
+      | Automation FD | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    Then I softly see that "EGMS ID" is in "Active" status
+    And I navigate to "History" sub tab
+    Then I softly see value "Submitted for Approval" for title "New Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
+    Then I softly see value "Created" for title "Old Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
+    Then I softly see value "Active" for title "New Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
+    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
+    Then I softly see value "Subaward Risk Assessment.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see value "{SavedValue:FD Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+
+  @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
+    Given I login to "As a Grantor" app as "PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                      | Risk Assessment |
+      | {SavedValue:EXE Username} | Step 1          |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 2          |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FD Username} | Step 3          |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                      | Risk Assessment |
+      | {SavedValue:PM1 Username} | Step 4          |
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+      | Name                     | Responsibility   | Description                 | Due Date | Allow Record Editing |
+      | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 7        | No                   |
+    And I click on "Send for Review" icon for "Program Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    Then I softly can see top right button "Complete Review" in page detail
+    When I click on "Complete Review" in the page details
+    Then I softly see status in Progress-bar is "Reviewed" and is "green"
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    Then I softly see that "EGMS ID" is in "Active" status
+
+  @116307 @ValidateAwardActivationAcceptancefailurewhenOrganizationRiskAssessmentisnotactiveandAwardRiskAssessmentRequiredisselectedasNo @Sprint-23-US-273843 @vaibhav @Allocation
+  Scenario: Validate Award Activation & Acceptance failure when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:awardRecordForExpiredRiskAssValidation}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:awardRecordForExpiredRiskAssValidation}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:awardRecordForExpiredRiskAssValidation}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Subrecipient’s organization risk assessment is expired. Notify the subrecipient to renew their organization Risk Assessment. |

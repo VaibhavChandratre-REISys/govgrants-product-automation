@@ -1,17 +1,15 @@
 package com.ggproduct.automation.projectmanager;
 
-import com.automation.rei.handlers.govgrants;
-import com.testingblaze.misclib.Emails;
-import com.testingblaze.objects.Elements;
-import com.testingblaze.register.EnvironmentFactory;
-import com.testingblaze.register.I;
-import org.apache.commons.lang3.StringUtils;
+import com.helperPackage.handlers.govgrants;
+import com.helperPackage.handlers.*;
+import com.helperPackage.misclib.Emails;
+import com.helperPackage.objects.Elements;
+import com.helperPackage.register.EnvironmentFactory;
+import com.helperPackage.register.I;
 import org.assertj.core.util.Files;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.springframework.context.annotation.Description;
-
 import javax.mail.MessagingException;
 import java.io.File;
 import java.io.IOException;
@@ -120,7 +118,6 @@ public class GrantorProjectManager extends ProjectManager {
             return false;
     }
 
-    @Description("To verify two different field values are equal or not")
     public void assertTwoFieldValues(String targetValue, String subTabName, boolean isSoftly) {
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(compareTwoFieldValues(targetValue, subTabName)).isTrue();
@@ -366,9 +363,11 @@ public class GrantorProjectManager extends ProjectManager {
      * To verify RIsk level image
      */
     public Boolean assertRiskLevelImage(String fieldLabel, String imageName) throws IOException {
-        WebElement pathForRiskLevel = I.amPerforming().getElementReference().of(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img"));
-        I.amPerforming().snapShotTo().takeElementScreenShot(pathForRiskLevel, "green");
-        return I.amPerforming().comparisonOf().image().isElementImage(pathForRiskLevel, imageName);
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'"+imageName+"')]"))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -476,7 +475,7 @@ public class GrantorProjectManager extends ProjectManager {
             savedValue1 = I.amPerforming().propertiesFileOperationsTo().getValue(savedValue1.split(":")[1]);
             savedValue2 = I.amPerforming().propertiesFileOperationsTo().getValue(savedValue2.split(":")[1]);
         }
-        if (usage.contains("softly")) {
+        if (usage.contains("softly see")) {
             I.amPerforming().assertionsTo().assertThat(savedValue1).isEqualToIgnoringCase(savedValue2);
         } else if (usage.contains("not")) {
             Assert.assertNotEquals("Saved value :" + savedValue1 + " is not equals to saved value " + savedValue2, savedValue1, savedValue2);

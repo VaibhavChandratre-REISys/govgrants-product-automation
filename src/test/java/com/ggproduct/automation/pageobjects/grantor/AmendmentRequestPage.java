@@ -1,7 +1,9 @@
 package com.ggproduct.automation.pageobjects.grantor;
 
+import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
-import com.testingblaze.register.I;
+import com.helperPackage.actionsfactory.api.ByUsing;
+import com.helperPackage.register.I;
 import org.openqa.selenium.By;
 
 import java.time.format.DateTimeFormatter;
@@ -39,4 +41,20 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         String fieldValue = rawDateSplitted[1] + "/" + rawDateSplitted[2] + "/" + rawDateSplitted[0];
         I.amPerforming().propertiesFileOperationsTo().saveValue("updatedBudgetPeriodDate", I.amPerforming().dateOperationsToGet().givenDateWithOffsetFromGivenDate(fieldValue,Integer.parseInt(offset),DateTimeFormatter.ofPattern("M/d/uuuu")));
     }
+
+    public void clickAfterSelectionOfInTheTables(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
+        By entriesDropDown = ByUsing.xpath("//*[@id='" + flexTableId + "']//span[text()='Show' or text()='Records Per Page']/ancestor::div[1]//select");
+
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
+                    || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
+                govgrants.perform().flexTable().flexTableShowEntriesDropDown(flexTableId, numberofEntries);
+            }
+        } catch (Exception e) {
+
+        }
+        govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordValue);
+        govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);
+    }
+
 }

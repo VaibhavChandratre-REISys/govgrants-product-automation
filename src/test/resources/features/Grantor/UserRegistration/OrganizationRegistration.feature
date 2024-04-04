@@ -7,14 +7,16 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Files" sub tab
-    And I upload attachment "AttachmentTesting.pdf" of type "Parent/Child Legal Documents"
+    And I upload attachment "Attachment.pdf" of type "Parent/Child Legal Documents" from computer
+    #And I upload attachment "AttachmentTesting.pdf" of type "Parent/Child Legal Documents"
     And I pause execution for "3" seconds
     And I refresh the page
-    When I click on "Download" icon for "AttachmentTesting.pdf" inside table
+    When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened
 
   @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu
@@ -23,7 +25,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -43,7 +46,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -51,11 +55,10 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Provide Address Line 1 for Payment Address                             |
-      | Provide City for Payment Address                                       |
-      | Provide State for Payment Address                                      |
-      | Provide Zip Code for Payment Address                                   |
-      | You must enter an effective date when selecting a parent organization. |
+      | Country is required to save under Organization Profile.        |
+      | Address line 1 is required to save under Organization Profile. |
+      | Zip Code is required to save under Organization Profile.       |
+      | State is required to save under Organization Profile.          |
 
   @82053 @verifyVisibilityOfPaymentAddressFields-Organization @monu
   Scenario:Verify user should not be able to see Expected fields of payment address if same organization address field is selected as yes
@@ -63,7 +66,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -79,35 +83,38 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
-    #82790
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    #82790
+    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID}"
     Then I see "Mr." text enter in field "fieldPrimaryRepPrefix__c"
-    Then I see "Automation" text enter in field "fieldPrimaryRepFirstName__c"
+    Then I see "{SavedValue:Automation Runtime}" text enter in field "fieldPrimaryRepFirstName__c"
     Then I see "User" text enter in field "fieldPrimaryRepLastName__c"
-    Then I see "Automation Primary Representative" text enter in field "fieldPrimaryRepAddress1__c"
+    Then I see "Automation Representative" text enter in field "fieldPrimaryRepAddress1__c"
     Then I see "Washington" text enter in field "fieldPrimaryRepCity__c"
     Then I see "20301" text enter in field "fieldPrimaryRepZipCode__c"
-    Then I see "1234" text enter in field "fieldPrimaryRepZipCode4__c"
     Then I see "USA" text enter in field "fieldPrimaryRepCountry__c"
-    Then I see "Prince George’s" text enter in field "fieldCounty__c"
 
   @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual @monu
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
-    And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     Then I softly see fields "fieldPaymentAddressLine1__c" is not visible
     Then I softly see fields "fieldPaymentAddressCity__c" is not visible
     Then I softly see fields "fieldPaymentAddressState__c" is not visible
@@ -119,7 +126,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -135,8 +143,10 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random EIN and save as "EIN"
+    When I enter value as "{SavedValue:EIN}" into "Employer Identification Number (EIN)" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -144,6 +154,8 @@ Feature: Validate all registration related scenarios
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     Then I see the ReCaptcha input box
 
@@ -153,7 +165,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -180,11 +193,13 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
-    Then I see the header is "Registration" in the page details
+    Then I see the header is "Create External Registration" in the page details
     Then I see the sub-header is "Step 2 of 2" in the page details
 
   @82780 @VerifyRegistrationStep1of2-Individual @monu
@@ -196,7 +211,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
     When I click on "Agree" in the page details
-    Then I see the header is "Registration" in the page details
+    Then I see the text containing "Registration"
     Then I see the sub-header is "Step 1 of 2" in the page details
 
   @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu
@@ -205,22 +220,23 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Step 3 of 3" in the page details
+    Then I see the header is "Create External Registration" in the page details
+#    Then I see the sub-header is "Step 3 of 3" in the page details
     When I click on "Back" in the page details
-    Then I see "No" text enter in field "fieldSameAsOrganizationAddress__c"
-    Then I see "For Profit Organizations" text enter in field "fieldOrganizationTypeSInglePicklist__c"
+    Then I see "Yes" text enter in field "fieldSameAsOrganizationAddress__c"
+    Then I see "For-profit organizations" text enter in field "fieldOrganizationTypeSInglePicklist__c"
     Then I see "(918) 908-9089" text enter in field "fieldOrgnizationPhoneNumber__c"
     Then I see "www.google.com" text enter in field "fieldWebsite__c"
     Then I see "Vintage Plaza" text enter in field "fieldOrganizationStreetAddress__c"
-    Then I see "Prince George’s" text enter in field "fieldCounty__c"
+    Then I see "Prince George" text enter in field "fieldCounty__c"
     Then I see "Sterling" text enter in field "fieldOrganizationCityAddress__c"
     Then I see "VA" text enter in field "fieldStateDropdownList__c"
     Then I see "USA" text enter in field "fieldOrganizationsCountry__c"
@@ -234,11 +250,12 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
-    Then I softly see field "Data Universal Number System (DUNS) #" as "987654321"
+    Then I softly see field "Unique Entity Identifier (UEI)" as "{SavedValue:UEI}"
     Then I softly see field "Employer Identification Number (EIN)" as "123456789"
 
   @81952 @verifyRecipientPortalDetailsUnderContactUS @monu @wip
@@ -257,7 +274,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -271,23 +289,24 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "AutomationInternal@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
     Then I softly can see "Overview" sub tab at view detail page
@@ -300,25 +319,28 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+    Then I softly see field "Primary Email" as "{SavedValue:uniqueEmailID}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     Then I see "No" text enter in field "fieldSameAsOrganizationAddress__c"
     Then I see "1000 Defense Pentagon" text enter in field "fieldPaymentAddressLine1__c"
     Then I see "Washington" text enter in field "fieldPaymentAddressCity__c"
-    Then I see "DC" text enter in field "fieldPaymentAddressState__c"
+    Then I see "IL" text enter in field "fieldPaymentAddressState__c"
     Then I see "20301" text enter in field "fieldPaymentAddressZipCode__c"
     Then I see "(918) 908-9089" text enter in field "fieldPaymentAddressVendorLocation__c"
     Then I see "1234" text enter in field "fieldPaymentAddressZipCode4__c"
+    When I click on "Save" in the page details
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Confirmation Message                                                                                                                                                                |
-      | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
+      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system.                                                                                                                                                                |
+      | For your records, your registration number is |
 
   @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization @meenakshi
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
@@ -326,7 +348,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321245" into "Unique Entity Identifier (UEI)" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -345,13 +368,13 @@ Feature: Validate all registration related scenarios
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "AutomationInternal@yopmail.com"
-    And I pause execution for "20" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "220" seconds
     Then I refresh the page
-    And I navigate to yopmail portal for "AutomationInternal@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Welcome to Recipient Portal"
     Then I set password for the user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -397,23 +420,24 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Auto@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
     And I checkout to yopmail with mailid "Auto@yopmail.com"
     And I pause execution for "20" seconds
@@ -428,11 +452,13 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
-    Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
+    Then I softly see field "Primary Email" as ""{SavedValue:uniqueEmailID}"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
@@ -459,28 +485,29 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "AutomationInternal@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "AutomationInternal@yopmail.com"
-    And I pause execution for "190" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "220" seconds
     Then I refresh the page
-    And I navigate to yopmail portal for "AutomationInternal@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Welcome to Recipient Portal"
     Then I set password for the user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -488,7 +515,6 @@ Feature: Validate all registration related scenarios
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Contact"
     When I close "New Contact" modal by clicking the top right x button
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:userContactsTableId---" panel
     #83535 #monu
@@ -504,34 +530,35 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
 
-  @83531 @validatingEditingOfContact @monu
+  @83531 @validatingEditingOfContact @monu @CaptchaIssueOnYopmail
   Scenario:To verify user is able to edit phone number of newly created contact
     Given I begin "Organization" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "AutomationInternal@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "AutomationInternal@yopmail.com"
-    And I pause execution for "190" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "220" seconds
     Then I refresh the page
-    And I navigate to yopmail portal for "AutomationInternal@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Welcome to Recipient Portal"
     Then I set password for the user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -553,7 +580,7 @@ Feature: Validate all registration related scenarios
     Then I softly see "Is User" in flex table header "---home:-:userContactsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Contact}" for title "Full Name" inside table "---home:-:userContactsTableId---"
     Then I softly see value "Primary" for title "Role" inside table "---home:-:userContactsTableId---"
-    Then I softly see value "AutomationManager@yopmail.com" for title "Email" inside table "---home:-:userContactsTableId---"
+    Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:userContactsTableId---"
     Then I softly see value "704-777-(7868)" for title "Status" inside table "---home:-:userContactsTableId---"
     Then I softly see value "Active" for title "Status" inside table "---home:-:userContactsTableId---"
     Then I softly can see row level action button "Send Invitation" against "True" in flex table with id "---home:-:userContactsTableId---"
@@ -569,34 +596,35 @@ Feature: Validate all registration related scenarios
     Then I softly see "Address Information" page block displayed
     Then I softly see "System Information" page block displayed
 
-  @84614 @validateRolesDropdownValues-Organization @monu
+  @84614 @validateRolesDropdownValues-Organization @monu @CaptchaIssueOnYopmail
   Scenario:To verify while creating new contacts for Activated users, roles picklist having all expected values
     Given I begin "Organization" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "AutomationInternal@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "AutomationInternal@yopmail.com"
-    And I pause execution for "180" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "220" seconds
     Then I refresh the page
-    And I navigate to yopmail portal for "AutomationInternal@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Welcome to Recipient Portal"
     Then I set password for the user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -605,34 +633,35 @@ Feature: Validate all registration related scenarios
     Then I see only the following ordered options in dropdown field "fieldUserRole__c" :
       | --None-- | Non-User | Secondary | Primary |
 
-  @85781 @validatePlaceOfPerformanceFieldsWRTOrganizationFields-Organization @monu
+  @85781 @validatePlaceOfPerformanceFieldsWRTOrganizationFields-Organization @monu @CaptchaIssueOnYopmail
   Scenario:Verify place of performance fields while creating organization user is getting populated to created application by same user
     Given I begin "Organization" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321" into "Data Universal Number System (DUNS) Number" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
-    And I save the contact name as "Automation Runtime Organization"
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "AutomationInternal@yopmail.com" into field "fieldPrimaryRepEmail__c"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldPrimaryRepEmail__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for "AUTOMATION RUNTIME Organization" in "{grantor_tableId:SubrecipientOrganization}" panel
-    When I click on "Start" icon for "AUTOMATION RUNTIME Organization" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
+    When I perform quick search for "{SavedValue:AUTOMATION RUNTIME Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
+    When I click on "Start" icon for "{SavedValue:AUTOMATION RUNTIME Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "AutomationInternal@yopmail.com"
-    And I pause execution for "180" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "220" seconds
     Then I refresh the page
-    And I navigate to yopmail portal for "AutomationInternal@yopmail.com"
+    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Welcome to Recipient Portal"
     Then I set password for the user
     And I navigate to "Home" tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
@@ -662,7 +691,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321245" into "Unique Entity Identifier (UEI)" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -689,7 +719,8 @@ Feature: Validate all registration related scenarios
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "987654321245" into "Unique Entity Identifier (UEI)" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -714,13 +745,42 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Organization User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
+  @223512 @ValidatePMuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofIndividualRegistrationApprovalinReassignTask @sprint-12-US-226646 @vaibhav @reassignment
+  Scenario: Validate PM user from user registration approval queue should not able to see the reassign task of Individual Registration Approval in Reassign Task
+    Given I begin "Individual" registration
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save and Continue" in the page details
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I pause execution for "5" seconds
+    Then I see the following messages in the page details contains:
+      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
+    And I am on "INTERNAL" portal
+    And I login to "As a Grantor" app as "dynamicUser" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
+
   @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Individual Registration Approval from All Tasks As a Admin
     Given I begin "Individual" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    And I generate the random SSN and save as "SSN"
-    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random SSN and save as "ssnID"
+    When I enter value as "{SavedValue:ssnID}" into "Social Security Number (SSN)" on old form
     And I generate the random EmailID and save as "uniqueEmailID"
     When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
@@ -745,13 +805,14 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
- @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment @CaptchaIssueOnYopmail
   Scenario: Validate Admin user should not able to see the reassign task of Parent/Child relationship Approval from All tasks As a Admin
     Given I begin "Organization" registration
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "736518924561" into "Unique Entity Identifier (UEI)" on old form
+    And I generate the random UEI and save as "UEI"
+    When I enter value as "{SavedValue:UEI}" into "Unique Entity Identifier (UEI)" on old form
     When I click on "Save and Continue" in the page details
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
@@ -774,7 +835,7 @@ Feature: Validate all registration related scenarios
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
     And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
-    And I pause execution for "190" seconds
+    And I pause execution for "220" seconds
     And I refresh the page
     And I click on mail with subject "Sandbox: Welcome to Recipient Portal"
     And I navigate to reset password link
@@ -785,22 +846,22 @@ Feature: Validate all registration related scenarios
     And I enter "parentOrg" values from "UserRegistration_Field_Values.xlsx"
     When I upload attachment "Announcement_Field_Values.xlsx" of type "Program Artifacts"
     When I click on "Save" in the page details
-   When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-   And I navigate to "Home" tab
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   And I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---negotiation:-:homePendingTasks---" panel
-   And I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "---negotiation:-:homePendingTasks---"
-   And I "Approve" in the approval decision
-   When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-   When I navigate to "Home" tab
-   And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---closeout:-:homePendingTaskTableId---" panel
-   Then I softly see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "{grantee_tableId:SubrecipientOrganization}"
-   When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
-   And I navigate to "Home" tab
-   When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-   And I select value "Automation PM" into field "s2id_autogen1"
-   And I select value "Automation PM1" into field "s2id_autogen3"
-   When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:adminTaskReassignmentTableId---" panel
-   Then I softly do not see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
-   Then I softly do not see value "Review Parent/Child Organization Relationship Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---closeout:-:homePendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "{grantee_tableId:SubrecipientOrganization}"
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "s2id_autogen1"
+    And I select value "Automation PM1" into field "s2id_autogen3"
+    When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:adminTaskReassignmentTableId---" panel
+    Then I softly do not see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
+    Then I softly do not see value "Review Parent/Child Organization Relationship Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"

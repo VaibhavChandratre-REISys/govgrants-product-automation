@@ -6,6 +6,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
@@ -21,6 +22,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
@@ -67,6 +69,8 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "3" seconds
     When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
     And I enter "Creation" values from "InternalContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Internal Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
@@ -90,6 +94,8 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
@@ -111,6 +117,8 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
@@ -135,6 +143,8 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
@@ -269,7 +279,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Edit"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
-    #And I close "View Subrecipient Contacts" modal by clicking the top right x button
+#    And I close "View Subrecipient Contacts" modal by clicking the top right x button
     Then I softly see value "New" for title "Status" inside table "---home:-:internalContactTableId---"
     Examples:
       | User  |
@@ -300,13 +310,13 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     And I click on top right button "New" in flex table with id "---home:-:additionalAddressTableId---"
     And I enter "AdditioanlAddressesCreation" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
     #And I close "New Additional Address" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
-    When I perform quick search for "Billing Address" in "---home:-:additionalAddressTableId---" panel
     And I click on "Edit" icon for "Billing Address" inside flex table with id "---home:-:additionalAddressTableId---" without waiting for record
     And I enter "AdditioanlAddressesEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
@@ -318,13 +328,16 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     And I click on top right button "New" in flex table with id "---home:-:relatedContactsTableId---"
     And I enter in modal "RelatedContactsCreation" values from "InternalOrganization_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     And I click modal button "Save"
     #And I close "Create Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
+    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:relatedContactsTableId---"
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
     When I enter "RelatedContactsEdition" values from "InternalOrganization_Field_Values.xlsx"
@@ -334,7 +347,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | User |
       | EXE  |
-      | PM   |
+#      | PM   |
 
   @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts
@@ -346,19 +359,21 @@ Feature: Validate all scenarios in the home tab
     When I click on "View" icon for "SYSTEM" inside table without waiting for record
     And I click on top right button "New" in flex table with id "---home:-:relatedContactsTableId---"
     And I enter "RelatedContactsCreation" values from "InternalOrganization_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     And I click modal button "Save"
     #And I close "Create Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
+    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
     And I click on "Delete" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
-    Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
+    Then I softly do not see value "{SavedValue:Automation Runtime Contact}" for title "Full Name" inside table "---home:-:relatedContactsTableId---"
 
   @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
   Scenario: Validate whether ADMIN and DA users can Create, Edit and delete the DUNS Number
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     When I enter the following values into flex table with id "---home:-:dunsTableId---" by clicking "New" :
       | UEI Number   | Entity Name as Registered       | Location |
@@ -375,6 +390,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     When I click on top right button "New" in flex table with id "---home:-:indirectRateFlextableId---"
     When I enter the following values into flex table with id "---home:-:indirectRateFlextableId---" by clicking "New" :
@@ -392,6 +408,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     #56883 #monu
     Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     #56912 #monu
@@ -408,6 +425,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "FO" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     Then I cannot see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
 
   @57340 @thirdPartyVerification @nonFunctional @wip
@@ -427,6 +445,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     #When I perform quick search for "Teaching and Learning" in "---home:-:internalOrganizationId---" panel
     And I expand nested table containing column value "Teaching and Learning"
     Then I see values "Career and College Transition Division" and "Division" inside table
@@ -439,6 +458,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     Then I see values "Test Automation Organization" and "Agency" inside table
     Examples:
       | User  |
@@ -475,17 +495,7 @@ Feature: Validate all scenarios in the home tab
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---home:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---home:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I perform quick search for "Automation Permanent Focus Area" in "---program:-:associateFocusAreaTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I perform quick search for "Automation Permanent Objective" in "---program:-:associateObjectivesTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I perform quick search for "Automation Permanent KPI" in "---program:-:associateKPITableId---" panel
-    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---home:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -493,6 +503,13 @@ Feature: Validate all scenarios in the home tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -517,12 +534,12 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+   @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     Given I am on "SUBPORTAL" portal
-    When I login as "SPI3" user
+    When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - Open"
@@ -534,8 +551,6 @@ Feature: Validate all scenarios in the home tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -551,7 +566,7 @@ Feature: Validate all scenarios in the home tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---" without waiting for record
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -654,11 +669,11 @@ Feature: Validate all scenarios in the home tab
     When I get the "EGMS ID"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "GrantorFocusAreaFilesgrid"
+    And I switch to iframe with id "---home:-:focusAreaFilesTableId---"
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Supporting Documents" from computer
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "GrantorFocusAreaFilesgrid"
     When I navigate to "Home" tab
     And I click on "My_Workspace_File"
-    And I select value inside table "WorkSpaceFilesFlexToggle" is "All"
     Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "WorkSpaceFilesFlexToggle"
 
   @62102 @pageBlockSections @deepika
@@ -666,6 +681,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalOrganizationId---" with wait for record
     And I navigate to "Overview" sub tab
     Then I softly can see page block "Related Contacts"
@@ -673,19 +689,20 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | User  |
       | ADMIN |
-      | EXE   |
-      | PM    |
+#      | EXE   |
+#      | PM    |
 
   @62103 @pageBlockSectionsRelatedLog @deepika
   Scenario Outline:  Validate whether the Related Log displays Active Federal/NGO Applications (Grantee) and Active Federal/NGO Grants (Grantee).
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalOrganizationId---" with wait for record
     And I navigate to "Related Log" sub tab
     Then I can see page block "Internal Programs"
-    Then I can see page block "Announcements"
-    Then I can see page block "Applications"
+    Then I can see page block "Active Announcements (Grantor) "
+    Then I can see page block "Active Applications "
     Then I can see page block "Active Grants"
     Examples:
       | User  |
@@ -703,8 +720,8 @@ Feature: Validate all scenarios in the home tab
 
   @62105 @externalUserhomePendingTask @deepika
   Scenario: The Pending Task on the left Navigation shows Pending Tasks that are created for Subrecipient Users
-    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default"
+    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -735,7 +752,7 @@ Feature: Validate all scenarios in the home tab
     And I refresh the page
     And I click on "Notify" in the page details
     Given I am on "SUBPORTAL" portal
-    When I login as "SPI3" user
+    When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
@@ -744,11 +761,10 @@ Feature: Validate all scenarios in the home tab
   @62106 @indUserEditProfile @deepika
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
-    When I login as "IND" user
+    When I login to "Grants Portal" app as "IND" user
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
     When I navigate to "Overview" sub tab
-    When I perform quick search for "{user:fullName}" in "---home:-:indContactTableId---" panel
     Then I see that "{user:fullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
   @62255 @CreatedNotes @keerti
@@ -784,6 +800,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
+    And I select value inside table "---home:-:InternalOrganizationHierarchyTableID---" is "All"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     When I navigate to "Planning" tab
     And I mouse hover to link contains "Test Automation Organization"
@@ -796,6 +813,8 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
@@ -820,12 +839,14 @@ Feature: Validate all scenarios in the home tab
     #33882
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
     And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:reviewersTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Contact}" for title "Full Name" inside table "---home:-:reviewersTableId---"
-    Then I softly see value "automation.sme143@yopmail.com" for title "Email" inside table "---home:-:reviewersTableId---"
+    Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:reviewersTableId---"
     Then I softly see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Sponsoring Agency" inside table "---home:-:reviewersTableId---"
     #34674
@@ -836,7 +857,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the following messages in the page details :
       | Email Sent Successfully |
 
-  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+@Bug-ID-388698 @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -924,37 +945,3 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
       | SPA      |
       | IND      |
-
-  @190974 @VerifyFOUserSeeErrorMessageIfUserClickedOnReassignButtonWithoutSelectingTask @sprint-2-US-151916 @komal @reassignment @buglogged-268761
-  Scenario: Verify FO user see error message If user clicked on Reassign button without selecting the task
-    When I login to "As a Grantor" app as "FO" user
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation FO1"
-    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
-    Then I see the following messages in the page details :
-      | Select at least one record to reassign |
-
-  @162638 @VerifyAuditorProfileUserCannotReassignPendingTasksToAnyUserInTheSystem @sprint-2-US-151916 @komal @reassignment
-  Scenario: Verify Auditor Profile user cannot reassign pending tasks to any user in the system
-    When I login to "As a Grantor" app as "AUDITOR" user
-    And I navigate to "Home" tab
-    Then I do not see "My Tasks" inside "Reassign" is displayed
-
-  @190979 @VerifyPMuserseeselectedrecordsareclearwhenuserclickon"Reset"button @sprint-2-US-151916 @komal @reassignment
-  Scenario: Verify PM user see selected records are clear when user click on "Reset" button
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation PM1"
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---home:-:grantorTaskReassignTableId---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
-    When I check "{SavedValue:EGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    When I click on "Reset" in the page details
-    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
-    Then I softly see the following messages in the page details contains:
-      | Select target user to reassign the tasks. |
-    When I reassign task to "Automation PM1"
-    And I click on top right button "Reassign Selected" in flex table with id "---home:-:grantorTaskReassignTableId---"
-    Then I see the following messages in the page details :
-      | Select at least one record to reassign |

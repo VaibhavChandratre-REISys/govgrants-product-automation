@@ -1,10 +1,9 @@
 package com.ggproduct.automation.pageobjects.grantor;
 
-import com.automation.rei.handlers.govgrants;
+import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
-import com.testingblaze.controller.TestSetupController;
-import com.testingblaze.objects.Elements;
-import com.testingblaze.register.I;
+import com.helperPackage.objects.Elements;
+import com.helperPackage.register.I;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -158,5 +157,13 @@ public class HomePage extends GrantorProjectManager {
                 Assert.assertTrue(presentUsers.contains(userName));
             }
         }
+    }
+
+    public void NavigateToYopmailPortalForWithClickOnSubject(String emailId, String subject) {
+        I.amPerforming().browserOperationsTo().navigateToUrl("http://www.yopmail.com/");
+        I.amPerforming().textInput().toClear(By.xpath("//input[@id='login' and @type='text']"));
+        I.amPerforming().textInput().in(By.xpath("//input[@id='login' and @type='text']"), emailId);
+        I.amPerforming().click().on(By.xpath("//input[@type='submit']"));
+        I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
     }
 }
