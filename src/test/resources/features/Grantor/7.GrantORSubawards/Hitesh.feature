@@ -9280,7 +9280,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #245241
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @hit @245244 @245245 @245246 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
+  @245244 @245245 @245246 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed That In case of detail budget, Action column with the Add line item option will be visible<IND >user in Subaward budget section
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -9362,7 +9362,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Delete" icon for "Test" inside flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly do not see value "Test" for title "Narrative" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @hit @245249 @245250 @ValidateDirectedINdseevalidationonAcceptButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-242771 @vaibhav @Allocation
+  @245249 @245250 @ValidateDirectedINdseevalidationonAcceptButtonwhentheBudgetedAmountisnotequaltotheNewObligation @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed <INd> see validation on Accept Button when the Budgeted Amount is not equal to the New Obligation
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -10105,10 +10105,12 @@ Feature: Validate all scenarios of grants and award for Allocation
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -10193,7 +10195,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #246447
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @hit @246450 @246451 @246452 @246455 @246456 @ValidatecompetativeThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDuserinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
+  @246450 @246451 @246452 @246455 @246456 @ValidatecompetativeThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDuserinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That In case of detail budget, Action column with the Add line item option will be visible IND user in Subaward budget section
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -10288,7 +10290,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
 
-  @239772 @239775 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @hit @239772 @239775 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate EXE user should not see 'budgeted amount' column in amended and pending activation state of award
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10374,7 +10376,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
+  @hit @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10438,7 +10440,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
 
-  @240306 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFANO @sprint-16-US-220612 @vaibhav @Allocation
+  @hit @240306 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFANO @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=No)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10499,7 +10501,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
 
-  @240517 @240525 @243120 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofawardFAYes @sprint-16-US-220612 @vaibhav @Allocation
+  @hit @240517 @240525 @243120 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofawardFAYes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate EXE user should not see 'budgeted amount' column in amended and pending activation state of award (FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10622,7 +10624,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @240529 @ValidatePMusershouldseeNewobligation&CumulativeObligationreadonlycolumninAmendedPendingactivationstateofawardFANo @sprint-16-US-220612 @vaibhav @Allocation
+  @hit @240529 @ValidatePMusershouldseeNewobligation&CumulativeObligationreadonlycolumninAmendedPendingactivationstateofawardFANo @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate PM user should see 'New obligation' & 'Cumulative Obligation' read only column in Amended, Pending activation state of award (FA=No)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10693,7 +10695,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Cumulative Obligation" rendered in view mode only
 
-  @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp Ann PM user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10782,7 +10784,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Total Commitment" inside page block
     Then I softly see field "Match this Budget Period" inside page block
 
-  @243816 @243819 @244245 @ValidateCompAnnPMuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @243816 @243819 @244245 @ValidateCompAnnPMuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp Ann PM user see 'Carry forward' field with zero value should be only display on award under Budget Summary section when budget period change to BP02 and beyond
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10919,7 +10921,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
 
-  @244020 @244021 @244026 @244364 @ValidateDirectAnnPOuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122 @vaibhav @Allocation
+  @hit @244020 @244021 @244026 @244364 @ValidateDirectAnnPOuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct Ann PO user see 'Carry forward' field with zero value should be only display on award under Budget Summary section when budget period change to BP02 and beyond
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11071,7 +11073,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
 
-  @244220 @244230 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226926 @vaibhav @Allocation
+  @hit @244220 @244230 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Comp Ann SPI/SPA user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11193,7 +11195,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244342 @244354 @validateDirectAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectionAmendedPendingactivation
+  @hit @244342 @244354 @validateDirectAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectionAmendedPendingactivation
   Scenario Outline: Validate Direct Ann IND user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<User>"
