@@ -11340,7 +11340,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -11428,7 +11428,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
