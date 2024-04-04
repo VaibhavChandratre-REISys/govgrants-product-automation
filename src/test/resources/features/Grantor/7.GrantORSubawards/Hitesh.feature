@@ -10106,7 +10106,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
+    And I click toggle button to select "Subawards - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     When I navigate to "Management" sub tab
