@@ -2078,24 +2078,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Applications" tab
-    And I wait for "1" seconds
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I wait for "2" seconds
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "Automation Runtime FDM Announcement61807" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "Automation Runtime FDM Announcement61807" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                 |
-      | {SavedValue:FD Username} |
-    And I click on "Assign" icon for "{SavedValue:FD Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "Automation Runtime FDM Announcement61807" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "Automation Runtime FDM Announcement61807" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    When I check "Automation Runtime FDM Announcement61807" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    Given I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SFubYAG/view"
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name             | Announcement | FDM    |
+      | Automation ADMIN | Step 1       | Step 2 |
