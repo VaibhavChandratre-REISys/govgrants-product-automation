@@ -11322,7 +11322,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation SPI3 user | SPI3  |
       | Automation SPI3 user | IND   |
 
-  @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
+  @hit1 @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
   Scenario: Validate Admin user should not accept negative value in encumbrance and new obligation filed on award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -11358,7 +11358,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 #    Then I softly see the following messages in the page details contains:
 #      | The Encumbrance cannot be less than zero. |
 
-  @268449 @ValidateValidationWillComeonsavewhenPMusertrytoenterNegativeValueinNewObligationFieldinBudgetSummarySection @sprint-21-US-265545 @vaibhav @Allocation
+  @hit1 @268449 @ValidateValidationWillComeonsavewhenPMusertrytoenterNegativeValueinNewObligationFieldinBudgetSummarySection @sprint-21-US-265545 @vaibhav @Allocation
   Scenario: Validate Validation Will Come on save when PM user try to enter Negative Value in New Obligation Field in Budget Summary Section
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -11384,7 +11384,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The New Obligation cannot be less than zero. |
 
-  @268451 @ValidateValidationWillComeonsavewhenEXEusertrytoenterNegativeValueinTotalCommitmentFieldinBudgetSummarySection @sprint-21-US-265545 @vaibhav @Allocation
+  @hit1 @268451 @ValidateValidationWillComeonsavewhenEXEusertrytoenterNegativeValueinTotalCommitmentFieldinBudgetSummarySection @sprint-21-US-265545 @vaibhav @Allocation
   Scenario: Validate Validation Will Come on save when EXE user try to enter Negative Value in Total Commitment Field in Budget Summary Section
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -11410,7 +11410,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The Total Commitment cannot be less than zero. |
 
-  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude
+  @hit1 @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude
   Scenario: Validate Admin user can see Field History is maintained for New Obligation Field
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -11458,7 +11458,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Provide the Award Amount before submitting for approval. |
 
-  @269829 @ValidatePMuserwillseeUpdateRevisedFundingbuttononactivatedgrants @sprint-21-US-265547 @vaibhav @Allocation
+  @hit1 @269829 @ValidatePMuserwillseeUpdateRevisedFundingbuttononactivatedgrants @sprint-21-US-265547 @vaibhav @Allocation
   Scenario: Validate PM user will see Update Revised Funding button on activated grants
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
