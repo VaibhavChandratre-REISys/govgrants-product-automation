@@ -10519,6 +10519,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -10834,7 +10835,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
 
-  @243992 @243993 @ValidateDirectedthatPMuserwillseeHighlightedneweditdeletebuttononthesubawardcategorymodaltoeditthebudgetincaseofdetailbudget @sprint-16-US-238128 @vaibhav @Allocation @TBExecution
+  @243992 @243993 @ValidateDirectedthatPMuserwillseeHighlightedneweditdeletebuttononthesubawardcategorymodaltoeditthebudgetincaseofdetailbudget @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Competitive that <PM> user will see Highlighted new/edit/delete button on the subaward category modal to edit the budget in case of detail budget
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -11606,7 +11607,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Override" in the page details
     And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
@@ -11713,7 +11714,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
-  @245221 @245243 @245223 @ValidateDirectedthatSPIUserillseeBudgetperiodDetailssectionrenamedtoBudgetSummarysectioninsendtosrstate @sprint-16-US-242771 @vaibhav @Allocation @TBExecution
+  @245221 @245243 @245223 @ValidateDirectedthatSPIUserillseeBudgetperiodDetailssectionrenamedtoBudgetSummarysectioninsendtosrstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed that <SPI> User will see Budget period Details section renamed to Budget Summary section in send to s/r state
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
