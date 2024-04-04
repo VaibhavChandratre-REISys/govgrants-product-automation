@@ -11322,7 +11322,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation SPI3 user | SPI3  |
       | Automation SPI3 user | IND   |
 
-  @hit1 @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
+  @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
   Scenario: Validate Admin user should not accept negative value in encumbrance and new obligation filed on award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -11410,7 +11410,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The Total Commitment cannot be less than zero. |
 
-  @hit1 @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude
+  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude
   Scenario: Validate Admin user can see Field History is maintained for New Obligation Field
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
