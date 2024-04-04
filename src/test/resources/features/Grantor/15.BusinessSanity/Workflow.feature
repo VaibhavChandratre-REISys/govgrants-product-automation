@@ -2078,10 +2078,7 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "ADMIN" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDV000003SFubYAG/view"
-    And I wait for "3" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name             | Announcement | FDM    |
-      | Automation ADMIN | Step 1       | Step 2 |
+    Given I login to "As a Grantor" app as "EXE" user
+    And I halt execution
+    And I check "AP-TAO modified-2814" boxes in flex table with id "AssignAppToUser"
+    And I halt execution

@@ -10009,7 +10009,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I pause execution for "50" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11577,18 +11577,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name          | Closeout |
       | Automation PO | Step 1   |
+    And I wait for "3" seconds
     And I click on "Send To Subrecipient" in the page details
     And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

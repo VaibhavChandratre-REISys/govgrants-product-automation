@@ -247,11 +247,11 @@ public final class FlexTable implements FlexTableComponent {
     public void selectCheckBoxes(String flexTableId, String... uniqueColumnTexts) {
         // if passed no strings, it will check the "select all" box at the top
         if (uniqueColumnTexts.length == 0) {
-            By checkAllSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//input[@type='checkbox']");
+            By checkAllSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//span[@class='slds-checkbox_faux']");
             I.amPerforming().click().withJavaScript(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
-            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr[@class='inputRows']//input[@type='checkbox']");
+            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr[@class='inputRows']//span[@class='slds-checkbox_faux']");
                 I.amPerforming().click().withJavaScript(rowCheckboxSelector);
         }
     }
