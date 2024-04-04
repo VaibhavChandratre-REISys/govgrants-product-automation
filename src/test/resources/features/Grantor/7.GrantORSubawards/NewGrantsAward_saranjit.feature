@@ -1,7 +1,7 @@
 @grantsAwardAllocationSaranjit @grantor-regression @grantor-parallel-regression @grantAndAward @regression
 Feature: Validate all scenarios of grants and award for Allocation Saranjit
 
-  @checknow @269836 @269840 @ValidateAdminUserWillseeProposedEstimatedFundingfieldismandatoryfield @sprint-21-US-265547 @vaibhav @Allocation
+  @269836 @269840 @ValidateAdminUserWillseeProposedEstimatedFundingfieldismandatoryfield @sprint-21-US-265547 @vaibhav @Allocation
   Scenario: Validate Admin User Will see Proposed Estimated Funding field is mandatory field
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -237,7 +237,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -274,7 +274,6 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -375,7 +374,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I see the following messages in the page details :
       | Financial Tab - Total of Net Spent This Action for funding accounts should match Net Spent This Action. |
 
-  @checknow @247546 @VerifyEXEusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-17-US-246018 @hitesh
+  @ch1 @247546 @VerifyEXEusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-17-US-246018 @hitesh
   Scenario: Verify EXE user should see Awarded Amount field renamed as Cumulative Obligation field with value populated under Actual summary section of Actual tab on Grant layout when Grant is in Closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -498,7 +497,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly can see top right button "Add" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
 
-  @checknow @247420 @ValidateCompAnnEXEusershouldseebudgetsummarybyfocusareasectiononGrantunderbudgettabisinClosedStatewhenselectAllocationTypeisNA&FocusAreaisYESwhilecreatingDirectGrant @sprint-17-US-246018 @vaibhav @Allocation
+  @ch1 @247420 @ValidateCompAnnEXEusershouldseebudgetsummarybyfocusareasectiononGrantunderbudgettabisinClosedStatewhenselectAllocationTypeisNA&FocusAreaisYESwhilecreatingDirectGrant @sprint-17-US-246018 @vaibhav @Allocation
   Scenario: Validate Comp Ann EXE user should see 'budget summary by focus area' section on Grant under budget tab is in Closed State when select Allocation Type is NA & Focus Area is 'YES' while creating Direct Grant
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -540,6 +539,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "green"
     And I navigate to "Grants" tab
@@ -573,7 +573,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "{SavedValue:CumulativeObligationFA2}" is "Equals to" the value "{SavedValue:CumulativeObligationFA2Grant}"
     Then I softly see value "{SavedValue:CumulativeObligationFATotal}" is "Equals to" the value "{SavedValue:CumulativeObligationFATotalGrant}"
 
-  @checknow @274096 @ValidateFANoasPOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccesisYesforreviewer @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274096 @ValidateFANoasPOasreviewerIshouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccesisYesforreviewer @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate FA No Verify as PO as reviewer I should able to edit the "Total Commitment" field in sent for review states of award if allow edit access is 'Yes' for reviewer
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -715,7 +715,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
     Then I softly see value "{SavedValue:RequiredMatchAmount}" is "Equals to" the value "{SavedValue:RequiredMatchAmountGrant}"
 
-  @checknow @276446 @ValidateFormulaByapplicantFocusAreaFAYESPMusershouldseeFocusAreawithZeroObligationunderbudgetsummarybyfocusareasectiononAwardinActiveStatewhilecreatingDirectGrant @Sprint-24-US-275864 @vaibhav @Allocation
+  @ch1 @276446 @ValidateFormulaByapplicantFocusAreaFAYESPMusershouldseeFocusAreawithZeroObligationunderbudgetsummarybyfocusareasectiononAwardinActiveStatewhilecreatingDirectGrant @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES PM user should see Focus Area with Zero Obligation under 'budget summary by focus area' section on Award in Active State while creating Direct Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -728,8 +728,8 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @check1 @276331 @ValidateDirectGrantByapplicantandFABalanceisnotdeductedfromFundingaccountwhensubawardisrejectedfromapprovalprocess @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Direct Grant By applicant and FA Balance is not deducted from Funding account when subaward is rejected from approval process
@@ -790,7 +790,6 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -966,7 +965,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | EXE   | Automation EXE user   |
       | ADMIN | Automation ADMIN user |
 
-  @checknow @272114 @272423 @ValidatePMusershouldseeupdatedspentamountonawardandgrantunderactualtabifpaymentrequestisinpaidstate @Sprint-22-US-270869 @vaibhav @Allocation
+  @ch1 @272114 @272423 @ValidatePMusershouldseeupdatedspentamountonawardandgrantunderactualtabifpaymentrequestisinpaidstate @Sprint-22-US-270869 @vaibhav @Allocation
   Scenario: Validate PM user should see updated spent amount on award and grant under actual tab if payment request is in paid state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Directed"
     And I am on "SUBPORTAL" portal
@@ -1187,7 +1186,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I navigate to "Financials" sub tab
     Then I softly see field "Subaward Spent" as "$1,000.00"
 
-  @checknow @354313 @ValidateDirectedthatPMuserdonnotseeBudgetSummaryByFocusAreasectionifAllocationSettingissetasByapplicantandFAisNO @sprint-16-US-238128 @vaibhav @Allocation
+  @ch1 @354313 @ValidateDirectedthatPMuserdonnotseeBudgetSummaryByFocusAreasectionifAllocationSettingissetasByapplicantandFAisNO @sprint-16-US-238128 @vaibhav @Allocation
   Scenario: Validate Directed that PM user don not see Budget Summary By Focus Area section if Allocation Setting is set as By applicant and FA is NO
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1202,10 +1201,10 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @checknow @276538 @ValidateCompetitiveFAYesusercanseefocusareaswith0obligationonactiveSubawardwhenawardiscreatedfromdirectgrant @Sprint-23-US-275864 @vaibhav @Allocation
+  @ch1 @276538 @ValidateCompetitiveFAYesusercanseefocusareaswith0obligationonactiveSubawardwhenawardiscreatedfromdirectgrant @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Competitive FA Yes user can see focus areas with 0 obligation on active Subaward when award is created from direct grant
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1219,10 +1218,10 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @checknow @276336 @ValidateFormulaByApplicantFAYesusercanseefocusareaswith0obligationonactivesubawardwhenawardiscreatedfromdirectgrant @Sprint-23-US-275864 @vaibhav @Allocation
+  @276336 @ValidateFormulaByApplicantFAYesusercanseefocusareaswith0obligationonactivesubawardwhenawardiscreatedfromdirectgrant @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By Applicant FAYes user can see focus areas with 0 obligation on active subaward when award is created from direct grant
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -1239,7 +1238,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @checknow @116309 @ValidateDirectedValidateAwardActivationfailurewhenInternalUserselectsRiskAssessmentasYESontheGrant @Sprint-23-US-273843 @vaibhav @Allocation
+  @116309 @ValidateDirectedValidateAwardActivationfailurewhenInternalUserselectsRiskAssessmentasYESontheGrant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Directed Award Activation failure when Internal User selects Risk Assessment as YES on the Grant
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1332,7 +1331,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @checknow @248587 @ValidateCompAnnSPAusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulateunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @248587 @ValidateCompAnnSPAusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulateunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Comp Ann SPA user should see Awarded Amount field renamed as Cumulative Obligation field with value populated under Actual summary section of Actual tab on Grant layout when Grant is in Closed state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1402,7 +1401,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationActualsSummary"
     Then I softly see value "{SavedValue:CumulativeObligationBudgetSummary}" is "Equals to" the value "{SavedValue:CumulativeObligationActualsSummary}"
 
-  @checknow @243845 @ValidateFormulaEXEusershouldnotabltoedittheNewobligationfieldinSenttoSRsubmiforapprovalApprovedSentSrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo
+  @ch1 @243845 @ValidateFormulaEXEusershouldnotabltoedittheNewobligationfieldinSenttoSRsubmiforapprovalApprovedSentSrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo
   Scenario: Validate Formula EXE user should not able to edit the "New obligation" field in  Sent to S/R, submit for approval Approved Sent to S/r After approval Amended or Pending Activation or Activated states FA=No)
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1417,7 +1416,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1439,7 +1438,6 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -1615,7 +1613,6 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
     When I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
@@ -1644,7 +1641,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     Then I see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
-  @checknow @117269 @ValidatetheAwardandGrantBudgetpostsinglereimbursementpaymentrequestisapproved @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @117269 @ValidatetheAwardandGrantBudgetpostsinglereimbursementpaymentrequestisapproved @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the Award and Grant Budget post single reimbursement payment request is approved
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
