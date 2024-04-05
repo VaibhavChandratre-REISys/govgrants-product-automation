@@ -40,7 +40,6 @@ public class CapabilitiesManager {
                 "disable-infobars", // disabling infobars
                 "--disable-extensions", // disabling extensions
                 "--disable-gpu", // applicable to windows os only
-                "--disable-popup-blocking",
                 "--no-sandbox",
                 "--ignore-ssl-errors=yes", // Bypass ‘Connection Is Not Private’
                 "--ignore-certificate-errors" // Bypass ‘Connection Is Not Private’
