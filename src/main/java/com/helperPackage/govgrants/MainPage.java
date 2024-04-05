@@ -109,7 +109,7 @@ public final class MainPage {
         try {
             I.amPerforming().click().on(loginButton);
             if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
+                I.amPerforming().waitFor().makeThreadSleep(2000);
                 I.amPerforming().switchTo().acceptAlert();
             }
         } catch (WebDriverException e) {
