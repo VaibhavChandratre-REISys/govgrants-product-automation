@@ -10100,7 +10100,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #246448
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @hit @246444 @246447 @ValidatecompetativeThatSPAuserwillseeNewobligationinBudgetSummarybyfocusAreasectionwhenawardisinPendingActivationandamendedstate @sprint-16-US-242771 @vaibhav @Allocation
+  @246444 @246447 @ValidatecompetativeThatSPAuserwillseeNewobligationinBudgetSummarybyfocusAreasectionwhenawardisinPendingActivationandamendedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That <SPA> user will see New obligation in Budget Summary by focus Area section  when award is in Pending Activation and amended state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I login to "As a Grantor" app as "EXE" user
@@ -10376,7 +10376,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @hit @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
+  @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10441,7 +10441,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
 
-  @hit @240306 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFANO @sprint-16-US-220612 @vaibhav @Allocation
+  @240306 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFANO @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=No)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10697,7 +10697,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Cumulative Obligation" rendered in view mode only
 
-  @hit @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
+  @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp Ann PM user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10810,6 +10810,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "5" seconds
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I refresh the page
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
@@ -10947,6 +10949,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I wait for "5" seconds
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I refresh the page
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
