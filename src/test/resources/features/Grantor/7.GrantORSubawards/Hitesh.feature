@@ -10860,6 +10860,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
     And I refresh the page
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
@@ -10926,9 +10927,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Carry-Forward" inside page block detail
 
   @hit @244020 @244021 @244026 @244364 @ValidateDirectAnnPOuserseeCarryforwardfieldwithzerovalueshouldbeonlydisplayonawardunderBudgetSummarysectionwhenbudgetperiodchangetoBP02andbeyond @sprint-16-US-226122 @vaibhav @Allocation
-  Scenario: Validate Direct Ann PO user see 'Carry forward' field with zero value should be only display on award under Budget Summary section when budget period change to BP02 and beyond
+  Scenario Outline: Validate Direct Ann PO user see 'Carry forward' field with zero value should be only display on award under Budget Summary section when budget period change to BP02 and beyond
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
-    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "<User>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation PO user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
@@ -10959,7 +10960,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:PO Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -11015,7 +11016,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Amendment Request |
       | {SavedValue:PO Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -11066,7 +11067,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     #244364
-    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11078,6 +11079,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
+
+    Examples:
+      | User                         | User1 |
+      | default                      | SPI3  |
+      | default-Automation SPI3 user | IND   |
 
   @hit @244220 @244230 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Comp Ann SPI/SPA user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
@@ -11204,7 +11210,7 @@ Feature: Validate all scenarios of grants and award for Allocation
   @hit @244342 @244354 @validateDirectAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectionAmendedPendingactivation
   Scenario Outline: Validate Direct Ann IND user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
-    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<User>"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "<User>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "default"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
@@ -11324,9 +11330,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
     Examples:
-      | User                 | User1 |
-      | Automation SPI3 user | SPI3  |
-      | Automation SPI3 user | IND   |
+      | User                        | User1 |
+      | default                     | SPI3  |
+      | default-Automation IND user | IND   |
 
   @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
   Scenario: Validate Admin user should not accept negative value in encumbrance and new obligation filed on award
