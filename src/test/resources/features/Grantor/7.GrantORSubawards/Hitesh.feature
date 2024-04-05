@@ -11336,7 +11336,6 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User                        | User1 |
-      | default                     | SPI3  |
       | default-Automation IND user | IND   |
 
   @246079 @ValidateAdminusershouldnotacceptnegativevalueinencumbranceandnewobligationfiledonaward @sprint-16-US-238049 @Vaibhav @Allocation
