@@ -2078,7 +2078,7 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "EXE" user
-    And I wait for "4" seconds
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I wait for "5" seconds
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
