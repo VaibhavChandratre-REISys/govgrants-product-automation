@@ -106,7 +106,8 @@ public final class MainPage {
         }
         try {
             I.amPerforming().click().on(loginButton);
-        } catch (WebDriverException e) {
+        }
+        catch (WebDriverException e) {
             I.amPerforming().getElementReference().of(By.xpath("//a[@title='Home Tab'] | //a[@title='Home Tab - Selected'] | //a[@title='Home']"));
         }
 
