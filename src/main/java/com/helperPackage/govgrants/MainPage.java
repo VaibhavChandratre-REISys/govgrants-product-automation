@@ -108,6 +108,10 @@ public final class MainPage {
         }
         try {
             I.amPerforming().click().on(loginButton);
+            if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+                I.amPerforming().switchTo().acceptAlert();
+            }
         } catch (WebDriverException e) {
             I.amPerforming().getElementReference().of(By.xpath("//a[@title='Home Tab'] | //a[@title='Home Tab - Selected'] | //a[@title='Home']"));
         }
