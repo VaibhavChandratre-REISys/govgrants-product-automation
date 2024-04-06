@@ -1,5 +1,6 @@
 package com.ggproduct.automation.steps.grantor;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.ggproduct.automation.webservices.GrantorWebServices;
@@ -544,6 +545,12 @@ public class GenericSteps {
     public void iEnterValueIntoEmailBody(String enterValue) {
         By emailBody = By.xpath("//body[contains(@id,'accountInvitation')]");
         I.amPerforming().textInput().in(emailBody, enterValue);
+    }
+    @And("I check the checkbox in modal with field value {string}")
+    public void iCheckTheCheckboxInModalWithFieldAPI(String arg0) {
+        By checkbox = ByUsing.xpath("//span[contains(text(),'" + arg0 + "')]/..//span[@class='slds-checkbox_faux']");
+        I.amPerforming().waitFor().ElementToBeClickable(checkbox);
+        I.amPerforming().click().withJavaScript(checkbox, true);
     }
 
     @Then("^I (softly see|softly cannot see|cannot see|see) column \"([^\"]*)\" inside row \"([^\"]*)\" at position \"([^\"]*)\" contains text \"([^\"]*)\"$")
