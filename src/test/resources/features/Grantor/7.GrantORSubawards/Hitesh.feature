@@ -11218,7 +11218,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<User>"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "default-Automation ADMIN user"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation ADMIN user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
