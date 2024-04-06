@@ -1,4 +1,4 @@
-@preApplicationExecution @preAplicationWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@preApplicationExecution @preAplicationWB @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Pre-Application scenarios without background
 
   @53155 @PreApplicationAttachmentChecklistCA
