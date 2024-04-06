@@ -352,7 +352,7 @@ public final class PageDetails {
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
         By progressBarStatusLocator = By.xpath("//div[@class='container-fluid']//*[@id='progressBarId']//ol//li" + "//span["
-                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='"+ statusName +"' and contains(@class,'active')] | //c-step-progressbar//li[contains(@title,'" + statusName + "') and contains(@class,'active')]");
+                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='"+ statusName +"' and contains(@class,'active')] | //c-step-progressbar//span[text()='"+ statusName +"']/ancestor::li[contains(@class,'active')]");
         return I.amPerforming().getElementReference().of(progressBarStatusLocator);
     }
 
@@ -596,9 +596,9 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//span[text()='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]|//div[@class='selectTitle']//label[contains(text(),'" + fieldLabel + "')] | //table[@id='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] ";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));
