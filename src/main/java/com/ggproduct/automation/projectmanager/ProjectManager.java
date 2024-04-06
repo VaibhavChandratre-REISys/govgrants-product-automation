@@ -123,7 +123,7 @@ public class ProjectManager extends ProjectWebServices {
     private boolean isFieldNotInEditMode(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input | //div[@data-field_api_name='" + fieldAPIName + "']//input[@name='" + fieldAPIName + "']")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input | //div[@data-field_api_name='" + fieldAPIName + "']//input")))
                 flag = true;
         } catch (Exception e) {
             flag = false;

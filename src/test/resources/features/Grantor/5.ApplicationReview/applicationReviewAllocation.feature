@@ -1,6 +1,7 @@
 @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE @applicationReviewAllocationWB
 Feature: Validate all scenarios in the Application Review with Allocation Feature
 
+
   @239509 @239522 @239528 @239530  @sprint-15-US-236836 @vaibhav @Allocation
   Scenario Outline: Validate that EXE user will see a new column, "Total commitment Amount " in the recommended application section of FDM layout
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
@@ -55,6 +56,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -121,7 +123,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -190,7 +193,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -262,7 +265,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -326,7 +330,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -450,7 +455,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -515,6 +521,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "4" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -637,7 +645,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -702,6 +711,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -850,7 +861,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -916,6 +928,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -1051,6 +1065,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1117,6 +1132,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1215,7 +1231,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1281,6 +1298,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1389,6 +1407,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1455,6 +1475,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -1572,7 +1594,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1638,6 +1661,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -1740,6 +1765,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -1806,6 +1832,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -1908,8 +1936,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1977,7 +2005,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2073,8 +2102,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
+     And I refresh the page
     And I pause execution for "5" seconds
-    And I refresh the page
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2142,7 +2171,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+     And I refresh the page
+     And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2254,8 +2284,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2323,7 +2353,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -2437,8 +2468,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2506,7 +2537,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
@@ -2628,6 +2660,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click modal button "Close"
     And I pause execution for "5" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2695,7 +2728,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2851,6 +2885,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click modal button "Close"
     And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2918,6 +2953,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3019,6 +3055,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click modal button "Close"
     And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3087,6 +3124,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3145,7 +3184,6 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
-#    Then I softly can see row level action button "Edit" against "<Announcement Name>" in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---"
     Then I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title                                               | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | 1234567890234567       |
@@ -3218,6 +3256,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click modal button "Close"
     And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3285,7 +3324,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3335,7 +3375,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
-    And I "Send back" in the approval decision
+    And I "Send Back" in the approval decision
     And I wait for "10" seconds
     And I refresh the page
     Then I softly see field "Status" as "Created"
@@ -3445,8 +3485,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
-    And I refresh the page
+     And I refresh the page
+     And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3518,7 +3558,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "3" seconds
+     And I refresh the page
+     And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3690,7 +3731,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3809,8 +3851,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3877,7 +3919,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3976,8 +4019,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4045,6 +4089,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4086,6 +4132,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When  I enter "Negotiation_Edit_Budget" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4127,6 +4174,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I perform quick search for "Compliance Review" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I pause execution for "3" seconds
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4186,7 +4235,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-    And I wait for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4306,8 +4356,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4376,6 +4427,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"

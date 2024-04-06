@@ -1773,7 +1773,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier keerti.munde
      */
     private WebElement getPageBlockDetailsElement(String changedFieldName) {
-        return I.amPerforming().getElementReference().of(By.xpath("//div//label[contains(text(),'" + changedFieldName + "')] | //span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "']"));
+        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
     }
 
     /**
@@ -2240,7 +2240,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span " + "| //div[@data-field_api_name='" + fieldAPIName + "']"  )))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
@@ -2676,7 +2676,7 @@ public final class GovGrantsAssertionObjects {
     private boolean assertFieldPresentInsideSection(String fieldName, String sectionName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "] | //div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {

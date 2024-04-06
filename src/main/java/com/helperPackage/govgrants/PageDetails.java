@@ -596,9 +596,9 @@ public final class PageDetails {
         String element = null;
 
         if (fieldLabel.contains("'"))
-            element = "//span[text()='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
         else
-            element = "//span[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]|//div[@class='selectTitle']//label[contains(text(),'" + fieldLabel + "')] | //table[@id='" + fieldLabel + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "] ";
+            element = "//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
 
         try {
             I.amPerforming().getElementReference().of(ByUsing.xpath(element));

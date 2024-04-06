@@ -247,11 +247,11 @@ public final class FlexTable implements FlexTableComponent {
     public void selectCheckBoxes(String flexTableId, String... uniqueColumnTexts) {
         // if passed no strings, it will check the "select all" box at the top
         if (uniqueColumnTexts.length == 0) {
-            By checkAllSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//input[@type='checkbox']");
+            By checkAllSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th[contains(@id,'allselect')]//span[@class='slds-checkbox_faux']");
             I.amPerforming().click().withJavaScript(checkAllSelector);
         }
         for (String uniqueColumn : uniqueColumnTexts) {
-            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr[@class='inputRows']//input[@type='checkbox']");
+            By rowCheckboxSelector = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//*[text()='" + uniqueColumn + "']//ancestor::tr[@class='inputRows']//span[@class='slds-checkbox_faux']");
                 I.amPerforming().click().withJavaScript(rowCheckboxSelector);
         }
     }
@@ -1022,25 +1022,26 @@ public final class FlexTable implements FlexTableComponent {
                 WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
 //                I.amPerforming().scroll().onPageToSpecificElement(inputBox);
                 I.amPerforming().click().withJavaScript(inputBox);
-                for (int i = 0; i < 50; i++) {
-                    try {
-                        By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
-                        I.amPerforming().textInput().toClear(inputBox);
-                        I.amPerforming().textInput().in(inputBox, fieldValue);
+                    for (int i = 0; i < 50; i++) {
+                        try {
+                            By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
+                            I.amPerforming().textInput().toClear(inputBox);
+                            I.amPerforming().textInput().in(inputBox, fieldValue);
 //                            I.amPerforming().scroll().withMouseToElement(inputBox);
-                        I.amPerforming().click().on(inputBox);
-                        if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
-                            try {
-                                I.amPerforming().click().on(selectText);
-                            } catch (Exception e) {
-                                I.amPerforming().click().withJavaScript(selectText);
+                            I.amPerforming().click().on(inputBox);
+                            if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
+                                try {
+                                    I.amPerforming().click().on(selectText);
+                                } catch (Exception e) {
+                                    I.amPerforming().click().withJavaScript(selectText);
+                                }
                             }
+                            break;
+                        } catch (Exception e) {
+
                         }
-                        break;
-                    } catch (Exception e) {
 
                     }
-                }
             }
             else {
                 By inputBoxSelector = By.xpath(".//input[@type='text' or @type='number' or @type='email'] | .//textarea");
