@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @testNow @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
+@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
 Feature: Validate all scenarios in Payment Request
 
   Background: Navigate to award
