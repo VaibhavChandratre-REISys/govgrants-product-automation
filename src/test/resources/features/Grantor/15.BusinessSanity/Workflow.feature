@@ -1534,16 +1534,28 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    When I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "SPI3" user
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "PM1" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/n/Applications"
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I wait for "4" seconds
-    And I perform quick search for "AP-TAO modified-2342" in "---applicationReview:-:pendingTaskTableId---" panel
-    Then I softly see value "AP-TAO modified-2342" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+#    When I login to "As a Grantor" app as "PM1" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2x19000002PVZHAA4/pr123405?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
+    When I navigate to "Forms and Files" sub tab
+#    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+#    And I pause execution for "5" seconds
+#    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+#    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
+#    And I pause execution for "5" seconds
+#    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:reimburseFilesTableId---"
+#    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
     And I halt execution

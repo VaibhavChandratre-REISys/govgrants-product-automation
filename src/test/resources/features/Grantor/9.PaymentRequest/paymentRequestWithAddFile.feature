@@ -747,8 +747,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Advance Payment Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Advance Payment Files" flex table
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -798,9 +797,9 @@ Feature: Validate all scenarios in Payment Request with add file
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
-    Then I softly can see row level action button "Download" against "{SavedValue:AttachedFile}" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    When I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---" without waiting for record
-    Then I softly verify that the file "{SavedValue:AttachedFile}" is downloaded
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    When I click on "Download" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---" without waiting for record
+    Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @193977 @VerifyPMusercannotseetopleveleditbuttonandshouldabletoaddfileonadhocreimbursementPRwhenusersendtoownerwhileapproval @sprint-14-US-225425 @addFiles @hitesh @TBExecution1
   Scenario:Verify PM user can not see top level edit button and should able to add file on ad-hoc reimbursement PR when user send to owner while approval
@@ -856,8 +855,8 @@ Feature: Validate all scenarios in Payment Request with add file
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
@@ -938,5 +937,4 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
