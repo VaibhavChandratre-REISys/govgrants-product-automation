@@ -21,9 +21,9 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Financials" sub tab
     When I enter value "I Agree" into field "TermsAgreement__c"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @38660 @budgetAdditionPaymentRequest @smoke 
+  @38660 @budgetAdditionPaymentRequest @smoke @wip
   Scenario: To edit the budget an Adhoc Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Payment Request
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |  20                       | 100        | 100            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -114,7 +114,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---paymentRequest:-:ReimbursmentApproverTableId---"
     And I refresh the page
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -161,7 +161,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -208,7 +208,7 @@ Feature: Validate all scenarios in Payment Request
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
-    Then I see status in Progress-bar is "Rejected" and is "Red"
+    Then I see status in Progress-bar is "Rejected" and is "red"
 
   @38838 @paymentRequestReSubmitAfterCorrection @mahadev 
   Scenario: Re-Submit Payment Request to grantor after correction
@@ -255,7 +255,7 @@ Feature: Validate all scenarios in Payment Request
       | Extra Salary | The narrative | 10         |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @38837 @pRSendBackToOwner @mahadev 
   Scenario: Approver send back payment request to owner
@@ -294,7 +294,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @38742 @54587 @taskCreationforFOUser @validateFiscalApprovalCannotEditAdvancePRAfterSubmittingForApproval @mahadev 
   Scenario: Validate fiscal approver can not edit advance payment request after submitting for approval |Validate task creation for fiscal user
@@ -317,7 +317,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @53845 @paymentRequestAccessibleToSPIandSPA @mahadev 
   Scenario Outline: Verify that edited details of payment request's record are accessible to both (SPI/SPA) the users irrespective of who has created PR
@@ -332,8 +332,8 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I perform quick search for "<Award Name>" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on "View" icon for "Record Id" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     And I navigate to "Financials" sub tab
@@ -364,8 +364,8 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I perform quick search for "<Award Name>" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on "View" icon for "Record Id" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     Then I cannot see top right button "Submit to Grantor" in page detail
@@ -381,7 +381,7 @@ Feature: Validate all scenarios in Payment Request
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @53844 @53841 @CreateAndEditAdvancePaymentRequestBySPIUser @mahadev 
   Scenario: edition of advance payment request
@@ -392,7 +392,7 @@ Feature: Validate all scenarios in Payment Request
     And I wait for "2" seconds
     And I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Acknowledgement" as "I Agree"
 
   @53971 @advancePaymentRequestSubmitToGrantorBySPA @mahadev
@@ -401,8 +401,8 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I perform quick search for "<Award Name>" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Runtime Payment Request" into field "Title__c"
@@ -432,7 +432,6 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -473,10 +472,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -519,10 +517,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -565,10 +562,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -612,10 +608,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -665,10 +660,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     Then I softly cannot see top right button "Edit" in page detail
@@ -701,7 +695,7 @@ Feature: Validate all scenarios in Payment Request
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "Green"
 
-  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR @mahadev @buglogged101170 @buglogged93512 @buglogged151163
+  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR @wip @needtocheck @mahadev @buglogged101170 @buglogged93512 @buglogged151163
   Scenario: Validate the paid button not displayed on reimbursement Payment request after rejection
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -773,10 +767,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -802,7 +795,7 @@ Feature: Validate all scenarios in Payment Request
     And I "Disapprove" in the approval decision
     Then I cannot see top right button "Mark as Paid" in page detail
 
-  @54588 @ValidateFiscalApprovalCannotEditReimbursementPRAfterSubmittingForApproval @smoke
+  @54588 @ValidateFiscalApprovalCannotEditReimbursementPRAfterSubmittingForApproval @smoke @wip
   Scenario: Validate fiscal approver can not edit Reimbursement payment request after submitting for approval
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -849,10 +842,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -881,7 +873,7 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Save" in the page details
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
+    And
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Invoice" from computer
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
@@ -897,7 +889,6 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
@@ -913,12 +904,11 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev 
+  @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -929,7 +919,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:reimbursementAddFilesTableId---"
+#    And I switch to iframe with id "---paymentRequest:-:reimbursementAddFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -949,10 +939,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -963,7 +952,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Financials" sub tab
     Then I see field "Program Income" as "$1,000.00"
 
-  @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev 
+  @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev @wip
   Scenario Outline: Validate Program Income tracking gets updated on award at grantor side after approval of reimbursement PR
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1035,10 +1024,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1049,7 +1037,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Financials" sub tab
     Then I cannot see row level action button "Disallow Amount" against "Construction" in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
 
-  @54743 @verifyFiscalApproverCannotEnterDisallowedAmountGreaterthanRequestedAmount @mahadev
+  @54743 @verifyFiscalApproverCannotEnterDisallowedAmountGreaterthanRequestedAmount @mahadev @wip
   Scenario: Verify that fiscal officer can not enter 'Disallowed Amount' greater than Requested Amount
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1116,10 +1104,10 @@ Feature: Validate all scenarios in Payment Request
     And I "Approve" in the approval decision
     #As per discussion with sarat changing validation point
     Then I softly see field "Status" as "Approved"
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #Then I can see the message "Successfully Approved" in the approval decision
 
-  @54324 @validateSuccesfulReassignedmessageOnReimbursementPR @mahadev 
+  @54324 @validateSuccesfulReassignedmessageOnReimbursementPR @mahadev @wip
   Scenario: Validate succesfully reassigned message on Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1197,10 +1185,10 @@ Feature: Validate all scenarios in Payment Request
     And I "Disapprove" in the approval decision
     #As per discussion with sarat changing validation point
     Then I softly see field "Status" as "Rejected"
-    Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    Then I softly see status in Progress-bar is "Rejected" and is "red"
     #Then I can see the message "Successfully disapproved" in the approval decision
 
-  @54326 @validateSendBackMessageOnReimbursementPR @mahadev 
+  @54326 @validateSendBackMessageOnReimbursementPR @mahadev @wip
   Scenario: Validate succesfully send back payment request message on Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1284,10 +1272,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1314,8 +1301,8 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on "Delete" icon for "Record Id" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:paymentRequestTableId---"
@@ -1338,7 +1325,6 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1383,7 +1369,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @54648 @checkPendingTaskAfterSubmitToGrantor @jitendra
+  @54648 @checkPendingTaskAfterSubmitToGrantor @jitendra @wip
   Scenario: Verify that on submit to grantor , user is able to check pending task for Payment Request (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1420,10 +1406,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1458,7 +1443,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Overview" sub tab
     Then I cannot see field "Is Final Payment Request?" inside page block
 
-  @38744 @validateFiscalApproversCanAddDisallowanceAmountPaymentRequest
+  @38744 @validateFiscalApproversCanAddDisallowanceAmountPaymentRequest @wip
   Scenario: Validate the Fiscal Approvers can add Disallowance for Reimbursement Payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1542,10 +1527,9 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
@@ -1600,7 +1584,6 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1633,10 +1616,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1778,10 +1760,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1828,10 +1809,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1881,7 +1861,6 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2085,10 +2064,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2135,10 +2113,9 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 10                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2185,10 +2162,9 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 10                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2200,7 +2176,7 @@ Feature: Validate all scenarios in Payment Request
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @57518 @reimbursementPRErrorMsgAfterSubmitToApproval @jitendra 
+  @57518 @reimbursementPRErrorMsgAfterSubmitToApproval @jitendra @wip
   Scenario: Verify if Payment Approval is not selected by FO user it should show validation error message.(Reimbursement Payment Request)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2245,13 +2221,13 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 20                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I perform quick search for "<Award Name>" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Runtime Payment Request2" into field "Title__c"
@@ -2265,7 +2241,7 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 20                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2324,10 +2300,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2356,7 +2331,7 @@ Feature: Validate all scenarios in Payment Request
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @55403 @verifyReimbursementPRApprovalsendbackOwner @jitendra
+  @55403 @verifyReimbursementPRApprovalsendbackOwner @jitendra @wip
   Scenario Outline: Verify that Payment Approval can send back Payment request to Owner (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2481,10 +2456,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2514,7 +2488,7 @@ Feature: Validate all scenarios in Payment Request
       | {SavedValue:FD Username} | Step 4  |
     Then I softly see "Saved successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
 
-  @testNow @148783 @Verify1StepApprovalForAdvancePaymentRequest-RnRFuntionality @monu
+  @148783 @Verify1StepApprovalForAdvancePaymentRequest-RnRFuntionality @monu @wip @needtocheck
   Scenario Outline:Verify user can add one step approver for advance payment request and approve it
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2574,10 +2548,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2613,10 +2586,9 @@ Feature: Validate all scenarios in Payment Request
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2650,7 +2622,7 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 20                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2666,7 +2638,7 @@ Feature: Validate all scenarios in Payment Request
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2706,7 +2678,7 @@ Feature: Validate all scenarios in Payment Request
       | Construction    | 20                            |
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2722,7 +2694,7 @@ Feature: Validate all scenarios in Payment Request
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
