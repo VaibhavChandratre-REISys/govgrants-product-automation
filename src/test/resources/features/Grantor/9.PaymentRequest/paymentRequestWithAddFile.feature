@@ -26,7 +26,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "3" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -65,7 +65,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -150,7 +150,7 @@ Feature: Validate all scenarios in Payment Request with add file
     #193866
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:reimburseFilesTableId---"
@@ -174,10 +174,12 @@ Feature: Validate all scenarios in Payment Request with add file
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -223,7 +225,8 @@ Feature: Validate all scenarios in Payment Request with add file
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #193879
     Then I cannot see top right button "Edit" in page detail
@@ -257,7 +260,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "1" seconds
     And I click on "Submit to Grantor" in the page details
@@ -274,7 +277,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     And I pause execution for "2" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:advanceFilesTableId---"
@@ -307,7 +310,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    When I click modal button "Close"
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #193878
@@ -376,7 +379,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
     And I pause execution for "2" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:advanceFilesTableId---"
@@ -502,7 +505,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @193919 @VerifyPMusercannotseetopleveleditbuttonandnotabletoaddfileonadhocreimbursementPRwhenPMusersentPRtoSRuser @sprint-14-US-225425 @addFiles @hitesh @TBExecution1
+  @193919 @VerifyPMusercannotseetopleveleditbuttonandnotabletoaddfileonadhocreimbursementPRwhenPMusersentPRtoSRuser @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify PM user can not see top level edit button and not able to add file on ad-hoc reimbursement PR when PM user sent PR to S\R user
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -618,7 +621,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "2" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -736,12 +739,12 @@ Feature: Validate all scenarios in Payment Request with add file
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "2" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
@@ -782,7 +785,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    When I click modal button "Close"
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -904,6 +907,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
