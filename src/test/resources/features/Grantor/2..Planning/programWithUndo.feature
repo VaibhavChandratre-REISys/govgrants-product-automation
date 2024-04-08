@@ -3017,7 +3017,7 @@ Feature: Validate all scenarios for program
     And I click on "Undo" in the page details without processing
     #279387
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision

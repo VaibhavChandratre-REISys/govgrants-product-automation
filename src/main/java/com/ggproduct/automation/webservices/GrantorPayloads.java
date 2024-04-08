@@ -43,6 +43,8 @@ public class GrantorPayloads {
                 return updateBudgetCategoryForTwoFocusAreasFifteenHundredAmt(defaultJson);
             case "SECOND_BUDGET_CAT_DETAILS_BUD_YES":
                 return updateBudgetCategoryForTwoFocusAreasDetailsBudgetYes(defaultJson);
+            case "BUDGET_CAT_DETAILS_BUD_YES":
+                return updateBudgetCategoryForOneFocusAreasDetailsBudgetYes(defaultJson);
             case "KYECONTACTS":
                 break;
             case "KEYOUTCOME":
@@ -50,6 +52,21 @@ public class GrantorPayloads {
             default:
                 return defaultJson;
         }
+        return defaultJson;
+    }
+
+    private JsonObject updateBudgetCategoryForOneFocusAreasDetailsBudgetYes(JsonObject defaultJson) {
+        JsonArray budgetCategoryArray = new JsonArray();
+        JsonObject budgetCategory1 = new JsonObject();
+        budgetCategory1.addProperty("Title", "Construction");
+        budgetCategory1.addProperty("Narrative", "Construction");
+        budgetCategory1.addProperty("BudgetRequest", 1000);
+        budgetCategory1.addProperty("CashMatch", 100);
+        budgetCategory1.add("NonCashMatch", JsonNull.INSTANCE);
+        budgetCategory1.add("OtherLeverageOptional", JsonNull.INSTANCE);
+        budgetCategory1.addProperty("ServiceAreaTitle", "Automation Permanent Focus Area");
+        budgetCategoryArray.add(budgetCategory1);
+        defaultJson.add("BuildUpItems", budgetCategoryArray);
         return defaultJson;
     }
 
@@ -571,9 +588,23 @@ public class GrantorPayloads {
                 return updateAnnouncementWithThreeFocusAreaByappDetailsYesRiskNo(json);
             case "PROGRAM_FOR_PREAPP_SUPP_DOC_YES":
                 return updateAnnouncementWithProgramSuppDocYes(json);
+            case "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO":
+                return updateAnnouncementWithByAppDetailBudgetYes(json);
             default:
                 return json;
         }
+    }
+
+    private JsonObject updateAnnouncementWithByAppDetailBudgetYes(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Allocationlevel","By Applicant");
+        jsonObject.addProperty("IsNegotiationsAllowed","Yes");
+        jsonObject.addProperty("RiskAssessment_Required", "No");
+        jsonObject.addProperty("DetailedBudgetingRequired", "Yes");
+        pre.add(jsonObject);
+        json.add("Announcement",pre);
+        return json;
     }
 
     private JsonObject updateAnnouncementWithProgramSuppDocYes(JsonObject json) {
@@ -1380,6 +1411,8 @@ public class GrantorPayloads {
                 return createAwardWtithBuildUpFunctionalityYes(json);
             case "NO_PROGRAM_INCOME_ANTICIPATE":
                 return createAwardWtithNoProgramIncomeAnticipate(json);
+            case  "NO_BUDGETRedirectionThreshhold":
+                return createAwarForWithNoBudgetRedirectionThreshhold(json);
             case "AMENDMENT_REQUEST":
                 return createAwarForAmendmentRequest(json);
             case "AMENDMENT_REQUEST_BUILDUP_MATCH_YES":
@@ -2220,14 +2253,11 @@ public class GrantorPayloads {
     }
 
     private JsonObject createAwarForIndUser(JsonObject json) {
-
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
             grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
             newA.add(grant);
             json.add("Grant", newA);
-        }
         return json;
     }
 
@@ -2413,6 +2443,18 @@ public class GrantorPayloads {
         grant.addProperty("IsBuildUpFunctionality", "Yes");
         grant.addProperty("WBSRequired", "No");
         grant.addProperty("IsProgramIncomeAnticipated", "No");
+        newA.add(grant);
+        json.add("Grant", newA);
+        return json;
+    }
+
+
+    private JsonObject createAwarForWithNoBudgetRedirectionThreshhold(JsonObject json) {
+        JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
+        JsonArray newA = new JsonArray();
+        grant.addProperty("RiskAssessment_Required", "No");
+        grant.addProperty("BudgetRedirectionThreshhold", "No");
+        grant.addProperty("WBSRequired", "No");
         newA.add(grant);
         json.add("Grant", newA);
         return json;

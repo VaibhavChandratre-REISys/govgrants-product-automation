@@ -93,7 +93,7 @@ public final class GovGrantsAssertionObjects {
                 By.xpath("//span[text()='" + record + "']"
                         + "/../../../../../../../..//div//dt"
                         + "/span[text()='Status']/../..//dd"
-                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "']"), true);
+                        + "//span[text()='" + status + "'] | //span[text()='" + record + "']/../..//dd//span//a[text()='" + status + "'] | //h2[normalize-space(text())='" + record + "']/parent::div/../..//c-page-block-section//*[text()='" + status + "'] | //c-page-block-section//label[normalize-space(text())='" + record + "']/..//*[text()='" + status + "'] | //span[text()='" + record + "']/ancestor::div/../..//c-page-block-section//*[text()='" + status + "'] | //span[text()='" + record + "']//following-sibling::div//lightning-formatted-text[text()='" + status + "'] | //label[text()='" + record + "']//parent::slot//a[text()='" + status + "']"), true);
     }
 
     /**
@@ -1045,7 +1045,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier 2 meenakshi.jha added xpath for the field-name attribute (11/10/2020)
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
-        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "']"));
             By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item");
             List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
@@ -1055,7 +1055,8 @@ public final class GovGrantsAssertionObjects {
                     "Verifying options of dropdown field with api name '" + fieldApiName + "'",
                     exactMatch, checkOrder
             );
-        } else {
+        }
+        else {
             List<String> actualOptions = I.amPerforming().dropDownSelection()
                     .from(By.xpath("//div[" + I.amPerforming().sanityOfXpathTo().equals("@id", "field" + fieldApiName) + "]//select | //span[text()='" + fieldApiName + "']/../following-sibling::dd//select | //field[@field-name='" + fieldApiName + "']//select | //div[@id='" + fieldApiName + "']//select"))
                     .getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
@@ -1294,8 +1295,7 @@ public final class GovGrantsAssertionObjects {
      */
     public List<List<String>> getTable(boolean byId, String identifier) {
         By tableLocator;
-        if (byId) {
-            ;
+        if (byId) {;
             tableLocator = By.xpath(String.format("//c-lwc-flex-table[@data-flextablename='%s']//table", identifier));
         } else {
             tableLocator = By.xpath(String.format("//div[contains(@class, 'panel-heading')]//text()[%s]/ancestor::div[.//table][1]//table", I.amPerforming().sanityOfXpathTo().equals(".", identifier)));
@@ -1773,7 +1773,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier keerti.munde
      */
     private WebElement getPageBlockDetailsElement(String changedFieldName) {
-        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "'] | //c-page-block-section//label[contains(text(),'" + changedFieldName + "') and not(contains(@part,'label'))]"));
+        return I.amPerforming().getElementReference().of(By.xpath("//span[contains(text(),'" + changedFieldName + "')] | //div//dl//span[contains(text(),'" + changedFieldName + "')] | //div[@id='" + changedFieldName + "'] | //span//b[text()='" + changedFieldName + "'] | //c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", changedFieldName) + "]"));
     }
 
     /**
@@ -1833,7 +1833,7 @@ public final class GovGrantsAssertionObjects {
             I.amPerforming().assertionsTo().assertThat(isValuePresentInsideSelectDropdownPickList(dropDownValue, fieldApiName)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isValuePresentInsideSelectDropdownPickList(dropDownValue, fieldApiName));
-        } else if (usage.equalsIgnoreCase("softly cannot see")) {
+        }else if (usage.equalsIgnoreCase("softly cannot see")) {
             I.amPerforming().assertionsTo().assertThat(isValuePresentInsideSelectDropdownPickList(dropDownValue, fieldApiName)).isFalse();
         }
     }
@@ -1964,7 +1964,7 @@ public final class GovGrantsAssertionObjects {
             exp = dropDownValue.split(":");
         }
         List<String> opt01 = Arrays.asList(exp);
-        By selectD = By.xpath("//div[@id='" + fieldApiName + "']//select|//*[@field-name='" + fieldApiName + "']//select|//div[@id='" + fieldApiName + "']//select//option|//span[@id='" + fieldApiName + "']//select|//span[contains(text(),'" + fieldApiName + "')]/..//following-sibling::dd//select");
+        By selectD = By.xpath("//div[@id='" + fieldApiName + "']//select|//*[@field-name='" + fieldApiName + "']//select|//div[@id='" + fieldApiName + "']//select//option|//span[@id='" + fieldApiName + "']//select|//span[contains(text(),'"+fieldApiName+"')]/..//following-sibling::dd//select");
         List<WebElement> wee = I.amPerforming().dropDownSelection().from(selectD).getOptions();
         List<String> opt = new ArrayList<>();
         for (int i = 0; i < wee.size(); i++) {
@@ -2096,7 +2096,7 @@ public final class GovGrantsAssertionObjects {
     private boolean isHyperTextDisplayed(String linkName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + linkName + "')]/ancestor::a |  //a[contains(text(),'" + linkName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + linkName + "')]/ancestor::a |  //a[contains(text(),'"+linkName+"')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -2240,7 +2240,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input|//field[@field-name='" + fieldAPIName + "']/span " + "| //div[@data-field_api_name='" + fieldAPIName + "']")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
@@ -2676,7 +2676,7 @@ public final class GovGrantsAssertionObjects {
     private boolean assertFieldPresentInsideSection(String fieldName, String sectionName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", sectionName) + "]/../../../following-sibling::div//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", fieldName) + "] | //div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div//span[contains(text(), '" + sectionName + "')] /../parent::div//div//label[contains(text(), '" + fieldName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -3325,15 +3325,15 @@ public final class GovGrantsAssertionObjects {
      * @param colorName, TabType
      * @author ashwini.mahore
      * @modifier tejal.gadewar,
-     * @modifier richa.sharma - added xpath and color for header and footer as well
+     * @modifier  richa.sharma - added xpath and color for header and footer as well
      */
     public void asserPhaseTabBackgroundColor(String Usage, String TabType, String colorName) {
         if (Usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(isPhaseTabBackgroundColorChanged(TabType, colorName)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isPhaseTabBackgroundColorChanged( TabType,colorName)).isTrue();
         } else {
             Assert.assertTrue(isPhaseTabBackgroundColorChanged(TabType, colorName));
         }
-        I.amPerforming().assertionsTo().assertThat(isPhaseTabBackgroundColorChanged(TabType, colorName)).isTrue();
+        I.amPerforming().assertionsTo().assertThat(isPhaseTabBackgroundColorChanged(TabType,colorName)).isTrue();
     }
 
     /**
@@ -3402,7 +3402,7 @@ public final class GovGrantsAssertionObjects {
                 break;
             case "BLUE":
                 if (getPhaseTab.getCssValue("background").contains("rgb(5, 89, 156)")
-                        || getPhaseTab.getCssValue("color").contains("rgb(5, 89, 156)")) {
+                        || getPhaseTab.getCssValue("color").contains("rgb(5, 89, 156)")){
                     flag = true;
                 }
                 break;
@@ -3575,7 +3575,6 @@ public final class GovGrantsAssertionObjects {
 
     /**
      * function used to validate the text inside modal
-     *
      * @param text
      * @return
      * @author saranjit.modak
@@ -3593,7 +3592,6 @@ public final class GovGrantsAssertionObjects {
 
     /**
      * Method to check if button is present on confirmation pop-up
-     *
      * @param usage
      * @param buttonName
      * @author Vaibhav.c
@@ -3608,10 +3606,9 @@ public final class GovGrantsAssertionObjects {
 
     /**
      * Method to check if button is present on confirmation pop-up
-     *
      * @param buttonLabel
-     * @return true: if button is present
      * @author Vaibhav.c
+     * @return true: if button is present
      */
     private boolean isButtonPresent(String buttonLabel) {
         try {
