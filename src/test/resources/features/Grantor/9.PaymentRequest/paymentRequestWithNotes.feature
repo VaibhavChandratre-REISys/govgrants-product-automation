@@ -2250,7 +2250,9 @@ Feature: Validate all scenarios in Payment Request With Notes
       | {SavedValue:EXE Username} | Step 1   |
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "9" seconds
+    And I wait for "10" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
