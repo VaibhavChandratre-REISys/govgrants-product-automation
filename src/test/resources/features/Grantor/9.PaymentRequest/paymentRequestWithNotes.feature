@@ -2248,11 +2248,9 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I refresh the page
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "10" seconds
-    And I click on "Send To Subrecipient" in the page details
-    And I refresh the page
     And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
