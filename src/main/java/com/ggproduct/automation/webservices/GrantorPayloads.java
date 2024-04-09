@@ -2113,9 +2113,7 @@ public class GrantorPayloads {
         JsonArray newA = new JsonArray();
         grant.addProperty("FocusAreaRequired", "No");
         grant.addProperty("IsAdvancePermitted", "Yes");
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
-            grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
-        }
+        grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
         newA.add(grant);
         json.add("Grant", newA);
         JsonArray buildUpItemsA = new JsonArray();
