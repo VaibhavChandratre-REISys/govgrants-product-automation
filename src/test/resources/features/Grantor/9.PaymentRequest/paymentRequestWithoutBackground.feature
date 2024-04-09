@@ -631,7 +631,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hit @54709 @ValidateReimbursementBalanceFieldOnAwardAtSubPortalUpdatedAfterReimbursementPRApproval @mahadev
+  @54709 @ValidateReimbursementBalanceFieldOnAwardAtSubPortalUpdatedAfterReimbursementPRApproval @mahadev
   Scenario Outline: validate Advance Requested Amount field at sub portal gets updated after Advance payment request approval
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -691,7 +691,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hit @54712 @ValidateReimbursementApprovedAmountFieldOnPaymentRequestAfterReimbursementPRApproval @mahadev @wip
+  @54712 @ValidateReimbursementApprovedAmountFieldOnPaymentRequestAfterReimbursementPRApproval @mahadev @wip
   Scenario Outline: validate Reimbursement balance on payment request at sub portal gets updated after Reimbursement payment request approval
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -915,7 +915,7 @@ Feature: Payment Request scenarios without background
       | SPI3 |
       | SPA  |
 
-  @hit @55809 @PRReimbursement2ndIsFinalPayment1stPRShouldShowValidMsg @jitendra @smoke
+  @55809 @PRReimbursement2ndIsFinalPayment1stPRShouldShowValidMsg @jitendra @smoke
   Scenario Outline: Verify that once final payment request is approved then Created status Payment should show validation message on Submit to Grantor Button.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -997,7 +997,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hit @55304 @validateProgressReportSchedulesOnActiveAwardAfterEditingSchedules @mahadev
+  @55304 @validateProgressReportSchedulesOnActiveAwardAfterEditingSchedules @mahadev
   Scenario Outline: Validate progress report schedules getting updated on active award after editing schedule
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -1020,7 +1020,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hit @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
+  @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
   Scenario Outline: Validate progress report schedules getting updated on active award after editing schedule
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -1259,6 +1259,9 @@ Feature: Payment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Reimbursement |
+      | {SavedValue:PM Username} | NA            |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Reimbursement |
       | {SavedValue:PM Username} | Step 1        |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1429,6 +1432,9 @@ Feature: Payment Request scenarios without background
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 30                    |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                     | Reimbursement |
+      | {SavedValue:FO Username} | NA            |
     And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
     And I select value "{SavedValue:FO Username}" into field "Name__c"
     And I enter value "NA" into field "ReimbursementRole__c"
@@ -1439,16 +1445,17 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-
   @148788 @ValidateApproversaregettinginheritedfromawardrecordtoadvancepaymentrequest @vaibhav
   Scenario Outline: Validate Approvers are getting inherited from award record to advance payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  | Advance |
@@ -1476,6 +1483,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1609,11 +1617,11 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
     # there is no add files button
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
@@ -1623,16 +1631,16 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
+#    Then I softly see "Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
     #197614
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     Then I softly see "Payment Requests Available for Reassignment " page block displayed
-    Then I softly see "Payment Requests Owned by Target User " page block displayed
+    When I navigate to "Records of Target User" sub tab
+    Then I softly see "Payment Requests Owned by Target User" page block displayed
 
   @197621 @197633 @ValidateAdminusershowpaymentrequesttothesourceuserInternalsideOwnerevenifPRwhichareincreatedstate1stsectionofpaymentrequest @sprint-4 @vaibhav @reassignment
   Scenario: Validate Admin user show payment request to the source user Internal side Owner even if PR which are in created state 1st section of payment request
@@ -1657,13 +1665,11 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     #197633
@@ -1671,8 +1677,9 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestTargetOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestTargetOwnerTableId---"
 
@@ -1692,21 +1699,19 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
 
@@ -1741,16 +1746,13 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1786,25 +1788,21 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1842,25 +1840,22 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1896,28 +1891,24 @@ Feature: Payment Request scenarios without background
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
-    And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PO" into field "s2id_autogen1"
-    And I select value "Automation PO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PO" without tableid
+    And I select value "Automation PO" into field "input-1"
+    And I select value "Automation PO1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
     Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
