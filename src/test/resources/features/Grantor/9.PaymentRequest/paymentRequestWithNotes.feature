@@ -2951,7 +2951,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
       | Name                     | Advance |
       | {SavedValue:FO Username} | Step 1  |
-    When I click on "Submit for Approval" in the page
+    And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
