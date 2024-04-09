@@ -483,13 +483,13 @@ public final class GovGrantsProductObjects {
             }
             counter++;
         }
-        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/field/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
+        List<Elements> listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
         if (listOfDataInColumn.size() == 0) {
-            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span/span/span | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
+            listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
             if (listOfDataInColumn.size() == 0) {
-                listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span"));
+                listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
                 if (listOfDataInColumn.size() == 0) {
-                    listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@id='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::th/ancestor::table//tr//td[not(contains(@class,'hide'))][" + counter + "]/span//field/span"));
+                    listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
                     if (listOfDataInColumn.size() == 0) {
                         listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter-1) + "]//c-fieldlwc//div"));
                     }

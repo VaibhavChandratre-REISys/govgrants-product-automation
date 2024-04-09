@@ -1541,6 +1541,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I navigate to "Forms and Files" sub tab
+    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
