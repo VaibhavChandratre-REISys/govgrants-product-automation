@@ -1432,9 +1432,6 @@ Feature: Payment Request scenarios without background
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 30                    |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                     | Reimbursement |
-      | {SavedValue:FO Username} | NA            |
     And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
     And I select value "{SavedValue:FO Username}" into field "Name__c"
     And I enter value "NA" into field "ReimbursementRole__c"
@@ -2282,9 +2279,8 @@ Feature: Payment Request scenarios without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I select module "Payment Request" from reassign ownership dropdown
+    And I select module "Grant" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
@@ -2326,9 +2322,8 @@ Feature: Payment Request scenarios without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I select module "Payment Request" from reassign ownership dropdown
+    And I select module "Grant" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
@@ -2404,7 +2399,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Review Payment Request" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197279 @ValidateEXEcanseeReviewPaymentRequesttasksforschedulereimbursementpaymentisgeneratedonreassignmytaskspageforEXEuser @sprint-4 @vaibhav @reassignment
+  @hit @197279 @ValidateEXEcanseeReviewPaymentRequesttasksforschedulereimbursementpaymentisgeneratedonreassignmytaskspageforEXEuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate EXE can see Review Payment Request tasks for schedule reimbursement payment is generated on reassign my tasks page for EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -2443,11 +2438,9 @@ Feature: Payment Request scenarios without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -2464,6 +2457,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I wait for "3" seconds
     When I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2474,6 +2468,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
+    And I wait for "2" seconds
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
