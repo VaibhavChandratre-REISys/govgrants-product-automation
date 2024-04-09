@@ -29,8 +29,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
     #193959
     And I click on "Edit" icon for "{SavedValue:AttachedFile}" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I select Classification as "Receipt" at upload file modal
@@ -68,8 +67,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
   @193842 @VerifyINDusercanaddfileonschedulereimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify IND user can add file on schedule reimbursement PR if user has edit access on top edit button for PR in created state
@@ -99,8 +97,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
   @193863 @193866 @193871 @193873 @193879 @193923 @193931 @@VerifySPIusercannotaddfileonadhocreimbursementPRinsubmittograntorstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify SPI user can not add file on ad-hoc reimbursement PR in submit to grantor state
@@ -153,8 +150,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:reimburseFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
@@ -280,8 +276,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:advanceFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Advance Payment Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Advance Payment Files" flex table
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
       | Funding Account             | Advance Requested This Action |
@@ -382,8 +377,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:advanceFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Advance Payment Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Advance Payment Files" flex table
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
       | Funding Account             | Advance Requested This Action |
@@ -624,8 +618,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
   @193944 @VerifyINDusercannotseetopleveleditbuttonandnotabletoaddfileonAd-hocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify IND user can not see top level edit button and not able to add file on Ad-hoc reimbursement PR in force closed state
@@ -870,8 +863,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:reimburseFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
   @193986 @VerifySPIusercanseetopleveleditbuttonandabletoaddfileonad-hocreimbursementPRwhengrantorusersendbacktoSRwhileapproval @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify SPI user can see top level edit button and able to add file on ad-hoc reimbursement PR when grantor user send back to S\R while approval

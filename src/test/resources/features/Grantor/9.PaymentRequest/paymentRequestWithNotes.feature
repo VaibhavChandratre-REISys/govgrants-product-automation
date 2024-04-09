@@ -1325,7 +1325,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236264 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadhocreimbursementpaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes @TBExecution
+  @236264 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadhocreimbursementpaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/FO/PO user should not able to 'Add' notes notes on ad-hoc reimbursement payment request is in 'Force Closed' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2250,7 +2250,7 @@ Feature: Validate all scenarios in Payment Request With Notes
       | {SavedValue:EXE Username} | Step 1   |
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "3" seconds
+    And I wait for "9" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -2682,7 +2682,7 @@ Feature: Validate all scenarios in Payment Request With Notes
       | {SavedValue:EXE Username} | Step 1   |
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "3" seconds
+    And I wait for "9" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -3139,7 +3139,7 @@ Feature: Validate all scenarios in Payment Request With Notes
       | {SavedValue:EXE Username} | Step 1   |
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
-    And I wait for "3" seconds
+    And I wait for "9" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab

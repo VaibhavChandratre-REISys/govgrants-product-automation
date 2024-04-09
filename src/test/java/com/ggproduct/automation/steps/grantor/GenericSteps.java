@@ -35,7 +35,7 @@ public class GenericSteps {
     @Description("API call used to create a post award records i.e. Payment Request, Progress Report and Closout and will fetch the record ID for that record. These step we can only use after Award Activation")
     @When("^I create a post award record \"([^\"]*)\" for the Award \"([^\"]*)\" having object api name as \"([^\"]*)\"$")
     public void iCreateAPostAwardRecordForTheAwardHavingObjectApiNameAs(String objectType, String recordName, String objectApiName) {
-        I.amPerforming().waitFor().makeThreadSleep(20000);
+        I.amPerforming().waitFor().makeThreadSleep(30000);
         grantorWebServices.getRecordIdFromResponse(objectType, recordName, objectApiName);
     }
 
