@@ -1325,7 +1325,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236264 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadhocreimbursementpaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes
+  @236264 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadhocreimbursementpaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes @TBExecution
   Scenario:Verify PM/FO/PO user should not able to 'Add' notes notes on ad-hoc reimbursement payment request is in 'Force Closed' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2166,7 +2166,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
 
-  @236312 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadvancepaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes
+  @236312 @VerifyPMFOPOusershouldnotabletoAddnotesnotesonadvancepaymentrequestisinForceClosedstate @sprint-14-US-225425 @hitesh @Notes @TBExecution
   Scenario:Verify PM/FO/PO user should not able to 'Add' notes notes on advance payment request is in 'Force Closed' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2248,7 +2248,10 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2265,11 +2268,12 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I click on "Override" in the page details
     And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Advances" content inside "Payments" subheader on left panel
     And I click toggle button to select "Advances - All"
@@ -2622,7 +2626,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @2363381 @VerifySPISPAusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonAdvancepaymentrequestisinPaidRejectedForceClosedstates @sprint-14-US-225425 @hitesh @Notes
+  @2363381 @VerifySPISPAusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonAdvancepaymentrequestisinPaidRejectedForceClosedstates @sprint-14-US-225425 @hitesh @Notes @TBExecution
   Scenario:Verify SPI/SPA user should not able to 'Add' notes notes but can edit/delete own notes on Advance payment request is in Paid/ Rejected/Force Closed states
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2676,7 +2680,10 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2693,11 +2700,12 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I click on "Override" in the page details
     And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3082,7 +3090,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236344 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonschedulereimbursementpaymentrequestisinForceClosedstates @sprint-14-US-225425 @hitesh @Notes
+  @236344 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonschedulereimbursementpaymentrequestisinForceClosedstates @sprint-14-US-225425 @hitesh @Notes @TBExecution
   Scenario:Verify IND user should not able to 'Add' notes notes but can edit/delete own notes on schedule reimbursement payment request is in Force Closed states
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -3129,7 +3137,10 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3146,11 +3157,12 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I click on "Override" in the page details
     And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
