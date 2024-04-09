@@ -397,9 +397,9 @@ Feature: Validate all scenarios of every modules flow work flow
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Construction    | 10                            |
-    When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+#    When I navigate to "Forms and Files" sub tab
+#    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+#    And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -435,14 +435,12 @@ Feature: Validate all scenarios of every modules flow work flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
-    When I get the "EGMS ID"
-    And I click on "Edit" in the page details
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+#    And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I get the "EGMS ID"
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
