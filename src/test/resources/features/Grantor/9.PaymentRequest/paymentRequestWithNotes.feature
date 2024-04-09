@@ -3329,8 +3329,8 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
   @236322 @VerifyotherOrginternalusercannotabletoseePRrecord @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify other Org internal user can not able to see PR record
