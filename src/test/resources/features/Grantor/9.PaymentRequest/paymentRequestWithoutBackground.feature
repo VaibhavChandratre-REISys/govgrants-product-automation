@@ -1952,6 +1952,8 @@ Feature: Payment Request scenarios without background
     And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -2147,15 +2149,31 @@ Feature: Payment Request scenarios without background
     Then I see the mail text is as follows :
       """
      Hello,
+
      This email is to inform you that the payment request {SavedValue:PayreqId} for the award # {SavedValue:AwardEGMSID} has been rejected by an approver.
-     Payment Request Details:
-     Payment Type: Reimbursement
-     Payment ID: {SavedValue:PayreqId}
-     Key POC: Automation SPI3
-     Log in to EGMS and click here to see payment request details.
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance.
-     Thank you.
-     The EGMS Team
+
+
+
+      Payment Request Details:
+
+      Payment Type: Reimbursement
+
+      Payment ID: {SavedValue:PayreqId}
+
+      Key POC: Automation SPI3
+
+
+
+      Log in to EGMS and click here to see payment request details.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance.
+
+
+
+      Thank you.
+
+      The EGMS Team
+
       """
 
   @197769 @ValidatesystemcreatenewschedulepaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4 @vaibhav @reassignment
