@@ -2251,6 +2251,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
     And I wait for "10" seconds
+    And I click on "Send To Subrecipient" in the page details
     And I refresh the page
     And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
