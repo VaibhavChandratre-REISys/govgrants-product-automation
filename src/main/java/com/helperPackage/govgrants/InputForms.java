@@ -1206,7 +1206,7 @@ public final class InputForms {
     private void handleRadioButtonInput(WebElement fieldWrapper, String fieldValue) {
         By radioButtonSelector = By.xpath(""
                 + ".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue)
-                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]");
+                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]/..//span[@class='slds-radio_faux']");
         WebElement radioButton = I.amPerforming().getElementReference().ofNested(fieldWrapper, (radioButtonSelector));
         I.amPerforming().click().on(radioButton);
     }
