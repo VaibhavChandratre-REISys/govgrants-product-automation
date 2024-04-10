@@ -1,7 +1,7 @@
 @workflow @regression
 Feature: Validate all scenarios of every modules flow work flow
 
-  @programFlow @ValidateFullProgramFlow
+  @programFlow @ValidateFullProgramFlow @TBExecution
   Scenario: Validate Full Program Flow
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -15,28 +15,28 @@ Feature: Validate all scenarios of every modules flow work flow
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "green"
-    When I navigate to "Overview" sub tab
-    When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                        | Program |
-      | {SavedValue:PM Username}    | Step 1  |
-    When I navigate to "Setup" sub tab
-    When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
-    And I wait for "2" seconds
-    When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
-    And I wait for "2" seconds
-    And I click on "Activate" in the page details
-    Then I softly see field "Status" as "Active"
+#    When I navigate to "Overview" sub tab
+#    When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                        | Program |
+#      | {SavedValue:PM Username}    | Step 1  |
+#    When I navigate to "Setup" sub tab
+#    When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+#    And I wait for "2" seconds
+#    When I "Approve" in the approval decision
+#    Then I softly see status in Progress-bar is "Approved" and is "green"
+#    And I wait for "2" seconds
+#    And I click on "Activate" in the page details
+#    Then I softly see field "Status" as "Active"
 
   @FocusArea_KPI_Objective_WorkFlow
   Scenario: WorkFlow For Focus Area KPI & Objectives
@@ -83,25 +83,25 @@ Feature: Validate all scenarios of every modules flow work flow
     When I click on "Back To Strategic Plan" in the page details
     And I click on "Activate" in the page details
 
-  @PublishAnn-Application
+  @PublishAnn-Application @TBExecution
   Scenario: Validate Publish Announcement Submit Application Submit
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "Draft Competitive Announcements"
-#    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-#    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-#    And I click modal button "Continue"
-#    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    When I click on "Save" in the page details
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-#    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-#    When I click on "Edit" in the page details
-#    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    Then I softly see status in Progress-bar is "Created" and is "Green"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "Green"
 #    When I navigate to "Financials" sub tab
 #    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
 #    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -139,44 +139,47 @@ Feature: Validate all scenarios of every modules flow work flow
 #    And I wait for "2" seconds
 #    And I click on "Publish" in the page details
 #    Then I see status in Progress-bar is "Published" and is "green"
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+
+   @ApplicationSubmitted @TBExecution
+    Scenario:
+    Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "Automation Runtime Competitive Announcement3879977610" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "Automation Runtime Competitive Announcement3879977610" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
+#    And I navigate to "Budget" sub tab
+#    When I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match |
+#      | Construction  | 1000   | 100        | 100            |
+#    When I navigate to "Overview" sub tab
+#    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+#    And I enter value "Checked" into field "IsKeyContact__c"
+#    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+#    When I navigate to "Proposal" sub tab
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+#      | EGMS ID                  | Target |
+#      | Automation Permanent KPI | 10     |
+#    And I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+#    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I get the "EGMS ID"
+#    When I click on "Submit Application" in the page details
 
-  @pre-applicatiomFlow
+  @pre-applicatiomFlow @TBExecution
   Scenario: Validate Pre-Application flow
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -191,34 +194,34 @@ Feature: Validate all scenarios of every modules flow work flow
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Edit" in the page details
-    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Overview" sub tab
-    When I save the field containing "Program Income Allowed?" as "Yes"
-    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
-    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 5000       | 50             | 100            |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-    When I click on "Accept" in the page details
+#    Given I click on "Edit" in the page details
+#    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I navigate to "Overview" sub tab
+#    When I save the field containing "Program Income Allowed?" as "Yes"
+#    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Contact |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+#    And I navigate to "Budget" sub tab
+#    Given I expand nested table containing column value "BP01"
+#    Then I softly see field "Other Leverage" inside page block
+#    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+#      | Construction  | 5000   | 5000       | 50             | 100            |
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+#    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I click on "Back" in the page details
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+#    When I click on "Accept" in the page details
 
-  @subawardactivateFlow
+  @subawardactivateFlow @TBExecution
   Scenario: Activate the subaward
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -238,94 +241,93 @@ Feature: Validate all scenarios of every modules flow work flow
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date | End Date |
-      | Automation Permanent Focus Area | 0          | 3650     |
-    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
-    When I navigate to "Performance" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Terms" sub tab
-    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
-    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-    And I click modal button "Save"
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
-    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
-    And I click modal button "Save"
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 1 |
-    And I click on "Send to Subrecipient" in the page details
-    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    When I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    When I navigate to "Terms" sub tab
-    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I click on "Accept after Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I click on "Activate" in the page details
+#    And I navigate to "Budget" sub tab
+#    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+#    When I close "Associate Funding Accounts" modal by clicking the top right x button
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+#      | Title                           | Start Date | End Date |
+#      | Automation Permanent Focus Area | 0          | 3650     |
+#    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+#      | Funding Account             | Encumbrance |
+#      | {SavedValue:fundingAccount} | 1000        |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+#      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+#      | Construction    | 1000         | 100        | 100            |
+#    When I navigate to "Performance" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+#      | EGMS ID                  | Target |
+#      | Automation Permanent KPI | 10     |
+#    And I navigate to "Terms" sub tab
+#    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
+#    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#    And I click modal button "Save"
+#    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+#    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
+#    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+#    And I click modal button "Save"
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+#      | Name                      | Award  |
+#      | {SavedValue:EXE Username} | Step 1 |
+#    And I click on "Send to Subrecipient" in the page details
+#    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    When I click on "Accept" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    When I navigate to "Terms" sub tab
+#    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+#    And I click on "Submit for Approval" in the page details
+#    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    And I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    And I click on "Accept after Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    And I click on "Activate" in the page details
 
-  @reimbursementPaymentRequest
+  @reimbursementPaymentRequest @TBExecution
   Scenario: reimbursement Payment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_ADVANCE_PERMISSION" of type "Competitive"
-    #And I activated standalone subaward "Automation Runtime award" with properties "NO_ADVANCE_PERMISSION"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -342,37 +344,37 @@ Feature: Validate all scenarios of every modules flow work flow
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
-    And I navigate to "Financials" sub tab
-    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Unit Price | Quantity | Measurement |
-      | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 30                    |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                      | Reimbursement |
-      | {SavedValue:PM Username}  | Step 1        |
-    When I get the "EGMS ID"
-    When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
-    When I "Approve" in the approval decision
-    And I wait for "2" seconds
-     When I click on "Mark As Paid" in the page details
-    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
-    When I click modal button "Save"
-    Then I see status in Progress-bar is "Paid" and is "green"
+#    And I navigate to "Financials" sub tab
+#    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+#    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+#      | Title        | Narrative     | Unit Price | Quantity | Measurement |
+#      | Extra Salary | The narrative | 30         | 1        | Feet        |
+#    When I close "Add Line Items" modal by clicking the top right x button
+#    And I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+#    And I navigate to "Financials" sub tab
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+#      | Funding Account             | Net Spent This Action |
+#      | {SavedValue:fundingAccount} | 30                    |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+#      | Name                      | Reimbursement |
+#      | {SavedValue:PM Username}  | Step 1        |
+#    When I get the "EGMS ID"
+#    When I click on "Submit for Approval" in the page details
+#    And I wait for "2" seconds
+#    When I "Approve" in the approval decision
+#    And I wait for "2" seconds
+#     When I click on "Mark As Paid" in the page details
+#    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+#    When I click modal button "Save"
+#    Then I see status in Progress-bar is "Paid" and is "green"
 
-  @AdvancePaymentRequest
+  @AdvancePaymentRequest @TBExecution
   Scenario: Advance Payment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -393,38 +395,38 @@ Feature: Validate all scenarios of every modules flow work flow
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
-    And I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
-      | Budget Category | Advance Requested This Action |
-      | Construction    | 10                            |
-#    When I navigate to "Forms and Files" sub tab
-#    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-#    And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
-      | Funding Account             | Advance Requested This Action |
-      | {SavedValue:fundingAccount} | 10                            |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
-      | Name                     | Advance |
-      | {SavedValue:PM Username} | Step 1  |
-    When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
-    And I "Approve" in the approval decision
-    And I wait for "2" seconds
-     When I click on "Mark As Paid" in the page details
-    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
-    When I click modal button "Save"
-    Then I see status in Progress-bar is "Paid" and is "green"
+#    And I navigate to "Financials" sub tab
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+#      | Budget Category | Advance Requested This Action |
+#      | Construction    | 10                            |
+##    When I navigate to "Forms and Files" sub tab
+##    When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
+##    And I upload attachment "Attachment.pdf" of type "Others" from computer
+#    When I click on "Submit to Grantor" in the page details
+#    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+#    And I navigate to "Financials" sub tab
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
+#      | Funding Account             | Advance Requested This Action |
+#      | {SavedValue:fundingAccount} | 10                            |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
+#      | Name                     | Advance |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I click on "Submit for Approval" in the page details
+#    And I wait for "2" seconds
+#    And I "Approve" in the approval decision
+#    And I wait for "2" seconds
+#     When I click on "Mark As Paid" in the page details
+#    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+#    When I click modal button "Save"
+#    Then I see status in Progress-bar is "Paid" and is "green"
 
-  @progressReportWorkflow
+  @progressReportWorkflow @TBExecution
   Scenario: progress report
    Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -441,36 +443,36 @@ Feature: Validate all scenarios of every modules flow work flow
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I get the "EGMS ID"
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
-      | Name                      | Progress Report |
-      | {SavedValue:PM Username}  | Step 1          |
-    When I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
-    When I "Approve" in the approval decision
-    And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Progress Reports - Approved"
-    Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+#    And I navigate to "Performance" sub tab
+#    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+#      | Title                    | Reported Date | Actual |
+#      | Automation Permanent KPI | 7             | 7      |
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+#    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I click on "Back" in the page details
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+#      | Name                      | Progress Report |
+#      | {SavedValue:PM Username}  | Step 1          |
+#    When I click on "Submit for Approval" in the page details
+#    And I wait for "2" seconds
+#    When I "Approve" in the approval decision
+#    And I wait for "2" seconds
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+#    And I click toggle button to select "Progress Reports - Approved"
+#    Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @SiteVisitFlow
+  @SiteVisitFlow @TBExecution
   Scenario: Sitevisit Flow
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -490,78 +492,78 @@ Feature: Validate all scenarios of every modules flow work flow
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PM Username}  | Step 1     |
-    When I get the "EGMS ID"
-    Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation PM" in the table "---sitevisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
-    And I click on "Notify" in the page details
-    When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    And I navigate to "Reports and Outcomes" sub tab
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
-    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To                |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I expand nested table containing column value "Automation Concern"
-    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I expand nested table containing column value "Automation Finding"
-    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside table
-    And I click on "Accept And Close" in the page details
-    Then I softly see status in Progress-bar is "Closed" and is "Green"
+#    And I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+#      | Name                      | Site Visit |
+#      | {SavedValue:PM Username}  | Step 1     |
+#    When I get the "EGMS ID"
+#    Given I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+#    When I click "Associate" after selection of "Automation PM" in the table "---sitevisits:-:siteVisitContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+#    And I click on "Notify" in the page details
+#    When I click on "Conduct" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+#    And I navigate to "Reports and Outcomes" sub tab
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+#      | Title                  | Description            | Type        |
+#      | Automation Finding     | Automation Description | Finding     |
+#      | Automation Concern     | Automation Description | Concern     |
+#      | Automation Observation | Automation Description | Observation |
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+#    Given I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+#    When I navigate to "Reports and Outcomes" sub tab
+#    And I expand nested table containing column value "Automation Observation"
+#    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+#      | Title                               | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    And I expand nested table containing column value "Automation Concern"
+#    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    And I expand nested table containing column value "Automation Finding"
+#    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside table
+#    And I click on "Accept And Close" in the page details
+#    Then I softly see status in Progress-bar is "Closed" and is "Green"
 
-  @DeskReviewFlow
+  @DeskReviewFlow @TBExecution
   Scenario: Desk Review Flow
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -580,79 +582,79 @@ Feature: Validate all scenarios of every modules flow work flow
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "DeskReview"
-    Given I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
-    Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-    And I click on "Notify" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Given I click on "Conduct" in the page details
-    And I navigate to "Reports and Outcomes" sub tab
-    When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Given I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To                |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I expand nested table containing column value "Automation Concern"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I expand nested table containing column value "Automation Finding"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    And I click on "Accept And Close" in the page details
-    Then I softly see status in Progress-bar is "Closed" and is "Green"
+#    And I save the field labeled "EGMS ID" as "DeskReview"
+#    Given I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+#      | Name                      | Desk Review |
+#      | {SavedValue:PM Username}  | Step 1      |
+#    Given I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:PM Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+#    And I click on "Notify" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+#    Given I click on "Conduct" in the page details
+#    And I navigate to "Reports and Outcomes" sub tab
+#    When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
+#      | Title                  | Description            | Type        |
+#      | Automation Finding     | Automation Description | Finding     |
+#      | Automation Concern     | Automation Description | Concern     |
+#      | Automation Observation | Automation Description | Observation |
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+#    Given I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+#    When I navigate to "Reports and Outcomes" sub tab
+#    And I expand nested table containing column value "Automation Observation"
+#    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+#      | Title                               | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    And I expand nested table containing column value "Automation Concern"
+#    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    And I expand nested table containing column value "Automation Finding"
+#    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+#      | Title                           | Description            | Status      | Due Date | Assigned To                |
+#      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+#    And I click on "Accept And Close" in the page details
+#    Then I softly see status in Progress-bar is "Closed" and is "Green"
 
-  @CloseoutWorkFlow
+  @CloseoutWorkFlow @TBExecution
   Scenario: Closeout WorkFlow
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -672,42 +674,42 @@ Feature: Validate all scenarios of every modules flow work flow
     And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "fieldJustification__c"
     When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-      | Name                      | Closeout |
-      | {SavedValue:PM Username}  | Step 1   |
-    And I click on "Send To Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Closeout" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
-    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Closeout" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I refresh the page
-    When I click on "Override" in the page details
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Closeout" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I click toggle button to select "Closeouts - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
-    Then I softly see field "Status" as "Completed"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+#      | Name                      | Closeout |
+#      | {SavedValue:PM Username}  | Step 1   |
+#    And I click on "Send To Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Closeout" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+#    When I click on "Edit" in the page details
+#    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I click on "Acknowledge" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Closeout" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+#    And I refresh the page
+#    When I click on "Override" in the page details
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Closeout" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+#    When I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Closeout" tab
+#    And I click toggle button to select "Closeouts - All"
+#    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
+#    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
+#    Then I softly see field "Status" as "Completed"
 
-  @AwardLevelRiskAssesment
+  @AwardLevelRiskAssesment @TBExecution
   Scenario: Award Level Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -730,18 +732,18 @@ Feature: Validate all scenarios of every modules flow work flow
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
-    And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see that "EGMS ID" is in "Active" status
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+#      | Name                     | Risk Assessment |
+#      | {SavedValue:PM Username} | Step 1          |
+#    And I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see that "EGMS ID" is in "Active" status
 
   @OrganizationalRiskAssessment
   Scenario: Organizational Risk Assessment
@@ -762,7 +764,7 @@ Feature: Validate all scenarios of every modules flow work flow
     When I click on "Submit" in the page details
     Then I see status in Progress-bar is "Active" and is "Green"
 
-  @NegotiationWorkFlow
+  @NegotiationWorkFlow @TBExecution
   Scenario: Negotiation Workflow
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -780,26 +782,26 @@ Feature: Validate all scenarios of every modules flow work flow
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
-    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
-    When I click on "Save" in the page details
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
-    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
-    When I click on "Complete Negotiation" in the page details
-    And I navigate to "Negotiations" sub tab
-    Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
+#    When I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+#    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
+#    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+#    And I enter values into fields
+#      | Value                              | Field                |
+#      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+#    When I click on "Save" in the page details
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
+#    When I click on "Complete Negotiation" in the page details
+#    And I navigate to "Negotiations" sub tab
+#    Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
 
   @ApplicationReviewtoapprovedFDMWorkFlow
   Scenario Outline: Application Review WorkFlow
@@ -1009,7 +1011,7 @@ Feature: Validate all scenarios of every modules flow work flow
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:termsAndConditionsTableId---" panel
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:EGMSID}" inside table "---home:-:termsAndConditionsTableId---"
 
-  @GrantorSideAmendmentRequestWorkflow
+  @GrantorSideAmendmentRequestWorkflow @TBExecution
   Scenario:
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1029,48 +1031,48 @@ Feature: Validate all scenarios of every modules flow work flow
     And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
-    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:PM Username}  | Step 1            |
-    When I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
-    When I click on "Activate" in the page details
-    Then I softly see field "Status" as "Activated"
+#    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
+#    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+#    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+#      | Title                           | End Date                             |
+#      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+#    And I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+#      | Name                      | Amendment Request |
+#      | {SavedValue:PM Username}  | Step 1            |
+#    When I get the "EGMS ID"
+#    And I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    When I click on "Acknowledge" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    When I click on "Submit for Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - All"
+#    When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+#    And I click on "Amend Subaward" in the page details
+#    When I click on "Activate" in the page details
+#    Then I softly see field "Status" as "Activated"
 
-  @SubrecipientSideAmendmentRequestWorkflow
+  @SubrecipientSideAmendmentRequestWorkflow @TBExecution
   Scenario:
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -1087,41 +1089,41 @@ Feature: Validate all scenarios of every modules flow work flow
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budgetPChangeId"
-    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    Then I see status in Progress-bar is "Created" and is "Green"
-    And I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:PM Username}  | Step 1            |
-    When I click on "Submit for Approval" in the page details
-    And I pause execution for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
-    When I click on "Activate" in the page details
-    Then I softly see field "Status" as "Activated"
+#    And I save the field labeled "EGMS ID" as "budgetPChangeId"
+#    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+#    Then I see status in Progress-bar is "Created" and is "Green"
+#    And I click on "Submit to Grantor" in the page details
+#    Then I softly see field "Status" as "Submitted to Grantor"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+#      | Title                           | End Date                             |
+#      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+#    And I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+#      | Name                      | Amendment Request |
+#      | {SavedValue:PM Username}  | Step 1            |
+#    When I click on "Submit for Approval" in the page details
+#    And I pause execution for "3" seconds
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - All"
+#    When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+#    And I click on "Amend Subaward" in the page details
+#    When I click on "Activate" in the page details
+#    Then I softly see field "Status" as "Activated"
 
   @SubrecipientOrganizationRegistrationFlow
   Scenario: Verify Subrecipient Organization Registration Process
