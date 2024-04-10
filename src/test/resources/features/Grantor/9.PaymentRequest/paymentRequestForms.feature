@@ -346,6 +346,7 @@ Feature: Payment Request Forms scenarios
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
+   And I halt execution
     And I enter value "330" into field "PeriodEndDate__c"
     And I enter value "12345" into field "ZipPostalCodeSF428__c"
     And I enter value "12345" into field "PayeeZipCode__c"
@@ -364,6 +365,7 @@ Feature: Payment Request Forms scenarios
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
     When I click on "Save" in the page details
+    And I halt execution
     Then I softly see the following messages in the page details :
       | Form saved successfully. |
     And I wait for "8" seconds
@@ -661,6 +663,7 @@ Feature: Payment Request Forms scenarios
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
