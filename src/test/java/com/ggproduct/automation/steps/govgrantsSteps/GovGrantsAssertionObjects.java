@@ -157,15 +157,15 @@ public final class GovGrantsAssertionObjects {
 //                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
 //        }
 //        }else {
-            if (isSoftly) {
-                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-                        columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
-            } else {
-                Assert.assertEquals(checkifpresent,
-                        govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
-                                columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
-            }
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+                    columnValue, columnTitle, uniqueColumnValue, flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent,
+                    govgrants.perform().flexTable().assertCoulmnValueInColumnTitleAgainstUniqueValue(
+                            columnValue, columnTitle, uniqueColumnValue, flexTableDivId));
         }
+    }
 
 
     /**
@@ -180,26 +180,26 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertValuesAreInFlexTableWithColumnTitle(String columnValue, String columnTitle, String flexTableDivId,
                                                           Boolean checkifpresent, boolean isSoftly) {
-            String columnValueUpdated = columnValue;
-            if (columnValue.equalsIgnoreCase("Record Id")) {
-                columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
-            }
-            if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                    flexTableDivId)) {
-                I.amPerforming().waitFor().makeThreadSleep(1000);
-            }
-
-            if (isSoftly) {
-                I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                        flexTableDivId)).isEqualTo(checkifpresent);
-            } else {
-                Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
-                        flexTableDivId));
-            }
+        String columnValueUpdated = columnValue;
+        if (columnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                flexTableDivId)) {
+            I.amPerforming().waitFor().makeThreadSleep(1000);
         }
 
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitle(columnValueUpdated, columnTitle,
+                    flexTableDivId));
+        }
+    }
+
     public void assertValuesAreInFlexTableWithColumnTitleWithQuote(String columnValue, String columnTitle, String flexTableDivId,
-                                                          Boolean checkifpresent, boolean isSoftly) {
+                                                                   Boolean checkifpresent, boolean isSoftly) {
         String columnValueUpdated = columnValue;
         if (columnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
@@ -2531,9 +2531,9 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertButtonIsDisabledAtModalOrLayout(String usage, String buttonName, Boolean isModal) {
         if (usage.equalsIgnoreCase("see")) {
-           Assert.assertTrue(isButtonDisabledAtModalOrLayout(buttonName, isModal));
+            Assert.assertTrue(isButtonDisabledAtModalOrLayout(buttonName, isModal));
         } else {
-           Assert.assertFalse(isButtonDisabledAtModalOrLayout(buttonName, isModal));
+            Assert.assertFalse(isButtonDisabledAtModalOrLayout(buttonName, isModal));
         }
     }
 
@@ -3349,9 +3349,9 @@ public final class GovGrantsAssertionObjects {
         } else if (TabType.equalsIgnoreCase("Registration Footer")) {
             getPhaseTab = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'footerDiv-content')]"));
         } else if (TabType.equalsIgnoreCase("Registration Header")) {
-        getPhaseTab = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'navTopHeader clearfix')]"));
-    }
-        
+            getPhaseTab = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'navTopHeader clearfix')]"));
+        }
+
         switch (colorName.toUpperCase()) {
             case "VERY DARK BLUE":
                 if (getPhaseTab.getCssValue("background-color").contains("rgba(0, 57, 107, 1)")

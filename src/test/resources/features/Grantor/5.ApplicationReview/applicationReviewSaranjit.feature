@@ -1,7 +1,7 @@
 @applicationReviewWBSaranjit @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review without background
 
-  @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734 @vaibhav @reassignment
+  @done @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734 @vaibhav @reassignment
   Scenario Outline: Validate App Rev Ann owner should able to assign App form for review again after negotiation is completed even if previously reviewer 1 hold as 'Assigned' for form status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -127,11 +127,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "3" seconds
-#    And I click on "Assign" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-#    And I perform quick search for "Automation SME" in "---applicationReview:-:panelAppTableId---" panel
-#    And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-#    When I close "Assign Reviewers" modal by clicking the top right x button
+    #Need to check the assertion Automation Runtime FDM Announcement126893
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "{SavedValue:PM Username}" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation SME" inside table "---applicationReview:-:reviewersTableId---"
@@ -162,6 +158,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Complete Negotiation" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
@@ -238,6 +235,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:EGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
+    #Need to check the assertion Automation Runtime FDM Announcement126893
     Then I softly see value "0" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "0" for title "# of Reviews Assigned" against the value "{SavedValue:PM Username}" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "0" for title "# of Reviews Assigned" against the value "Automation SME" inside table "---applicationReview:-:reviewersTableId---"
@@ -255,6 +253,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
     And I pause execution for "5" seconds
+    #Need to check the assertion Automation Runtime FDM Announcement126893
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "{SavedValue:PM Username}" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "SME Reviewer" inside table "---applicationReview:-:reviewersTableId---"
@@ -263,10 +262,10 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @196900 @196930 @ValidateApp-Negotiationenewownercanseefollowingbuttonsandperformactiononitafterclickoninitiatenegotiationicononapplicationreviewafterit'srelatedAnnownershipwillassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
+  @done @196900 @196930 @ValidateApp-Negotiationenewownercanseefollowingbuttonsandperformactiononitafterclickoninitiatenegotiationicononapplicationreviewafterit'srelatedAnnownershipwillassigntonewuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario Outline: Validate App-Negotiation new owner can see following buttons and perform action on it after click on initiate negotiation icon on application review after it's related Ann ownership will assign to new user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
-    When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -285,7 +284,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -342,7 +341,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @done @wip @196990 @ValidateAppenewownerEXEcanonlyviewrejectedreviewAppafterapprelatedAnnownerwillassignownershiptootherEXEuser @sprint-4-US-197579 @vaibhav @reassignment
+  @done @196990 @ValidateAppenewownerEXEcanonlyviewrejectedreviewAppafterapprelatedAnnownerwillassignownershiptootherEXEuser @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App new owner EXE can only view rejected review App after app related Ann owner will assign ownership to other EXE user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -368,7 +367,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Yes" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -384,7 +383,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:Automation Runtime Announcement Application Review}" inside table "---applicationReview:-:appTableId---"
 
-  @done @wip @202576 @ValidateApplicationReviewtaskofpre-screenreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
+  @done @202576 @ValidateApplicationReviewtaskofpre-screenreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate Application Review' task of pre-screen review should be generated for assigned reviewer PM user and he can reassign review task to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -483,7 +482,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @done @wip @202580 @ValidateApplicationRevieasofSMEreviewshouldbegeneratedforassignedreviewerPOuserandhecanreassignreviewtasktootherPOuser @sprint-6-US-201906 @vaibhav @reassignment
+  @done @202580 @ValidateApplicationRevieasofSMEreviewshouldbegeneratedforassignedreviewerPOuserandhecanreassignreviewtasktootherPOuser @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate Application Review' task of SME review should be generated for assigned reviewer PO user and he can reassign review task to other PO user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -547,7 +546,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202583 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
+  @done @202583 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate Application Review' task of management review should be generated for assigned reviewer PM user and he can reassign review task to other PM user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -831,6 +830,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    #Need to check from this step as after management review Promote to FDM step is visible
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
@@ -883,7 +883,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202633 @Validatereviewertableshouldbeupdatedwithnewreviewernameafterreviewtaskreassigntonewreviewer @sprint-6-US-201906 @vaibhav @reassignment
+  @done @202633 @Validatereviewertableshouldbeupdatedwithnewreviewernameafterreviewtaskreassigntonewreviewer @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate reviewer table should be updated with new reviewer name after review task reassign to new reviewer
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -948,7 +948,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment
+  @done @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate Application Review' task of management review should be generated for assigned reviewer FO user and he can reassign review task to other FO user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1095,7 +1095,7 @@ Feature: Validate all scenarios in the Application Review without background
 
   @220312 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewer1alreadyReviewDeclinedforsameform @sprint-10-US-205576 @vaibhav @reassignment
   Scenario Outline: Validate reviewer 2 can reassign App review task to reviewer 1 only after negotiation complete if reviewer 1 already 'Review Declined' for same form
-    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Applications" tab
@@ -1105,6 +1105,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
     When I save the field labeled "EGMS ID" as "AppEGMSID"
+    When I save the field labeled "EGMS ID" as "EGMSID"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1170,10 +1171,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
-    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     And I pause execution for "3" seconds
+    #page is not editting facing blocker Automation Runtime FDM Announcement53972
     When I click on "Edit" in the page details
+    And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
@@ -1185,10 +1188,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Complete Negotiation" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:AppEGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
+    #Need to check the below step "review Incomplete" text is missing
     Then I softly see that "Review Incomplete" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I click on "Assign" icon for "Automation FD1" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel

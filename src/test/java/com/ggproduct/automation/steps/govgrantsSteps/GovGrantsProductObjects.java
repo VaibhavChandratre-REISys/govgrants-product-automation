@@ -111,13 +111,13 @@ public final class GovGrantsProductObjects {
      */
     public void assertColumnOnTable(String columnUniqueValue, String flextableId, boolean isSoftly) {
 
-                if (isSoftly) {
-                    I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
-                } else {
-                    Assert.assertTrue(
-                            govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
-                }
-            }
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
+        } else {
+            Assert.assertTrue(
+                    govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+        }
+    }
 
     /**
      * handles to verify no record is present in flex table

@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
+@paymentRequestWithBackground @paymentRequestSaranjit @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
 Feature: Validate all scenarios in Payment Request
 
   Background: Navigate to award
@@ -8,8 +8,8 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---progressReport:-:recipientAwardsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "SubawardId"
 
   @38840 @creationOfAdhocReimbursementPaymentRequest @smoke  
@@ -2514,7 +2514,7 @@ Feature: Validate all scenarios in Payment Request
       | {SavedValue:FD Username} | Step 4  |
     Then I softly see "Saved successfully!" inside flex table with id "---paymentRequest:-:approversTableId---"
 
-  @148783 @Verify1StepApprovalForAdvancePaymentRequest-RnRFuntionality @monu 
+  @testNow @148783 @Verify1StepApprovalForAdvancePaymentRequest-RnRFuntionality @monu
   Scenario Outline:Verify user can add one step approver for advance payment request and approve it
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
