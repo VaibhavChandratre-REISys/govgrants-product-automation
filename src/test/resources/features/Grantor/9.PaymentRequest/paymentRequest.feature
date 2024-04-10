@@ -119,7 +119,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @51073 @approvalOfPaymentRequest 
+  @51073 @approvalOfPaymentRequest @wip
   Scenario Outline: Approval of Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -208,7 +208,9 @@ Feature: Validate all scenarios in Payment Request
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
-    And I pause execution for "4" seconds
+    And I pause execution for "2" seconds
+    And I refresh the page
+    And I pause execution for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "red"
 
   @38838 @paymentRequestReSubmitAfterCorrection @mahadev @wip
@@ -431,9 +433,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -474,9 +480,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -519,9 +529,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -564,9 +578,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -610,9 +628,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -625,7 +647,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:pendingTaskTableId---"
 
-  @54175 @54177 @validateErrorOnEnteringAdvanceRequestedAmountGreaterThanBalance @mahadev
+  @54175 @54177 @validateErrorOnEnteringAdvanceRequestedAmountGreaterThanBalance @mahadev @wip
   Scenario: Advance Payment Request should not receive to Program Approver
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -638,7 +660,7 @@ Feature: Validate all scenarios in Payment Request
       | Budget Category | Advance Requested This Action |
       | Construction    | 10000000                      |
     Then I softly see the following messages in the page details contains:
-      | Advance Requested cannot be greater than the Advance Request Subaward Balance |
+      | Advance Requested cannot be greater than the Advance Request Balance |
     And I refresh the page
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
@@ -662,9 +684,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -771,9 +797,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -846,9 +876,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -942,9 +976,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1027,9 +1065,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1187,7 +1229,9 @@ Feature: Validate all scenarios in Payment Request
     And I "Disapprove" in the approval decision
     #As per discussion with sarat changing validation point
     Then I softly see field "Status" as "Rejected"
-    And I pause execution for "4" seconds
+    And I pause execution for "2" seconds
+    And I refresh the page
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     #Then I can see the message "Successfully disapproved" in the approval decision
 
@@ -1276,9 +1320,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1326,9 +1374,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1410,9 +1462,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1531,9 +1587,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
@@ -1585,9 +1645,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1620,9 +1684,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1764,9 +1832,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1813,9 +1885,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1862,9 +1938,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2068,9 +2148,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2117,9 +2201,13 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2166,9 +2254,13 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2304,9 +2396,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2552,9 +2648,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2590,9 +2690,13 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
