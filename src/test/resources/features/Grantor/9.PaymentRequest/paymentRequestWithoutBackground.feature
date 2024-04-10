@@ -1913,7 +1913,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @hit @197746 @ValidateNewPMusercanonlyviewforcecloseadhocreimbursementpaymentrequestafterownershipreassigntoPM @sprint-4 @vaibhav @reassignment
+  @197746 @ValidateNewPMusercanonlyviewforcecloseadhocreimbursementpaymentrequestafterownershipreassigntoPM @sprint-4 @vaibhav @reassignment
   Scenario: Validate New PM user can only view force close ad-hoc reimbursement payment request after ownership reassign to PM
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -2243,7 +2243,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId2}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @hit @197785 @Validatepaymentrequestownershouldnotchangeevenifawardownerchangehisownershipinbetweenpaymentrequestisinprogress @sprint-4 @vaibhav @reassignment
+  @197785 @Validatepaymentrequestownershouldnotchangeevenifawardownerchangehisownershipinbetweenpaymentrequestisinprogress @sprint-4 @vaibhav @reassignment
   Scenario: Validate  payment request owner should not change even if award owner change his ownership in between payment request is in progress
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2530,7 +2530,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Review Payment Request" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197280 @ValidatePOcanseeReviewPaymentRequesttasksforschedulereimbursementpaymentisgeneratedonreassignmytaskspageforEXEuser @sprint-4 @vaibhav @reassignment
+  @hit @197280 @ValidatePOcanseeReviewPaymentRequesttasksforschedulereimbursementpaymentisgeneratedonreassignmytaskspageforEXEuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate PO can see Review Payment Request tasks for schedule reimbursement payment is generated on reassign my tasks page for EXE user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -2569,11 +2569,9 @@ Feature: Payment Request scenarios without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -2661,7 +2659,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Review Payment Request" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197287 @ValidatePMusercanreassignad-hocreimbursementpaymentrequestownershiptaskstootherPMuser @sprint4 @vaibhav @reassignment
+  @hit @197287 @ValidatePMusercanreassignad-hocreimbursementpaymentrequestownershiptaskstootherPMuser @sprint4 @vaibhav @reassignment
   Scenario: Validate PM user can reassign ad-hoc reimbursement payment request ownership tasks to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -2706,7 +2704,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197291 @ValidateEXEusercanreassignschedulereimbursementpaymentrequestownershiptaskstootherEXEuser @sprint-4 @vaibhav @reassignment
+  @hit @197291 @ValidateEXEusercanreassignschedulereimbursementpaymentrequestownershiptaskstootherEXEuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate EXE user can reassign schedule reimbursement payment request ownership tasks to other EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -2745,11 +2743,9 @@ Feature: Payment Request scenarios without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -2843,7 +2839,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197293 @ValidatePOusercanreassignadvancepaymentrequestownershiptaskstootherPOuser @sprint-4 @vaibhav @reassignment
+  @hit @197293 @ValidatePOusercanreassignadvancepaymentrequestownershiptaskstootherPOuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate PO user can reassign advance payment request ownership tasks to other PO user
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2869,6 +2865,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -2888,7 +2885,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197358 @Validateusercannotreassignownershiptasktothenewuserwithdifferentprofileandsameorganization @sprint-4 @vaibhav @reassignment
+  @hit @197358 @Validateusercannotreassignownershiptasktothenewuserwithdifferentprofileandsameorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can not reassign ownership task to the new user with different profile and same organization
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -2923,7 +2920,7 @@ Feature: Payment Request scenarios without background
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
+  @hit @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can not reassign ownership task to the new user with Same profile and different organization
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2949,6 +2946,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2958,7 +2956,7 @@ Feature: Payment Request scenarios without background
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
+  @hit @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
   Scenario: Validate PM user can reassign advance payment request ownership tasks to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2986,6 +2984,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3000,7 +2999,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197392 @ValidatependingtaskshouldbegeneratedforPMasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
+  @hit @197392 @ValidatependingtaskshouldbegeneratedforPMasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for PM as new owner if ad-hoc reimbursement payment request ownership task reassign to other PM
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3045,7 +3044,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197393 @ValidatependingtaskshouldbegeneratedforPMasnewowneradvancepaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
+  @hit @197393 @ValidatependingtaskshouldbegeneratedforPMasnewowneradvancepaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for PM as new owner if advance payment request ownership task reassign to other PM
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3071,6 +3070,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3090,7 +3090,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197394 @ValidatependingtaskshouldbegeneratedforPOasnewownerschedulereimbursementpaymentrequestownershiptaskreassigntootherPO @sprint-4 @vaibhav @reassignment
+  @hit @197394 @ValidatependingtaskshouldbegeneratedforPOasnewownerschedulereimbursementpaymentrequestownershiptaskreassigntootherPO @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for PO as new owner if schedule reimbursement payment request ownership task reassign to other PO
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PO user" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3128,7 +3128,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197395 @ValidatependingtaskshouldbegeneratedforEXEasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherEXE @sprint-4 @vaibhav @reassignment
+  @hit @197395 @ValidatependingtaskshouldbegeneratedforEXEasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherEXE @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for EXE as new owner if ad-hoc reimbursement payment request ownership task reassign to other EXE
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3171,7 +3171,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197397 @197453 @Validatependingtaskshouldnotgenerateforolduserofad-hocreimbursementpaymentrequestafterownershipreassignment @sprint-4 @vaibhav @reassignment
+  @hit @197397 @197453 @Validatependingtaskshouldnotgenerateforolduserofad-hocreimbursementpaymentrequestafterownershipreassignment @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should not generate for old user of ad-hoc reimbursement payment request after ownership reassignment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
