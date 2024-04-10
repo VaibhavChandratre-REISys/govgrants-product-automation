@@ -3253,6 +3253,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3323,6 +3324,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3397,6 +3399,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -3411,7 +3414,7 @@ Feature: Payment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---paymentRequest:-:approversTableId---"
     And I navigate to "Forms and Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---paymentRequest:-:advanceFilesTableId---"
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---paymentRequest:-:reimburseCollabMessages---"
 
   @197512 @Validatependingtaskshouldgeneratedfornewowneronceapproverapprovead-hocreimbursementpaymentrequest @sprint-4 @vaibhav @reassignment @ownvai
@@ -3451,6 +3454,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3519,6 +3523,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3565,6 +3570,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId1}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId1}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3636,6 +3642,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3677,13 +3684,15 @@ Feature: Payment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
+#    And I select value "Automation PM" into field "s2id_autogen1"
+#    And I select value "Automation PM1" into field "s2id_autogen3"
+    When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly see value "Review Payment Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
