@@ -1,4 +1,4 @@
-@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression
+@grantsAwardAllocationVaibhav @grantor-regression @grantor-parallel-regression @grantAndAward @regression
 Feature: Validate all scenarios of grants and award for Allocation
 
   @243736 @ValidatePOasreviewershouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-237985 @vaibhav @Allocation
