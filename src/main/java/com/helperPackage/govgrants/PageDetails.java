@@ -804,12 +804,7 @@ public final class PageDetails {
      */
     public void selectBelowCheckboxOptionsForField(String fieldName, List<String> checkboxes) {
         for (int i = 0; i < checkboxes.size(); i++) {
-            I.amPerforming().click().on(By.xpath("//div [@id='" + fieldName + "']//label[contains(text(),'" + checkboxes.get(i) + "')]//preceding-sibling::input | " +
-                    "//span[text()='" + fieldName + "']/ancestor::dl//label[contains(text(),'" + checkboxes.get(i) + "')] |" +
-                    "//div [@id='" + fieldName + "']//option[contains(text(),'" + checkboxes.get(i) + "')]"));
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[@id='" + fieldName + "']//img[contains(@src,'/img/arrow2_picklist_right.gif')]"))) {
-                I.amPerforming().click().on(By.xpath("//div[@id='" + fieldName + "']//img[contains(@src,'/img/arrow2_picklist_right.gif')]"));
-            }
+            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ fieldName +"']//span[text()='" + checkboxes.get(i) + "']/parent::label//span[@class='slds-checkbox_faux']"));
         }
     }
 

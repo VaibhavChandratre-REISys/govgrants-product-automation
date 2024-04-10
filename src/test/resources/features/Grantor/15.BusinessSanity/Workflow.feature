@@ -1540,22 +1540,12 @@ Feature: Validate all scenarios of every modules flow
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
 #    When I login to "As a Grantor" app as "PM1" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2x19000002PVZHAA4/pr123405?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
-    When I navigate to "Forms and Files" sub tab
-#    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-#    And I pause execution for "5" seconds
-#    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
-#    When I click modal button "Close"
-    And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
-
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2x19000002PVZHAA4/pr123405?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
 #    When I navigate to "Forms and Files" sub tab
-#    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
-#    And I pause execution for "5" seconds
-#    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
-#    When I click modal button "Close"
 #    And I wait for "2" seconds
-#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:reimburseFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 #    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    And I halt execution
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
+      | Advance |
     And I halt execution

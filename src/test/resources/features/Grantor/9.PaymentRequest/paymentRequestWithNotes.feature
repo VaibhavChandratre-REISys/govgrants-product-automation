@@ -1121,8 +1121,8 @@ Feature: Validate all scenarios in Payment Request With Notes
   @236266 @VerifyPMFOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinCreatedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/FO/FD/ user should not able to 'Add' notes notes on schedule reimbursement payment request is in 'Created' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
-    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
-    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime award}" having object api name as "PaymentRequest__c"
+    Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
+    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
@@ -2627,7 +2627,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @2363381 @VerifySPISPAusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonAdvancepaymentrequestisinPaidRejectedForceClosedstates @sprint-14-US-225425 @hitesh @Notes @TBExecution
+  @2363381 @VerifySPISPAusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonAdvancepaymentrequestisinPaidRejectedForceClosedstates @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify SPI/SPA user should not able to 'Add' notes notes but can edit/delete own notes on Advance payment request is in Paid/ Rejected/Force Closed states
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3092,7 +3092,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236344 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonschedulereimbursementpaymentrequestisinForceClosedstates @sprint-14-US-225425 @hitesh @Notes @TBExecution
+  @236344 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonschedulereimbursementpaymentrequestisinForceClosedstates @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify IND user should not able to 'Add' notes notes but can edit/delete own notes on schedule reimbursement payment request is in Force Closed states
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
