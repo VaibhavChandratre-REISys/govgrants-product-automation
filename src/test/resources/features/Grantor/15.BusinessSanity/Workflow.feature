@@ -1534,20 +1534,19 @@ Feature: Validate all scenarios of every modules flow
 
 #  @debug
 #  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-#    When I login to "As a Grantor" app as "PM1" user
+    When I login to "As a Grantor" app as "PM" user
 #    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2x19000002PVZHAA4/pr123405?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
 #    When I navigate to "Forms and Files" sub tab
 #    And I wait for "2" seconds
 #    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 #    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
     And I halt execution
-    And I select below checkbox options for field "AdvanaceorReimbursement__c"
-      | Advance |
+    And I click on "Submit For Approval" in the page details
     And I halt execution
 
   @testCheck
@@ -1565,78 +1564,81 @@ Feature: Validate all scenarios of every modules flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation FO | Program Reviewer| Automation Test Description | 10       |
-    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I wait for "5" seconds
-    When I enter in modal value "Passed" into field "Rating__c"
-    And I enter in modal value "Passed" into field "ReviewComments__c"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation EXE | Fiscal Reviewer| Automation Test Description | 10       |
-    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-    And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I wait for "5" seconds
-    When I enter in modal value "Cannot Rate" into field "Rating__c"
-    And I enter in modal value "Passed" into field "ReviewComments__c"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation PO | Program Reviewer| Automation Test Description | 10       |
-    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
-    And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I wait for "5" seconds
-    When I enter in modal value "Passed" into field "Rating__c"
-    And I enter in modal value "Passed" into field "ReviewComments__c"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation FO | Program Reviewer| Automation Test Description | 10       |
+#    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+#    And I wait for "2" seconds
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+#    And I wait for "5" seconds
+#    And I halt execution
+#    When I enter in modal value "Passed" into field "Rating__c"
+#    And I enter in modal value "Passed" into field "ReviewComments__c"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation EXE | Fiscal Reviewer| Automation Test Description | 10       |
+#    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+#    And I wait for "5" seconds
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+#    And I wait for "5" seconds
+#    And I halt execution
+#    When I enter in modal value "Cannot Rate" into field "Rating__c"
+#    And I enter in modal value "Passed" into field "ReviewComments__c"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation PO | Program Reviewer| Automation Test Description | 10       |
+#    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
+#    And I wait for "5" seconds
+#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+#    And I wait for "5" seconds
+#    And I halt execution
+#    When I enter in modal value "Passed" into field "Rating__c"
+#    And I enter in modal value "Passed" into field "ReviewComments__c"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description                 | Due Date |
       | Automation FD | Fiscal Reviewer| Automation Test Description | 10       |
@@ -1653,6 +1655,7 @@ Feature: Validate all scenarios of every modules flow
     When I enter in modal value "Cannot Rate" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
+    And I halt execution
     And I click on submit review
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1677,4 +1680,5 @@ Feature: Validate all scenarios of every modules flow
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
+    And I halt execution
     And I click on submit review

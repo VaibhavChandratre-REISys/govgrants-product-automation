@@ -76,6 +76,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public void AssertPageBlockDisplayed(String pageblockName, boolean assertcan, boolean isSoftly) {
+        I.amPerforming().waitFor().ElementToBeVisible(pageBlock(pageblockName));
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(pageBlock(pageblockName), false);
         if (assertcan) {
             if (isSoftly) {
