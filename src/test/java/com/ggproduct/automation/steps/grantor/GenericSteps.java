@@ -319,7 +319,7 @@ public class GenericSteps {
 
     @Description("Click on reset button in table")
     @When("I click on button {string} in flex table with id {string}")
-    public void clickResetIcon(String buttonName,  String flexTableId) {
+    public void clickResetIcon(String buttonName, String flexTableId) {
         grantorProjectManager.clickButtonNameReset(buttonName, flexTableId);
     }
 
@@ -383,7 +383,7 @@ public class GenericSteps {
 
     @Description("Check the users status against value in Approval History table inside Hsitory Tab")
     @Then("I see {string} against {string} in approval history")
-    public void  seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
+    public void seeStatusOfRecordInApprovalHistory(String seeThisString, String againstThisString) {
         By listOfsUsers = By.xpath("//div[@id='chevronBarId']//ul[1]//li//a");
         List<Elements> listOfLoc = I.amPerforming().getElementReference().forListOfElements().of(listOfsUsers);
         int expectedIndex = 0;
@@ -546,6 +546,7 @@ public class GenericSteps {
         By emailBody = By.xpath("//body[contains(@id,'accountInvitation')]");
         I.amPerforming().textInput().in(emailBody, enterValue);
     }
+
     @And("I check the checkbox in modal with field value {string}")
     public void iCheckTheCheckboxInModalWithFieldAPI(String arg0) {
         By checkbox = ByUsing.xpath("//span[contains(text(),'" + arg0 + "')]/..//span[@class='slds-checkbox_faux']");
@@ -576,5 +577,36 @@ public class GenericSteps {
     @Then("^I (see|softly see|do not see|softly do not see) value \"([^\"]*)\" against the value \"([^\"]*)\" for title \"([^\"]*)\" in approval history$")
     public void iSeeValueAgainstTheValueForTitleInApprovalHistory(String usage, String expectedValue, String againstValue, String columnname) {
         grantorProjectManager.assertValueAgainstTheValueForTitleInApprovalHistory(usage, expectedValue, againstValue, columnname);
+    }
+
+    @And("^I select (user|dropdown) value \"([^\"]*)\" in field \"([^\"]*)\"$")
+    public void iSelectValueInField(String usage, String arg0, String arg1) {
+        if (usage.equalsIgnoreCase("user")) {
+            By textbox = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//input[@type='search' or @placeholder='Search User...']");
+            By SearchValue = ByUsing.xpath("//td[@data-label='" + arg0 + "']");
+            I.amPerforming().click().on(textbox);
+            I.amPerforming().checkToSee().isElementDisplayed(textbox);
+            I.amPerforming().textInput().in(textbox, arg0);
+            I.amPerforming().click().withJavaScript(textbox);
+            if (I.amPerforming().checkToSee().isElementDisplayed(SearchValue)) {
+                I.amPerforming().scroll().toMoveToElement(SearchValue);
+                I.amPerforming().click().withJavaScript(SearchValue);
+            }
+        } else if (usage.equalsIgnoreCase("dropdown")) {
+            By Ddown = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//div[@part='input-container']/input[@placeholder='Select an Option']");
+            By Option = ByUsing.xpath("//ul/li//span[text()='" + arg0 + "']");
+            I.amPerforming().click().on(Ddown);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().click().on(Option);
+        }
+    }
+
+    @And("I click on nested button {string} in flex table with id {string}")
+    public void iClickOnNestedButtonForValueInFlexTableWithId(String arg0, String arg2) {
+        By Action = ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + arg2 + "']//button[@class='slds-button slds-button_icon-border']");
+        By Remove = ByUsing.xpath("//lightning-menu-item[@title='" + arg0 + "']");
+        I.amPerforming().click().on(Action);
+        I.amPerforming().waitFor().ElementToBeClickable(Remove);
+        I.amPerforming().click().on(Remove);
     }
 }
