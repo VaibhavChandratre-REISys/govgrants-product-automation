@@ -126,6 +126,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
     And I get the "EGMS ID"
