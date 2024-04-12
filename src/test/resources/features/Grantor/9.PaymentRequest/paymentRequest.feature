@@ -75,7 +75,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @51072 @51071 @54352 @addApproverInPRAndSubmitPaymentRequestForApproval @smoke
+  @51072 @51071 @54352 @addApproverInPRAndSubmitPaymentRequestForApproval @smoke
   Scenario Outline: Selection of approvers in Reimbursement Payment Request | Submitting Reimbursement Payment Request for approval
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -214,7 +214,7 @@ Feature: Validate all scenarios in Payment Request
     And I pause execution for "2" seconds
     Then I see status in Progress-bar is "Rejected" and is "red"
 
-  @testnow @38838 @paymentRequestReSubmitAfterCorrection @mahadev
+  @38838 @paymentRequestReSubmitAfterCorrection @mahadev
   Scenario: Re-Submit Payment Request to grantor after correction
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -261,7 +261,7 @@ Feature: Validate all scenarios in Payment Request
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @testnow @38837 @pRSendBackToOwner @mahadev
+  @38837 @pRSendBackToOwner @mahadev
   Scenario: Approver send back payment request to owner
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -908,7 +908,7 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @testnow @54406 @uploadAttachmentOfTypeInvoiceAdvancePR @mahadev
+  @54406 @uploadAttachmentOfTypeInvoiceAdvancePR @mahadev
   Scenario: verify that uploaded document will reflect on  attachment section of type Invoice for advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -942,7 +942,7 @@ Feature: Validate all scenarios in Payment Request
     When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @testnow @54412 @uploadAttachmentFromWorkspaceAdvancePR @mahadev
+  @54412 @uploadAttachmentFromWorkspaceAdvancePR @mahadev
   Scenario: verify that user can uploaded document from workspace for Advance Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -959,7 +959,7 @@ Feature: Validate all scenarios in Payment Request
     When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @testnow @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
+  @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1008,7 +1008,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Financials" sub tab
     Then I see field "Program Income" as "$1,000.00"
 
-  @testnow @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev
+  @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev
   Scenario Outline: Validate Program Income tracking gets updated on award at grantor side after approval of reimbursement PR
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1129,7 +1129,7 @@ Feature: Validate all scenarios in Payment Request
     Then I see the following messages in the page details :
       | Advance applied cannot be greater than the Net Payment. |
 
-  @testnow @54323 @validateSuccesfulApprovedMessageOnReimbursementPR @mahadev
+  @54323 @validateSuccesfulApprovedMessageOnReimbursementPR @mahadev
   Scenario: Validate succesfully approved message on Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1257,7 +1257,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     #Then I can see the message "Successfully disapproved" in the approval decision
 
-  @testnow @54326 @validateSendBackMessageOnReimbursementPR @mahadev
+  @54326 @validateSendBackMessageOnReimbursementPR @mahadev
   Scenario: Validate succesfully send back payment request message on Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1328,7 +1328,7 @@ Feature: Validate all scenarios in Payment Request
     And I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @testnow @54367 @validateAdvancePRSendBackToSubReceipient @mahadev
+  @54367 @validateAdvancePRSendBackToSubReceipient @mahadev
   Scenario: Validate task is getting created for SPI user after send back advance payment request to subreceipient
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1527,7 +1527,7 @@ Feature: Validate all scenarios in Payment Request
     #Bug420315
     Then I cannot see field "Is Final Payment Request?" inside page block
 
-  @testnow @38744 @validateFiscalApproversCanAddDisallowanceAmountPaymentRequest
+  @38744 @validateFiscalApproversCanAddDisallowanceAmountPaymentRequest
   Scenario: Validate the Fiscal Approvers can add Disallowance for Reimbursement Payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1793,7 +1793,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @55629 @PRSubmittingForApproveEmailNotificationReimbursement @jitendra
+  @55629 @PRSubmittingForApproveEmailNotificationReimbursement @jitendra
   Scenario Outline: Verify that on submitting for approval , user is able to check email (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1839,7 +1839,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @55635 @forwardedEmailNotificationAdvancePR @jitendra
+  @55635 @forwardedEmailNotificationAdvancePR @jitendra
   Scenario: Verify that on Forward , user will receive email notifications for Payment Request (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1999,7 +1999,7 @@ Feature: Validate all scenarios in Payment Request
       Sandbox: Notification: Payment Request {SavedValue:PaymentId} has been SentBack
       """
 
-  @testnow @55638 @sendToOwnerPREmailNotificationReimbursement @jitendra
+  @55638 @sendToOwnerPREmailNotificationReimbursement @jitendra
   Scenario Outline: Verify that on Send to Owner , user is able to check  email notifications Payment Request (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2105,7 +2105,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @55637 @rejectPREmailNotificationReimbursement @jitendra
+  @55637 @rejectPREmailNotificationReimbursement @jitendra
   Scenario Outline: Verify that on Reject , user is able to check  email notifications Payment Request (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2159,7 +2159,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @55633 @rejectEmailNotificationAdvance @jitendra
+  @55633 @rejectEmailNotificationAdvance @jitendra
   Scenario: Verify that on Reject, user is able to check  email notifications Payment Request (Advance)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2329,7 +2329,7 @@ Feature: Validate all scenarios in Payment Request
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @testnow @55405 @advanceMultiplePRErrorMsgOnSecondPR @jitendra
+  @55405 @advanceMultiplePRErrorMsgOnSecondPR @jitendra
   Scenario Outline:Verify if Multiple Payment are initiated then it will show validation error with respect to sub-award
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2408,7 +2408,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @testnow @38836 @validateForwardedAdvancePRShownToAssignedUser @mahadev
+  @38836 @validateForwardedAdvancePRShownToAssignedUser @mahadev
   Scenario: Validate the Payment Request forwarded is shown to the assigned user
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2792,7 +2792,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @testnow @152691 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAt-AdvancePaymentRequest-RnRFunctionality @monu
+  @152691 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAt-AdvancePaymentRequest-RnRFunctionality @monu
   Scenario Outline:Verify validation displayed when same step is added for different approver for Advance Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
