@@ -100,28 +100,37 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "Salesforce@2032";
+                password = "Salesforce@2033";
                 break;
             case "ADMIN1":
                 password = "Salesforce@2032";
                 break;
             case "SPI3":
-                password = "Salesforce@2033";
+                password = "Salesforce@2034";
                 break;
             case "SA":
-                password = "Salesforce@2032";
-                break;
-            case "IND":
                 password = "Salesforce@2033";
                 break;
+            case "IND":
+                password = "Salesforce@2034";
+                break;
             case "PM":
-                password = "Salesforce@2032";
+                password = "Salesforce@2033";
                 break;
             case "PM1":
-                password = "Salesforce@2032";
+                password = "Salesforce@2033";
+                break;
+            case "PO":
+                password = "Salesforce@2033";
                 break;
             case "SPA":
                 password = "Salesforce9090";
+                break;
+            case "FD":
+                password = "Salesforce@2033";
+                break;
+            case "EXE":
+                password = "Salesforce@2033";
                 break;
             default:
                 password = "Salesforce@2032";
