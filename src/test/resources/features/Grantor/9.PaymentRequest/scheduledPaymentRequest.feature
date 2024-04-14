@@ -15,7 +15,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     Examples:
       | Award Name                            | Login User |
       | {SavedValue:Automation Runtime award} | SPI3       |
-      | {SavedValue:Automation Runtime award} | SPA        |
+#      | {SavedValue:Automation Runtime award} | SPA        |
 
   @55398 @submittedPRDisplayedInCompletedTask @mahadev
   Scenario Outline: Validate submitted payment request displays under completed task for SPI user

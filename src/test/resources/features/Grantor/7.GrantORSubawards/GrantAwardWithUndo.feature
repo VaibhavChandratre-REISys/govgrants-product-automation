@@ -555,7 +555,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Send to Subrecipient" in page detail
     #286447
-    And I click on "Send To Subrecipient" in the page details
+    And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     Then I cannot see top right button "Undo" in page detail
@@ -976,6 +976,8 @@ Feature: Validate all scenarios of grants and award with undo
     And I wait for "3" seconds
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
