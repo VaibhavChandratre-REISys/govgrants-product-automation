@@ -112,7 +112,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Management" sub tab
-    And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I pause execution for "5" seconds
     And I check the checkbox in modal with field value "I Agree"
@@ -140,6 +139,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:egmsId}" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I pause execution for "2" seconds
+    And I refresh the page
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @51137 @65397 @allApproverSelection
@@ -579,6 +580,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I pause execution for "2" seconds
+    And I refresh the page
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -5501,6 +5503,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I pause execution for "2" seconds
+    And I refresh the page
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @139362 @Verify2StepApprovalAtAward-RnRFunctnality @monu
