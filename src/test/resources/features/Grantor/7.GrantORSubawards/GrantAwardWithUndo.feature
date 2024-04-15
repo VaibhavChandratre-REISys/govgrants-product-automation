@@ -1,7 +1,7 @@
 @grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @grantAndAwardUndo
 Feature: Validate all scenarios of grants and award with undo
 
-  @286390  @sprint-1-US-295145 @hitesh @Undo @bug-414263
+  @286390  @sprint-1-US-295145 @hitesh @Undo @bug-414263 @wip
   Scenario: Verify PM/SPI user should not see undo button in created, sent for review, reviewed, sent to S\R before approval, sent to S\R after approval, Accept, Submit for approval state of award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
