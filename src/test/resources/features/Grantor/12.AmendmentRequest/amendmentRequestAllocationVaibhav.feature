@@ -135,10 +135,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -608,7 +610,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @248797 @ValidateFDusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromthepreviousaward @sprint-18-US-225787 @vaibhav @Allocation @TBExecution
+  @248797 @ValidateFDusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromthepreviousaward @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate FD user can see Current Commitment as Read-only field which is Copy of total commitment from the previous award
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "FD" user
@@ -693,7 +695,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see the following messages in the page details contains:
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
 
-  @248958 @ValidateEXEusercanseeanewsectionofBudgetSummarybyFocusAreainsteadofFundingChangeFocusArea @sprint-18-US-225787 @vaibhav @Allocation @TBExecution
+  @248958 @ValidateEXEusercanseeanewsectionofBudgetSummarybyFocusAreainsteadofFundingChangeFocusArea @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate EXE user can see a new section of Budget Summary by Focus Area instead of Funding Change -Focus Area
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
