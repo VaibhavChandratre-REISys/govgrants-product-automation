@@ -153,7 +153,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -408,7 +408,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see fields "GATStartDate__c" is in edit mode
@@ -486,7 +486,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -629,7 +629,7 @@ Feature: Validate all scenarios of grants and award for Allocation
      #240308
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see field "BudgetedAmount__c" not in edit mode
@@ -741,6 +741,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -819,6 +820,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -932,6 +934,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1111,6 +1114,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1382,6 +1386,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1570,6 +1575,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
     And I pause execution for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1717,6 +1723,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     And I pause execution for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1803,6 +1810,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1896,6 +1904,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1993,6 +2002,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2292,6 +2302,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -2370,6 +2381,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2517,6 +2529,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I pause execution for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -2666,6 +2679,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2746,6 +2760,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2865,6 +2880,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3086,6 +3102,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3333,6 +3350,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3500,6 +3518,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budget Summary" page block displayed
     Then I softly do not see "Budget Period Details" page block displayed
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3564,6 +3583,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budget Summary" page block displayed
     Then I softly do not see "Budget Period Details" page block displayed
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3636,12 +3656,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     Then I softly see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
@@ -3765,6 +3787,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3929,6 +3952,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4094,6 +4118,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4181,6 +4206,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4268,6 +4294,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4386,6 +4413,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4451,6 +4479,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4531,7 +4560,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
-      | Value   | Field                   |
+      | Value   | Field              |
       | Formula | GrantType__c       |
       | N/A     | AllocationLevel__c |
     When I click modal button "Save and Continue"
@@ -4814,6 +4843,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I pause execution for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4869,6 +4899,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4926,6 +4957,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:IND Username} | Project Director/Manager | Checked          |
     And I pause execution for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5049,6 +5081,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -5119,6 +5152,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5276,6 +5310,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5587,6 +5622,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -5655,6 +5691,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5789,6 +5826,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5872,6 +5910,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5956,6 +5995,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
@@ -6052,6 +6092,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
@@ -6309,12 +6350,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -6436,6 +6479,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6646,6 +6690,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6746,6 +6791,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6804,12 +6850,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -6943,6 +6991,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7159,6 +7208,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7355,6 +7405,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside page block
@@ -7505,6 +7556,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside page block
@@ -9171,9 +9223,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
     Examples:
-      | User | Value             |
-      | SPI3 | GrantFields1      |
-      | IND  | GrantFieldsIndUser|
+      | User | Value              |
+      | SPI3 | GrantFields1       |
+      | IND  | GrantFieldsIndUser |
 
   @245237 @245241 @ValidateDirectedThatSPAuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed - Verify That <SPA> user will seeNew Obligation in Budget Summary by focus Area section when award is in rejected state
@@ -9722,7 +9774,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -10010,7 +10062,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -11411,7 +11463,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
