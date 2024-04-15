@@ -446,6 +446,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 500         |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     And I refresh the page
@@ -454,6 +455,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1001        |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
