@@ -1220,7 +1220,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
