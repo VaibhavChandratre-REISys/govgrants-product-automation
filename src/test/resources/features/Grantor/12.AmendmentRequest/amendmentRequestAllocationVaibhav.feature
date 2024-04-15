@@ -6,10 +6,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -142,7 +144,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -178,8 +180,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:fundingAccount} | 1100                |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 1200  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 1200  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
@@ -267,9 +269,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
-      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     Then I softly see field "New Obligation" inside page block
@@ -293,8 +294,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     Then I softly see field "New Obligation" inside page block
@@ -379,7 +380,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -437,7 +438,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
@@ -525,7 +526,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -573,7 +574,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 500   | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -600,7 +601,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #248861
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -626,7 +627,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -652,7 +653,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -712,7 +713,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -739,7 +740,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -789,7 +790,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
@@ -830,7 +831,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :

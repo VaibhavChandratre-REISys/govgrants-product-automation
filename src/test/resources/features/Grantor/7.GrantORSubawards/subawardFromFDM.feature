@@ -369,6 +369,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -412,6 +413,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -446,7 +448,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 500         |
     And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     And I refresh the page
@@ -455,7 +457,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1001        |
     And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
