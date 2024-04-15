@@ -922,8 +922,8 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
   @54409 @uploadAttachmentOfTypeInvoiceAdvancePR1 @mahadev
   Scenario: verify that uploaded document will reflect on  attachment section of type Invoice for advance payment request
@@ -939,8 +939,8 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
   @54412 @uploadAttachmentFromWorkspaceAdvancePR @mahadev
   Scenario: verify that user can uploaded document from workspace for Advance Payment Request
@@ -956,8 +956,8 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
   @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
@@ -973,8 +973,8 @@ Feature: Validate all scenarios in Payment Request
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see value "{SavedValue:File Name}" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
   @54685 @validateProgramIncomeTrackingFieldOnAdvancePaymentRequestGrantorSide @mahadev
   Scenario: Validate Program Income Tracking field on payment request at grantor side gets updated after submitting payment request to grantor
