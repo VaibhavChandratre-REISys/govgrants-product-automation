@@ -159,6 +159,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -204,6 +205,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Amend Subaward" in the page details
     And I wait for "5" seconds
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -233,6 +235,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
