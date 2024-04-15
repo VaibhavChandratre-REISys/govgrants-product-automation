@@ -287,8 +287,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257883
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 100   | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 100   | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -296,8 +296,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $2000.00 across all budget periods. |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 5000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 5000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -324,8 +324,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -350,7 +350,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257889
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    And I clear the value from field "fieldRequestedChangeInBudget__c"
+    And I clear the value from field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -360,8 +360,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 1000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -382,8 +382,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send Back to Subrecipient" in the page details
@@ -392,7 +392,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257889
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    And I clear the value from field "fieldRequestedChangeInBudget__c"
+    And I clear the value from field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send Back to Subrecipient" in the page details
@@ -402,8 +402,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #261579
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit For Approval" in the page details
@@ -412,8 +412,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #261581
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -200  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -200  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit For Approval" in the page details
@@ -438,16 +438,16 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     #258333
     Then I softly see field "New Obligation" as "$2,000.00"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -2000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -2000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     #258053
     Then I softly see field "New Obligation" as "($2,000.00)"
@@ -471,8 +471,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Revised Commitment" as "$2,000.00"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -520,8 +520,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -2000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -2000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send Back to Subrecipient" in the page details
@@ -531,8 +531,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #258348
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -591,8 +591,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -683,9 +683,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -746,8 +746,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "500" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     Then I softly see status in Progress-bar is "Created" and is "Green"
@@ -943,9 +943,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -1125,9 +1125,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
@@ -1184,8 +1184,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "700" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "700" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     Then I softly see status in Progress-bar is "Created" and is "Green"
@@ -1265,23 +1265,23 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     #256591
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$4,000.00"
     #256632
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                     |
-      | 20000000000000000.30 | fieldRevisedCommitment__c |
+      | Value                | Field                |
+      | 20000000000000000.30 | RevisedCommitment__c |
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Revised Commitment : Number is too large. |
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -1414,14 +1414,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256623
     Then I softly see field "Status" as "Submitted to Grantor"
     When I click on "Edit" in the page details
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                     |
-      | 5000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 5000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$5,000.00"
     When I click on "Edit" in the page details
-    And I clear the value from field "fieldRevisedCommitment__c"
+    And I clear the value from field "RevisedCommitment__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -1431,8 +1431,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256634
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | -1000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | -1000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "($1,000.00)"
     And I wait for "9" seconds
@@ -1520,8 +1520,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 1000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 1000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -1530,8 +1530,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256629
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -1601,8 +1601,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 3000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -1657,8 +1657,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 3000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -1676,7 +1676,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     When I click on "Edit" in the page details
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
 
   @257088 @ValidateSPIuserseeupdatedvaluesinbudgetsummarysectionafterperiodicrenewalamendmentSubmittograntor @sprint-19-US-241581 @vaibhav @Allocation
   Scenario: Validte SPI user see updated values in budget summary section after periodic renewal amendment submit to grantor
@@ -1736,8 +1736,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 8000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 8000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
@@ -1869,8 +1869,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -2016,8 +2016,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -2112,8 +2112,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -2233,8 +2233,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2409,8 +2409,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2540,8 +2540,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2653,7 +2653,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -2772,8 +2772,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2855,9 +2855,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3007,9 +3007,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3141,13 +3141,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     #257652
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     #257652
     Then I softly see field "Revised Commitment" as "$4,000.00"
@@ -3175,7 +3175,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see that "fieldRequestedChangeInBudget__c" rendered in view mode only
+    Then I softly see that "RequestedChangeInBudget__c" rendered in view mode only
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3194,12 +3194,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     #257652
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                     |
-      | 1000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 1000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     #257652
     Then I softly see field "Revised Commitment" as "$1,000.00"
@@ -3210,8 +3210,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     #257483
@@ -3244,11 +3244,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3273,8 +3273,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -3282,8 +3282,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - New Obligation must be greater than $0 |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -12   | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -12   | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -3291,8 +3291,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - New Obligation must be greater than $0 |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -3330,11 +3330,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     #257798
     When I enter values into fields
-      | Value | Field                           |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 1000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -3344,8 +3344,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - The New Obligation ($1000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($2000.00) |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
@@ -3380,9 +3380,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3436,9 +3436,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 3000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 3000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -3476,7 +3476,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     #258820
     And I click on "Edit" in the page details
-    Then I softly see that "fieldRevisedCommitment__c" rendered in view mode only
+    Then I softly see that "RevisedCommitment__c" rendered in view mode only
     And I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
@@ -3518,9 +3518,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3679,9 +3679,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -3815,11 +3815,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Edit" in the page details
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     #257461
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "New Obligation" as "$2,000.00"
     #257667
@@ -3851,7 +3851,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257479
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see that "fieldRequestedChangeInBudget__c" rendered in view mode only
+    Then I softly see that "RequestedChangeInBudget__c" rendered in view mode only
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3875,8 +3875,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 1000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "7" seconds
     And I click on "Submit For Approval" in the page details
@@ -3886,10 +3886,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - The New Obligation ($1000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($2000.00) |
     And I click on "Edit" in the page details
     #257461
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     Then I softly see field "New Obligation" as "$2,000.00"
     And I click on "Submit for Approval" in the page details
@@ -3924,11 +3924,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     #257651
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$4,000.00"
     And I save the field labeled "EGMS ID" as "PeriodicID"
@@ -3966,7 +3966,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257657
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see that "fieldRevisedCommitment__c" rendered in view mode only
+    Then I softly see that "RevisedCommitment__c" rendered in view mode only
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3990,11 +3990,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 500   | fieldRevisedCommitment__c       |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 500   | RevisedCommitment__c       |
+      | 1000  | RequestedChangeInBudget__c |
     #257651
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$500.00"
     And I wait for "7" seconds
@@ -4004,9 +4004,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $2000.00 across all budget periods. |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     #257657
@@ -4068,8 +4068,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -4077,8 +4077,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - New Obligation must be greater than $0 |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -12   | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -12   | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -4087,8 +4087,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257532
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | New Obligation : Number is too large. |
@@ -4114,9 +4114,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -4183,9 +4183,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -4313,9 +4313,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -4387,9 +4387,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -4501,9 +4501,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -4672,7 +4672,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -4797,9 +4797,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -4877,7 +4877,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
+      | Value | Field                      |
       | 2000  | RequestedChangeInBudget__c |
       | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
@@ -4943,7 +4943,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -4995,7 +4995,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
+      | Value | Field                      |
       | 2000  | RequestedChangeInBudget__c |
       | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
@@ -5061,7 +5061,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -5152,8 +5152,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256715
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "Record Id"
     And I wait for "9" seconds
@@ -5163,27 +5163,27 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256721
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | New Obligation : Number is too large. |
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     #256842
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                     |
-      | 20000000000000000.30 | fieldRevisedCommitment__c |
+      | Value                | Field                |
+      | 20000000000000000.30 | RevisedCommitment__c |
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Revised Commitment : Number is too large. |
     #256838
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$11,000.00"
     #256718
@@ -5201,8 +5201,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     And I wait for "9" seconds
@@ -5211,7 +5211,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256924
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I clear the value from field "fieldRequestedChangeInBudget__c"
+    And I clear the value from field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -5220,14 +5220,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     #308952
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #256843
@@ -5255,8 +5255,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$11,000.00"
     #256808
@@ -5286,8 +5286,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -5295,8 +5295,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 8000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 8000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -5307,8 +5307,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 12000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 12000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -5317,8 +5317,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256972
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 2000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -5326,15 +5326,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $13000.00 across all budget periods. |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
       #256490
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -5381,14 +5381,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 40000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 40000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -5563,8 +5563,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 2000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account              | Revised Encumbrance |
@@ -5619,8 +5619,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
@@ -5628,8 +5628,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -5658,8 +5658,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -5720,11 +5720,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -5753,11 +5753,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 5000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 5000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -5787,11 +5787,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -5820,11 +5820,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "green"
@@ -5853,19 +5853,19 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     #257081
     Then I softly see the following messages in the page details contains:
       | New Obligation : Number is too large. |
     #257080
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 10000               |
@@ -5894,8 +5894,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$10,000.00"
     Then I softly see value "$10,000.00" for title "Revised Encumbrance" inside table "---amendment:-:amendmentFundingAccountsTableId---"
@@ -5929,11 +5929,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Current Commitment" rendered in view mode only
     Then I softly see that "Subrecipient Match" rendered in view mode only
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -5963,8 +5963,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     #257086
     When I enter values into fields
-      | Value | Field                     |
-      | 30000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 30000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$30,000.00"
 
@@ -6021,11 +6021,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 10000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 10000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -6054,8 +6054,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 20000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 20000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -6086,11 +6086,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -6119,8 +6119,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I pause execution for "9" seconds
@@ -6151,11 +6151,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -6192,8 +6192,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 5000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 5000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -6202,8 +6202,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 20000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 20000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -6212,8 +6212,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "green"
@@ -6237,9 +6237,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 1500  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 1500  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -6308,8 +6308,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $1,500.00            |
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2500  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2500  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -6369,9 +6369,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 1500  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 1500  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -6440,8 +6440,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $1,500.00            |
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 2500  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 2500  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -6496,7 +6496,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     When I navigate to "Overview" sub tab
-    When I enter value "Individuals" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
@@ -6617,8 +6617,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -6724,7 +6724,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -6838,8 +6838,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -6951,7 +6951,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -7117,8 +7117,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -7175,7 +7175,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
