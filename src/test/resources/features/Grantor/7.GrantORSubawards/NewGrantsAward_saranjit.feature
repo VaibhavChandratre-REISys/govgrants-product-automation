@@ -1406,6 +1406,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     And I refresh the page
+    #Bug418608
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
     And I navigate to "Grants" tab

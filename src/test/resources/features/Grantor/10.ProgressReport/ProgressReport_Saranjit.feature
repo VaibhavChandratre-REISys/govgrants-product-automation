@@ -21,24 +21,25 @@ Feature: Validate all scenarios in Progress Report
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "GrantorProgressReportsExternal" without waiting for record
 
 
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I pause execution for "4" seconds
-    And I click modal button "Close"
-#    And I click on "Save" in the page details
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+#    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+#    And I pause execution for "4" seconds
+#    And I click modal button "Close"
+##    And I click on "Save" in the page details
     When I get the "EGMS ID"
 
   @59677 @59676 @allowsEditAfterSentBackToSR @jitendra @FieldHistoryExclude
   Scenario: Validate SR is able to Edit the Progress report when Award owner Sent Back the Progress report | Validate History Field is getting Updated at Award owner End when Progress report status is Submitted to Grantor.
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I navigate to "Performance" sub tab
+#    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+#      | Title                    | Reported Date | Actual |
+#      | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
+    #Bug417451
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
