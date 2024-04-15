@@ -8273,6 +8273,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Program Application Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Negotiation Initiated"
+    And I pause execution for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -9336,8 +9337,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" with wait for record
     And I get the "EGMS ID"
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
