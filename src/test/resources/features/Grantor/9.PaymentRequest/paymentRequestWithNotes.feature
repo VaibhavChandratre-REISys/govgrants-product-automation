@@ -1226,6 +1226,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
     And I navigate to "Forms and Files" sub tab
     #236273
@@ -1660,6 +1661,8 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
