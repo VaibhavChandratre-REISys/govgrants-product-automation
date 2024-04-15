@@ -255,7 +255,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @248750 @ValidatepmusercanseeNewObligationfieldasreadonlyfieldinsteadofRequestedChangeinBudgetfieldonfundingchangeamendmentincreatedstate @sprint-18-US-225787 @vaibhav @Allocation @TBExecution
+  @248750 @ValidatepmusercanseeNewObligationfieldasreadonlyfieldinsteadofRequestedChangeinBudgetfieldonfundingchangeamendmentincreatedstate @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate pm user can see New Obligation field as read only field instead of Requested Change in Budget field on funding change amendment in created state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
