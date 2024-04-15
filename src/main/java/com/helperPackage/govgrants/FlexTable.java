@@ -503,6 +503,7 @@ public final class FlexTable implements FlexTableComponent {
             }
         }
         if (I.amPerforming().checkToSee().IsElementPresentQuick(getTopRightButtonLocatorByTableId(flexTableDivId, "Save"))) {
+            I.amPerforming().waitFor().makeThreadSleep(1000);
             clickTableTopRightButton(flexTableDivId, "Save");
         } else {
             I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]"
