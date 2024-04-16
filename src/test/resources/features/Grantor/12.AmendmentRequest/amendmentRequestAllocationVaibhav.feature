@@ -29,8 +29,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
-    And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"

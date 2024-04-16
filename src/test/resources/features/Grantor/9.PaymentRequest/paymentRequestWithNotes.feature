@@ -1680,11 +1680,11 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I wait for "2" seconds
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I click on "Override" in the page details
     And I refresh the page
     When I navigate to "Open Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
