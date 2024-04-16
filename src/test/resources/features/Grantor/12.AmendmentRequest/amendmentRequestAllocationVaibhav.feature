@@ -39,9 +39,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 2000         |
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative    | Award Amount |
+      | Construction | Construction | 2000         |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
@@ -62,9 +62,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 3000         |
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative    | Award Amount |
+      | Construction | Construction | 3000         |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
