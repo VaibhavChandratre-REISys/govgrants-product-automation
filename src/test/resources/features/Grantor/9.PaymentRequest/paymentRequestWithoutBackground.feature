@@ -5661,7 +5661,7 @@ Feature: Payment Request scenarios without background
 
   @197429 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforadvancepaymentrequestfornewowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Payment Request Grantor Notify' email should be generated for advance payment request for new owner
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
