@@ -1627,7 +1627,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     When I enter the following values into flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record2 | Automation Notes2|
-    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
