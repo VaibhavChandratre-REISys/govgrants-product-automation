@@ -1864,6 +1864,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2694,7 +2695,8 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     And I navigate to "Requests" sub tab
-    Then I softly see field "Closeout Requests" inside page block
+    And I wait for "3" seconds
+    Then I see "Closeout Requests" page block displayed
 
 
   @40071 @40605 @meenakshi @closeOutAcknowlegdmentSectionInGrantOverview
@@ -5526,7 +5528,7 @@ Feature: Validate all scenarios of grants and award without background
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @220563  @sprint-7-US-205248 @vaibhav @wip
+  @220563  @sprint-7-US-205248 @vaibhav
   Scenario: Validate EXE user should have two options if user click on Classification in Upload File from Computer Template for Grant Others
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5543,9 +5545,9 @@ Feature: Validate all scenarios of grants and award without background
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
-    Then I softly see Classification as "Select file classification" at upload file modal
-    Then I softly see Classification as "Template for Grant" at upload file modal
-    Then I softly see Classification as "Others" at upload file modal
+    Then I see field "Classification" as "Select file classification" on modal
+    Then I see field "Classification" as "Template for Grant" on modal
+    Then I see field "Classification" as "Others" on modal
 
   @220565  @sprint-7-US-205248 @vaibhav
   Scenario: Validate PM user can see to buttons at the bottom of Upload Files from Computer Cancel If click on Cancel than the modal will close and details filled will be lost
@@ -6002,6 +6004,7 @@ Feature: Validate all scenarios of grants and award without background
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I wait for "5" seconds
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
     Given I login to "As a Grantor" app as "ADMIN" user
@@ -6028,6 +6031,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 

@@ -190,7 +190,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @return
      */
     private int getCheckedFieldValueCount(String fieldName) {
-        List<Elements> checkSymbol = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//field[@field-name='" + fieldName + "']/i[contains(@class,'fa-check')]"));
+        List<Elements> checkSymbol = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//field[@field-name='" + fieldName + "']/i[contains(@class,'fa-check')] | //c-fieldlwc[@data-fieldapiname='" + fieldName + "']/ancestor::tr//*[contains(@class,'check')]"));
         return checkSymbol.size();
     }
 
