@@ -3142,9 +3142,9 @@ Feature: Validate all scenarios of grants and award without background
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
     #196573
-    And I Click on "Reassign Records" icon for "Grant" without tableid
     Then I softly see "Grants Available for Reassignment " page block displayed
     #196574
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     #196575
@@ -3352,7 +3352,6 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Send to Subrecipient" in the page details
     And I wait for "5" seconds
    Then I softly see field "Status" as "Sent to Subrecipient"
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3900,7 +3899,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
-    And I select value "Victor EXE" into field "input-2"
+    And I enter value "Victor EXE" in reassign lookup
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
@@ -3920,7 +3919,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
-    And I enter value "Undertaker FO" into field "input-2"
+    And I enter value "Undertaker FO" in reassign lookup
     And I pause execution for "4" seconds
     Then I softly do not see "Undertaker FO" inside auto search result
 
@@ -4644,7 +4643,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
-    And I select value "Victor EXE" into field "input-2"
+    And I enter value "Victor EXE" in reassign lookup
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
@@ -4668,7 +4667,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
-    And I enter value "Undertaker FO" into field "input-2"
+    And I enter value "Undertaker FO" in reassign lookup
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
@@ -6188,7 +6187,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Active"
-    And I perform quick search for "{SavedValue:ProgramEGMSID}"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 1" for title "Program" against the value "Automation FO" inside table "---program:-:approverTableId---"

@@ -5,10 +5,12 @@ Feature: Validate all scenarios in the Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 
   @53194 @53195 @53196 @53200 @creationOfSOWAmendmentRequest
   Scenario: Creation of SOW Amendment Request
@@ -17,12 +19,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     #53195
     And I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     #53196
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     When I enter "KPI" values from "Award_Field_Values.xlsx"
@@ -32,7 +34,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:AmendmentAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
-    Then I softly see "Attachment.pdf" has been added in "Amendment Files" flex table
+    Then I softly see "{SavedValue:Attachment.pdf}" has been added in "Amendment Files" flex table
 
   @53197 @53198 @associationOfObjectiveToSOWAmendmentRequest @smoke
   Scenario Outline: Association of Objective to Amendment Request
@@ -64,8 +66,8 @@ Feature: Validate all scenarios in the Amendment Request
     Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                    | Field             |
-      | Automation Permanent KPI | fieldMasterKPI__c |
-      | 10                       | fieldTarget__c    |
+      | Automation Permanent KPI | MasterKPI__c |
+      | 10                       | Target__c    |
     Given I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -83,7 +85,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
   @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke @wip
   Scenario: Subrecipient acknowledges Amendment Request
@@ -170,8 +172,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                                    | Field             |
-      | Automation Permanent KPI for Regression2 | fieldMasterKPI__c |
-      | 10                                       | fieldTarget__c    |
+      | Automation Permanent KPI for Regression2 | MasterKPI__c |
+      | 10                                       | Target__c    |
     And I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
