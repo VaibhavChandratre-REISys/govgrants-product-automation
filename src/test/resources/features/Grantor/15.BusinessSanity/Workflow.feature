@@ -654,7 +654,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    And I click on "Accept And Close" in the page details
 #    Then I softly see status in Progress-bar is "Closed" and is "Green"
 
-  @CloseoutWorkFlow @TBExecution
+  @CloseoutWorkFlow @TBExecution 
   Scenario: Closeout WorkFlow
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation ADMIN user" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user
