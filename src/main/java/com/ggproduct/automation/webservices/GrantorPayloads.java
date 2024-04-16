@@ -564,6 +564,8 @@ public class GrantorPayloads {
                 return invitedIndUserOrganizationbyApplicantFocusAreaNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA":
                 return invitedIndUserOrganizationbyApplicantFocusArea(json);
+            case "INVITED_APP_IND_ORG_BY_APP_FOCUS_AREA_RISK_NO":
+                return invitedIndUserOrganizationbyApplicantFocusAreaRiskNo(json);
             case "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION":
                 return invitedIndUserOrganizationPreApplicationAndNegotiationAsYes(json);
             case "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION":
@@ -593,6 +595,22 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject invitedIndUserOrganizationbyApplicantFocusAreaRiskNo(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("InvitedApplicant").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        jsonObject.addProperty("AllocatedAmount", 1000);
+        pre.add(jsonObject);
+        json.add("InvitedApplicant", pre);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("Allocationlevel", "By Applicant and Focus Area");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        return json;
     }
 
     private JsonObject updateAnnouncementWithByAppDetailBudgetYes(JsonObject json) {
