@@ -2132,13 +2132,11 @@ public class GrantorPayloads {
     }
 
     private JsonObject createAwarForSecondFocusAreaandBudgetCategorySubrecipientIndProfile(JsonObject json, String... Type) {
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
             grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
             newA.add(grant);
             json.add("Grant", newA);
-        }
         JsonArray awardServiceAreaArray = new JsonArray();
         JsonObject awardServiceAreaA = new JsonObject();
         awardServiceAreaA.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area"));
@@ -2261,13 +2259,11 @@ public class GrantorPayloads {
 
     private JsonObject createAwarForSPIUser(JsonObject json) {
 
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
             grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Product Sub Recipient Test Organization"));
             newA.add(grant);
             json.add("Grant", newA);
-        }
         return json;
     }
 
