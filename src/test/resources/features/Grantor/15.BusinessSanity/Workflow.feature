@@ -3,7 +3,7 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @programFlow @ValidateFullProgramFlow @TBExecution
   Scenario: Validate Full Program Flow
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -85,7 +85,7 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @PublishAnn-Application @TBExecution
   Scenario: Validate Publish Announcement Submit Application Submit
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -140,7 +140,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    And I click on "Publish" in the page details
 #    Then I see status in Progress-bar is "Published" and is "green"
 
-   @ApplicationSubmitted @TBExecution
+   @ApplicationSubmitted
     Scenario:
     Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
     And I am on "SUBPORTAL" portal
@@ -179,7 +179,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    And I get the "EGMS ID"
 #    When I click on "Submit Application" in the page details
 
-  @pre-applicatiomFlow @TBExecution
+  @pre-applicatiomFlow
   Scenario: Validate Pre-Application flow
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -223,11 +223,11 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @subawardactivateFlow @TBExecution
   Scenario: Activate the subaward
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -325,7 +325,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 #    And I click on "Activate" in the page details
 
-  @reimbursementPaymentRequest @TBExecution
+  @reimbursementPaymentRequest
   Scenario: reimbursement Payment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_ADVANCE_PERMISSION" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -374,7 +374,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    When I click modal button "Save"
 #    Then I see status in Progress-bar is "Paid" and is "green"
 
-  @AdvancePaymentRequest @TBExecution
+  @AdvancePaymentRequest
   Scenario: Advance Payment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -426,7 +426,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    When I click modal button "Save"
 #    Then I see status in Progress-bar is "Paid" and is "green"
 
-  @progressReportWorkflow @TBExecution
+  @progressReportWorkflow
   Scenario: progress report
    Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -474,9 +474,9 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @SiteVisitFlow @TBExecution
   Scenario: Sitevisit Flow
-    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "Automation ADMIN user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "Automation ADMIN user" of type "Competitive"
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -565,9 +565,9 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @DeskReviewFlow @TBExecution
   Scenario: Desk Review Flow
-    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
-    When I login to "As a Grantor" app as "dynamicUser" user
+    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "Automation ADMIN user" of type "Formula_By_Applicant"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "Automation ADMIN user" of type "Formula_By_Applicant"
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -656,8 +656,8 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @CloseoutWorkFlow @TBExecution
   Scenario: Closeout WorkFlow
-    And I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation ADMIN user" of type "Competitive"
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -711,7 +711,7 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @AwardLevelRiskAssesment @TBExecution
   Scenario: Award Level Risk Assessment
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -766,11 +766,11 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @NegotiationWorkFlow @TBExecution
   Scenario: Negotiation Workflow
-    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -1013,8 +1013,8 @@ Feature: Validate all scenarios of every modules flow work flow
 
   @GrantorSideAmendmentRequestWorkflow @TBExecution
   Scenario:
-    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST-Automation ADMIN user" of type "Competitive"
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1072,7 +1072,7 @@ Feature: Validate all scenarios of every modules flow work flow
 #    When I click on "Activate" in the page details
 #    Then I softly see field "Status" as "Activated"
 
-  @SubrecipientSideAmendmentRequestWorkflow @TBExecution
+  @SubrecipientSideAmendmentRequestWorkflow
   Scenario:
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
