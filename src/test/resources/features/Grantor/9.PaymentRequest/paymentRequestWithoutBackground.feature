@@ -2831,6 +2831,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3121,6 +3122,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -4316,7 +4318,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @197793 @Validatenewownerofschedulereimbursementpaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
+  @hit @197793 @Validatenewownerofschedulereimbursementpaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
   Scenario Outline: Validate new owner of schedule reimbursement payment request should have following buttons access after payment request submit to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -4353,6 +4355,7 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
@@ -4665,7 +4668,7 @@ Feature: Payment Request scenarios without background
      The EGMS Team
       """
 
-  @197514 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforschedulereimbursementpaymentrequestfornewowner @sprint-12-US-226646 @vaibhav @reassignment
+  @hit @197514 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforschedulereimbursementpaymentrequestfornewowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Payment Request Grantor Notify' email should be generated for schedule reimbursement payment request for new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -4710,6 +4713,7 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
@@ -6087,38 +6091,38 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Owner Reassignment Report
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-#
-#      EGMS ID Type Status Subject Assigned By Due Date
-#
-#
-#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-#      Login in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#
-#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-#
-#      EGMS ID Type Status Subject Assigned By Reason of Failure
-#      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
-#
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#      Thank you,
-#
-#      The EGMS Team.
-#      """
+    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Owner Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+
+      EGMS ID Type Status Subject Assigned By Due Date
+
+
+      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+      Login in to EGMS and click on EGMS IDs to access the assigned record.
+
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Monitoring" tab
@@ -6340,7 +6344,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @223500 @ValidatePaymentRequestModuleaftertransferringthemorethan10or10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment
+  @hit @223500 @ValidatePaymentRequestModuleaftertransferringthemorethan10or10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Payment Request Module after transferring the more than 10 or 10 record to new owner then all future task access visible to new owner
     And I activated standalone subaward "Automation Runtime Bulk award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -6651,21 +6655,18 @@ Feature: Payment Request scenarios without background
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Payment Request"
-    And I Click on "Reassign Records" icon for "Payment Request" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Payment Request" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     When I check "All" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId1}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     Then I do not see value "{SavedValue:PayreqId2}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
@@ -6683,7 +6684,7 @@ Feature: Payment Request scenarios without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
 
     Then I see the mail text is as follows :
@@ -6714,7 +6715,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @152509 @ValidateUserCanAddOneStepApproverForReimbursementPaymentRequestAndApproveIt @vaibhav
+  @hit @152509 @ValidateUserCanAddOneStepApproverForReimbursementPaymentRequestAndApproveIt @vaibhav
   Scenario Outline: Validate User Can Add One Step Approver For Reimbursement Payment Request And Approve It
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -6756,9 +6757,9 @@ Feature: Payment Request scenarios without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @152782 @ValidateUserIsAbleToAddThreeStepApproverForAdvancePaymentRequestAndForwardItOnStepThree
+  @hit @152782 @ValidateUserIsAbleToAddThreeStepApproverForAdvancePaymentRequestAndForwardItOnStepThree
   Scenario Outline: Validate User Is Able To Add Three Step Approver For Advance Payment Request And Forward It On Step Three
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -6782,6 +6783,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6827,9 +6829,9 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @hit @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate user cant reimburse more $ than the award budget using simultaneous payment request in approval
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -6923,7 +6925,7 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Financials Tab - Reimbursed Amount cannot be greater than the reimbursement balance. Subrecipient needs to apply advance. Please Send Request back. |
 
-  @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843 @vaibhav @Allocation
+  @hit @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate that payment request related settings are carried properly from announcement to grant level
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7002,9 +7004,9 @@ Feature: Payment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 2" for title "Advance" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @116562 @ValidatethatenteredrequestedamountwillautomaticallypopulatetoAdvanceRequestedfieldofAdvancesummaryforAdvancePR @Sprint-23-US-273843 @vaibhav @Allocation
+  @hit @116562 @ValidatethatenteredrequestedamountwillautomaticallypopulatetoAdvanceRequestedfieldofAdvancesummaryforAdvancePR @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate that entered requested amount will automatically populate to "Advance Requested" field of  Advance summary for Advance PR
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -7062,7 +7064,7 @@ Feature: Payment Request scenarios without background
     Then I softly see field "Advance Requested This Action" as "$200.00"
     Then I softly see value "$200.00" for title "Advance Requested This Action" against the value "Total" inside table "---paymentRequest:-:budgetTableId---"
 
-  @116564 @116568 @116580 @116623 @ValidatethatapprovedadvanceappliedamountwillreflectonreimbursementPRpage @Sprint-23-US-273843 @vaibhav @Allocation
+  @hit @116564 @116568 @116580 @116623 @ValidatethatapprovedadvanceappliedamountwillreflectonreimbursementPRpage @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate that approved advance applied amount will reflect on reimbursement PR page
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7179,9 +7181,9 @@ Feature: Payment Request scenarios without background
     And I navigate to "Financials" sub tab
     Then I softly see field "Advance Applied This Action" as "$10.00"
 
-  @116583 @ValidatethatifuserhasmandatorysupportingdocrecordforactiveadvancePaymentRequestatgrantlevelthenclickofsubmittograntoritshowsvalidationerrormessage @Sprint-23-US-273843 @vaibhav @Allocation
+  @hit @116583 @ValidatethatifuserhasmandatorysupportingdocrecordforactiveadvancePaymentRequestatgrantlevelthenclickofsubmittograntoritshowsvalidationerrormessage @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate that if user has mandatory supporting doc record for active advance Payment Request  at grant level  then on click of submit to grantor it shows validation error message
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -7204,8 +7206,8 @@ Feature: Payment Request scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
