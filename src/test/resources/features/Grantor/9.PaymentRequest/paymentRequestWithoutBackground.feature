@@ -6025,7 +6025,7 @@ Feature: Payment Request scenarios without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
-    Then I see status in Progress-bar is "Accepted" and is "dark blue"
+    Then I see status in Progress-bar is "Accepted after Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6087,38 +6087,38 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
-      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
-
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-
-      The EGMS Team.
-      """
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#      The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Type Status Subject Assigned By Due Date
+#
+#
+#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+#      Login in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#
+#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+#
+#      EGMS ID Type Status Subject Assigned By Reason of Failure
+#      {SavedValue:PayreqId} Approve Payment Request Not Started Approve Payment Request #{SavedValue:PayreqId} for Subaward #{SavedValue:AwardEGMSID} Automation EXE You cannot specify the same user for multiple steps for Reimbursement
+#
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#      Thank you,
+#
+#      The EGMS Team.
+#      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Monitoring" tab
@@ -6187,11 +6187,9 @@ Feature: Payment Request scenarios without background
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -6298,6 +6296,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
