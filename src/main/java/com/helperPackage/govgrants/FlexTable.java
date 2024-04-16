@@ -865,7 +865,7 @@ public final class FlexTable implements FlexTableComponent {
      * @author pooja.gundle
      */
     public By getResetButtonLocatorByTableId(String flexTableDivId, String buttonName) {
-        By locator  = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//div[@class='resetIcon']//button");
+        By locator  = By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//div[@class='" + buttonName + "']//button");
         return locator;
 
     }
