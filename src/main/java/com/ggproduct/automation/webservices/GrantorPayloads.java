@@ -570,6 +570,8 @@ public class GrantorPayloads {
                 return invitedIndUserOrganizationPreApplicationAndNegotiationAsYes(json);
             case "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION":
                 return invitedIndUserOrganizationSecondFocusAreaPreApplicationYes(json);
+            case "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO":
+                return invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(json);
             case "SECOND_FOCUS_AREA":
                 return updateAnnouncementWithSecondFocusArea(json);
             case "SECOND_FOCUS_AREA_RISK_ASS_NO":
@@ -595,6 +597,27 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(JsonObject json) {
+        JsonArray serviceArea = new JsonArray();
+        JsonObject serviceAreaB = new JsonObject();
+        serviceAreaB.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area2"));
+        serviceArea.add(serviceAreaB);
+        json.add("AnnouncementServiceArea", serviceArea);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("Allocationlevel", "By Applicant and Focus Area");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        JsonObject invApp = new JsonObject();
+        JsonArray invAppA = new JsonArray();
+        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        invApp.addProperty("AllocatedAmount", 500);
+        invAppA.add(invApp);
+        json.add("InvitedApplicant", invAppA);
+        return json;
     }
 
     private JsonObject invitedIndUserOrganizationbyApplicantFocusAreaRiskNo(JsonObject json) {
