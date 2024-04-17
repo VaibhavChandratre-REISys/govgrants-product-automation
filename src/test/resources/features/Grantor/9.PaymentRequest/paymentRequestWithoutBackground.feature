@@ -2840,9 +2840,9 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @hit @197293 @ValidatePOusercanreassignadvancepaymentrequestownershiptaskstootherPOuser @sprint-4 @vaibhav @reassignment
+  @197293 @ValidatePOusercanreassignadvancepaymentrequestownershiptaskstootherPOuser @sprint-4 @vaibhav @reassignment
   Scenario: Validate PO user can reassign advance payment request ownership tasks to other PO user
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
