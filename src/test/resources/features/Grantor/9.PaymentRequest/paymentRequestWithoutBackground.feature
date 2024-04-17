@@ -1708,7 +1708,7 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    When I navigate to "Records of Target User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
 
@@ -2176,7 +2176,7 @@ Feature: Payment Request scenarios without background
 
   @197769 @ValidatesystemcreatenewschedulepaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4 @vaibhav @reassignment
   Scenario: Validate system create new schedule payment request after previous PR ownership task reassign to other user then new PR internal side owner should be award only
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime award}" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
@@ -2212,6 +2212,7 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId1}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
@@ -6716,7 +6717,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @hit @152509 @ValidateUserCanAddOneStepApproverForReimbursementPaymentRequestAndApproveIt @vaibhav
+  @152509 @ValidateUserCanAddOneStepApproverForReimbursementPaymentRequestAndApproveIt @vaibhav
   Scenario Outline: Validate User Can Add One Step Approver For Reimbursement Payment Request And Approve It
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -6752,6 +6753,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
     Examples:
@@ -6830,7 +6832,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hit @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate user cant reimburse more $ than the award budget using simultaneous payment request in approval
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6916,6 +6918,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6935,8 +6938,8 @@ Feature: Payment Request scenarios without background
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
-    When I enter "Creation_Adv_OK" values from "Announcement_Field_Values.xlsx"
-    And I wait for "6" seconds
+    When I enter "Creation_Adv_Yes" values from "Announcement_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I click on "Save" in the page details
@@ -7001,8 +7004,8 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly see field "Status" as "Draft"
     And I navigate to "Overview" sub tab
-    Then I softly see field "Are Expense Details Required on Reimbursements?" as "OK"
-    Then I softly see field "Advance Payment Allowed?" as "OK"
+    Then I softly see field "Are Expense Details Required on Reimbursements?" as "Yes"
+    Then I softly see field "Advance Payment Allowed?" as "Yes"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
