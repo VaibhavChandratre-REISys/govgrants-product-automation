@@ -6936,7 +6936,7 @@ Feature: Payment Request scenarios without background
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
     When I enter "Creation_Adv_OK" values from "Announcement_Field_Values.xlsx"
-    And I wait for "3" seconds
+    And I wait for "6" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I click on "Save" in the page details
