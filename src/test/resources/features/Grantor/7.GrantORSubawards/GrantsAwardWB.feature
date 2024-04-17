@@ -3172,7 +3172,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
-  @196596 @196598 @196611 @sprint-4 @vaibhav @reassignment @Debug
+  @196596 @196598 @196611 @sprint-4 @vaibhav @reassignment
   Scenario: Validate after clicking on transfer ownership button for grants user should able to see the following message
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
