@@ -39,7 +39,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "']");
     }
 
     /**

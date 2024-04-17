@@ -56,7 +56,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Edit" in the page details
     When I enter value "2000" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
