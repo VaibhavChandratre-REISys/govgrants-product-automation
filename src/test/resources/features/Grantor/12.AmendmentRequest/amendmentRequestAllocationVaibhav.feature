@@ -3010,7 +3010,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I wait for "3" seconds
     When I click on "Override" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     And I refresh the page
     And I wait for "3" seconds
@@ -4001,7 +4003,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
