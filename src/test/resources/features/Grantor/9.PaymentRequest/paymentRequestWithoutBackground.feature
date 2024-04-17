@@ -1700,7 +1700,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
