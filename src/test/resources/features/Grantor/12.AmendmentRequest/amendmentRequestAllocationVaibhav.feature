@@ -5594,6 +5594,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -5602,6 +5603,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:ADMIN Username} | Step 1            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I halt execution
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5756,9 +5758,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | -2000                       | RequestedChangeInBudget__c    |
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
