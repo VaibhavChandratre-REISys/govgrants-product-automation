@@ -4111,8 +4111,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    And I click on parallel menu button in flex table title "Grants - All"
-    And I select "Reset Table" from parallel lines dropdown of "Grants - All"
+#    And I click on parallel menu button in flex table title "Grants - All"
+#    And I select "Reset Table" from parallel lines dropdown of "Grants - All"
+    And I reset the table
     When I perform quick search for "{AUTOEnvData:IndByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
     And I click on "View" icon for "{AUTOEnvData:IndByApplicantAndFocusAreaYesClosedSubaward}" inside table
     When I navigate to "Subawards" sub tab

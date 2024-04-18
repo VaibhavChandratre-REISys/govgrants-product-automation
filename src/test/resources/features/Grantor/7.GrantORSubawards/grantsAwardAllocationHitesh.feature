@@ -83,7 +83,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     #239563

@@ -282,7 +282,6 @@ Feature: Payment Request scenarios without background
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Invoice" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
 #    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Then I softly see value "Announcement_Field_Values.xlsx" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
