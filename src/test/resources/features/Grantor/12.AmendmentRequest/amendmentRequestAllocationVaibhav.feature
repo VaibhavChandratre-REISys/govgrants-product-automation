@@ -3662,7 +3662,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
@@ -4153,7 +4152,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
