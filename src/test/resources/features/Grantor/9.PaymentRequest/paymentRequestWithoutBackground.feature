@@ -3,7 +3,7 @@ Feature: Payment Request scenarios without background
 
   @53910 @ValidateAdvancePaymentRequestButton @mahadev @smoke
   Scenario Outline: validate advance button not displayed to SPI user when Advance Payment Allowed selected as NO
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -21,7 +21,7 @@ Feature: Payment Request scenarios without background
 
   @53966 @enterDetailedBudgetOnAdvPaymentRequest @mahadev
   Scenario Outline: Validate user can enter detailed budget for Advance Payment Request when Are Expense Details Required on Reimbursements? is OK at Grant
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -48,7 +48,7 @@ Feature: Payment Request scenarios without background
 
   @53953 @validateProgramIncomeFieldIsDisplayedOnAdvancePaymentRequest @mahadev
   Scenario Outline: Validate user can enter Program Income at payment request when program Income Allowed is OK at Grant
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -291,7 +291,7 @@ Feature: Payment Request scenarios without background
 
   @54498 @ValidateInActiveSuppportingDocumentChecklistOnAdvancePR @mahadev
   Scenario Outline: validate Suppporting Document Checklist is not displayed on advance payment request if selected as Inactive on grant
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -324,7 +324,7 @@ Feature: Payment Request scenarios without background
 
   @54495 @ValidateActiveSuppportingDocumentChecklistOnAdvancePR @mahadev
   Scenario Outline: validate Suppporting Document Checklist is displayed on advance payment request
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -390,7 +390,7 @@ Feature: Payment Request scenarios without background
 
   @54507 @ValidateOptionalSuppportingDocumentChecklistOnAdvancePR @mahadev
   Scenario Outline: validate Optional Suppporting Document Checklist should not display any error message on advance payment request
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -425,7 +425,7 @@ Feature: Payment Request scenarios without background
 
   @54503 @ValidateMandatorySuppportingDocumentChecklistOnAdvancePR @mahadev
   Scenario Outline: validate mandatory Suppporting Document Checklist should  display error message on advance PR if attachment not added
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -471,7 +471,7 @@ Feature: Payment Request scenarios without background
 
   @54167 @ValidateAwardBudgetIsSameAsBalanceOnAdvancePR @mahadev
   Scenario Outline: validate awarded budget is same as award balace on award activation
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -503,7 +503,7 @@ Feature: Payment Request scenarios without background
 
   @54708 @ValidateAdvanceRequestedAmountFieldOnAwardAtSubPortalUpdatedAfterAdvancePRApproval @mahadev
   Scenario Outline: validate Advance Requested Amount field at sub portal gets updated after Advance payment request approval
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -569,7 +569,7 @@ Feature: Payment Request scenarios without background
 
   @54707 @ValidateAdvanceRequestedAmountFieldOnAwardAtInternalPortalUpdatedAfterAdvancePRApproval @mahadev @smoke @buglogged-175608
   Scenario Outline: validate Advance Requested Amount field at Internal portal gets updated after Advance payment request approval
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -760,7 +760,7 @@ Feature: Payment Request scenarios without background
 
   @54711 @ValidateTotalFieldGettingUpdatedOnAdvancePR @mahadev
   Scenario Outline: Validate total field is getting updated on advance payment request
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -1445,7 +1445,7 @@ Feature: Payment Request scenarios without background
 
   @148788 @ValidateApproversaregettinginheritedfromawardrecordtoadvancepaymentrequest @vaibhav
   Scenario Outline: Validate Approvers are getting inherited from award record to advance payment request
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1593,7 +1593,7 @@ Feature: Payment Request scenarios without background
 
   @53969 @advancePaymentRequestSubmitToGrantorBySPI @mahadev
   Scenario: verify that advance payment request should be able to submit by SPI user
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -1642,7 +1642,7 @@ Feature: Payment Request scenarios without background
 
   @197621 @197633 @ValidateAdminusershowpaymentrequesttothesourceuserInternalsideOwnerevenifPRwhichareincreatedstate1stsectionofpaymentrequest @sprint-4 @vaibhav @reassignment
   Scenario: Validate Admin user show payment request to the source user Internal side Owner even if PR which are in created state 1st section of payment request
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -1861,7 +1861,7 @@ Feature: Payment Request scenarios without background
 
   @197686 @ValidatependingtaskshouldbegeneratedforNewPOuserforsubmittograntoradvancepaymentrequestafterownershipreassigntoPO @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for New PO user for submit to grantor advance payment request after ownership reassign to PO
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -2245,7 +2245,7 @@ Feature: Payment Request scenarios without background
 
   @197785 @Validatepaymentrequestownershouldnotchangeevenifawardownerchangehisownershipinbetweenpaymentrequestisinprogress @sprint-4 @vaibhav @reassignment
   Scenario: Validate  payment request owner should not change even if award owner change his ownership in between payment request is in progress
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -2923,7 +2923,7 @@ Feature: Payment Request scenarios without background
 
   @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can not reassign ownership task to the new user with Same profile and different organization
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -2958,7 +2958,7 @@ Feature: Payment Request scenarios without background
 
   @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
   Scenario: Validate PM user can reassign advance payment request ownership tasks to other PM user
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -3133,7 +3133,7 @@ Feature: Payment Request scenarios without background
 
   @197395 @ValidatependingtaskshouldbegeneratedforEXEasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherEXE @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for EXE as new owner if ad-hoc reimbursement payment request ownership task reassign to other EXE
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -3229,7 +3229,7 @@ Feature: Payment Request scenarios without background
 
   @197404 @Validateinitiallyadvancepaymentrequestinternalownershouldbesameasawardowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate initially advance payment request internal owner should be same as award owner
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -3366,7 +3366,7 @@ Feature: Payment Request scenarios without background
 
   @197511 @ValidatenewownerPOofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment @ExcludeSendEmail
   Scenario: Validate new owner PO of advance payment request should have following buttons access after payment request submit to grantor
-    And I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -3539,7 +3539,7 @@ Feature: Payment Request scenarios without background
 
   @197516 @ValidatesystemcreatenewpaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4 @vaibhav @reassignment
   Scenario: Validate system create new payment request after previous PR ownership task reassign to other user then new PR internal side owner should be award only
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -3761,7 +3761,7 @@ Feature: Payment Request scenarios without background
 
   @197509 @Validatenewownerofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
   Scenario: Validate new owner of advance payment request should have following buttons access after payment request submit to grantor
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -4032,7 +4032,7 @@ Feature: Payment Request scenarios without background
 
   @197790 @Validatenewownerofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
   Scenario: Validate new owner of advance payment request should have following buttons access after payment request submit to grantor
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -4864,7 +4864,7 @@ Feature: Payment Request scenarios without background
 
   @229592 @ValidateAdvancepaymentrequestownershouldgetchangeinRejectedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Advance payment request owner should get change in Rejected state after ownership reassign to other user
-    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_OK_FOCUS_AREA_NO" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
