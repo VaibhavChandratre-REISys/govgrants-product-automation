@@ -1539,13 +1539,8 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "PM1" user
     And I wait for "5" seconds
+    When I click on hyperlink containing value "AD-1234-1924"
     When I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
-    And I select user value "Automation FO" in field "name__r.name"
-    And I select dropdown value "Step 1" in field "ReimbursementRole__c"
-    And I click on nested button "Remove record" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
-#    And I click on "Remove record" icon for "Step 1" inside table
-    Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
-
+    Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
