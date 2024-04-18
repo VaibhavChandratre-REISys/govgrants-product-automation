@@ -2995,6 +2995,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name          | Closeout |
       | Automation PO | Step 1   |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
