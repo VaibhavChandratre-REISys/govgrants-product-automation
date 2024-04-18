@@ -783,6 +783,7 @@ Feature: Payment Request scenarios without background
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Equipment       | 10                            |
+    And I refresh the page
     Then I see value "$20.00" for title "Advance Requested This Action" against the value "Total" inside table "---paymentRequest:-:budgetTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -1435,9 +1436,7 @@ Feature: Payment Request scenarios without background
     And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
     And I select user value "Automation FO" in field "name__r.name"
     And I select dropdown value "Step 1" in field "ReimbursementRole__c"
-    #    And I select value "{SavedValue:FO Username}" into field "Name__c"
-#    And I enter value "NA" into field "ReimbursementRole__c"
-    And I click on "Remove record" icon for "Step 1" inside table
+    And I click on nested button "Remove record" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
 
     Examples:
@@ -3489,7 +3488,7 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
 
-  @debug @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
+  @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate  owner of award should not change even if it's related payment request ownership task is reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
