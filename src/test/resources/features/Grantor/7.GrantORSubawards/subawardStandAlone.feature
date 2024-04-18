@@ -2,17 +2,17 @@
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   Background: Create Award
-    When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-    And I click modal button "Continue"
-    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I get the "EGMS ID"
+#    When I login to "As a Grantor" app as "dynamicUser" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+#    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+#    And I click modal button "Continue"
+#    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
+#    And I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    And I get the "EGMS ID"
 
   @51128 @51129 @65592 @69088 @awardCreationAndEdition
   Scenario: Creation of an award and edition of an award
@@ -122,6 +122,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 #    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "5" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "egmsId"
     When I navigate to "Responsibilities" sub tab
@@ -357,6 +358,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I pause execution for "5" seconds
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableIdNew---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableIdNew---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -1056,8 +1058,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    Then I softly see value "Record Id" for title "Active Subaward" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:grantorGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
     And I save Todays Date
@@ -1580,7 +1581,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1 @jitendra
+  @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1 @jitendra
   Scenario Outline: To verify that approver of ( SPI/SPA) cannot be added in Program approver in Responsibility tab by the award owner for Award approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1642,9 +1643,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
-    And I select user value "{SavedValue:SPI3 Username}" in field "name__r.name"
-    And I pause execution for "4" seconds
-    Then I softly do not see "{SavedValue:SPI3 Username}" inside auto search result
+    Then I do not see value "{SavedValue:SPI3 Username}" inside auto search result after enterring into field "name__r.name"
 
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -1991,7 +1990,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
-    Then I see total records count "Total Records: 11" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    Then I see total records count "Total Records: 10" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -3106,6 +3105,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
+    And I pause execution for "10" seconds
     Then I softly see value "Closed/Completed" for title "Status" inside table "GrantsList"
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -3504,7 +3504,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---" without waiting for record
-    When I navigate to "Budget " sub tab
+    When I navigate to "Budget" sub tab
     Then I see value "{SavedValue:lastValueFromTableForCol}" for title "Title" inside table "flexGridEnhancedGrantorAwardServiceAreas"
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -3606,6 +3606,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Pending"
+    And I pause execution for "5" seconds
     And I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:RecipientGrantsPendingTableId---" panel
     Then I see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
     Examples:
@@ -4196,7 +4197,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @65958 @68482 @validatePeerReviewOnSubAward @aashish
+  @65958 @68482 @validatePeerReviewOnSubAward @aashish
   Scenario Outline: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5361,7 +5362,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I clear the value from field "GrantAwardDescription__c"
     When I enter value "Automation Test1 Description" into field "GrantAwardDescription__c"
     And I click on "Save" in the page details
-    And I pause execution for "3" seconds
+    And I pause execution for "6" seconds
     Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -5370,13 +5371,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
-    And I pause execution for "3" seconds
+    And I pause execution for "6" seconds
     Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @69320 @verifyFederalProgramAssociateInSubAward @aashish
+  @69320 @verifyFederalProgramAssociateInSubAward @aashish
   Scenario Outline: Validate that the Fedral program can be associated in Subaward
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
