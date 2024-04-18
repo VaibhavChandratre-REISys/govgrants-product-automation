@@ -4060,6 +4060,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Spent This Action |
       | Construction    | 1000              |
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4112,7 +4113,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
