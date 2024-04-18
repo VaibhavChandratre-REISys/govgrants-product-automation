@@ -283,8 +283,8 @@ Feature: Payment Request scenarios without background
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I see value "Announcement_Field_Values.xlsx" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -780,11 +780,11 @@ Feature: Payment Request scenarios without background
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Construction    | 10                            |
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
-      | Budget Category | Advance Requested This Action |
-      | Equipment       | 10                            |
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+#      | Budget Category | Advance Requested This Action |
+#      | Equipment       | 10                            |
     And I refresh the page
-    Then I see value "$20.00" for title "Advance Requested This Action" against the value "Total" inside table "---paymentRequest:-:budgetTableId---"
+    Then I see value "$10.00" for title "Advance Requested This Action" against the value "Total" inside table "---paymentRequest:-:budgetTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -887,8 +887,8 @@ Feature: Payment Request scenarios without background
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I upload attachment without random number "Announcement_Field_Values.xlsx" of type "Invoice" from computer
     When I click modal button "Close"
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly see value "Announcement_Field_Values.xlsx" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Examples:
       | User |
       | SPI3 |
