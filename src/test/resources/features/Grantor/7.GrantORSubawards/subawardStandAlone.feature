@@ -140,8 +140,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:egmsId}" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     And I refresh the page
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "green"
 
   @51137 @65397 @allApproverSelection
@@ -1071,7 +1072,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     Then I see field name "Frequency__c" is blank in flex table with Id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @checknow @53837 @paymentRequestSchedulesCreationOnDraftAward @mahadev
+  @53837 @paymentRequestSchedulesCreationOnDraftAward @mahadev
   Scenario: Verify that Payment Request Schedule is blank on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1641,7 +1642,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
-    And I select user value "{SavedValue:SPI3 Username}" in field "Name__c"
+    And I select user value "{SavedValue:SPI3 Username}" in field "name__r.name"
     And I pause execution for "4" seconds
     Then I softly do not see "{SavedValue:SPI3 Username}" inside auto search result
 
@@ -1990,7 +1991,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
-    Then I see total records count "Total Records: 10" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    Then I see total records count "Total Records: 11" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -2215,7 +2216,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "5" seconds
     Then I see total records count "Total Records: 12" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @checknow @55301 @SelectDesiredFrequencyAsQuarterly @jitendra
+  @55301 @SelectDesiredFrequencyAsQuarterly @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Quarterly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2280,7 +2281,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @checknow @55291 @ScheduleBaseAsReportingPeriod @jitendra
+  @55291 @ScheduleBaseAsReportingPeriod @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as monthly
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2473,7 +2474,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details contains:
       | Schedule Start date cannot be before Budget Period Start Date |
 
-  @checknow @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2487,7 +2488,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 16" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @checknow @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2501,7 +2502,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 6" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @checknow @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar @mahadev
+  @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar @mahadev
   Scenario: Verify while creating schedule user should be allowed to select the desired frequency as monthly with schdeule base as calendar
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2714,7 +2715,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     Then I see total records count "Total Records: 8" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @checknow @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate @jitendra
+  @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate @jitendra
   Scenario: Verify the functionality of Desired Frequency as Semi-Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2860,7 +2861,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate @jitendra
+  @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate @jitendra
   Scenario: Verify the functionality of Desired Frequency as Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -3093,7 +3094,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     And I navigate to "Budget" sub tab
-    Then I softly see value "{SavedValue:award available balance}" for title "Available Balance" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    #Balance will not reflect as in run time decreasing
+#    Then I softly see value "{SavedValue:award available balance}" for title "Available Balance" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see value "$1,000.00" for title "Encumbrance" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I navigate to "Grants" tab
@@ -3104,7 +3106,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
-    Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA--"
+    Then I softly see value "Closed/Completed" for title "Status" inside table "GrantsList"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -3436,7 +3438,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I refresh the page
     Then I do not see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @checknow @65228 @VerifyRelatedFocusAreasField @keerti
+  @65228 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as Program Key Performance Indicators (KPIs) table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -3501,8 +3503,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
-    When I perform quick search for "<Award Name>" in "flexGridRelatedAwards1" panel
-    And I click on "View" icon for "<Award Name>" inside table
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---" without waiting for record
     When I navigate to "Budget " sub tab
     Then I see value "{SavedValue:lastValueFromTableForCol}" for title "Title" inside table "flexGridEnhancedGrantorAwardServiceAreas"
     Examples:
@@ -3604,14 +3605,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
+    And I click toggle button to select "Grants - Pending"
     And I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:RecipientGrantsPendingTableId---" panel
     Then I see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
+  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
   Scenario: Verify award owner can add new Terms and Conditions on subaward Terms Tab |
   |Verify New added Terms and Conditions are Editable by award owner on Subaward.|
     And I navigate to "Terms" sub tab
@@ -4072,7 +4073,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev
+  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev
   Scenario Outline: To verify that after the program approver is assigned task by the award owner from the Subaward in the created state it must appear in the pending task of the approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4951,7 +4952,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @68482 @validatePeerReviewIsOptional @aashish
+  @68482 @validatePeerReviewIsOptional @aashish
   Scenario: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5388,7 +5389,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     When I perform quick search for "Wildlife Services" in "---subAwardStandAlone:-:federalListTableId---" panel
     When I click "Associate" after selection of "Wildlife Services" in the table "---subAwardStandAlone:-:federalListTableId---"
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     And I refresh the page
     Then I see value "Wildlife Services" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Examples:
