@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+#  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
@@ -1540,10 +1540,12 @@ Feature: Validate all scenarios of every modules flow
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "As a Grantor" app as "PM" user
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
-#    And I select value "{SavedValue:FO Username}" into field "input-1"
-    And I enter value "NA" into field "ReimbursementRole__c"
-    And I click on "Remove record" icon for "Step 1" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" without waiting for record
+    And I select user value "Automation FO" in field "name__r.name"
+    And I select dropdown value "Step 1" in field "ReimbursementRole__c"
+    And I click on nested button "Remove record" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
+#    And I click on "Remove record" icon for "Step 1" inside table
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
 

@@ -3489,7 +3489,7 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
 
-  @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
+  @debug @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate  owner of award should not change even if it's related payment request ownership task is reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
