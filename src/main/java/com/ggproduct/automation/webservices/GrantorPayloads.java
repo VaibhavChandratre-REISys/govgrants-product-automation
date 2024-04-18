@@ -560,6 +560,8 @@ public class GrantorPayloads {
                 return invitedIndUserOrganizationFocusAreaNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT":
                 return invitedIndUserOrganizationbyApplicant(json);
+            case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_RISK_NO":
+                return invitedIndUserOrganizationbyApplicantRiskNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA_NO":
                 return invitedIndUserOrganizationbyApplicantFocusAreaNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA":
@@ -597,6 +599,22 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject invitedIndUserOrganizationbyApplicantRiskNo(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("InvitedApplicant").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        jsonObject.addProperty("AllocatedAmount", 1000);
+        pre.add(jsonObject);
+        json.add("InvitedApplicant", pre);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        jsonObject1.addProperty("Allocationlevel","By Applicant");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        return json;
     }
 
     private JsonObject invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(JsonObject json) {

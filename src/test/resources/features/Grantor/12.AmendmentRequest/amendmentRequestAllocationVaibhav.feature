@@ -4034,7 +4034,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @253671 @ValidateINDusercanseethatvalueinSpentcolumnisCalculatedfromtheamountIspentacrossthefocusareaviapaymentrequestsFAYes @sprint-18-US-247642 @vaibhav @Allocation @TBExecution1
   Scenario: Validate IND user can see that value in Spent column is Calculated from the amount I spent across the focus area via payment requests (FA Yes)
-    And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT-Automation EXE user"
+    And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_RISK_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation EXE user"
@@ -4422,7 +4422,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -4617,7 +4616,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -4794,7 +4792,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -4921,7 +4918,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -5006,7 +5002,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253495
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     And I save the field labeled "Total Commitment" as "TotalCommitment1"
@@ -5030,7 +5025,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253548
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     And I save the field labeled "Total Commitment" as "TotalCommitment3"
@@ -5076,8 +5070,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Override" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     When I "Approve" in the approval decision
@@ -5111,7 +5106,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253495
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     And I save the field labeled "Total Commitment" as "TotalCommitment2"
@@ -5135,7 +5129,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253548
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     And I save the field labeled "Total Commitment" as "TotalCommitment4"
@@ -5170,7 +5163,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -5311,9 +5303,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Override" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -5338,7 +5332,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I expand nested table containing column value "BP01"
     Then I softly see value "$3,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
-    And I refresh the page
     #253497
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
@@ -5403,7 +5396,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     Then I softly see field "New Obligation" as "$2,000.00"
     Then I softly do not see "Requested Change in Budget" inside page block detail
     #253404
@@ -5445,7 +5437,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
-    And I wait for "9" seconds
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -5503,7 +5495,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
-    And I refresh the page
     When I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---amendment:-:focusAreaTableId---"
     And I wait for "2" seconds
