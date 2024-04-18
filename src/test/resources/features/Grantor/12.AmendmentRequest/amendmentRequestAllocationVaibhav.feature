@@ -5576,7 +5576,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Save"
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see status in Progress-bar is "Paid" and is "green"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5617,7 +5617,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
