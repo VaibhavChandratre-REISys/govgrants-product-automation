@@ -2,17 +2,17 @@
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   Background: Create Award
-#    When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-#    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-#    And I click modal button "Continue"
-#    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
-#    When I click modal button "Save and Continue"
-#    And I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I get the "EGMS ID"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
 
   @51128 @51129 @65592 @69088 @awardCreationAndEdition
   Scenario: Creation of an award and edition of an award

@@ -959,7 +959,7 @@ Feature: Validate all scenarios in Payment Request
 #    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
-  @checknow @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
+  @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1818,6 +1818,8 @@ Feature: Validate all scenarios in Payment Request
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---" without waiting for record
+    And I navigate to "Actuals" sub tab
+    And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---paymentRequest:-:grantorPaymentRequestTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
