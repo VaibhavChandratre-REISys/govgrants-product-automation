@@ -1081,6 +1081,7 @@ public final class FlexTable implements FlexTableComponent {
         I.amPerforming().textInput().toClear(inputBox);
         I.amPerforming().textInput().in(inputBox, inputValue);
         I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 
     private void handleDateInput(WebElement fieldWrapper, String fieldValue) {

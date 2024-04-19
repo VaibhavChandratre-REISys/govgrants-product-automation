@@ -1793,7 +1793,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @checknow @55629 @PRSubmittingForApproveEmailNotificationReimbursement @jitendra
+  @55629 @PRSubmittingForApproveEmailNotificationReimbursement @jitendra
   Scenario Outline: Verify that on submitting for approval , user is able to check email (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
