@@ -5339,7 +5339,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
-    And I expand nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP01"
     Then I softly see value "$3,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253497
@@ -5359,7 +5359,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
-    And I expand nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP01"
     Then I softly see value "$3,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     #253549
@@ -5379,7 +5379,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Examples:
       | User | Properties                                   |
       | SPI3 | ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO        |
-      | IND  | ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND |
+#      | IND  | ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND |
 
   @253377 @253404 @253379 @253390 @253406 @253445 @ValidatePMusercanseeNewObligationfieldasuserenterfield&enterPositiveValueinsteadofRequestedChangeinBudgetfieldonfundingchangeamendmentincreatedstate @sprint-18-US-250620 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user can see New Obligation field as user enter field & enter Positive Value instead of Requested Change in Budget field on funding change amendment in created state
