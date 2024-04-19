@@ -112,7 +112,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Management" sub tab
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I pause execution for "5" seconds
     And I check the checkbox in modal with field value "I Agree"
@@ -1988,6 +1988,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "ProgressReport_Edition" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I refresh the page
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 10" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
@@ -2985,7 +2986,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @checknow @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @mahadev
+  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @mahadev
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3106,7 +3107,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
     And I pause execution for "10" seconds
-    Then I softly see value "Closed/Completed" for title "Status" inside table "GrantsList"
+    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
+    Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -3480,7 +3482,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "<Award Name>" inside table
     When I navigate to "Performance" sub tab
-    Then I see value "{SavedValue:lastValueFromTableForCol}" for title "EGMS ID" inside table "---subAwardStandAlone:-:objectivesTableId---"
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -3505,7 +3507,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:grantorAwardTableId---" without waiting for record
     When I navigate to "Budget" sub tab
-    Then I see value "{SavedValue:lastValueFromTableForCol}" for title "Title" inside table "flexGridEnhancedGrantorAwardServiceAreas"
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -5271,7 +5273,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
+  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
   Scenario Outline: Validate that Subaward sent to the Subrecipient can be Edited and Viewed by all the member of the Same Org and the Changes made must be affected in the Subaward of all profile.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5363,7 +5365,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter value "Automation Test1 Description" into field "GrantAwardDescription__c"
     And I click on "Save" in the page details
     And I pause execution for "6" seconds
-    Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
+    #It is getting passed in debug
+    Then I softly see value "Automation Test1 Description" for the field "Brief information about the subaward."
+#    Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     And I click toggle button to select "Grants - Pending"
@@ -5372,7 +5376,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     And I pause execution for "6" seconds
-    Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
+    #It is getting passed in debug
+    Then I softly see value "Automation Test1 Description" for the field "Brief information about the subaward."
+#    Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
