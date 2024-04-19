@@ -5000,8 +5000,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:GrantsBudgetCategoriesTableId---" is "All"
-    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:GrantsBudgetCategoriesTableId---" :
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "All"
+    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" :
       | Award Amount |
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
@@ -5023,8 +5023,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
-    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" :
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "All"
+    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
@@ -5078,6 +5078,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Override" in the page details
     And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -5104,8 +5105,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:GrantsBudgetCategoriesTableId---" is "All"
-    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:GrantsBudgetCategoriesTableId---" :
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "All"
+    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" :
       | Award Amount |
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
@@ -5127,8 +5128,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
-    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" :
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "All"
+    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
       | $3,000.00    |
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
