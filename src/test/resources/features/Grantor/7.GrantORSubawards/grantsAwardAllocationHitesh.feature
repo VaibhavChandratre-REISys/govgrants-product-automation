@@ -1063,7 +1063,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
 
-  @TestRun @239820 @ValidatePMuserofawardshouldnothaveeditaccessbudgetsummarybyfocusareatableandothersectiononawardinsubmitforapproval @sprint-15-US-237846 @vaibhav @Allocation @vanch
+  @239820 @ValidatePMuserofawardshouldnothaveeditaccessbudgetsummarybyfocusareatableandothersectiononawardinsubmitforapproval @sprint-15-US-237846 @vaibhav @Allocation @vanch
   Scenario Outline: Validate PM user of award should not have edit access budget summary by focus area table and other section on award in Submit For Approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1478,7 +1478,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                            | Allocation Amount |
       | Automation Permanent Focus Area2 | 1000              |
-    And I refresh the page
+    And I wait for "5" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
