@@ -27,6 +27,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see) status in Progress-bar is \"([^\"]*)\" and is \"([^\"]*)\"$")
     public void assertStatusProgressBar(String usage, String status, String color) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         ggAssertionObjects.assertStatusProgressBar(
                 status,
                 color,

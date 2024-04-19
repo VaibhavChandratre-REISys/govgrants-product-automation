@@ -502,7 +502,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I wait for "3" seconds
@@ -838,7 +838,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -7639,7 +7639,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 |
       | IND  |
 
-  @TestRun @243670 @ValidatePOusershouldnotseeBudgetedAmountfieldonawardinsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedAmendedPendingActivationFAYes @sprint-16-US-237985 @vaibhav @Allocation
+  @243670 @ValidatePOusershouldnotseeBudgetedAmountfieldonawardinsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedAmendedPendingActivationFAYes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate PO user should not see 'Budgeted Amount' field on award in submitted to approval Approved, Sent to S/r after approval, activated, Amended or Pending Activation FA=Yes
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -7989,6 +7989,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see fields "NewObligation__c" is in edit mode
     And I click on "Save" in the page details
+    And I refresh the page
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$1,000.00"
 
@@ -8155,7 +8156,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$3,000.00"
 
-  @TestRun @243693 @243779 @ValidateUsershouldnoteditthenewobligationvalueinSentSRsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstateFAYes @sprint-16-US-237985 @vaibhav @Allocation
+  @243693 @243779 @ValidateUsershouldnoteditthenewobligationvalueinSentSRsubmitforapprovalApprovedSenttoSrAfterapprovalAmendedorPendingActivationorActivatedstateFAYes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate User should not edit the new obligation value in Sent to S/R, Submit For Approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated states (FA=Yes)
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
