@@ -1464,6 +1464,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
