@@ -5288,12 +5288,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I enter value "Automation Test justification" into field "Justification__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name           | Closeout |
       | Automation EXE | Step 1   |
     And I click on "Send To Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
