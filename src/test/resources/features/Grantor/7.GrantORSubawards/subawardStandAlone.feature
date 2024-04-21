@@ -3487,7 +3487,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @checknow @65226 @VerifyRelatedFocusAreasField @keerti
+  @65226 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Focus Area field value Budget tab Subaward overview is same as Program Related Focus Areas table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -3519,7 +3519,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @checknow @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord  @keerti
+  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord  @keerti
   Scenario Outline: To verify that  after clicking on the "send to subreciepient button " from the award owner profile after creating subaward is visible to the Subreciepient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

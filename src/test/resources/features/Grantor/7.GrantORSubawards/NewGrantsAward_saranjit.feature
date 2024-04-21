@@ -1507,7 +1507,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
 #    When I navigate to "Terms" sub tab
      #Button is Missing below
     #Bug418247
-#    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Budget" sub tab

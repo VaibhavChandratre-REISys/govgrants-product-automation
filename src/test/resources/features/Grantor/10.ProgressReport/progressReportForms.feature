@@ -1,4 +1,4 @@
-@grantor-regression @grantor-parallel-regression @progressReport @progressReportForms @regression
+@grantor-regression @grantor-parallel-regression @checknow @progressReport @progressReportForms @regression
 Feature: Validate scenarios in Progress Report Forms
 
   @284145 @ValidateSF428CINDusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
