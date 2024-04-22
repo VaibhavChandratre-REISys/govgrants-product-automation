@@ -12,8 +12,6 @@ Feature: Validate all scenarios for program with add file
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -22,6 +20,7 @@ Feature: Validate all scenarios for program with add file
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     #222087
@@ -117,8 +116,6 @@ Feature: Validate all scenarios for program with add file
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
