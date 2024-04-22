@@ -1120,6 +1120,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"

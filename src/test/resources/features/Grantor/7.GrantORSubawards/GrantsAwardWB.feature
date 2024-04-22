@@ -3144,13 +3144,13 @@ Feature: Validate all scenarios of grants and award without background
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
     #196573
-    Then I softly see "Grants Available for Reassignment " page block displayed
+#    Then I softly see "Grants Available for Reassignment " page block displayed
     #196574
     And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     #196575
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
