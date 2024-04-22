@@ -1,4 +1,4 @@
-@grantAndAward @awardStandAlone @grantor-regression @grantor-parallel-regression @regression
+@grantAndAward @awardStandAloneSaranjit @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   Background: Create Award
@@ -16,30 +16,28 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @51128 @51129 @65592 @69088 @awardCreationAndEdition
   Scenario: Creation of an award and edition of an award
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
-    And I click on "Edit" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Budget" sub tab
-    And I perform quick search for "Administrative and legal expenses" in "---subAwardStandAlone:-:subAwardBudgetTableId---" panel
     Then I softly see "Administrative and legal expenses" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
   @51130 @65606 @awardStandAloneAddContactsKeyPersonnel
   Scenario Outline: Associate a Key Contact
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
-    And I select value inside table "---subAwardStandAlone:-:keyContactsTableId---" is "All"
-    And I check "<Contact>" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+    And I check "All" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
       | Automation SPA             | Other                    |                  |
+    #Bug410727
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
     Then I softly see that "Automation SPA" has been added in flextable with Id "---subAwardStandAlone:-:associatedContactsTableId---"
     Examples:
       | Contact        |
@@ -61,9 +59,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario Outline: Validate the association of Focus Area to Award
     When I navigate to "Budget" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    And I select value inside table "---subAwardStandAlone:-:associateModalTableId---" is "All"
-    And I check "<Focus Area>" boxes in flex table with id "---subAwardStandAlone:-:associateModalTableId---"
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associateModalTableId---"
+    And I perform quick search for "Automation Permanent Focus Area" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
+    And I check "All" boxes in flex table with id "---subAwardStandAlone:-:AssociateFocusArea---"
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:AssociateFocusArea---"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -106,25 +104,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Title                                    |
       | Automation Permanent KPI for Regression2 |
 
-  @51136 @51129 @65974 @awardCreateAndEdit @allRiskAssessmentApprovalAndActivation @smoke
+  @check2 @51136 @51129 @65974 @awardCreateAndEdit @allRiskAssessmentApprovalAndActivation @smoke @issueinFrameworkCheckboxTagisdifferentinRiskAssesment
   Scenario: Risk Assessment approval in an award
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Management" sub tab
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
+    #need to check the xpath issue in framework
+#    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "egmsId"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
@@ -137,25 +140,26 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:egmsId}" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Active" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @51137 @65397 @allApproverSelection
   Scenario: Validate the assignment of Approvers for the award | To verify that approvers can be added in the subaward phase when login by award owner as a PM
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
+     #Bug410727
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @68591 @validateAcceptRejectButtonForSPISPAUsers @jitendra
+  @check2 @68591 @validateAcceptRejectButtonForSPISPAUsers @jitendra
   Scenario Outline: Validate that if Sub-award is Send to subrecipient before approval SPI user is only able to Accept, Reject the sub-award SPA user cannot in same organization
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -180,29 +184,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -225,22 +229,22 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    When I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
+    When I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     And I click on "Edit" in the page details
     And I click on "Save" in the page details
     Then I softly cannot see top right button "Accept" in page detail
@@ -249,15 +253,15 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    When I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
+    When I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @jitendra @buglogged151483
+  @check2 @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @jitendra @buglogged151483
   Scenario Outline: Validate the award send to recipient and acceptance by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -281,29 +285,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -326,30 +330,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Grant Name>" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "GrantorActiveGrantsgrid" without waiting for record
+    When I perform quick search for "<Grant Name>" in "ActiveGrants" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "ActiveGrants" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "flexGridRelatedAwards1" without waiting for record
     When I navigate to "Terms" sub tab
@@ -395,29 +399,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -457,7 +461,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51142 @65492 @51143 @65798 @allSubmissionForApproval @allApproval
+  @check2 @51142 @65492 @51143 @65798 @allSubmissionForApproval @allApproval
   Scenario Outline: Validate award submission for approval and approval of award | To verify that the status of the subaward in SR side from sent to subrecipient to Accepted
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -481,29 +485,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -526,14 +530,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -554,7 +558,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -575,7 +579,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I pause execution for "2" seconds
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -604,29 +608,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -649,14 +653,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -726,29 +730,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -771,14 +775,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -876,7 +880,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51139 @68127 @67821 @67819 @67822 @67818 @66009 @65975 @66012 @66013 @68145 @64787 @allActivation @smoke @jitendra
+  @check2 @51139 @68127 @67821 @67819 @67822 @67818 @66009 @65975 @66012 @66013 @68145 @64787 @allActivation @smoke @jitendra
   Scenario Outline: all activation | Validate activate and View Noga button on award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -901,30 +905,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     ##When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -952,14 +956,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1019,7 +1023,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I enter value "2" into field "fieldDUNSExpirationDate__c"
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1041,7 +1044,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see that "Subaward" is in "Activated" status
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Available Balance" as "award available balance after deduction" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
-    Then I softly see initial budget balance "{SavedValue:award available balance}" is decreased by "1000" and is matched with current budget balance "{SavedValue:award available balance after deduction}"
+    Then I softly see initial budget balance "{SavedValue:award available balance after deduction}" is decreased by "1000" and is matched with current budget balance "{SavedValue:award available balance after deduction}"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1068,12 +1071,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Save" in the page details
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
+    And I pause execution for "4" seconds
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Payment Request"
-    Then I see total records count "Total Records:120" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
+    Then I see total records count "Total Records: 12" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
   @53838 @editionOfPaymentRequestSchedule @mahadev
   Scenario: Verify that Payment Request Schedule is editable to internal user on draft award
@@ -1082,9 +1085,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Save" in the page details
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-    And I enter value "Automation Test Description" into field "fieldDescription__c"
     And I click modal button "Save"
     And I click on "View" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     Then I see field "Description" as "Automation Test Description"
@@ -1096,12 +1097,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Save" in the page details
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     And I enter value "Quarterly" into field "Frequency__c"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
@@ -1109,7 +1108,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
+  @check2 @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1133,29 +1132,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1183,18 +1182,20 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I navigate to "History" sub tab
     And I wait for "60" seconds
+    And I refresh the page
+    #Bug414554
     Then I softly see value "Subaward Send_to_Subrecipient.pdf" for title "File Name" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Taken By" against the value "Subaward Send_to_Subrecipient.pdf" inside table "---subAwardStandAlone:-:snapshotHistoryTableId---"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1287,12 +1288,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward @jitendra
+  @check2 @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward @jitendra
   Scenario Outline: To verify that the peer reviewers can be added in the responsibility tab of Sub Award Risk Assessment phase by the Award owner(PM profile)
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1316,19 +1317,19 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "RiskID"
@@ -1347,14 +1348,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1418,17 +1419,15 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Saved successfully! |
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -1459,29 +1458,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1497,14 +1496,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1572,7 +1571,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1 @jitendra
+  @check2 @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1 @jitendra
   Scenario Outline: To verify that approver of ( SPI/SPA) cannot be added in Program approver in Responsibility tab by the award owner for Award approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1596,29 +1595,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1662,19 +1661,19 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Construction    | 1000         | 100        | 100            |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "RiskID"
@@ -1693,14 +1692,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1750,19 +1749,19 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "RiskID"
@@ -1781,14 +1780,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1814,7 +1813,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @38205 @DraftAwardNavigation @mahadev
+  @check2 @38205 @DraftAwardNavigation @mahadev
   Scenario Outline: Navigation to draft award by FO User
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1824,13 +1823,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                                   | Grant Name                                   | User |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | PM   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | FO   |
 
-  @55311 @ProgressReportScheduleUpdateOnActiveAward @mahadev @buglogged142215
+  @check2 @55311 @ProgressReportScheduleUpdateOnActiveAward @mahadev @buglogged142215
   Scenario Outline: Validate progress report schedules update on active award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1854,29 +1853,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1904,14 +1903,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1976,7 +1975,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Activate" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ProgressReport_Edition" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -1986,7 +1984,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66023 @errorMsgForRiskAssementAfterActivateAward @jitendra @buglogged127848
+  @check2 @66023 @errorMsgForRiskAssementAfterActivateAward @jitendra @buglogged127848
   Scenario Outline: To verify that after Activate Button on the award owner (PM ) profile is clicked without completing risk assessment validation error must appear
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2010,29 +2008,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2060,14 +2058,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2140,26 +2138,24 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario: Validate user can edit progress report schedule on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter value "Calendar" into field "ScheduleBase__c"
     And I click modal button "Save"
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     Then I see field "Schedule Base" as "Calendar"
 
-  @55296 @ViewProgressReportScheduleOnDraftAward @mahadev
+  @check2 @55296 @ViewProgressReportScheduleOnDraftAward @mahadev
   Scenario: Validate user can view progress report schedule on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    Then I pause execution for "3" seconds
     Then I see field "Schedule Title" as "{SavedValue:Automation Runtime Progress Report}"
 
   @55289 @ViewProgressReportScheduleAutoCreatedOnDraftAward @mahadev
@@ -2171,7 +2167,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario: Validate user can Download the progress created Report in PDF format.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2184,7 +2179,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario: Validate user can Download the progress created Report in XLS format
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2192,54 +2186,50 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I select "Download as XLS" from parallel lines dropdown of "Progress Reports Schedule"
     Then I verify that "xls" file is downloaded
 
-  @55290 @SelectDesiredFrequencyAsMonth @jitendra
+  @check2 @55290 @SelectDesiredFrequencyAsMonth @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Monthly
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
-    Then I see total records count "Total Records:120" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
+    And I pause execution for "5" seconds
+    Then I see total records count "Total Records: 12" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55301 @SelectDesiredFrequencyAsQuarterly @jitendra
+  @check2 @55301 @SelectDesiredFrequencyAsQuarterly @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Quarterly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Quarterly" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:4" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297
+  @check2 @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ScheduledEndDateAfterStartDate" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | Schedule End date cannot be after Project Period End Date |
 
-  @55300 @SelectDesiredFrequencyAsBiMonthly @jitendra
+  @check2 @55300 @SelectDesiredFrequencyAsBiMonthly @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Bi Monthly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report BiMonthly" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:6" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55299 @SelectDesiredFrequencyAsAnnually @mahadev
+  @check2 @55299 @SelectDesiredFrequencyAsAnnually @mahadev
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as annually.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Annually" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2247,22 +2237,20 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:1" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55302 @SelectDesiredFrequencyAsSemiAnnually @mahadev
+  @check2 @55302 @SelectDesiredFrequencyAsSemiAnnually @mahadev
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as semi-annually.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Semi-Annually" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:2" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55303 @SelectDesiredFrequencyAsMonthly @mahadev
+  @check2 @55303 @SelectDesiredFrequencyAsMonthly @mahadev
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as monthly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2270,19 +2258,17 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55291 @ScheduleBaseAsReportingPeriod @jitendra
+  @check2 @55291 @ScheduleBaseAsReportingPeriod @jitendra
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as monthly
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
     Then I see "Reporting Period" text enter in field "fieldScheduleBase__c"
 
-  @55294 @verifyUserIsNotAllowedToSelectProgressReportScheduleStartDateBeforeBudgetPeriodStartDate @mahadev
+  @check2 @55294 @verifyUserIsNotAllowedToSelectProgressReportScheduleStartDateBeforeBudgetPeriodStartDate @mahadev
   Scenario: Verify While creating schedule user is not allowed to select the Schedule Start Date which is before Budget period start date on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Error" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     Then I see the following messages in the page details :
@@ -2292,7 +2278,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   Scenario: Verify While creating progress report schedule user should be allowed to select the start date
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Fixed Date" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "5" seconds
@@ -2325,24 +2310,25 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2370,14 +2356,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2403,14 +2389,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @55295 @veifyViewAccessForProgressReportsSchedulesOnDraftAward @mahadev
+  @check2 @55295 @veifyViewAccessForProgressReportsSchedulesOnDraftAward @mahadev
   Scenario Outline: Verify that system allows EXE, PO, FD, and FO can see the created Progress Report Schedules
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2430,14 +2415,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | EXE  | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
       | FO   | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45728 @veifyNonAwardOwnerCanNotEditSchedule @mahadev
+  @check2 @45728 @veifyNonAwardOwnerCanNotEditSchedule @mahadev
   Scenario Outline: Verify non award owner cannot edit Progress Report Schedule
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2455,55 +2439,51 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45735 @validateUserCannotSelectschdeuleStartDateBeforeBudgetPeriodStartDate @mahadev
+  @check2 @45735 @validateUserCannotSelectschdeuleStartDateBeforeBudgetPeriodStartDate @mahadev
   Scenario: Verify While creating schedule user is not allowed to select the Schedule Start Date before Budget Period Start Date
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report StartDate Error" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | Schedule Start date cannot be before Budget Period Start Date |
 
-  @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @check2 @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report MoreThanOneyear" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:16" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @check2 @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records:6" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar @mahadev
+  @check2 @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar @mahadev
   Scenario: Verify while creating schedule user should be allowed to select the desired frequency as monthly with schdeule base as calendar
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ProgressReportCalendarSchedule" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -2535,29 +2515,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2591,7 +2571,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51110 @validateSubRecipientCannotEditSchedule1
+  @check2 @51110 @validateSubRecipientCannotEditSchedule1
   Scenario Outline: Verify If Subaward is Send to Sub-recipient for Edit action than external user should not have access to modify Schedule.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2615,29 +2595,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2679,7 +2659,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "AnnualError" values from "Errors.xlsx"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
@@ -2692,43 +2671,41 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "MonthlyError" values from "Errors.xlsx"
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @45736 @SelectDesiredFrequencyAsBiMonthlyBasedOnGivenDate @jitendra
+  @check2 @45736 @SelectDesiredFrequencyAsBiMonthlyBasedOnGivenDate @jitendra
   Scenario: Verify functionality of Desired Frequency as Bi Monthly with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Bi-MonthlyForEightRecord" values from "Errors.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
+    And I pause execution for "3" seconds
     Then I see total records count "Total Records:8" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate @jitendra
+  @check2 @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate @jitendra
   Scenario: Verify the functionality of Desired Frequency as Semi-Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Bi-MonthlyForEightRecord" values from "Errors.xlsx"
     And I enter value "Semi-Annually" into field "Frequency__c"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
+    And I pause execution for "3" seconds
     Then I see total records count "Total Records:3" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45734 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod1 @jitendra
+  @check2 @45734 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod1 @jitendra
   Scenario: Verify Reporting Period End Date is same as the Schedule End Date.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "5" seconds
@@ -2740,14 +2717,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportScheduleChildTableId---"
     Then I verify that the Schedule end date is matching with Reporting Period End Date
 
-  @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra
+  @check2 @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra
   Scenario: Verify Reporting Period Start Date is same as the Schedule Start Date.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "3" seconds
@@ -2782,24 +2758,25 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2822,14 +2799,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2855,19 +2832,19 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate @jitendra
+  @check2 @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate @jitendra
   Scenario: Verify the functionality of Desired Frequency as Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Bi-MonthlyForEightRecord" values from "Errors.xlsx"
     And I enter value "Annually" into field "Frequency__c"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
+    And I pause execution for "3" seconds
     Then I see total records count "Total Records:2" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward @keerti
+  @check2 @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward @keerti
   Scenario Outline: Validate when the Award is in Submitted for Approval and the Award Owner can still create the Risk Assessment any time before Activating the Award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2891,29 +2868,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2936,21 +2913,23 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "Green"
@@ -2976,7 +2955,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @mahadev
+  @check2 @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @mahadev
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3001,29 +2980,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3051,14 +3030,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3098,7 +3077,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45764 @66893  @validateAwardRejectionByExecutiveApprover @mahadev
+  @check2 @45764 @66893  @validateAwardRejectionByExecutiveApprover @mahadev
   Scenario Outline: Validate award Rejection by Executive approver | To verify that after subaward is sent for approval no changes can be made in the Award owner (PM) profile
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3122,29 +3101,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3167,14 +3146,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3196,6 +3175,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     Then I softly cannot see top right button "Edit" in page detail
     And I "Approve" in the approval decision
 #    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3210,12 +3190,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
+    And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45762 @VarifyAwardRejectionByFiscalApprover @keerti
+  @check2 @45762 @VarifyAwardRejectionByFiscalApprover @keerti
   Scenario Outline: Validate award Rejection by Fiscal approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3239,29 +3220,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3284,14 +3265,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
@@ -3309,6 +3290,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
+    And I refresh the page
     Then I see status in Progress-bar is "Rejected" and is "red"
     Examples:
       | Award Name                                   | Grant Name                                   |
@@ -3338,29 +3320,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3383,14 +3365,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3411,16 +3393,18 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Remove" icon for "Automation Permanent KPI" inside flex table with id "---subAwardStandAlone:-:kpiTableId---" without waiting for record
     Then I do not see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
 
-  @45742 @validateRemovalOfFocusArea  @mahadev
+  @check2 @45742 @validateRemovalOfFocusArea  @mahadev
   Scenario: Validate removal of focus area
     When I navigate to "Budget" sub tab
     When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
+    And I refresh the page
     Then I do not see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @65228 @VerifyRelatedFocusAreasField @keerti
+  @check2 @65228 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as Program Key Performance Indicators (KPIs) table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "Automation Permanent Internal Program" in "Programs" panel
     And I click on "View" icon for "Automation Permanent Internal Program" inside table
     When I navigate to "Setup" sub tab
@@ -3440,10 +3424,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65227 @VerifyObjectiveFieldValueUnderPerformanceIsSameAsObjectiveAtProgram @keerti
+  @check2 @65227 @VerifyObjectiveFieldValueUnderPerformanceIsSameAsObjectiveAtProgram @keerti
   Scenario Outline: Verify objecive value under Performance tab Subaward overview is same as Program objective table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "Automation Permanent Internal Program" in "Programs" panel
     And I click on "View" icon for "Automation Permanent Internal Program" inside table
     When I navigate to "Setup" sub tab
@@ -3462,10 +3447,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65226 @VerifyRelatedFocusAreasField @keerti
+  @check2 @65226 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Focus Area field value Budget tab Subaward overview is same as Program Related Focus Areas table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "Automation Permanent Internal Program" in "Programs" panel
     And I click on "View" icon for "Automation Permanent Internal Program" inside table
     When I navigate to "Setup" sub tab
@@ -3491,7 +3477,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord  @keerti
+  @check2 @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord  @keerti
   Scenario Outline: To verify that  after clicking on the "send to subreciepient button " from the award owner profile after creating subaward is visible to the Subreciepient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3516,29 +3502,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3565,39 +3551,38 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
-    When I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     And I click on "Send to Subrecipient" in the page details
     And I pause execution for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    And I perform quick search for "<Award Name>" in "flexGridRecipientActiveGrants" panel
-    Then I see value "Draft" for title "Status" inside table "flexGridRecipientActiveGrants"
+    And I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:RecipientGrantsPendingTableId---" panel
+    Then I see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
+  @check2 @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
   Scenario: Verify award owner can add new Terms and Conditions on subaward Terms Tab |
   Verify New added Terms and Conditions are Editable by award owner on Subaward.
     And I navigate to "Terms" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I enter values into fields
-      | Value                  | Field                 |
-      | Automation Title       | Title__c              |
-      | Automation Description | Description__c        |
-      | 1                      | Sequence__c           |
-      | 265                    | fieldEffectiveTill__c |
+      | Value                  | Field            |
+      | Automation Title       | Title__c         |
+      | Automation Description | Description__c   |
+      | 1                      | Sequence__c      |
+      | 265                    | EffectiveTill__c |
     When I click modal button "Save"
     When I close "Create Terms and Conditions" modal by clicking the top right x button
     Then I softly see value "Automation Title" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -3636,29 +3621,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
+    #Bug414263
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3686,14 +3672,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
@@ -3705,7 +3691,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65819 @65891 @65890 @validateStatusAfterSendForReviewAndButtonsAfterSavingReview  @mahadev
+  @check2 @65819 @65891 @65890 @validateStatusAfterSendForReviewAndButtonsAfterSavingReview  @mahadev
   Scenario Outline: Verify status after send for review | verify buttons on modal after saving review by reviewer
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3730,29 +3716,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3780,14 +3766,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "egmsId"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
@@ -3839,29 +3825,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3889,14 +3875,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
@@ -3955,29 +3941,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4005,14 +3991,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
@@ -4046,7 +4032,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev
+  @check2 @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev
   Scenario Outline: To verify that after the program approver is assigned task by the award owner from the Subaward in the created state it must appear in the pending task of the approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4071,29 +4057,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4122,18 +4108,18 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4146,7 +4132,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "<Grant Name>" in "---amendment:-:recipientActiveGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I see value "Created" for title "Status" inside table "---amendment:-:recipientActiveGrantsTableId---"
+    And I see value "Created" for title "Status" inside table "---subAwardFromFDM:-:RecipientSubAwardTableId---"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -4158,7 +4144,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4168,7 +4154,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68482 @validatePeerReviewOnSubAward @aashish
+  @check2 @68482 @validatePeerReviewOnSubAward @aashish
   Scenario Outline: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4193,29 +4179,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4244,14 +4230,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4276,7 +4262,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65970 @validateSendBackTOpmbyFO @jitendra
+  @check2 @65970 @validateSendBackTOpmbyFO @jitendra
   Scenario Outline: To verify that after Fiscal Approver (David FO Profile) clicks on the Send back radio button the progress bar changes from “Submitted for Approval” to “created”
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4301,30 +4287,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4353,14 +4339,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
@@ -4438,7 +4424,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65957 @65816 @66029 @66036  @66034 @validatePendingTaskForEXEAndAddingReviewers  @mahadev
+  @check2 @65957 @65816 @66029 @66036  @66034 @validatePendingTaskForEXEAndAddingReviewers  @mahadev
   Scenario Outline: validate adding approvers in risk assessment | validate status for risk assessment | Validate Pending Task for executive approver | To verify that the peer reviewers can be added
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4463,30 +4449,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -4510,22 +4496,20 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer Name" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
-    Then I softly see the following messages in the page details contains:
-      | Review Successfully Initiated. |
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4604,29 +4588,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4649,14 +4633,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4740,29 +4724,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4785,14 +4769,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4817,14 +4801,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66881 @validateBPDateCannotBeLessThanProjectPeriodEndDate @mahadev
+  @check2 @66881 @validateBPDateCannotBeLessThanProjectPeriodEndDate @mahadev
   Scenario Outline: To verify that the budget period end date is set ahead of the project period end date validation message must appear on clicking submit for approval button
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     And I enter value "Automation Description" into field "GrantAwardDescription__c"
     When I navigate to "Budget" sub tab
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "BudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -4845,29 +4829,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4890,14 +4874,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4924,34 +4908,37 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68482 @validatePeerReviewIsOptional @aashish
+  @check2 @68482 @validatePeerReviewIsOptional @aashish
   Scenario: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
+    #Bug414263
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "egmsId"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     And I click on "Submit for Approval" in the page details
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @68606 @verifyUserCanSeeAwardInPendingTaskTable @aashish
+  @check2 @68606 @verifyUserCanSeeAwardInPendingTaskTable @aashish
   Scenario Outline: Validate that after Subaward is Sent to the Subrecipient it appears in the Pending task of SPI/SPA user and on acceptance of subaward by SPI user it appears in the Completed task of all.
   | SPI and SPA user can see subrecipient in pendig tasks
     And I click on "Edit" in the page details
@@ -4976,29 +4963,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5021,14 +5008,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
@@ -5070,29 +5057,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5115,14 +5102,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5166,29 +5153,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5211,14 +5198,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5239,7 +5226,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
+  @check2 @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
   Scenario Outline: Validate that Subaward sent to the Subrecipient can be Edited and Viewed by all the member of the Same Org and the Changes made must be affected in the Subaward of all profile.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5263,29 +5250,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5308,14 +5295,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
@@ -5327,8 +5314,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
-    And I clear the value from field "fieldGrantAwardDescription__c"
-    When I enter value "Automation Test1 Description" into field "fieldGrantAwardDescription__c"
+    And I clear the value from field "GrantAwardDescription__c"
+    When I enter value "Automation Test1 Description" into field "GrantAwardDescription__c"
     And I click on "Save" in the page details
     Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5343,7 +5330,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @69320 @verifyFederalProgramAssociateInSubAward @aashish
+  @check2 @69320 @verifyFederalProgramAssociateInSubAward @aashish
   Scenario Outline: Validate that the Fedral program can be associated in Subaward
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -5363,14 +5350,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65406 @VerifyPaymentRequestScheduleIsGeneratedonMonthlyBasis @aashish @wip @Relook
+  @65406 @VerifyPaymentRequestScheduleIsGeneratedonMonthlyBasis @aashish @Relook
   Scenario Outline: To verify that the payment request schedule is generated on the monthly basis in the award owner terms tab after the sub award is accepted by the Sub recipient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -5387,29 +5374,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5432,17 +5419,17 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5460,7 +5447,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Edit" in the page details
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I close modal by clicking the top right x button
@@ -5468,7 +5454,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @139359 @Verify1StepApprovalAtAward-RnRFunctnality @monu
+  @check2 @139359 @Verify1StepApprovalAtAward-RnRFunctnality @monu
   Scenario: Verify user is able to approve the award on step 1 approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5492,7 +5478,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
@@ -5502,13 +5487,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I get the "EGMS ID"
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5516,7 +5501,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @139362 @Verify2StepApprovalAtAward-RnRFunctnality @monu
   Scenario: Verify user is able add two step approver on award
@@ -5573,7 +5558,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
@@ -5593,7 +5577,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @monu
+  @check2 @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @monu
   Scenario Outline: Verify Approvers are inherited from award to closeout request record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5628,12 +5612,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -5710,7 +5692,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @monu
+  @check2 @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @monu
   Scenario Outline: Verify the record owner can update the approver that are inherited from award program to closeout record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5745,12 +5727,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -5828,7 +5808,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   | Closeout Name                                |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @154937 @Verify3StepApprovalForSubAward-RnRFunctionality @monu
+  @check2 @154937 @Verify3StepApprovalForSubAward-RnRFunctionality @monu
   Scenario Outline: Verify user is able to add on 3 step approver on subaward forward
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5852,29 +5832,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5897,14 +5877,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -5950,7 +5930,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
+  @check2 @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
   Scenario Outline: Validate After “Accept After Approval” Button Is Clicked On The Subrecipient Profile (SPIuser) View Noga Button Appears On The Top Right Corner Of The Page
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5975,30 +5955,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     ##When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6026,14 +6006,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -6092,7 +6072,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I enter value "2" into field "fieldDUNSExpirationDate__c"
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6109,8 +6088,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:recipientsSubawardTableId---" without waiting for record
+    And I click toggle button to select "Subawards  - All"
+    And I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     Then I softly can see top right button "View NOGA" in page detail
     And I navigate to "Budget" sub tab
     And I save the field labeled "Total Subaward Amount this Budget Period" as "Total Awarded Amount"
@@ -6122,7 +6102,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav
+  @check2 @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav
   Scenario Outline: Validate After “Accept After Approval ” Button Is Clicked On The (PMUser) View Noga Button Appears On The Top Right Corner Of The Page and compare amount on pdf
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6147,30 +6127,30 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     ##When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6198,14 +6178,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -6264,7 +6244,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I enter value "2" into field "fieldDUNSExpirationDate__c"
     And I click on "Accept after Approval" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6289,7 +6268,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @154936 @Verify4StepApprovalForSubAward-RnRFunctionality @monu
+  @check2 @154936 @Verify4StepApprovalForSubAward-RnRFunctionality @monu
   Scenario Outline: Verify user is able to add 4 step approver on sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6313,29 +6292,29 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    And I check the checkbox in modal with field value "I Agree"
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | Step 1          |
+      | Risk Assessment | Name                     |
+      | Step 1          | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:FO Username} | Step 2          |
+      | Risk Assessment | Name                     |
+      | Step 2          | {SavedValue:FO Username} |
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -6358,17 +6337,17 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FD Username} | Step 4 |
+      | Award  | Name                     |
+      | Step 4 | {SavedValue:FD Username} |
     Then I softly see value "Step 4" for title "Award" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
 
@@ -6376,7 +6355,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US @hitesh
+  @check2 @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US @hitesh
   Scenario: Verify PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -6388,7 +6367,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see that "Budgeted Amount" rendered in view mode only

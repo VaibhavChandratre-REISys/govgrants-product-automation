@@ -99,7 +99,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public void getFieldValue(String fieldName, String subTabName) {
-        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTabName);
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTabName);
         fieldValue = govgrants.perform().pageDetails().getFieldValue(fieldName);
     }
 
@@ -111,7 +111,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public Boolean compareTwoFieldValues(String fieldName, String subTabName) {
-        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTabName);
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTabName);
         if (fieldValue.equalsIgnoreCase(govgrants.perform().pageDetails().getFieldValue(fieldName)))
             return true;
         else

@@ -108,13 +108,13 @@ public final class GovGrantsSteps {
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
-            govgrants.perform().mainPage().loginWithUserType(userType);
-           if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-               if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                   govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
-               }
-           }
+        govgrants.perform().mainPage().loginWithUserType(userType);
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+            }
         }
+    }
 
     @Description("Re-Login to the app as any user")
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
@@ -133,7 +133,7 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(7000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
-            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
             }
         } catch (Exception e) {
@@ -172,7 +172,7 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().mainPage().clickMainMenuBar(tabName);
         } else {
             govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
@@ -303,9 +303,8 @@ public final class GovGrantsSteps {
         if (tableType.contains("notes")) {
             I.amPerforming().click().on(ByUsing.xpath("//a[@title='" + tableIdOrName + "']/parent::div/following-sibling::div//button[text()='" + buttonName + "']"));
         } else if (tableType.contains("without processing")) {
-            I.amPerforming().click().on(ByUsing.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", tableIdOrName) + "]//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName)+"]"));
-        }
-        else {
+            I.amPerforming().click().on(ByUsing.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", tableIdOrName) + "]//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + "]"));
+        } else {
             govgrants.perform().flexTable().clickTableTopRightButton(
                     tableIdOrName,
                     buttonName
@@ -351,7 +350,7 @@ public final class GovGrantsSteps {
     @Description("Perform quick search by providing search term and divTable ID")
     @When("^I perform quick search for \"([^\"]*)\" in \"([^\"]*)\" panel$")
     public void performQuickSearch(String searchTerm, String tableID) throws TestingBlazeCustomException {
-       ggObjects.performQuickSearch(
+        ggObjects.performQuickSearch(
                 tableID,
                 searchTerm
         );
@@ -411,14 +410,14 @@ public final class GovGrantsSteps {
 
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
-        I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
-          I.amPerforming().waitFor().makeThreadSleep(1000);
-            govgrants.perform().flexTable().enterFlexTableRows(
-                    flexTableId,
-                    buttonName,
-                    rowValues
-            );
-        }
+        I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
+        I.amPerforming().waitFor().makeThreadSleep(1000);
+        govgrants.perform().flexTable().enterFlexTableRows(
+                flexTableId,
+                buttonName,
+                rowValues
+        );
+    }
 
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
@@ -429,14 +428,14 @@ public final class GovGrantsSteps {
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
-        } catch (StaleElementReferenceException stale){
+        } catch (StaleElementReferenceException stale) {
             govgrants.perform().flexTable().editFlexTableRowsInline(
                     flexTableId,
                     editButtonName,
                     I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
-         }
         }
+    }
 
     @When("^I collapse page block with name as \"([^\"]*)\"$")
     public void collpasePageBlock(String pageBlockTitle) {
@@ -494,19 +493,19 @@ public final class GovGrantsSteps {
     @Description("Used to add attachments from computer")
     @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" from computer$")
     public void uplaodAttachFromComputer(String withoutRandomNumber, String fileName, String fileType) {
-       try {
-           ggObjects.uploadAttachmentInFlexTableFromComputer(
-                   withoutRandomNumber != null,
-                   fileName,
-                   fileType
-           );
-       }catch(Exception e){
-           ggObjects.uploadAttachmentInFlexTableFromComputerForLWC(
-                   withoutRandomNumber != null,
-                   fileName,
-                   fileType
-           );
-       }
+        try {
+            ggObjects.uploadAttachmentInFlexTableFromComputer(
+                    withoutRandomNumber != null,
+                    fileName,
+                    fileType
+            );
+        } catch (Exception e) {
+            ggObjects.uploadAttachmentInFlexTableFromComputerForLWC(
+                    withoutRandomNumber != null,
+                    fileName,
+                    fileType
+            );
+        }
     }
 
     /**
@@ -575,8 +574,8 @@ public final class GovGrantsSteps {
     @Description("click top right button after reaching to page detail inside Split screen")
     @When("^I click on \"([^\"]*)\" in the split screen page details$")
     public void clickPageButtonInsideSplitScreen(String buttonName) {
-            govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
-            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        govgrants.perform().pageDetails().clickAnyTopRightButtonInsideSplitScreen(buttonName);
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
 
     @Description("click top right button after reaching to page detail without processing")
@@ -936,9 +935,9 @@ public final class GovGrantsSteps {
     @Description("To handle the alert pop up")
     @When("^I click alert button \"([^\"]*)\"$")
     public void iClickAlertButton(String buttonName) {
-        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")){
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().modal().clickAlertContentSpecificButton(buttonName);
-        }else {
+        } else {
             govgrants.perform().modal().clickAlertContentSpecificButtonForLwc(buttonName);
         }
     }
@@ -1025,7 +1024,7 @@ public final class GovGrantsSteps {
             govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
             I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
         } else {
-            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...']");
+            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search' or @placeholder='Search User...'] ");
             I.amPerforming().click().withJavaScript(inputBox1);
             I.amPerforming().textInput().toClear(inputBox1);
             I.amPerforming().textInput().in(inputBox1, fieldValue);
