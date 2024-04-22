@@ -1,7 +1,7 @@
 @grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @grantAndAwardUndo
 Feature: Validate all scenarios of grants and award with undo
 
-  @286390  @sprint-1-US-295145 @hitesh @Undo @bug-414263 @wip
+  @286390  @sprint-1-US-295145 @hitesh @Undo @bug-414263
   Scenario: Verify PM/SPI user should not see undo button in created, sent for review, reviewed, sent to S\R before approval, sent to S\R after approval, Accept, Submit for approval state of award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -555,7 +555,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Send to Subrecipient" in page detail
     #286447
-    And I click on "Send To Subrecipient" in the page details
+    And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     Then I cannot see top right button "Undo" in page detail
@@ -977,6 +977,8 @@ Feature: Validate all scenarios of grants and award with undo
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -1118,6 +1120,7 @@ Feature: Validate all scenarios of grants and award with undo
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"

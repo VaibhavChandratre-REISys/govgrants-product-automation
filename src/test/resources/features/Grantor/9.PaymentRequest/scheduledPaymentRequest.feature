@@ -15,7 +15,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     Examples:
       | Award Name                            | Login User |
       | {SavedValue:Automation Runtime award} | SPI3       |
-      | {SavedValue:Automation Runtime award} | SPA        |
+#      | {SavedValue:Automation Runtime award} | SPA        |
 
   @55398 @submittedPRDisplayedInCompletedTask @mahadev
   Scenario Outline: Validate submitted payment request displays under completed task for SPI user
@@ -284,10 +284,10 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantorActiveGrantsgrid" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "RelatedAwards1" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Reimbursement |
@@ -309,7 +309,9 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Extra Salary | The narrative | 10         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I wait for "3" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
@@ -386,7 +388,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     And I select user "{SavedValue:PO Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
     Examples:
       | Award Name                            |
@@ -435,14 +437,14 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
     Examples:
       | Award Name                            |

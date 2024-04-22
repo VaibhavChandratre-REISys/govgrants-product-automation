@@ -262,7 +262,7 @@ Feature: Validate all scenarios in Closeout
       | Approval   | Start         | Approve  |                   |
     Then I see status in Progress-bar is "Completed" and is "green"
 
-  @40066 @40605 @40608 @40071 @NavigationAcknowledgementAutoPopulatedFieldsGrantOverview  @Keerti
+  @40066 @40605 @40608  @NavigationAcknowledgementAutoPopulatedFieldsGrantOverview  @Keerti
   Scenario: Navigating to the Closeout Request/Validating whether the Acknowledgement section has Default Null Value before sent to sub-recipient
   / Verifying the Auto-populated fields Closeout Effective Date and the Closeout Activities Due date
   /Validating whether the fields are carried forward from the Grant Overview tab to Closeout Grant Overview Tab
@@ -506,7 +506,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
     Then I softly verify that the file "{SavedValue:AttachedFile}" is downloaded
 
-  @87353 @86713 @40071 @93106 @40644 @86714 @76488 @42103 @87351 @76487 @86716 @86712 @87346 @ValidatingSentToSubrecipientInCloseoutRequest @meenakshi @buglogged141586
+  @87353 @86713  @93106 @40644 @86714 @76488 @42103 @87351 @76487 @86716 @86712 @87346 @ValidatingSentToSubrecipientInCloseoutRequest @meenakshi @buglogged141586
   Scenario: To validate status : Sent to Subrecipient in closeout request section when closeout request is Sent to Subrecipient by an internal user
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
