@@ -1092,7 +1092,7 @@ Feature: Payment Request Forms scenarios
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    When I click on "Back" in the page details
-    And I switch to parent tab
+    And I close the tab
     And I refresh the page
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
