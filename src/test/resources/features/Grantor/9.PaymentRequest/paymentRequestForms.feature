@@ -1088,15 +1088,15 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Program Application Form" for title "Form Name" inside table "---applicationReview:-:allFormsTableId---"
     Then I softly see value "Application Report" for title "Report Type" inside table "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I click on "Edit" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
     And I wait for "2" seconds
     And I refresh the page
     And I get the "EGMS ID"
