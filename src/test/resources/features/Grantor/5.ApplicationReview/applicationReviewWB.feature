@@ -117,15 +117,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -460,15 +459,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -973,15 +971,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -3616,15 +3613,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -5513,15 +5509,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -5834,15 +5829,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -6190,15 +6184,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -6632,15 +6625,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -7131,15 +7123,14 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview " icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -7542,15 +7533,14 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -7717,8 +7707,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
@@ -7727,7 +7717,6 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details :
       | Form saved successfully. |
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -7993,8 +7982,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -8002,7 +7991,6 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details :
       | Form saved successfully. |
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -8330,15 +8318,14 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -8766,15 +8753,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                            | Target |
       | Automation Permanent KPI For Admin | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -9056,15 +9042,14 @@ Feature: Validate all scenarios in the Application Review without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
