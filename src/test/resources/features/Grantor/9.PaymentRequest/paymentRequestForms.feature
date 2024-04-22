@@ -1094,6 +1094,7 @@ Feature: Payment Request Forms scenarios
     When I click on "Save" in the page details
     And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
