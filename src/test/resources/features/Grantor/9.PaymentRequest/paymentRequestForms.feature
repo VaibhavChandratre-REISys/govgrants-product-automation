@@ -1107,6 +1107,7 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
+    And I wait for "3" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     #293645
