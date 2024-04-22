@@ -1,4 +1,4 @@
-@grantor-regression @checknow @grantor-parallel-regression @progressReportSaranjit @progressReportNB @regression
+@grantor-regression @checknow1 @grantor-parallel-regression @progressReportSaranjit @progressReportNB @regression
 Feature: Validate scenarios in Progress Report without background
 
   @197766 @ValidatePMusershouldabletoreassignthetaskofProgressreportfromMyTasksunderReassignsectiononlefthandnavigationbar @sprint-4 @vaibhav @reassignment

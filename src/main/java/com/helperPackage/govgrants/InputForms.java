@@ -591,6 +591,10 @@ public final class InputForms {
             }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
                 handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
                 break;
+            }
+            else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//span[@class='slds-radio_faux']")).size() > 0) {
+                handleRadioButtonInput(fieldWrapper, fieldValue);
+                break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
                 handleDropdownInput(fieldWrapper, fieldValue);
                 break;
@@ -1206,7 +1210,7 @@ public final class InputForms {
     private void handleRadioButtonInput(WebElement fieldWrapper, String fieldValue) {
         By radioButtonSelector = By.xpath(""
                 + ".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue)
-                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]");
+                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]/..//span[@class='slds-radio_faux']");
         WebElement radioButton = I.amPerforming().getElementReference().ofNested(fieldWrapper, (radioButtonSelector));
         I.amPerforming().click().on(radioButton);
     }
