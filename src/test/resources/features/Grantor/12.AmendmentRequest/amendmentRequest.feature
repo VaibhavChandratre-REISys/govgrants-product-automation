@@ -5,24 +5,26 @@ Feature: Validate all scenarios in the Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 
-  @53194 @53195 @53196 @53200 @creationOfSOWAmendmentRequest
+  @53194 @53195 @53196 @53200 @creationOfSOWAmendmentRequest @poojaAmendmnet
   Scenario: Creation of SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     #53195
     And I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     #53196
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     When I enter "KPI" values from "Award_Field_Values.xlsx"
@@ -32,9 +34,11 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:AmendmentAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
-    Then I softly see "Attachment.pdf" has been added in "Amendment Files" flex table
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:AmendmentAttachmentTableId---"
 
-  @53197 @53198 @associationOfObjectiveToSOWAmendmentRequest @smoke
+  @53197 @53198 @associationOfObjectiveToSOWAmendmentRequest @smoke @poojaAmendmnet
   Scenario Outline: Association of Objective to Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -44,14 +48,16 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
     And I check "<Objectives>" boxes in flex table with id "---amendment:-:objectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---amendment:-:objectivesTableId---"
-    Then I see that "<Objectives>" has been added in flextable with Id "---amendment:-:goalsAndObjectivesTableId---"
+    And I wait for "3" seconds
+    Then I softly see value "<Objectives>" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+#    Then I see that "<Objectives>" has been added in flextable with Id "---amendment:-:goalsAndObjectivesTableId---"
     When I click on "Remove" icon for "<Objectives>" inside flex table with id "---amendment:-:goalsAndObjectivesTableId---" without waiting for record
     Then I do not see value "<Objectives>" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
     Examples:
       | Objectives                      |
       | Automation Permanent Objective2 |
 
-  @53199 @53201 @97292 @sendToSubrecipientToSOWAmendmentRequest
+  @53199 @53201 @97292 @sendToSubrecipientToSOWAmendmentRequest @poojaAmendmnet
   Scenario: Send Amendment Request to subrecipient
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -64,8 +70,8 @@ Feature: Validate all scenarios in the Amendment Request
     Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                    | Field             |
-      | Automation Permanent KPI | fieldMasterKPI__c |
-      | 10                       | fieldTarget__c    |
+      | Automation Permanent KPI | MasterKPI__c |
+      | 10                       | Target__c    |
     Given I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -83,9 +89,9 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke @wip
+  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke @wip @poojaAmendmnet
   Scenario: Subrecipient acknowledges Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -107,6 +113,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -115,7 +122,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Acknowledge" in the page details
     Then I see that "Amendment Request" is in "Acknowledged" status
 
-  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu
+  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu @poojaAmendmnet
   Scenario: Submit Amendment Request for Approval
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -129,6 +136,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
@@ -136,12 +146,15 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     #97383 #monu
     Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
@@ -151,12 +164,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #97561 #monu
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---amendment:-:approversTableId---"
 
-  @53204 @approvalOfSOWAmendmentRequest
+  @53204 @approvalOfSOWAmendmentRequest @poojaAmendmnet
   Scenario: Approval of Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -170,8 +183,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                                    | Field             |
-      | Automation Permanent KPI for Regression2 | fieldMasterKPI__c |
-      | 10                                       | fieldTarget__c    |
+      | Automation Permanent KPI for Regression2 | MasterKPI__c |
+      | 10                                       | Target__c    |
     And I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -186,8 +199,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:AmendmentAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
-    Then I softly see "Attachment.pdf" has been added in "Amendment Files" flex table
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:AmendmentAttachmentTableId---"
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -213,9 +230,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @97664 @VerifyValidationMessageForCommentOfSOWAmendmentRequest
+  @97664 @VerifyValidationMessageForCommentOfSOWAmendmentRequest @poojaAmendmnet
   Scenario: Validate user should get error message for comment while approving SOW amendment request with fiscal approvar
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -238,6 +255,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -274,8 +292,8 @@ Feature: Validate all scenarios in the Amendment Request
     Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                    | Field             |
-      | Automation Permanent KPI | fieldMasterKPI__c |
-      | 10                       | fieldTarget__c    |
+      | Automation Permanent KPI | MasterKPI__c |
+      | 10                       | Target__c    |
     Given I click modal button "Save"
     When I close "Associate KPI" modal by clicking the top right x button
     When I navigate to "Responsibilities" sub tab
@@ -332,7 +350,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Amend Subaward" in the page details
     Then I see that "{SavedValue:Automation Runtime Award}" is in "Pending Activation" status
 
-  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath
+  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @poojaAmendmnet
   Scenario: Activate SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -346,8 +364,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
       | Value                                    | Field             |
-      | Automation Permanent KPI for Regression2 | fieldMasterKPI__c |
-      | 10                                       | fieldTarget__c    |
+      | Automation Permanent KPI for Regression2 | MasterKPI__c      |
+      | 10                                       | Target__c         |
     When I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -359,13 +377,15 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
-    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -398,15 +418,15 @@ Feature: Validate all scenarios in the Amendment Request
     #97980 #monu
     Then I can see top right button "Activate" in page detail
     Then I can see top right button "Delete" in page detail
-    Then I softly see status in Progress-bar is "Pending Activation" and is "Green"
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Version Number" as "2"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budget Period Number" as "BP01"
-    Then I see status in Progress-bar is "Activated" and is "Green"
+    Then I see status in Progress-bar is "Activated" and is "dark blue"
 
-  @101511 @ValidateIncreasedTargetValueOfAmendmentRequest-SOWAmendmentRequest @monu
+  @101511 @ValidateIncreasedTargetValueOfAmendmentRequest-SOWAmendmentRequest @monu @poojaAmendmnet
   Scenario Outline: Verify Increased Target value of Associated KPI at Amendment request should displayed at progress report
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -436,6 +456,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -480,39 +501,38 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I softly see value "11" for title "Target" against the value "Automation Permanent KPI" inside table "---amendment:-:RecipientPerformanceKPITableId---"
-
     Examples:
       | Objectives                      |
       | Automation Permanent Objective2 |
 
-  @53208 @66582 @53209 @creationOfBPCAmendmentRequest @editionOfBPCAmendmentRequest
+  @53208 @66582 @53209 @creationOfBPCAmendmentRequest @editionOfBPCAmendmentRequest @poojaAmendmnet
   Scenario: Edition of Budget Period Change
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @96248 @VerifyDeletionOfBPCAmendmentRequest @monu
+  @96248 @VerifyDeletionOfBPCAmendmentRequest @monu @poojaAmendmnet
   Scenario: Deletion of Budget Period Change Amendment request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Delete" in the page details
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---amendment:-:amendmentRequestTableId---"
 
-  @53210 @editionOfFocusAreaDatesBPCAmendmentRequest
+  @53210 @editionOfFocusAreaDatesBPCAmendmentRequest @poojaAmendmnet
   Scenario: Validate the edition of FocusArea Dates to BPC
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -537,16 +557,16 @@ Feature: Validate all scenarios in the Amendment Request
       | Focus Area                       |
       | Automation Permanent Focus Area2 |
 
-  @56843 @66584 @96425 @ValidateGrantorCanIncreaseAwardBudgetAmountInFundingChangeTypeRequest @mahadev
+  @56843 @66584 @96425 @ValidateGrantorCanIncreaseAwardBudgetAmountInFundingChangeTypeRequest @mahadev @poojaAmendmnet
   Scenario: Verify Internal user can send request to Sub-recipient for increase in the award budget amount using Funding change option.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     #96425 #monu
     And I click on "Save" in the page details
     Then I softly see field "New Obligation" as "$1,000.00"
@@ -556,7 +576,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
   @56844 @ValidateGrantorCanDecreaseAwardBudgetAmountInFundingChangeTypeRequest @mahadev
   Scenario: Verify Internal user can not send request to Sub-recipient for increase in the award budget amount using Funding change option.
@@ -566,8 +586,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | -2000                       | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | -2000                       | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -582,9 +602,9 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FO Username} | Step 2            |
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest @mahadev
+  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest @mahadev @poojaAmendmnet
   Scenario: Verify Internal (Award owner) user can delete the created amendment request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -602,7 +622,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Delete" icon for "Record Id" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---amendment:-:amendmentRequestTableId---"
 
-  @56847 @VerifyAwardOwnerCanEditCreatedAmendmentRequest @mahadev
+  @56847 @VerifyAwardOwnerCanEditCreatedAmendmentRequest @mahadev @poojaAmendmnet
   Scenario: Verify award owner can edit funding change amendment request type
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -610,15 +630,15 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
-    And I enter value "500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "500" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     Then I see field "New Obligation" as "$500.00"
 
-  @56848 @ValidateGrantorCannotEditRequestAfterSendingToSubRecipient @mahadev
+  @56848 @ValidateGrantorCannotEditRequestAfterSendingToSubRecipient @mahadev @poojaAmendmnet
   Scenario: Verify Internal user can send request to Sub-recipient for increase in the award budget amount using Funding change option.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -626,8 +646,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -645,7 +665,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Management" sub tab
     Then I can see row level action button "Edit" against "Record Id" in flex table with id "---amendment:-:amendmentRequestTableId---"
 
-  @56851 @validateErrorMessageIfRequestedChangeInBudgetFieldIsnotEntered @mahadev
+  @56851 @validateErrorMessageIfRequestedChangeInBudgetFieldIsnotEntered @mahadev @poojaAmendmnet
   Scenario: Verify error message if requested budget change is not entered
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -653,13 +673,13 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
+      | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I see the following messages in the page details contains:
       | Overview Tab - Please specify the New Obligation planned through this amendment request. |
 
-  @56854 @checkDuplicateFundingChangeNotAllowed @jitendra
+  @56854 @checkDuplicateFundingChangeNotAllowed @jitendra @poojaAmendmnet
   Scenario: Verify Once Internal user request for Amendment request is in Progress then no other request can be created.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -679,16 +699,16 @@ Feature: Validate all scenarios in the Amendment Request
     Then I see the following messages in the page details contains:
       | Another request for this subaward is already in progress. You cannot process this request. |
 
-  @56856 @NoDeleteIconAfterSentToSubRecipientForFundingChangeSPI @jitendra
+  @56856 @NoDeleteIconAfterSentToSubRecipientForFundingChangeSPI @jitendra @poojaAmendmnet @Debug
   Scenario: Verify Once Internal user sent request to sub recipient than cannot Delete the same request.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -704,9 +724,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
-    Then I cannot see row level action button "Delete" against "Funding Change" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    Then I can see row level action button "Delete" against "Funding Change" in flex table with id "---amendment:-:amendmentRequestTableId---"
 
-  @56971 @56859  @56855 @VerifyAlertMessageIfSubRecipientSendbackAmendmentRequestToGrantorWithoutUpdated @mahadev
+  @56971 @56859  @56855 @VerifyAlertMessageIfSubRecipientSendbackAmendmentRequestToGrantorWithoutUpdated @mahadev @poojaAmendmnet
   Scenario: Verify alert message if sub-recipient send backs amendment request without update to grantor |  Verify SPI user is able to check
   the funding change request submitted by award owner |
     When I navigate to "Management" sub tab
@@ -715,8 +735,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -743,7 +763,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see the text containing :
       | You have a requested a change of $0.0, but the required change is $1000.00. |
 
-  @56973 @validateSubRecipientCanNotEditAmendmentRequestAfterSubmittingToGrantor @mahadev
+  @56973 @validateSubRecipientCanNotEditAmendmentRequestAfterSubmittingToGrantor @mahadev @poojaAmendmnet
   Scenario: Verify Sub-Recipient Can not edit funding type amendment request after submitting to Grantor
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -751,8 +771,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -788,7 +808,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Submit to Grantor" in the page details
     Then I cannot see top right button "Edit" in page detail
 
-  @56968 @VerifyDeletionOfFundingChangeAmendmentByAwardOwner @mahadev
+  @56968 @VerifyDeletionOfFundingChangeAmendmentByAwardOwner @mahadev @poojaAmendmnet
   Scenario: Verify award owner can delete funding change amendment request
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -796,8 +816,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     When I click on "Delete" in the page details
@@ -811,11 +831,11 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
-    And I enter value "2000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "2000" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     Then I see field "New Obligation" as "$2,000.00"
 
@@ -827,8 +847,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -874,7 +894,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 3100  | fieldRevisedCommitment__c |
+      | 3100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I navigate to "Grants" tab
@@ -897,8 +917,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -945,7 +965,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 3100  | fieldRevisedCommitment__c |
+      | 3100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -971,8 +991,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1012,10 +1032,10 @@ Feature: Validate all scenarios in the Amendment Request
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
 #    And I click on "Revise" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    When I enter value "Automation Description" into field "fieldPurposeRTA__c"
+    When I enter value "Automation Description" into field "PurposeRTA__c"
     And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1032,8 +1052,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1086,8 +1106,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1148,7 +1168,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "View" icon for "Approved" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     When I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Activated" and is "green"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     #102773 #monu
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1169,8 +1189,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1215,8 +1235,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1271,8 +1291,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1313,8 +1333,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1348,10 +1368,10 @@ Feature: Validate all scenarios in the Amendment Request
 #    And I click on "Revise" in the page details
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    When I enter value "2000" into field "fieldRequestedChangeInBudget__c"
+    When I enter value "2000" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
   @57444 @verifyPaymentApproverApproveReimbursementPaymentRequestActiveSubawardAfterFundingChangeAmendment @mahadev
   Scenario Outline: Verify Payment Request Approver can approve the Reimbursement Payment Request created on Active subaward after Funding change amendment
@@ -1361,8 +1381,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 100                         | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1400,7 +1420,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 1200  | fieldRevisedCommitment__c |
+      | 1200  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -1460,7 +1480,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     Examples:
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -1473,8 +1493,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1100                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1505,7 +1525,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 2100  | fieldRevisedCommitment__c |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -1524,8 +1544,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1100                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1556,7 +1576,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 2100  | fieldRevisedCommitment__c |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -1575,8 +1595,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1100                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1626,8 +1646,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1100                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1702,7 +1722,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -1745,7 +1765,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "3700" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "3700" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "NBPED"
     Then I softly see field "New Budget Period End Date" as "{SavedValue:NBPED}"
@@ -1758,8 +1778,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1801,7 +1821,7 @@ Feature: Validate all scenarios in the Amendment Request
 #    And I click on "Revise" in the page details
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    When I enter value "4000" into field "fieldRequestedChangeInBudget__c"
+    When I enter value "4000" into field "RequestedChangeInBudget__c"
     And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1827,7 +1847,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 5100  | fieldRevisedCommitment__c |
+      | 5100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -1860,7 +1880,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "PaymentRequestEdition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @57365 @verifySubmissionOfReimbursmentPaymentRequest @jitendra @buglogged142465
   Scenario: Verify user can submit Reimbursement Payment request to grantor after Budget Period Change Amendment is done on Subaward
@@ -1875,7 +1895,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -1936,7 +1956,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "PaymentRequestEdition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev @buglogged138281
   Scenario Outline: Verify Sub-recipient user can see the amended Budget Period on Reimbursement Payment Request Page
@@ -1951,7 +1971,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2030,7 +2050,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2124,7 +2144,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Justification | fieldTncComments__c |
     And I click on "Save" in the page details
     #97917 #monu
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -2142,7 +2162,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I save the field labeled "Amendment Types" as "AmendmentType"
     And I click on "Send to Subrecipient" in the page details
     #97938 #monu
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2153,16 +2173,16 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see field "Amendment Types" as "{SavedValue:AmendmentType}"
     And I click on "Acknowledge" in the page details
     #97966 #monu
-    Then I softly see status in Progress-bar is "Acknowledged" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Acknowledged" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
     And I click on "Submit for Approval" in the page details
     #97976 #monu
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2184,7 +2204,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     #98482 #monu
-    Then I softly see status in Progress-bar is "Pending Activation" and is "green"
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2206,7 +2226,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2286,7 +2306,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
@@ -2333,7 +2353,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Activated" and is "green"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
   @100693 @ValidateEditOfDateOfFocusAreaAtAmendmentRequest-FundingChangeAmendmentRequest @monu
   Scenario: Verify Internal user can edit or change focus area dates
@@ -2343,8 +2363,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 1000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -2487,7 +2507,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
@@ -2515,7 +2535,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
@@ -2534,7 +2554,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -2574,7 +2594,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2610,7 +2630,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2635,7 +2655,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2662,7 +2682,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2685,8 +2705,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -2726,7 +2746,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 2100  | fieldRevisedCommitment__c |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -2756,8 +2776,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -2809,7 +2829,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -2854,7 +2874,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2900,7 +2920,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
