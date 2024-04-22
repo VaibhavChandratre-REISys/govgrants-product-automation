@@ -128,6 +128,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -237,6 +238,7 @@ Feature: Pre-Application scenarios without background
 #    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -368,6 +370,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -640,6 +643,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -694,6 +698,7 @@ Feature: Pre-Application scenarios without background
     When I click modal button "Close"
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -878,6 +883,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -987,6 +993,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1066,6 +1073,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1113,6 +1121,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1162,6 +1171,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1220,6 +1230,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1284,6 +1295,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1352,6 +1364,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1396,6 +1409,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1461,6 +1475,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1514,6 +1529,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1570,6 +1586,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -1626,6 +1643,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1674,6 +1692,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1745,6 +1764,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1792,6 +1812,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1853,6 +1874,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1911,6 +1933,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -1974,6 +1997,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2025,6 +2049,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2091,6 +2116,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2159,6 +2185,7 @@ Feature: Pre-Application scenarios without background
      #169923
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     Then I softly see fields "Question1__c" is in edit mode
     Then I softly see fields "Question3__c" is in edit mode
     Then I softly see fields "sbirEmpNumber__c" is in edit mode
@@ -2213,6 +2240,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter value "Automation Test" into field "Question1__c"
     And I enter value "Automation Test" into field "Question3__c"
     And I enter value "9" into field "sbirEmpNumber__c"
@@ -2255,6 +2283,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
      #170100
@@ -2306,6 +2335,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -2348,6 +2378,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I softly can see top right button "Edit" in page detail
@@ -2386,6 +2417,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2438,6 +2470,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2497,6 +2530,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2560,6 +2594,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2635,6 +2670,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_v" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2676,6 +2712,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
@@ -2723,6 +2760,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details

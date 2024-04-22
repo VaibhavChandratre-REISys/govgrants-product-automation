@@ -98,6 +98,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see value "$10,150.00" for title "Total Project Cost" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -130,6 +131,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -185,11 +187,13 @@ Feature: Validate all scenarios in the Pre-Application
     And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I switch to parent tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -269,6 +273,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -324,7 +329,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I wait for "2" seconds
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I wait for "2" seconds
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
@@ -371,11 +376,13 @@ Feature: Validate all scenarios in the Pre-Application
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #   And I click on "Back" in the page details
     And I switch to parent tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
