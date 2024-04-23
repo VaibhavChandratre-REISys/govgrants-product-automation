@@ -1,7 +1,7 @@
 @paymentRequestWithBackground @ScheduleRequest @paymentRequest @grantor-regression @grantor-parallel-regression @regression
 Feature: Scheduled Reimbursement Payment Request Scenarios
 
-  @38313 @taskCreationForSubrecipientUser @mahadev
+  @38313 @taskCreationForSubrecipientUser @mahadev @PaymentRerun
   Scenario Outline: Validate task is getting created for SPI user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -45,7 +45,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3 @mahadev
+  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3 @mahadev @PaymentRerun
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -61,6 +61,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I navigate to "Terms" sub tab
     When I expand nested table containing column value "Payment Request"
+    And I wait for "3" seconds
     Then I can see "1" record value is checked for field name "TaskCreated__c"
     Examples:
       | Award Name                            | Grant Name                            | User |
@@ -277,7 +278,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu
+  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
   Scenario Outline: Validate Approvers are getting inherited from award record to schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "dynamicUser" user
