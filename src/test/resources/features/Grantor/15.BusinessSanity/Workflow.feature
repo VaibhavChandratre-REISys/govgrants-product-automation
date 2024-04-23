@@ -1539,8 +1539,15 @@ Feature: Validate all scenarios of every modules flow
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "As a Grantor" app as "PM1" user
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
     And I wait for "5" seconds
-    When I click on hyperlink containing value "AD-1234-1924"
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
