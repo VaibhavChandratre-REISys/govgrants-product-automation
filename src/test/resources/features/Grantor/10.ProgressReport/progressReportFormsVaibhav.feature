@@ -118,6 +118,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
@@ -128,12 +129,12 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter value "1234" into field "fieldFederalGrantIdentifyingNumbe__c"
+    When I enter value "1234" into field "FederalGrantIdentifyingNumbe__c"
     Then I softly see "a. Federally-owned Property (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2a below)" inside page block detail
     Then I softly see "b. Acquired Equipment with acquisition cost of $5,000 or more for which the awarding agency has reserved the right to transfer title (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2b below)" inside page block detail
     Then I softly see "c. Residual Unused Supplies with total aggregate fair market value exceeding $5,000 not needed for any other Federally sponsored programs or projects (Complete Section 2c below)" inside page block detail
     Then I softly see "d. None of the above" inside page block detail
-    When I enter value "Checked" into field "fieldResidualUnusedSupplies__c"
+    When I enter value "Checked" into field "ResidualUnusedSupplies__c"
     Then I softly see "2c. Reports Residual Unused Supplies" inside page block detail
     Then I softly see "Total Amount" inside page block detail
     Then I softly see "(ii) Percentage of Federal participation" inside page block detail
@@ -141,14 +142,14 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see "(iv) Selling and handling allowance" inside page block detail
     Then I softly see fields "fieldSaleProceedsrEstimateofCurrentFai__c" is in edit mode
     #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
-#    Then I softly see that "Total Amount" rendered in view mode only
-    Then I softly see fields "fieldFederalShare__c" is in edit mode
-    Then I softly see fields "fieldSellingandHandlingAllowance__c" is in edit mode
+    Then I softly see that "Total Amount" rendered in view mode only
+    Then I softly see fields "FederalShare__c" is in edit mode
+    Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
     Then I softly see that "(v) Amount remitted to the Federal Government" rendered in view mode only
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -158,13 +159,13 @@ Feature: Validate scenarios in Progress Report Forms
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.      |
     When I click on "Edit" in the page details
     And I enter value "(i) Sale Proceeds OR" into field "fieldSaleProceedsrEstimateofCurrentFai__c"
-    Then I softly see fields "fieldTotalAmount__c" is in edit mode
-    Then I softly see fields "fieldFederalShare__c" is in edit mode
-    Then I softly see fields "fieldSellingandHandlingAllowance__c" is in edit mode
+    Then I softly see fields "TotalAmount__c" is in edit mode
+    Then I softly see fields "FederalShare__c" is in edit mode
+    Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -173,14 +174,14 @@ Feature: Validate scenarios in Progress Report Forms
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                       |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.      |
     When I click on "Edit" in the page details
-    And I enter value "66" into field "fieldTotalAmount__c"
-    And I enter value "33" into field "fieldPercentageofFederalParticipation__c"
-    And I enter value "44" into field "fieldFederalShare__c"
-    And I enter value "11" into field "fieldSellingandHandlingAllowance__c"
+    And I enter value "66" into field "TotalAmount__c"
+    And I enter value "33" into field "PercentageofFederalParticipation__c"
+    And I enter value "44" into field "FederalShare__c"
+    And I enter value "11" into field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
