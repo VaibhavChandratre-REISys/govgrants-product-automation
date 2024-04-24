@@ -1102,7 +1102,6 @@ Feature: Payment Request Forms scenarios
     And I wait for "5" seconds
     And I close the tab
     And I wait for "2" seconds
-    And I refresh the page
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
