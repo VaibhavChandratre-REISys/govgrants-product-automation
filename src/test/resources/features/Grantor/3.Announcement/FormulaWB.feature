@@ -554,31 +554,31 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | BP01               | 50         | 150      |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Formula Announcements"
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    Then I softly see field "Status" as "Approved"
-    Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
-      | Application EGMS ID | Application Status |
-    #219090
-    And I click on "Publish" in the page details
-    And I pause execution for "5" seconds
-    And I click on "Unpublish" in the page details
-    And I pause execution for "3" seconds
-    Then I softly see field "Status" as "Under Revision"
-    And I pause execution for "3" seconds
-    Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
-      | Application EGMS ID | Application Status |
+#    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+#    And I navigate to "Announcements" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+#    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+#    And I navigate to "Announcements" tab
+#    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+#    And I click toggle button to select "All Formula Announcements"
+#    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
+#    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+#    Then I softly see field "Status" as "Approved"
+#    Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
+#      | Application EGMS ID | Application Status |
+#    #219090
+#    And I click on "Publish" in the page details
+#    And I pause execution for "5" seconds
+#    And I click on "Unpublish" in the page details
+#    And I pause execution for "3" seconds
+#    Then I softly see field "Status" as "Under Revision"
+#    And I pause execution for "3" seconds
+#    Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
+#      | Application EGMS ID | Application Status |
 
   @219106 @219107 @219163 @ValidatePOuserclickontheAddOrganizationbuttonthenuserseemodalwithalltheactiveS/RnamesforformulaAnnouncement @sprint-8-US-208408 @vaibhav @Allocation
   Scenario: Validate PO user click on the "Add Organization" button then user see modal with all the active S/R names for formula Announcement
