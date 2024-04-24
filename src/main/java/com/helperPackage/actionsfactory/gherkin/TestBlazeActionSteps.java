@@ -80,6 +80,7 @@ public final class TestBlazeActionSteps {
     @Description("switch to tab")
     @When("^I switch to tab number \"(\\d+)\"$")
     public void switchToTab(int tabNumber) {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         I.amPerforming().switchTo().windowHandler(tabNumber);
         I.amPerforming().waitFor().makeThreadSleep(3000);
     }
