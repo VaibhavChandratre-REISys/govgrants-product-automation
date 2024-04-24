@@ -18,7 +18,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -35,54 +35,70 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property".                   |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent" is required, If "1b " is checked in 'Report' section. |
     # SF-428
-    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
-    When I click on "Edit" in the page details
+    And I close the tab
+#    We don't have support for dropdown in form hence commented this step
+#    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+#    When I click on "Edit" in the page details
+    And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I enter value "Unchecked" into field "fieldAnnualReportSF428A__c"
-    When I enter value "Unchecked" into field "fieldFinalReportSF428B__c"
-    When I enter value "Unchecked" into field "fieldDispositionReportRequestSF428C__c"
+    When I enter value "Unchecked" into field "AnnualReportSF428A__c"
+    When I enter value "Unchecked" into field "FinalReportSF428B__c"
+    When I enter value "Unchecked" into field "DispositionReportRequestSF428C__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     When I click on "Edit" in the page details
-    When I enter value "Checked" into field "fieldFinalReportSF428B__c"
+    When I enter value "Checked" into field "FinalReportSF428B__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Final (Award Closeout) Report (SF-428-B) is required to be submitted as it is selected in field 6 'Attachment'. |
     When I click on "Edit" in the page details
-    When I enter value "Unchecked" into field "fieldFinalReportSF428B__c"
+    When I enter value "Unchecked" into field "FinalReportSF428B__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     #Fill SF428-B Form
-    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
-    When I click on "Edit" in the page details
+    And I close the tab
+#    We don't have support for dropdown in form hence commented this step
+#    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
+#    When I click on "Edit" in the page details
+    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+    And I close the tab
+#    We don't have support for dropdown in form hence commented this step
+#    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+    And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |

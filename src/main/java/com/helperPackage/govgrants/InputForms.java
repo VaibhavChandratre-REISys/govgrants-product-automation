@@ -1060,7 +1060,7 @@ public final class InputForms {
         By checkBoxSelector = By.xpath(".//span[@class='slds-checkbox_faux']");
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
         if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
-                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected()) {
+                || "Unchecked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()) {
             I.amPerforming().click().withJavaScript(checkBox);
         }
     }
