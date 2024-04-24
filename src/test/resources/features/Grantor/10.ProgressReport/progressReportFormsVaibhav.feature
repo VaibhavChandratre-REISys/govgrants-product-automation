@@ -98,7 +98,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
 #    We don't have support for dropdown in form hence commented this step
 #    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
-    And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
