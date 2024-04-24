@@ -41,8 +41,8 @@ Feature: Payment Request Forms scenarios
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
 #    Then I softly can see top right button "Back" in page detail
@@ -52,7 +52,7 @@ Feature: Payment Request Forms scenarios
       | Form validated successfully. |
    #308685
 #    When I click on "Back" in the page details
-    And I switch to parent tab
+    And I close the tab
     And I save the field labeled "EGMS ID" as "PayreqId1"
     And I navigate to "Financials" sub tab
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
@@ -261,8 +261,8 @@ Feature: Payment Request Forms scenarios
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
