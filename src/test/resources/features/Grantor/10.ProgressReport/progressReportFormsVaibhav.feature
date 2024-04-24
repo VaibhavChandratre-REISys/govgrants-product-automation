@@ -142,7 +142,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see "(ii) Percentage of Federal participation" inside page block detail
     Then I softly see "(iii) Federal Share" inside page block detail
     Then I softly see "(iv) Selling and handling allowance" inside page block detail
-    Then I softly see fields "fieldSaleProceedsrEstimateofCurrentFai__c" is in edit mode
+    Then I softly see fields "SaleProceedsrEstimateofCurrentFai__c" is in edit mode
     #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
 #    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see fields "FederalShare__c" is in edit mode
@@ -160,7 +160,7 @@ Feature: Validate scenarios in Progress Report Forms
       | "Federal share" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.                       |
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.      |
     When I click on "Edit" in the page details
-    And I enter value "(i) Sale Proceeds OR" into field "fieldSaleProceedsrEstimateofCurrentFai__c"
+    And I enter value "(i) Sale Proceeds OR" into field "SaleProceedsrEstimateofCurrentFai__c"
     Then I softly see fields "TotalAmount__c" is in edit mode
     Then I softly see fields "FederalShare__c" is in edit mode
     Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
