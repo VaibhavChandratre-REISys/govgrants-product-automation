@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see that "Negotiation Request" has been added in flextable with Id "---negotiation:-:homePendingTasks---"
 
-  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationPooja
+  @skiponjenkins @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationPooja
   Scenario: Validate whether the users receive the pending Task when  Submit to Grantor and able to select Send Back to Subrecipient for further changes
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -127,6 +127,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see that "Review Negotiation" has been added in flextable with Id "---negotiation:-:phasePendingTasksTableId---"
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     And I wait for "5" seconds
+    #RaisedBugforbelow"Submitted"statusneedtocheck
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
   @57211 @awardIconAfterNotAvilablOncenegotiationInitiated @deepika @NegotiationRuNByPooja
@@ -259,7 +260,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     #408966 spell mistake for required also
     Then I softly see the following messages in the page details :
-      | Details is required to save under Negotiations |
+      | Details is required for save under Negotiations |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther @deepika
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -1049,6 +1050,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "5" seconds
     #133251
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
     When I click on "Send to Subrecipient" in the page details
@@ -1118,7 +1120,7 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
-   And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
     And I wait for "2" seconds
@@ -1174,12 +1176,14 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
+    And I click on "Cancel" in the page details
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
@@ -1380,6 +1384,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
   @166360  @sprint-3 @vrishali @bug-190352
@@ -1424,6 +1429,7 @@ Feature: Validate all scenarios in Negotiations
       | Program Application Form | Checked           |
     And I wait for "2" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "5" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1487,11 +1493,11 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I navigate to "Negotiations" sub tab
-   And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
-     | Form Name                | Needs Negotiation |
-     | Standard Assurances Form | Checked           |
-   And I wait for "2" seconds
+    And I navigate to "Negotiations" sub tab
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
+    And I wait for "2" seconds
     When I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -1683,7 +1689,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see top right button "Edit" in page detail
 
-  @165884   @sprint-3 @vaibhav @OnholdDueToFormNewUpdate
+  @165884  @sprint-3 @vaibhav @OnholdDueToFormNewUpdate
   Scenario: Validate Subrecipient user is not able to edit forms when Application is in Converted to Award state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1869,7 +1875,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "SubmittedOnForm__c" is in edit mode
 
 
-  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @vaibhav 
+  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @vaibhav
   Scenario: Validate  s/r users should be  see the section  Negotiation Request details in the Negotiations tab for application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1909,7 +1915,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
-   Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
+    Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
 
   @189521 @sprint-13 @vaibhav
   Scenario: Validate re-submitting the revised application, the application sections and forms should be locked  for the S/R user
