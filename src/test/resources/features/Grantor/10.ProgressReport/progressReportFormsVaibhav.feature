@@ -15,6 +15,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
