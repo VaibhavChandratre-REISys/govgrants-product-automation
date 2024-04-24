@@ -1554,4 +1554,4 @@ Feature: Validate all scenarios of every modules flow
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I halt execution
-    And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
+    When I enter value "Unchecked" into field "FederallyownedProperty__c"
