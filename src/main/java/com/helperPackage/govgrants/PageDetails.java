@@ -72,13 +72,13 @@ public final class PageDetails {
 //            Todo: remove below step once loading time is reduce
 //            if(buttonName.equals("Save") || buttonName.equals("Edit") || buttonName.equals("Activate") ){
 //               for(int i=0; i<5; i++) {
-            I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
+            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
                 I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
                 I.amPerforming().click().withJavaScript(topRightButton);
                 govgrants.perform().modal().acceptPopUp();
-            } catch(Exception  ex){
+            } catch (Exception ex) {
                 I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
                 I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                 govgrants.perform().modal().acceptPopUp();
@@ -108,7 +108,7 @@ public final class PageDetails {
             I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
             I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
-        } catch(Exception  ex){
+        } catch (Exception ex) {
             I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
             I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
             govgrants.perform().modal().acceptPopUp();
@@ -241,7 +241,7 @@ public final class PageDetails {
             } else {
                 try {
                     I.amPerforming().click().on(desiredTab);
-                } catch (Exception e){
+                } catch (Exception e) {
                     I.amPerforming().click().withJavaScript(desiredTab);
                 }
             }
@@ -352,7 +352,7 @@ public final class PageDetails {
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
         By progressBarStatusLocator = By.xpath("//div[@class='container-fluid']//*[@id='progressBarId']//ol//li" + "//span["
-                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='"+ statusName +"' and contains(@class,'active')] | //c-step-progressbar//span[text()='"+ statusName +"']/ancestor::li[contains(@class,'active')]");
+                + I.amPerforming().sanityOfXpathTo().contains("text()", statusName) + "]" + "/ancestor::li[1]|//div[@class='container-fluid']//*[@id='progressBarId']//ol//li[contains(text(),'" + statusName + "')] | //lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
         return I.amPerforming().getElementReference().of(progressBarStatusLocator);
     }
 
@@ -386,8 +386,7 @@ public final class PageDetails {
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(160, 160, 160)")) {
             trueColor = "grey";
-        }
-        else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
+        } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(1, 68, 134")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
             trueColor = "dark blue";
@@ -445,7 +444,7 @@ public final class PageDetails {
                 if (I.amPerforming().actionToGet().attribute(element, "title").equalsIgnoreCase(helpText) || (I.amPerforming().actionToGet().attribute(element, "onfocus").contains(helpText)))
                     flag = true;
             } catch (Exception e) {
-                element = By.xpath("//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/following-sibling::span");
+                element = By.xpath("//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/following-sibling::span | //label[contains(text(),'" + fieldLabel[0] + "')]/..//div[@part='help-text'] ");
                 if (I.amPerforming().actionToGet().text(element).contains(helpText))
                     flag = true;
             }
@@ -466,7 +465,7 @@ public final class PageDetails {
      */
     public WebElement getMenuItemFromParallelLinesDropDown(String itemName) {
         return I.amPerforming().getElementReference().of(By.xpath("//*[@title='Menu']/following-sibling::ul//li//*["
-                + I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "] | //span//select//option[contains(text(),'" + itemName + "')] | //lightning-button-menu//*["+ I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "]"));
+                + I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "] | //span//select//option[contains(text(),'" + itemName + "')] | //lightning-button-menu//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", itemName) + "]"));
     }
 
     /**
@@ -503,7 +502,7 @@ public final class PageDetails {
      */
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//div//label[contains(@class,'label') and %s]",
@@ -693,7 +692,7 @@ public final class PageDetails {
 
     public void verifyMultipleSelectedOption(String usage, String cellName, List<String> options) {
         List<String> selectedOptions = new ArrayList<>();
-        List<Elements> ll= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div//span[text()='" + cellName + "']//parent::div//ul//li"));
+        List<Elements> ll = I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div//span[text()='" + cellName + "']//parent::div//ul//li"));
         for (Elements e : ll) {
             selectedOptions.add(e.getText().trim());
         }
@@ -703,10 +702,6 @@ public final class PageDetails {
             Assert.assertTrue(options.containsAll(selectedOptions));
         }
     }
-
-
-
-
 
 
     /**
@@ -725,7 +720,7 @@ public final class PageDetails {
      *
      * @param value
      * @param isPost -to handle two different text-box as post and comment
-     * Note - If you want to select user from @mention autosuggestion then, provide exact name of user inside value like: @Automation PM
+     *               Note - If you want to select user from @mention autosuggestion then, provide exact name of user inside value like: @Automation PM
      * @author ashwini.mahore
      * @modifier ashwini.mahore -xpath modified as per change in dom structure
      * @modifier ashwini.mahore - added code to select value from @mention autosuggestion dropdown
@@ -748,7 +743,7 @@ public final class PageDetails {
             I.amPerforming().click().on(commentSection);
             I.amPerforming().textInput().in(commentSection, value);
             if (value.contains("@")) {
-                String value1 = value.replaceAll("@","");
+                String value1 = value.replaceAll("@", "");
                 I.amPerforming().click().on(ByUsing.xpath("//div[@class='mentions-autocomplete-list']//li[@data-display='" + value1 + "']"));
             }
             I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'createCollabComment') and contains(@class,'active')]//input[@value='Comment']"));
