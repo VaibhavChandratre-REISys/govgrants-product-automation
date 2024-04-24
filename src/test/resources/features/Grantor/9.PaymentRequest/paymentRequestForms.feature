@@ -1068,7 +1068,6 @@ Feature: Payment Request Forms scenarios
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    And I halt execution
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -1100,11 +1099,10 @@ Feature: Payment Request Forms scenarios
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I close the tab
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     And I refresh the page
-    And I halt execution
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
