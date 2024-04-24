@@ -1,7 +1,7 @@
-@grantor-regression @grantor-parallel-regression @progressReportFormsSaranjit @checknow1 @progressReportForms @regression
+@grantor-regression @for1 @grantor-parallel-regression @progressReportFormsSaranjit @checknow1 @progressReportForms @regression
 Feature: Validate scenarios in Progress Report Forms
 
-  @284145 @ValidateSF428CINDusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
+   @284145 @ValidateSF428CINDusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428-C IND user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -31,7 +31,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
-    And I click on "Edit" in the split screen page details
+#    And I click on "Edit" in the split screen page details
     And I enter "SF428C_Form" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -53,7 +53,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @vaibhav @Forms
+   @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @vaibhav @Forms
   Scenario: Validate SF425 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -71,7 +71,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
@@ -132,7 +132,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Certify the Federal Financial Report (SF-425) by checking the Acknowledgment Box before submitting to Grantor. |
 
-  @284394 @ValidateSF425SPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282689 @vaibhav @Forms @BugLogged-324964
+   @284394 @ValidateSF425SPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282689 @vaibhav @Forms @BugLogged-324964
   Scenario: Validate SF425 SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -150,7 +150,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
@@ -209,7 +209,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
@@ -306,7 +306,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | The amount cannot be less than zero. |
 
-  @280159 @280206 @ValidateSPAuserseeFederalGrantorOtherIdentifyingNumberAssignedbyFederalAgencyismandatoryfiledonSF425formwhichacceptmaximum30alphanumericvalue @sprint-26-US-282689 @vaibhav @Forms
+   @280159 @280206 @ValidateSPAuserseeFederalGrantorOtherIdentifyingNumberAssignedbyFederalAgencyismandatoryfiledonSF425formwhichacceptmaximum30alphanumericvalue @sprint-26-US-282689 @vaibhav @Forms
   Scenario: Validate SPA user see "Federal Grant or Other Identifying Number Assigned by Federal Agency is mandatory filed on SF425 form which accept maximum 30 alphanumeric value
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -324,7 +324,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
@@ -364,7 +364,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | State is required to save. |
 
-  @286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @vaibhav @Forms
+   @286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SF425A SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -384,7 +384,10 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+    When I navigate to "Forms and Files" sub tab
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
@@ -419,7 +422,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     When I click on "Back" in the page details
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     And I close the tab
     And I refresh the page
@@ -479,7 +482,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
@@ -506,7 +509,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
@@ -517,7 +520,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Validate" in page detail
 
-  @279756 @279764 @279785 @ValidateUserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatorylabelonSF425A @sprint-1-US-283119 @vaibhav @Forms
+   @279756 @279764 @279785 @ValidateUserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatorylabelonSF425A @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate User see Federal Agency and Organizational Element to Which Report is Submitted mandatory label on SF425-A
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -535,7 +538,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
@@ -575,7 +578,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | 4. Reporting Period End Date (Box 9 on Page 1) is required to save. |
 
-  @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119 @vaibhav @Forms
+   @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SPA user see "Federal Grant Number" is mandatory label on SF425-A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -593,7 +596,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
@@ -623,7 +626,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Required Field Missing |
 
-  @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119 @vaibhav @Forms
+   @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SF425 A SPI user can able to save all fields but validation is generated on save button and validate button after entering incorrect or blank data data in all fields present on SF 425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -641,7 +644,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
@@ -677,7 +680,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | "Sum of Cumulative Federal Cash Disbursement" must be Equal to "10 b Cash Disbursement" in Transactions section of Federal Financial Report (SF-425). |
 
-  @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
+   @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 S SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -697,7 +700,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     #284854
@@ -759,7 +764,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -796,7 +803,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Condition Code is required to save.        |
       | Acquisition Cost is required to save.      |
 
-  @284129 @ValidateSF248SSPIonlyrecordownershouldhaveeditaccessonformotherusercanhaveonlyviewaccess @sprint-26-US-282679 @vaibhav @Forms
+   @284129 @ValidateSF248SSPIonlyrecordownershouldhaveeditaccessonformotherusercanhaveonlyviewaccess @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF248-S SPI only record owner should have edit access on form other user can have only view access
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -816,7 +823,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -849,7 +858,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -880,7 +889,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -891,7 +900,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Validate" in page detail
 
-  @284139 @284101 @ValidateSF428SAdminusershouldnotseeEditbuttononforminForceclosestatusonprogressreport @sprint-26-US-282679 @vaibhav @Forms
+   @284139 @284101 @ValidateSF428SAdminusershouldnotseeEditbuttononforminForceclosestatusonprogressreport @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 S Admin user should not see 'Edit' button on form in Force close status on progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -911,7 +920,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -987,7 +998,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Force Closed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1008,7 +1019,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Force Closed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1033,6 +1044,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
@@ -1062,7 +1075,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1092,7 +1105,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1132,7 +1145,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1163,7 +1176,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1190,7 +1203,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1215,6 +1228,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
@@ -1226,7 +1241,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1241,7 +1256,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1261,7 +1276,7 @@ Feature: Validate scenarios in Progress Report Forms
     #284133
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1283,7 +1298,7 @@ Feature: Validate scenarios in Progress Report Forms
     #284133
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1303,7 +1318,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1337,7 +1352,7 @@ Feature: Validate scenarios in Progress Report Forms
     #284133
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1357,7 +1372,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1378,7 +1393,7 @@ Feature: Validate scenarios in Progress Report Forms
     #284133
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1403,7 +1418,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 25     | 7             |
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1423,7 +1438,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Status" as "Submitted for Approval"
     #284133
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1443,7 +1458,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1470,7 +1485,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1492,7 +1507,7 @@ Feature: Validate scenarios in Progress Report Forms
     #284133
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
@@ -1573,7 +1588,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
@@ -1636,7 +1651,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
@@ -1683,7 +1698,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
@@ -1755,7 +1770,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -1790,7 +1805,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
@@ -1868,7 +1883,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
@@ -1976,7 +1991,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
@@ -2090,7 +2105,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2115,7 +2130,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2151,7 +2166,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2193,7 +2208,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2254,7 +2269,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428_field_not_filled" values from "ProgressReport_Field_Values.xlsx"
@@ -2294,7 +2309,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2321,7 +2336,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2356,7 +2371,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2381,7 +2396,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2410,7 +2425,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2455,6 +2470,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2463,13 +2480,13 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     And I click on "Send Back to Subrecipient" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2488,7 +2505,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2501,7 +2518,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2522,7 +2539,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to tab number "1"
     Then I softly see field "Status" as "Approved"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2569,7 +2586,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2596,7 +2613,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2631,7 +2648,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2657,7 +2674,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2691,6 +2708,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2699,7 +2718,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2724,7 +2743,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2759,7 +2778,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2794,7 +2813,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
@@ -2875,7 +2894,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
@@ -2960,7 +2979,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -2977,7 +2996,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     #SF428-C
@@ -2987,7 +3006,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     #SF428-A
@@ -2997,7 +3016,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     #SF428
@@ -3007,7 +3026,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3106,14 +3125,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3141,7 +3160,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3188,14 +3207,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3228,7 +3247,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3275,7 +3294,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
+#    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428_field_not_filled" values from "ProgressReport_Field_Values.xlsx"
