@@ -1445,6 +1445,8 @@ public class GrantorPayloads {
                 return createAwarForIndUser(json);
             case "SUBRECIPIENT_ORG_SPI_USER":
                 return createAwarForSPIUser(json);
+            case "AWARD_NO_SUPPORTINGDOC_PROGRAM":
+                return awardWithNoSupportingDocProgram(json);
             case "SECOND_FOCUS_AREA":
                 if (Typeflag)
                 return createAwarForSecondFocusArea(json, Type[0]);
@@ -1530,6 +1532,18 @@ public class GrantorPayloads {
 
         return json;
     }
+
+    private JsonObject awardWithNoSupportingDocProgram(JsonObject json) {
+        JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
+        JsonArray newA = new JsonArray();
+        grant.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent No Supporting Doc Program"));
+        newA.add(grant);
+        json.add("Grant", newA);
+        return json;
+    }
+
+
+
 
     private JsonObject createAwarForSecondFocusAreaandBudgetCategoryBuildUpYesIndOrg(JsonObject json, String... Type) {
         JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
