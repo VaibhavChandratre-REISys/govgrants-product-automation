@@ -560,14 +560,20 @@ public class GrantorPayloads {
                 return invitedIndUserOrganizationFocusAreaNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT":
                 return invitedIndUserOrganizationbyApplicant(json);
+            case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_RISK_NO":
+                return invitedIndUserOrganizationbyApplicantRiskNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA_NO":
                 return invitedIndUserOrganizationbyApplicantFocusAreaNo(json);
             case "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA":
                 return invitedIndUserOrganizationbyApplicantFocusArea(json);
+            case "INVITED_APP_IND_ORG_BY_APP_FOCUS_AREA_RISK_NO":
+                return invitedIndUserOrganizationbyApplicantFocusAreaRiskNo(json);
             case "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION":
                 return invitedIndUserOrganizationPreApplicationAndNegotiationAsYes(json);
             case "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION":
                 return invitedIndUserOrganizationSecondFocusAreaPreApplicationYes(json);
+            case "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO":
+                return invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(json);
             case "SECOND_FOCUS_AREA":
                 return updateAnnouncementWithSecondFocusArea(json);
             case "SECOND_FOCUS_AREA_RISK_ASS_NO":
@@ -593,6 +599,59 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject invitedIndUserOrganizationbyApplicantRiskNo(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("InvitedApplicant").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        jsonObject.addProperty("AllocatedAmount", 1000);
+        pre.add(jsonObject);
+        json.add("InvitedApplicant", pre);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        jsonObject1.addProperty("Allocationlevel","By Applicant");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        return json;
+    }
+
+    private JsonObject invitedIndUserOrganizationbyAppTwoFocusAreaRiskNo(JsonObject json) {
+        JsonArray serviceArea = new JsonArray();
+        JsonObject serviceAreaB = new JsonObject();
+        serviceAreaB.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area2"));
+        serviceArea.add(serviceAreaB);
+        json.add("AnnouncementServiceArea", serviceArea);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("Allocationlevel", "By Applicant and Focus Area");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        JsonObject invApp = new JsonObject();
+        JsonArray invAppA = new JsonArray();
+        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        invApp.addProperty("AllocatedAmount", 500);
+        invAppA.add(invApp);
+        json.add("InvitedApplicant", invAppA);
+        return json;
+    }
+
+    private JsonObject invitedIndUserOrganizationbyApplicantFocusAreaRiskNo(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("InvitedApplicant").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Organization", ProjectWebServices.getIdOf("Account", "Automation IND"));
+        jsonObject.addProperty("AllocatedAmount", 1000);
+        pre.add(jsonObject);
+        json.add("InvitedApplicant", pre);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1 = new JsonArray();
+        jsonObject1.addProperty("Allocationlevel", "By Applicant and Focus Area");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        return json;
     }
 
     private JsonObject updateAnnouncementWithByAppDetailBudgetYes(JsonObject json) {
@@ -2127,9 +2186,7 @@ public class GrantorPayloads {
         JsonArray newA = new JsonArray();
         grant.addProperty("FocusAreaRequired", "No");
         grant.addProperty("IsAdvancePermitted", "Yes");
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
-            grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
-        }
+        grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
         newA.add(grant);
         json.add("Grant", newA);
         JsonArray buildUpItemsA = new JsonArray();
@@ -2148,13 +2205,11 @@ public class GrantorPayloads {
     }
 
     private JsonObject createAwarForSecondFocusAreaandBudgetCategorySubrecipientIndProfile(JsonObject json, String... Type) {
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
             grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Automation IND"));
             newA.add(grant);
             json.add("Grant", newA);
-        }
         JsonArray awardServiceAreaArray = new JsonArray();
         JsonObject awardServiceAreaA = new JsonObject();
         awardServiceAreaA.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area"));
@@ -2277,13 +2332,11 @@ public class GrantorPayloads {
 
     private JsonObject createAwarForSPIUser(JsonObject json) {
 
-        if (EnvironmentFactory.getEnvironmentName().contains("TEST8") || EnvironmentFactory.getEnvironmentName().contains("AUTO")) {
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
             grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Product Sub Recipient Test Organization"));
             newA.add(grant);
             json.add("Grant", newA);
-        }
         return json;
     }
 

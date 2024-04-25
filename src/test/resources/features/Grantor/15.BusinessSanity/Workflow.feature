@@ -1532,18 +1532,26 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#  @debug
+#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "As a Grantor" app as "PM" user
-    When I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
-#    And I select value "{SavedValue:FO Username}" into field "input-1"
-    And I enter value "NA" into field "ReimbursementRole__c"
-    And I click on "Remove record" icon for "Step 1" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" without waiting for record
-    Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2x19000002PVZHAA4/pr123405?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
+#    When I navigate to "Forms and Files" sub tab
+#    And I wait for "2" seconds
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+#    Then I softly see "{SavedValue:AttachedFile}" has been added in "Reimbursement Files" flex table
+    And I halt execution
+    And I click on "Submit For Approval" in the page details
+    And I halt execution
 
+  @debug @testCheck
+  Scenario:
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I halt execution
+    When I enter value "Unchecked" into field "FederallyownedProperty__c"

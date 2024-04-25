@@ -77,12 +77,12 @@ public final class InputForms {
                     // Switch to relevant tab
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
                         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-                            currentSubTab = subTab;
-                        }else{
-                            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-                            currentSubTab = subTab;
-                        }
+                           govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+                           currentSubTab = subTab;
+                       }else{
+                           govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+                           currentSubTab = subTab;
+                       }
                     }
                     this.inputFormDataByFieldApiName(fieldApiName, fieldValue, isModal.contains("modal"));
                 }
@@ -563,7 +563,7 @@ public final class InputForms {
                 handleRichTextAreaInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
-                            By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                    By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
                 /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
                     handleDatePickerInput(fieldWrapper, fieldValue);
@@ -590,6 +590,9 @@ public final class InputForms {
                 break;
             }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
                 handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
+                handleRadioButtonInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
                 handleDropdownInput(fieldWrapper, fieldValue);
@@ -1060,7 +1063,7 @@ public final class InputForms {
         By checkBoxSelector = By.xpath(".//span[@class='slds-checkbox_faux']");
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
         if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
-                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected()) {
+                || "Unchecked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()) {
             I.amPerforming().click().withJavaScript(checkBox);
         }
     }
@@ -1206,7 +1209,7 @@ public final class InputForms {
     private void handleRadioButtonInput(WebElement fieldWrapper, String fieldValue) {
         By radioButtonSelector = By.xpath(""
                 + ".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue)
-                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]");
+                + " or " + I.amPerforming().sanityOfXpathTo().equals("text()", fieldValue) + "]/..//span[@class='slds-radio_faux']");
         WebElement radioButton = I.amPerforming().getElementReference().ofNested(fieldWrapper, (radioButtonSelector));
         I.amPerforming().click().on(radioButton);
     }

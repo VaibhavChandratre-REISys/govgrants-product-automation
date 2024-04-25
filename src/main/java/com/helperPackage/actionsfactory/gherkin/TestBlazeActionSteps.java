@@ -74,6 +74,7 @@ public final class TestBlazeActionSteps {
     @Description("switch to parent application page")
     @When("^I switch to parent tab$")
     public void switchToParentPage() {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         I.amPerforming().switchTo().windowHandler(0);
     }
 
@@ -82,6 +83,7 @@ public final class TestBlazeActionSteps {
     public void switchToTab(int tabNumber) {
         I.amPerforming().waitFor().makeThreadSleep(3000);
         I.amPerforming().switchTo().windowHandler(tabNumber);
+        I.amPerforming().waitFor().makeThreadSleep(3000);
     }
 
     @Description("To be used with self healing only")

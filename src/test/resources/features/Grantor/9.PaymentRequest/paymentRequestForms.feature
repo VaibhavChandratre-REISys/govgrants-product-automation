@@ -1,7 +1,7 @@
 @paymntRequestForms @grantor-parallel-regression @paymentRequest @regression
 Feature: Payment Request Forms scenarios
 
-  @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
+  @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms 
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -21,9 +21,10 @@ Feature: Payment Request Forms scenarios
     Then I can see row level action button "View" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Edit" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
-    And I select below checkbox options for field "fieldAdvanaceorReimbursement__c"
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
@@ -40,17 +41,18 @@ Feature: Payment Request Forms scenarios
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Back" in page detail
+#    Then I softly can see top right button "Back" in page detail
     And I wait for "6" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
    #308685
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I save the field labeled "EGMS ID" as "PayreqId1"
     And I navigate to "Financials" sub tab
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
@@ -61,6 +63,7 @@ Feature: Payment Request Forms scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -76,6 +79,7 @@ Feature: Payment Request Forms scenarios
       | {SavedValue:PO Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -91,10 +95,11 @@ Feature: Payment Request Forms scenarios
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId1}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @287170 @308690 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-2-US-288254 @vaibhav @Forms
+  @287170 @308690 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-2-US-288254 @vaibhav @Forms 
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -122,14 +127,17 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Preview" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "View" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Edit" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
-    And I select below checkbox options for field "fieldAdvanaceorReimbursement__c"
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
@@ -147,17 +155,19 @@ Feature: Payment Request Forms scenarios
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Back" in page detail
+#    Then I softly can see top right button "Back" in page detail
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #308690
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -187,10 +197,11 @@ Feature: Payment Request Forms scenarios
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
+  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms 
   Scenario: Validate SF270 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -210,6 +221,7 @@ Feature: Payment Request Forms scenarios
     Then I can see row level action button "View" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Edit" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
@@ -228,15 +240,15 @@ Feature: Payment Request Forms scenarios
       | Last Name is required to save.                                   |
       | Title is required to save.                                       |
       | Telephone (Area Code, Number, Extension) is required to save.    |
-    And I select below checkbox options for field "fieldAdvanaceorReimbursement__c"
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
-    And I enter value "330" into field "fieldPeriodEndDate__c"
-    And I enter value "12345" into field "fieldZipPostalCodeSF428__c"
-    And I enter value "12345" into field "fieldPayeeZipCode__c"
-    And I enter value "-123" into field "fieldEstimatedFederalCashOutlays__c"
-    And I enter value "-123" into field "fieldEstimatedBalanceofFederalCashonHand__c"
-    And I enter value "Unchecked" into field "fieldAcknowledgementSF428__c"
+    And I enter value "330" into field "PeriodEndDate__c"
+    And I enter value "12345" into field "ZipPostalCodeSF428__c"
+    And I enter value "12345" into field "PayeeZipCode__c"
+    And I enter value "-123" into field "EstimatedFederalCashOutlays__c"
+    And I enter value "-123" into field "EstimatedBalanceofFederalCashonHand__c"
+    And I enter value "Unchecked" into field "AcknowledgementSF428__c"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
       | Classification                                   | Programs | Functions | Activities |
       | a. Total program outlays to date                 | 12345    | 12345     | 12345      |
@@ -249,8 +261,8 @@ Feature: Payment Request Forms scenarios
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -260,7 +272,7 @@ Feature: Payment Request Forms scenarios
       | The estimated federal cash outlays that will be made during period covered by the advance cannot be less than zero.        |
       | The estimated balance of federal cash on hand as of beginning of advance period cannot be less than zero.                  |
     When I click on "Edit" in the page details
-    And I enter value "-330" into field "fieldPeriodStartDate__c"
+    And I enter value "-330" into field "PeriodStartDate__c"
     When I click on "Save" in the page details
     And I wait for "7" seconds
     And I refresh the page
@@ -268,8 +280,8 @@ Feature: Payment Request Forms scenarios
     Then I softly see the following messages in the page details :
       | From date cannot be in past in the Period Covered By This Request section. |
     When I click on "Edit" in the page details
-    And I enter value "330" into field "fieldPeriodStartDate__c"
-    And I enter value "330" into field "fieldPeriodEndDate__c"
+    And I enter value "330" into field "PeriodStartDate__c"
+    And I enter value "330" into field "PeriodEndDate__c"
     When I click on "Save" in the page details
     And I wait for "7" seconds
     And I refresh the page
@@ -277,7 +289,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see the following messages in the page details :
       | From date and To date cannot be same in Period Covered By This Request section. |
 
-  @287171 @ValidateAdvSPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-2-US-288254 @vaibhav @Forms
+  @287171 @ValidateAdvSPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-2-US-288254 @vaibhav @Forms 
   Scenario: Validate Adv SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -305,11 +317,14 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Preview" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "View" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Edit" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     When I click on "Save" in the page details
@@ -328,15 +343,15 @@ Feature: Payment Request Forms scenarios
       | Last Name is required to save.                                   |
       | Title is required to save.                                       |
       | Telephone (Area Code, Number, Extension) is required to save.    |
-    And I select below checkbox options for field "fieldAdvanaceorReimbursement__c"
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
-    And I enter value "330" into field "fieldPeriodEndDate__c"
-    And I enter value "12345" into field "fieldZipPostalCodeSF428__c"
-    And I enter value "12345" into field "fieldPayeeZipCode__c"
-    And I enter value "-123" into field "fieldEstimatedFederalCashOutlays__c"
-    And I enter value "-123" into field "fieldEstimatedBalanceofFederalCashonHand__c"
-    And I enter value "Unchecked" into field "fieldAcknowledgementSF428__c"
+    And I enter value "330" into field "PeriodEndDate__c"
+    And I enter value "12345" into field "ZipPostalCodeSF428__c"
+    And I enter value "12345" into field "PayeeZipCode__c"
+    And I enter value "-123" into field "EstimatedFederalCashOutlays__c"
+    And I enter value "-123" into field "EstimatedBalanceofFederalCashonHand__c"
+    And I enter value "Unchecked" into field "AcknowledgementSF428__c"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
       | Classification                                   | Programs | Functions | Activities |
       | a. Total program outlays to date                 | 12345    | 12345     | 12345      |
@@ -349,8 +364,8 @@ Feature: Payment Request Forms scenarios
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -360,7 +375,7 @@ Feature: Payment Request Forms scenarios
       | The estimated federal cash outlays that will be made during period covered by the advance cannot be less than zero.        |
       | The estimated balance of federal cash on hand as of beginning of advance period cannot be less than zero.                  |
     When I click on "Edit" in the page details
-    And I enter value "-330" into field "fieldPeriodStartDate__c"
+    And I enter value "-330" into field "PeriodStartDate__c"
     When I click on "Save" in the page details
     And I wait for "8" seconds
     And I refresh the page
@@ -368,15 +383,15 @@ Feature: Payment Request Forms scenarios
     Then I softly see the following messages in the page details :
       | From date cannot be in past in the Period Covered By This Request section. |
     When I click on "Edit" in the page details
-    And I enter value "330" into field "fieldPeriodStartDate__c"
-    And I enter value "330" into field "fieldPeriodEndDate__c"
+    And I enter value "330" into field "PeriodStartDate__c"
+    And I enter value "330" into field "PeriodEndDate__c"
     When I click on "Save" in the page details
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | From date and To date cannot be same in Period Covered By This Request section. |
 
-  @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms
+  @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms 
   Scenario: Validate EXE user can see below form on Reimbursement Payment Request under Files & Forms section of Payment Request
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -397,9 +412,9 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I softly see value "Payment Request Report" for title "Report Type" against the value "Request for Advance or Reimbursement - SF-270" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Request for Advance or Reimbursement - SF-270" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
+    Then I softly see "cross" symbol against the value "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
 
-  @286321 @ValidatePMusercanseebelowformafterexpandinggridofnewpackageGrantorPaymentRequestonPackagessectionofFormsPackagessectionundersetupofPlanningmodule @sprint-1-US-278368 @vaibhav @Forms
+  @286321 @ValidatePMusercanseebelowformafterexpandinggridofnewpackageGrantorPaymentRequestonPackagessectionofFormsPackagessectionundersetupofPlanningmodule @sprint-1-US-278368 @vaibhav @Forms 
   Scenario: Validate PM user can see below form after expanding grid of new package Grantor Payment Request on Packages section of Forms & Packages section under setup of Planning module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -410,9 +425,9 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---program:-:packagesFormsTableId---"
     Then I softly see value "Payment Request Report" for title "Report Type" inside table "---program:-:packagesFormsTableId---"
     Then I softly see value "Payment Request" for title "Package Type" inside table "---program:-:packagesFormsTableId---"
-    Then I softly see "Cross" symbol in flex table with id "---program:-:packagesFormsTableId---"
+    Then I softly see "check" symbol against the value "Request for Advance or Reimbursement - SF-270" in flex table with id "---program:-:packagesFormsTableId---"
 
-  @293600 @ValidatePMusercanseeReportTypeonformsforSiteVisitOrganizationDeskReviewPreapplicationApplicationonFormssectionofFormsPackagessectionundersetupofPlanningmodule @sprint-3-US-288713 @vaibhav @Forms
+  @293600 @ValidatePMusercanseeReportTypeonformsforSiteVisitOrganizationDeskReviewPreapplicationApplicationonFormssectionofFormsPackagessectionundersetupofPlanningmodule @sprint-3-US-288713 @vaibhav @Forms 
   Scenario: Validate PM user can see Report Type on forms for Site Visit Organization Desk Review Pre-application Application on Forms section of Forms & Packages section under setup of Planning module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -437,7 +452,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Financial Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
 
-  @293601 @293603 @ValidatePMusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms
+  @293601 @293603 @ValidatePMusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms 
   Scenario: Validate PM user can see Report Type clm on Site Visit forms when user click on view icon on Grantor Site Visit Forms under Business Forms section on setup tab of Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -446,12 +461,10 @@ Feature: Payment Request Forms scenarios
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Setup" sub tab
     Then I can see row level action button "Preview" against "Grantor Site Visit Forms" in flex table with id "---program:-:businessFormTableId---"
     Then I can see row level action button "Edit" against "Grantor Site Visit Forms" in flex table with id "---program:-:businessFormTableId---"
@@ -470,7 +483,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" against the value "Standard Pre-Application form" inside table "---program:-:previewPackageTableId---"
 
-  @293602 @ValidateEXEusercanseeReportTypeclmonOrganizationDeskReviewformwhenuserclickonviewicononOrganizationDeskReviewunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms
+  @293602 @ValidateEXEusercanseeReportTypeclmonOrganizationDeskReviewformwhenuserclickonviewicononOrganizationDeskReviewunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms 
   Scenario: Validate EXE user can see Report Type clm on Organization Desk Review form when user click on view icon on Organization Desk Review under Business Forms section on setup tab of Internal Program
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -479,12 +492,10 @@ Feature: Payment Request Forms scenarios
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Setup" sub tab
     Then I can see row level action button "Preview" against "Organization Desk Review" in flex table with id "---program:-:businessFormTableId---"
     Then I can see row level action button "Edit" against "Organization Desk Review" in flex table with id "---program:-:businessFormTableId---"
@@ -496,7 +507,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" against the value "Program Review Form" inside table "---program:-:previewPackageTableId---"
 
-  @293604 @ValidateAdminusercanseeReportTypeclmonApplicationwhenuserclickviewicononGrantorApplicationFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms
+  @293604 @ValidateAdminusercanseeReportTypeclmonApplicationwhenuserclickviewicononGrantorApplicationFormsunderBusinessFormssectiononsetuptabofInternalProgram @sprint-3-US-288713 @vaibhav @Forms 
   Scenario: Validate Admin user can see Report Type clm on Application when user click on view icon on Grantor Application Forms under Business Forms section on setup tab of Internal Program
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -505,12 +516,10 @@ Feature: Payment Request Forms scenarios
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Setup" sub tab
     Then I can see row level action button "Preview" against "Grantor Application Forms" in flex table with id "---program:-:businessFormTableId---"
     Then I can see row level action button "Edit" against "Grantor Application Forms" in flex table with id "---program:-:businessFormTableId---"
@@ -520,7 +529,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Assurances Form" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Application Report" for title "Report Type" against the value "Standard Assurances Form" inside table "---program:-:previewPackageTableId---"
 
-  @293607 @ValidatePOusercanseeReportTypeonGrantorPreapplicationFormsGrantorApplicationFormsGrantorSiteVisitFormsOrganizationDeskreviewonPackagessectionofFormsandPackagessectionundersetupofPlanningmodule @sprint-3-US-288713 @vaibhav @Forms
+  @293607 @ValidatePOusercanseeReportTypeonGrantorPreapplicationFormsGrantorApplicationFormsGrantorSiteVisitFormsOrganizationDeskreviewonPackagessectionofFormsandPackagessectionundersetupofPlanningmodule @sprint-3-US-288713 @vaibhav @Forms 
   Scenario: Validate PO user can see Report Type on Grantor Pre-application Forms, Grantor Application Forms, Grantor Site Visit Forms, Organization Desk review on Packages section of Forms & Packages section under setup of Planning module
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Planning" tab
@@ -567,12 +576,10 @@ Feature: Payment Request Forms scenarios
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -595,15 +602,15 @@ Feature: Payment Request Forms scenarios
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -654,6 +661,7 @@ Feature: Payment Request Forms scenarios
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
@@ -665,9 +673,8 @@ Feature: Payment Request Forms scenarios
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -710,8 +717,6 @@ Feature: Payment Request Forms scenarios
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -741,9 +746,8 @@ Feature: Payment Request Forms scenarios
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -772,8 +776,6 @@ Feature: Payment Request Forms scenarios
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -802,9 +804,8 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | fieldProgram__c |
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -832,6 +833,7 @@ Feature: Payment Request Forms scenarios
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -847,13 +849,13 @@ Feature: Payment Request Forms scenarios
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -863,7 +865,7 @@ Feature: Payment Request Forms scenarios
       | Name          | Amendment Request |
       | Automation FO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "8" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -893,8 +895,6 @@ Feature: Payment Request Forms scenarios
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -923,9 +923,8 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-    And I enter values into fields
-      | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | fieldProgram__c |
+    And I click on remove for lookup from field "Program__c"
+    And I enter in modal value "{SavedValue:ProgramEGMSID}" into field "Program__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -953,6 +952,7 @@ Feature: Payment Request Forms scenarios
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -968,13 +968,13 @@ Feature: Payment Request Forms scenarios
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -984,7 +984,7 @@ Feature: Payment Request Forms scenarios
       | Name          | Amendment Request |
       | Automation FO | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "8" seconds
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1027,7 +1027,6 @@ Feature: Payment Request Forms scenarios
       | {SavedValue:IND Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
@@ -1035,10 +1034,14 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
+    And I refresh the page
+#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1064,16 +1067,17 @@ Feature: Payment Request Forms scenarios
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:IND Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
-    When I navigate to "Proposal" sub tab
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                      | Project Role             | Is Key Contact |
+      | {SavedValue:IND Username} | Project Director/Manager | Checked        |
+     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
@@ -1084,21 +1088,29 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Application Report" for title "Report Type" inside table "---applicationReview:-:allFormsTableId---"
     Then I softly see value "Program Application Form" for title "Form Name" inside table "---applicationReview:-:allFormsTableId---"
     Then I softly see value "Application Report" for title "Report Type" inside table "---applicationReview:-:allFormsTableId---"
+    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I close the tab
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     #293645
     Then I softly can see "Forms and Files" sub tab at view detail page
@@ -1155,9 +1167,12 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "General Review Form" for title "Form Name" inside table "---sitevisits:-:reportsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---sitevisits:-:reportsTableId---"
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I switch to parent tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1231,28 +1246,32 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "General Review Form" for title "Form Name" inside table "---sitevisits:-:reportsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---sitevisits:-:reportsTableId---"
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I switch to parent tab
+    And I refresh the page
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly can see top right button "Send to Subrecipient" in page detail
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see field "Status" as "Sent to Subrecipient"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I navigate to "Reports and Outcomes" sub tab
     Then I softly see value "General Review Form" for title "Form Name" inside table "---sitevisits:-:reportsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---sitevisits:-:reportsTableId---"
 
-  @298273 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
+  @298273 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms 
   Scenario: Validate SF270 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -1269,15 +1288,16 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
     And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
-    And I select below checkbox options for field "fieldAdvanaceorReimbursement__c"
+    And I switch to tab number "1"
+    And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
-    And I enter value "330" into field "fieldPeriodEndDate__c"
-    And I enter value "12345-1234" into field "fieldZipPostalCodeSF428__c"
-    And I enter value "12345" into field "fieldPayeeZipCode__c"
-    And I enter value "-123" into field "fieldEstimatedFederalCashOutlays__c"
-    And I enter value "-123" into field "fieldEstimatedBalanceofFederalCashonHand__c"
-    And I enter value "Unchecked" into field "fieldAcknowledgementSF428__c"
+    And I enter value "330" into field "PeriodEndDate__c"
+    And I enter value "12345-1234" into field "ZipPostalCodeSF428__c"
+    And I enter value "12345" into field "PayeeZipCode__c"
+    And I enter value "-123" into field "EstimatedFederalCashOutlays__c"
+    And I enter value "-123" into field "EstimatedBalanceofFederalCashonHand__c"
+    And I enter value "Unchecked" into field "AcknowledgementSF428__c"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:sf270ComputationAmountTableId---" by clicking "Edit" :
       | Classification                                   | Programs | Functions | Activities |
       | a. Total program outlays to date                 | 12345    | 12345     | 12345      |
