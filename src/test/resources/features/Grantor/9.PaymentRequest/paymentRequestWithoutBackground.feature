@@ -3684,8 +3684,8 @@ Feature: Payment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "input-1"
-    And I select value "Automation PM1" into field "input-2"
+    And I select value "Automation PM" into field "input-source"
+    And I select value "Automation PM1" into field "input-target"
 #    And I select value "Automation PM" into field "s2id_autogen1"
 #    And I select value "Automation PM1" into field "s2id_autogen3"
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:adminTaskReassignmentTableId---" panel
