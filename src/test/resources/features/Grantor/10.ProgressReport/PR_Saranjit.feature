@@ -46,7 +46,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197896 @ValidatePOusershouldabletoreassignthetaskofProgressreportfromMyTasksunderReassignsectiononlefthandnavigationbar @sprint-4 @vaibhav @reassignment
+  @for1 @197896 @ValidatePOusershouldabletoreassignthetaskofProgressreportfromMyTasksunderReassignsectiononlefthandnavigationbar @sprint-4 @vaibhav @reassignment
   Scenario: Validate PO user should able to reassign the task of Progress report from My Tasks under Reassign section on left-hand navigation bar
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PO user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -90,7 +90,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197903 @197904 @ValidateusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownershiprelatedtaskstoanotherbusinessuserofsameprofile @sprint-4 @vaibhav @reassignment
+  @for2 @197903 @197904 @ValidateusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownershiprelatedtaskstoanotherbusinessuserofsameprofile @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should able to see all the pending tasks in Reassign My Current Task page & user should reassign the ownershiprelated tasks to another business user of same profile
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -136,6 +136,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     #197904
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -146,7 +147,7 @@ Feature: Validate scenarios in Progress Report without background
     #197903
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197958 @197962 @197968 @197969 @ValidatenewusershouldabletoreassignReviewtaskofProgressReport @sprint-4 @vaibhav @reassignment
+  @for2 @197958 @197962 @197968 @197969 @ValidatenewusershouldabletoreassignReviewtaskofProgressReport @sprint-4 @vaibhav @reassignment
   Scenario: Validate new user should able to reassign Review task of Progress Report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -192,6 +193,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -259,6 +261,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -272,7 +275,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I can see top right button "New" in flex table with id "---progressreport:-:peerReviewersTableId---"
     Then I can see top right button "New" in flex table with id "---progressreport:-:approversTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
     #198005
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -329,6 +332,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -428,6 +432,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -493,6 +498,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -589,6 +595,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -743,6 +750,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -806,6 +814,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -951,6 +960,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1024,6 +1034,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1203,6 +1214,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1269,6 +1281,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1446,6 +1459,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1519,6 +1533,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1565,8 +1580,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -1667,6 +1683,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -1775,6 +1792,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I checkout to yopmail with mailid "automationpo1@yopmail.com"
@@ -1861,6 +1879,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
@@ -1957,6 +1976,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
@@ -2038,6 +2058,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2051,7 +2072,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I can see top right button "New" in flex table with id "---progressreport:-:peerReviewersTableId---"
     Then I can see top right button "New" in flex table with id "---progressreport:-:approversTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
@@ -2078,7 +2099,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @197281 @ValidateafterownershipofProgressReportrecordischangedthenemailshouldbereachedtotheyopmail @sprint-11-US-224734 @vaibhav @reassignment
+  @for2 @197281 @ValidateafterownershipofProgressReportrecordischangedthenemailshouldbereachedtotheyopmail @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate after ownership of a Progress Report record is changed then email should be reached to the yopmail
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2114,6 +2135,7 @@ Feature: Validate scenarios in Progress Report without background
     And I refresh the page
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2121,11 +2143,11 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
+#    Then I softly see " Reassign Ownership" page block displayed
+#    Then I see the text containing "Progress Report"
+#    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -2133,8 +2155,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -2281,8 +2304,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -2370,6 +2394,7 @@ Feature: Validate scenarios in Progress Report without background
       | Name           | Progress Report |
       | Automation EXE | Step 1          |
     And I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2380,6 +2405,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -2432,6 +2458,7 @@ Feature: Validate scenarios in Progress Report without background
     And I refresh the page
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2463,8 +2490,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -2566,8 +2594,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -2582,7 +2611,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @197972 @ValidateafterreassigningthetasktoanotheruserwithsameprofilewithsameorganizationthenEmailshouldreachedtonewowner @sprint-4-US-192899 @vaibhav @reassignment
+  @for2 @197972 @ValidateafterreassigningthetasktoanotheruserwithsameprofilewithsameorganizationthenEmailshouldreachedtonewowner @sprint-4-US-192899 @vaibhav @reassignment
   Scenario: Validate after reassigning the task to another user with same profile with same organization then Email should reached to new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2628,6 +2657,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2663,7 +2693,7 @@ Feature: Validate scenarios in Progress Report without background
   The EGMS Team
   """
 
-  @195682 @ValidateProgressReporthatnewapproversnameshouldbeupdateintheresponsibilitytabwhenapprovaltaskisreassigned @sprint-7-US-191250 @vaibhav @reassignment
+  @for2 @195682 @ValidateProgressReporthatnewapproversnameshouldbeupdateintheresponsibilitytabwhenapprovaltaskisreassigned @sprint-7-US-191250 @vaibhav @reassignment
   Scenario: Validate Progress Report that new approver's name should be update in the responsibility tab when approval task is reassigned
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2717,10 +2747,12 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM"
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
+    And I pause execution for "3" seconds
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2767,6 +2799,8 @@ Feature: Validate scenarios in Progress Report without background
     And I close the tab
     And I refresh the page
 #    And I click on "Back" in the page details
+    And I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2804,8 +2838,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -2946,6 +2981,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3018,6 +3054,7 @@ Feature: Validate scenarios in Progress Report without background
     And I refresh the page
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3141,8 +3178,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -3250,8 +3288,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -3329,6 +3368,7 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
@@ -3523,8 +3563,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -3564,7 +3605,7 @@ Feature: Validate scenarios in Progress Report without background
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @202463 @ValidateProgReporttasktypeshouldberenamedforPMuserasReviewProgressReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
+  @for1 @202463 @ValidateProgReporttasktypeshouldberenamedforPMuserasReviewProgressReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: ValidateProg Report task type should be renamed for PM user as "Review Progress Report" after progress report submitted to grantor
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3671,8 +3712,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -3770,8 +3812,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
@@ -3796,7 +3839,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "Peer Review Progress Report" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @202477 @ValidateProgReporttasktypeshouldberenamedforAdminrevieweruserasPeerReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
+  @for1 @202477 @ValidateProgReporttasktypeshouldberenamedforAdminrevieweruserasPeerReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report task type should be renamed for Admin reviewer user as "Peer Review Progress Report" after progress report submitted for peer review
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3915,8 +3958,9 @@ Feature: Validate scenarios in Progress Report without background
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
