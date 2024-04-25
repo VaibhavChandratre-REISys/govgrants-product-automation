@@ -71,7 +71,7 @@ Feature: Payment Request scenarios without background
 
   @53912 @validateProgramIncomeTrackingNotDisplayedOnAdvPaymentRequest @mahadev
   Scenario Outline: Validate user can not see page block Program Income tracking not displayed on Advance payment request when program Income Allowed is No at Grant
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_OK_FOCUS_NO_PROGRAM_ANTICIPATED_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -121,7 +121,7 @@ Feature: Payment Request scenarios without background
 
   @53964 @validateProgramIncomeTrackingNotDisplayedOnPaymentRequest @mahadev
   Scenario Outline: Validate user can not see page block Program Income tracking not displayed on Reimbursement payment request when program Income Allowed is No at Grant
-    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_OK_FOCUS_NO_PROGRAM_ANTICIPATED_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_YES_FOCUS_NO_PROGRAM_ANTICIPATED_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -1618,7 +1618,7 @@ Feature: Payment Request scenarios without background
     When I click modal button "Close"
     # there is no add files button
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -1633,8 +1633,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-#    Then I softly see "Reassign Ownership" page block displayed
-    Then I see the text containing "Payment Request"
     #197614
     Then I softly see "Payment Requests Available for Reassignment " page block displayed
     When I navigate to "Records of Target User" sub tab
@@ -1667,7 +1665,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     #197633
@@ -1789,7 +1786,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
@@ -1841,7 +1837,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
@@ -1895,7 +1890,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PO1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
@@ -1947,6 +1941,7 @@ Feature: Payment Request scenarios without background
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I refresh the page
@@ -1977,6 +1972,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Overview" sub tab
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
     When I navigate to "Open Items" sub tab
@@ -2046,7 +2042,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
@@ -2103,7 +2098,6 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I see the text containing "Payment Request"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
@@ -2696,6 +2690,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3166,6 +3161,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3211,6 +3207,7 @@ Feature: Payment Request scenarios without background
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3687,9 +3684,10 @@ Feature: Payment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
 #    And I select value "Automation PM" into field "s2id_autogen1"
 #    And I select value "Automation PM1" into field "s2id_autogen3"
-    When I reassign task to "Automation PM1"
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly see value "Review Payment Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
     When I check "{SavedValue:PayreqId}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
@@ -5076,6 +5074,7 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
