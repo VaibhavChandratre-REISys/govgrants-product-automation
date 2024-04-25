@@ -74,6 +74,7 @@ public final class TestBlazeActionSteps {
     @Description("switch to parent application page")
     @When("^I switch to parent tab$")
     public void switchToParentPage() {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         I.amPerforming().switchTo().windowHandler(0);
     }
 

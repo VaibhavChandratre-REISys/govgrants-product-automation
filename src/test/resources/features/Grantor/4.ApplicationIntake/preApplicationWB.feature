@@ -2933,6 +2933,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Form" sub tab
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "2" seconds
+    And I switch to tab number "1"
     Then I softly see field "1a. Describe the activities and/or services to be provided. (10 points)" as "Automation Test"
     Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline. (10 points)" as "Automation Test"
     Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
