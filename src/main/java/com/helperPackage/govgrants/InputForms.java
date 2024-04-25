@@ -262,7 +262,7 @@ public final class InputForms {
         for (int i = 0; i < getTitlesInFormForLwc().size(); i++) {
             for (int j = 1; j <= getcountForRowsReviewFormForLwc(getTitlesInFormForLwc().get(i)); j++) {
                 if (checkDropdownPresentReviewFormForLwc(getTitlesInFormForLwc().get(i), j) > 0) {
-                   I.amPerforming().click().withJavaScript(checkDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
+                    I.amPerforming().click().withJavaScript(checkDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     try {
                         I.amPerforming().click().withJavaScript(selectDropdownReviewFormForLwc(getTitlesInFormForLwc().get(i), j));
                     } catch (Exception e) {
@@ -305,11 +305,11 @@ public final class InputForms {
 
     public void completeFillingReviewForm(String recommendation) {
 //        try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
-                I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
-            }
-            I.amPerforming().dropDownSelection().from(getSummaryRecommendationXpath()).selectByValue(recommendation);
-            I.amPerforming().textInput().in(getSummaryComments(), "Automation test description");
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(ConflictOfInterestReviewFromPath)) {
+            I.amPerforming().click().on(ConflictOfInterestReviewFromPath);
+        }
+        I.amPerforming().dropDownSelection().from(getSummaryRecommendationXpath()).selectByValue(recommendation);
+        I.amPerforming().textInput().in(getSummaryComments(), "Automation test description");
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //        }
@@ -598,9 +598,12 @@ public final class InputForms {
                 handleDropdownInput(fieldWrapper, fieldValue);
                 break;
             }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//c-lwc-flex-table//input[@type='checkbox']")).size() > 0) {
-                    handleCheckBoxInputForTable(fieldWrapper, fieldValue);
-                    break;
-            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
+                handleCheckBoxInputForTable(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
+                handleRadioButtonInput(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
                 if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-datepicker")).size() > 0) {
                     handleDateInput(fieldWrapper, fieldValue, false);
                 } else {
@@ -758,13 +761,13 @@ public final class InputForms {
                     I.amPerforming().textInput().in(inputBox, fieldValue);
                 }
             }
-       }  else{
+        }  else{
             By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
             WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
             I.amPerforming().click().withJavaScript(inputBox);
             I.amPerforming().textInput().toClear(inputBox);
             I.amPerforming().textInput().in(inputBox, fieldValue);
-       }
+        }
     }
 
     /**
@@ -791,7 +794,7 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(inputBox1);
 
             }
-                // Makes the date(time) picker popup disappear, if clearing a date field
+            // Makes the date(time) picker popup disappear, if clearing a date field
 //        if (inputBox.getAttribute("class").contains("date")) {
 //            makeCalendarPopupDisappear(inputBox);
 //        }
@@ -899,12 +902,12 @@ public final class InputForms {
 
                 String inputValue = parseDateFieldValue(fieldValue, formatter);
 
-                    try {
-                        SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
-                        Date date = dt.parse(inputValue);
-                        SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
-                        inputValue = dt1.format(date);
-                    }catch(Exception e){
+                try {
+                    SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                    Date date = dt.parse(inputValue);
+                    SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                    inputValue = dt1.format(date);
+                }catch(Exception e){
                 }
                 I.amPerforming().textInput().toClear(inputBox1);
                 I.amPerforming().textInput().in(inputBox1, inputValue);
@@ -1027,10 +1030,10 @@ public final class InputForms {
     private void handleLookUpInput(WebElement fieldWrapper, String searchTerm) {
         if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
 
-           openLookupModal(fieldWrapper);
-           performLookupQuickSearch(searchTerm);
-           selectLookupValue(searchTerm);
-       } else {
+            openLookupModal(fieldWrapper);
+            performLookupQuickSearch(searchTerm);
+            selectLookupValue(searchTerm);
+        } else {
             String Search = fieldWrapper.toString().split("//")[2].split("\'")[1];
             if(Search.contains("field")){
                 String Search1 = Search.toString().split("field")[1];
@@ -1048,7 +1051,7 @@ public final class InputForms {
                 By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
                 I.amPerforming().click().on(selectButtonLocator);
             }
-       }
+        }
     }
 
     /**
@@ -1187,15 +1190,15 @@ public final class InputForms {
         if(table.contains("field")){
             String table1 = table.toString().split("field")[1];
             By dropDownSelector1 = By.xpath("//div[@data-field_api_name='"+ table1 +"']//button[@aria-haspopup='listbox']");
-                I.amPerforming().waitFor().ElementListToBePresent(dropDownSelector1);
-                I.amPerforming().click().withJavaScript(dropDownSelector1);
-                I.amPerforming().click().withJavaScript(By.xpath("//span[@title='--None--']"));
+            I.amPerforming().waitFor().ElementListToBePresent(dropDownSelector1);
+            I.amPerforming().click().withJavaScript(dropDownSelector1);
+            I.amPerforming().click().withJavaScript(By.xpath("//span[@title='--None--']"));
         } else {
             By dropDownSelector = By.xpath("//div[@data-field_api_name='"+ table +"']//button[@aria-haspopup='listbox']");
-                I.amPerforming().click().withJavaScript(dropDownSelector);
-                I.amPerforming().click().withJavaScript(By.xpath("//span[@title='--None--']"));
-            }
+            I.amPerforming().click().withJavaScript(dropDownSelector);
+            I.amPerforming().click().withJavaScript(By.xpath("//span[@title='--None--']"));
         }
+    }
 
     /**
      * @param fieldWrapper
@@ -1217,12 +1220,12 @@ public final class InputForms {
      */
     private void openLookupModal(WebElement fieldWrapper) {
         By searchButton = By.xpath(".//dd//span[@class='lookupInput']//a");
-            I.amPerforming().getElementReference().of(searchButton);
+        I.amPerforming().getElementReference().of(searchButton);
         By lookupTableHeader = By.xpath("//input[@id='LookupSearchReportText']");
-            WebElement searchIcon = I.amPerforming().getElementReference().ofNested(fieldWrapper, searchButton);
-            I.amPerforming().click().on(searchIcon);
-            I.amPerforming().getElementReference().of(lookupTableHeader);
-        }
+        WebElement searchIcon = I.amPerforming().getElementReference().ofNested(fieldWrapper, searchButton);
+        I.amPerforming().click().on(searchIcon);
+        I.amPerforming().getElementReference().of(lookupTableHeader);
+    }
 
     /**
      * handles perform quick search for action icon. gets the static variables from
@@ -1231,22 +1234,22 @@ public final class InputForms {
      * @author john.phillips
      */
     private void performLookupQuickSearch(String searchTerm) {
-           String tableId = I.amPerforming().actionToGet().attribute(By.xpath("//div[@id='ModalDivID']//div[1]"), "id");
-           By lookupInputBoxSelector = By.xpath("//div[@id='" + tableId + "']//div/input");
-           By lookUpSearchButton = By.xpath("//div[@id='" + tableId + "']//button//i[contains(@class, 'fa-search')]");
-           By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "' or @title='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
+        String tableId = I.amPerforming().actionToGet().attribute(By.xpath("//div[@id='ModalDivID']//div[1]"), "id");
+        By lookupInputBoxSelector = By.xpath("//div[@id='" + tableId + "']//div/input");
+        By lookUpSearchButton = By.xpath("//div[@id='" + tableId + "']//button//i[contains(@class, 'fa-search')]");
+        By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "' or @title='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
 
-           for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
-                elapsedTime < EnvironmentFactory.getMaxWaitTime() * 2 && !I.amPerforming().checkToSee().IsElementPresentQuick(selectButtonLocator);
-                elapsedTime = (System.currentTimeMillis() - startTime) / 1000) {
-               try {
-                   I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
-                   I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
-                   I.amPerforming().click().on(lookUpSearchButton, false);
-               } catch (Exception e) {
-                   /* Ignore Exception */
-               }
-           }
+        for (long startTime = System.currentTimeMillis(), elapsedTime = 0;
+             elapsedTime < EnvironmentFactory.getMaxWaitTime() * 2 && !I.amPerforming().checkToSee().IsElementPresentQuick(selectButtonLocator);
+             elapsedTime = (System.currentTimeMillis() - startTime) / 1000) {
+            try {
+                I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
+                I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
+                I.amPerforming().click().on(lookUpSearchButton, false);
+            } catch (Exception e) {
+                /* Ignore Exception */
+            }
+        }
     }
 
     /**
@@ -1256,27 +1259,27 @@ public final class InputForms {
      * @modifier nauman.shahid
      */
     private void selectLookupValue(String searchTerm) {
-            By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(200);
-                I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
-                I.amPerforming().click().withMouse().on(selectButtonLocator);
-            } catch (
-                    StaleElementReferenceException stale) { // Exception handling added due to inappropriate refresh behaviour on orgs
+        By selectButtonLocator = By.xpath("//td//*[text()='" + searchTerm + "']//ancestor::tr[1]//a[@title='Select']");
+        try {
+            I.amPerforming().waitFor().makeThreadSleep(200);
+            I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
+            I.amPerforming().click().withMouse().on(selectButtonLocator);
+        } catch (
+                StaleElementReferenceException stale) { // Exception handling added due to inappropriate refresh behaviour on orgs
+            I.amPerforming().waitFor().makeThreadSleep(500);
+            I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
+            I.amPerforming().click().withMouse().on(selectButtonLocator);
+        }
+        // Below block is only added to be executed if the click is performed but the record is not still selected
+
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(selectButtonLocator, false)) {
                 I.amPerforming().waitFor().makeThreadSleep(500);
-                I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
-                I.amPerforming().click().withMouse().on(selectButtonLocator);
+                I.amPerforming().click().on(selectButtonLocator);
             }
-            // Below block is only added to be executed if the click is performed but the record is not still selected
+        } catch (Exception e) {
 
-            try {
-                if (I.amPerforming().checkToSee().isDisplayed(selectButtonLocator, false)) {
-                    I.amPerforming().waitFor().makeThreadSleep(500);
-                    I.amPerforming().click().on(selectButtonLocator);
-                }
-            } catch (Exception e) {
-
-            }
+        }
     }
 
     /******** Holds private methods for filling up of Review form ******/
@@ -1413,7 +1416,7 @@ public final class InputForms {
 
     private int checkTextInputDollarPresentReviewFormForLwc(String title, int qNumber) {
         return I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a DOllar']"), false).size();
-        }
+    }
 
     private By getTextInputDollarPresentReviewFormForLwc(String title, int qNumber) {
         return By.xpath("//div[@class='slds-box pblock']//span[text()='" + title + "']//parent::div//c-review-form-field[" + qNumber + "]//input[@placeholder='Enter a DOllar']");

@@ -39,7 +39,7 @@ public class CommonSteps {
 
     @When("I close the tab")
     public void closeCurrentTab() {
-        I.amPerforming().waitFor().makeThreadSleep(4000);
+        I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().browserOperationsTo().closeBrowserOrTab();
         I.amPerforming().switchTo().windowHandler(
                 I.amPerforming().switchTo().getWindowsHandlers().size() - 1

@@ -74,15 +74,15 @@ public final class PageDetails {
 //               for(int i=0; i<5; i++) {
             I.amPerforming().scroll().onPageWindow("PAGEUP",0,-800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
-                  try {
-                      I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
-                      I.amPerforming().click().withJavaScript(topRightButton);
-                      govgrants.perform().modal().acceptPopUp();
-                  } catch(Exception  ex){
-                      I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                      I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-                      govgrants.perform().modal().acceptPopUp();
-                  }
+            try {
+                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+                I.amPerforming().click().withJavaScript(topRightButton);
+                govgrants.perform().modal().acceptPopUp();
+            } catch(Exception  ex){
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                govgrants.perform().modal().acceptPopUp();
+            }
 
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
@@ -103,16 +103,16 @@ public final class PageDetails {
      */
     public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
         By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "']");
-            I.amPerforming().waitFor().makeThreadSleep(2000);
-            try {
-                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
-                I.amPerforming().click().withJavaScript(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
-            } catch(Exception  ex){
-                I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
-                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
-                govgrants.perform().modal().acceptPopUp();
-            }
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        try {
+            I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
+            govgrants.perform().modal().acceptPopUp();
+        } catch(Exception  ex){
+            I.amPerforming().click().on(ByUsing.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+            I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            govgrants.perform().modal().acceptPopUp();
+        }
     }
 
     /**
@@ -228,15 +228,15 @@ public final class PageDetails {
 
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                   try {
-                       I.amPerforming().click().on(moreTabs);
-                       I.amPerforming().click().on(desiredTab);
-                       I.amPerforming().click().on(moreTabs);
-                   } catch (Exception e) {
-                       I.amPerforming().click().withJavaScript(moreTabs);
-                       I.amPerforming().click().withJavaScript(desiredTab);
-                       I.amPerforming().click().withJavaScript(moreTabs);
-                   }
+                try {
+                    I.amPerforming().click().on(moreTabs);
+                    I.amPerforming().click().on(desiredTab);
+                    I.amPerforming().click().on(moreTabs);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(moreTabs);
+                    I.amPerforming().click().withJavaScript(desiredTab);
+                    I.amPerforming().click().withJavaScript(moreTabs);
+                }
 
             } else {
                 try {
@@ -504,7 +504,7 @@ public final class PageDetails {
     public String getFieldValue(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
         if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-             fieldLabelLocator = By.xpath(String.format(""
+            fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//div//label[contains(@class,'label') and %s]",
                             matchLabelExactly
@@ -514,7 +514,7 @@ public final class PageDetails {
             );
         } else {
 
-             fieldLabelLocator = By.xpath(String.format(""
+            fieldLabelLocator = By.xpath(String.format(""
                                     // This option should work in all situations, if using the latest version of GovGrants
                                     + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
                             matchLabelExactly
@@ -848,7 +848,7 @@ public final class PageDetails {
      * @modifier saranjit.modak added xpath
      */
     public void getHelpTextAtPageBlockDetail(String pageBlockDetailTitle) {
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')]|//span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**

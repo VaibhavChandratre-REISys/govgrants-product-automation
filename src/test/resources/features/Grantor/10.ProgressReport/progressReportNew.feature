@@ -4,7 +4,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
   @60726 @60727 @6072 @60656 @60657 @validateReviewedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev
   Scenario Outline: Validate Progress report with Reviewed/Submitted for Review Status is carried forwarded on grant and  Subaward Overview at SR user end when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    And I am on "SUBPORTAL" portal
+    And I am on "SUBPORTAL8" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I delete the record "<Award Name>" from the object "Progress Report"
     And I delete the record "<Award Name>" from the object "Progress Report"
