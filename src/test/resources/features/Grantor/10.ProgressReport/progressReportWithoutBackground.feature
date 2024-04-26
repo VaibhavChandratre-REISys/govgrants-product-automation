@@ -1563,7 +1563,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click "{SavedValue:SubAwardID}" lookup link
     Then I see field "Subaward Title" as "{SavedValue:Automation Runtime Award}"
 
-  @debug @60921 @budgetPeriodOnPROverviewTab @jitendra
+  @60921 @budgetPeriodOnPROverviewTab @jitendra
   Scenario: Validate on Progress report Budget Period field at Report Overview table under Overview tab is same as Award.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -1752,6 +1752,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I do not see "Objectives" page block displayed
