@@ -1204,7 +1204,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
-      | {SavedValue:Automation Runtime Award} | Automation Runtime Award87196  | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award}  | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @60883 @validateProgramApproverCanSendBackProgressReportWhenFinalprogressreportAlreadyApproved @mahadev
   Scenario Outline: Validate Program Approver can Send back Progress report to Owner when Final progress report request is already approved
