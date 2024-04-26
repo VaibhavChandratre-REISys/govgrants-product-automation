@@ -1,117 +1,12 @@
 @grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression
 Feature: Validate scenarios in Progress Report without background
 
-  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448 @Debug
+  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448
   Scenario: Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
   Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. | Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AWARD_NO_SUPPORTINGDOC_PROGRAM" of type "Competitive"
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-#    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-#    And I enter in modal value "---AUTOEnvData:-:AutomationProgramNoSupportDoc---" into field "Program__c"
-#    And I wait for "3" seconds
-#    And I click modal button "Continue"
-#    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-#    When I click modal button "Save and Continue"
-#    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-#    And I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-#    And I navigate to "Overview" sub tab
-#    And I save the field labeled "Subaward Title" as "Automation Runtime award"
-#    And I click on "Edit" in the page details
-#    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I navigate to "Budget" sub tab
-#    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-#    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-#      | Title                           | Start Date | End Date |
-#      | Automation Permanent Focus Area | 0          | 3650     |
-#    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-#      | Funding Account             | Encumbrance |
-#      | {SavedValue:fundingAccount} | 1000        |
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-#      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-#      | Construction    | 1000         | 100        | 100            |
-#    When I navigate to "Performance" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-#      | EGMS ID                  | Target |
-#      | Automation Permanent KPI | 10     |
-#    And I navigate to "Terms" sub tab
-#    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
-#    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#    And I click modal button "Save"
-#    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-#    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
-#    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
-#    And I click modal button "Save"
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-#      | Name                      | Award  |
-#      | {SavedValue:EXE Username} | Step 1 |
-#    And I click on "Send to Subrecipient" in the page details
-#    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    When I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    When I click on "Accept" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    When I navigate to "Terms" sub tab
-#    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-#    And I click on "Submit for Approval" in the page details
-#    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I click on "Send to Subrecipient" in the page details
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I click on "Accept after Approval" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I click on "Activate" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -182,7 +77,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "Progress Report"
+#    And I expand nested table containing column value "Progress Report"
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
     And I navigate to "Terms" sub tab
@@ -290,7 +185,7 @@ Feature: Validate scenarios in Progress Report without background
     When I close "Progress Report Schedule" modal by clicking the top right x button
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "Progress Report"
+#    And I expand nested table containing column value "Progress Report"
     And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---progressreport:-:progressReportsTaskScheduleId---"
     Then I softly see value "{SavedValue:lastValueFromTableForCol}" is "Equals to" the value "{SavedValue:ReportingPeriodStartDate}"
     And I navigate to "Terms" sub tab
