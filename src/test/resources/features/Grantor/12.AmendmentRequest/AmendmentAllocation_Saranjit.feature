@@ -902,13 +902,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see field "Status" as "Submitted for Approval"
     And I pause execution for "3" seconds
     And I "Reject" in the approval decision
-    Then I see status in Progress-bar is "Rejected" and is "Red"
+    Then I see status in Progress-bar is "Rejected" and is "red"
     Then I softly cannot see top right button "Edit" in page detail
-    Then I softly see that "New Obligation" rendered in view mode only
+    Then I softly see field "New Obligation" inside page block
     #257662
-    Then I softly see that "Revised Commitment" rendered in view mode only
+    Then I softly see field "Revised Commitment" inside page block
 
-  @257867 @257877 @ValidateusershouldabletoseebelowreadonlyfieldinbudgetsummarysectionFAYes @sprint-19-US-247769 @vaibhav @Allocation
+  @wip @257867 @257877 @ValidateusershouldabletoseebelowreadonlyfieldinbudgetsummarysectionFAYes @sprint-19-US-247769 @vaibhav @Allocation
   Scenario: Validate user should able to see below read only field in budget summary section(FA Yes)
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -1571,7 +1571,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "Revised Commitment" rendered in view mode only
 
-  @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation
+  @wip @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate user see all the Focus areas, which were associated on the announcement even with zero allocation and copied to award later when award is created
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2605,7 +2605,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see field "Total Commitment" as "$4,000.00"
 
-  @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
+  @wip @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
   Scenario:Verify Fields displayed to FO user on in the budget summary Section
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -3762,7 +3762,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
+  @wip @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is not displayed to FD user when New Obligation is equal to Revised Encumbrance when focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequestSaranjit @checknow @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
+@paymentRequestWithBackground @paymentRequestSaranjit @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
 Feature: Validate all scenarios in Payment Request
 
   Background: Navigate to award
@@ -277,6 +277,8 @@ Feature: Validate all scenarios in Payment Request
       | Extra Salary | The narrative | 10         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -957,7 +959,7 @@ Feature: Validate all scenarios in Payment Request
     When I click modal button "Close"
     And I wait for "2" seconds
 #    When I save the value from row "1" for column name "Title" as "File Name" from flex table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
   @54416 @uploadAttachmentFromWorkspaceReimbursementPR @mahadev
   Scenario: verify that user can upload document from workspace for Reimbursement Payment Request
