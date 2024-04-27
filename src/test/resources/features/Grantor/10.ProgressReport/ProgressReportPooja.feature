@@ -1,4 +1,4 @@
-@grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression
+@grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression @ProgressReportPooja
 Feature: Validate scenarios in Progress Report without background
 
   @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448
