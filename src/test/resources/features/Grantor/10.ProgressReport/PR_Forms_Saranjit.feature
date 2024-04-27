@@ -52,7 +52,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @for2 @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @vaibhav @Forms
+  @for21 @284392 @ValidateSF425SPIusercanabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF425form @sprint-26-US-282689 @vaibhav @Forms
   Scenario: Validate SF425 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -129,7 +129,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---progressReport:-:sf425IndirectExpenseTableId---" by clicking "Add" :
       | Type  | Rate | Period From | Period To | Base | Federal Share |
       | Fixed | 100  | 25          | 30        | 10   | 10            |
-    When I enter value "Unchecked" into field "AcknowledgementSF428__c"
+    When I enter value "UnChecked" into field "AcknowledgementSF428__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
     When I click on "Validate" in the page details
@@ -363,7 +363,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | State is required to save. |
 
-  @for2 @286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @vaibhav @Forms
+  @wip @286154 @286159 @ValidateSF425ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SF425A SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -572,7 +572,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | 4. Reporting Period End Date (Box 9 on Page 1) is required to save under Details |
 
-  @for2 @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119 @vaibhav @Forms
+  @wip @279789 @279799 @ValidateSPAuserseeFederalGrantNumberismandatorylabelonSF425Aform @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SPA user see "Federal Grant Number" is mandatory label on SF425-A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -621,7 +621,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
 
-  @for2 @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119 @vaibhav @Forms
+  @for21 @286153 @ValidateSF425ASPIusercanabletosaveallfieldsbutvalidationisgeneratedonsavebuttonandvalidatebuttonafterenteringincorrectorblankdatadatainallfieldspresentonSF425form @sprint-1-US-283119 @vaibhav @Forms
   Scenario: Validate SF425 A SPI user can able to save all fields but validation is generated on save button and validate button after entering incorrect or blank data data in all fields present on SF 425form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -673,7 +673,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | "Sum of Cumulative Federal Cash Disbursement" must be Equal to "10 b Cash Disbursement" in Transactions section of Federal Financial Report (SF-425). |
 
-  @for2 @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
+  @wip @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 S SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1012,7 +1012,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Validate" in page detail
 
-  @for2 @284097 @ValidateSF428SSPAusershouldnotseeEditbuttononforminSubmittedtothegrantorsentforreviedreviewedSubmittedforApprovalApprovedstatusofprogressreport @sprint-26-US-282679 @vaibhav @Forms
+  @for21 @284097 @ValidateSF428SSPAusershouldnotseeEditbuttononforminSubmittedtothegrantorsentforreviedreviewedSubmittedforApprovalApprovedstatusofprogressreport @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 S SPA user should not see 'Edit' button on form in Submitted to the grantor sent for review reviewed Submitted for Approval Approved status of progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
