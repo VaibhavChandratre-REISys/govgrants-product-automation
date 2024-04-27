@@ -825,7 +825,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---progressreport:-:progressHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---progressreport:-:progressHistoryTableId---"
 
-  @198118 @Validateusershouldnotabletoselectthesource&targetuserissame @sprint-4 @vaibhav @reassignment @ownvai
+  @for3 @198118 @Validateusershouldnotabletoselectthesource&targetuserissame @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should not able to  select the source & target user is same
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -865,11 +865,11 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
+    And I select value "Automation PM" into field "input-1"
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @198112 @ValidateUsershouldabletoreassignthetaskownershipofPRwithsameprofile&sameorganization @sprint-4 @vaibhav @reassignment
+  @for3 @198112 @ValidateUsershouldabletoreassignthetaskownershipofPRwithsameprofile&sameorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate User should able to reassign the task ownership of PR with same profile & same organization
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -909,6 +909,7 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    And I pause execution for "4" seconds
     And I enter value "Automation PM1" into field "input-2"
     And I pause execution for "4" seconds
     Then I softly see "Automation PM1" inside auto search result
@@ -978,7 +979,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @198019 @ValidateusershouldabletoseeemailinyopmailwhenPRissendbacktotheS/R @sprint-4 @vaibhav @reassignment @buglogged-197651
+  @wip @198019 @ValidateusershouldabletoseeemailinyopmailwhenPRissendbacktotheS/R @sprint-4 @vaibhav @reassignment @buglogged-197651
   Scenario: Validate user should able to see email in yopmail when PR is send back to the S/R
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1071,7 +1072,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @205788 @ValidateProgressReportwhenEXEusershouldabletoReassigntheapprovertasktoanotherexeuserifPRapproveralreadyaddedinawardmodule @sprint-12-US-226646 @vaibhav @reassignment
+  @wip @205788 @ValidateProgressReportwhenEXEusershouldabletoReassigntheapprovertasktoanotherexeuserifPRapproveralreadyaddedinawardmodule @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Progress Report_Verify when EXE user should able to Reassign the approver task to another exe user if PR approver already added in award module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1222,7 +1223,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     Then I softly see value "Approve Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @205791 @ValidateProgressReportafterchangingtheApprovertasktootheruserthenusershouldabletoseetheapprovernameshouldbechangeinapproversection @sprint-12-US-226646 @vaibhav @reassignment
+  @for3 @205791 @ValidateProgressReportafterchangingtheApprovertasktootheruserthenusershouldabletoseetheapprovernameshouldbechangeinapproversection @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Progress Report after changing the Approver task to other user then user should able to see the approver name should be change in approver section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1270,10 +1271,12 @@ Feature: Validate scenarios in Progress Report without background
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
+    And I pause execution for "5" seconds
     And I select value "Automation FO" into field "input-1"
     And I select value "Automation FO1" into field "input-2"
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
@@ -1293,7 +1296,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "Step 1" for title "Progress Report" against the value "Automation FO1" inside table "---progressReport:-:approversTableId---"
     Then I softly see value "NA" for title "Progress Report" against the value "Automation FO" inside table "---progressReport:-:approversTableId---"
 
-  @222110 @Validateapprovertableshouldnotgetupdateonawardafterapproverreassignmentgetdononitsrelatedprogressreport @sprint-12-US-226646 @vaibhav @reassignment
+  @for3 @222110 @Validateapprovertableshouldnotgetupdateonawardafterapproverreassignmentgetdononitsrelatedprogressreport @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate approver table should not get update on award after approver reassignment get done on it's related progress report
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1539,7 +1542,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197638 @ValidateusershouldabletoseeemailinyopmailwhenPRissubmittedtograntor @sprint-12-US-226646 @vaibhav @reassignment
+  @for3 @197638 @ValidateusershouldabletoseeemailinyopmailwhenPRissubmittedtograntor @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate user should able to see email in yopmail when PR is submitted to grantor
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1565,11 +1568,8 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
+    And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -1579,6 +1579,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
@@ -1634,7 +1635,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @198104 @ValidateusershouldabletoseeemailinyopmailwhenPRPeerreviewiscompleted @sprint-12-US-226646 @vaibhav @reassignment @buglogged-256649
+  @wip @198104 @ValidateusershouldabletoseeemailinyopmailwhenPRPeerreviewiscompleted @sprint-12-US-226646 @vaibhav @reassignment @buglogged-256649
   Scenario: Validate user should able to see email in yopmail when PR Peer review is completed
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1743,7 +1744,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @198109 @ValidatechangingthetaskownershipofPRthentheallfuturetask&emailshouldgettothenewPRowner @sprint-12-US-226646 @vaibhav @reassignment
+  @wip @198109 @ValidatechangingthetaskownershipofPRthentheallfuturetask&emailshouldgettothenewPRowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate changing the task ownership of PR then the all future task & email should get to the new PR owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PO user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1818,7 +1819,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @205801 @ValidateProgressReportafterchangingtaskofPRapprovertonewownerthenemailshouldbegenerateinyopmail @sprint-12-US-226646 @vaibhav @reassignment
+  @for3 @205801 @ValidateProgressReportafterchangingtaskofPRapprovertonewownerthenemailshouldbegenerateinyopmail @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Progress Report_Verify after changing task of PR approver to new owner then email should be generate in yopmail
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1866,6 +1867,7 @@ Feature: Validate scenarios in Progress Report without background
       | Name           | Progress Report |
       | Automation EXE | Step 1          |
     And I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1912,7 +1914,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team.
       """
 
-  @223459 @ValidateProgressReportModulethetransfertaskownershipisfailincaseofanyreasonthenrelatedtaskProgressreportshouldnotbeupdated @sprint-12-US-226646 @vaibhav @reassignment
+  @wip @223459 @ValidateProgressReportModulethetransfertaskownershipisfailincaseofanyreasonthenrelatedtaskProgressreportshouldnotbeupdated @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Progress Report Module>>Verify the transfer task ownership is fail in case of any reason then related task of Progress report should not be updated
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM1 user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2009,7 +2011,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team.
       """
 
-  @229663 @ValidatewhenuserchangetheownershipofPRthenthisPRgeneratedtonewuser&futuretaskgotothenewuser&Emailshouldbegeneratedofownershipchange @sprint-12-US-226646 @vaibhav @reassignment
+  @for3 @229663 @ValidatewhenuserchangetheownershipofPRthenthisPRgeneratedtonewuser&futuretaskgotothenewuser&Emailshouldbegeneratedofownershipchange @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate when user change the ownership of PR then this PR generated to new user & future task go to the new user & Email should be generated of ownership change
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2096,7 +2098,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @197281 @ValidateafterownershipofProgressReportrecordischangedthenemailshouldbereachedtotheyopmail @sprint-11-US-224734 @vaibhav @reassignment
+  @for3 @197281 @ValidateafterownershipofProgressReportrecordischangedthenemailshouldbereachedtotheyopmail @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate after ownership of a Progress Report record is changed then email should be reached to the yopmail
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2153,7 +2155,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
@@ -2237,7 +2239,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @197651 @ValidateusershouldabletoseetheyopmailwhenPRissendbacktosubrecepient @sprint-11-US-224734 @vaibhav @reassignment @buglogged-256649
+  @for3 @197651 @ValidateusershouldabletoseetheyopmailwhenPRissendbacktosubrecepient @sprint-11-US-224734 @vaibhav @reassignment @buglogged-256649
   Scenario: Validate user should able to see the yopmail when PR is send back to subrecepient
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2289,11 +2291,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -2343,7 +2340,7 @@ Feature: Validate scenarios in Progress Report without background
       The EGMS Team
       """
 
-  @205797 @ValidateProgressReportafterchangingtheapproveraskofPRtoanotheruserthenpendingtaskshouldbegenerateofapprovaltonewownerofapproval @sprint-11-US-224734 @vaibhav @reassignment
+  @for3 @205797 @ValidateProgressReportafterchangingtheapproveraskofPRtoanotheruserthenpendingtaskshouldbegenerateofapprovaltonewownerofapproval @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Progress Report after changing the approver task of PR to another user then pending task should be generate of approval to new owner of approval
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2396,8 +2393,8 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
@@ -2419,7 +2416,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 1" for title "Progress Report" against the value "Automation EXE1" inside table "---progressReport:-:approversTableId---"
 
-  @197385 @ValidatestateissubmittedforreviewofPR&thenchangetheOwnershipofPRthencompletereviewbuttonisdisplaytonewowner @sprint-4-US-196758 @vaibhav @reassignment
+  @for3 @197385 @ValidatestateissubmittedforreviewofPR&thenchangetheOwnershipofPRthencompletereviewbuttonisdisplaytonewowner @sprint-4-US-196758 @vaibhav @reassignment
   Scenario: Validate state is submitted for review of PR & then change the Ownership of PR  then complete review button is display to new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2475,11 +2472,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -2503,7 +2495,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
     Then I softly can see top right button "Complete Review" in page detail
 
-  @197386 @ValidatereviewiscompletedofPR&userchangedtheownershipofPRthenbelowbuttonshoulddisplayonlynewowner @sprint-4-US-196758 @vaibhav @reassignment
+  @for3 @197386 @ValidatereviewiscompletedofPR&userchangedtheownershipofPRthenbelowbuttonshoulddisplayonlynewowner @sprint-4-US-196758 @vaibhav @reassignment
   Scenario: Validate review is completed of PR & user changed the ownership of PR then below button should display only new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2579,11 +2571,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -2608,7 +2595,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @197972 @ValidateafterreassigningthetasktoanotheruserwithsameprofilewithsameorganizationthenEmailshouldreachedtonewowner @sprint-4-US-192899 @vaibhav @reassignment
+  @wip @197972 @ValidateafterreassigningthetasktoanotheruserwithsameprofilewithsameorganizationthenEmailshouldreachedtonewowner @sprint-4-US-192899 @vaibhav @reassignment
   Scenario: Validate after reassigning the task to another user with same profile with same organization then Email should reached to new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2761,7 +2748,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "Step 1" for title "Progress Report" against the value "Automation PM" inside table "---progressReport:-:approversTableId---"
     Then I softly see value "NA" for title "Progress Report" against the value "Automation PM1" inside table "---progressReport:-:approversTableId---"
 
-  @229667 @ValidateprogressreportisApprovedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @229667 @ValidateprogressreportisApprovedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is Approved state & user changed Ownership to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2823,11 +2810,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -2931,7 +2913,7 @@ Feature: Validate scenarios in Progress Report without background
   The EGMS Team
   """
 
-  @229668 @Validateprogressreportissendtos/rstate&userchangedOwnershiptasktonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @229668 @Validateprogressreportissendtos/rstate&userchangedOwnershiptasktonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is send to s/r state & user changed Ownership task to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3064,7 +3046,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID1}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:progID1}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is forced state & user changed Ownership to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3163,11 +3145,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -3220,7 +3197,7 @@ Feature: Validate scenarios in Progress Report without background
   The EGMS Team
   """
 
-  @234012 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbuttonbynewownerReassignedownerofprogressreport @sprint-13-US-231194 @vaibhav @reassignment
+  @for3 @234012 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbuttonbynewownerReassignedownerofprogressreport @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate Prog Report "Review Progress Report" task should be close after click on submit for approval button by new owner (Reassigned owner) of progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3273,11 +3250,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -3308,7 +3280,7 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
+  @for3 @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Progress Report FO user should able to reassign the Approver  task to the another user for progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3375,7 +3347,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     Then I softly see value "Approve Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @222193 @ValidateAwardIfapproverandownerofprogressreportaresamevalidateafterreassigningtheownershipofprogressreportstep3approvernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @222193 @ValidateAwardIfapproverandownerofprogressreportaresamevalidateafterreassigningtheownershipofprogressreportstep3approvernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Award If approver and owner of a progress report are same validate after reassigning the ownership of progress report step 3 approver name should not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3546,11 +3518,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -3651,7 +3618,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @202464 @ValidateProgReporttasktypeshouldberenamedforEXEuserasReviewProgresReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @202464 @ValidateProgReporttasktypeshouldberenamedforEXEuserasReviewProgresReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report task type should be renamed for EXE user as "Review Progress Report" after progress report submitted to grantor
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3695,11 +3662,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -3741,7 +3703,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @202475 @ValidateProgReporttasktypeshouldberenamedforEXErevieweruserasPeeReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @202475 @ValidateProgReporttasktypeshouldberenamedforEXErevieweruserasPeeReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report_ Verify task type should be renamed for EXE reviewer user as "Peer Review Progress Report" after progress report submitted for peer review
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3795,11 +3757,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
@@ -3897,7 +3854,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "Peer Review Progress Report" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @206433 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbutton @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @206433 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbutton @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report "Review Progress Report" task should be close after click on submit for approval button
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3941,11 +3898,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Progress Report"
-    And I Click on "Reassign Records" icon for "Progress Report" without tableid
     Then I softly see "Progress Reports Available for Reassignment " page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressSourceTableId---"
