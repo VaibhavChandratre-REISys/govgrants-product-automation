@@ -2078,7 +2078,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I pause execution for "3" seconds
     And I switch to tab number "1"
     And I wait for "5" seconds
     Then I softly see the text containing "OMB Number: 4040-0018"
@@ -2437,12 +2436,13 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I cannot see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name          | Progress Report |
       | Automation FO | Step 1          |
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
