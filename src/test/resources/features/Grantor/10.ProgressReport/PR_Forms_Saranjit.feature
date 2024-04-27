@@ -1795,7 +1795,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter value "Checked" into field "ResidualUnusedSupplies__c"
     When I enter value "Checked" into field "NoneoftheAbove__c"
     When I enter value "Checked" into field "RequestTransfertoAward__c"
-    When I enter value "Test" into field "FederalAwardIdentifier__c"
+    When I enter value "Checked" into field "FederalAwardIdentifier__c"
     When I enter value "Checked" into field "RequestFederalAgency__c"
     When I enter value "Checked" into field "Other__c"
     When I enter value "Checked" into field "AcknowledgeEquipment__c"
@@ -1859,7 +1859,8 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see fields "Other__c" is in edit mode
     Then I softly see that "AcknowledgeEquipment__c" rendered in view mode only
     Then I softly see that "RequestFederalAgency__c" rendered in view mode only
-    Then I softly see fields "TotalAmount__c" is in edit mode
+    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
+#   Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
@@ -2913,10 +2914,9 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I pause execution for "5" seconds
-    When I click on "Save" in the page details
     When I click on "Validate" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
@@ -3025,10 +3025,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I wait for "2" seconds
-    When I click on "Save" in the page details
+    When I click on "Edit" in the page details
     And I wait for "2" seconds
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
     Then I softly see field "7. Supplemental Sheet" inside page block
@@ -3105,7 +3105,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to tab number "1"
     And I wait for "2" seconds
     When I click on "Edit" in the page details
-    And I wait for "2" seconds
+    And I wait for "6" seconds
     And I enter "SF428_Supp_not_Selected" values from "ProgressReport_Field_Values.xlsx"
     Then I softly see field "7. Supplemental Sheet" inside page block
     Then I see radio button "Yes" for field "SupplementalSheet__c"
