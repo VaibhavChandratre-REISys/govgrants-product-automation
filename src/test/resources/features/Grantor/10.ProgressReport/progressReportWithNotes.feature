@@ -43,8 +43,8 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -74,7 +74,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -112,8 +112,8 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -143,7 +143,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -194,8 +194,8 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -209,7 +209,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Automation Notes2" for title "Description" inside table "---progressreport:-:progressNotesTableId---"
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record | Automation Notes  |
     Then I softly see value "Notes Record" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -222,8 +222,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     #236026
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record3 | Automation Notes3|
     Then I softly see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -255,7 +256,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -293,8 +294,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -324,7 +326,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -367,7 +369,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -387,8 +389,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "Green"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -418,7 +421,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -456,8 +459,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -487,7 +491,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -513,8 +517,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -551,7 +556,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -577,12 +582,13 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record2 | Automation Notes2|
     Then I softly see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -640,7 +646,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -666,8 +672,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -745,7 +752,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -762,8 +769,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Save" in the page details
     And I click on "Back" in the page details
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -816,7 +824,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -835,8 +843,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -876,7 +885,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -895,12 +904,13 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record2 | Automation Notes2|
     Then I softly see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -984,7 +994,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1003,12 +1013,13 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record2 | Automation Notes2|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -1078,7 +1089,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1097,8 +1108,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -1176,7 +1188,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1195,8 +1207,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -1222,8 +1235,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -1250,7 +1264,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1288,8 +1302,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
@@ -1344,8 +1359,9 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "Add" :
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
+
+    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
