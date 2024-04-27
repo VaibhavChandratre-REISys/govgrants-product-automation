@@ -654,7 +654,7 @@ public final class FlexTable implements FlexTableComponent {
      */
     public boolean assertCoulmnValueAgainstColumnTitle(String columnValue, String columnTitle, String flexTableDivId) {
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//tr | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "'] | //div[contains(@aria-label,'" + flexTableDivId + "')]")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//tr | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "'] | //article[contains(@aria-label,'" + flexTableDivId + "')]")));
             WebElement row = I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
             Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
             I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]"));

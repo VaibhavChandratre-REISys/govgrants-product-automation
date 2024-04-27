@@ -439,7 +439,7 @@ public final class PageDetails {
     public boolean isHelpTextDisplayed(String helpText, String... fieldLabel) {
         boolean flag = false;
         if (fieldLabel.length != 0) {
-            By element = By.xpath("(//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/parent::a) | (//span[contains(text(),'" + fieldLabel[0] + "')]/../following-sibling::a)| (//*[contains(text(),'" + fieldLabel[0] + "')]/../following-sibling::a) | //label[contains(text(),'" + fieldLabel[0] + "')]/..//div[@part='help-text']");
+            By element = By.xpath("(//span[contains(text(),'" + fieldLabel[0] + "')]/..//span[contains(@class,'fa-info')]/parent::a) | (//span[contains(text(),'" + fieldLabel[0] + "')]/../following-sibling::a)| (//*[contains(text(),'" + fieldLabel[0] + "')]/../following-sibling::a)");
             try {
                 if (I.amPerforming().actionToGet().attribute(element, "title").equalsIgnoreCase(helpText) || (I.amPerforming().actionToGet().attribute(element, "onfocus").contains(helpText)))
                     flag = true;
