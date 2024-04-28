@@ -1968,9 +1968,12 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see that "Other__c" rendered in view mode only
    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
 #   Then I softly see that "Total Amount" rendered in view mode only
-    Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
-    Then I softly see that "(iii) Federal Share" rendered in view mode only
-    Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
+#    Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
+#    Then I softly see that "(iii) Federal Share" rendered in view mode only
+#    Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
+    Then I softly see fields "PercentageofFederalParticipation__c" is in edit mode
+    Then I softly see fields "FederalShare__c" is in edit mode
+    Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
     Then I softly see "(i) Acknowledge equipment acquired under this federal award will be retained for use as originally approved" inside page block detail
     Then I softly see "(ii) Request Federal Agency disposition instructions" inside page block detail
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
