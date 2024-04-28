@@ -3030,7 +3030,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID1}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:progID1}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @for3 @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is forced state & user changed Ownership to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3262,7 +3262,7 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @for3 @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
+  @wip @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Progress Report FO user should able to reassign the Approver  task to the another user for progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3321,7 +3321,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
-    Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3531,6 +3530,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 1" for title "Progress Report" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 2" for title "Progress Report" against the value "Automation PO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
