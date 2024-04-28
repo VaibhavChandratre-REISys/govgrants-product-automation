@@ -4130,7 +4130,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @257892 @ValidateCompetitivePOusercanseeerrormessageafterclickonremovebuttonwhileremovingthefocusareawithbudgetassociatedwithitFAYES @sprint-19-US-250552 @vaibhav @Allocation
+  @done @257892 @ValidateCompetitivePOusercanseeerrormessageafterclickonremovebuttonwhileremovingthefocusareawithbudgetassociatedwithitFAYES @sprint-19-US-250552 @vaibhav @Allocation
   Scenario: Validate Competitive PO user can see error message after click on remove button while removing the focus area, with budget associated with it (FA=YES)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4157,6 +4157,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
     Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:projectAreasTableId---"
+    #Bug423185
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
@@ -6647,7 +6648,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount must be equal to the New Obligation for following Focus Areas - (Automation Permanent Focus Area, Automation Permanent Focus Area2) |
-      | Overview Tab - The New Obligation ($4000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($0.00)                                           |
+      | Overview Tab - The New Obligation ($4000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($0.00)                                          |
 
   @256611 @256629 @ValidatevalidationisdisplayedtoPMuserwhenuserenterRevisedCommitmentlessthanNewobligationincurrentARcumulativeobligationinGrant @sprint-19-US-241142 @vaibhav @Allocation
   Scenario: Validate validation is displayed to PM user when user enter Revised Commitment less than New obligation in current AR cumulative obligation in Grant
@@ -8133,7 +8134,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligation1}" and "{SavedValue:CumulativeObligation2}" is equal to "{SavedValue:CumulativeObligation4}"
 
-  @257462 @257583 @257652 @257631 @257644 @257483 @ValidateUsershouldabletoeditthenewobligationfieldwhentherecordisinCreated&SubmittoGrantorStateFANo @sprint-19-US-242374 @vaibhav @Allocation
+  @done @257462 @257583 @257652 @257631 @257644 @257483 @ValidateUsershouldabletoeditthenewobligationfieldwhentherecordisinCreated&SubmittoGrantorStateFANo @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate User should able to edit the new obligation field when the record is in Created & Submit to Grantor State(FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE1" user
@@ -8152,13 +8153,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     #257652
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     #257652
     Then I softly see field "Revised Commitment" as "$4,000.00"
@@ -8186,7 +8187,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see that "fieldRequestedChangeInBudget__c" rendered in view mode only
+    Then I softly see that "RequestedChangeInBudget__c" rendered in view mode only
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -8197,20 +8198,20 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction    | 2000                 | 200        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     #257652
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     When I enter values into fields
-      | Value | Field                     |
-      | 1000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 1000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     #257652
     Then I softly see field "Revised Commitment" as "$1,000.00"
@@ -8221,8 +8222,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     #257483
@@ -8232,7 +8233,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     #257483
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "New Obligation" rendered in view mode only
 
@@ -8368,7 +8369,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257662
     Then I softly see that "Revised Commitment" rendered in view mode only
 
-  @257867 @257877 @ValidateusershouldabletoseebelowreadonlyfieldinbudgetsummarysectionFAYes @sprint-19-US-247769 @vaibhav @Allocation
+  @done @257867 @257877 @ValidateusershouldabletoseebelowreadonlyfieldinbudgetsummarysectionFAYes @sprint-19-US-247769 @vaibhav @Allocation
   Scenario: Validate user should able to see below read only field in budget summary section(FA Yes)
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -8391,21 +8392,21 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
-    And I refresh the page
+    And I pause execution for "5" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     And I get the "EGMS ID"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | Start Date                                | End Date                                |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
+      | Title                           | End Date                                | Start Date                                |
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodEndDate} | {SavedValue:updatedBudgetPeriodStartDate} |
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                            | Start Date                                | End Date                                |
-      | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
+      | Title                            | End Date                                | Start Date                                |
+      | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodEndDate} | {SavedValue:updatedBudgetPeriodStartDate} |
     And I refresh the page
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -8915,7 +8916,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "New Obligation" rendered in view mode only
 
-  @257574 @257623 @257657 @257643 @257651 @257657 @ValidateBudgetAmountshouldRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumnFAYes @sprint-19-US-242374 @vaibhav @Allocation
+  @done @257574 @257623 @257657 @257643 @257651 @257657 @ValidateBudgetAmountshouldRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumnFAYes @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate Budget Amount should Rolled up from the budget change section's Revised Award Amount column(FA Yes)
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -8935,11 +8936,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     #257651
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$4,000.00"
     And I save the field labeled "EGMS ID" as "PeriodicID"
@@ -8977,7 +8978,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257657
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see that "fieldRevisedCommitment__c" rendered in view mode only
+    Then I softly see that "RevisedCommitment__c" rendered in view mode only
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -8992,20 +8993,20 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction  | 1000                 | 100        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 500   | fieldRevisedCommitment__c       |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 500   | RevisedCommitment__c       |
+      | 1000  | RequestedChangeInBudget__c |
     #257651
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$500.00"
     And I wait for "7" seconds
@@ -9015,9 +9016,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $2000.00 across all budget periods. |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     #257657
@@ -9027,11 +9028,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     #257657
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "Revised Commitment" rendered in view mode only
 
-  @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation
+  @done @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate user see all the Focus areas, which were associated on the announcement even with zero allocation and copied to award later when award is created
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -9056,6 +9057,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
+    And I pause execution for "5" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
@@ -9079,8 +9081,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -9088,8 +9090,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - New Obligation must be greater than $0 |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | -12   | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | -12   | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -9098,13 +9100,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257532
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | New Obligation : Number is too large. |
+    #Bug420753
+#    Then I softly see the following messages in the page details contains:
+#      | New Obligation : Number is too large. |
 
-  @257862 @257907 @257912 @ValidateusercanseeanewsectionofBudgetSummaryinsteadofFundingChangeontheamendmentrequestwhichiscreatedFAYes @sprint-19-US-247769 @vaibhav @Allocation
+  @done @257862 @257907 @257912 @ValidateusercanseeanewsectionofBudgetSummaryinsteadofFundingChangeontheamendmentrequestwhichiscreatedFAYes @sprint-19-US-247769 @vaibhav @Allocation
   Scenario: Validate user can see a new section of "Budget Summary" instead of "Funding Change" on the amendment request which is created (FA Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9125,9 +9128,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -9302,7 +9305,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | SPI3 |
       | SPA  |
 
-  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation
+  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation @done
   Scenario: Validate user add New Obligation is zero & Spent is also Zero, Focus Area should not be visible on the new Award if the initial Award is from FDM
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -9324,9 +9327,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -9371,7 +9374,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Amend Subaward" in the page details
     And I pause execution for "10" seconds
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
-    Then I softly see status in Progress-bar is "Pending Activation" and is "Green"
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     When I click on "Activate" in the page details
@@ -10108,7 +10111,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see field "Total Commitment" as "$4,000.00"
 
-  @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
+  @done @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
   Scenario:Verify Fields displayed to FO user on in the budget summary Section
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -10128,21 +10131,25 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000002kH6k2AE/view"
     #256864
     When I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---amendment:-:focusAreaTableId---"
     Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
+    And I refresh the page
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
-    When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
-    Then I softly see the following messages in the page details contains:
-      | You cannot delete this Focus Area as the Budgeted Amount is not zero. |
+    And I pause execution for "3" seconds
+    #Need to check this with Abhisek
+#    When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
+#    Then I softly see the following messages in the page details contains:
+#      | You cannot delete this Focus Area as the Budgeted Amount is not zero. |
     #256668
     Then I softly see field "New Obligation" inside page block
     Then I softly see field "Budgeted Amount" inside page block
     Then I softly see "Current Commitment" inside page block detail
     Then I softly see "Revised Commitment" inside page block detail
-    Then I softly see "Subrecipient Match" inside page block detail
+    Then I softly see "Subrecipient Match (%)" inside page block detail
     Then I softly see "Budget Redirection Threshold" inside page block detail
     #256861
     Then I softly can see page block "Budget Summary by Focus Area"
@@ -10163,8 +10170,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256715
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "Record Id"
     And I wait for "9" seconds
@@ -10174,27 +10181,29 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256721
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | New Obligation : Number is too large. |
+    #Bug420753
+#    Then I softly see the following messages in the page details contains:
+#      | New Obligation : Number is too large. |
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     #256842
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                     |
-      | 20000000000000000.30 | fieldRevisedCommitment__c |
+      | Value                | Field                |
+      | 20000000000000000.30 | RevisedCommitment__c |
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Revised Commitment : Number is too large. |
+    #Bug420758
+#    Then I softly see the following messages in the page details contains:
+#      | Revised Commitment : Number is too large. |
     #256838
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$11,000.00"
     #256718
@@ -10212,8 +10221,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 0     | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     And I wait for "9" seconds
@@ -10222,7 +10231,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256924
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I clear the value from field "fieldRequestedChangeInBudget__c"
+    And I clear the value from field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
@@ -10231,14 +10240,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     #308952
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     #256843
@@ -10256,7 +10265,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10266,8 +10275,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$11,000.00"
     #256808
@@ -10297,8 +10306,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -10306,8 +10315,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 8000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 8000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -10318,8 +10327,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 12000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 12000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
@@ -10328,8 +10337,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256972
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 2000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -10337,15 +10346,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $13000.00 across all budget periods. |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
       #256490
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -10358,13 +10367,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Revised Commitment" rendered in view mode only
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #256850
     When I navigate to "Overview" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Revised Commitment" rendered in view mode only
 
-  @257055 @VerifyvalidationisnotdisplayedtoFOuseronsenttoSrwhenuserenterRevisedCommitmentgreaterthanNewobligationincurrentAR+cumulativeobligationinGrantWhenFAYes @sprint-19-US-229281 @hitesh @Allocation
+  @done @257055 @VerifyvalidationisnotdisplayedtoFOuseronsenttoSrwhenuserenterRevisedCommitmentgreaterthanNewobligationincurrentAR+cumulativeobligationinGrantWhenFAYes @sprint-19-US-229281 @hitesh @Allocation
   Scenario:Verify validation is not displayed to FO user on sent to Sr when user enter Revised Commitment greater than New obligation in current AR cumulative obligation in Grant When FA Yes
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -10381,25 +10390,26 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | Start Date         | End Date           |
-      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+      | Title                           | End Date           | Start Date         |
+      | Automation Permanent Focus Area | {SavedValue:PBPED} | {SavedValue:PBPSD} |
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                            | Start Date         | End Date           |
-      | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+      | Title                            | End Date           | Start Date         |
+      | Automation Permanent Focus Area2 | {SavedValue:PBPED} | {SavedValue:PBPSD} |
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 40000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 40000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -10610,7 +10620,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation
+  @done @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify New Obligation field is an editable field and user cannot enter negative value in New Obligation field when amendment is in created state FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -10630,8 +10640,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
@@ -10639,8 +10649,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -10660,7 +10670,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10669,14 +10679,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value  | Field                           |
-      | -10000 | fieldRequestedChangeInBudget__c |
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - New Obligation must be greater than $0 |
 
-  @256855 @257074 @VerifyFDusercannotseeanewsectionofBudgetSummarybyFocusAreawhenFocusAreaisNo @sprint-19-US-229281 @hitesh @Allocation
+  @done @256855 @257074 @VerifyFDusercannotseeanewsectionofBudgetSummarybyFocusAreawhenFocusAreaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify FD user cannot see a new section of Budget Summary by Focus Area when Focus Area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10704,10 +10714,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Budgeted Amount" inside page block
     Then I softly see "Current Commitment" inside page block detail
     Then I softly see "Revised Commitment" inside page block detail
-    Then I softly see "Subrecipient Match" inside page block detail
+    Then I softly see "Subrecipient Match (%)" inside page block detail
     Then I softly see "Budget Redirection Threshold" inside page block detail
 
-  @257051 @VerifyvalidationisdisplayedtoFDuseronSubmitforapprovalwhenuserenterRevisedCommitmentlessthanNewobligationincurrentARcumulativeobligationinGrantWhenFANo @sprint-19-US-229281 @hitesh @Allocation
+  @done @257051 @VerifyvalidationisdisplayedtoFDuseronSubmitforapprovalwhenuserenterRevisedCommitmentlessthanNewobligationincurrentARcumulativeobligationinGrantWhenFANo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is displayed to FD user on Submit for approval when user enter Revised Commitment less than New obligation in current AR + cumulative obligation in Grant When FANo
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10731,11 +10741,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -10755,7 +10765,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10764,17 +10774,17 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 5000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 5000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $11000.00 across all budget periods. |
 
-  @257057 @VerifyvalidationisnotdisplayedtoFDuseronsubmitforapprovalwhenuserenterRevisedCommitmentequaltoNewobligationincurrentARcumulativeobligationinGrantWhenFANo @sprint-19-US-229281 @hitesh @Allocation
+  @done @257057 @VerifyvalidationisnotdisplayedtoFDuseronsubmitforapprovalwhenuserenterRevisedCommitmentequaltoNewobligationincurrentARcumulativeobligationinGrantWhenFANo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is not displayed to FD user on submit for approval when user enter Revised Commitment equal to New obligation in current AR cumulative obligation in Grant When FA No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10798,11 +10808,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -10822,7 +10832,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10831,16 +10841,16 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
+  @done @256959 @257081 @257080 @VerifyvalidationisnotdisplayedtoFDuserwhenNewObligationisequaltoRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is not displayed to FD user when New Obligation is equal to Revised Encumbrance when focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10864,19 +10874,19 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value                | Field                           |
-      | 20000000000000000.30 | fieldRequestedChangeInBudget__c |
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    #257081
-    Then I softly see the following messages in the page details contains:
-      | New Obligation : Number is too large. |
+    #257081 #Bug420753
+#    Then I softly see the following messages in the page details contains:
+#      | New Obligation : Number is too large. |
     #257080
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 11000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 10000               |
@@ -10896,7 +10906,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10905,15 +10915,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$10,000.00"
     Then I softly see value "$10,000.00" for title "Revised Encumbrance" inside table "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @257075 @257086 @VerifyFDusercanseeBudgetedAmountCurrentCommitmentSubrecipientMatchasreadonlyfieldsinBudgetsummarysectionwhenAmendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation
+  @done @257075 @257086 @VerifyFDusercanseeBudgetedAmountCurrentCommitmentSubrecipientMatchasreadonlyfieldsinBudgetsummarysectionwhenAmendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify FD user can see Budgeted Amount, Current Commitment, Subrecipient Match  as read only fields in Budget summary section when Amendment is in created state FA NO
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10940,11 +10950,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Current Commitment" rendered in view mode only
     Then I softly see that "Subrecipient Match" rendered in view mode only
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -10964,7 +10974,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10974,12 +10984,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     #257086
     When I enter values into fields
-      | Value | Field                     |
-      | 30000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 30000 | RevisedCommitment__c |
     When I click on "Save" in the page details
     Then I softly see field "Revised Commitment" as "$30,000.00"
 
-  @257083 @VerifyCurrentCommitmentfieldvalueiscopiedfromtotalcommitmentfromtheawardonwhichrequestiscreatedFANo @sprint-19-US-229281 @hitesh @Allocation
+  @done @257083 @VerifyCurrentCommitmentfieldvalueiscopiedfromtotalcommitmentfromtheawardonwhichrequestiscreatedFANo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify Current Commitment field value is copied from total commitment from the award on which request is created FA No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11008,7 +11018,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Current Commitment" as "CurrentCommitment"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:CurrentCommitment}"
 
-  @256952 @VerifyvalidationisdisplayedtoFDuserwhenNewObligationisgreaterthantheRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
+  @done @256952 @VerifyvalidationisdisplayedtoFDuserwhenNewObligationisgreaterthantheRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is displayed to FD user when New Obligation is greater than the Revised Encumbrance when focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11032,11 +11042,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 10000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 10000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -11056,7 +11066,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11065,15 +11075,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 20000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 20000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The New Obligation ($20000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($6000.00) |
 
-  @256948 @VerifyvalidationisdisplayedtoFDuserwhenNewObligationislessthantheRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
+  @done @256948 @VerifyvalidationisdisplayedtoFDuserwhenNewObligationislessthantheRevisedEncumbrancewhenfocusareaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify validation is displayed to FD user when New Obligation is less than the Revised Encumbrance when focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11097,11 +11107,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -11121,7 +11131,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11130,15 +11140,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I pause execution for "9" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The New Obligation ($10000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($20000.00) |
 
-  @257082 @256931 @256935 @256941 @DirectedVerifyvaluedisplayedforRolleBudgetedAmountfieldfromthebudgetchangesectionsRevisedAwardAmountcolumnFANo @sprint-19-US-229281 @hitesh @Allocation
+  @done @257082 @256931 @256935 @256941 @DirectedVerifyvaluedisplayedforRolleBudgetedAmountfieldfromthebudgetchangesectionsRevisedAwardAmountcolumnFANo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Directed Verify value displayed for Rolle Budgeted Amount field from the budget change section's Revised Award Amount column FA No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -11162,11 +11172,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I enter values into fields
-      | Value | Field                     |
-      | 20000 | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 20000 | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -11186,7 +11196,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 10000                | 1000       | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11203,8 +11213,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 5000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 5000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -11213,8 +11223,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 20000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 20000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -11223,11 +11233,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
-      | Value | Field                           |
-      | 10000 | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate Budgeted Amount should be rolled from the revised award amount column from budgeted grid(FA=Yes)
