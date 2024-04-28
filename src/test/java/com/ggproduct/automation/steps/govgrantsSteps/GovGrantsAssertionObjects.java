@@ -3044,7 +3044,7 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         List<Elements> listViewOptions = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[contains(@class,'select2-search')]/following-sibling::ul//li//span|//div[contains(@class,'select2-search')]/following-sibling::ul//li | //div[contains(@id,'listbox-id')]//ul//li"));
         for (Elements we : listViewOptions) {
-            if (we.getText().contains(itemName)) {
+            if (we.getText().contains(itemName) && we.getText().contentEquals(itemName)) {
                 flag = true;
                 break;
             }
