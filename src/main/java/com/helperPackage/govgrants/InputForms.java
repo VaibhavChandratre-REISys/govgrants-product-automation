@@ -562,7 +562,7 @@ public final class InputForms {
                 handleRichTextAreaInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
-                            By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                    By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
                 /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
                     handleDatePickerInput(fieldWrapper, fieldValue);
@@ -589,6 +589,9 @@ public final class InputForms {
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
                 handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
+                handleRadioButtonInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
                 handleDropdownInput(fieldWrapper, fieldValue);

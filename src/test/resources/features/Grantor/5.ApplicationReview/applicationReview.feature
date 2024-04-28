@@ -318,6 +318,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
@@ -3191,11 +3192,12 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :

@@ -76,6 +76,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public void AssertPageBlockDisplayed(String pageblockName, boolean assertcan, boolean isSoftly) {
+        I.amPerforming().waitFor().ElementToBeVisible(pageBlock(pageblockName));
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(pageBlock(pageblockName), false);
         if (assertcan) {
             if (isSoftly) {
@@ -99,7 +100,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public void getFieldValue(String fieldName, String subTabName) {
-        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTabName);
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTabName);
         fieldValue = govgrants.perform().pageDetails().getFieldValue(fieldName);
     }
 
@@ -111,7 +112,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public Boolean compareTwoFieldValues(String fieldName, String subTabName) {
-        govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTabName);
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTabName);
         if (fieldValue.equalsIgnoreCase(govgrants.perform().pageDetails().getFieldValue(fieldName)))
             return true;
         else
@@ -190,7 +191,7 @@ public class GrantorProjectManager extends ProjectManager {
      * @return
      */
     private int getCheckedFieldValueCount(String fieldName) {
-        List<Elements> checkSymbol = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//field[@field-name='" + fieldName + "']/i[contains(@class,'fa-check')]"));
+        List<Elements> checkSymbol = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//field[@field-name='" + fieldName + "']/i[contains(@class,'fa-check')] | //c-fieldlwc[@data-fieldapiname='" + fieldName + "']/ancestor::tr//*[contains(@class,'check')]"));
         return checkSymbol.size();
     }
 

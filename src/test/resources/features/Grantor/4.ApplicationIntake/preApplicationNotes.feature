@@ -29,7 +29,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -162,7 +163,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -301,7 +303,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -394,7 +397,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -498,7 +502,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -572,7 +577,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
@@ -666,7 +672,8 @@ Feature: Pre-Application scenarios without background
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details

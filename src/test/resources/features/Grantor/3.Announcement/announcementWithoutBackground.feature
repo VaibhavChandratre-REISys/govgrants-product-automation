@@ -1295,14 +1295,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I navigate to "Overview" sub tab
@@ -1413,17 +1413,18 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -1437,7 +1438,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -1544,7 +1545,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "5" seconds
@@ -1564,8 +1566,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1587,13 +1587,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I navigate to "Overview" sub tab
@@ -2916,7 +2917,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
@@ -3030,13 +3032,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I navigate to "Overview" sub tab
@@ -5083,8 +5086,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #     And I click on "Save" in the page details
 #     When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
@@ -5353,8 +5357,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds

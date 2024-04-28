@@ -1,4 +1,4 @@
-@applicationReviewUndo @checknow @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
+@applicationReviewUndo @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review with Undo Feature
 
   @286702 @286706 @284504 @286701  @Sprint-1-US-235657 @vaibhav @Undo
@@ -39,13 +39,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:PO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -91,10 +89,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Declined" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
     Then I softly see "Automation PO: Review Declined" shown as help text
-
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
@@ -2286,14 +2283,22 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I click on "Back" in the page details
+#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
@@ -2503,15 +2508,13 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
 #    When I click on "Save" in the page details
 #    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
@@ -2747,6 +2750,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I save the value from row "2" for column name "Score" as "Score" from flex table "---applicationReview:-:appreviewsTableId---"
 #    When I expand nested table containing column value "<Application Name>"
@@ -2797,13 +2801,13 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
 #    When I click on "Save" in the page details
 #    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -2962,7 +2966,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "{SavedValue:PM Username}" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
-  @280801 @FDMWhenreviewerhasclickedundobuttonforthereviewonanyreviewstepandreviewinsentforreviewstatethentheapplicationcannotbeconvertedintoAward @Sprint-25 @hitesh @Undo
+  @280801  @Sprint-25 @hitesh @Undo
   Scenario Outline: FDM When reviewer has clicked undo button for the review on any review step and review in in sent for review state, then the application cannot be converted into Award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3032,13 +3036,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-#    When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -3094,6 +3096,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
@@ -3108,9 +3111,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I click on "Edit" in the page details
+    When I click modal button "Close"
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3145,11 +3150,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Save" in the page details
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
-    And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
       | <Announcement Name> | 1000               | 1000                    | Yes                   | Recommended |
     And I click on "Submit for Approval" in the page details
@@ -3804,13 +3809,13 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
 #    When I click on "Save" in the page details
 #    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I navigate to "Form" sub tab in split screen
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -4282,4 +4287,3 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
-
