@@ -65,7 +65,7 @@ Feature: Validate scenarios in Progress Report without background
     When I enter "ScheduleAnnuallyCalendar" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressReport:-:ProgressReportModalIframeId---"
+#    And I switch to iframe with id "---progressReport:-:ProgressReportModalIframeId---"
     Then I softly see field "Frequency" as "Annually"
     And I refresh the page
     And I expand nested table containing column value "Progress Report"
