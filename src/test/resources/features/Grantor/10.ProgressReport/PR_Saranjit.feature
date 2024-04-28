@@ -767,7 +767,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @for1 @198117 @Validateusershouldabletoseetheupdatedfieldhistoryafterchangingtheownershiptaskreassignmentofprogressreport @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @198117 @Validateusershouldabletoseetheupdatedfieldhistoryafterchangingtheownershiptaskreassignmentofprogressreport @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the updated field history after changing the ownership task reassignment of progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -870,7 +870,7 @@ Feature: Validate scenarios in Progress Report without background
     And I pause execution for "4" seconds
     Then I softly see "No matches found" inside auto search result
 
-  @for1 @198112 @ValidateUsershouldabletoreassignthetaskownershipofPRwithsameprofile&sameorganization @sprint-4 @vaibhav @reassignment
+  @wip @198112 @ValidateUsershouldabletoreassignthetaskownershipofPRwithsameprofile&sameorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate User should able to reassign the task ownership of PR with same profile & same organization
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2900,7 +2900,7 @@ Feature: Validate scenarios in Progress Report without background
   The EGMS Team
   """
 
-  @229668 @Validateprogressreportissendtos/rstate&userchangedOwnershiptasktonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @229668 @Validateprogressreportissendtos/rstate&userchangedOwnershiptasktonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is send to s/r state & user changed Ownership task to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3034,7 +3034,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID1}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:progID1}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @229670 @Validateprogressreportisforcedstate&userchangedOwnershiptonewownerofPRreport @sprint-13-US-231194 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate progress report is forced state & user changed Ownership to new owner of PR report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3135,19 +3135,17 @@ Feature: Validate scenarios in Progress Report without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
+    Then I softly see "Progress Reports Available for Reassignment" page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -3186,7 +3184,7 @@ Feature: Validate scenarios in Progress Report without background
   The EGMS Team
   """
 
-  @234012 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbuttonbynewownerReassignedownerofprogressreport @sprint-13-US-231194 @vaibhav @reassignment
+  @for3 @234012 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbuttonbynewownerReassignedownerofprogressreport @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate Prog Report "Review Progress Report" task should be close after click on submit for approval button by new owner (Reassigned owner) of progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3241,19 +3239,17 @@ Feature: Validate scenarios in Progress Report without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
+    Then I softly see "Progress Reports Available for Reassignment" page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3270,7 +3266,7 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
+  @for3 @205781 @ValidateProgressReportFOusershouldabletoreassigntheApprovertasktotheanotheruserforprogressreport @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Progress Report FO user should able to reassign the Approver  task to the another user for progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3321,19 +3317,13 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation FO" into field "input-1"
-    And I select value "Automation FO1" into field "input-1"
-    And I select module "Progress Report" from reassign ownership dropdown
-    And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
-    When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
+    And I pause execution for "5" seconds
+    And I select value "Automation FO" into field "input-source"
+    And I select value "Automation FO1" into field "input-target"
+    When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
+    When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
-    And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
@@ -3343,7 +3333,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     Then I softly see value "Approve Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @222193 @ValidateAwardIfapproverandownerofprogressreportaresamevalidateafterreassigningtheownershipofprogressreportstep3approvernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @FieldHistoryExclude
+  @for3 @222193 @ValidateAwardIfapproverandownerofprogressreportaresamevalidateafterreassigningtheownershipofprogressreportstep3approvernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Award If approver and owner of a progress report are same validate after reassigning the ownership of progress report step 3 approver name should not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3516,19 +3506,17 @@ Feature: Validate scenarios in Progress Report without background
     And I select value "Automation PM1" into field "input-2"
     And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
+    Then I softly see "Progress Reports Available for Reassignment" page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -3615,7 +3603,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @202464 @ValidateProgReporttasktypeshouldberenamedforEXEuserasReviewProgresReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @202464 @ValidateProgReporttasktypeshouldberenamedforEXEuserasReviewProgresReportafterprogressreportsubmittedtograntor @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report task type should be renamed for EXE user as "Review Progress Report" after progress report submitted to grantor
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3656,24 +3644,14 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "input-1"
-    And I select value "Automation EXE1" into field "input-2"
-    And I select module "Progress Report" from reassign ownership dropdown
-    And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
-    When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
+    When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
+    And I pause execution for "5" seconds
+    And I select value "Automation EXE" into field "input-source"
+    And I select value "Automation EXE1" into field "input-target"
+    When I perform quick search for "{SavedValue:progID}" in "---program:-:adminTaskReassignmentTableId---" panel
+    When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
-    And I reset the table
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
-    Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
-    And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3701,7 +3679,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
     Then I softly see value "Review Progress Report" for title "Task Type" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @202475 @ValidateProgReporttasktypeshouldberenamedforEXErevieweruserasPeeReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @202475 @ValidateProgReporttasktypeshouldberenamedforEXErevieweruserasPeeReviewProgressReportafterprogressreportsubmittedforpeerreview @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report_ Verify task type should be renamed for EXE reviewer user as "Peer Review Progress Report" after progress report submitted for peer review
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3757,19 +3735,17 @@ Feature: Validate scenarios in Progress Report without background
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
+    Then I softly see "Progress Reports Available for Reassignment" page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -3853,7 +3829,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "Peer Review Progress Report" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @206433 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbutton @sprint-8-US-206259 @vaibhav @reassignment
+  @for3 @206433 @ValidateProgReportReviewProgressReporttaskshouldbecloseafterclickonsubmitforapprovalbutton @sprint-8-US-206259 @vaibhav @reassignment
   Scenario: Validate Prog Report "Review Progress Report" task should be close after click on submit for approval button
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3899,19 +3875,17 @@ Feature: Validate scenarios in Progress Report without background
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Progress Report" from reassign ownership dropdown
     And I pause execution for "3" seconds
-    Then I softly see "Progress Reports Available for Reassignment " page block displayed
-    When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
+    Then I softly see "Progress Reports Available for Reassignment" page block displayed
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressSourceTableId---" panel
     When I check "{SavedValue:progID}" boxes in flex table with id "---progressreport:-:progressSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---progressreport:-:progressSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-    And I reset the table
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
