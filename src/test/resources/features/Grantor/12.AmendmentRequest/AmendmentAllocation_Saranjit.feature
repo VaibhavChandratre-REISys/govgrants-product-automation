@@ -1844,7 +1844,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | SPI3 |
       | SPA  |
 
-  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation @wip
+  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation @done
   Scenario: Validate user add New Obligation is zero & Spent is also Zero, Focus Area should not be visible on the new Award if the initial Award is from FDM
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
