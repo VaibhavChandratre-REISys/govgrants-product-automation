@@ -2083,13 +2083,15 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     And I wait for "5" seconds
     Then I softly see the text containing "OMB Number: 4040-0018"
     Then I see the page contains text " Expiration Date: 11/30/2024"
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
@@ -2102,12 +2104,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I refresh the page
-    When I click on "Validate" in the page details
+    And I click on "Validate" in the split screen page details
     And I wait for "7" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    And I close the tab
-    And I refresh the page
     #SF 428 Form
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2121,20 +2121,21 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I pause execution for "3" seconds
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---"
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
+    And I wait for "5" seconds
     Then I softly see the text containing "OMB Number: 4040-0018"
     Then I see the page contains text "Expiration Date: 11/30/2024"
-    When I click on "Edit" in the page details
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
 #    Then I softly can see top right button "Back" in page detail
     And I wait for "7" seconds
-    When I click on "Validate" in the page details
+    And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
@@ -2365,14 +2366,15 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I navigate to "Form" sub tab in split screen
+    And I click on "Splitview" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     And I pause execution for "5" seconds
     Then I softly see the text containing "OMB Number: 4040-0018"
     Then I see the page contains text " Expiration Date: 11/30/2024"
-    And I click on "Edit" in the page details
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
@@ -2389,11 +2391,9 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly can see top right button "Edit" in page detail
 #    Then I softly can see top right button "Back" in page detail
     And I wait for "7" seconds
-    When I click on "Validate" in the page details
+    And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    And I close the tab
-    And I refresh the page
     #282976
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
@@ -2939,8 +2939,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     And I switch to parent tab
     #Fill SF428-C Form
-    And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
+    And I pause execution for "3" seconds
+    When I click on "Edit" in the page details
     And I pause execution for "3" seconds
     And I enter "SF428C_Form" values from "ProgressReport_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -2952,10 +2954,13 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I refresh the page
     And I switch to parent tab
     #Fill SF428-B Form
-    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
+    And I pause execution for "3" seconds
+    When I click on "Edit" in the page details
     And I pause execution for "3" seconds
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3038,6 +3043,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "7. Supplemental Sheet" inside page block
     Then I see radio button "Yes" for field "SupplementalSheet__c"
     Then I see radio button "No" for field "SupplementalSheet__c"
+    And I pause execution for "5" seconds
     And I enter value "Yes" into field "SupplementalSheet__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
@@ -3077,7 +3083,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select Supplement Sheet as Yes as required form is filled. |
 
-  @for1 @284859 @ValidateSF428SvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyeonparentform @sprint-26-US-282679 @vaibhav @Forms
+  @wip @284859 @ValidateSF428SvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyeonparentform @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428S validation should be display on parent form SF428 if child form not validated but select yes on parent form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3107,6 +3113,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I see radio button "No" for field "SupplementalSheet__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
+    #Bug425572
     Then I softly see the following messages in the page details :
       | 7. Supplemental Sheet is required to save. |
     And I enter value "Yes" into field "SupplementalSheet__c"

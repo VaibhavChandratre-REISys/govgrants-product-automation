@@ -945,7 +945,7 @@ public final class PageDetails {
     private boolean isRadioButtonPresentsForField(String radioButton, String fieldApiName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + fieldApiName + "']//tbody//td//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", radioButton) + "]")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + fieldApiName + "']//tbody//td//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", radioButton) + "] | //div[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-form-element__label'][normalize-space()='" + radioButton + "']")))
                 flag = true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
         }
