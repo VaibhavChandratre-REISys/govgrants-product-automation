@@ -281,7 +281,6 @@ Feature: Validate scenarios in Progress Report without background
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 95     | 7             |
-    When I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -581,7 +580,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "ErrorForAck" values from "ProgressReport_Field_Values.xlsx"
