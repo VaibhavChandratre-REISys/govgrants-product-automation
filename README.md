@@ -94,3 +94,4 @@ Migration Disclaimer
 7)Added @FieldHistoryExclude tag for field history are excluded in LWC 
 8)Added @ExcludeAddFile tag for add file requirement not clear
 9)Added @ExcludeSendEmail tag for exclusison of send email functionality.
+10)Added @LWCRemoved for removed scenarios
