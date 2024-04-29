@@ -1,4 +1,4 @@
-@applicationReviewWithouBg @grantor-regression @grantor-parallel-regression @app @regression @applicationReviewTBE
+@applicationReviewWithouBg @checknow @grantor-regression @grantor-parallel-regression @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review
 
   Background: Submit the application for Review
@@ -3777,7 +3777,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on "Previous Review Step" in the page details
     Then I softly can see top right button "Funding Decision Memo" in page detail
     #80259
-   Then I softly see field "Status" as "Completed"
+    Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details

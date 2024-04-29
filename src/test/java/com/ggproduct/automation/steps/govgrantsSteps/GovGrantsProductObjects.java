@@ -52,9 +52,9 @@ public final class GovGrantsProductObjects {
      */
     public void chooseRecordForAssociation(String buttonName, String flexTableId, String... recordUniqueValues) {
         for (String recordUniqueValue : recordUniqueValues) {
-            if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearch(flexTableId, recordUniqueValue);
-            }else {
+            } else {
                 govgrants.perform().quickSearch().performModalSpecificQuickSearchForLWC(flexTableId, recordUniqueValue);
 
             }
@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled]");
+        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux']");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {
@@ -271,9 +271,9 @@ public final class GovGrantsProductObjects {
      * @modifiled mahadev.hanme
      */
     public void fillInReviewForm(String recommendation) {
-        if(!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             govgrants.perform().inputForms().completeFillingReviewForm(recommendation);
-        }else {
+        } else {
             govgrants.perform().inputForms().completeFillingReviewFormForLwc(recommendation);
         }
     }
@@ -492,7 +492,7 @@ public final class GovGrantsProductObjects {
                 if (listOfDataInColumn.size() == 0) {
                     listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//c-fieldlwc//div"));
                     if (listOfDataInColumn.size() == 0) {
-                        listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter-1) + "]//c-fieldlwc//div"));
+                        listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter - 1) + "]//c-fieldlwc//div"));
                     }
                 }
             }
@@ -510,7 +510,7 @@ public final class GovGrantsProductObjects {
      * @author meenakshi.jha
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
         } else {
             I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName));
@@ -695,7 +695,7 @@ public final class GovGrantsProductObjects {
                 if (listOfDataInColumn.size() == 0) {
                     listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + counter + "]//a"));
                     if (listOfDataInColumn.size() == 0) {
-                        listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter-1) + "]//a"));
+                        listOfDataInColumn = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//th//span[text()='" + columnName + "']/ancestor::thead/parent::table//tr//td[not(contains(@class,'hide'))][" + (counter - 1) + "]//a"));
                     }
                 }
             }
