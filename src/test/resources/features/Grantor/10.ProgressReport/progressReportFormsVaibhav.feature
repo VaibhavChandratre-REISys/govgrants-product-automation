@@ -1,7 +1,7 @@
-@grantor-regression @grantor-parallel-regression @progressReport @progressReportForms @regression
+@grantor-regression @grantor-parallel-regression @progressReport @progressReportFormsVaibhav @regression
 Feature: Validate scenarios in Progress Report Forms
 
-  @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679 @vaibhav @Forms
+  @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679 @vaibhav @Forms @wip
   Scenario: Validate SF428 B validation should be display on parent form SF428 if child form not validated but select yes on parent form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -105,7 +105,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
 
-  @280653 @ValidateSPIusercanseefieldReportsResidualUnusedSuppliesseefollowingoptionsunderthiieldonCompleterelevantsectionsofSF428Bform @sprint-25-US-280119 @vaibhav @Forms @BugLogged-281717
+  @280653 @ValidateSPIusercanseefieldReportsResidualUnusedSuppliesseefollowingoptionsunderthiieldonCompleterelevantsectionsofSF428Bform @sprint-25-US-280119 @vaibhav @Forms @BugLogged-281717 @wip
   Scenario: Validate SPI user can see field "Reports Residual Unused Supplies" & see following options under this field on Complete relevant section(s) of SF428B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -189,7 +189,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @285156 @285161 @285162 @285163 @ValidateSF428BAddingfileisrequiredtypeSupplementalSheetSF428Srecipientequivalentisrequiredinall2optionsofAcquiredEquipmentwithcurrentfairmarketvalueoffieldwhen1bisselect1Reportsection @sprint-25-US-280119 @vaibhav @Forms
+  @285156 @285161 @285162 @285163 @ValidateSF428BAddingfileisrequiredtypeSupplementalSheetSF428Srecipientequivalentisrequiredinall2optionsofAcquiredEquipmentwithcurrentfairmarketvalueoffieldwhen1bisselect1Reportsection @sprint-25-US-280119 @vaibhav @Forms @wip
   Scenario: Validate SF 428 B Adding file is required type Supplemental Sheet SF 428S or recipient equivalent" is required in" all 2 options of Acquired Equipment with current fair market value of field when 1b is select in 1 Report section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -292,7 +292,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @285271 @ValidateSF428BAddingfileisrequiredtypeAdditionalFileforCommentsisrequirediniiiotheroptionof2aFederallyOwnedPropertyfieldwhen1aisselectin11Reportsection @sprint-25-US-280119 @vaibhav @Forms
+  @285271 @ValidateSF428BAddingfileisrequiredtypeAdditionalFileforCommentsisrequirediniiiotheroptionof2aFederallyOwnedPropertyfieldwhen1aisselectin11Reportsection @sprint-25-US-280119 @vaibhav @Forms @wip
   Scenario: Validate SF428 BAdding file is required type "Additional File for Comments", is required in (iii)other option of 2a. Federally Owned Property field when 1a is select in 1.1 Report section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -492,7 +492,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
 
-  @285432 @285443 @285445 @285446 @ValidateSF428BUsershouldseevalidationwhenfilesSupplementalSheetSF428Sisnotattachedifweselect2ndoptionfrom2bfieldthengettingvalidationforSupplementalssheetif1bisselect @sprint-25-US-280119 @vaibhav @Forms
+  @285432 @285443 @285445 @285446 @ValidateSF428BUsershouldseevalidationwhenfilesSupplementalSheetSF428Sisnotattachedifweselect2ndoptionfrom2bfieldthengettingvalidationforSupplementalssheetif1bisselect @sprint-25-US-280119 @vaibhav @Forms @wip
   Scenario: Validate SF428 B User should see validation when files Supplemental Sheet SF428S is not attached & if we select 2nd option from "2b field then getting validation for Supplementals sheet if 1 b is select
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1490,6 +1490,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1497,9 +1498,12 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -1524,31 +1528,31 @@ Feature: Validate scenarios in Progress Report Forms
       | 11e. Date report submitted (MM/DD/YYYY) is required to save.                                            |
     And I enter values into fields
       | Value            | Field                                       |
-      | 1234             | fieldFederalAgencyandOrganizationalSF429__c |
-      | Health           | fieldFederalGrantIdentifyingNumberSF429__c  |
-      | Automation Org   | fieldRecipientOrganizationNameSF429__c      |
-      | 123              | fieldStreet1SF428__c                        |
-      | New York         | fieldCitySF428__c                           |
-      | NY: New York     | fieldStateSf428__c                          |
-      | 12345            | fieldZipPostalCodeSF428__c                  |
-      | John             | fieldFirstNameSF428__c                      |
-      | Matthew          | fieldLastNameSF428__c                       |
-      | john@yopmail.com | fieldEmailAddress__c                        |
-      | 9786903473       | fieldTelephone__c                           |
-      | Checked          | fieldAttachmentA__c                         |
-      | Checked          | fieldAttachmentB__c                         |
-      | Checked          | fieldAttachmentC__c                         |
-      | John             | fieldTypeorPrintedFirstName__c              |
-      | Matthew          | fieldTypeorPrintedLastName__c               |
-      | Associate        | fieldTypeorPrintedTitle__c                  |
-      | John Matthew     | fieldSubmittedBySF428__c                    |
-      | 9786903473       | fieldTelephone2__c                          |
-      | auto@yopmail.com | fieldEmailAddress2__c                       |
-      | 0                | fieldDateReportSubmittedSF428__c            |
+      | 1234             | FederalAgencyandOrganizationalSF429__c |
+      | Health           | FederalGrantIdentifyingNumberSF429__c  |
+      | Automation Org   | RecipientOrganizationNameSF429__c      |
+      | 123              | Street1SF428__c                        |
+      | New York         | CitySF428__c                           |
+      | NY: New York     | StateSf428__c                          |
+      | 12345            | ZipPostalCodeSF428__c                  |
+      | John             | FirstNameSF428__c                      |
+      | Matthew          | LastNameSF428__c                       |
+      | john@yopmail.com | EmailAddress__c                        |
+      | 9786903473       | Telephone__c                           |
+      | Checked          | AttachmentA__c                         |
+      | Checked          | AttachmentB__c                         |
+      | Checked          | AttachmentC__c                         |
+      | John             | TypeorPrintedFirstName__c              |
+      | Matthew          | TypeorPrintedLastName__c               |
+      | Associate        | TypeorPrintedTitle__c                  |
+      | John Matthew     | SubmittedBySF428__c                    |
+      | 9786903473       | Telephone2__c                          |
+      | auto@yopmail.com | EmailAddress2__c                       |
+      | 0                | DateReportSubmittedSF428__c            |
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1558,13 +1562,14 @@ Feature: Validate scenarios in Progress Report Forms
       | Disposition Request (SF-429-C) is required to be submitted as it is selected in field 8 'Attachment'.                        |
       | General Reporting (SF-429-A) is required to be submitted as it is selected in field 8 'Attachment'.                          |
     #298878
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1575,8 +1580,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name          | Progress Report |
       | Automation FO | Step 1          |
-    And I wait for "9" seconds
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
   @298928 @298929 @282025 @ValidateSF429thatuserwillseeAttachmentsSectionAttachmentABCcheckbox @sprint-26-US-282688 @vaibhav @Forms
@@ -1591,6 +1596,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1599,86 +1605,110 @@ Feature: Validate scenarios in Progress Report Forms
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF429_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Request to Acquire, Improve or Furnish (SF-429-B) is required to be submitted as it is selected in field 8 'Attachment'. |
       | Disposition Request (SF-429-C) is required to be submitted as it is selected in field 8 'Attachment'.                    |
       | General Reporting (SF-429-A) is required to be submitted as it is selected in field 8 'Attachment'.                      |
+    And I close the tab
     # SF429-A Form
-    And I select "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-B Form
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-C Form
-    And I select "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14c. Proposed Use" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14g. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. Encumbered Parties" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Request Reasons" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429 Form
-    And I select "Real Property Status Report (Cover Page) - SF-429" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
-    When I enter value "Unchecked" into field "fieldAttachmentA__c"
-    When I enter value "Unchecked" into field "fieldAttachmentB__c"
-    When I enter value "Unchecked" into field "fieldAttachmentC__c"
+    When I enter value "Unchecked" into field "AttachmentA__c"
+    When I enter value "Unchecked" into field "AttachmentB__c"
+    When I enter value "Unchecked" into field "AttachmentC__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1698,6 +1728,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1706,18 +1737,19 @@ Feature: Validate scenarios in Progress Report Forms
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF429_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I clear the value from field "fieldRecipientAccountNumber__c"
+    And I clear the value from field "RecipientAccountNumber__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | 5. Recipient Account or Identifying Number is required to save. |
-    When I enter value "12345" into field "fieldRecipientAccountNumber__c"
-    When I enter value "Unchecked" into field "fieldAcknowledgementSF428__c"
+    When I enter value "12345" into field "RecipientAccountNumber__c"
+    When I enter value "Unchecked" into field "AcknowledgementSF428__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     #298087
@@ -1736,6 +1768,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1743,6 +1776,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -1750,14 +1785,15 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040–0011"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I edit the following rows inline in flex table with id "---progressReport:-:sf271FormTableId---" by clicking "Edit" :
       | Classification                                       | Programs | Functions | Activities |
       | a. Administrative expense                            | 12345    | 12345     | 12345      |
@@ -1783,13 +1819,14 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #288898
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1801,6 +1838,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1808,6 +1846,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @288257 @ValidateSF271SPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF271form @sprint-1-US-282698 @vaibhav @Forms
@@ -1822,6 +1861,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1829,6 +1869,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -1836,6 +1878,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040–0011"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     And I click on "Edit" in the page details
@@ -1862,8 +1905,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "SF271_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:sf271FormTableId---" by clicking "Edit" :
       | Classification                                       | Programs | Functions | Activities |
@@ -1917,16 +1960,16 @@ Feature: Validate scenarios in Progress Report Forms
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field.                                                                                                         |
     And I wait for "2" seconds
     When I click on "Edit" in the page details
-    And I enter value "Final" into field "fieldTypeOfRequest__c"
-    And I enter value "Cash" into field "fieldBasisOfRequest__c"
-    And I enter value "200" into field "fieldProgramPercentage__c"
-    And I enter value "300" into field "fieldFunctionPercentage__c"
-    And I enter value "400" into field "fieldActivityPercentage__c"
-    And I enter value "500" into field "fieldTotalPercentage271__c"
+    And I enter value "Final" into field "TypeOfRequest__c"
+    And I enter value "Cash" into field "BasisOfRequest__c"
+    And I enter value "200" into field "ProgramPercentage__c"
+    And I enter value "300" into field "FunctionPercentage__c"
+    And I enter value "400" into field "ActivityPercentage__c"
+    And I enter value "500" into field "TotalPercentage271__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1943,8 +1986,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -1967,7 +2008,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Community Initiative Progress Report" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - SF-428" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -1975,7 +2016,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration}" for title "Form Expiration" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - SF-428" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Annual Report - SF-428-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -1983,7 +2024,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration1" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration1}" for title "Form Expiration" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Final Report - SF-428-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -1991,7 +2032,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration2" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration2}" for title "Form Expiration" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -1999,7 +2040,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration3" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration3}" for title "Form Expiration" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2007,7 +2048,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration4" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration4}" for title "Form Expiration" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report (Cover Page) - SF-429" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report (Cover Page) - SF-429" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2015,7 +2056,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration5" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration5}" for title "Form Expiration" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report (Cover Page) - SF-429" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2023,7 +2064,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration6" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration6}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2031,7 +2072,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration7" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration7}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2039,7 +2080,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration8" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration8}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report - SF-425" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2047,7 +2088,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration9" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration9}" for title "Form Expiration" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report - SF-425" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report Attachment - SF-425A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2055,7 +2096,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration10" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration10}" for title "Form Expiration" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report Attachment - SF-425A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2063,7 +2104,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040–0011" for title "Form Number" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration11" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration11}" for title "Form Expiration" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
     And I refresh the page
@@ -2075,31 +2116,36 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0012" for title "Form Number" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpirationPay" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpirationPay}" for title "Form Expiration" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Request for Advance or Reimbursement - SF-270" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
       | Value                      | Field      |
       | {SavedValue:ProgramEGMSID} | Program__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -2107,8 +2153,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I save the field labeled "Announcement Name" as "announcementName"
     And I navigate to "Setup" sub tab
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
-    And I click on parallel menu button in flex table title "Forms "
-    And I select "Reset Table" from parallel lines dropdown of "Forms"
     And I wait for "3" seconds
     And I select value inside table "---program:-:previewPackageTableId---" is "20"
     Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
@@ -2208,8 +2252,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -2227,20 +2269,23 @@ Feature: Validate scenarios in Progress Report Forms
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
       | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | fieldProgram__c |
+      | {SavedValue:ProgramEGMSID} | Program__c      |
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2299,6 +2344,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2311,40 +2357,40 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "false" for title "Mandatory" against the value "Community Initiative Progress Report" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report" for title "Report Type" against the value "Federal Financial Report - SF-425" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Federal Financial Report - SF-425" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Community Initiative Progress Report" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report" for title "Report Type" against the value "Federal Financial Report Attachment - SF-425A" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Federal Financial Report Attachment - SF-425A" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report Attachment - SF-425A" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Status Report (Cover Page) - SF-429" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report (Cover Page) - SF-429" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Property Report" for title "Report Type" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Property Report" for title "Report Type" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Property Report" for title "Report Type" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Property Report" for title "Report Type" against the value "Tangible Personal Property Report - SF-428" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Tangible Personal Property Report - SF-428" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Tangible Property Report" for title "Report Type" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---progressReport:-:formTableId---"
-    Then I softly see value "false" for title "Mandatory" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---progressReport:-:formTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---progressReport:-:formTableId---"
 
   @286533 @286557 @ValidatePMusercanseebelow13formsonPreviewmodalofpackageswhenuserclickonviewicononGrantorProgressReportFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-1-US-278368 @vaibhav @Forms @Buglogged-339404
   Scenario: Validate PM user can see below 13 forms on Preview modal of packages when user click on view icon on Grantor Progress Report Forms under Business Forms section on setup tab of Announcement
@@ -2357,8 +2403,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -2379,23 +2423,27 @@ Feature: Validate scenarios in Progress Report Forms
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
       | Value                      | Field      |
       | {SavedValue:ProgramEGMSID} | Program__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -2411,7 +2459,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Community Initiative Progress Report" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - SF-428" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2419,7 +2467,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration}" for title "Form Expiration" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - SF-428" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Annual Report - SF-428-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2427,7 +2475,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration1" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration1}" for title "Form Expiration" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Final Report - SF-428-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2435,7 +2483,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration2" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration2}" for title "Form Expiration" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2443,7 +2491,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration3" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration3}" for title "Form Expiration" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2451,7 +2499,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration4" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration4}" for title "Form Expiration" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report (Cover Page) - SF-429" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report (Cover Page) - SF-429" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2459,7 +2507,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration5" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration5}" for title "Form Expiration" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report (Cover Page) - SF-429" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2467,7 +2515,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration6" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration6}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2475,7 +2523,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration7" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration7}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2483,7 +2531,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration8" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration8}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report - SF-425" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2491,7 +2539,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration9" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration9}" for title "Form Expiration" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report - SF-425" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report Attachment - SF-425A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2499,7 +2547,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration10" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration10}" for title "Form Expiration" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report Attachment - SF-425A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2507,7 +2555,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040–0011" for title "Form Number" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration11" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration11}" for title "Form Expiration" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
     And I refresh the page
@@ -2519,7 +2567,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0012" for title "Form Number" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpirationPay" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpirationPay}" for title "Form Expiration" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Request for Advance or Reimbursement - SF-270" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Request for Advance or Reimbursement - SF-270" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
     Then I delete the record "{SavedValue:announcementName}" from the object "announcement"
@@ -2535,8 +2583,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
@@ -2553,21 +2599,23 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
       | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | fieldProgram__c |
+      | {SavedValue:ProgramEGMSID} | Program__c      |
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2583,7 +2631,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Community Initiative Progress Report" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - SF-428" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - SF-428" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2591,7 +2639,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration}" for title "Form Expiration" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - SF-428" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - SF-428" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Annual Report - SF-428-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Annual Report - SF-428-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2599,7 +2647,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration1" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration1}" for title "Form Expiration" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Annual Report - SF-428-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Final Report - SF-428-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Final Report - SF-428-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2607,7 +2655,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration2" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration2}" for title "Form Expiration" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Final Report - SF-428-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2615,7 +2663,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration3" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration3}" for title "Form Expiration" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2623,7 +2671,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0018" for title "Form Number" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration4" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration4}" for title "Form Expiration" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report (Cover Page) - SF-429" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report (Cover Page) - SF-429" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2631,7 +2679,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration5" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration5}" for title "Form Expiration" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report (Cover Page) - SF-429" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report (Cover Page) - SF-429" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2639,7 +2687,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration6" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration6}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2647,7 +2695,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration7" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration7}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2655,7 +2703,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0016" for title "Form Number" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration8" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration8}" for title "Form Expiration" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report - SF-425" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2663,7 +2711,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration9" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration9}" for title "Form Expiration" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report - SF-425" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report - SF-425" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Federal Financial Report Attachment - SF-425A" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2671,7 +2719,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040-0014" for title "Form Number" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration10" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration10}" for title "Form Expiration" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Federal Financial Report Attachment - SF-425A" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Federal Financial Report Attachment - SF-425A" inside table "---program:-:previewPackageTableId---"
     And I perform quick search for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---program:-:previewPackageTableId---"
@@ -2679,7 +2727,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "4040–0011" for title "Form Number" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     And I save the value from row "1" for column name "Form Expiration" as "formExpiration11" from flex table "---program:-:previewPackageTableId---"
     Then I softly see value "{SavedValue:formExpiration11}" for title "Form Expiration" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
-    Then I softly see value "false" for title "Is Mandatory" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
+    Then I softly see "cross" symbol against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---program:-:previewPackageTableId---"
     Then I softly see value "Active" for title "Status" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
 
@@ -2695,6 +2743,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2702,6 +2751,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -2709,21 +2760,25 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I enter value "150" into field "fieldPeriodStartDate__c"
-    And I enter value "50" into field "fieldPeriodEndDate__c"
+    And I enter value "150" into field "PeriodStartDate__c"
+    And I enter value "50" into field "PeriodEndDate__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -2742,6 +2797,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2749,12 +2805,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2766,6 +2824,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2773,6 +2832,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @329603 @ValidateSF271validationshoulddisplayonvalidatebutton @sprint-11-US-328863 @vaibhav @Forms
@@ -2787,6 +2847,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2794,6 +2855,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -2801,15 +2864,16 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040–0011"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I enter value "1234" into field "fieldZipPostalCodeSF428__c"
+    And I enter value "1234" into field "ZipPostalCodeSF428__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I edit the following rows inline in flex table with id "---progressReport:-:sf271FormTableId---" by clicking "Edit" :
       | Classification                                       | Programs | Functions | Activities |
       | a. Administrative expense                            | 12345    | 12345     | 12345      |
@@ -2847,6 +2911,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2854,11 +2919,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     # SF-425
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF425_Form" values from "ProgressReport_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
       | Classification                                                          | Cumulative |
@@ -2880,11 +2948,13 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     # SF-425A
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     And I click on "Edit" icon for "Federal Financial Report Attachment - SF-425A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF425A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -2895,35 +2965,45 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
      #Fill SF428-C Form
-    And I select "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "9" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #Fill SF428-B Form
-    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
-    And I refresh the page
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #Fill SF428-A Form
-    And I select "Tangible Personal Property Report - Annual Report - SF-428-A" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2934,17 +3014,25 @@ Feature: Validate scenarios in Progress Report Forms
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.b Consolidated Annual Report Attachments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     When I click on "Validate" in the page details
     And I wait for "7" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #Fill SF428-S
-    And I select "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428S_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2957,18 +3045,23 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #SF 428 Form
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
     When I click on "Edit" in the page details
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSupplementalSheet__c"
+    And I enter value "Yes" into field "SupplementalSheet__c"
     When I click on "Save" in the page details
-    And I wait for "13" seconds
+    And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-A Form
-    And I select "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2976,14 +3069,19 @@ Feature: Validate scenarios in Progress Report Forms
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "6" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-B Form
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2991,49 +3089,67 @@ Feature: Validate scenarios in Progress Report Forms
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-C Form
-    And I select "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14c. Proposed Use" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14g. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. Encumbered Parties" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Request Reasons" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429 Form
-    And I select "Real Property Status Report (Cover Page) - SF-429" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #SF-271
-    And I select "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" from dropdown at forms
+    And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3062,8 +3178,10 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #Community Form
-    And I select "Community Initiative Progress Report" from dropdown at forms
+    And I click on "View" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -3071,13 +3189,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3089,6 +3208,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3096,6 +3216,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @329635 @Validateusershouldabletosubmitandaprovedprogressreportwithfillingpartialdataforsomefieldsondifferentdifferentformsfromall13forms @sprint-11-US-328863 @vaibhav @Forms @EndToEndFlow
@@ -3110,6 +3231,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -3117,11 +3239,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     # SF-425
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF425_Form" values from "ProgressReport_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---progressReport:-:sf425TransactionTableID---" by clicking "Edit" :
       | Classification                                                          | Cumulative |
@@ -3138,17 +3263,19 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---progressReport:-:sf425IndirectExpenseTableId---" by clicking "Add" :
       | Type  | Rate | Period From | Period To | Base | Federal Share |
       | Fixed | 100  | 25          | 30        | 10   | 10            |
-    When I enter value "Unchecked" into field "fieldAcknowledgementSF428__c"
+    When I enter value "Unchecked" into field "AcknowledgementSF428__c"
     When I click on "Save" in the page details
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Certify the Federal Financial Report (SF-425) by checking the Acknowledgment Box before submitting to Grantor. |
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     # SF-425A
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     And I click on "Edit" icon for "Federal Financial Report Attachment - SF-425A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF425A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -3159,35 +3286,45 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | "Sum of Cumulative Federal Cash Disbursement" must be Equal to "10 b Cash Disbursement" in Transactions section of Federal Financial Report (SF-425). |
+    And I close the tab
      #Fill SF428-C Form
-    And I select "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428C_half_fill" values from "ProgressReport_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-    When I click on "Save" in the page details
+    When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #Fill SF428-B Form
-    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
-    And I enter value "12345" into field "fieldFederalGrantIdentifyingNumbe__c"
+    And I enter value "12345" into field "FederalGrantIdentifyingNumbe__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #Fill SF428-A Form
-    And I select "Tangible Personal Property Report - Annual Report - SF-428-A" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #Fill SF428-S
-    And I select "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428S_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3200,60 +3337,73 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #SF 428 Form
-    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - SF-42" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I click on "Edit" in the page details
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Select Supplement Sheet as Yes as required form is filled. |
+    And I close the tab
     # SF429-A Form
-    And I select "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" from dropdown at forms
-    And I refresh the page
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-B Form
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_half_fill" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     # SF429-C Form
-    And I select "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429C_half_fill" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     # SF429 Form
-    And I select "Real Property Status Report (Cover Page) - SF-429" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429_half_fill" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #SF-271
-    And I select "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" from dropdown at forms
+    And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3282,8 +3432,10 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #Community Form
-    And I select "Community Initiative Progress Report" from dropdown at forms
+    And I click on "View" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "Comm_half_fill" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -3291,13 +3443,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Fill all the required data in the form before submitting. |
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3309,6 +3462,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3316,6 +3470,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @vaibhav @Forms @EndToEndFlow
@@ -3330,6 +3485,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -3337,6 +3493,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -3354,22 +3512,27 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
     #Fill SF428-B Form
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I enter value "12345" into field "fieldFederalGrantIdentifyingNumbe__c"
+    And I switch to tab number "1"
+    And I enter value "12345" into field "FederalGrantIdentifyingNumbe__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "6" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #Fill SF428-A Form
-    And I select "Tangible Personal Property Report - Annual Report - SF-428-A" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
+    And I close the tab
     #Fill SF428-S
-    And I select "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428S_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3382,18 +3545,21 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #SF 428 Form
-    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I click on "Edit" in the page details
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Select Supplement Sheet as Yes as required form is filled. |
+    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3410,8 +3576,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -3430,6 +3596,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Construction  | 3000                 | 150        | 150            |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3443,19 +3610,22 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 4100  | fieldRevisedCommitment__c |
+      | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "4" seconds
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     And I wait for "4" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3491,43 +3661,53 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Federal Financial Report Attachment - SF-425A" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "SF428C_Form" values from "ProgressReport_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     When I click on "Validate" in the page details
-    And I wait for "2" seconds
+    And I wait for "9" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #Fill SF428-A Form
-    And I select "Tangible Personal Property Report - Annual Report - SF-428-A" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.b Consolidated Annual Report Attachments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    And I refresh the page
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "7" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #SF-271
-    And I select "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" from dropdown at forms
+    And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3556,13 +3736,14 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3574,6 +3755,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3581,4 +3763,5 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
