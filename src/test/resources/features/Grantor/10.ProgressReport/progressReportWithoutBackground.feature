@@ -1155,8 +1155,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     When I click on "View" icon for "Created" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I click on "Edit" in the page details
-    When I navigate to "Overview" sub tab
-    When I enter value "UnChecked" into field "IsFinalReport__c"
     And I wait for "2" seconds
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
