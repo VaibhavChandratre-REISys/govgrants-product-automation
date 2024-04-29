@@ -1889,6 +1889,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                                                                       |
@@ -2015,7 +2016,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62246 @62237 @validateReviewedPRAfterTCAmendmentIsCarryForwardedA @mahadev
+  @hitRun @62246 @62237 @validateReviewedPRAfterTCAmendmentIsCarryForwardedA @mahadev
   Scenario Outline: Validate progress report with reviewed status is carry forwarded after TC amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2074,7 +2075,7 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "View" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Complete Review" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2117,6 +2118,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2137,22 +2139,25 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     When I navigate to "Performance" sub tab
     Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I softly see value "Reviewed" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62245 @62238 @validateSubmittedForReviewPRAfterTCAmendmentIsCarryForwardedAonAwardAtInternalportal @mahadev
+  @hitRun @62245 @62238 @validateSubmittedForReviewPRAfterTCAmendmentIsCarryForwardedAonAwardAtInternalportal @mahadev
   Scenario Outline: Validate progress report with Submitted for Review status is carry forwarded at internal portal on award after Terms and conditions amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2254,22 +2259,25 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I softly see value "Submitted for Review" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:recipientAwardProgressReportTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63112 @validateReviewedPRStatusAfterCloseoutApprovalAtTermination @jitendra
+  @hitRun @63112 @validateReviewedPRStatusAfterCloseoutApprovalAtTermination @jitendra
   Scenario Outline: Verify Progress report with Reviewed status changed to  Force Closed when closeout request is approved with type as Termination by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2390,7 +2398,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63111 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtTermination @jitendra
+  @hitRun @63111 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtTermination @jitendra
   Scenario Outline: Verify Progress report with Submitted to Grantor status changed to  Force Closed when closeout request is approved with type as Termination by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2411,9 +2419,10 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
