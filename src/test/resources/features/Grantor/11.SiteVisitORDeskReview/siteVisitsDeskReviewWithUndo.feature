@@ -1,7 +1,7 @@
 @siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisitUndo
 Feature: Validate all scenarios in the Site Visit with Undo
 
-  @279063 @279065 @VerifyFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheSiteVisitbyassignedapprover @sprint-5-US-295139 @hitesh @Undo @Temphitesh
+  @279063 @279065 @VerifyFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheSiteVisitbyassignedapprover @sprint-5-US-295139 @hitesh @Undo
   Scenario: Verify FD user as single step approver(step 1) can able to see UNDO button after Approved the Site Visit by assigned approver
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

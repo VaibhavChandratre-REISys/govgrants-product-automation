@@ -88,22 +88,26 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
+#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -134,22 +138,26 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -180,22 +188,26 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -273,7 +285,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -286,9 +297,12 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     #Then I softly see "Program_Field_Values.xlsx" has been added in "Attachments" flex table
+    And I wait for "2" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
     And I upload attachment "sample.pdf" of type "SF-PPR" from computer
+    And I click modal button "Close"
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---progressReport:-:RecipientProgressReportFilesTableId---"
     When I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
@@ -321,7 +335,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -333,7 +346,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I choose the file "sample.pdf" to upload for "Checklist" of type "Program"
-    When I close "Upload Document" modal by clicking the top right x button
+    And I refresh the page
     And I click on hyperlink containing value "View"
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
     Examples:
@@ -352,8 +365,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
-    When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -364,6 +375,9 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Supporting Documents Checklist"
     And I download the file
     Then I softly verify that "pdf" file is downloaded
@@ -388,7 +402,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -398,14 +411,19 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
+    And I switch to parent tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -413,7 +431,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I click on "Send Back to Subrecipient" in the page details
-    And I refresh the page
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -442,7 +460,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -452,11 +469,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -500,7 +520,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -510,13 +529,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I navigate to "Overview" sub tab
     When I save the field labeled "EGMS ID" as "ProgresReport1"
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c,false"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -543,6 +565,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
     When I save the field labeled "EGMS ID" as "ProgressReport2"
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
@@ -550,11 +573,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -586,6 +612,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     When I click on "View" icon for "Sent Back to Subrecipient" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
+    And I wait for "6" seconds
     Then I see the following messages in the page details contains:
       | This Progress Report cannot be submitted to the Grantor because a report marked as the Final Report has been approved. |
     Examples:
@@ -624,8 +651,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
-    When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -635,12 +660,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c,false"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -686,10 +713,12 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I see the following messages in the page details contains:
       | This Progress Report cannot be submitted to the Grantor because a report marked as the Final Report has been approved. |
     Examples:
@@ -709,6 +738,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I get the "EGMS ID"
+    And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -717,13 +747,15 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I save the field labeled "EGMS ID" as "PR1EGMSID"
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -756,11 +788,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I save the field labeled "EGMS ID" as "PR2EGMSID"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -787,7 +821,7 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
-    And I wait for "9" seconds
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | The Progress Report cannot be submitted for approval because a report marked as the Final Report has been approved. |
@@ -818,9 +852,10 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "ErrorForm" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Forms and Files Tab - Provide all the required data in the form before submitting to Grantor. |
@@ -838,7 +873,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -848,12 +882,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -874,14 +910,16 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see that "{SavedValue:Record Id}" is in "Submitted for Approval" status
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see that "{SavedValue:Record Id}" is in "Approved" status
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Approved"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -898,7 +936,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -908,12 +945,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -923,7 +962,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     Then I softly see field "Final Report?" as "Checked"
-    Then I see status in Progress-bar is "Sent Back to Subrecipient" and is "green"
+    Then I see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -940,7 +979,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -950,11 +988,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c,false"
     And I navigate to "Grants" tab
@@ -973,13 +1013,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    When I click on "Edit" in the page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -996,6 +1039,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1004,12 +1048,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1017,12 +1063,13 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     Given I click on "Send Back to Subrecipient" in the page details
-    And I refresh the page
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1043,7 +1090,7 @@ Feature: Validate scenarios in Progress Report without background
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -1061,6 +1108,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "ProgressReport1"
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1069,12 +1117,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1105,8 +1155,12 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     When I click on "View" icon for "Created" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter value "UnChecked" into field "IsFinalReport__c"
+    And I wait for "2" seconds
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     When I save the field labeled "EGMS ID" as "ProgressReport2"
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
@@ -1114,11 +1168,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1147,9 +1203,10 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     Then I can see the message "<Error Message>" in the approval decision
+
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award}  | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @60883 @validateProgramApproverCanSendBackProgressReportWhenFinalprogressreportAlreadyApproved @mahadev
   Scenario Outline: Validate Program Approver can Send back Progress report to Owner when Final progress report request is already approved
@@ -1164,6 +1221,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "ProgressReport1"
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1172,12 +1230,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1211,11 +1271,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1248,7 +1310,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -1265,6 +1327,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1273,12 +1336,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1318,11 +1383,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1349,7 +1416,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -1366,6 +1433,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1374,12 +1442,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1414,11 +1484,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1450,6 +1522,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                        |
@@ -1515,7 +1588,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Record Id" inside flex table with id "---progressreport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    Then I see field "Budget Period" as "{savedValue:BudgetPeriod}"
+    Then I see field matches exactly "Budget Period" as "{savedValue:BudgetPeriod}"
 
   @60922 @budgetPeriodOnPROverviewTab @jitendra 
   Scenario: Validate on Progress report Awarded Budget field at Subaward Spending table under Performance tab is same as Award
@@ -1558,7 +1631,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Record Id" inside flex table with id "---progressreport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    Then I see field "Organization Name" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    Then I see field "Extrenal Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
   @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke @buglogged135383 
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
@@ -1572,6 +1645,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1580,12 +1654,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1619,11 +1695,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I switch to parent tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1662,10 +1740,11 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved.Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @61090 @validateObjectiveNotDisplayedInPR @mahadev
   Scenario Outline: Validate if Objectives Required? field is No at Grant, then Objectives table should not present on Progress report at SR End
@@ -1680,6 +1759,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I do not see "Objectives" page block displayed
@@ -1700,6 +1780,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -1720,6 +1801,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "ProgressReport1"
@@ -1729,12 +1811,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1768,11 +1852,13 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1822,7 +1908,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1833,13 +1918,15 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1856,18 +1943,25 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Submit for Approval" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     And I navigate to "Performance" sub tab
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:recipientAwardProgressReportTableId---" without waiting for record
     And I navigate to "Performance" sub tab
     And I save the field labeled "Perentage of Budget Remaining" as "PercentageRemainingBudget"
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Payment Request" into field "Title__c"
@@ -1882,10 +1976,11 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "5" seconds
-    And I switch to iframe with id "---paymentRequest:-:addFilesTableIframeId---"
     And I upload attachment without random number "InternalOrganization_Field_Values.xlsx" of type "Invoice" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab

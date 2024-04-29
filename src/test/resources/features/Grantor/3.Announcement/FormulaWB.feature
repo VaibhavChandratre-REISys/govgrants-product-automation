@@ -228,7 +228,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside table with table id "---announcement:-:AnnouncementServiceArea1TableId---" without processing
     #204387
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I refresh the page
     #204386
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
@@ -611,7 +611,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click table top right button "Remove Selected" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly see confirmation box with body "This action will remove the selected organization(s), Are you sure you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I refresh the page
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
@@ -985,7 +985,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #226431
     And I click table top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I see confirmation box with quotes in body "Unsaved data will be lost due to page refresh on "Add Organization" button . Please save the record to continue." is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Edit" in the page details
@@ -1896,7 +1896,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222215 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2219,7 +2219,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2284,7 +2285,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2465,7 +2467,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2530,7 +2533,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2691,7 +2695,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2808,7 +2813,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3047,7 +3053,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3242,7 +3249,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3648,7 +3656,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3714,7 +3723,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -4088,7 +4098,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -4154,7 +4165,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -4271,6 +4283,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4337,7 +4350,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -4539,6 +4553,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4605,7 +4620,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -4790,6 +4806,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4854,8 +4871,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I wait for "2" seconds
     When I click modal button "Close"
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -4991,7 +5009,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5057,7 +5076,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -5243,7 +5263,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5551,7 +5572,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5806,7 +5828,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -5913,7 +5936,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @225419 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinprescreenreviewwhenallocationamountinannouncementischangedischanged @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify that IND user will able to change the value in budget:budget details while resubmitting the negotiations to grantor in pre screen review when allocation amount in announcement is changed is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -6109,7 +6132,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -6180,7 +6204,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518 @hitesh @Pre-ScreenOnHoldSPI
+  @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518 @hitesh
   Scenario Outline:Verify PM user should not able to update the allocation amount on Ann  if negotiation is No on Ann once application is promote to FDM record
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6232,7 +6256,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click modal button "Close"
-    And I wait for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -6298,7 +6323,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -6581,7 +6607,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -6796,8 +6822,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
     And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
