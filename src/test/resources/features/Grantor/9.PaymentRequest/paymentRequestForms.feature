@@ -1,4 +1,4 @@
-@paymntRequestForms @grantor-parallel-regression @paymentRequest @regression
+@paymntRequestForms @grantor-parallel-regression @paymentRequest @regression @paymentRequestExecution
 Feature: Payment Request Forms scenarios
 
   @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms 

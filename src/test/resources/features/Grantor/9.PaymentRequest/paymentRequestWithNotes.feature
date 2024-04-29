@@ -1,4 +1,4 @@
-@paymentRequestNotes @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @PayReqExecution
+@paymentRequestNotes @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request With Notes
 
   @236237 @VerifyPMPOEXEADMINFDsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @hitesh @Notes
