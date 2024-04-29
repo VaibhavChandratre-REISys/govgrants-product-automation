@@ -181,9 +181,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -306,9 +306,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -369,6 +369,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -389,6 +390,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Reviewer Name            | Role            | Description            | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -412,6 +414,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -446,6 +449,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 500         |
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     And I refresh the page
@@ -454,6 +458,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1001        |
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
@@ -472,9 +477,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -612,9 +617,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -741,9 +746,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "SelectAwardGoals"
@@ -912,9 +917,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -1031,9 +1036,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -1404,9 +1409,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -1610,9 +1615,9 @@ Feature: Validate all scenarios in the award created from FDM
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |

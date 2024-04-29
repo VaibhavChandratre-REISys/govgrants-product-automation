@@ -228,7 +228,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
       | Step Order | Step Name       | Description |
       | 4          | Automation Test | Testing     |
-   And I expand nested table containing column value "Automation Test"
+    And I expand nested table containing column value "Automation Test"
     And I pause execution for "2" seconds
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
       | Form Name       |
@@ -1048,7 +1048,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280741 @ValidatereScreenReviewStepIfthetaskistransferredwhenthereviewsaresentforReviewoncethereviewiscompletedthenewownershouldbeabletoseetheUndobutton @Sprint-26-US-282727 @vaibhav @Undo
+  @280741 @ValidatereScreenReviewStepIfthetaskistransferredwhenthereviewsaresentforReviewoncethereviewiscompletedthenewownershouldbeabletoseetheUndobutton @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate Pre-Screen Review Step If the task is transferred, when the reviews are "sent for Review", once the review is completed, the new owner should be able to see the Undo button
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1078,8 +1078,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -1300,7 +1300,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280687 @280692 @280694 @ValidateManagmentCompAnnFAYesonclickofpagelevelundobuttonthestatusofreviewshouldchangetoSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-23-US-273843 @vaibhav @Allocation
+  @280687 @280692 @280694 @ValidateManagmentCompAnnFAYesonclickofpagelevelundobuttonthestatusofreviewshouldchangetoSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Managment Comp Ann FA Yes on click of page level undo button, the status of review should change to 'Send for Review' and already entered information on review form should be as it is and reviewer should be able to Edit and submit review again
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1349,8 +1349,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1417,8 +1417,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -1466,7 +1466,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280394 @280395 @280398 @ValidateCompetitiveAnnFAYesassignedreviewercanseerowlevelundobuttononlyforthecompletedreviewonreviewstep @Sprint-26-US-282727 @vaibhav @Undo
+  @280394 @280395 @280398 @ValidateCompetitiveAnnFAYesassignedreviewercanseerowlevelundobuttononlyforthecompletedreviewonreviewstep @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate Competitive Ann FA Yes assigned reviewer can see row-level undo button only for the completed review on review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1496,8 +1496,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -1729,7 +1729,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280659 @ValidatePreScreenReviewStepCompetitiveAnnFAYesanotherreviewerontheapplicationrecordcannotseerowlevelundobuttonforthecompletedreviewandonthereviewdetailpageonreviewstepwhenreviewresponsesharedisyes
+  @280659 @ValidatePreScreenReviewStepCompetitiveAnnFAYesanotherreviewerontheapplicationrecordcannotseerowlevelundobuttonforthecompletedreviewandonthereviewdetailpageonreviewstepwhenreviewresponsesharedisyes
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes another reviewer on the application record cannot see row-level undo button for the completed review and on the review detail page on review step when review response shared is yes
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1765,8 +1765,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -1821,7 +1821,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-   @280711 @ValidateFDMCompetitiveAnnFAYesreviewerhassubmittedreviewformafterundothenScoresundertheRecommendedandNonrecommendedApplicationsectionwillalsogetupdateintheFDMmodule @Sprint-26-US-282727 @vaibhav @Undo
+  @280711 @ValidateFDMCompetitiveAnnFAYesreviewerhassubmittedreviewformafterundothenScoresundertheRecommendedandNonrecommendedApplicationsectionwillalsogetupdateintheFDMmodule @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate FDM Competitive Ann FA Yes after reviewer has submitted review form after undo, then Scores under the Recommended and Non-recommended Application section will also get updated in the FDM  module
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1871,8 +1871,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1939,8 +1939,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -2027,7 +2027,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
-     When I refresh the page
+    When I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -2358,7 +2358,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @279819 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @vaibhav @Undo 
+  @279819 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @vaibhav @Undo
   Scenario Outline: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2911,7 +2911,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @304073 @ApplicationReviewVerifyannownercanseerowlevelundobuttononlyforthecompletedreviewonreviewstepincaseofAnnownerandreviewerissame @Sprint-6-US-303298 @hitesh @Undo
+  @304073 @ApplicationReviewVerifyannownercanseerowlevelundobuttononlyforthecompletedreviewonreviewstepincaseofAnnownerandreviewerissame @Sprint-6-US-303298 @hitesh @Undo
   Scenario: Application Review_  Verify ann owner can see row-level undo button only for the completed review on review step in case of Ann owner and reviewer is same
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2940,8 +2940,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-   And I pause execution for "5" seconds
-   And I refresh the page
+    And I pause execution for "5" seconds
+    And I refresh the page
     When I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "10" seconds
@@ -2966,7 +2966,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "{SavedValue:PM Username}" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
-   @280801  @Sprint-25 @hitesh @Undo
+  @280801  @Sprint-25 @hitesh @Undo
   Scenario Outline: FDM When reviewer has clicked undo button for the review on any review step and review in in sent for review state, then the application cannot be converted into Award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2992,8 +2992,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I pause execution for "5" seconds
-     And I refresh the page
+    And I pause execution for "5" seconds
+    And I refresh the page
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -3046,8 +3046,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-     And I pause execution for "5" seconds
-     And I refresh the page
+    And I pause execution for "5" seconds
+    And I refresh the page
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3097,7 +3097,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3111,12 +3111,12 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-     When I click modal button "Close"
-     And I pause execution for "5" seconds
+    When I click modal button "Close"
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "3" seconds
-     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -3709,8 +3709,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3838,8 +3838,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:AppEGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-     And I pause execution for "3" seconds
-     And I click on "Next Review Step" in the page details
+    And I pause execution for "3" seconds
+    And I click on "Next Review Step" in the page details
     And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "Program Review" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3906,15 +3906,15 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-     And I wait for "2" seconds
-     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
@@ -4287,4 +4287,3 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
-

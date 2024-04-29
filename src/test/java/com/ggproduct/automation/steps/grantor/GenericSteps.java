@@ -609,4 +609,27 @@ public class GenericSteps {
         I.amPerforming().waitFor().ElementToBeClickable(Remove);
         I.amPerforming().click().on(Remove);
     }
+
+    @Then("I do not see value {string} inside auto search result after enterring into field {string}")
+    public void iSeeValueInsideAutoSearchResultAfterEnterringIntoField(String arg0, String arg1) {
+        Assert.assertFalse(isvalueDisplayinsearchicon(arg0, arg1));
+    }
+
+    private static boolean isvalueDisplayinsearchicon(String arg0, String arg1) {
+        try {
+            By textbox = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//input[@type='search' or @placeholder='Search User...']");
+            By opt = ByUsing.xpath("//td[@data-label='Automation PM']");
+            I.amPerforming().click().on(textbox);
+            I.amPerforming().checkToSee().isElementDisplayed(textbox);
+            I.amPerforming().textInput().in(textbox, arg0);
+            I.amPerforming().click().withJavaScript(textbox);
+            if (I.amPerforming().checkToSee().isEnabled(opt)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }

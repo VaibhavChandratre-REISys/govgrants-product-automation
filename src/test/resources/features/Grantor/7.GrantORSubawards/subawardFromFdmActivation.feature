@@ -126,6 +126,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
     And I get the "EGMS ID"
@@ -138,9 +139,6 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | NA                |
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
@@ -149,7 +147,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -165,7 +163,9 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab

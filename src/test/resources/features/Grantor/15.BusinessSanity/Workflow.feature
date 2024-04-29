@@ -1532,8 +1532,8 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#  @debug
+#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"

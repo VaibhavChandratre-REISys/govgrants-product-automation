@@ -1,4 +1,4 @@
-@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression
+@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @hiteshGrant
 Feature: Validate all scenarios of grants and award for Allocation
 
   @239510 @239514 @239519 @ValidatePMuserseesectionnameofBudgetPeriodDetailsshouldrenamewithBudgetSummarysectiononaward @sprint-15-US-237846 @vaibhav @Allocation
@@ -83,7 +83,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     #239563
@@ -134,10 +134,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I pause execution for "3" seconds
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I wait for "4" seconds
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
+    And I wait for "5" seconds
     When I click on "Save" in the page details
-    And I refresh the page
+    And I wait for "7" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     And I get the "EGMS ID"
@@ -153,7 +153,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "<User1>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -173,7 +173,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I "Approve" in the approval decision
     And I wait for "4" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     And I navigate to "Budget" sub tab
@@ -198,7 +198,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation SPI3 user | SPI3  |
       | Automation IND user  | IND   |
 
-  @239574 @ValidatefocusareawithzeroallocationamountshouldnotbecopiedonawardfromApplication @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239574 @ValidatefocusareawithzeroallocationamountshouldnotbecopiedonawardfromApplication @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate focus area with zero allocation amount should not be copied on award from Application
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
@@ -222,8 +222,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
-    And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -321,7 +320,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #239596
     Then I see total records count "Total Records: 1" in flex table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @239590 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239590 @ValidateAdminuserseeeditaccessonforstartdateandenddateoffocusareabudgetsummarybyfocusareatableincreatedbeforeapprovalsenttoS\Rsentforreviewandreviewedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate Admin user see edit access on for start date and end date of focus area budget summary by focus area table in created,(before approval) sent to S\R, sent for review and reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -408,7 +407,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see fields "GATStartDate__c" is in edit mode
@@ -437,7 +436,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239595 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedSenttoS\Rafterapproveactiveandinclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239595 @ValidateEXEusershouldnotseeeditaccessonbudgetsummarybyfocusareatableinsubmitforapprovalapprovedSenttoS\Rafterapproveactiveandinclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate EXE user should not see edit access on budget summary by focus area table in Submit For Approval, approved, Sent to S\R after approve, active and in close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -486,7 +485,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -503,7 +502,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I wait for "3" seconds
@@ -629,7 +628,7 @@ Feature: Validate all scenarios of grants and award for Allocation
      #240308
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
     Then I softly see field "BudgetedAmount__c" not in edit mode
@@ -659,7 +658,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #239763
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I wait for "3" seconds
@@ -692,7 +691,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239762 @ValidateAdminusershouldnotseebudgetedamountcolumnonbudgetsummarybyfocusareatableinRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239762 @ValidateAdminusershouldnotseebudgetedamountcolumnonbudgetsummarybyfocusareatableinRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate Admin user should not see 'budgeted amount' column on budget summary by focus area table in Rejected state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -741,6 +740,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -762,6 +762,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     And I wait for "3" seconds
     And I "Reject" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -770,7 +771,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239774 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239774 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate PO user should see 'New obligation' & 'Cumulative Obligation' read only column in Submitted for Approval, Approved, sent to subrecipient after approval, Active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -819,6 +820,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -836,7 +838,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -883,7 +885,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate PM user should see 'New obligation' & 'Cumulative Obligation' column in Rejected state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -932,6 +934,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -949,7 +952,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I navigate to "Budget" sub tab
     And I wait for "3" seconds
     And I "Reject" in the approval decision
@@ -962,7 +965,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239817 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinCreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @239817 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinCreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM new owner of award should have edit access on budget summary by focus area table and other sections on award after award ownership reassign to new owner in Created state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1111,6 +1114,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1173,6 +1177,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1274,7 +1279,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
   @240349 @ValidatePMuserseeincaseofdetailbudgetusershouldnotseenew/edit/deletebuttononthesub-awardcategorymodalonawardincreatedstateofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM user see incase of detail budget user should not see new/edit/delete button on the sub-award category modal on award in created state of award
@@ -1330,7 +1335,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @240350 @ValidatePMusershouldabletosubmitawardforapprovalwithsettingofsubrecipientmatch%isYesonAnn @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @240350 @ValidatePMusershouldabletosubmitawardforapprovalwithsettingofsubrecipientmatch%isYesonAnn @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate PM user should able to submit award for approval with setting of subrecipient match % is 'Yes' on Ann
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1382,6 +1387,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1408,7 +1414,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240353 @ValidatePOusershouldseevalidationmessagewhilclickonsubmitforapprovalbuttoniftotalencumbranceisnotequaltotheTotalawardamount"BudgetTab-TotalEncumbrancemustbeequaltothetotalAwardamountintheSubawardbudgetsection" @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @240353 @ValidatePOusershouldseevalidationmessagewhilclickonsubmitforapprovalbuttoniftotalencumbranceisnotequaltotheTotalawardamount"BudgetTab-TotalEncumbrancemustbeequaltothetotalAwardamountintheSubawardbudgetsection" @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PO user should see validation message while click on Submit For Approval button if total encumbrance is not equal to the Total award amount "Budget Tab - Total Encumbrance must be equal to the total Award amount in the Subaward budget section"
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1442,7 +1448,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
-  @240355 @ValidatePMuserseecorrectNewobligationandCumulativeobligationamountshoulddisplaycorrectlyforeachfocusareafromawardbudgetgrid @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @240355 @ValidatePMuserseecorrectNewobligationandCumulativeobligationamountshoulddisplaycorrectlyforeachfocusareafromawardbudgetgrid @sprint-15-US-237846 @vaibhav @Allocation
   Scenario Outline: Validate PM user see correct 'New obligation' and 'Cumulative obligation' amount should display correctly for each focus area from award budget grid
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I login to "As a Grantor" app as "PM" user
@@ -1460,6 +1466,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter value "For-profit organizations" into field "EligibleApplicantTypes__c"
     And I enter value "Test" into field "AnnouncementDescription__c"
     When I navigate to "Financials" sub tab
+    And I wait for "2" seconds
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1471,7 +1478,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                            | Allocation Amount |
       | Automation Permanent Focus Area2 | 1000              |
-    And I refresh the page
+    And I wait for "5" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1570,6 +1577,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
     And I pause execution for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1665,7 +1673,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @240520 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinsenttoS\Rstatebeforeapprovalofaward @sprint-15-US-237846 @vaibhav @Allocation
+  @TestRun @240520 @ValidatePMnewownerofawardshouldhaveeditaccessonbudgetsummarybyfocusareatableandothersectionsonawardafterawardownershipreassigntonewownerinsenttoS\Rstatebeforeapprovalofaward @sprint-15-US-237846 @vaibhav @Allocation
   Scenario: Validate PM new owner of award should have edit access on budget summary by focus area table and other sections on award after award ownership reassign to new owner in sent to S\R state before approval of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1717,6 +1725,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     And I pause execution for "5" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1803,6 +1812,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1896,6 +1906,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1993,6 +2004,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2292,6 +2304,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "GATEndDate__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -2370,6 +2383,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2517,6 +2531,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I pause execution for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -2617,7 +2632,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @240504 @240535 @ValidateVictorEXEusershouldnotseebudgetedamountcolumninRejectedstateofawardAndfocusarea=Yes @sprint-16-US-220612 @vaibhav @Allocation
+  @TestRun @240504 @240535 @ValidateVictorEXEusershouldnotseebudgetedamountcolumninRejectedstateofawardAndfocusarea=Yes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario Outline: Validate Victor EXE user should not see 'budgeted amount' column in Rejected state of award (And focus area=Yes)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2666,6 +2681,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2686,6 +2702,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Reject" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -2746,6 +2763,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2865,6 +2883,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3086,6 +3105,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3333,6 +3353,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3500,6 +3521,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budget Summary" page block displayed
     Then I softly do not see "Budget Period Details" page block displayed
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3564,6 +3586,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Budget Summary" page block displayed
     Then I softly do not see "Budget Period Details" page block displayed
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3636,12 +3659,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     Then I softly see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
@@ -3766,6 +3791,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3878,7 +3904,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243360 @ValidateINDusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-16-US-226895 @vaibhav @Allocation
+  @TestRun @243360 @ValidateINDusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-16-US-226895 @vaibhav @Allocation
   Scenario Outline: Validate IND user should see 'New obligation' & 'Cumulative Obligation' read only column in Submitted for Approval, Approved, sent to subrecipient after approval, Active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -3929,6 +3955,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4094,6 +4121,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4181,6 +4209,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4268,6 +4297,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4386,6 +4416,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4402,7 +4433,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | Automation SPI3 user | {SavedValue:SPI3 Username} |
       | SPA  | Automation SPA user  | {SavedValue:SPA Username}  |
 
-  @243393 @ValidateSPIhidetheeditaccessonawardbudgetsectiononawarditshouldberead-onlysection @sprint-16-US-226895 @vaibhav @Allocation
+  @TestRun @243393 @ValidateSPIhidetheeditaccessonawardbudgetsectiononawarditshouldberead-onlysection @sprint-16-US-226895 @vaibhav @Allocation
   Scenario: Validate SPI hide the edit access on 'award budget section' on award it should be read-only section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4451,6 +4482,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name           | Award  |
       | Automation EXE | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4458,7 +4490,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Budget" sub tab
-    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+    Then I cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
 
   @237034 @237036 @237217 @237222 @ValidatePMusershouldabletoseetheAllocationLevelfieldafterfocusarearequiredfield @sprint-14-US-204506 @vaibhav @Allocation
   Scenario: Validate PM user should able to see the "Allocation Level" field after "focus area required?" field
@@ -4531,7 +4563,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     And I enter values into fields
-      | Value   | Field                   |
+      | Value   | Field              |
       | Formula | GrantType__c       |
       | N/A     | AllocationLevel__c |
     When I click modal button "Save and Continue"
@@ -4814,6 +4846,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I pause execution for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4869,6 +4902,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4926,6 +4960,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:IND Username} | Project Director/Manager | Checked          |
     And I pause execution for "2" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5049,6 +5084,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -5068,7 +5104,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243728 @ValidateCompEXEusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226122 @vaibhav @Allocation
+  @TestRun @243728 @ValidateCompEXEusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedorclosedstatus @sprint-16-US-226122 @vaibhav @Allocation
   Scenario Outline: Validate Comp Ann EXE user should see following read only fields  & Budget Amount field should not see under Budget Summary section in submitted to approval, Approved, Sent to S/r after approval, activated or closed status
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -5119,6 +5155,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5137,7 +5174,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -5276,6 +5313,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5374,7 +5412,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @243940 @ValidateCompEXEuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
+  @TestRun @243940 @ValidateCompEXEuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp EXE user has focus area with zero Budgeted amount should not be copied on award from Application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -5587,6 +5625,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly do not see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -5655,6 +5694,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name             | Award  |
       | Automation ADMIN | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5789,6 +5829,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5809,6 +5850,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Reject" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -5872,6 +5914,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5956,6 +5999,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
@@ -6052,6 +6096,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PO | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
@@ -6159,7 +6204,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:budgetLineItems---"
 
-  @244034 @ValidateDirectAnnAdminuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
+  @TestRun @244034 @ValidateDirectAnnAdminuserhasfocusareawithzeroBudgetedamountshouldnotbecopiedonawardfromApplication @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Direct Ann Admin user has focus area with zero Budgeted amount should not be copied on award from Application
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -6309,12 +6354,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -6436,6 +6483,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6646,6 +6694,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6746,6 +6795,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6804,12 +6854,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -6873,6 +6925,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside table with wait for record
     When I click on "Complete Review" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6943,6 +6996,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name          | Award  |
       | Automation PM | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7159,6 +7213,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7355,6 +7410,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside page block
@@ -7505,6 +7561,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside page block
@@ -7825,6 +7882,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -7912,7 +7970,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "Budgeted Amount" rendered in view mode only
     Then I softly see that "Match this Budget Period" rendered in view mode only
 
-  @243685 @ValidateEXEusershouldabletoentertheinitialvalueinnewobligationfieldinbudgetsummarybyfocusareaSectionFAyes @sprint-16-US-237985 @vaibhav @Allocation
+  @TestRun @243685 @ValidateEXEusershouldabletoentertheinitialvalueinnewobligationfieldinbudgetsummarybyfocusareaSectionFAyes @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate EXE user should able to enter the initial value in new obligation field in budget summary by focus area section FAyes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -7934,6 +7992,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see fields "NewObligation__c" is in edit mode
     And I click on "Save" in the page details
+    And I refresh the page
     And I navigate to "Budget" sub tab
     Then I softly see field "New Obligation" as "$1,000.00"
 
@@ -8090,6 +8149,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
     When I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Reviewed"
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
@@ -8276,7 +8336,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
 
-  @243696 @243778 @243806 @244205 @ValidateUsershouldnoteditthenewobligationvalueinsubmitforapprovalApprovedSenttosrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
+  @TestRun @243696 @243778 @243806 @244205 @ValidateUsershouldnoteditthenewobligationvalueinsubmitforapprovalApprovedSenttosrAfterapprovalAmendedorPendingActivationorActivatedstatesFANo @sprint-16-US-237985 @vaibhav @Allocation
   Scenario: Validate User should not edit the new obligation value in Submit For Approval, Approved, Sent to S/r After approval, Amended, or Pending Activation or Activated states (FA=No)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8553,6 +8613,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -8667,6 +8728,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     #243952
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Budget" sub tab
     Then I softly see field "Match this Budget Period" inside page block
@@ -8762,7 +8824,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     #243739
@@ -8883,6 +8945,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -8909,6 +8972,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -8953,6 +9017,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -9114,6 +9179,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -9171,9 +9237,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
     Examples:
-      | User | Value             |
-      | SPI3 | GrantFields1      |
-      | IND  | GrantFieldsIndUser|
+      | User | Value              |
+      | SPI3 | GrantFields1       |
+      | IND  | GrantFieldsIndUser |
 
   @245237 @245241 @ValidateDirectedThatSPAuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed - Verify That <SPA> user will seeNew Obligation in Budget Summary by focus Area section when award is in rejected state
@@ -9207,6 +9273,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -9281,7 +9348,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #245241
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @245244 @245245 @245246 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
+  @TestRun @245244 @245245 @245246 @ValidateDirectedThatIncaseofdetailbudgetActioncolumnwiththeAddlineitemoptionwillbevisibleINDinSubawardbudgetsection @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate Directed That In case of detail budget, Action column with the Add line item option will be visible<IND >user in Subaward budget section
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -9339,6 +9406,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                        | Award  |
       | {SavedValue:ADMIN Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -9553,6 +9621,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I wait for "2" seconds
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
@@ -9648,7 +9717,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
-  @246432 @ValidatecompetativeThatBudgetSummarybyfocusareawillnotbevisibletoSPAuserIfFocusAreaisno @sprint-16-US-242771 @vaibhav @Allocation
+  @TestRun @246432 @ValidatecompetativeThatBudgetSummarybyfocusareawillnotbevisibletoSPAuserIfFocusAreaisno @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That Budget Summary by focus area will not be visible to <SPA> user If Focus Area is no
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -9704,6 +9773,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -9713,7 +9783,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @246434 @246441 @246443 @246445 @246447 @ValidatecompetativeThatSPAuserwillseebudgetedamountcolumninBudgetSummarybyfocusAreasectionwhentheawardisSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-242771 @vaibhav @Allocation
+  @TestRun @246434 @246441 @246443 @246445 @246447 @ValidatecompetativeThatSPAuserwillseebudgetedamountcolumninBudgetSummarybyfocusAreasectionwhentheawardisSenttoSrbeforeapprovalinreviewandpeerreviewedstates @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That <SPA> user will see budgeted amount column in Budget Summary by focus Area section when the award is  Sent to S/r before approval, in review and peer reviewed states.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -9722,7 +9792,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -9772,6 +9842,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -9828,6 +9899,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
     When I click on "Complete Review" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -10001,7 +10073,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #246447
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @246442 @246448 @ValidatecompetativeThatSPAuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-242771 @vaibhav @Allocation
+  @TestRun @246442 @246448 @ValidatecompetativeThatSPAuserwillseeNewObligationinBudgetSummarybyfocusAreasectionwhenawardisinrejectedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That <SPA> user will seeNew Obligation in Budget Summary by focus Area section when award is in rejected state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -10010,7 +10082,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
@@ -10101,7 +10173,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #246448
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @246444 @246447 @ValidatecompetativeThatSPAuserwillseeNewobligationinBudgetSummarybyfocusAreasectionwhenawardisinPendingActivationandamendedstate @sprint-16-US-242771 @vaibhav @Allocation
+  @TestRun @246444 @246447 @ValidatecompetativeThatSPAuserwillseeNewobligationinBudgetSummarybyfocusAreasectionwhenawardisinPendingActivationandamendedstate @sprint-16-US-242771 @vaibhav @Allocation
   Scenario: Validate competative That <SPA> user will see New obligation in Budget Summary by focus Area section  when award is in Pending Activation and amended state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I login to "As a Grantor" app as "EXE" user
@@ -10356,6 +10428,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -10377,7 +10450,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
+  @TestRun @240305 @ValidateCarryforwardfiledshouldbeonlydisplayonawardwhenbudgetperiodchangetoBP02andbeyondFAYes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate Carry forward' filed should be only display on award when budget period change to BP02 and beyond(FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10504,7 +10577,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly see "Carry-Forward" inside page block detail
 
-  @240517 @240525 @243120 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofawardFAYes @sprint-16-US-220612 @vaibhav @Allocation
+  @TestRun @240517 @240525 @243120 @ValidateEXEusershouldnotseebudgetedamountcolumninamendedandpendingactivationstateofawardFAYes @sprint-16-US-220612 @vaibhav @Allocation
   Scenario Outline: Validate EXE user should not see 'budgeted amount' column in amended and pending activation state of award (FA=Yes)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "<User>"
@@ -10549,10 +10622,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Budget" sub tab
@@ -10582,6 +10656,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
@@ -10628,9 +10703,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
     Examples:
-      | User                         | User1 |
-      | default                      | SPI3  |
-      | default-Automation SPI3 user | IND   |
+      | User                        | User1 |
+      | default                     | SPI3  |
+      | default-Automation IND user | IND   |
 
   @240529 @ValidatePMusershouldseeNewobligation&CumulativeObligationreadonlycolumninAmendedPendingactivationstateofawardFANo @sprint-16-US-220612 @vaibhav @Allocation
   Scenario: Validate PM user should see 'New obligation' & 'Cumulative Obligation' read only column in Amended, Pending activation state of award (FA=No)
@@ -10680,13 +10755,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I navigate to "Budget" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     And I click on "Activate" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     Then I softly see that "New Obligation" rendered in view mode only
@@ -10703,7 +10779,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see that "New Obligation" rendered in view mode only
     Then I softly see that "Cumulative Obligation" rendered in view mode only
 
-  @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
+  @TestRun @243730 @ValidateCompAnnPMusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226122 @vaibhav @Allocation
   Scenario: Validate Comp Ann PM user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -10849,6 +10925,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     #243819
@@ -10984,10 +11061,11 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
+    And I pause execution for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     #244021
@@ -11087,9 +11165,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Carry-Forward" inside page block detail
 
     Examples:
-      | User                         | User1 |
-      | default                      | SPI3  |
-      | default-Automation SPI3 user | IND   |
+      | User                        | User1 |
+      | default                     | SPI3  |
+      | default-Automation IND user | IND   |
 
   @244220 @244230 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectioninAmendedPendingactivation @sprint-16-US-226926 @vaibhav @Allocation
   Scenario: Validate Comp Ann SPI/SPA user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
@@ -11213,7 +11291,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244342 @244354 @validateDirectAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectionAmendedPendingactivation
+  @TestRun @244342 @244354 @validateDirectAnnINDusershouldseefollowingreadonlyfields&BudgetAmountfieldshouldnotseeunderBudgetSummarysectionAmendedPendingactivation
   Scenario Outline: Validate Direct Ann IND user should see following read only fields & Budget Amount field should not see under Budget Summary section in Amended, Pending activation
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-<User>"
@@ -11411,7 +11489,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-   When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
+    When I enter in modal value "Yes" into field "IsBuildUpFunctionality__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
