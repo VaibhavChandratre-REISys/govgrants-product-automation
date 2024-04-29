@@ -312,7 +312,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236036 @VerifythatAdminCannotAddNotesInProgressreportRecordwhenrecordisinCreatedstateAndCanonlyEditDeletehisownnotes @sprint-12-US-234322 @hitesh @Notes
+  @236036  @sprint-12-US-234322 @hitesh @Notes @Debug
   Scenario: Verify that <Admin > Can not Add Notes In Progress report Record ,when record  is in Created state And Can only /Edit /Delete his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -347,13 +347,14 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
-    And I select "Progress Reports" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:progID}"
-    And I perform quick search for "{SavedValue:progID}" in "ProgressReports__c" panel
-    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "ProgressReports__c" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+#    And I select "Progress Reports" from dropdown for Global search
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
 
   @236041 @VerifythatSPIUsercanaddnotesinProgressreportrecordinCreatedstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes
   Scenario: Verify that <SPI> User can add notes in Progress report record in  Created states and edit /delete only his own notes
@@ -584,7 +585,6 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
@@ -598,6 +598,8 @@ Feature: Validate scenarios in Progress Report Notes
       | Name                        | Progress Report |
       | {SavedValue:ADMIN Username} | Step 1          |
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -775,7 +777,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
@@ -801,6 +802,7 @@ Feature: Validate scenarios in Progress Report Notes
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I wait for "3" seconds
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
