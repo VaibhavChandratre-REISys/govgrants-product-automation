@@ -1522,6 +1522,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                        |
@@ -1739,10 +1740,11 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved.Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @61090 @validateObjectiveNotDisplayedInPR @mahadev
   Scenario Outline: Validate if Objectives Required? field is No at Grant, then Objectives table should not present on Progress report at SR End
@@ -1941,18 +1943,25 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Submit for Approval" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     And I navigate to "Performance" sub tab
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:recipientAwardProgressReportTableId---" without waiting for record
     And I navigate to "Performance" sub tab
     And I save the field labeled "Perentage of Budget Remaining" as "PercentageRemainingBudget"
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Payment Request" into field "Title__c"
