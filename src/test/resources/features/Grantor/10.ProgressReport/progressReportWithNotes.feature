@@ -718,6 +718,8 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Completed"
     And I navigate to "Monitoring" tab
@@ -1155,6 +1157,8 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Completed"
