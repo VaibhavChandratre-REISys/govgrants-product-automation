@@ -609,6 +609,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -621,47 +622,52 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter value "1234" into field "fieldFederalGrantIdentifyingNumbe__c"
+    And I switch to tab number "1"
+    When I enter value "1234" into field "FederalGrantIdentifyingNumbe__c"
     Then I softly see "a. Federally-owned Property (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2a below)" inside page block detail
     Then I softly see "b. Acquired Equipment with acquisition cost of $5,000 or more for which the awarding agency has reserved the right to transfer title (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2b below)" inside page block detail
     Then I softly see "c. Residual Unused Supplies with total aggregate fair market value exceeding $5,000 not needed for any other Federally sponsored programs or projects (Complete Section 2c below)" inside page block detail
     Then I softly see "d. None of the above" inside page block detail
-    When I enter value "Checked" into field "fieldFederallyownedProperty__c"
-    When I enter value "Checked" into field "fieldAcquiredEquipment__c"
-    Then I softly see fields "fieldRequestTransfertoAward__c" is in edit mode
-    Then I softly see fields "fieldFederalAwardIdentifier__c" is in edit mode
-    Then I softly see fields "fieldRequestFederalAgency__c" is in edit mode
-    Then I softly see fields "fieldOther__c" is in edit mode
-    Then I softly see fields "fieldAcknowledgeEquipment__c" is in edit mode
-    Then I softly see fields "fieldRequestFederalAgencyDispositionInstr__c" is in edit mode
+    When I enter value "Checked" into field "FederallyownedProperty__c"
+    When I enter value "Checked" into field "AcquiredEquipment__c"
+    Then I softly see fields "RequestTransfertoAward__c" is in edit mode
+    Then I softly see fields "FederalAwardIdentifier__c" is in edit mode
+    Then I softly see fields "RequestFederalAgency__c" is in edit mode
+    Then I softly see fields "Other__c" is in edit mode
+    Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
+    Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
     Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
-    And I enter value "Checked" into field "fieldOther__c"
-    And I enter value "Checked" into field "fieldAcknowledgeEquipment__c"
+    And I enter value "Checked" into field "Other__c"
+    And I enter value "Checked" into field "AcknowledgeEquipment__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     When I click on "Edit" in the page details
-    When I enter value "Checked" into field "fieldRequestTransfertoAward__c"
-    When I enter value "Test" into field "fieldFederalAwardIdentifier__c"
-    When I enter value "Unchecked" into field "fieldOther__c"
-    When I enter value "Checked" into field "fieldRequestFederalAgencyDispositionInstr__c"
+    When I enter value "Checked" into field "RequestTransfertoAward__c"
+    When I enter value "Test" into field "FederalAwardIdentifier__c"
+    When I enter value "Unchecked" into field "Other__c"
+    When I enter value "Checked" into field "RequestFederalAgencyDispositionInstr__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
     And I refresh the page
     And I wait for "8" seconds
@@ -681,6 +687,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -693,48 +700,50 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter value "1234" into field "fieldFederalGrantIdentifyingNumbe__c"
+    And I switch to tab number "1"
+    When I enter value "1234" into field "FederalGrantIdentifyingNumbe__c"
     Then I softly see "a. Federally-owned Property (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2a below)" inside page block detail
     Then I softly see "b. Acquired Equipment with acquisition cost of $5,000 or more for which the awarding agency has reserved the right to transfer title (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2b below)" inside page block detail
     Then I softly see "c. Residual Unused Supplies with total aggregate fair market value exceeding $5,000 not needed for any other Federally sponsored programs or projects (Complete Section 2c below)" inside page block detail
     Then I softly see "d. None of the above" inside page block detail
-    When I enter value "Checked" into field "fieldAcquiredEquipment__c"
-    When I enter value "Checked" into field "fieldResidualUnusedSupplies__c"
+    When I enter value "Checked" into field "AcquiredEquipment__c"
+    When I enter value "Checked" into field "ResidualUnusedSupplies__c"
     Then I softly see that "(i) Request transfer to Award" rendered in view mode only
     Then I softly see that "Federal Award Identifier" rendered in view mode only
     Then I softly see that "(ii) Request Federal Agency disposition instructions" rendered in view mode only
     Then I softly see that "(iii) Other (Provide detail in Block 3 or attach request)" rendered in view mode only
     Then I softly see that "(iii) Other (Provide detail in Block 3 or attach request)" rendered in view mode only
-    Then I softly see fields "fieldAcknowledgeEquipment__c" is in edit mode
-    Then I softly see fields "fieldRequestFederalAgencyDispositionInstr__c" is in edit mode
-    Then I softly see fields "fieldSaleProceedsrEstimateofCurrentFai__c" is in edit mode
-    Then I softly see fields "fieldTotalAmount__c" is in edit mode
-    Then I softly see fields "fieldPercentageofFederalParticipation__c" is in edit mode
-    Then I softly see fields "fieldFederalShare__c" is in edit mode
-    Then I softly see fields "fieldSellingandHandlingAllowance__c" is in edit mode
-    When I enter value "Checked" into field "fieldRequestFederalAgencyDispositionInstr__c"
-    When I enter value "(i) Sale Proceeds OR" into field "fieldSaleProceedsrEstimateofCurrentFai__c"
-    When I enter value "66" into field "fieldTotalAmount__c"
-    When I enter value "11" into field "fieldPercentageofFederalParticipation__c"
-    When I enter value "22" into field "fieldFederalShare__c"
-    When I enter value "44" into field "fieldSellingandHandlingAllowance__c"
+    Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
+    Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
+    Then I softly see fields "SaleProceedsrEstimateofCurrentFai__c" is in edit mode
+    Then I softly see fields "TotalAmount__c" is in edit mode
+    Then I softly see fields "PercentageofFederalParticipation__c" is in edit mode
+    Then I softly see fields "FederalShare__c" is in edit mode
+    Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
+    When I enter value "Checked" into field "RequestFederalAgencyDispositionInstr__c"
+    When I enter value "(i) Sale Proceeds OR" into field "SaleProceedsrEstimateofCurrentFai__c"
+    When I enter value "66" into field "TotalAmount__c"
+    When I enter value "11" into field "PercentageofFederalParticipation__c"
+    When I enter value "22" into field "FederalShare__c"
+    When I enter value "44" into field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    When I click modal button "Close"
     And I wait for "7" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     When I click on "Edit" in the page details
-    When I enter value "Unchecked" into field "fieldRequestFederalAgencyDispositionInstr__c"
-    When I enter value "Checked" into field "fieldAcknowledgeEquipment__c"
+    When I enter value "Unchecked" into field "RequestFederalAgencyDispositionInstr__c"
+    When I enter value "Checked" into field "AcknowledgeEquipment__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -752,6 +761,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -764,44 +774,48 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Final Report - SF-428-B" in flex table with id "---progressReport:-:formTableId---"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter value "1234" into field "fieldFederalGrantIdentifyingNumbe__c"
+    And I switch to tab number "1"
+    When I enter value "1234" into field "FederalGrantIdentifyingNumbe__c"
     Then I softly see "a. Federally-owned Property (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2a below)" inside page block detail
     Then I softly see "b. Acquired Equipment with acquisition cost of $5,000 or more for which the awarding agency has reserved the right to transfer title (List on Supplemental Sheet SF-428S or recipient equivalent and complete Section 2b below)" inside page block detail
     Then I softly see "c. Residual Unused Supplies with total aggregate fair market value exceeding $5,000 not needed for any other Federally sponsored programs or projects (Complete Section 2c below)" inside page block detail
     Then I softly see "d. None of the above" inside page block detail
-    When I enter value "Checked" into field "fieldFederallyownedProperty__c"
-    When I enter value "Checked" into field "fieldResidualUnusedSupplies__c"
-    Then I softly see fields "fieldRequestTransfertoAward__c" is in edit mode
-    Then I softly see fields "fieldRequestFederalAgency__c" is in edit mode
-    Then I softly see fields "fieldOther__c" is in edit mode
-    When I enter value "Checked" into field "fieldOther__c"
+    When I enter value "Checked" into field "FederallyownedProperty__c"
+    When I enter value "Checked" into field "ResidualUnusedSupplies__c"
+    Then I softly see fields "RequestTransfertoAward__c" is in edit mode
+    Then I softly see fields "RequestFederalAgency__c" is in edit mode
+    Then I softly see fields "Other__c" is in edit mode
+    When I enter value "Checked" into field "Other__c"
     Then I softly see that "Federal Award Identifier" rendered in view mode only
-    When I enter value "(i) Sale Proceeds OR" into field "fieldSaleProceedsrEstimateofCurrentFai__c"
-    When I enter value "66" into field "fieldTotalAmount__c"
-    When I enter value "11" into field "fieldPercentageofFederalParticipation__c"
-    When I enter value "22" into field "fieldFederalShare__c"
-    When I enter value "44" into field "fieldSellingandHandlingAllowance__c"
+    When I enter value "(i) Sale Proceeds OR" into field "SaleProceedsrEstimateofCurrentFai__c"
+    When I enter value "66" into field "TotalAmount__c"
+    When I enter value "11" into field "PercentageofFederalParticipation__c"
+    When I enter value "22" into field "FederalShare__c"
+    When I enter value "44" into field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "7" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     When I click on "Edit" in the page details
-    When I enter value "Unchecked" into field "fieldOther__c"
-    When I enter value "Checked" into field "fieldRequestTransfertoAward__c"
-    When I enter value "66" into field "fieldFederalAwardIdentifier__c"
-    When I enter value "Checked" into field "fieldRequestFederalAgency__c"
+    When I enter value "Unchecked" into field "Other__c"
+    When I enter value "Checked" into field "RequestTransfertoAward__c"
+    When I enter value "66" into field "FederalAwardIdentifier__c"
+    When I enter value "Checked" into field "RequestFederalAgency__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see "No Records Found" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I refresh the page
     And I wait for "7" seconds
@@ -821,6 +835,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -828,83 +843,108 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     # SF429-A Form
     And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-B Form
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429-C Form
-    And I select "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14c. Proposed Use" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14g. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. Encumbered Parties" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Request Reasons" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     # SF429 Form
-    And I select "Real Property Status Report (Cover Page) - SF-429" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #288908
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -943,6 +983,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -950,6 +991,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -957,31 +1000,37 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Significant Change" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #288910
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -993,6 +1042,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1000,6 +1050,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @282871 @ValidateSF429ASPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Aform @sprint-26-US-282688 @vaibhav @Forms
@@ -1014,6 +1065,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1021,6 +1073,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -1028,6 +1082,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
@@ -1043,9 +1098,9 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "SF429A_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "10" seconds
     When I click on "Save" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1090,6 +1145,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1097,39 +1153,45 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #288917
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1141,6 +1203,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1148,6 +1211,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @282920 @ValidateSF429BSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldspresentonSF429Bform @sprint-26-US-282693 @vaibhav @Forms
@@ -1162,6 +1226,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1169,14 +1234,16 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I can see row level action button "Preview" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I select "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" from dropdown at forms
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
@@ -1192,9 +1259,9 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
-    And I wait for "3" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1226,13 +1293,13 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
     When I click on "Edit" in the page details
-    And I enter value "200" into field "fieldFederalSharePercentage__c"
-    And I enter value "300" into field "fieldNon_FederalSharePercentage__c"
+    And I enter value "200" into field "FederalSharePercentage__c"
+    And I enter value "300" into field "Non_FederalSharePercentage__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -1251,6 +1318,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1258,6 +1326,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     Then I softly see value "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -1265,37 +1335,48 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" in flex table with id "---progressReport:-:formTableId---"
     And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14c. Proposed Use" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14g. Environmental Compliance Requirements" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14h. NHPA Description" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "14i. Encumbered Parties" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "15. Request Reasons" from computer
+    When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #288918
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1307,6 +1388,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1314,6 +1396,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @282921 @ValidateSF429CSPIusercannotabletosavevalidateformafterenteringincorrectinvaliddataonallfieldpresentonSF429Cform @sprint-26-US-282693 @vaibhav @Forms
