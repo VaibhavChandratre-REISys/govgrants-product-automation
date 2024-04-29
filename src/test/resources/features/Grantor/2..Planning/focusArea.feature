@@ -1,7 +1,7 @@
 @focusArea @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios in Focus Area
 
-  @34512 @creationOfFocusArea @smoke @training
+  @34512 @creationOfFocusArea @smoke @training @Debug
   Scenario: Creation of Focus Area by User - Admin/EXE/PM
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab

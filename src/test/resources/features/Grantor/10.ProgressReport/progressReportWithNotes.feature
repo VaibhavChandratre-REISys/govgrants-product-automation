@@ -1109,7 +1109,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|

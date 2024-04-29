@@ -171,7 +171,7 @@ Feature: Validate all scenarios of grants and award without background
     And I calculate the total from the column header "Subaward Amount" and saved it as "closedTotal" from the flex table "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see total as "{SavedValue:closedTotal}" against column name "Subaward Amount" from flex table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65619 @65578 @65586 @65573 @validateFieldsAtGrant @jitendra @buglogged127963 @Debug
+  @65619 @65578 @65586 @65573 @validateFieldsAtGrant @jitendra @buglogged127963
   Scenario: To verify Budget period end date entered by Award owner should be same when owner click on save button.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
