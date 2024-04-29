@@ -43,12 +43,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
       | Step Order | Step Name       | Description |
@@ -63,6 +64,8 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -368,6 +371,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1073,18 +1077,14 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1199,12 +1199,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
@@ -1216,6 +1217,8 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab

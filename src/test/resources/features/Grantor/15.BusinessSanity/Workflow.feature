@@ -1532,31 +1532,18 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug1
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#  @debug
+#  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    When I am on "SUBPORTAL" portal
 #    And I login to "Grants Portal" app as "SPI3" user
 #    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
 #    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I wait for "5" seconds
-    When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I wait for "4" seconds
-    And I click modal button "Close"
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I switch to parent tab
-#    And I click on "Back" in the page details
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
+    When I navigate to "Responsibilities" sub tab
+    And I click on top right button "New" in flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
+#    And I select value "{SavedValue:FO Username}" into field "input-1"
+    And I enter value "NA" into field "ReimbursementRole__c"
+    And I click on "Remove record" icon for "Step 1" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" without waiting for record
+    Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---"
+

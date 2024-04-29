@@ -206,8 +206,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I pause execution for "3" seconds
     And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -224,6 +222,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

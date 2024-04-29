@@ -699,7 +699,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I see the following messages in the page details contains:
       | Another request for this subaward is already in progress. You cannot process this request. |
 
-  @56856 @NoDeleteIconAfterSentToSubRecipientForFundingChangeSPI @jitendra @poojaAmendmnet @Debug
+  @56856 @NoDeleteIconAfterSentToSubRecipientForFundingChangeSPI @jitendra @poojaAmendmnet
   Scenario: Verify Once Internal user sent request to sub recipient than cannot Delete the same request.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
