@@ -1,5 +1,5 @@
 @grantor-regression @grantor-parallel-regression @progressReport @progressReportFormsVaibhav @regression
-Feature: Validate scenarios in Progress Report Forms 
+Feature: Validate scenarios in Progress Report Forms
 
   @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679 @vaibhav @Forms @wip
   Scenario: Validate SF428 B validation should be display on parent form SF428 if child form not validated but select yes on parent form
