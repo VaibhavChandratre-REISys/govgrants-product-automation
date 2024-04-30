@@ -599,7 +599,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent" is required, If "1b " is checked in 'Report' section. |
 
-  @285604 @ValidateSF428BUsershouldvalidateformwhenuserselect1a2bformfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2bfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms
+  @285604 @ValidateSF428BUsershouldvalidateformwhenuserselect1a2bformfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2bfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms @TBECheck1
   Scenario: Validate SF428 BUser should validate form when user select 1a & 2b form from 1.1 section & select any one option from 2a & one option from 2b field & select related files in files section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -677,7 +677,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @285605 @ValidateSF428BUsershouldvalidateformwhenuserselect1b2cformfrom11sectionselectanyoneoptionfrom2boneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms
+  @285605 @ValidateSF428BUsershouldvalidateformwhenuserselect1b2cformfrom11sectionselectanyoneoptionfrom2boneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms @TBECheck1
   Scenario: Validate SF428 B User should validate form when user select 1b 2c form from 1.1 section & select any one option from 2b & one option from 2c field & select related files in files section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -751,7 +751,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @285606 @ValidateSF428BUsershouldvalidateformwhenuserselect1a1coptionfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms
+  @285606 @ValidateSF428BUsershouldvalidateformwhenuserselect1a1coptionfrom11sectionselectanyoneoptionfrom2aoneoptionfrom2cfieldselectrelatedfilesinfilessection @sprint-25-US-280119 @vaibhav @Forms @TBECheck1
   Scenario: Validate SF428 B User should validate form when user select 1a & 1c option from 1.1 section & select any one option from 2a & one option from 2c field & select related files in files section
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -825,7 +825,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms
+  @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms @TBECheck1
   Scenario: Validate SF429 SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-429 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
