@@ -3118,7 +3118,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63110  @validateSubmittedForApprovalPRStatusAfterCloseoutApproval @mahadev
+  @63110 @validateSubmittedForApprovalPRStatusAfterCloseoutApproval @mahadev
   Scenario Outline: Verify Progress report with Submitted for approval status changed to  Force Closed when closeout request is approved with type as Termination by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
