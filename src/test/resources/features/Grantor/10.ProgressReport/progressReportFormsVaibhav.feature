@@ -2144,7 +2144,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
@@ -2157,11 +2157,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+      | Value                                       | Field                      |
+      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
