@@ -955,6 +955,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -1036,7 +1038,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -1198,6 +1201,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -1383,6 +1388,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -1837,6 +1844,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2823,6 +2832,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -3207,6 +3218,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -3461,6 +3474,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -3607,6 +3622,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 3000                 | 150        | 150            |
     And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -3754,6 +3770,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
