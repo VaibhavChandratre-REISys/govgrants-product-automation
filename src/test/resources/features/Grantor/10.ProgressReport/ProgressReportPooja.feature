@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression
 Feature: Validate scenarios in Progress Report without background
 
-  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448 @Debug
+  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448
   Scenario: Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
   Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. | Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AWARD_NO_SUPPORTINGDOC_PROGRAM" of type "Competitive"
