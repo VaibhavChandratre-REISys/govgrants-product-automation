@@ -3118,7 +3118,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun1 @63110  @validateSubmittedForApprovalPRStatusAfterCloseoutApproval @mahadev
+  @63110  @validateSubmittedForApprovalPRStatusAfterCloseoutApproval @mahadev
   Scenario Outline: Verify Progress report with Submitted for approval status changed to  Force Closed when closeout request is approved with type as Termination by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3282,7 +3282,8 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
-    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -3305,6 +3306,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Override" in the page details
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
+    And I refresh the page
     And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3399,7 +3401,8 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
-    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -3422,7 +3425,8 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Override" in the page details
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" secondss
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
