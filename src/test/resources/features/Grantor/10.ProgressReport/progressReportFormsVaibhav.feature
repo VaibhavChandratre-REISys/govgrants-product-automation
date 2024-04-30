@@ -2174,6 +2174,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I navigate to "Setup" sub tab
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
     And I wait for "3" seconds
+    When I click on button "resetIcon" in flex table with id "---program:-:previewPackageTableId---"
     And I select value inside table "---program:-:previewPackageTableId---" is "20"
     Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
