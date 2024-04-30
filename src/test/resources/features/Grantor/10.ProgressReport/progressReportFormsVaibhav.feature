@@ -1535,28 +1535,29 @@ Feature: Validate scenarios in Progress Report Forms
       | 11d. Email Address of Authorized Certifying Official is required to save.                               |
       | 11e. Date report submitted (MM/DD/YYYY) is required to save.                                            |
     And I enter values into fields
-      | Value            | Field                                  |
-      | 1234             | FederalAgencyandOrganizationalSF429__c |
-      | Health           | FederalGrantIdentifyingNumberSF429__c  |
-      | Automation Org   | RecipientOrganizationNameSF429__c      |
-      | 123              | Street1SF428__c                        |
-      | New York         | CitySF428__c                           |
-      | FL: Florida      | StateSf428__c                          |
-      | 12345            | ZipPostalCodeSF428__c                  |
-      | John             | FirstNameSF428__c                      |
-      | Matthew          | LastNameSF428__c                       |
-      | john@yopmail.com | EmailAddress__c                        |
-      | 9786903473       | Telephone__c                           |
-      | Checked          | AttachmentA__c                         |
-      | Checked          | AttachmentB__c                         |
-      | Checked          | AttachmentC__c                         |
-      | John             | TypeorPrintedFirstName__c              |
-      | Matthew          | TypeorPrintedLastName__c               |
-      | Associate        | TypeorPrintedTitle__c                  |
-      | John Matthew     | SubmittedBySF428__c                    |
-      | 9786903473       | Telephone2__c                          |
-      | auto@yopmail.com | EmailAddress2__c                       |
-      | 0                | DateReportSubmittedSF428__c            |
+      | Value              | Field                                  |
+      | 1234               | FederalAgencyandOrganizationalSF429__c |
+      | Health             | FederalGrantIdentifyingNumberSF429__c  |
+      | Automation Org     | RecipientOrganizationNameSF429__c      |
+      | 123                | Street1SF428__c                        |
+      | New York           | CitySF428__c                           |
+      | FL: Florida        | StateSf428__c                          |
+      | 12345              | ZipPostalCodeSF428__c                  |
+      | USA: UNITED STATES | CountrySF428__c                        |
+      | John               | FirstNameSF428__c                      |
+      | Matthew            | LastNameSF428__c                       |
+      | john@yopmail.com   | EmailAddress__c                        |
+      | 9786903473         | Telephone__c                           |
+      | Checked            | AttachmentA__c                         |
+      | Checked            | AttachmentB__c                         |
+      | Checked            | AttachmentC__c                         |
+      | John               | TypeorPrintedFirstName__c              |
+      | Matthew            | TypeorPrintedLastName__c               |
+      | Associate          | TypeorPrintedTitle__c                  |
+      | John Matthew       | SubmittedBySF428__c                    |
+      | 9786903473         | Telephone2__c                          |
+      | auto@yopmail.com   | EmailAddress2__c                       |
+      | 0                  | DateReportSubmittedSF428__c            |
     When I click on "Save" in the page details
     And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
@@ -1576,6 +1577,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"

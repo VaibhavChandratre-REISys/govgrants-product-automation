@@ -153,7 +153,8 @@ public final class InputForms {
         }
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         I.amPerforming().waitFor().makeThreadSleep(2000);
-        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+        I.amPerforming().scroll().onPageToSpecificElement(fieldWrapperLocator);
+//        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
         if ("".equalsIgnoreCase(fieldValue)) {
             handleClearingFormDataInputs(fieldWrapper);
         } else {
