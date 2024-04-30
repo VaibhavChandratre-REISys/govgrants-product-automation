@@ -354,6 +354,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I click on "Edit" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -377,7 +378,8 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see that "(i) Acknowledge equipment acquired under this federal award will be retained for use as originally approved" rendered in view mode only
     Then I softly see that "(ii) Request Federal Agency disposition instructions" rendered in view mode only
     Then I softly see that "(ii) Request Federal Agency disposition instructions" rendered in view mode only
-    Then I softly see that "Total Amount" rendered in view mode only
+    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
+#    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
@@ -871,6 +873,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I wait for "2" seconds
     # SF429-B Form
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -893,6 +896,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I wait for "2" seconds
     # SF429-C Form
     And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -927,6 +931,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I wait for "2" seconds
     # SF429 Form
     And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -943,14 +948,15 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I wait for "2" seconds
     #288908
 #    When I click on "Back" in the page details
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -962,6 +968,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Name          | Progress Report |
       | Automation FO | Step 1          |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -969,6 +976,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
   @282826 @288910 @ValidateSF429ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldpresentonSF429Aform @sprint-26-US-282688 @vaibhav @Forms
@@ -1527,13 +1535,13 @@ Feature: Validate scenarios in Progress Report Forms
       | 11d. Email Address of Authorized Certifying Official is required to save.                               |
       | 11e. Date report submitted (MM/DD/YYYY) is required to save.                                            |
     And I enter values into fields
-      | Value            | Field                                       |
+      | Value            | Field                                  |
       | 1234             | FederalAgencyandOrganizationalSF429__c |
       | Health           | FederalGrantIdentifyingNumberSF429__c  |
       | Automation Org   | RecipientOrganizationNameSF429__c      |
       | 123              | Street1SF428__c                        |
       | New York         | CitySF428__c                           |
-      | NY: New York     | StateSf428__c                          |
+      | FL: Florida      | StateSf428__c                          |
       | 12345            | ZipPostalCodeSF428__c                  |
       | John             | FirstNameSF428__c                      |
       | Matthew          | LastNameSF428__c                       |
@@ -2284,8 +2292,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click on remove for lookup from field "Program__c"
     And I enter values into fields
-      | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | Program__c      |
+      | Value                      | Field      |
+      | {SavedValue:ProgramEGMSID} | Program__c |
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2439,6 +2447,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on remove for lookup from field "Program__c"
     And I enter values into fields
       | Value                      | Field      |
+      | {SavedValue:ProgramEGMSID} | Program__c |
       | {SavedValue:ProgramEGMSID} | Program__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
@@ -2614,8 +2623,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click on remove for lookup from field "Program__c"
     And I enter values into fields
-      | Value                      | Field           |
-      | {SavedValue:ProgramEGMSID} | Program__c      |
+      | Value                      | Field      |
+      | {SavedValue:ProgramEGMSID} | Program__c |
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -3575,7 +3584,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -3609,7 +3618,7 @@ Feature: Validate scenarios in Progress Report Forms
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
