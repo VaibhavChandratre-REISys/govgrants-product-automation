@@ -1537,5 +1537,4 @@ Feature: Validate all scenarios of every modules flow
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I halt execution
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" with quotes

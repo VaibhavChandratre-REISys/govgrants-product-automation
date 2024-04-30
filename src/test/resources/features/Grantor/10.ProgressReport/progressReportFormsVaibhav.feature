@@ -875,7 +875,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     And I wait for "2" seconds
     # SF429-B Form
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -1169,7 +1169,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
@@ -1250,7 +1250,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" in flex table with id "---progressReport:-:formTableId---"
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0016"
     Then I see the page contains text "Expiration Date: 02/28/2025"
@@ -1651,7 +1651,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-B Form
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -1822,6 +1822,7 @@ Feature: Validate scenarios in Progress Report Forms
       | r. Rehabilitation grants (100% reimbursement)        | 12345    | 12345     | 12345      |
       | t. Federal payments previously requested             | 12345    | 12345     | 12345      |
       | u. Amount requested for reimbursement                | 12345    | 12345     | 12345      |
+    And I refresh the page
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -2443,12 +2444,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click on remove for lookup from field "Program__c"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:ProgramEGMSID} | Program__c |
-      | {SavedValue:ProgramEGMSID} | Program__c |
+      | Value                                       | Field                      |
+      | {SavedValue:ProgramEGMSID}                  | Program__c                 |
+      | Automation Runtime Competitive Announcement | AnnouncementName__c        |
+      | Construction                                | Budget_Category_Package__c |
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -3089,7 +3089,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-B Form
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -3381,7 +3381,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-B Form
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF429B_half_fill" values from "ProgressReport_Field_Values.xlsx"
