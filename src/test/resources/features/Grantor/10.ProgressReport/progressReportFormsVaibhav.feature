@@ -2607,7 +2607,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
     Then I delete the record "{SavedValue:announcementName}" from the object "announcement"
 
-  @286633 @ValidatePMusercanseebelow13formsonPreviewmodalofpackageswhenuserclickonviewicononGrantorProgressReportFormsunderBusinessFormssectiononFilestabofGrant @sprint-1-US-278368 @vaibhav @Forms @Buglogged-339404
+  @286633 @ValidatePMusercanseebelow13formsonPreviewmodalofpackageswhenuserclickonviewicononGrantorProgressReportFormsunderBusinessFormssectiononFilestabofGrant @sprint-1-US-278368 @vaibhav @Forms @Buglogged-339404 @TBECheck
   Scenario: Validate PM user can see below 13 forms on Preview modal of packages when user click on view icon on Grantor Progress Report Forms under Business Forms section on Files tab of Grant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2634,7 +2634,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
@@ -2766,7 +2766,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Active" for title "Status" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
 
-  @340112 @ValidateSF429AthatUsershouldnotbeabletoenterfromdategreaterthanTodate @sprint-12-US-328869
+  @340112 @ValidateSF429AthatUsershouldnotbeabletoenterfromdategreaterthanTodate @sprint-12-US-328869 @TBECheck
   Scenario: Validate SF 429A that User should not be able to enter from date greater than To date
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2820,7 +2820,7 @@ Feature: Validate scenarios in Progress Report Forms
       | From date cannot be after To date in the "Period and type of Federal Interest" section.  |
       | To date cannot be before From date in the "Period and type of Federal Interest" section. |
 
-  @329629 @Validateusershouldabletosubmitandapprovedprogressreportwithoutfillingdatainanyfieldinall13forms @sprint-11-US-328863 @vaibhav @Forms
+  @329629 @Validateusershouldabletosubmitandapprovedprogressreportwithoutfillingdatainanyfieldinall13forms @sprint-11-US-328863 @vaibhav @Forms @TBECheck
   Scenario: Validate user should able to submit and approved progress report without filling data in any field in all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2936,7 +2936,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
 
-  @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @vaibhav @Forms  @EndToEndFlow
+  @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @vaibhav @Forms  @EndToEndFlow @TBECheck
   Scenario: Validate user should be able to submit and approved progress report with filling all data on all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3258,7 +3258,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @329635 @Validateusershouldabletosubmitandaprovedprogressreportwithfillingpartialdataforsomefieldsondifferentdifferentformsfromall13forms @sprint-11-US-328863 @vaibhav @Forms @EndToEndFlow
+  @329635 @Validateusershouldabletosubmitandaprovedprogressreportwithfillingpartialdataforsomefieldsondifferentdifferentformsfromall13forms @sprint-11-US-328863 @vaibhav @Forms @EndToEndFlow @TBECheck
   Scenario: Validate user should able to submit and approved progress report with filling partial data for some fields on different different forms from all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3514,7 +3514,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @vaibhav @Forms @EndToEndFlow
+  @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @vaibhav @Forms @EndToEndFlow @TBECheck
   Scenario: Validate user should be able to edit all forms on the progress report which is reparented to new award after FC amendment request and approve progress report successfully Pre-condition Partially filled some forms on Progress report of Initial award
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
