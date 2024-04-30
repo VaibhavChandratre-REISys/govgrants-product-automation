@@ -1130,8 +1130,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Value in "Petroleum" cannot be less than zero.                                                                                               |
       | Value in "Natural Gas" cannot be less than zero.                                                                                             |
       | Value in "Other" cannot be less than zero.                                                                                                   |
-      #Below Is the Framework side logged bug Bug Id:- 321742 Once this resolved update the error message
-      | If \"Other\" is selected in \"Real Property Ownership Type\", Description is required.                                                       |
+      | If "Other" is selected in "Real Property Ownership Type", Description is required.                                                       |
       | If "Yes" is selected in section 14g, Describing the Instrument used is mandatory.                                                            |
       | If "Yes" is selected in section 14g, Date is mandatory.                                                                                      |
       | If "Yes" is selected in section 14g, Entering the Jurisdiction is mandatory.                                                                 |
@@ -1280,7 +1279,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
       | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
-      | If \"Other\" is selected in \"Real Property Ownership Type\", Description is required.                                                       |
+      | If "Other" is selected in "Real Property Ownership Type", Description is required.                                                       |
       | Unit type is required, if amount entered in "14d. Land Acreage or Square Units".                                                             |
       | Unit type is required, if amount entered in "14e. Gross and Usable Square Footage/Meters".                                                   |
       | Values can only be entered against the Electric (KWh) or Electric (Btu) in section "14k"                                                     |
