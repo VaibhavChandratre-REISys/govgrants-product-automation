@@ -3202,6 +3202,8 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
