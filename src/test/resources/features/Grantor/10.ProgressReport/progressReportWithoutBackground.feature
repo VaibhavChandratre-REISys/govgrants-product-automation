@@ -2862,8 +2862,11 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Override" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
