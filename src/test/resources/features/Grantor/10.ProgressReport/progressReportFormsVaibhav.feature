@@ -2288,7 +2288,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "3" seconds
