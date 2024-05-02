@@ -1536,5 +1536,3 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I halt execution
-    And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" with quotes

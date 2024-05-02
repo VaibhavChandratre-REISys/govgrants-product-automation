@@ -60,6 +60,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "Save" in the page details
     #    And I click on "Back" in the page details
     And I close the tab
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
