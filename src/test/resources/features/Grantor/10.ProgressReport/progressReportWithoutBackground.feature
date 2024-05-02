@@ -2403,7 +2403,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun @63111 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtTermination @jitendra
+  @63111 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtTermination @jitendra
   Scenario Outline: Verify Progress report with Submitted to Grantor status changed to  Force Closed when closeout request is approved with type as Termination by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2496,7 +2496,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun @63105 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtEarlyCompletion @jitendra
+  @63105 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtEarlyCompletion @jitendra
   Scenario Outline: Verify Progress report with Submitted to Grantor status changed to Force Closed when closeout request is approved with type as Early completion by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2588,7 +2588,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun @63106  @validateReviewedPRStatusAfterCloseoutApproval @mahadev
+  @63106  @validateReviewedPRStatusAfterCloseoutApproval @mahadev
   Scenario Outline: Verify Progress report with Reviewed status changed to Force Closed when closeout request is approved with type as Early completion by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
