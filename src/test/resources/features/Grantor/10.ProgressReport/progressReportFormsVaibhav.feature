@@ -3502,7 +3502,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
-      | Fill all the required data in the form before submitting. |
+      | Form cannot be validated because data is missing in one or more fields that are required to submit. To view the fields that are required to submit, click the Edit button. |
 #    When I click on "Back" in the page details
     And I close the tab
     And I navigate to "Performance" sub tab
