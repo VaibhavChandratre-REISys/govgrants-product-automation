@@ -3255,7 +3255,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun1 @63113 @validateSentBackTOSRPRStatusAfterCloseoutApproval  @mahadev
+  @63113 @validateSentBackTOSRPRStatusAfterCloseoutApproval  @mahadev
   Scenario Outline: Verify Progress report with Sent Back to SR User status changed to Force Closed when closeout request is approved with type as Termination by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3360,7 +3360,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @hitRun1 @63114  @validateApprovedPRStatusAfterTerminationCloseoutApproval  @mahadev
+  @63114  @validateApprovedPRStatusAfterTerminationCloseoutApproval  @mahadev
   Scenario Outline: Verify Progress report with Approved status did not changed when closeout request is approved with type as Termination by award owner at SR user end overview Management Tab on Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3458,7 +3458,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I refresh the page
-    And I wait for "2" secondss
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -3490,6 +3490,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "ProgressReport1"
@@ -3499,12 +3500,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3539,6 +3542,7 @@ Feature: Validate scenarios in Progress Report without background
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -3546,6 +3550,8 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
+    And I refresh the page
+    And I wait for "3" seconds
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -3555,6 +3561,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I click on "Acknowledge" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
@@ -3564,8 +3571,11 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Override" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -3614,6 +3624,8 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
+    And I refresh the page
+    And I wait for "2" seconds
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -3623,7 +3635,9 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Acknowledge" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3632,8 +3646,11 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Override" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
