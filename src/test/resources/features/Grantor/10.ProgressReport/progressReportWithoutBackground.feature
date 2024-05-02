@@ -3805,6 +3805,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "InternalOrganization_Field_Values.xlsx" of type "Invoice" from computer
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
