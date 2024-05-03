@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression
+@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @PayReqExecution
 Feature: Validate all scenarios in Payment Request with add file
 
   @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
@@ -31,13 +31,13 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
     #193959
-    And I click on "Edit" icon for "{SavedValue:AttachedFile}" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I select Classification as "Receipt" at upload file modal
     When I click modal button "Save"
     Then I softly see value "Receipt" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    And I click on "Delete" icon for "{SavedValue:AttachedFile}" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---" without waiting for record
+    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I softly do not see value "{SavedValue:AttachedFile}" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
   @193834 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify SPA user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR in created state

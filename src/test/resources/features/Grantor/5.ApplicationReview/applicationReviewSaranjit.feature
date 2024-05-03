@@ -948,7 +948,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @done @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment
+  @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment
   Scenario Outline: Validate Application Review' task of management review should be generated for assigned reviewer FO user and he can reassign review task to other FO user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1057,7 +1057,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"

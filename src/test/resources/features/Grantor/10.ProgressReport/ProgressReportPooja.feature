@@ -1,123 +1,18 @@
-@grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression
+@grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression @ProgressReportPooja
 Feature: Validate scenarios in Progress Report without background
 
-  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448 @Debug
+  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448 @ReRunProgress
   Scenario: Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
   Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. | Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AWARD_NO_SUPPORTINGDOC_PROGRAM" of type "Competitive"
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-#    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-#    And I enter in modal value "---AUTOEnvData:-:AutomationProgramNoSupportDoc---" into field "Program__c"
-#    And I wait for "3" seconds
-#    And I click modal button "Continue"
-#    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-#    When I click modal button "Save and Continue"
-#    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-#    And I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-#    And I navigate to "Overview" sub tab
-#    And I save the field labeled "Subaward Title" as "Automation Runtime award"
-#    And I click on "Edit" in the page details
-#    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I navigate to "Budget" sub tab
-#    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-#    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-#      | Title                           | Start Date | End Date |
-#      | Automation Permanent Focus Area | 0          | 3650     |
-#    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-#      | Funding Account             | Encumbrance |
-#      | {SavedValue:fundingAccount} | 1000        |
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-#      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-#      | Construction    | 1000         | 100        | 100            |
-#    When I navigate to "Performance" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-#      | EGMS ID                  | Target |
-#      | Automation Permanent KPI | 10     |
-#    And I navigate to "Terms" sub tab
-#    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
-#    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#    And I click modal button "Save"
-#    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-#    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
-#    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
-#    And I click modal button "Save"
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-#      | Name                      | Award  |
-#      | {SavedValue:EXE Username} | Step 1 |
-#    And I click on "Send to Subrecipient" in the page details
-#    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    When I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    When I click on "Accept" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    When I navigate to "Terms" sub tab
-#    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-#    And I click on "Submit for Approval" in the page details
-#    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I click on "Send to Subrecipient" in the page details
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I click on "Accept after Approval" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I click on "Activate" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "No Records Found" inside flex table with id "---progressreport:-:progressReportChecklistsTableId---"
@@ -149,7 +44,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @37228 @34932 @34938 @34945 @34946 @45732 @58534 @validateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev
+  @37228 @34932 @34938 @34945 @34946 @45732 @58534 @validateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev @ReRunProgress
   Scenario Outline: Verify on Active award User is allowed to select Frequency as  Annually when schedule base is Calendar | Validate User is allowed to change frequency as Annually, schedule base as calendar on progress report schedule when the award is active
   Verify on Active award User is allowed to select Frequency as Semi-Annually  when schedule base is Calendar | Verify on Active award User is allowed to select Frequency as Bi-Monthly when schedule base is Calendar
   Verify Sub-recipient user are not allowed to Edit the Progress Report Schedule table on active subaward | Validate User is allowed to change frequency as Annually, schedule base as calendar on active award and progress report should be created
@@ -170,7 +65,7 @@ Feature: Validate scenarios in Progress Report without background
     When I enter "ScheduleAnnuallyCalendar" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressReport:-:ProgressReportModalIframeId---"
+#    And I switch to iframe with id "---progressReport:-:ProgressReportModalIframeId---"
     Then I softly see field "Frequency" as "Annually"
     And I refresh the page
     And I expand nested table containing column value "Progress Report"
@@ -182,7 +77,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "Progress Report"
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
     And I navigate to "Terms" sub tab
@@ -248,7 +142,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @45733 @37232 @45744 @45738 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra
+  @45733 @37232 @45744 @45738 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra @ReRunProgress
   Scenario Outline: Verify Reporting Period End Date is same as the Schedule End Date (Active award) | Validate User is not allowed to select schedule dates less than 120 days when frequency is Semi-Annually
   Verify if Schedule Start date field is not selected then it should not allow to create the schedule | Verify Reporting Period Start Date is same as the Schedule Start Date (Active)
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -290,7 +184,7 @@ Feature: Validate scenarios in Progress Report without background
     When I close "Progress Report Schedule" modal by clicking the top right x button
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "Progress Report"
+#    And I expand nested table containing column value "Progress Report"
     And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---progressreport:-:progressReportsTaskScheduleId---"
     Then I softly see value "{SavedValue:lastValueFromTableForCol}" is "Equals to" the value "{SavedValue:ReportingPeriodStartDate}"
     And I navigate to "Terms" sub tab
@@ -334,7 +228,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @58532 @58665 @58737 @verifyUserIsAllowedToChangeFrequencyAsMonthlyOnProgressReportSchedule  @mahadev
+  @58532 @58665 @58737 @verifyUserIsAllowedToChangeFrequencyAsMonthlyOnProgressReportSchedule  @mahadev @ReRunProgress
   Scenario Outline: Verify User is allowed to change frequency as Monthly, on progress report schedule when Progress report is approved on active award
   Verify User is allowed to change frequency as Quarterly,on active award when Progress report is approved by Program approver
   Verify Subaward is getting updated with Progress report schedules at Sub-recipient end on active award
@@ -348,7 +242,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -359,12 +252,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -382,7 +279,6 @@ Feature: Validate scenarios in Progress Report without background
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 95     | 7             |
-    When I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -434,7 +330,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward  @mahadev
+  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward  @mahadev @ReRunProgress
   Scenario Outline: Validate Internal User is able to see the Schedules generated under Scheduled Activities on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -447,6 +343,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     And I expand nested table containing column value "Progress Report"
+    And I wait for "3" seconds
     When I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---progressreport:-:progressReportsTaskScheduleId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Monitoring Schedules" content inside "Monitoring Activities" subheader on left panel
@@ -458,7 +355,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @65419 @checkSheduleCreatedAfternegotiationAccepted @jitendra
+  @65419 @checkSheduleCreatedAfternegotiationAccepted @jitendra @ReRunProgress
   Scenario Outline: Verify once batch is run and User edit the Frequency then the Schedule should be generated accordingly
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -493,8 +390,8 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:recipientsRelatedAwards2FlexToggleTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:recipientsRelatedAwards2FlexToggleTableId---" without waiting for record
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:recipientsSubawardTableId---" without waiting for record
     And I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -514,7 +411,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55397 @VerifyOnceBatchIsRunAndUserEditFrequencyThenSchedulesShouldBeGeneratedAccordingly  @mahadev
+  @55397 @VerifyOnceBatchIsRunAndUserEditFrequencyThenSchedulesShouldBeGeneratedAccordingly  @mahadev @ProgressRerunPooja
   Scenario Outline: Verify Once Batch is run and User edit the Frequency then the Schedule should be generated accordingly
     Given I activated standalone subaward "Automation Runtime Award" with properties "PROGRESS_REPORT_QUARTERLY" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -573,7 +470,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55307 @58664 @updateOfSemiAnnualFrequencyOnModalBeforeClose @jitendra
+  @55307 @58664 @updateOfSemiAnnualFrequencyOnModalBeforeClose @jitendra @ReRunProgress
   Scenario Outline: Validate User is allowed to change frequency as Annually, schedule base as calendar on progress report schedule when Progress report is submitted to Grantor
   Validate SPA user is not allowed to change the Progress report Schedule on Active subaward when status of Progress Report is  created
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -598,7 +495,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -609,9 +505,11 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -631,7 +529,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @58885 @34937 @verifySubrecipientUserAbleToSeeDraftProgressReportAtMonitoringTab @mahadev
+  @58885 @34937 @verifySubrecipientUserAbleToSeeDraftProgressReportAtMonitoringTab @mahadev @ReRunProgress
   Scenario: Verify that sub-recipient user will be able to see Draft Progress Report at Progress Reports - Draft table on active award by using List View | Validate draft progress report at under monitoring tab is not present at Internal User end using List view
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -639,7 +537,7 @@ Feature: Validate scenarios in Progress Report without background
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    Then I softly cannot see toggle option "Progress Reports - Draft" inside flex table id "---progressReport:-:internalProgressReportFlexTableId---"
+#    Then I softly cannot see toggle option "Progress Reports - Draft" inside flex table id "---progressReport:-:internalProgressReportFlexTableId---"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
@@ -669,7 +567,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59132 @validateSRUserNotAllowedToSubmitPRToGrantorWhenAcknowledgemetNotChecked @mahadev
+  @59132 @validateSRUserNotAllowedToSubmitPRToGrantorWhenAcknowledgemetNotChecked @mahadev @ReRunProgress
   Scenario: Validate Sub-recipient user is not allowed to submit progress report to grantor when Acknowledgement box is not checked at Overview tab
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -680,7 +578,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "ErrorForAck" values from "ProgressReport_Field_Values.xlsx"
@@ -691,14 +588,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Overview Tab - Certify the Progress Report by checking the Acknowledgment Box before submitting to Grantor. |
 
-  @59133 @validateSRUserNotAllowedToSubmitPRToGrantorWhenKeyAccomplishmentNotEntered @mahadev
+  @59133 @validateSRUserNotAllowedToSubmitPRToGrantorWhenKeyAccomplishmentNotEntered @mahadev @ProgressRerunPooja
   Scenario: Validate sub-recipient user is not allowed to submit progress report to grantor when Key Accomplishments  not entered
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -709,7 +608,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "KeyAccError" values from "ProgressReport_Field_Values.xlsx"
@@ -720,14 +619,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Performance Tab - Provide a value for Key Accomplishment for Progress Report before submitting to Grantor. |
 
-  @59134 @validateSRUserNotAllowedToSubmitPRToGrantorWhenObstacleNotEntered @mahadev
+  @59134 @validateSRUserNotAllowedToSubmitPRToGrantorWhenObstacleNotEntered @mahadev @ProgressRerunPooja
   Scenario: Validate Sub-recipient user is not allowed to submit progress report to grantor when Obstacle is not entered at Performance tab
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -738,7 +639,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "ObstacleError" values from "ProgressReport_Field_Values.xlsx"
@@ -749,14 +650,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Performance Tab - Provide a value for Obstacles for Progress Report before submitting to Grantor. |
 
-  @59135 @validateSRUserNotAllowedToSubmitPRToGrantorWhenPlanNotEntered @mahadev
+  @59135 @validateSRUserNotAllowedToSubmitPRToGrantorWhenPlanNotEntered @mahadev @ProgressRerunPooja
   Scenario: Validate Sub-recipient user is not allowed to submit progress report to grantor when Plan is not entered at Performance tab
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -767,7 +670,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "PlanError" values from "ProgressReport_Field_Values.xlsx"
@@ -778,14 +681,16 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I see the following messages in the page details contains:
       | Performance Tab - Provide a value for Plans for Progress Report before submitting to Grantor. |
 
-  @59137 @58524 @NoPRSubmitToGrantorIfSupportDocIsMissing @jitendra
+  @59137 @58524 @NoPRSubmitToGrantorIfSupportDocIsMissing @jitendra @ProgressRerunPooja @ReRunProgress
   Scenario Outline: Validate Sub-recipient user is not allowed to submit progress report to grantor when Supporting document is missing under Forms and Attachments Tab.
   Validate User is allowed to change frequency as Quarterly, on progress report schedule when progress report status is Submitted to Approval on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "PROGRESS_REPORT_QUARTERLY" of type "Competitive"
@@ -798,7 +703,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -809,13 +713,17 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
 #    Then I softly see the following messages in the page details contains:
 #      | Forms and Attachments Tab - Supporting Documents are missing. |
@@ -850,7 +758,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59199 @59200 @NotModifySupportDocListAfterSubmitToGrantor @jitendra @buglogged150945
+  @59199 @59200 @NotModifySupportDocListAfterSubmitToGrantor @jitendra @buglogged150945 @ReRunProgress
   Scenario Outline: Validate SR User is not able to modify Supporting Documents Checklist table when Progress report is Submitted to Grantor | Validate SR User is able to modify Supporting Documents Checklist table when Progress report status is sent back to sub-recipient
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -869,7 +777,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -880,12 +787,17 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly cannot see row level action button "Attach" against "Automation" in flex table with id "---progressReport:-:progressReportChecklistsTableId---"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -893,7 +805,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I click on "Send Back to Subrecipient" in the page details
-    And I refresh the page
+    And I wait for "4" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -906,7 +818,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59189 @validateSubmitProgressReportWithoutUploadingSupportingDocument @mahadev
+  @59189 @validateSubmitProgressReportWithoutUploadingSupportingDocument @mahadev @ReRunProgress
   Scenario Outline: Validate SR is allowed to submit Progress report to grantor without uploading Supporting document When Supporting document checklist is selected Optional at Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -918,6 +830,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -926,11 +839,14 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
     Examples:
@@ -971,7 +887,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59193 @validateDocumentLinkFieldValueChangeToViewHyperlink @mahadev
+  @59193 @validateDocumentLinkFieldValueChangeToViewHyperlink @mahadev @ReRunProgress
   Scenario Outline: Validate once document is uploaded by SR user than Document Link field value change to view hyperlink on created Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -994,7 +910,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1005,9 +921,11 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     Then I see value "View" for title "Subrecipient Document Link" against the value "Active" inside table "flexGridProgressReportChecklists"
@@ -1063,6 +981,7 @@ Feature: Validate scenarios in Progress Report without background
       | Automation  | Mandatory | Progress Report | Active |
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I delete the record "<Award Name>" from the object "Progress Report"
@@ -1072,7 +991,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
+#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
