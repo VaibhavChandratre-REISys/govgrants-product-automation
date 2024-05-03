@@ -311,7 +311,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "4" seconds
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -360,6 +360,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I navigate to "Monitoring" tab
     #Bug418240
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
+    And I click toggle button to select "Reimbursements - All"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Financials" sub tab
