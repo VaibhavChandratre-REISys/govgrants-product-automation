@@ -284,6 +284,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                |
@@ -768,6 +769,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I wait for "3" seconds
     And I delete the record "<Grant Name>" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I navigate to "Grants" tab
