@@ -2813,10 +2813,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2862,17 +2862,19 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "green"
@@ -2882,12 +2884,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 900          |
     When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 100          |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2898,6 +2902,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Amendment Request |
       | {SavedValue:PO Username} | Step 1            |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
