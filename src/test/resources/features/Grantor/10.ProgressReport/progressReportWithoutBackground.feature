@@ -855,8 +855,9 @@ Feature: Validate scenarios in Progress Report without background
     And I switch to tab number "1"
     And I enter "ErrorForm" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I see the following messages in the page details contains:
       | Forms and Files Tab - Provide all the required data in the form before submitting to Grantor. |
 
@@ -1841,6 +1842,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     When I click on "View" icon for "Created" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I enter value "Unchecked" into field "IsFinalReport__c"
     When I enter "FinalProgressReport" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "ProgressReport2"
@@ -5309,10 +5311,10 @@ Feature: Validate scenarios in Progress Report without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
-    And I select value "Victor EXE" into field "input-2"
-    And I select module "Progress Report" from reassign ownership dropdown
-    Then I softly see the following messages in the page details contains:
-      | Ownership cannot be transferred across profiles and organizations. |
+    And I enter value "Victor EXE" in reassign lookup
+    And I pause execution for "3" seconds
+    Then I softly do not see "Undertaker FO" inside auto search result
+
 
   @197664 @197732 @Validateprogressreport1internalownershouldchangedinanystate&progressreport2iscreatedbyschedulethentheinternalownershouldawardowneronly @sprint-4 @vaibhav @reassignment 
   Scenario: Validate progress report 1 internal owner should changed in any state & progress report 2 is created by schedule then the internal owner should award owner only
@@ -5324,6 +5326,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
