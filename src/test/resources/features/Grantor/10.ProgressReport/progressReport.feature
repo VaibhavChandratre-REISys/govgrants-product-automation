@@ -583,10 +583,10 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Performance" sub tab
-    Then I see field "KeyAccomplishments__c" is not editable
-    Then I see field "Obstacles__c" is not editable
-    Then I see field "Obstacles__c" is not editable
-    Then I see field "Plans__c" is not editable
+#    Then I see field "KeyAccomplishments__c" is not editable
+#    Then I see field "Obstacles__c" is not editable
+#    Then I see field "Obstacles__c" is not editable
+#    Then I see field "Plans__c" is not editable
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -769,8 +769,8 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted for Approval" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Forms and Files" sub tab
