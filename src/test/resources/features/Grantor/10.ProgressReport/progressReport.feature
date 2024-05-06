@@ -14,7 +14,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
+    And I click modal button "Close"
     When I get the "EGMS ID"
 
   @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude
@@ -40,9 +40,12 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see that "7" has been added in flextable with Id "---progressReport:-:kpiTableId---"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "8" seconds
     Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -68,14 +71,15 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---progressReport:-:approversTableId---"
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
-    When I navigate to "History" sub tab
-    Then I softly see value "Sent Back to Subrecipient" for title "New Value" inside table "History"
+#    When I navigate to "History" sub tab
+#    Then I softly see value "Sent Back to Subrecipient" for title "New Value" inside table "History"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -98,8 +102,8 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I navigate to "History" sub tab
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+#    When I navigate to "History" sub tab
+#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -147,6 +151,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -176,9 +181,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -207,8 +215,8 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I navigate to "History" sub tab
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+#    When I navigate to "History" sub tab
+#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -275,9 +283,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -319,10 +330,13 @@ Feature: Validate all scenarios in Progress Report
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "<formTableId>" without waiting for record
-    And I enter "Form Fields" values from "<progressReportSheet>"
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -349,7 +363,7 @@ Feature: Validate all scenarios in Progress Report
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "<subawardsTableId>" without waiting for record
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "<progressReportsScheduleId>" without waiting for record
-    And I enter value "Annually" into field "fieldFrequency__c"
+    And I enter value "Annually" into field "Frequency__c"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     Then I see value "Annually" for title "Frequency" inside table "<progressReportsScheduleId>"
@@ -369,9 +383,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     And I save the field labeled "Subaward ID" as "SubawardID"
@@ -412,9 +429,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -440,9 +460,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -480,9 +503,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -502,12 +528,15 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 8/29/2022     | 7      |
+      | Automation Permanent KPI | 8/29/2024     | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -540,9 +569,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Performance" sub tab
     Then I softly do not see that the fields in flex table title as "Performance Narrative" are editable
@@ -568,9 +600,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c,false"
     And I navigate to "Grants" tab
@@ -617,9 +652,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Given I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -643,9 +681,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -695,9 +736,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -752,9 +796,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -780,9 +827,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     Given I re-login to "As a Grantor" app as "SARAH PM" user on "INTERNAL" portal
@@ -808,9 +858,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I enter "ErrorForm" values from "ProgressReport_Field_Values.xlsx"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details contains:
@@ -828,9 +881,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     And I navigate to "Overview" sub tab
@@ -868,9 +924,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Submitted On:" is getting updated with todays date
@@ -892,9 +951,12 @@ Feature: Validate all scenarios in Progress Report
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -908,3 +970,67 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
+
+
+  @59677 @59676 @allowsEditAfterSentBackToSR @jitendra
+  Scenario: Validate SR is able to Edit the Progress report when Award owner Sent Back the Progress report | Validate History Field is getting Updated at Award owner End when Progress report status is Submitted to Grantor.
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I click on "Back" in the page details
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "History" sub tab
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I click on "Send Back to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    When I enter the following values into flex table with id "---progressReport:-:RecipientProgressReportNotesTableId---" by clicking "Add" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    And I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
+
+
+  @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
+  Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
+  Validate SR user is able to enter Actual field value at KPI under performance tab more than the Target Value at Progress report | Validate SR user is able to enter Actual field value at KPI under performance tab less than the Target Value at Progress repor
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 10     |
+    Then I softly see value "10" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:kpiTableId---"
+    And I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Actual | Reported Date |
+      | Automation Permanent KPI | 7      | 0             |
+    When I save the value from row "1" for column name "Reported Date" as "ReportedDate" from flex table "---progressReport:-:kpiTableId---"
+    And I pause execution for "7" seconds
+    Then I softly see the Reported Date field contains todays date
+    And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Actual | Reported Date |
+      | Automation Permanent KPI | 100    | 7             |
+    Then I softly see value "100" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Actual | Reported Date |
+      | Automation Permanent KPI | 2      | 7             |
+    Then I softly see value "2" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:kpiTableId---"

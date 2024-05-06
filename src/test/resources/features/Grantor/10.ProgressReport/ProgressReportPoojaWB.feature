@@ -65,6 +65,7 @@ Feature: Validate scenarios in Progress Report without background
     When I enter "ScheduleAnnuallyCalendar" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    And I wait for "4" seconds
 #    And I switch to iframe with id "---progressReport:-:ProgressReportModalIframeId---"
     Then I softly see field "Frequency" as "Annually"
     And I refresh the page
@@ -83,9 +84,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "ScheduleBiMonthly" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "Progress Report"
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
     And I navigate to "Terms" sub tab
@@ -94,6 +93,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 60 days if Bi-Monthly frequency is selected. |
+    And I click modal button "Close"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -538,8 +538,7 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
 #    Then I softly cannot see toggle option "Progress Reports - Draft" inside flex table id "---progressReport:-:internalProgressReportFlexTableId---"
-    And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -848,7 +847,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
