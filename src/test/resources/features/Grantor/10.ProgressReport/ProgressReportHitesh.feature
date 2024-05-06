@@ -57,11 +57,12 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Performance" sub tab
     Then I cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressreport:-:kpiTableId---"
 
-  @59833 @59834 @validateSRUserAbleToAddNewValueAtActualField @mahadev
+  @hitRun @59833 @59834 @validateSRUserAbleToAddNewValueAtActualField @mahadev
   Scenario Outline: Validate SR user is allowed to add a new value in actual field at KPI table on Progress report when already one Progress report is Submitted to Grantor
   Validate SR user is allowed to add a new value Reported Date field at KPI table at Progress report when already one Progress report is Submitted to Grantor
     And I click on "Edit" in the page details
@@ -77,6 +78,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c,false"
     And I navigate to "Grants" tab
@@ -116,6 +118,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -145,6 +148,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -164,7 +168,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
+  @hitRun @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
   Scenario Outline: Validate Progress Reports at Management tab on Grant overview is getting updated with Progress report whose status is submitted for approval at Award owner End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -180,6 +184,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -222,6 +227,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -272,6 +278,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
@@ -295,6 +302,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -304,7 +312,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressreport:-:kpiTableId---"
 
-  @60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
+  @hitRun @60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
   Scenario Outline: Validate Previous Actual field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report.
   Validate Final Report? field under Report Overview table at overview tab on Progress report is present | Validate Previous Date field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report
     When I navigate to "Overview" sub tab
@@ -322,6 +330,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -381,7 +390,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @60020 @60022 @60021 @60023 @validateReviewedProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
+  @hitRun @60020 @60022 @60021 @60023 @validateReviewedProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
   Scenario Outline: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Reviewed at Award owner end | Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Submitted for Review at SR User end
   Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Submitted for Review at Award owner end | Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Reviewed at SR user end
     And I click on "Edit" in the page details
@@ -398,6 +407,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -409,6 +419,7 @@ Feature: Validate all scenarios in Progress Report
       | Reviewer Name            | Responsibility  | Description                 | Due Date |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -461,7 +472,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59839 @updateKPIValue @jitendra
+  @hitRun @59839 @updateKPIValue @jitendra
   Scenario: Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. |Validate Actual Field value on (KPIs) table under performance tab at subaward overview is getting updated with the values entered by SR user when PR status is Approved.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -476,6 +487,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -483,6 +495,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     Given I click on "Send Back to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -493,6 +506,7 @@ Feature: Validate all scenarios in Progress Report
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 95     | 7             |
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -531,7 +545,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly see value "95" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:awardKeyOutcomes---"
 
-  @59904 @validatePRStatusAfterApprovedOn @jitendra
+  @hitRun @59904 @validatePRStatusAfterApprovedOn @jitendra
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Approved at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -546,6 +560,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -562,7 +577,7 @@ Feature: Validate all scenarios in Progress Report
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 95     | 7             |
-    When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -599,7 +614,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Management" sub tab
     Then I see value "Approved" for title "Status" inside table "---progressReport:-:recipientGrantProgressReportTableId---"
 
-  @59906 @PRStatusSentBackSR @jitendra
+  @hitRun @59906 @PRStatusSentBackSR @jitendra
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is sent back to sub recipient at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -614,6 +629,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -645,6 +661,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "10" seconds
     And I navigate to "Grants" tab
@@ -654,7 +671,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" against the value "Submitted to Grantor" inside table "---progressReport:-:recipientGrantProgressReportTableId---"
 
-  @59907 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedForApproval @Keerti
+  @hitRun @59907 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedForApproval @Keerti
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is submitted for approval at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -669,6 +686,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -693,7 +711,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" against the value "Submitted for Approval" inside table "---progressReport:-:grantorGrantProgressReportTableId---"
 
-  @60298 @60297 @60306 @validateApprovalofProgressReportByForwardedApprover @mahadev
+  @hitRun @60298 @60297 @60306 @validateApprovalofProgressReportByForwardedApprover @mahadev
   Scenario: Validate Progress report can be approved by the approver to whom Progress report is forwarded | Validate Progress report Approver can Forward Progress report to anyone from same organisation
   Validate other Internal user else than Approver did not receive pending Task for Final marked Progress report.
     And I click on "Edit" in the page details
@@ -709,6 +727,7 @@ Feature: Validate all scenarios in Progress Report
     When I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -744,7 +763,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @60305 @60104 @DisabledFinalField @jitendra
+  @hitRun @60305 @60104 @DisabledFinalField @jitendra
   Scenario: Validate Award Owner is not able to Edit the Final Report? field on Program report whose status is Submitted to Grantor | Validate Non Award Owner did not receive pending Task for Final Marked Progress report else than award owner.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -759,6 +778,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -776,7 +796,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Overview" sub tab
     Then I softly see that "IsFinalReport__c" rendered in view mode only
 
-  @60572 @60571 @validateSubmissionOfReview @mahadev
+  @hitRun @60572 @60571 @validateSubmissionOfReview @mahadev
   Scenario: Validate Peer reviewer can submit the review for the assigned progress report | Validate Peer reviewer can Edit the Entered review before Submitting it to Award owner for Progress report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -791,6 +811,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -816,6 +837,7 @@ Feature: Validate all scenarios in Progress Report
     When I click modal button "Save"
     Then I softly see field "Comments" as "Test Automation"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" inside table "---progressReport:-:peerReviewersTableId---"
 
   @60570 @PendingTaskWillNotCreateForAwardOwnerAfterPRSendBackToOwnerByProgramApprover @Keerti
@@ -833,6 +855,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -847,7 +870,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted @Keerti
+  @hitRun @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted @Keerti
   Scenario: Validate Once Peer reviewer submit the review to award owner, the review is updated at Award owner end also. | Validate Award owner can send Progress report for Peer Reviewer When Progress report status is Submitted for Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -863,6 +886,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -893,6 +917,7 @@ Feature: Validate all scenarios in Progress Report
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     And I navigate to "Management" sub tab
@@ -901,7 +926,7 @@ Feature: Validate all scenarios in Progress Report
     And I expand nested table containing column value "{SavedValue:FO Username}"
     Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTempFlexToggle"
 
-  @60574 @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
+ @hitRun @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
   Scenario: Validate Award owner can add Multiple Peer reviewer for Progress report whose status is Submitted to grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -917,6 +942,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -951,6 +977,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -983,7 +1010,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1026,7 +1053,7 @@ Feature: Validate all scenarios in Progress Report
     When I download the file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
-  @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor @keerti
+  @hitRun @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Award owner end when Progress report status is Submitted to Grantor. | Validate SR User is able to take snapshot of the Progress report when it is submitted to Grantor on active subaward
   Validate SR User can View the Objectives associated at award on progress report.
     When I navigate to "Performance" sub tab
@@ -1054,6 +1081,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I click on "Menu" in the page details
@@ -1071,7 +1099,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "AwardStrategicGoalsObjectives"
 
-  @61097 @PRISNoteditableAtPAOnPerformaceTab @keerti
+ @hitRun @PRISNoteditableAtPAOnPerformaceTab @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Program approver end when Progress report status is Submitted for Approval.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1086,6 +1114,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1107,4 +1136,4 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Performance" sub tab
-    Then I cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "AwardStrategicGoalsObjectives"
+    Then I softly do not see "Actions" in flex table header "AwardStrategicGoalsObjectives"
