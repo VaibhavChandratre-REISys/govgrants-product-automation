@@ -162,7 +162,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:recipientActiveGrantId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
@@ -515,11 +515,12 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
@@ -546,8 +547,8 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    When I perform quick search for "<Grant Name>" in "GrantsList" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "GrantsList" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "Record Id"
@@ -768,8 +769,8 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:recipientActiveGrantId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientActiveGrantId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted for Approval" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Forms and Files" sub tab
