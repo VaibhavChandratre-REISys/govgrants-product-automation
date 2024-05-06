@@ -69,9 +69,6 @@ public final class PageDetails {
     public void clickAnyTopRightButton(String buttonName) {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
-//            Todo: remove below step once loading time is reduce
-//            if(buttonName.equals("Save") || buttonName.equals("Edit") || buttonName.equals("Activate") ){
-//               for(int i=0; i<5; i++) {
             I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
