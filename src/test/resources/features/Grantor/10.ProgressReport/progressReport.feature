@@ -1006,6 +1006,7 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
