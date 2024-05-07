@@ -472,7 +472,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @hitRun @59839 @updateKPIValue @jitendra
+  @59839 @updateKPIValue @jitendra
   Scenario: Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. |Validate Actual Field value on (KPIs) table under performance tab at subaward overview is getting updated with the values entered by SR user when PR status is Approved.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -795,7 +795,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Overview" sub tab
     Then I softly see that "IsFinalReport__c" rendered in view mode only
 
-  @hitRun @60572 @60571 @validateSubmissionOfReview @mahadev
+  @60572 @60571 @validateSubmissionOfReview @mahadev
   Scenario: Validate Peer reviewer can submit the review for the assigned progress report | Validate Peer reviewer can Edit the Entered review before Submitting it to Award owner for Progress report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1082,9 +1082,10 @@ Feature: Validate all scenarios in Progress Report
     And I close the tab
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
-    And I wait for "5" seconds
-    And I click on "Menu" in the page details
+    And I wait for "3" seconds
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I click "OK" on modal confirmation box
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Progress Report" as name
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
