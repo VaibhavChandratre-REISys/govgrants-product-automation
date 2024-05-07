@@ -1021,12 +1021,11 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---progressReport:-:RecipientProgressReportNotesTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---progressReport:-:progressNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
-
 
   @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
   Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
