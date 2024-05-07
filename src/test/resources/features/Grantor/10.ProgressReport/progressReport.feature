@@ -279,8 +279,8 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly see field "Key Accomplishments" as "Key accomplishments for this reporting period"
     And I navigate to "Performance" sub tab
+    Then I softly see field "Key Accomplishments" as "Key accomplishments for this reporting period"
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
@@ -411,6 +411,7 @@ Feature: Validate all scenarios in Progress Report
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Submit for Approval" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -516,12 +517,13 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "GrantsList" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressreport:-:recipientActiveGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressreport:-:recipientActiveGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
@@ -771,8 +773,8 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressreport:-:recipientActiveGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressreport:-:recipientActiveGrantTableId---" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted for Approval" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Forms and Files" sub tab
