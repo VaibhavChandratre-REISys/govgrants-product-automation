@@ -62,7 +62,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressreport:-:kpiTableId---"
 
-  @hitRun @59833 @59834 @validateSRUserAbleToAddNewValueAtActualField @mahadev
+  @59833 @59834 @validateSRUserAbleToAddNewValueAtActualField @mahadev
   Scenario Outline: Validate SR user is allowed to add a new value in actual field at KPI table on Progress report when already one Progress report is Submitted to Grantor
   Validate SR user is allowed to add a new value Reported Date field at KPI table at Progress report when already one Progress report is Submitted to Grantor
     And I click on "Edit" in the page details
@@ -168,7 +168,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @hitRun @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
+  @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
   Scenario Outline: Validate Progress Reports at Management tab on Grant overview is getting updated with Progress report whose status is submitted for approval at Award owner End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -390,7 +390,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @hitRun @60020 @60022 @60021 @60023 @validateReviewedProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
+  @60020 @60022 @60021 @60023 @validateReviewedProgressReportsAtManagementTabOnGrantAtInternalSide @mahadev
   Scenario Outline: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Reviewed at Award owner end | Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Submitted for Review at SR User end
   Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Submitted for Review at Award owner end | Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Reviewed at SR user end
     And I click on "Edit" in the page details
@@ -505,7 +505,6 @@ Feature: Validate all scenarios in Progress Report
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
       | Automation Permanent KPI | 95     | 7             |
-    When I click on "Save" in the page details
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -545,7 +544,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly see value "95" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:awardKeyOutcomes---"
 
-  @hitRun @59904 @validatePRStatusAfterApprovedOn @jitendra
+  @59904 @validatePRStatusAfterApprovedOn @jitendra
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Approved at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -614,7 +613,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Management" sub tab
     Then I see value "Approved" for title "Status" inside table "---progressReport:-:recipientGrantProgressReportTableId---"
 
-  @hitRun @59906 @PRStatusSentBackSR @jitendra
+  @59906 @PRStatusSentBackSR @jitendra
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is sent back to sub recipient at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -671,7 +670,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" against the value "Submitted to Grantor" inside table "---progressReport:-:recipientGrantProgressReportTableId---"
 
-  @hitRun @59907 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedForApproval @Keerti
+  @59907 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedForApproval @Keerti
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is submitted for approval at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -711,7 +710,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" against the value "Submitted for Approval" inside table "---progressReport:-:grantorGrantProgressReportTableId---"
 
-  @hitRun @60298 @60297 @60306 @validateApprovalofProgressReportByForwardedApprover @mahadev
+  @60298 @60297 @60306 @validateApprovalofProgressReportByForwardedApprover @mahadev
   Scenario: Validate Progress report can be approved by the approver to whom Progress report is forwarded | Validate Progress report Approver can Forward Progress report to anyone from same organisation
   Validate other Internal user else than Approver did not receive pending Task for Final marked Progress report.
     And I click on "Edit" in the page details
@@ -763,7 +762,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @hitRun @60305 @60104 @DisabledFinalField @jitendra
+  @60305 @60104 @DisabledFinalField @jitendra
   Scenario: Validate Award Owner is not able to Edit the Final Report? field on Program report whose status is Submitted to Grantor | Validate Non Award Owner did not receive pending Task for Final Marked Progress report else than award owner.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -926,7 +925,7 @@ Feature: Validate all scenarios in Progress Report
     And I expand nested table containing column value "{SavedValue:FO Username}"
     Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTempFlexToggle"
 
- @hitRun @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
+ @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
   Scenario: Validate Award owner can add Multiple Peer reviewer for Progress report whose status is Submitted to grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
