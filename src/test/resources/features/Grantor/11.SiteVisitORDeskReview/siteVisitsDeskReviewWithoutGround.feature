@@ -1164,7 +1164,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @197431 @ValidateEXEuserownershipofSVrecordisassigntonewEXEusermeansthatSVrecordownerwillbethenewassignedownerinanystatebutuserwantinitiateothersitevisitthenownerofthatsitevisitwillberequestinitiatorofSV @sprint-4 @vaibhav @reassignment
+  @hitRun1 @197431 @ValidateEXEuserownershipofSVrecordisassigntonewEXEusermeansthatSVrecordownerwillbethenewassignedownerinanystatebutuserwantinitiateothersitevisitthenownerofthatsitevisitwillberequestinitiatorofSV @sprint-4 @vaibhav @reassignment
   Scenario: Validate EXE user ownership of SV record is assign to new EXE user means that SV record owner will be the new assigned owner in any state but if user want initiate other site visit then owner of that site visit will be request initiator of SV
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "CREATE_AWARD_EXE" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Competitive"
@@ -1199,23 +1199,21 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM1" into field "s2id_autogen1"
-    And I select value "Automation PM" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM1" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM1" into field "input-1"
+    And I select value "Automation PM" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1235,7 +1233,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Management" sub tab
     Then I softly can see top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @197436 @ValidatePMuserasawardownerAwardownernameshouldbesameinownersectionunderresponsibilitytabevenFOuserSVownerchangehisownershipofSVtootherFOuserinanystate @sprint-4 @vaibhav @reassignment
+  @hitRun1 @197436 @ValidatePMuserasawardownerAwardownernameshouldbesameinownersectionunderresponsibilitytabevenFOuserSVownerchangehisownershipofSVtootherFOuserinanystate @sprint-4 @vaibhav @reassignment
   Scenario: Validate PM user as award owner Award owner name should be same in owner section under responsibility tab even FO user SV owner change his ownership of SV to other FO user in any state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1273,23 +1271,21 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation FO" into field "s2id_autogen1"
-    And I select value "Automation FO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation FO" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation FO" into field "input-1"
+    And I select value "Automation FO1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1309,7 +1305,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @197447 @ValidatePOuserfurthertasklikeSubmittedtoGrantoshouldbegeneratedfornewSVownerotherPOuseronlyonceownershipofSVischangedevenAwardownerischangedinbetweenlifecycleofSV @sprint-4 @vaibhav @reassignment
+  @hitRun1 @197447 @ValidatePOuserfurthertasklikeSubmittedtoGrantoshouldbegeneratedfornewSVownerotherPOuseronlyonceownershipofSVischangedevenAwardownerischangedinbetweenlifecycleofSV @sprint-4 @vaibhav @reassignment
   Scenario: Validate PO user further task like Submitted to Grantor should be generated for new SV owner other PO user only once ownership of SV is changed even if Award owner is changed in between life cycle of SV
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1411,40 +1407,37 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PO" into field "s2id_autogen1"
-    And I select value "Automation PO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PO" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PO" into field "input-1"
+    And I select value "Automation PO1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1459,7 +1452,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @197450 @ValidateemailshouldbegeneratedinyopmailtonewSVownerEXEuseronceownershipischangedwhenassignedapproverclickedonSentbackbutton @sprint-4 @vaibhav @reassignment
+  @hitRun1 @197450 @ValidateemailshouldbegeneratedinyopmailtonewSVownerEXEuseronceownershipischangedwhenassignedapproverclickedonSentbackbutton @sprint-4 @vaibhav @reassignment
   Scenario: Validate email should be generated in yopmail to new SV owner EXE user once ownership is changed when assigned approver clicked on Sent back button
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1519,23 +1512,20 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1593,7 +1583,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @197490 @ValidateSVownerasPMuserisinNotifiedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinNotifiedstate @sprint-4 @vaibhav @reassignment
+  @hitRun1 @197490 @ValidateSVownerasPMuserisinNotifiedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinNotifiedstate @sprint-4 @vaibhav @reassignment
   Scenario: Validate SV owner as PM user is in Notified state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Notified state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1628,20 +1618,18 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
