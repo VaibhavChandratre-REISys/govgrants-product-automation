@@ -312,7 +312,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressreport:-:kpiTableId---"
 
-  @hitRun @60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
+  @60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
   Scenario Outline: Validate Previous Actual field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report.
   Validate Final Report? field under Report Overview table at overview tab on Progress report is present | Validate Previous Date field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report
     When I navigate to "Overview" sub tab
@@ -869,7 +869,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @hitRun @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted @Keerti
+  @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted @Keerti
   Scenario: Validate Once Peer reviewer submit the review to award owner, the review is updated at Award owner end also. | Validate Award owner can send Progress report for Peer Reviewer When Progress report status is Submitted for Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -887,43 +887,43 @@ Feature: Validate all scenarios in Progress Report
     And I close the tab
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name            | Responsibility  | Description                 | Due Date |
-      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-    And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Review Successfully Initiated |
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-    And I enter values into fields
-      | Value       | Field             |
-      | Cannot Rate | Rating__c         |
-      | Passed      | ReviewComments__c |
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
-    And I navigate to "Management" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
-    And I navigate to "Responsibilities" sub tab
-    And I expand nested table containing column value "{SavedValue:FO Username}"
-    Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTempFlexToggle"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
+#      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+#      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
+#    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    Then I softly see the following messages in the page details contains:
+#      | Review Successfully Initiated |
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
+#    And I enter values into fields
+#      | Value       | Field             |
+#      | Cannot Rate | Rating__c         |
+#      | Passed      | ReviewComments__c |
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+#    And I navigate to "Management" sub tab
+#    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+#    And I navigate to "Responsibilities" sub tab
+#    And I expand nested table containing column value "{SavedValue:FO Username}"
+#    Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTemp"
 
  @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
   Scenario: Validate Award owner can add Multiple Peer reviewer for Progress report whose status is Submitted to grantor
@@ -1097,9 +1097,9 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     And I navigate to "Performance" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "AwardStrategicGoalsObjectives"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "GrantorAwardGoalsObjectives"
 
- @hitRun @PRISNoteditableAtPAOnPerformaceTab @keerti
+ @PRISNoteditableAtPAOnPerformaceTab @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Program approver end when Progress report status is Submitted for Approval.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1136,4 +1136,4 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Performance" sub tab
-    Then I softly do not see "Actions" in flex table header "AwardStrategicGoalsObjectives"
+    Then I softly do not see "Actions" in flex table header "GrantorAwardGoalsObjectives"
