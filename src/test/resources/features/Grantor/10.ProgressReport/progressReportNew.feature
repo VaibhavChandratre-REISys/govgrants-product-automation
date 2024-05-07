@@ -1809,7 +1809,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @buglogged-171710 @TBExecution
+  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @buglogged-171710 
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at Award Owner end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2724,7 +2724,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60660 @60730 @validateApprovedPRAfterFCAmendmentIsNotCarryForwardedA @jitendra @TBExecution1
+  @60660 @60730 @validateApprovedPRAfterFCAmendmentIsNotCarryForwardedA @jitendra 
   Scenario Outline: Validate Progress reports with Approved Status not carried forward after FC Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -4229,9 +4229,11 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62243 @62249 @62235 @validateCreatedPRAfterTCAmendmentIsCarryForwardedAonGrantAtInternalportalAndSPI @mahadev @buglogged-171710 @TBExecution1
+  @62243 @62249 @62235 @validateCreatedPRAfterTCAmendmentIsCarryForwardedAonGrantAtInternalportalAndSPI @mahadev @buglogged-171710 @TBExecution
   Scenario Outline: Validate progress report with Created status is not carry forwarded at internal portal on award after Terms and conditions amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    And I delete the record "<Award Name>" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4242,7 +4244,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -4562,7 +4563,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62244 @62236 @62250 @validateSubmittedToGrantorPRAfterTCAmendmentIsCarryForwardedA @mahadev @TBExecution
+  @62244 @62236 @62250 @validateSubmittedToGrantorPRAfterTCAmendmentIsCarryForwardedA @mahadev 
   Scenario Outline: Validate progress report with submitted to grantor status is carry forwarded at internal portal on award after Terms and conditions amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -4970,7 +4971,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev @smoke @TBExecution
+  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev @smoke 
   Scenario Outline: Verify Awarded Budget field value on Progress report should get updated after funding change amendment is done by award owner at Award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5090,7 +5091,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev @TBExecution1
+  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev 
   Scenario Outline: Verify Report Frequency field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward and Frequency is updated
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5185,9 +5186,10 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click modal button "Save"
     And I wait for "3" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
+    And I wait for "2" seconds
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
@@ -5311,7 +5313,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61933 @validateCreatedPRAfterSWAmendmentIsCarryForwardedAonGrant @mahadev @TBExecution1
+  @61933 @validateCreatedPRAfterSWAmendmentIsCarryForwardedAonGrant @mahadev @TBExecution
   Scenario Outline: Validate progress report with created status is carry forwarded at subportal on grant after SOW amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I delete the record "<Award Name>" from the object "Progress Report"
@@ -5503,7 +5505,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61937 @validateReviewedPRAfterSWAmendmentIsCarryForwardedAonAward @mahadev @TBExecution1
+  @61937 @validateReviewedPRAfterSWAmendmentIsCarryForwardedAonAward @mahadev 
   Scenario Outline: Validate progress report with Reviewed status is carry forwarded at subportal on award after scope of work change amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I delete the record "<Award Name>" from the object "Progress Report"
@@ -5823,7 +5825,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra @TBExecution
+  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment @jitendra 
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5907,9 +5909,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "ProgressReportId"
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---progressReport:-:recipientActiveGrantId---" panel
@@ -5922,7 +5924,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61887 @60384 @61894 @validateCreatedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @jitendra @TBExecution1
+  @61887 @60384 @61894 @validateCreatedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @jitendra @TBExecution
   Scenario Outline: Validate Progress reports with Created Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I delete the record "<Award Name>" from the object "Progress Report"
@@ -6024,7 +6026,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60733 @60722 @validateApprovedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev @TBExecution
+  @60733 @60722 @validateApprovedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev 
   Scenario Outline: Validate Progress report with Approved Status is carried forwarded when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6281,7 +6283,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60728  @validateSubmittedForApprovalPRAfterFCAmendmentIsCarryForwardedAtAwardOwnerEndOnAward @mahadev @TBExecution
+  @60728  @validateSubmittedForApprovalPRAfterFCAmendmentIsCarryForwardedAtAwardOwnerEndOnAward @mahadev 
   Scenario Outline: Validate Submitted for approval Progress reports is carried forward at Performance Tab Subaward Overview at Award Owner end when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I delete the record "<Award Name>" from the object "Progress Report"
@@ -6399,7 +6401,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62920 @validateAwardedBudgetAfterFCAmendment @mahadev @TBExecution1
+  @62920 @validateAwardedBudgetAfterFCAmendment @mahadev 
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report increase when award owner performed Funding change amendment on subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6476,10 +6478,10 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
     And I wait for "3" seconds
     Then I delete the record "<Award Name>" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
-    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
@@ -6489,7 +6491,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev @smoke @TBExecution
+  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev @smoke 
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6566,9 +6568,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
     And I wait for "3" seconds
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
-    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
@@ -6917,7 +6919,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61446 @61440 @validateReviewedPRAfterBudgetPeriodChangeAmendmentIsCarryForwarded @mahadev @TBExecution
+  @61446 @61440 @validateReviewedPRAfterBudgetPeriodChangeAmendmentIsCarryForwarded @mahadev
   Scenario Outline: Validate Reviewed Progress reports is carried forward after BPC amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7057,7 +7059,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61443 @61451 @61437 @validateCreatedPRAfterBudgetPeriodChangeAmendmentIsCarryForwarded @jitendra @TBExecution1
+  @61443 @61451 @61437 @validateCreatedPRAfterBudgetPeriodChangeAmendmentIsCarryForwarded @jitendra 
   Scenario Outline: Validate Created Progress reports carried forwarded when Award owner performed Budget Period Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
