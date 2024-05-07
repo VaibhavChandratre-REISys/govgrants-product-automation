@@ -145,7 +145,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly see value "25" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:awardKPITableId---"
 
-  @51104 @58535 @spaUserBlockedfromSubmisionOfProgressReport @NewProgressFinal
+  @51104 @58535 @spaUserBlockedfromSubmisionOfProgressReport
   Scenario: To validate SPA user is not allowed to Submit Progress Report | Verify Sub-recipient user is not allowed to Edit the Schedules created on active award when Progress report is generated.
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
@@ -163,7 +163,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "GrantsList" panel
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressreport:-:recipientActiveGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
@@ -551,8 +551,8 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "GrantsList" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "GrantsList" without waiting for record
+    When I perform quick search for "<Grant Name>" in "---progressreport:-:recipientActiveGrantTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressreport:-:recipientActiveGrantTableId---" without waiting for record
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---progressReport:-:recipientGrantProgressReportTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "Record Id"
