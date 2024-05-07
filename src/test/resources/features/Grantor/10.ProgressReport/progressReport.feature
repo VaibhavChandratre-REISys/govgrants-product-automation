@@ -370,7 +370,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Edit" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "<progressReportsScheduleId>" without waiting for record
     And I enter value "Annually" into field "Frequency__c"
     And I click modal button "Save"
-    And I click modal button "Close"
+    And I wait for "4" seconds
     Then I see value "Annually" for title "Frequency" inside table "<progressReportsScheduleId>"
     Examples:
       | progressReportsScheduleId                        | progressReportSheet              | subawardsTableId                            | activeGrantsTableId                        |
