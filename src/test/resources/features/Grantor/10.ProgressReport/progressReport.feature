@@ -189,6 +189,7 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "5" seconds
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -217,6 +218,7 @@ Feature: Validate all scenarios in Progress Report
     When I "Send to Owner" in the approval decision
     And I wait for "3" seconds
     And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 #    When I navigate to "History" sub tab
 #    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
