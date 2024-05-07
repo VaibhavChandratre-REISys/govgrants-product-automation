@@ -1787,9 +1787,10 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "{SavedValue:amendedSubawardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     And I expand nested table containing column value "Progress Report"
-    And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---subAwardStandAlone:-:progressReportChildScheduleId---"
+    And I wait for "2" seconds
+    And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---progressReport:-:progressReportChildScheduleId---"
     Then I softly verify that the Schedule start date is matching with Reporting Period start Date
-    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportChildScheduleId---"
+    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---progressReport:-:progressReportChildScheduleId---"
     Then I softly verify that the Schedule end date is matching with Reporting Period End Date
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1799,9 +1800,10 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     When I navigate to "Terms" sub tab
     And I expand nested table containing column value "Progress Report"
-    And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---subAwardStandAlone:-:progressReportChildScheduleId---"
+    And I wait for "2" seconds
+    And I get the value from row "1" for column name "Reporting Period Start Date" in flex table "---progressReport:-:progressReportChildScheduleId---"
     Then I softly verify that the Schedule start date is matching with Reporting Period start Date
-    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportChildScheduleId---"
+    And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---progressReport:-:progressReportChildScheduleId---"
     Then I softly verify that the Schedule end date is matching with Reporting Period End Date
     Examples:
       | Award Name                            | Grant Name                            |
