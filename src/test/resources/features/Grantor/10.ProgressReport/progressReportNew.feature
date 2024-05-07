@@ -4549,7 +4549,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     When I navigate to "Performance" sub tab
-    Then I softly do not see value "Sent Back to Sub-recipient" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
+    Then I softly see value "Sent Back to Subrecipient" for title "Status" against the value "{SavedValue:ProgresReportID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -7024,7 +7024,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Approve Amendment Request" in "---amendment:-:pendingTaskTableId---" panel
+    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
