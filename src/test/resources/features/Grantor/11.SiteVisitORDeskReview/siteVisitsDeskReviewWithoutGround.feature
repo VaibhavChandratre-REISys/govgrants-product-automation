@@ -9,8 +9,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
@@ -36,6 +36,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
     Given I navigate to "Overview" sub tab
@@ -60,9 +61,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     Then I softly see that "100%" has been added in flextable with Id "---sitevisits:-:reportsTableId---"
 
   @60834 @AdditionOfAttachmentForAwardSiteVisits @keerti
@@ -93,6 +95,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Files" sub tab
     When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     Then I softly see value "Mandatory" for title "Required" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
 
@@ -124,10 +127,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @66713 @inProgressSiteVisitAmendedForSiteVisits @deepika @smoke
+  @hitRun @66713 @inProgressSiteVisitAmendedForSiteVisits @deepika @smoke
   Scenario: Validate In-progress award level site visit are carried forward to newly created award after amendment - Budget Period Change type
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Competitive"
@@ -224,11 +228,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
     Then I see value "In Progress" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @66714 @inProgressSiteVisitAmendedForDeskReviews @deepika @smoke
+  @hitRun @66714 @inProgressSiteVisitAmendedForDeskReviews @deepika @smoke
   Scenario: Validate In-progress award level desk review are carried forward to newly created award after amendment - bpc
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Formula_By_Applicant"
@@ -326,11 +331,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
     Then I see value "In Progress" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
 
-  @66715 @approvedStatusSVCannotCarriedForwardToNewAward @deepika
+  @hitRun @66715 @approvedStatusSVCannotCarriedForwardToNewAward @deepika
   Scenario: Validate if site visit is in Approved status and amendment is done for base award, final state site visit should not be moved to newly created subaward after amendment.
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Competitive"
@@ -378,9 +384,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -464,6 +471,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
     And I navigate to "Management" tab
@@ -481,7 +489,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @66716 @approvedStatusDeskReviewCannotCarriedForwardToNewAward @deepika
+  @hitRun @66716 @approvedStatusDeskReviewCannotCarriedForwardToNewAward @deepika
   Scenario: Validate if desk review is in Approved status and amendment is done for base award, final state desk review should not be moved to newly created subaward after amendment.
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Formula_By_Applicant"
@@ -525,9 +533,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -616,6 +625,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "Amend Subaward" in the page details
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
     When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
@@ -632,7 +642,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
 
-  @69413 @initiateSiteVisitButtononFlextable
+  @hitRun @69413 @initiateSiteVisitButtononFlextable
   Scenario: Validate whether initiate site visit button appear on site visit table of management tab of Award owner after Subaward is activated
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I delete the record "Automation Site Visit" from the object "Site Visit"
@@ -666,7 +676,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "History" sub tab
     And I softly see value "{SavedValue:EndDate}" for title "New Value" against the value "Project Period End Date" inside table "---sitevisits:-:grantHistoryTableId---"
 
-  @54160 @pendingTaskForSiteVisit @meenakshi
+  @hitRun @54160 @pendingTaskForSiteVisit @meenakshi
   Scenario: Verify the pending task for the Applicants - Site Visits
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
@@ -706,7 +716,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:EGMSID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @54219 @54222 @conductCreatedDeskReview @meenakshi
+  @hitRun @54219 @54222 @conductCreatedDeskReview @meenakshi
   Scenario: Verify user (record owner) is able to conduct created Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
@@ -753,26 +763,21 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I cannot see top right button "Conduct" in page detail
 
-  @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4 @vaibhav @reassignment
+  @hitRun @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4 @vaibhav @reassignment
   Scenario: Validate Admin user should able to see option of ownership option under reassign section on left navigation bar
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     #197272
-    Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Site Visit/Desk Review"
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     #197275
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
     Then I softly see "Site Visits Available for Reassignment " page block displayed
     Then I softly see "Site Visits Owned by Target User " page block displayed
 
-  @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4 @vaibhav @reassignment
+  @hitRun @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can show all the Site Visit of target users will be transferred in future or transferred is past from source user to target user in 2nd section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -797,24 +802,22 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
 
-  @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4 @vaibhav @reassignment
+  @hitRun @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4 @vaibhav @reassignment
   Scenario: Validate user show Site visit of the source user for all states in 1st section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -839,22 +842,19 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     Then I see value "Created" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Closed" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "Closed" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Notified" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "Notified" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Submitted for Approval" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "Submitted for Approval" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
     #197290
@@ -864,15 +864,18 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     #197294
+    When I navigate to "Records of Source User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I do not see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
 
-  @197355 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment
+  @hitRun @197355 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should see warning message after click on Transfer ownership button
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -897,12 +900,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel

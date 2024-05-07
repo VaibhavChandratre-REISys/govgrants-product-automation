@@ -887,43 +887,42 @@ Feature: Validate all scenarios in Progress Report
     And I close the tab
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
-#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-#    When I navigate to "Responsibilities" sub tab
-#    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
-#      | Reviewer Name            | Responsibility  | Description                 | Due Date |
-#      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
-#    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-#    And I wait for "2" seconds
-#    Then I softly see the following messages in the page details contains:
-#      | Review Successfully Initiated |
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-#    When I navigate to "Responsibilities" sub tab
-#    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-#    And I enter values into fields
-#      | Value       | Field             |
-#      | Cannot Rate | Rating__c         |
-#      | Passed      | ReviewComments__c |
-#    When I click modal button "Save"
-#    And I click on submit review
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
-#    And I navigate to "Management" sub tab
-#    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
-#    And I navigate to "Responsibilities" sub tab
-#    And I expand nested table containing column value "{SavedValue:FO Username}"
-#    Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTemp"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
+    Then I softly see the following messages in the page details contains:
+      | Review Successfully Initiated |
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
+    And I enter values into fields
+      | Value       | Field             |
+      | Cannot Rate | Rating__c         |
+      | Passed      | ReviewComments__c |
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---progressReport:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    And I navigate to "Management" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    And I navigate to "Responsibilities" sub tab
+    And I expand nested table containing column value "{SavedValue:FO Username}"
+    Then I softly see value "Cannot Rate" for title "Rating" inside table "GrantorProgressReportReviewsTemp"
 
  @AwardOwnerCanAddMultiplePeerReviewerForPR @Keerti
   Scenario: Validate Award owner can add Multiple Peer reviewer for Progress report whose status is Submitted to grantor
