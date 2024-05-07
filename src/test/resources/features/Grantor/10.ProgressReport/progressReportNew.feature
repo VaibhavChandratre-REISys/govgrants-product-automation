@@ -1901,7 +1901,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     And I wait for "3" seconds
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:amendedSubawardId}" having object api name as "ProgressReports__c"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
@@ -1935,7 +1935,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Management" sub tab
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:grantorGrantProgressReportTableId---" without waiting for record
     Then I see field "Budget Period" as "{savedValue:updatedBudgetPeriod}"
-    Then I delete the record "{SavedValue:Automation Runtime Award2}" from the object "Progress Report"
+    Then I delete the record "{SavedValue:amendedSubawardId}" from the object "Progress Report"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
