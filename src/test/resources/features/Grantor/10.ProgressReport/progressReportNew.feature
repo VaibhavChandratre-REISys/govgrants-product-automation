@@ -4316,8 +4316,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "<Grant Name>" in "---amendment:-:recipientAwardsTableId---" panel
-    And I click on "View" icon for "{SavedValue:amendedSubawardID}" inside flex table with id "---amendment:-:recipientAwardsTableId---" without waiting for record
+    When I perform quick search for "<Grant Name>" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:amendedSubawardID}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     When I navigate to "Management" sub tab
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressreport:-:recipientGrantProgressReportTableId---"
     Examples:
@@ -5106,6 +5106,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
       | Value | Field                      |
@@ -5313,6 +5314,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
   @61933 @validateCreatedPRAfterSWAmendmentIsCarryForwardedAonGrant @mahadev @TBExecution1
   Scenario Outline: Validate progress report with created status is carry forwarded at subportal on grant after SOW amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    When I delete the record "<Award Name>" from the object "Progress Report"
+    And I delete the record "<Award Name>" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5323,9 +5327,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    When I delete the record "<Award Name>" from the object "Progress Report"
-    And I delete the record "<Award Name>" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -5924,6 +5925,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
   @61887 @60384 @61894 @validateCreatedPRAfterPeriodicAmendmentIsCarryForwardedAonAward @mahadev @jitendra @TBExecution1
   Scenario Outline: Validate Progress reports with Created Status is not displayed at Performance Tab Subaward Overview at Award Owner end when Award owner performed periodic renewal Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    When I delete the record "<Award Name>" from the object "Progress Report"
+    And I delete the record "<Award Name>" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5934,9 +5938,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    When I delete the record "<Award Name>" from the object "Progress Report"
-    And I delete the record "<Award Name>" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -6476,6 +6477,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     Then I softly see that "Subaward" is in "Activated" status
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I wait for "3" seconds
+    Then I delete the record "<Award Name>" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6483,7 +6485,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Performance" sub tab
     Then I see field "Current Obligation" as "$1,100.00"
-    Then I delete the record "<Award Name>" from the object "Progress Report"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
