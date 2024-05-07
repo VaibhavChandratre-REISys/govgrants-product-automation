@@ -41,13 +41,14 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
@@ -93,11 +94,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -117,7 +119,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -125,7 +127,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     #279022
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
   @279023 @VerifythatwhenExeapproverForwardthedeskreviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-25-US-297269 @hitesh @Undo
@@ -167,11 +169,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -182,6 +185,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I select user "{SavedValue:PM1 Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -189,14 +193,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
   @279024 @VerifythatwhenpmapproverSendbacktheDeskreviewrecordpmwillnotseeUNDObutton @sprint-25-US-297269 @hitesh @Undo
@@ -239,19 +243,21 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
-    And I see "{SavedValue:PM Username}" against "Re-approval (Pending for first approval)" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
+    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
+    Then I softly see column "Date" at position "1" contains text "Re-approval (Pending for first approval)"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "In Progress"
     Then I cannot see top right button "Undo" in page detail
@@ -304,11 +310,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -316,6 +323,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -324,6 +332,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -332,6 +341,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -340,7 +350,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
   @279027 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269 @hitesh @Undo
@@ -391,11 +401,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -403,6 +414,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -411,6 +423,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -419,6 +432,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -427,7 +441,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
 
@@ -479,11 +493,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -491,6 +506,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -499,6 +515,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -507,6 +524,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -515,13 +533,13 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #279033
     Then I cannot see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "10" seconds
@@ -667,17 +685,18 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
@@ -699,14 +718,14 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Then I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabDeskReviewTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
       #279030
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -716,7 +735,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReviewId"
     Then I softly can see top right button "Accept and Close" in page detail
     And I click on "Accept And Close" in the page details
-    Then I softly see status in Progress-bar is "Closed" and is "Green"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #279031
     Then I cannot see top right button "Undo" in page detail
 
@@ -759,11 +778,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -771,18 +791,18 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "No" on modal confirmation box
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    And I click "Cancel" on modal confirmation box
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @279034 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofdeskreviewwillnotgetaffected @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that after EXE user click on Undo button All the tables of desk review will not get affected
@@ -823,11 +843,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -835,9 +856,10 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -901,12 +923,13 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     Then I cannot see top right button "Undo" in page detail
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
   @284294 @VerifyAuditorusercannotseeundobuttoninapprovedstateofdeskreview @sprint-25-US-297269 @hitesh @Undo
@@ -948,11 +971,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -960,13 +984,13 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
   @284438 @284439 @Verifywhen3ApproversapprovetheDeskreviewandlastapproverclickonundobuttononlylastapproverstaskshouldgetremovedfromcompletedtask @sprint-25-US-297269 @hitesh @Undo @FieldHistoryExclude
@@ -1014,11 +1038,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1026,6 +1051,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1034,6 +1060,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1042,6 +1069,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1108,11 +1136,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1120,10 +1149,10 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
@@ -1168,17 +1197,18 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1199,7 +1229,7 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award Desk Review}" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award Desk Review}" having object api name as "Closeout"
@@ -1217,11 +1247,12 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    And I enter value "Automation Test Reason" into field "fieldReason__c"
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test Reason" into field "Reason__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I navigate to "Checklist" sub tab
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -1287,11 +1318,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1311,7 +1343,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1412,11 +1444,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1427,6 +1460,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I select user "{SavedValue:PO Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1434,7 +1468,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1534,11 +1568,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1549,6 +1584,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I select user "{SavedValue:PM Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1556,14 +1592,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
   @290070 @VerifyemailshouldbegeneratedtoawardownerandapproversafterforwardedapproverclickonUndobuttonandapprovaltaskshouldgetcanceledfromcompletedtask @sprint-2-US-289061 @hitesh @Undo
@@ -1608,11 +1644,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1630,6 +1667,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I select user "{SavedValue:FO Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1637,7 +1675,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1733,11 +1771,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1757,7 +1796,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1863,11 +1902,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1875,6 +1915,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1883,6 +1924,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1891,43 +1933,40 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
   @308408 @Verifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofdeskreviewlastormiddle @sprint-7-US-306815 @hitesh @Undo
@@ -1975,11 +2014,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1987,6 +2027,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1995,6 +2036,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2003,6 +2045,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -2025,7 +2068,7 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Name                      | Desk Review |
       | {SavedValue:FO Username}  | Step 3      |
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2033,6 +2076,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2041,6 +2085,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2049,6 +2094,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
 
   @308437 @VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatongrantAward @sprint-7-US-306815 @hitesh @Undo
@@ -2090,18 +2136,18 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I navigate to "Home" tab
-    And I select "Site Visits / Desk Reviews" from dropdown for Global search
+    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I perform quick search for "{SavedValue:DeskReview}" in "SiteVisit__c" panel
     Then I softly cannot see row level action button "Undo" against "{SavedValue:DeskReview}" in flex table with id "SiteVisit__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -2182,11 +2228,12 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2202,6 +2249,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2210,6 +2258,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
 
   @329543 @ValidateDRthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofdeskreview @Sprint-13-US-331643 @vaibhav @Undo
@@ -2251,18 +2300,19 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -2272,7 +2322,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "100" seconds
-    Then I refresh the page
+    And I refresh the page
     And I see the mail subject is as follows :
       """
     Sandbox: Notification: Approver has initiated Undo Action on#{SavedValue:DeskReview}
