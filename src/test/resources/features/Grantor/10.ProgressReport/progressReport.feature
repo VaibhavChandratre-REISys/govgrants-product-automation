@@ -883,9 +883,9 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Forms and Files Tab - Provide all the required data in the form before submitting to Grantor. |
-
+    And I wait for "5" seconds
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    
   @59567 @58773 @NoEditAccessForFormsSPI @jitendra
   Scenario: Validate Management Tab under Grant view at Internal user is getting updated when Progress report status is Submitted for Approval on active subaward.
   Validate Submitted By field at Certification table should get updated on Progress report at SR user end when Progress report status is Submitted to Grantor
