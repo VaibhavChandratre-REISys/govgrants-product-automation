@@ -529,7 +529,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Terms" sub tab
     Then I cannot see row level action button "Edit" against "Progress Report" in flex table with id "---progressreport:-:progressReportsScheduleId---"
 
-  @58896 @mahadev @NewProgressFinal @Debug
+  @58896 @mahadev @NewProgressFinal
   Scenario Outline: Validate Internal User with another profile but same organization can view the Progress report whose status is Submitted to Grantor at Management Tab
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -547,7 +547,8 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
