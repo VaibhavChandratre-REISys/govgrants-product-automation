@@ -2398,6 +2398,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -2548,9 +2549,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Performance" sub tab
@@ -2828,6 +2827,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -4720,6 +4720,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -5770,6 +5771,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -6003,6 +6005,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -6077,6 +6080,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -6165,6 +6169,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -6285,6 +6290,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                     |
       | 2100  | fieldRevisedCommitment__c |
@@ -6685,10 +6691,12 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the updated budget end date by offset "1" for award "<Award Name>"
+    And I wait for "3" seconds
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+    And I wait for "3" seconds
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details

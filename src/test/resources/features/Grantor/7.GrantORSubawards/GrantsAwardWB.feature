@@ -1005,7 +1005,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I refresh the page
-    Then I softly cannot see row level action button "Edit" against "Test TC" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "Test TC" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     And I save the value from row "1" for column name "Title" as "TermsConditionsTitle" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
@@ -1705,7 +1705,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @66750 @68152 @validateBlockGrantCreation @mahadev @Debug
+  @66750 @68152 @validateBlockGrantCreation @mahadev
   Scenario: To verify that Subaward is created state on progress bar when the Grant type is “Block Grant” | To verify that if the Budget Period End Date is left blank and send to subrecipient button is clicked on the top right corner of the page validation message appear
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
