@@ -197,6 +197,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -301,6 +303,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -440,6 +444,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -595,6 +601,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -645,7 +653,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
 
-  @hitRun @69413 @initiateSiteVisitButtononFlextable
+  @69413 @initiateSiteVisitButtononFlextable
   Scenario: Validate whether initiate site visit button appear on site visit table of management tab of Award owner after Subaward is activated
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I delete the record "Automation Site Visit" from the object "Site Visit"
@@ -679,7 +687,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "History" sub tab
     And I softly see value "{SavedValue:EndDate}" for title "New Value" against the value "Project Period End Date" inside table "---sitevisits:-:grantHistoryTableId---"
 
-  @hitRun @54160 @pendingTaskForSiteVisit @meenakshi
+  @54160 @pendingTaskForSiteVisit @meenakshi
   Scenario: Verify the pending task for the Applicants - Site Visits
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
@@ -719,7 +727,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:EGMSID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @hitRun @54219 @54222 @conductCreatedDeskReview @meenakshi
+  @54219 @54222 @conductCreatedDeskReview @meenakshi
   Scenario: Verify user (record owner) is able to conduct created Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
@@ -766,7 +774,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I cannot see top right button "Conduct" in page detail
 
-  @hitRun @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4 @vaibhav @reassignment
+  @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4 @vaibhav @reassignment
   Scenario: Validate Admin user should able to see option of ownership option under reassign section on left navigation bar
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -777,10 +785,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I select value "Automation PM1" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     #197275
-    Then I softly see "Site Visits Available for Reassignment " page block displayed
-    Then I softly see "Site Visits Owned by Target User " page block displayed
+    Then I softly see "Site Visits Available for Reassignment" page block displayed
+    When I navigate to "Records of Target User" sub tab
+    Then I softly see "Site Visits Owned by Target User" page block displayed
 
-  @hitRun @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4 @vaibhav @reassignment
+  @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can show all the Site Visit of target users will be transferred in future or transferred is past from source user to target user in 2nd section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -817,10 +826,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
 
-  @hitRun @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4 @vaibhav @reassignment
+  @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4 @vaibhav @reassignment
   Scenario: Validate user show Site visit of the source user for all states in 1st section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -870,6 +880,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     #197294
@@ -878,7 +889,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I do not see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
 
-  @hitRun @197355 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment
+  @197355 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should see warning message after click on Transfer ownership button
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -963,7 +974,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1144,7 +1154,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1207,7 +1216,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1282,7 +1290,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1350,9 +1357,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1420,7 +1428,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -1438,7 +1445,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1499,9 +1505,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1529,7 +1536,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1639,7 +1645,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1701,7 +1706,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1783,7 +1787,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1852,7 +1855,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1907,9 +1909,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1943,7 +1946,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1995,9 +1997,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -2031,7 +2034,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -2232,9 +2234,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2295,7 +2298,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2341,9 +2343,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2449,9 +2452,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2512,7 +2516,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2574,7 +2577,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -2636,7 +2638,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -2696,9 +2697,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2758,7 +2760,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -2776,7 +2777,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2834,9 +2834,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2859,7 +2860,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2967,7 +2967,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3031,7 +3030,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3112,7 +3110,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3188,7 +3185,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3247,9 +3243,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
@@ -3275,7 +3272,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3328,9 +3324,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3360,7 +3357,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3411,9 +3407,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3443,7 +3440,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3494,9 +3490,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3557,7 +3554,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3607,9 +3603,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3672,7 +3669,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -3732,7 +3728,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -3787,9 +3782,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -3817,7 +3813,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -3872,9 +3867,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -3938,7 +3934,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -4001,7 +3996,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -4064,7 +4058,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -4120,9 +4113,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4227,9 +4221,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4327,9 +4322,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4427,9 +4423,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4527,9 +4524,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4632,9 +4630,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4741,9 +4740,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -4817,7 +4817,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4877,9 +4876,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -5001,9 +5001,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -5132,9 +5133,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -5247,9 +5249,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -5353,9 +5356,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5452,9 +5456,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5545,9 +5550,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5638,9 +5644,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5731,9 +5738,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5829,9 +5837,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5931,9 +5940,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6005,7 +6015,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6060,9 +6069,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6173,9 +6183,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6277,9 +6288,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6400,9 +6412,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6512,9 +6525,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -6574,7 +6588,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -6654,9 +6667,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -6718,7 +6732,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -6810,7 +6823,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6892,9 +6904,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -6957,6 +6970,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -6997,7 +7012,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -7059,7 +7073,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7181,9 +7194,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -7317,9 +7331,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -7359,7 +7374,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7493,7 +7507,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7620,6 +7633,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -7662,7 +7677,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7783,9 +7797,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -7914,9 +7929,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -8048,9 +8064,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -8079,7 +8096,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -8370,7 +8386,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -8619,9 +8634,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -8655,7 +8671,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -8776,9 +8791,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -8812,7 +8828,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -8933,9 +8948,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -8999,7 +9015,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -9136,7 +9151,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -9253,9 +9267,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -9375,7 +9390,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -9497,9 +9511,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -9568,7 +9583,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -9689,9 +9703,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -9935,9 +9950,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -9990,9 +10006,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -10042,9 +10059,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -10083,9 +10101,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -10124,9 +10143,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -10202,9 +10222,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -10278,7 +10299,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview4}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview4}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
