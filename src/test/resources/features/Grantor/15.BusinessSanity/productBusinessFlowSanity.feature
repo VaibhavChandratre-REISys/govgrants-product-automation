@@ -1088,13 +1088,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    To Do:- Button is not display hence commented also added below step for now
@@ -1134,12 +1134,12 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
 #    When I click on "Back" in the page details
@@ -2052,7 +2052,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "Splitview" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -2136,13 +2136,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Reports and Outcomes" sub tab
     And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    And I click on "Save" in the page details
+    And I close the tab
     And I save the field labeled "EGMS ID" as "SitevVisitId"
-#    Below button is not display for now logged the bug
-#    When I click on "Back" in the page details
-#    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -2243,16 +2241,11 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Observation | Automation Description | Observation |
     And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-#    Below button is not display for now logged the bug
-#    When I click on "Back" in the page details
-#    And I navigate to "{SavedValue:DeskReview} | Site Visit" tab
-#    And I navigate to "Reports and Outcomes" sub tab
-#    And I wait for "2" seconds
-#    And I click on "Save" in the page details
-#    And I wait for "1" seconds
+    And I click on "Save" in the page details
+    And I close the tab
+    And I wait for "1" seconds
     When I click on "Submit for Approval" in the page details
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2334,12 +2327,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Reports and Outcomes" sub tab
     And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-#    Below button is not display for now logged the bug
-#    When I click on "Back" in the page details
-#    And I navigate to "{SavedValue:SitevVisitId} | Site Visit" tab
+    And I click on "Save" in the page details
+    And I close the tab
     And I refresh the page
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:orgCorrectiveTableId---" by clicking "New" :
@@ -2422,12 +2413,10 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Observation | Automation Description | Observation |
     And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-#    Below button is not display for now logged the bug
-#    When I click on "Back" in the page details
-    And I navigate to "{SavedValue:DeskReviewID} | Site Visit" tab
+    And I click on "Save" in the page details
+    And I close the tab
     And I navigate to "Reports and Outcomes" sub tab
     And I wait for "2" seconds
     And I click on "Save" in the page details

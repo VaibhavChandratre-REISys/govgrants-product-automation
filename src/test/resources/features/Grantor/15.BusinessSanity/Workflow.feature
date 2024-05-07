@@ -1536,7 +1536,6 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I halt execution
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
+#    And I delete the record "Automation Runtime Award83672" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "Automation Runtime Award93055" having object api name as "ProgressReports__c"
+
