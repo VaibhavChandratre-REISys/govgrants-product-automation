@@ -147,7 +147,7 @@ Feature: Validate all scenarios in Progress Report
 
   @51104 @58535 @spaUserBlockedfromSubmisionOfProgressReport @NewProgressFinal
   Scenario: To validate SPA user is not allowed to Submit Progress Report | Verify Sub-recipient user is not allowed to Edit the Schedules created on active award when Progress report is generated.
-    When I re-login as "SPA" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
