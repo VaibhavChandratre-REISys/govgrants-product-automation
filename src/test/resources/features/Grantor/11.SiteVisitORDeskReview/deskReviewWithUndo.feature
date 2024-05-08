@@ -870,8 +870,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---deskreview:-:reviewersFlexTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EXE Username}" in flex table with id "---deskreview:-:deskReviewContactsTableId---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SPI3 Username}" in flex table with id "---deskreview:-:deskReviewContactsTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EXE Username}" in flex table with id "---deskreview:-:participantsTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:SPI3 Username}" in flex table with id "---deskreview:-:participantsTableId---"
     Given I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---deskreview:-:reviewersFlexTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
