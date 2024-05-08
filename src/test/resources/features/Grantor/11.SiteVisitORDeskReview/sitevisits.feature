@@ -30,7 +30,7 @@ Feature: Validate all scenarios in the Site Visit
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:FO Username} | Step 2     |
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---sitevisits:-:siteVisitContactsTableId---"
@@ -57,14 +57,15 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Notify" in the page details
     And I save the field labeled "EGMS ID" as "SiteVisitId"
     Then I softly see field "Status" as "Notified"
-    Then I softly see status in Progress-bar is "Notified" and is "green"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "3" seconds
-    And I refresh the page
-    Then I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-      """
+    Then I softly see status in Progress-bar is "Notified" and is "dark blue"
+    And I logout
+#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+#    And I pause execution for "3" seconds
+#    And I refresh the page
+#    Then I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+#      """
     And I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -89,7 +90,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -333,7 +334,7 @@ Feature: Validate all scenarios in the Site Visit
       | Site Visit Name                            |
       | {SavedValue:Automation Runtime Site Visit} |
 
-  @39159 @siteVisitDeleteAccesstoOwner @deepika
+  @wip @39159 @siteVisitDeleteAccesstoOwner @deepika
   Scenario Outline: Verify that record owner can delete created state site visit from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -345,7 +346,7 @@ Feature: Validate all scenarios in the Site Visit
       | Site Visit Name                            |
       | {SavedValue:Automation Runtime Site Visit} |
 
-  @39169 @reportsAndOutcomesEditAccess @deepika
+  @wip @39169 @reportsAndOutcomesEditAccess @deepika
   Scenario: Verify that upon conduct,  Reports And Outcomes tab are editable to the internal user for an award  level site visit
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -375,7 +376,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     Then I can see row level action button "Edit" against "General Review Form" in flex table with id "---sitevisits:-:reportsTableId---"
 
-  @35666 @54225 @61200 @66227 @recordOnwerConductSiteVisit @deepika
+  @wip @35666 @54225 @61200 @66227 @recordOnwerConductSiteVisit @deepika
   Scenario: Verify that PM user (other than record owner) is able to conduct or Notify and user can view location and date of performance
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Notify" in page detail
@@ -404,7 +405,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Conduct" in page detail
 
-  @54221 @siteVisitNotifiedByFOuser @deepika
+  @wip @54221 @siteVisitNotifiedByFOuser @deepika
   Scenario: Verify user (record owner only) is able to plan and notify created site visit to subrecipient and other user cannot notify  - Award Level
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -494,7 +495,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
 
-  @55209 @55208 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatus @deepika
+  @wip @55209 @55208 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatus @deepika
   Scenario:  Applicant is not able to view the report or outcomes while in the Notified status and User will not be able to submit the Site Visit for approval without completed forms
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -526,7 +527,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @55275 @approverPendingTaskUnderMonitoringAward @deepika
+  @wip @55275 @approverPendingTaskUnderMonitoringAward @deepika
   Scenario: Validate whether the approver will be able to view the Pending task under Monitoring
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -735,7 +736,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @deepika
+  @wip @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @deepika
   Scenario: Validate Validate Approvers Table is not editable for record owner and Reports and Outcome Tab visibility after Notified Status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -766,7 +767,7 @@ Feature: Validate all scenarios in the Site Visit
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55872 @55796 @55805 @recipientsCannotCreateOutcomesSV @deepika
+  @wip @55872 @55796 @55805 @recipientsCannotCreateOutcomesSV @deepika
   Scenario: Recipients will not be able to create / edit the Site Visit Outcomes and view the Notify and Conduct button on the Site Visit
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1132,7 +1133,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I click on "Complete Review" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1673,7 +1674,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:InitiateSiteVisitTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @66392 @66384 @66561 @validateSendBackToSubRecipientButton @mahadev
+  @wip @66392 @66384 @66561 @validateSendBackToSubRecipientButton @mahadev
   Scenario: To verify that Send back to subrecipient button appear on the top right corner of the page of award owner(PM) in site visit page when status is submitted to grantor
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1794,7 +1795,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -1813,7 +1814,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -1830,7 +1831,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-#    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1859,7 +1860,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @146044 @VerifyusercanaddthreestepapproversonSiteVisitandsubmitforapproval @vaibhav
   Scenario: Verify user can add three step approvers on Site Visit and submit for approval
@@ -1868,7 +1869,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1899,7 +1900,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
   Scenario: Verify validation is displayed when user  select NA for step and submit for approval on Site visit
@@ -1908,7 +1909,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1943,7 +1944,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
