@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -127,7 +127,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -247,7 +247,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -387,7 +387,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -504,7 +504,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -647,7 +647,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -821,7 +821,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -995,7 +995,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1124,7 +1124,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1304,7 +1304,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1332,7 +1332,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Site Visit Org level" from flex table "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1410,7 +1410,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1459,7 +1459,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Site Visit Org level" from flex table "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1585,7 +1585,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1696,7 +1696,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1813,7 +1813,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1928,7 +1928,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2066,7 +2066,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2115,7 +2115,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Site Visit Org level" from flex table "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
@@ -2241,7 +2241,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"

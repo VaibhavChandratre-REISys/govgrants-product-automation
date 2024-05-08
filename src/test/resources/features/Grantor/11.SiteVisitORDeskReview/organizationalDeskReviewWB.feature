@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -124,7 +124,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -242,7 +242,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -311,7 +311,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -432,7 +432,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -565,7 +565,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -648,7 +648,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -753,7 +753,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -917,7 +917,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1032,7 +1032,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1186,7 +1186,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1305,7 +1305,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1472,7 +1472,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1626,7 +1626,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1744,7 +1744,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+   Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1822,7 +1822,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1932,7 +1932,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
