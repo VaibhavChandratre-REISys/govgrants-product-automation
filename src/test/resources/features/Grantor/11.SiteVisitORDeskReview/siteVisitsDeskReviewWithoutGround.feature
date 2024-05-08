@@ -481,7 +481,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "2" seconds
     When I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
-    And I navigate to "Management" tab
+    And I navigate to "Management" sub tab
     When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---"
     And I navigate to "Grants" tab
