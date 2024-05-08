@@ -1534,8 +1534,9 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-#    And I delete the record "Automation Runtime Award83672" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "Automation Runtime Award93055" having object api name as "ProgressReports__c"
-
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    When I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
+      | Description                 | Required | Applies To  | Status |
+      | Automation test description | Optional | Application | Active |
