@@ -1389,7 +1389,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @38224 @awardHappyPathFromFDM
+  @38224 @awardHappyPathFromFDM @TBE
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1439,6 +1439,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
     And I click on "Accept" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1479,24 +1480,28 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1506,12 +1511,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside table
     And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1526,7 +1533,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone
+  @72348 @awardHappyPathStandAlone @TBE
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1594,6 +1601,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     When I click on "Accept" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1613,6 +1621,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1622,12 +1631,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1637,6 +1648,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
   @72360 @activeRiskAssessment
