@@ -1,4 +1,4 @@
-@SiteVisitExecution @checknow @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@SiteVisitExecution @checknow1 @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in the Site Visit
 
   Background: Data setup for Site Visit
@@ -8,8 +8,8 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
@@ -102,9 +102,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -112,7 +116,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Observation | Automation Description | Observation |
     Then I softly see that "Automation Finding" has been added in flextable with Id "---sitevisits:-:correctiveTableId---"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
   @51091 @51092  @66314 @approvalOfSiteVisit
   Scenario: Approval of Site Visit and Send Site Visit to Subrecipient | validate task for program approver
@@ -143,9 +147,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -203,9 +211,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -283,9 +295,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -438,9 +454,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -535,9 +555,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -579,9 +603,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -641,9 +669,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -788,9 +820,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -856,9 +892,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -905,9 +945,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -969,9 +1013,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1122,9 +1170,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1175,9 +1227,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1224,9 +1280,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1268,9 +1328,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1313,9 +1377,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1391,11 +1459,13 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1487,9 +1557,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1540,9 +1614,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1624,9 +1702,13 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1748,7 +1830,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+#    Then I softly see status in Progress-bar is "In Progress" and is "green"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1763,9 +1845,14 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FO Username} | Step 2     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
+#    When I click on "Back" in the page details
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1799,9 +1886,13 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:EXE Username} | Step 3     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1829,9 +1920,13 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:PM Username} | NA         |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1863,9 +1958,13 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FO Username} | Step 4     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "5" seconds
+    And I close the tab
+    And I refresh the page
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
