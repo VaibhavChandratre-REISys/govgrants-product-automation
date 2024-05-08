@@ -17,7 +17,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
     And I click toggle button to select "Draft Directed Announcements"
     Then I softly cannot see top right button "New" in flex table with id "ActiveFundingOpportunities"
 
-  @69160 @otherUsersCanCreateAnnouncement
+  @wip @69160 @otherUsersCanCreateAnnouncement
   Scenario Outline: Verify that other than Auditor user all other users can create a Announcement
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
@@ -53,7 +53,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
       | User    | Announcement                                             |
       | AUDITOR | {SavedValue:Automation Runtime Announcement Application} |
 
-  @69162 @auditorCompetitiveAnnouncement @buglogged151660
+  @wip @69162 @auditorCompetitiveAnnouncement @buglogged151660
   Scenario: Validate Auditor should not be able to Create/Edit/Review/Approve announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     When I login to "As a Grantor" app as "Auditor" user
