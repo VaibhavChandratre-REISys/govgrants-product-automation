@@ -1534,9 +1534,6 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    When I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
-      | Description                 | Required | Applies To  | Status |
-      | Automation test description | Optional | Application | Active |

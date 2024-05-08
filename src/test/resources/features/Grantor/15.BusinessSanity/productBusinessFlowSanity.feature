@@ -1045,6 +1045,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I switch to parent tab
+    And I refresh the page
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
