@@ -2103,18 +2103,19 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewSourceTableId---"
     Then I see value "Created" for title "Status" inside table "---deskreview:-:deskReviewSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Closed" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I see value "Closed" for title "Status" inside table "---deskreview:-:deskReviewSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Notified" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I see value "Notified" for title "Status" inside table "---deskreview:-:deskReviewSourceTableId---"
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "Submitted for Approval" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I see value "Submitted for Approval" for title "Status" inside table "---deskreview:-:deskReviewSourceTableId---"
     #197629
     Then I can see top right button "Transfer Ownership" in flex table with id "---deskreview:-:deskReviewSourceTableId---"
     #197630
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewSourceTableId---" panel
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---deskreview:-:deskReviewSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---deskreview:-:deskReviewSourceTableId---"
@@ -2127,11 +2128,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
     #197631
     When I navigate to "Records of Source User" sub tab
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I do not see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewSourceTableId---"
 
-  @hitRun @197632 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment @ownvai
+  @197632 @ValidateusershouldseewarningmessageafterclickonTransferownershipbutton @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate user should see warning message after click on Transfer ownership button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -2377,6 +2378,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I pause execution for "2" seconds
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewTargetTableId---"
 
