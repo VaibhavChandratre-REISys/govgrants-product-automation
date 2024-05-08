@@ -451,7 +451,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav @ProgramExcludeScenarios
+  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @vaibhav
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
