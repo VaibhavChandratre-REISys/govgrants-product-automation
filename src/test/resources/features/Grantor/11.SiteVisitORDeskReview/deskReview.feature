@@ -108,7 +108,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     When I click on "Conduct" in the page details
     Then I softly see field "Status" as "In Progress"
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -1387,7 +1387,7 @@ Feature: Validate all scenarios in Desk Review
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @145878 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReview-RnRFunctionality @monu
+  @145878 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReview-RnRFunctionality @monu @DeskReviewSecondRun
   Scenario: Verify validation when same approver is defined for different steps on Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1427,7 +1427,7 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:PM Username} | Step 2      |
     Then I softly see "You cannot specify the same user for multiple steps for Desk Review" inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-  @145879 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReview-RnRFunctionality @monu
+  @145879 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReview-RnRFunctionality @monu @DeskReviewSecondRun
   Scenario: Verify the validation when same steps are defined for different approver on Desk approver
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1454,7 +1454,7 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:FO Username} | Step 1      |
     Then I softly see "You cannot specify the same step for multiple users for Desk Review." inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-  @145737 @approvalAt2Step-FromDeskReview-RnRFuntionality @monu
+  @145737 @approvalAt2Step-FromDeskReview-RnRFuntionality @monu @DeskReviewSecondRun
   Scenario: Verify user is able to approve desk review in step 2
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
