@@ -482,8 +482,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
     And I navigate to "Management" sub tab
-    When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
+#    When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---"
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -612,7 +613,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -636,7 +637,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "2" seconds
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
-    When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
+#    When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
