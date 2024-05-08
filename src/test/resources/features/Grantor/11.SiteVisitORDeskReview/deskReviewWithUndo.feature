@@ -697,7 +697,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
-#    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
@@ -734,7 +734,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     And I save the field labeled "EGMS ID" as "DeskReviewId"
-    Then I softly can see top right button "Accept and Close" in page detail
+    Then I softly can see top right button "Accept And Close" in page detail
     And I click on "Accept And Close" in the page details
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #279031
@@ -1209,8 +1209,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
-#    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1221,14 +1220,17 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"

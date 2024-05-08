@@ -1042,13 +1042,13 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
@@ -1457,7 +1457,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
