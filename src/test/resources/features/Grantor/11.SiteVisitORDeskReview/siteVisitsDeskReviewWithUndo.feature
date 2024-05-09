@@ -717,82 +717,82 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#    Details:
-#
-#    EGMS ID: {SavedValue:SitevVisitId}
-#
-#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-#
-#    Log in to EGMS and click here to start reviewing the details.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#    Hello,
-#
-#    This email is to notify you that approver has initiated undo action.
-#
-#    Details:
-#
-#    EGMS ID: {SavedValue:SitevVisitId}
-#
-#    Record Name: {SavedValue:Automation Runtime Award Site Visit}
-#
-#    Log in to EGMS and click here to start reviewing the details.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    Then I refresh the page
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#    Hello,
-#
-#    This email is to notify you that approver has initiated undo action.
-#
-#    Details:
-#
-#    EGMS ID: {SavedValue:SitevVisitId}
-#
-#    Record Name: {SavedValueAutomation Runtime Award Site Visit}
-#
-#    Log in to EGMS and click here to start reviewing the details.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+      """
+    Then I see the mail text is as follows :
+      """
+    Details:
+
+    EGMS ID: {SavedValue:SitevVisitId}
+
+    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+
+    Log in to EGMS and click here to start reviewing the details.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+      """
+    Then I see the mail text is as follows :
+      """
+    Hello,
+
+    This email is to notify you that approver has initiated undo action.
+
+    Details:
+
+    EGMS ID: {SavedValue:SitevVisitId}
+
+    Record Name: {SavedValue:Automation Runtime Award Site Visit}
+
+    Log in to EGMS and click here to start reviewing the details.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    Then I refresh the page
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+    Notification: Approver has initiated Undo Action on #{SavedValue:SitevVisitId}
+      """
+    Then I see the mail text is as follows :
+      """
+    Hello,
+
+    This email is to notify you that approver has initiated undo action.
+
+    Details:
+
+    EGMS ID: {SavedValue:SitevVisitId}
+
+    Record Name: {SavedValueAutomation Runtime Award Site Visit}
+
+    Log in to EGMS and click here to start reviewing the details.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
@@ -1473,14 +1473,17 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail

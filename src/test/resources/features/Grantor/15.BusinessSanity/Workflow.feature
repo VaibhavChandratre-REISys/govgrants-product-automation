@@ -1534,6 +1534,16 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AP-TAO modified-4131" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "View" icon for "AP-TAO modified-4131" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
     And I halt execution
+    And I wait for "5" seconds
