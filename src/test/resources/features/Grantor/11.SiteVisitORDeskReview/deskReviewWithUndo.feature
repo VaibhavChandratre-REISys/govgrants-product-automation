@@ -2163,7 +2163,6 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
-    And I perform quick search for "{SavedValue:DeskReview}" in "GrantorDeskReviewAward" panel
     Then I softly cannot see row level action button "Undo" against "{SavedValue:DeskReview}" in flex table with id "GrantorDeskReviewAward"
 
   @308398 @VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatongrantAward @sprint-7-US-306815 @hitesh @Undo

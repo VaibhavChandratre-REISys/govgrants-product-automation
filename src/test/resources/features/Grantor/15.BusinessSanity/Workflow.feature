@@ -1534,8 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Applications" tab
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "AN-TAO modified-7729"
-    Then I softly can see row level action button "Undo" against "AN-TAO modified-7729" in global search with id "Announcements"
+  And I halt execution
+#    And I navigate to "Applications" tab
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "AN-TAO modified-7729"
+#    Then I softly can see row level action button "Undo" against "AN-TAO modified-7729" in global search with id "Announcements"

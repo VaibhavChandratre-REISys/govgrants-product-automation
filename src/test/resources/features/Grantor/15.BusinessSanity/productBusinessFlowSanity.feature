@@ -1258,9 +1258,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
