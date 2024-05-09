@@ -2557,7 +2557,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Automation PM1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @hitRun @197644 @ValidateEXEuserownershipofDRrecordisassigntonewEXEusermeansthatDRrecordownerwillbethenewassignedownerinanystatebutifuserwantinitiateotherdeskreviewthenownerofthatdeskreviewwillbeinitiatorofDR @sprint-4-US-196236 @vaibhav @reassignment @ownershipcheck
+  @197644 @ValidateEXEuserownershipofDRrecordisassigntonewEXEusermeansthatDRrecordownerwillbethenewassignedownerinanystatebutifuserwantinitiateotherdeskreviewthenownerofthatdeskreviewwillbeinitiatorofDR @sprint-4-US-196236 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate EXE user ownership of DR record is assign to new EXE user means that DR record owner will be the new assigned owner in any state but if user want initiate other desk review then owner of that desk review will be initiator of DR
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
@@ -3318,7 +3318,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Send to Subrecipient" in page detail
 
-  @hitRun @197886 @ValidateDRownerasPOuserisinInProgressstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinRejectedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197886 @ValidateDRownerasPOuserisinInProgressstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinRejectedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate DR owner as PO user is in In Progress state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Rejected state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -3370,7 +3370,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:homePendingTasksTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
-    And I "Send back" in the approval decision
+    And I "Send Back" in the approval decision
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
