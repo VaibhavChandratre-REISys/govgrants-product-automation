@@ -1360,13 +1360,13 @@ Feature: Validate sanity testing of Complete Business Flow
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
-    And I halt execution
+    And I wait for "2" seconds
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Negotiation Initiated"
+    Then I see field "Status" as "Negotiation Initiated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
