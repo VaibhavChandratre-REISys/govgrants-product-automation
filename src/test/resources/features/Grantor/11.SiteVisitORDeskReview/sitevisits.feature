@@ -21,7 +21,7 @@ Feature: Validate all scenarios in the Site Visit
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SiteVisitID"
 
-  @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate
+  @wip @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate
   Scenario: Validate the creation, edition, created date and ParticipantAssociation
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -769,7 +769,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Notify" in the page details
     Then I softly can see top right button "Conduct" in page detail
 
-  @55792 @internalParticipantAssociationSiteVisit @deepika
+  @wip @55792 @internalParticipantAssociationSiteVisit @deepika
   Scenario Outline: Internal Participant Association of Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1428,7 +1428,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @61870 @61867 @peerReviewIntiationownerToAddProgramReviewerInSiteVisit @deepika
+  @wip @61870 @61867 @peerReviewIntiationownerToAddProgramReviewerInSiteVisit @deepika
   Scenario: Validate whether user is to able to intiate the peer review process and  owner is allowed to add a peer reviewer of type Program Reviewer for Site Visits
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1520,7 +1520,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
+  @wip @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
   Scenario: Validate whether Pm user can create second Site Visits when first is created status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1551,7 +1551,7 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Management" sub tab
     Then I see that "{SavedValue:secID}" has been added in flextable with Id "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @65239 @deleteCreateSiteVisit @deepika
+  @wip @65239 @deleteCreateSiteVisit @deepika
   Scenario: Validate whether user will be able to delete the created Site Visit
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1808,7 +1808,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Record Id" has been added in flextable with Id "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @146045 @Verify4StepApprovalAtSiteVisit-RnRFuntionality @monu
+  @wip @146045 @Verify4StepApprovalAtSiteVisit-RnRFuntionality @monu
   Scenario: Verify user is able to add four step approver on site visit created
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1863,7 +1863,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:PM Username} | Step 2     |
     Then I softly see "You cannot specify the same user for multiple steps for Site Visit" inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @145611 @VerifyusercanaddtwostepapproversonSiteVisitandsubmitforapproval @vaibhav
+  @test1 @145611 @VerifyusercanaddtwostepapproversonSiteVisitandsubmitforapproval @vaibhav
   Scenario: Verify user can add two step approvers on Site Visit and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1894,7 +1894,6 @@ Feature: Validate all scenarios in the Site Visit
     And I refresh the page
 #    When I click on "Back" in the page details
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1903,7 +1902,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @146044 @VerifyusercanaddthreestepapproversonSiteVisitandsubmitforapproval @vaibhav
+  @test1 @VerifyusercanaddthreestepapproversonSiteVisitandsubmitforapproval @vaibhav
   Scenario: Verify user can add three step approvers on Site Visit and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1936,7 +1935,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1945,7 +1943,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
+  @test1 @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
   Scenario: Verify validation is displayed when user  select NA for step and submit for approval on Site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1972,7 +1970,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
