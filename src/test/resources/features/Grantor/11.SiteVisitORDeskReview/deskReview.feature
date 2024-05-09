@@ -604,7 +604,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     And I refresh the page
-    And I wait for "6" seconds
+    And I wait for "10" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -695,7 +695,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     And I navigate to "Reports and Outcomes" sub tab
-    When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
+#    When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "General Review Form" in flex table with id "---deskreview:-:reportsTableId---"
 
   @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
@@ -755,6 +755,7 @@ Feature: Validate all scenarios in Desk Review
       | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -777,7 +778,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     When I click on "Complete Review" in the page details
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "Status" as "In Progress"
 
   @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika @smoke @DeskReviewFirst
