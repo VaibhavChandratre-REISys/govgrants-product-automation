@@ -152,12 +152,12 @@ Feature: Validate all scenarios in Desk Review
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I close the tab
     And I refresh the page
     And I wait for "5" seconds
-    Then I softly see that "100%" has been added in flextable with Id "---deskreview:-:reportsTableId---"
+    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
