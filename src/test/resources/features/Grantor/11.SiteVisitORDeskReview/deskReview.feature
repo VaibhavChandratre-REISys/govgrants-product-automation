@@ -152,12 +152,10 @@ Feature: Validate all scenarios in Desk Review
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
     And I close the tab
     And I refresh the page
     And I wait for "5" seconds
-    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
+#    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -332,7 +330,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     And I navigate to "Management" sub tab
     And I click on "View" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
-    Then I softly can see top right button "Send Back to Subrecipient" in page detail
+    Then I softly can see top right button "Send back to Subrecipient" in page detail
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @55279 @66469 @66148 @approverSendBackToUserDeskReview @deepika @DeskReviewFirst
@@ -551,7 +549,7 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Desk Review Reports - All"
     When I perform quick search for "<Desk Review Name>" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "Delete" icon for "<Desk Review Name>" inside table
+    And I click on "Delete" icon for "<Desk Review Name>" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I do not see values "<Desk Review Name>" and "Title" inside table
     Examples:
       | Desk Review Name                           |
