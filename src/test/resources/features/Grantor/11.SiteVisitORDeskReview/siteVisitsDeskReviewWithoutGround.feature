@@ -3594,7 +3594,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept and Close" in the page details
+    And I click on "Accept And Close" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -3629,7 +3629,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
 
-  @hitRun1 @197487 @ValidateSVownerasPMuserisinCreatedstateafterthatownershipwillgetchangedthennewownerwilhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197487 @ValidateSVownerasPMuserisinCreatedstateafterthatownershipwillgetchangedthennewownerwilhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate SV owner as PM user is in 'Created' state after that ownership will get changed then new owner will have the same access (page layout & sectional level buttons) as old owner had in 'Created' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "CREATE_AWARD_EXE" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Competitive"
@@ -3677,7 +3677,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Notify" in page detail
 
-  @hitRun1 @197495 @ValidateSVownerasFOuserisinSubmittedforapprovalstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedforapprovalstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197495 @ValidateSVownerasFOuserisinSubmittedforapprovalstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedforapprovalstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate SV owner as FO user is in 'Submitted for approval' state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -3759,7 +3759,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I cannot see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     Then I cannot see top right button "New" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @hitRun1 @197501 @ValidateSVownerasPOuserisinSubmittedtoGrantorstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoGrantorstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197501 @ValidateSVownerasPOuserisinSubmittedtoGrantorstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoGrantorstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate SV owner as PO user is in 'Submitted to Grantor' state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Submitted to Grantor state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -3876,7 +3876,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @hitRun1 @197648 @ValidatePMuserasawardownerAwardownernameshouldbesameinownersectionunderresponsibilitytabevenFOuserDRownerchangehisownershipofDRtootherFOuserinanystate @sprint-4-US-196236 @vaibhav @reassignment
+  @197648 @ValidatePMuserasawardownerAwardownernameshouldbesameinownersectionunderresponsibilitytabevenFOuserDRownerchangehisownershipofDRtootherFOuserinanystate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate PM user as award owner Award owner name should be same in owner section under responsibility tab even if FO user DR owner change his ownership of DR to other FO user in any state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -3946,7 +3946,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @hitRun1 @197880 @ValidateDRownerasPMuserisinCreatedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197880 @ValidateDRownerasPMuserisinCreatedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate DR owner as PM user is in 'Created' state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Created state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -4104,7 +4104,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @hitRun1 @197985 @ValidatePMusershouldabletoreassignthetaskofSiteVisitfromMyTasksunderReassignsectiononleft-handnavigationbar  @sprint-4-US-192978 @vaibhav @reassignment @taskreassign
+  @197985 @ValidatePMusershouldabletoreassignthetaskofSiteVisitfromMyTasksunderReassignsectiononleft-handnavigationbar  @sprint-4-US-192978 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user should able to reassign the task of Site Visit from My Tasks under Reassign section on left-hand navigation bar
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4206,7 +4206,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @hitRun1 @198007 @ValidateEXEusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownershiprelatedtaskstootherEXEuserofsameorganization @sprint-4-US-192978 @vaibhav @reassignment
+  @198007 @ValidateEXEusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownershiprelatedtaskstootherEXEuserofsameorganization @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate EXE user should able to see all the pending tasks in Reassign My Current Task page & user should reassign the ownership-related tasks to other EXE user of same organization
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
