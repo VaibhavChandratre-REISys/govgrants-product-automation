@@ -477,7 +477,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I submit the approval in the approval decision without processing
     Then I softly see the following messages in the page details contains:
       | Please select appropriate action before submitting. |
-    When I select radio button "Send back" in the approval decision
+    When I select radio button "Send Back" in the approval decision
     And I submit the approval in the approval decision
     Then I can see the message "Comments are Required." in the approval decision
     When I "Send Back" in the approval decision
@@ -803,7 +803,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I cannot see top right button "Undo" in page detail
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Send Back | Forward |
-    When I select radio button "Send back" in the approval decision
+    When I select radio button "Send Back" in the approval decision
     When I "Send Back" in the approval decision
     Then I softly see the following messages in the page details contains:
       | Successfully sent to Owner. It may take few minutes to process record |
