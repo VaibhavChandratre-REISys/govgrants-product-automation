@@ -1281,7 +1281,7 @@ Feature: Validate all scenarios in Desk Review
     And I refresh the page
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "Status" as "In Progress"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1289,11 +1289,11 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     And I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
-    And I select value "{SavedValue:FO Username}" into field "Name__c"
-    And I enter value "Step 1" into field "DeskReviewRole__c"
-    And I click on "Remove record" icon for "Step 1" inside table
-    Then I softly see "No Records Found" inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
+    Then I softly cannot see row level action button "Remove" against "Step 1" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
+
 
   @145732 @145733 @Verify1StepApprovalForDeskReview-RnRFunctnality @Verify2StepApprovalForDeskReview-RnRFunctnality @monu @DeskReviewFirst
   Scenario: Verify user is able to add two step approver on desk review
