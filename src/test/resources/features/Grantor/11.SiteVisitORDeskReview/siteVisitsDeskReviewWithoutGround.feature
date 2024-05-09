@@ -2592,8 +2592,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "input-1"
-    And I select value "Automation EXE1" into field "input-2"
+    And I select value "Automation EXE1" into field "input-1"
+    And I select value "Automation EXE" into field "input-2"
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewSourceTableId---" panel
     Then I see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewSourceTableId---"
@@ -2998,7 +2998,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I softly can see top right button "Conduct" in page detail
 
-  @hitRun @197882 @ValidateDRownerasEXEuserisinSubmittedtoReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoReviewstate @reassignment
+  @197882 @ValidateDRownerasEXEuserisinSubmittedtoReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoReviewstate @reassignment
   Scenario: Validate DR owner as EXE user is in Submitted to Review state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Submitted to Review state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -3085,7 +3085,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
 
-  @hitRun @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate DR owner as FO user is in Review state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Review state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -3237,7 +3237,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly cannot see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---deskreview:-:reviewersFlexTableId---"
 
-  @hitRun @197885 @ValidateDRownerasFOuserisinApprovedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinApprovedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197885 @ValidateDRownerasFOuserisinApprovedstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinApprovedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate DR owner as FO user is in 'Approved' state after that ownership will get changed then new owner will have the same access (page layout & sectional level buttons) as old owner had in Approved state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -3370,7 +3370,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:homePendingTasksTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -3402,7 +3403,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
 
   @hitRun1 @197888 @ValidateDRownerasPOuserisinSubmittedtoGrantorstateafterthatownershipwillgetchangedthennewownerwilhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoGrantorstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate DR owner as PO user is in Submitted to Grantor state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Submitted to Grantor state
-    Given I activated standalone subaward "Automation Runtime Award Desk Review"hit with properties "default" of type "Formula_By_Applicant"
+    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
