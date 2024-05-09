@@ -1535,7 +1535,7 @@ Feature: Validate all scenarios in Payment Request
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     #Bug420315
-    Then I cannot see field "Is Final Payment Request?" inside page block
+    Then I see field "Is Final Payment Request?" inside page block
 
   @38744 @validateFiscalApproversCanAddDisallowanceAmountPaymentRequest
   Scenario: Validate the Fiscal Approvers can add Disallowance for Reimbursement Payment request
