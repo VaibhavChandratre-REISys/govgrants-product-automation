@@ -762,6 +762,7 @@ Feature: Validate all scenarios in Desk Review
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
@@ -771,6 +772,7 @@ Feature: Validate all scenarios in Desk Review
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
+    And I refresh the page
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
