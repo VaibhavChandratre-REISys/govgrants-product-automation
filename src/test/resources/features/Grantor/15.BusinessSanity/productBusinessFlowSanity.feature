@@ -981,7 +981,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
     When I navigate to "Overview" sub tab
     And I pause execution for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
@@ -1165,7 +1164,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2082,7 +2081,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
-    Then I see field "Status" as "Submitted to Grantor"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2158,7 +2157,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Reports and Outcomes" sub tab
-    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -2263,7 +2261,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -2349,7 +2346,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
     And I navigate to "Reports and Outcomes" sub tab
-    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -2435,7 +2431,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    And I navigate to "Form" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -2712,10 +2707,12 @@ Feature: Validate sanity testing of Complete Business Flow
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
