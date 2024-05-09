@@ -11,6 +11,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Site Visit}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Site Visit}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
+    And I pause execution for "3" seconds
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
@@ -58,7 +59,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @59010 @51079 @orgSiteVisitCreationEdition
   Scenario: Validate the Created and Edition of Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -69,7 +70,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @51080 @participantAssociationOrganizationalSiteVisitExternallUser
   Scenario Outline: Participant Association of Organizational Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -82,7 +83,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Subrecipient               |
       | {SavedValue:SPI3 Username} |
 
-  @54210 @monitoringTypeSiteVisitFiscal @deepika
+  @wip @54210 @monitoringTypeSiteVisitFiscal @deepika
   Scenario: Validate the Monitoring type 'Fiscal' for Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -90,7 +91,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see "Fiscal" text enter in field "MonitoringType__c"
 
-  @54290 @monitoringTypeSiteVisitProgram @deepika
+  @wip @54290 @monitoringTypeSiteVisitProgram @deepika
   Scenario: Validate the Monitoring type 'Program' for Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -98,7 +99,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see "Program" text enter in field "MonitoringType__c"
 
-  @54426 @orgSiteVisitTypeApplication @deepika
+  @wip @54426 @orgSiteVisitTypeApplication @deepika
   Scenario: Validate the Site Visit type Application
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -106,7 +107,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Other"
 
-  @54427 @orgSiteVisitTypeAward @deepika
+  @wip @54427 @orgSiteVisitTypeAward @deepika
   Scenario: Validate the Site Visit type Award
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -116,7 +117,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54428 @addParticipantsT0OrgSiteVisit @deepika
   Scenario: Validate the participants for the Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -127,7 +128,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54452 @approverSelectionSiteVisitOrglevel @deepika
   Scenario Outline: Approver selection of Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -147,7 +148,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54454 @54456 @75862 @conductAndnotifySubrecipientSiteVisitOrgLevel @smoke @deepika
   Scenario: Conduct Site Visit and Notify Subrecipient about the Site Visit Org Level | Validate the external user will receive an email notification when the org level site visit is in notified status
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -189,7 +190,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54455 @notifyPendingTaskForSubrecipientSiteVisitOrgLevel @deepika
   Scenario: The respective POC from the applicant organization will receive a pending task about the Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -218,7 +219,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54570 @formFillingSiteVisitOrgLevel @deepika
   Scenario: Filling up of form in Site Visit Org Level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -263,7 +264,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54569 @54457 @addingOutcomeAndpprovalSiteVisitOrgLevel @deepika
   Scenario: Validate Adding outcomes and Submitting Site Visit for approval Org level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -315,7 +316,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54890 @54889 @siteVisitapprovalAndSendToSubrecipientOrgLevel @deepika @smoke
   Scenario: Approval and Send Site Visit to Subrecipient Org Level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -392,7 +393,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @56355 @55206 @siteVisitSubmitToGrantorAndCorrectiveActionsBySubrecipient @smoke @deepika
   Scenario: Validate the Site Visit Submit to Grantor and Corrective Actions By Subrecipients
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -489,7 +490,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @deepika @skipOnJenkins
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -597,7 +598,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @deepika
   Scenario:  Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -665,7 +666,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55464 @siteVisitsOrgLevelWithOutAddingCorerctiveItems @deepika
   Scenario: User will not be able to submit the Site Visits Org Level to Grantor without adding corrective actions to findings.
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -747,7 +748,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55465 @approverForwardUserGetPendingTaskSiteVisit @deepika
   Scenario: Validate when the Approver forward Org Level Site Visit to other user, the Pending Task will be created to the User
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -815,7 +816,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @internalParticipantAssociationOrganizationalSiteVisit @smoke @deepika
   Scenario Outline: Internal User participant Association of Organizational Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -830,7 +831,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55799 @organizationalsiteVisitPurpose @deepika
   Scenario: Validate the Purpose of Site Visit Org level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -841,7 +842,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55800 @organizationalsiteVisitSource @deepika
   Scenario: Validate the Source of Site Visit Org level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -852,7 +853,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55802 @55806 @notifyConductButtonSiteVisitOrgLevel @smoke @deepika
   Scenario: User will be able to view the Notify and Conduct button on the Site Visit to complete the action items
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -877,7 +878,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @55871 @55868 @recipientsCannotCreateOutcomesSeeReportsANdoutcomesInNotified @deepika
   Scenario: Validate Site Visit Applicant is not able to view the report or outcomes while in the Notified status and Recipients will not be able to create / edit the Outcomes.
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -906,7 +907,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @56008 @siteVisitWithoutFormFillingOrgLevel @deepika
   Scenario: User will not be able to submit the Site Visit for approval without completed forms
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -941,7 +942,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1001,7 +1002,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude
   Scenario: To Validate field history update for Org Level Site Visits  is send back to owner by Fiscal Approver
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1066,7 +1067,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval @keerti @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1122,7 +1123,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61402 @SiteVisitsReviewerCanNotEditAfterSubmittingTheReview @keerti
   Scenario: Validate after submitting the review comments for Org Level Site Visits, the Edit button should will be unavailable for the reviewer
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1167,7 +1168,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @56007 @PeerReviewAfterSVIsAcceptedAndClosed @keerti
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1225,7 +1226,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @keerti
   Scenario: Validate whether the PM user can add the attachments to Org Level Site Visits and view the Created Date on Overview Tab |Validate whether record owner has access to delete the asoociated Contact and Application- Org Site visits
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1245,7 +1246,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab @keerti
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and owner cannot edit the Site Visits Dates under Overview tab
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1272,7 +1273,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval @keerti @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot after Site Visit is Submitted for Approval status - Org Site Visits
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1313,7 +1314,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @61988 @RecordOwnerCanViewSnapshotAfterRAIsSubmittedForApproval @keerti
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1373,7 +1374,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @65151 @deleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether user will be able to delete the created Org Site Visits
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1396,7 +1397,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @65152 @historyOfOrgSiteVisitsendbacktoOwner @deepika @smoke @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Org Site Visit status is Submitted to Grantor.
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1460,7 +1461,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @65153 @corerctiveActionsDueDateSV @deepika
   Scenario: Validate Org Level Site Visit Submit to Grantor and Corrective Actions By Subrecipient
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1546,7 +1547,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @65154 @foUserCannotDeleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether other than record owner Fo user can delete the created Org Level Site Visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1566,7 +1567,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @39187 @clickAcceptAndCloseButtonforAward @meenakshi
   Scenario: Verify that when user click on 'Approve and Close' button then status will change to closed for Award level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1670,7 +1671,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @147976 @Verify1StepApprovalForSiteVisitOrgLevel-RnRFuntionality @monu
   Scenario: Verify user can add step1 approver on organization site visit created
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1684,7 +1685,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @148023 @VerifyErrorMessageAtApproverSectionWhileSkippingForSiteVisitOrgLevel-RnRFunctnality @monu
   Scenario: Verify the validation is displayed when NA is defined for step on organization site visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1729,7 +1730,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @148043 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisitOrgLevel-RnRFunctionality @monu
   Scenario: Verify validation user cannot add the same step for different approver on Organization site visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1754,7 +1755,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @148045 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisitOrgLevel-RnRFunctionality @monu
   Scenario: Verify validation user cannot add the same approver for different step on Organization site visit
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1779,7 +1780,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @147978 @Verify2StepApprovalForSiteVisitOrgLevel-RnRFuntionality @monu
   Scenario: Verify user can add two step approver on organization site visit created
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"

@@ -111,7 +111,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -158,7 +157,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -224,7 +222,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -310,7 +307,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -471,7 +467,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -622,7 +617,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -690,7 +684,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -843,7 +836,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -917,7 +909,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -971,7 +962,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1041,7 +1031,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1200,7 +1189,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1259,7 +1247,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1314,7 +1301,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1364,7 +1350,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1415,7 +1400,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1501,7 +1485,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1601,7 +1584,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1660,7 +1642,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -1829,9 +1810,13 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Verify user cannot add the same step for different approver on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+#    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -1848,9 +1833,13 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Verify the user cannot add same user for different step on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+#    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -2009,7 +1998,6 @@ Feature: Validate all scenarios in the Site Visit
     And I close the tab
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
