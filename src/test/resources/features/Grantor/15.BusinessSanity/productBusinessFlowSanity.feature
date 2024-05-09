@@ -1156,19 +1156,20 @@ Feature: Validate sanity testing of Complete Business Flow
 #    When I click on "Submit Application" in the page details
 #    Then I see status in Progress-bar is "Submitted" and is "dark blue"
 #    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-#    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-#    And I get the "EGMS ID"
+    And I login to "As a Grantor" app as "PM" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I get the "EGMS ID"
+    And I wait for "3" seconds
 #    When I navigate to "Applications" tab
 #    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
 #    When I click toggle button to select "Application Reviews - All"
 #    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
 #    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
 #    And I wait for "4" seconds
-    And I login to "As a Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
