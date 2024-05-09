@@ -1,4 +1,4 @@
-@organizationalSiteVisitWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo
+@organizationalSiteVisitUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude
@@ -1404,10 +1404,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
     And I navigate to "Home" tab
-    And I select "Site Visits / Desk Reviews" from dropdown for Global search
+    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    And I perform quick search for "{SavedValue:SitevVisitId}" in "SiteVisit__c" panel
-    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "SiteVisit__c"
+    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
@@ -1624,10 +1623,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:homeCompletedTaskTableId---" panel
     Then I cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:homeCompletedTaskTableId---"
     And I navigate to "Home" tab
-    And I select "Site Visits / Desk Reviews" from dropdown for Global search
+    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    And I perform quick search for "{SavedValue:SitevVisitId}" in "SiteVisit__c" panel
-    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "SiteVisit__c"
+    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
@@ -1639,6 +1637,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     And I navigate to "Related log" sub tab
+    And I wait for "2" seconds
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "SiteVisit"
 
   @310669 @ValidateOrgSVthatUndoButtonnotvisibleinForceClosedstate @Undo

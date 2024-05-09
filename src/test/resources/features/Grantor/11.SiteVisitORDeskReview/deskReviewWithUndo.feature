@@ -2150,7 +2150,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I navigate to "Home" tab
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
-    Then I softly cannot see row level action button "Undo" against "{SavedValue:DeskReview}" in flex table with id "SiteVisit__c"
+    Then I softly cannot see row level action button "Undo" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewGridViewTableId---" panel
