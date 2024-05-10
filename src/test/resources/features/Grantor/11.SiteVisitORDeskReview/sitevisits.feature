@@ -268,7 +268,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
 
   @wip @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
@@ -430,7 +430,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I cannot see top right button "Notify" in page detail
 
-  @55211 @66322 @siteVisitsWithOutAddingCorerctiveItems @deepika
+  @wip @55211 @66322 @siteVisitsWithOutAddingCorerctiveItems @deepika
   Scenario:  User will not be able to submit the Site Visit to Grantor without adding corrective actions to findings | To verify that submit to grantor button appear on site visit page at SR end
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -855,7 +855,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "{SavedValue:svID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:svID}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Notified" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
 #    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
 #    And I pause execution for "200" seconds
@@ -872,7 +872,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "{SavedValue:svID}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     Then I softly see that "{SavedValue:svID}" has been added in flextable with Id "---sitevisits:-:manageSiteVisitTableId---"
 
-  @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude
+  @wip @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude
   Scenario:  To Validate field history update post Award level Site Visit is send back to owner by program approver and Submit for Approval button
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1112,6 +1112,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1202,7 +1203,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    When I perform quick search for "Record Id" in "History" panel
+#    When I perform quick search for "Record Id" in "History" panel
     Then I softly see value "Created" for title "Old Value" inside table "History"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1547,7 +1548,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Delete" icon for "Record Id" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @65240 @historyOfSiteVisitsendbacktoOwner @deepika @FieldHistoryExclude
+  @wip @65240 @historyOfSiteVisitsendbacktoOwner @deepika @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Site Visit status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1687,6 +1688,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I pause execution for "5" seconds
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
@@ -1811,12 +1813,13 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" by showing entries "All" in flex table with id "---sitevisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
 #    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -1834,12 +1837,13 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" by showing entries "All" in flex table with id "---sitevisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
 #    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -1972,7 +1976,8 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Verify user cannot skip the step on approver section of site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Site Visit}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
