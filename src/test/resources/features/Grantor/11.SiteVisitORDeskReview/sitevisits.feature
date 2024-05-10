@@ -1360,7 +1360,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    Then I softly see status in Progress-bar is "Notified" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
   @wip @61866 @validatePendingTaskCreationforSiteVisits @deepika @smoke
