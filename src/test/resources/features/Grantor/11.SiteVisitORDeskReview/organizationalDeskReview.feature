@@ -37,7 +37,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Save" in the page details
     Then I softly see field "Monitoring Type" as "Fiscal"
 
-  @54295 @monitoringTypeProgramDR @deepika
+  @54295 @monitoringTypeProgramDR @deepika @organizationalDeskReviewFirst
   Scenario: Validate the Monitoring type 'Program' for Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -47,7 +47,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Save" in the page details
     Then I see field "Monitoring Type" as "Program"
 
-  @54423 @orgDeskReviewTypeApplication @deepika
+  @54423 @orgDeskReviewTypeApplication @deepika @organizationalDeskReviewFirst
   Scenario: Validate the Desk Review Org Level type Application
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Other"
 
-  @54424 @orgDeskReviewTypeAward @deepika
+  @54424 @orgDeskReviewTypeAward @deepika @organizationalDeskReviewFirst
   Scenario: Validate the Desk Review Org Level type Award
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -63,7 +63,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @54425 @addParticipantsT0OrgDeskReviewInternalUser @deepika
+  @54425 @addParticipantsT0OrgDeskReviewInternalUser @deepika @organizationalDeskReviewFirst
   Scenario Outline: User will be able to add contacts or users from both internal and subrecipient organizations.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -80,7 +80,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | {SavedValue:SPI3 Username} |
       | {SavedValue:EXE Username}  |
 
-  @54458 @54459 @approverSectionnotifySubrecipientDeskReviewOrgLevel @smoke @deepika
+  @54458 @54459 @approverSectionnotifySubrecipientDeskReviewOrgLevel @smoke @deepika @organizationalDeskReviewFirst
   Scenario: Approver selection and Notify Subrecipient about the Desk Review Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -104,7 +104,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Notify" in the page details
     Then I softly see field "Status" as "Notified"
 
-  @54462 @addingOutcomeDeskReviewOrgLevel @deepika
+  @54462 @addingOutcomeDeskReviewOrgLevel @deepika @organizationalDeskReviewFirst
   Scenario: Adding outcomes to Desk Review OrgLevel
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -127,11 +127,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---orgLevelDeskReview:-:homePhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:homePhasePendingTasks---"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -150,7 +145,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Observation | Automation Description | Observation |
     Then I softly see that "Automation Finding" has been added in flextable with Id "---orgLevelDeskReview:-:correctiveTableId---"
 
-  @54572 @formFillingDeskReviewOrgLevel @smoke @deepika
+  @54572 @formFillingDeskReviewOrgLevel @smoke @deepika @organizationalDeskReviewFirst
   Scenario: Filling up of form in Desk Review Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -173,11 +168,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---orgLevelDeskReview:-:homePhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:homePhasePendingTasks---"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -195,7 +185,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Back" in the page details
     Then I see that "100%" has been added in flextable with Id "---orgLevelDeskReview:-:reportsTableId---"
 
-  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel @deepika  @buglogged150042
+  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel @deepika  @buglogged150042 @organizationalDeskReviewFirst
   Scenario: Validate the org level Desk Review Submitting for Approval | Validate Approvers Table is not editable for record owner and award owner end when the status of Org Level Desk Review is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -231,18 +221,18 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
@@ -295,18 +285,22 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I wait for "3" seconds
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -389,18 +383,21 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -488,18 +485,21 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     Then I softly can see top right button "Submit for Approval" in page detail
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -555,18 +555,22 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -636,18 +640,22 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
+    And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -916,18 +924,21 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     When I click on "Submit for Approval" in the page details
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
@@ -972,18 +983,21 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1053,9 +1067,9 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I click on "Back" in the page details
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
