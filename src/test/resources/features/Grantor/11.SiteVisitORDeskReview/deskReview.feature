@@ -541,7 +541,7 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details :
-      | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
+      | Reports and Outcomes Tab - Enter corrective actions on all findings outcomes using the "⌄" icons. |
 
   @55364 @deskReviewDeleteAccesstoOwner @deepika @DeskReviewFirst
   Scenario Outline: Verify that record owner can delete created state desk review from Award level
