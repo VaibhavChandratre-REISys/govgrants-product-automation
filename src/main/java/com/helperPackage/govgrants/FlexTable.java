@@ -168,7 +168,7 @@ public final class FlexTable implements FlexTableComponent {
     public void getTableActionDropDownButtonIcon(String flexTableId, String... uniqueColumnValues) {
         WebElement desiredAction = null;
         for (String uniqueColumnValue : uniqueColumnValues) {
-            desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+            desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//tbody/tr//*[contains(text(),'" + uniqueColumnValue + "')]//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
             I.amPerforming().scroll().toMoveToElement(desiredAction);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
