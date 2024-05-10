@@ -3371,7 +3371,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:homePendingTasksTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
     And I "Send Back" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -3995,7 +3995,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Notify" in page detail
 
-  @hitRun1 @197984 @198006 @ValidateAsadminusershouldabletoreassignthetaskofSiteVisitwithsameprofile&sameOrganization @sprint-4-US-192978 @vaibhav @reassignment
+  @197984 @198006 @ValidateAsadminusershouldabletoreassignthetaskofSiteVisitwithsameprofile&sameOrganization @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate As a admin user should able to reassign the task of Site Visit with same profile & same Organization
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4307,7 +4307,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @hitRun1 @198008 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstarted/Inprocessofsitevisitfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198008 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstarted/Inprocessofsitevisitfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate PO user should able to check ownership related task(Not started/In process) of site visit from table & Reassign to new PO user of Same organization
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4408,7 +4408,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198010 @ValidateFOusershouldabletoseealltaskrelatedtoSiteVisitFindingsintheReassignMyCurrentTaskandreassigntotheotherFOuserwhichsourceuserhasselectedinlookupfield @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198010 @ValidateFOusershouldabletoseealltaskrelatedtoSiteVisitFindingsintheReassignMyCurrentTaskandreassigntotheotherFOuserwhichsourceuserhasselectedinlookupfield @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate FO user should able to see all task related to Site Visit Findings in the Reassign My Current Task and reassign to the other FO user which source user has selected in lookup field
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4514,7 +4514,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198013 @ValidatenewSVownerPOuserpendingtaskshouldbecreatedfortaskownershipofsitevisitfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198013 @ValidatenewSVownerPOuserpendingtaskshouldbecreatedfortaskownershipofsitevisitfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate new SV owner (PO user) pending task should be created for task ownership of site visit findings when old PO user reassign the ownership related task to new PO user
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4612,8 +4612,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -4624,7 +4626,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @198035 @199426 @198039 @ValidatePOuserOwnershipbasedtasklikeReviewSiteVisitFindingsshouldbegeneratedfornewSVownerotherPOuseronlyonceownershipofSVischangedevenifGrantownerischangedinbetweenlifecycleofSV @sprint-4-US-192978 @vaibhav @reassignment @FieldHistoryExclude
+  @hitRun @198035 @199426 @198039 @ValidatePOuserOwnershipbasedtasklikeReviewSiteVisitFindingsshouldbegeneratedfornewSVownerotherPOuseronlyonceownershipofSVischangedevenifGrantownerischangedinbetweenlifecycleofSV @sprint-4-US-192978 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user Ownership based task like 'Review Site Visit Findings' should be generated for new SV owner(other PO user) only once ownership of SV is changed even if Grant owner is changed in between life cycle of SV
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4722,8 +4724,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -4732,20 +4736,18 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4760,7 +4762,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @198036 @198057 @ValidateFOuserSVownerOwnershipbasedtaskReassigntonewFOuserthennewFOuserwillownerofthattaskbutownerofGrantshouldnotaffected @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198036 @198057 @ValidateFOuserSVownerOwnershipbasedtaskReassigntonewFOuserthennewFOuserwillownerofthattaskbutownerofGrantshouldnotaffected @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate FO user (SV owner)Ownership based task Reassign to new FO user then new FO user will owner of that task but owner of Grant should not affected
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4858,8 +4860,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -4885,7 +4889,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @198054 @Validateownershiprelatedtaskisreassigntonewuser&thatSVisinprocessafterchangedhisownershiptaskafterthatuserwanttocreateanotherSVthenownerofthatSV2shouldbetheinitiatorofSV2notthereassignownerofSV1 @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198054 @Validateownershiprelatedtaskisreassigntonewuser&thatSVisinprocessafterchangedhisownershiptaskafterthatuserwanttocreateanotherSVthenownerofthatSV2shouldbetheinitiatorofSV2notthereassignownerofSV1 @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate ownership related task is reassign to new user & that SV is in process after changed his ownership task after that user want to create another SV then owner of that SV2 should be the initiator of SV2 not the reassign owner of SV 1
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4983,8 +4987,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -5017,7 +5023,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PO" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
 
-  @198016 @ValidateoldSVownerFOusercanabletoviewtheSVrecordonceownershipoftaskisinSubmittedtograntorstateisreassigntonewFOuserNewSVowner @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198016 @ValidateoldSVownerFOusercanabletoviewtheSVrecordonceownershipoftaskisinSubmittedtograntorstateisreassigntonewFOuserNewSVowner @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate old SV owner FO user can able to view the SV record once ownership of task is in Submitted to grantor state is reassign to new FO user New SV owner
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -5115,8 +5121,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -5133,7 +5141,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
 
-  @198050 @ValidateoldSVownerasEXEusershouldnotabletoseebuttonswhenownershiprelatedtaskisreassigntonewEXEuser @sprint-4-US-192978 @vaibhav @reassignment
+  @hitRun @198050 @ValidateoldSVownerasEXEusershouldnotabletoseebuttonswhenownershiprelatedtaskisreassigntonewEXEuser @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate old SV owner as EXE user should not able to see buttons when ownership related task is reassign to new EXE user
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -5231,8 +5239,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -5245,7 +5255,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
     Then I softly cannot see top right button "Accept and Close" in page detail
 
-  @198020 @198023 @ValidateAsadminusershouldabletoreassignthetaskofDeskReviewwithsameprofile&sameOrganization @sprint-4-US-192997 @vaibhav @reassignment
+  @hitRun @198020 @198023 @ValidateAsadminusershouldabletoreassignthetaskofDeskReviewwithsameprofile&sameOrganization @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate As a admin user should able to reassign the task of Desk Review with same profile & same Organization
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5336,6 +5346,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     #198023
@@ -5345,7 +5356,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @198021 @ValidatePMusershouldabletoreassignthetaskofDeskreviewfromMyTasksunderReassignsectiononleft-handnavigationbar @sprint-4-US-192997 @vaibhav @reassignment
+  @hitRun @198021 @ValidatePMusershouldabletoreassignthetaskofDeskreviewfromMyTasksunderReassignsectiononleft-handnavigationbar @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate PM user should able to reassign the task of Desk review from My Tasks under Reassign section on left-hand navigation bar
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5436,10 +5447,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198025 @ValidateEXEusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownership-relatedtaskstootherEXEuserofsameorganization @sprint-4-US-192997 @vaibhav @reassignment
+  @hitRun @198025 @ValidateEXEusershouldabletoseeallthependingtasksinReassignMyCurrentTaskpage&usershouldreassigntheownership-relatedtaskstootherEXEuserofsameorganization @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate EXE user should able to see all the pending tasks in "Reassign My Current Task" page & user should reassign the ownership-related tasks to other EXE user of same organization
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5527,13 +5539,14 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I wait for "5" seconds
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation EXE1"
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198026 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstartedInprocessofDeskReviewfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192997 @vaibhav @reassignment
+  @hitRun @198026 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstartedInprocessofDeskReviewfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate PO user should able to check ownership related task(Not started/In process) of Desk Review from table & Reassign to new PO user of Same organization
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5621,13 +5634,14 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I wait for "5" seconds
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PO1"
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198027 @ValidateFOusershouldabletoseealltaskrelatedtoDeskReviewFindingsintheReassignMyCurrentTaskandreassigntotheotherFOuserwhichsourceuserhasselectedinlookupfield @sprint-4-US-192997 @vaibhav @reassignment
+  @hitRun @198027 @ValidateFOusershouldabletoseealltaskrelatedtoDeskReviewFindingsintheReassignMyCurrentTaskandreassigntotheotherFOuserwhichsourceuserhasselectedinlookupfield @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate FO user should able to see all task related to Desk Review Findings in the 'Reassign My Current Task' and reassign to the other FO user which source user has selected in lookup field
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5715,6 +5729,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I wait for "5" seconds
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation FO1"
@@ -5723,10 +5738,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198028 @ValidatenewDRownerPOuserpendingtaskshouldbecreatedfortaskownershipofDeskReviewfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @reassignment
+  @hitRun @198028 @ValidatenewDRownerPOuserpendingtaskshouldbecreatedfortaskownershipofDeskReviewfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @reassignment
   Scenario: Validate new DR owner (PO user) pending task should be created for task ownership of Desk Review findings when old PO user reassign the ownership related task to new PO user
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5817,8 +5833,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -5829,7 +5847,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @198061 @199428 @198064 @ValidatePOuserOwnershipbasedtasklikeDeskReviewFindingsshouldbegeneratedfornewDRownerotherPOuseronlyonceownershipofDRischangedevenifGrantownerischangedinbetweenlifecycleofDR @sprint-4-US-192997 @vaibhav @reassignment @FieldHistoryExclude
+  @hitRun @198061 @199428 @198064 @ValidatePOuserOwnershipbasedtasklikeDeskReviewFindingsshouldbegeneratedfornewDRownerotherPOuseronlyonceownershipofDRischangedevenifGrantownerischangedinbetweenlifecycleofDR @sprint-4-US-192997 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user Ownership based task like 'Desk Review Findings' should be generated for new DR owner(other PO user) only once ownership of DR is changed even if Grant owner is changed in between life cycle of DR
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -5920,8 +5938,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -5930,20 +5950,17 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5958,7 +5975,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @198062 @198069 @ValidateFOuserDRownerOwnershipbasedtaskReassigntonewFOuserthennewFOuserwillownerofthattaskbutownerofGrantshouldnotaffected @sprint-4-US-192997 @vaibhav @reassignment @TBE
+  @hitRun @198062 @198069 @ValidateFOuserDRownerOwnershipbasedtaskReassigntonewFOuserthennewFOuserwillownerofthattaskbutownerofGrantshouldnotaffected @sprint-4-US-192997 @vaibhav @reassignment @TBE
   Scenario: Validate FO user (DR owner)Ownership based task Reassign to new FO user then new FO user will owner of that task but owner of Grant should not affected
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -6049,6 +6066,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
