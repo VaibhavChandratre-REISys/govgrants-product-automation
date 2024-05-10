@@ -7065,8 +7065,8 @@ Feature: Payment Request scenarios without background
     And I navigate to "Monitoring" tab
     And I navigate to "Advances" content inside "Payments" subheader on left panel
     When I click toggle button to select "Advances - All"
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestAdvancesTableId---" panel
-    When I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestAdvancesTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:subrecipientPaymentrequestAdvancesTableId---" panel
+    When I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:subrecipientPaymentrequestAdvancesTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     Then I softly see field "Advance Requested This Action" as "$200.00"
     Then I softly see value "$200.00" for title "Advance Requested This Action" against the value "Total" inside table "---paymentRequest:-:budgetTableId---"
