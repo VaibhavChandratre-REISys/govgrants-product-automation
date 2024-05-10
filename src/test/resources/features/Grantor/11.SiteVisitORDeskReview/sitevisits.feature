@@ -185,7 +185,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @51093 @51094 @siteVisitCorrectiveActionsBySubrecipientAndSubmitToGrantor @smoke
+  @wip @51093 @51094 @siteVisitCorrectiveActionsBySubrecipientAndSubmitToGrantor @smoke
   Scenario: Site Visit Corrective Actions By Subrecipient and Submit to Grantor by Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -798,7 +798,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV @deepika
+  @wip @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV @deepika
   Scenario: Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
   Verify when the FO user Send Back to owner during approval process of site visits , the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -1129,7 +1129,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---sitevisits:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
@@ -1153,7 +1153,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner @keerti @FieldHistoryExclude
+  @wip @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner @keerti @FieldHistoryExclude
   Scenario: To Validate  Approvers Table is not editable and field history update Award Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1314,7 +1314,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:homePendingTasksTableId---" panel
     Then I see that "Approve Site Visit" has been added in flextable with Id "---sitevisits:-:homePendingTasksTableId---"
 
-  @61864 @61865 @otherThanRecordOnwerFoUserCannotSubmitForApproval @deepika
+  @wip @61864 @61865 @otherThanRecordOnwerFoUserCannotSubmitForApproval @deepika
   Scenario: Validate Non award owner can't / does not have permission to Site Visits for Approval and is able to view created Site Visits under Monitoring tab
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1688,7 +1688,6 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I pause execution for "5" seconds
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
@@ -1812,11 +1811,8 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Verify user cannot add the same step for different approver on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-    When I click "Associate" after selection of "Automation SPA" by showing entries "All" in flex table with id "---sitevisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" by showing entries "All" in flex table with id "---sitevisits:-:awardSiteVisitsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
-#    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I perform quick search for "Automation SPA" in "---sitevisits:-:siteVisitContactsTableId---" panel
+    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
@@ -1832,7 +1828,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FO Username} | Step 1     |
     Then I softly see "You cannot specify the same step for multiple users for Site Visit." inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @146528 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisit-RnRFunctionality @monu
+  @wip @146528 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisit-RnRFunctionality @monu
   Scenario: Verify the user cannot add same user for different step on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1936,7 +1932,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @test1 @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
+  @wip @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
   Scenario: Verify validation is displayed when user  select NA for step and submit for approval on Site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1976,8 +1972,8 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Verify user cannot skip the step on approver section of site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Site Visit}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---sitevisits:-:awardSiteVisitsTableId---" panel
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
