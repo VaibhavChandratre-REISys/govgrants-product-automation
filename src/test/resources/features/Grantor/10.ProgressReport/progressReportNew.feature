@@ -3028,6 +3028,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                |
       | 2100  | RevisedCommitment__c |

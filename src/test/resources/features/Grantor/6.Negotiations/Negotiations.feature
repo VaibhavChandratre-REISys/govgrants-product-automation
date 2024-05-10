@@ -1447,6 +1447,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
 
@@ -1587,26 +1588,20 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
@@ -1647,26 +1642,22 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1684,9 +1675,12 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "View" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
-    When I click on "Back" in the page details
+    And I close the tab
+    And I wait for "3" seconds
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
 
   @165884  @sprint-3 @vaibhav @OnholdDueToFormNewUpdate
@@ -1725,26 +1719,20 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1763,9 +1751,11 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "View" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
 
   @191292 @ValidateusershouldabletocreatedirectsubawardwithoutnegotiationInitiated  @sprint-1 @vaibhav
@@ -1851,6 +1841,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
      #189498
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -1866,8 +1857,11 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "Question10__c" is in edit mode
     Then I softly see fields "Question11__c" is in edit mode
     When I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I switch to tab number "1"
      #189504
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -1956,26 +1950,21 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
@@ -2104,30 +2093,21 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-#    When I click on "Back" in the page details
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
     #134399
@@ -2175,26 +2155,20 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-#    When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
     And I wait for "2" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Edit" in the split screen page details
+    And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
