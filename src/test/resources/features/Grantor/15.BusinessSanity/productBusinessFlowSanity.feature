@@ -2056,8 +2056,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the split screen page details
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "5" seconds
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2072,6 +2072,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Progress Report |
       | {SavedValue:EXE Username} | Step 1          |
     When I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -2079,6 +2080,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Approve" in the approval decision
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel

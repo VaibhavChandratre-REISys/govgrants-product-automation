@@ -642,7 +642,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see "check" symbol against the value "Mandatory" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     #Bug-416798
-    Then I softly cannot see row level action button "Delete" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly can see row level action button "Remove" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
   @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient @jitendra @smoke @PoojaAward
   Scenario: To verify on click "send to sub recipient button" by  Award owner profile (PM user) it must appear in the pending task of sub-recipient.
@@ -1035,7 +1035,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I refresh the page
     And I navigate to "Terms" sub tab
-    Then I softly cannot see row level action button "Edit" against "Random" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "Random" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     When I click "Associate" after selection of "{SavedValue:NonMandatoryT_C}" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
@@ -1550,7 +1550,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview |
 
-  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward @wip
+  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
     Given I activated standalone subaward "Automation Runtime Execution Award" with properties "NO_BUDGETRedirectionThreshhold" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -1726,7 +1726,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details contains:
       | Focus area start date should be between budget period. |
 
-  @67690 @pendingTaskToPMAfterSubmitToApprover @jitendra @PoojaAward @onHold-Bug-414263 @wip
+  @67690 @pendingTaskToPMAfterSubmitToApprover @jitendra @PoojaAward @onHold-Bug-414263
   Scenario Outline: Validate that pending task generates for the award owner (PM) profile after subaward is submitted for approval in pending task (assigned to me and assigned by me)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1947,7 +1947,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @70806 @71417 @jitendra @SetRedirectionThresholdtO15 @PoojaAward @onHold-Bug-414263 @wip
+  @70806 @71417 @jitendra @SetRedirectionThresholdtO15
   Scenario Outline: Validate that Budget Redirection threshold setting made on Grant is carried forward to  Budget Redirection Amendment
   | Verify that user is able to see approved tasks in Completed tasks listing of the grants post subaward approved by Fiscal Officer
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2154,7 +2154,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @71370 @71430 @71434 @awardCloseInFilter @jitendra @PoojaAward @onHold-Bug-414263 @wip
+  @71370 @71430 @71434 @awardCloseInFilter @jitendra @PoojaAward
   Scenario Outline: Validate that 'Amount Awarded' ($) value doesn't  get changed on the Grant post Grant is closed
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

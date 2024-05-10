@@ -312,7 +312,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236036  @sprint-12-US-234322 @hitesh @Notes @Debug
+  @236036  @sprint-12-US-234322 @hitesh @Notes
   Scenario: Verify that <Admin > Can not Add Notes In Progress report Record ,when record  is in Created state And Can only /Edit /Delete his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -347,6 +347,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I wait for "3" seconds
 #    And I select "Progress Reports" from dropdown for Global search
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
