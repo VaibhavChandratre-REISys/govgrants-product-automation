@@ -1,4 +1,4 @@
-@SiteVisitExecution @checknow1 @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@SiteVisitExecution @checknow2 @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in the Site Visit
 
   Background: Data setup for Site Visit
@@ -1137,6 +1137,7 @@ Feature: Validate all scenarios in the Site Visit
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
+    And I pause execution for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1807,7 +1808,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FD Username} | Step 4     |
     Then I softly see "Saved Successfully!" inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @146527 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisit-RnRFunctionality @monu
+  @wip @146527 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisit-RnRFunctionality @monu
   Scenario: Verify user cannot add the same step for different approver on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"

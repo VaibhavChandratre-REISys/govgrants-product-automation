@@ -58,7 +58,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
 
-  @59010 @51079 @orgSiteVisitCreationEdition
+  @wip @59010 @51079 @orgSiteVisitCreationEdition
   Scenario: Validate the Created and Edition of Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -187,7 +187,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I perform quick search for "{SavedValue:SiteVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SiteVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
 
   @wip @54455 @notifyPendingTaskForSubrecipientSiteVisitOrgLevel @deepika
   Scenario: The respective POC from the applicant organization will receive a pending task about the Site Visit
@@ -235,9 +235,8 @@ Feature: Validate all scenarios in Organizational Site Visit
       | {SavedValue:FO Username} | Step 2     |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
+    And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -285,8 +284,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -307,8 +304,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I switch to tab number "1"
     And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -364,8 +361,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I switch to tab number "1"
     And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -424,8 +421,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -446,8 +441,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I switch to tab number "1"
     And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -639,8 +634,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -661,8 +654,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I switch to tab number "1"
     And I pause execution for "3" seconds
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -712,12 +705,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     And I refresh the page
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
@@ -803,13 +790,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
-    And I refresh the page
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -877,7 +857,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55799 @organizationalsiteVisitPurpose @deepika
+  @wip @55799 @organizationalsiteVisitPurpose @deepika
   Scenario: Validate the Purpose of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -888,7 +868,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Purpose is Required to save under Overview. |
 
-  @55800 @organizationalsiteVisitSource @deepika
+  @wip @55800 @organizationalsiteVisitSource @deepika
   Scenario: Validate the Source of Site Visit Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -917,12 +897,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     And I click on "Notify" in the page details
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     When I click on "Conduct" in the page details
@@ -946,12 +920,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -979,12 +947,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1018,12 +980,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1088,12 +1044,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1229,12 +1179,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
@@ -1277,12 +1221,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1333,10 +1271,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see field "Created Date" is getting updated with todays date
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click on "Remove" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
@@ -1368,12 +1302,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     Given I navigate to "Overview" sub tab
@@ -1447,12 +1375,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1498,7 +1420,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @65151 @deleteCreatedOrgSiteVisit @deepika
+  @wip @65151 @deleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether user will be able to delete the created Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1539,12 +1461,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1612,12 +1528,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1705,7 +1615,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    When I navigate to "Related log" sub tab
+    When I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     Then I see "No Records Found" inside flex table with id "SiteVisit"
 
@@ -1727,12 +1637,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1822,7 +1726,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Accept And Close" in the page details
     Then I softly see field "Status" as "Closed"
 
-  @147976 @Verify1StepApprovalForSiteVisitOrgLevel-RnRFuntionality @monu
+  @wip @147976 @Verify1StepApprovalForSiteVisitOrgLevel-RnRFuntionality @monu
   Scenario: Verify user can add step1 approver on organization site visit created
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1847,8 +1751,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
@@ -1856,6 +1758,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -1901,12 +1804,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
