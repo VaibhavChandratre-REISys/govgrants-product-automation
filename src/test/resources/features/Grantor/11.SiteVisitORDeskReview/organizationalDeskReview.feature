@@ -14,7 +14,7 @@ Feature: Validate all scenarios in Organizational Desk Review
   @54291 @54293 @54294 @organizationalDeskReviewCreationEditionAndParticipantAssociation @deepika
   Scenario: Validate the Creation and Edition and Participant Association for Org Level Desk Review
     And I wait for "3" seconds
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
