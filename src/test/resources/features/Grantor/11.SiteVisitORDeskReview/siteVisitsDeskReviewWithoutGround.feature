@@ -5002,7 +5002,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept And Close" in the page details
+    And I click on "Accept and Close" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6435,7 +6435,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---deskreview:-:deskReviewGridViewTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:DeskReview}" in flex table with id "---deskreview:-:deskReviewGridViewTableId---"
 
-  @hitRun1 @197656 @ValidateemailshouldbegeneratedinyopmailtonewDRownerPMuseronceownershipischangedwhens/ruserclickedonSubmittedtoGrantorbutton @sprint-5-US-196236 @vaibhav @reassignment
+  @197656 @ValidateemailshouldbegeneratedinyopmailtonewDRownerPMuseronceownershipischangedwhens/ruserclickedonSubmittedtoGrantorbutton @sprint-5-US-196236 @vaibhav @reassignment
   Scenario: Validate email should be generated in yopmail to new DR owner PM user once ownership is changed when s/r user clicked on Submitted to Grantor button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -6551,14 +6551,14 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    And I navigate to yopmail portal for "pm1.automation@yopmail.com" with click on subject "Sandbox: Notification: Desk Review Report Submitted by Subrecipient"
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
       Sandbox: Notification: Desk Review Report Submitted by Subrecipient
       """
-    Then I see the mail text is as follows :
+      Then I see the mail text is as follows :
 
       """
       Hello Automation PM1,
@@ -6569,7 +6569,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @197452 @ValidateemailshouldbegeneratedinyopmailtonewSVowneronceownershipischangedwhens/ruserclickedonSubmittedtoGrantorbutton @sprint-5-US-196236 @vaibhav @reassignment
+  @197452 @ValidateemailshouldbegeneratedinyopmailtonewSVowneronceownershipischangedwhens/ruserclickedonSubmittedtoGrantorbutton @sprint-5-US-196236 @vaibhav @reassignment
   Scenario: Validate email should be generated in yopmail to new SV owner once ownership is changed when s/r user clicked on 'Submitted to Grantor' button
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -6712,7 +6712,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @197653 @ValidateDeskReviewemailshouldbegeneratedyopmailtonewDRowneronceownershipischangedwhenassignedpeerreviewerclickedonSubmitReviewbutton @sprint-5-US-196236 @vaibhav @reassignment
+  @197653 @ValidateDeskReviewemailshouldbegeneratedyopmailtonewDRowneronceownershipischangedwhenassignedpeerreviewerclickedonSubmitReviewbutton @sprint-5-US-196236 @vaibhav @reassignment
   Scenario: Validate Desk Review email should be generated in yopmail to new DR owner once ownership is changed when assigned peer reviewer clicked on Submit Review button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -6775,7 +6775,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    Given I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM1" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
@@ -6784,8 +6784,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click modal button "Save"
     And I click on submit review
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
-    And I navigate to yopmail portal for "pm1.automation@yopmail.com" with click on subject "Sandbox: Notification: You are Requested to Review the Desk Reviewfor SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I pause execution for "10" seconds
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
