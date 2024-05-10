@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @PayReqExecution
+@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request with add file
 
   @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
