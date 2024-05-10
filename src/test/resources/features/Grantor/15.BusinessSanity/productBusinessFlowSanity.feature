@@ -1369,7 +1369,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     And I wait for "3" seconds
-    And I halt execution
     When I click on "Save" in the page details
     And I wait for "4" seconds
     When I click on "Send to Subrecipient" in the page details

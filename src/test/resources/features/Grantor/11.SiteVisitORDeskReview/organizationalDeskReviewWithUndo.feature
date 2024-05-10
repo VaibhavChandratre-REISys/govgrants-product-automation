@@ -894,6 +894,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
       | Approve | Send Back | Forward |
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "In Progress"
+    And I refresh the page
     #296087
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
