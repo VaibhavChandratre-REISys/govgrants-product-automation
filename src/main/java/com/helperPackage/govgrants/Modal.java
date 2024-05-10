@@ -76,8 +76,8 @@ public final class Modal {
 
         //Comment box handler
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//lightning-input//input"))) {
-                I.amPerforming().textInput().in(By.xpath("//form[@class='bootbox-form']//textarea | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//lightning-input//input"), "Automated Test");
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"))) {
+                I.amPerforming().textInput().in(By.xpath("//form[@class='bootbox-form']//textarea | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
                 I.amPerforming().click().on(By.xpath("//div[contains(@class, 'modal-content')]//button[text()='OK'] | //div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
         } catch (Exception e) {

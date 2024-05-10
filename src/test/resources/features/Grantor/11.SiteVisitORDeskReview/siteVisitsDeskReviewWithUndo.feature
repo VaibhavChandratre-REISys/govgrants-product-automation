@@ -487,7 +487,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see field "Status" as "In Progress"
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @279087 @VerifyPMuserasLaststepapprovercanseeUNDO&sendtosubrecipientbuttonsonApprovedstateofSiteVisit&abletoForwardapprovaldecisionwhenSiteVisitownerissameaslaststepapprover @sprint-2-US-289061 @hitesh @Undo @TBExecution
+  @279087 @VerifyPMuserasLaststepapprovercanseeUNDO&sendtosubrecipientbuttonsonApprovedstateofSiteVisit&abletoForwardapprovaldecisionwhenSiteVisitownerissameaslaststepapprover @sprint-2-US-289061 @hitesh @Undo
   Scenario:Verify PM user as Last step approver can see UNDO & send to subrecipient buttons on Approved state of Site Visit & able to Forward approval decision  when Site Visit owner is same as last step approver
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -650,7 +650,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @hitesh @Undo @TBExecution
+  @281024 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @hitesh @Undo
   Scenario: Verify EXE user(step 2) as Last step approver can see UNDO button when Approved the Site Visit & able to Send back approval decision after click on UNDO & able to add step 3 approval in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -823,7 +823,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see value "Step 2" for title "Site Visit" against the value "Automation EXE" inside table "---sitevisits:-:approverSiteVisitTableId---"
     Then I softly see value "Step 3" for title "Site Visit" against the value "Automation FO" inside table "---sitevisits:-:approverSiteVisitTableId---"
 
-  @281056 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @hitesh @Undo @TBExecution
+  @281056 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @hitesh @Undo
   Scenario: Verify FO user(step 3) as Last step approver can see UNDO button when Approved the Site Visit & able to Approved approval decision after click on UNDO & try to closed the Site Visit after approved it
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1261,7 +1261,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @284731 @VerifyLaststepapprovershouldseecancelledtaskfromcompletedtaskforapprovaldecisionafterclickonUNDObuttononApprovedstateofSiteVisit @sprint-5-US-295139 @hitesh @Undo @TBExecution
+  @284731 @VerifyLaststepapprovershouldseecancelledtaskfromcompletedtaskforapprovaldecisionafterclickonUNDObuttononApprovedstateofSiteVisit @sprint-5-US-295139 @hitesh @Undo
   Scenario: Verify Last step approver should see cancelled task from completed task for approval decision after click on UNDO button on Approved state of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

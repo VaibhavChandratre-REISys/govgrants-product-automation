@@ -611,7 +611,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     The EGMS Team
     """
 
-  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692 @hitesh @Undo
+  @296068 @296094 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalDeskReviewwillnotgetaffected @sprint-4-US-288692 @hitesh @Undo @TBExecution
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Desk Review will not get affected
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -638,13 +638,13 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PO Username} | Step 1      |
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverDeskReviewTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                      | Desk Review |
       | {SavedValue:PM1 Username} | Step 2      |
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverDeskReviewTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:FO Username} | Step 3      |
-    When I enter the following values into flex table with id "---orgLevelDeskReview:-:approverDeskReviewTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                      | Desk Review |
       | {SavedValue:EXE Username} | Step 4      |
     And I navigate to "Reports and Outcomes" sub tab
@@ -804,7 +804,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @296076 @296087 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalDeskReview @sprint-4-US-288692 @hitesh @Undo
+  @296076 @296087 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalDeskReview @sprint-4-US-288692 @hitesh @Undo @TBExecution
   Scenario:Verify PO user can not see undo button in notified state of Organizational Desk Review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -898,7 +898,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692 @hitesh @Undo
+  @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692 @hitesh @Undo @TBExecution
   Scenario:Verify that when PM user Reassign submit for approval task  to new user,then new owner will see undo button after approving the Organizational Desk Review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1046,7 +1046,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @hitesh @Undo
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @hitesh @Undo @TBExecution
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1154,7 +1154,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296154
     Then I cannot see top right button "Undo" in page detail
 
-  @329503 @OrgDRVerifypreviousapprovertaskshouldnotcanceliflaststepapproverclickonundobutton @sprint-11-US-328884 @hitesh @Undo
+  @329503 @OrgDRVerifypreviousapprovertaskshouldnotcanceliflaststepapproverclickonundobutton @sprint-11-US-328884 @hitesh @Undo @TBExecution
   Scenario:Org DR_ Verify previous approver task should not cancel if last step approver click on undo button
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1225,7 +1225,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I perform quick search for "Record Id" in "---deskreview:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:homeCompletedTaskTableId---"
 
-  @308925 @ValidateODRIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedandtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo
+  @308925 @ValidateODRIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedandtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo @TBExecution
   Scenario: Validate ODR If Owner and last step approver of Org Site Visit are same and Site Visit is Approved and the Ownership Reassignment of Desk Review is changed in this state will new Owner See UNDO button
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1338,7 +1338,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @310991 @ValidateOrgdrthatUndoButtonnotvisibleinForceClosedstate @Undo
+  @310991 @ValidateOrgdrthatUndoButtonnotvisibleinForceClosedstate @Undo @TBExecution
   Scenario: Validate Org dr that Undo Button not visible in Force Closed state
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
