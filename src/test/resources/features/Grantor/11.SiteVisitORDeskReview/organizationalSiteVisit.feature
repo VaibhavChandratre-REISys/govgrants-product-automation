@@ -147,7 +147,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Program Approver Name    |
       | {SavedValue:PM Username} |
 
-  @54454 @54456 @75862 @conductAndnotifySubrecipientSiteVisitOrgLevel @smoke @deepika
+  @wip @54454 @54456 @75862 @conductAndnotifySubrecipientSiteVisitOrgLevel @smoke @deepika
   Scenario: Conduct Site Visit and Notify Subrecipient about the Site Visit Org Level | Validate the external user will receive an email notification when the org level site visit is in notified status
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -255,8 +255,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "2" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "3" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -302,10 +304,12 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+   And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
-    And I pause execution for "3" seconds
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
+    And I pause execution for "2" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -359,10 +363,12 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I pause execution for "3" seconds
     And I switch to tab number "1"
+    And I pause execution for "2" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -439,10 +445,12 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I pause execution for "3" seconds
     And I switch to tab number "1"
+    And I pause execution for "2" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
@@ -633,6 +641,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | {SavedValue:PM Username} | Step 2     |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
+    And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
@@ -695,6 +704,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -705,7 +715,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I refresh the page
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -808,8 +817,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -879,7 +890,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Source is Required to save under Overview. |
 
-  @55802 @55806 @notifyConductButtonSiteVisitOrgLevel @smoke @deepika
+  @wip @55802 @55806 @notifyConductButtonSiteVisitOrgLevel @smoke @deepika
   Scenario: User will be able to view the Notify and Conduct button on the Site Visit to complete the action items
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -902,7 +913,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55871 @55868 @recipientsCannotCreateOutcomesSeeReportsANdoutcomesInNotified @deepika
+  @wip @55871 @55868 @recipientsCannotCreateOutcomesSeeReportsANdoutcomesInNotified @deepika
   Scenario: Validate Site Visit Applicant is not able to view the report or outcomes while in the Notified status and Recipients will not be able to create / edit the Outcomes.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -998,7 +1009,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside table
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -1062,7 +1073,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
     And I click on "View" icon for "Record Id" inside table
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -1235,7 +1246,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
     And I enter values into fields
       | Value  | Field             |
@@ -1259,7 +1270,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "flexGridRiskAssessmentApproverRoles"
 
-  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @keerti
+  @wip @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @keerti
   Scenario: Validate whether the PM user can add the attachments to Org Level Site Visits and view the Created Date on Overview Tab |Validate whether record owner has access to delete the asoociated Contact and Application- Org Site visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1282,7 +1293,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Files" sub tab
     Then I softly see "Pre-Site Visit Letter" has been added in "Site Visit Files" flex table
 
-  @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab @keerti
+  @wip @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab @keerti
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and owner cannot edit the Site Visits Dates under Overview tab
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1393,8 +1404,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "2" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "3" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1479,8 +1492,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+   And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1546,8 +1561,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "2" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1599,7 +1616,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65154 @foUserCannotDeleteCreatedOrgSiteVisit @deepika
+  @wip @65154 @foUserCannotDeleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether other than record owner Fo user can delete the created Org Level Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1657,8 +1674,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1769,8 +1788,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+    And I pause execution for "3" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I pause execution for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1793,7 +1814,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @148043 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisitOrgLevel-RnRFunctionality @monu
+  @wip @148043 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisitOrgLevel-RnRFunctionality @monu
   Scenario: Verify validation user cannot add the same step for different approver on Organization site visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
