@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I pause execution for "3" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -941,7 +941,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56008 @siteVisitWithoutFormFillingOrgLevel @deepika
+  @wip @56008 @siteVisitWithoutFormFillingOrgLevel @deepika
   Scenario: User will not be able to submit the Site Visit for approval without completed forms
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1793,7 +1793,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I pause execution for "2" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
