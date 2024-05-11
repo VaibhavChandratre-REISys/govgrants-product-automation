@@ -1,7 +1,7 @@
-@auditorAnnouncement @auditor @parallel-regression @regression
+@auditorAnnouncement @auditor @checknow3 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Announcement Module
 
-  @69159 @auditorCannotCreateAnnouncement
+  @69159 @auditorCannotCreateAnnouncement @Bug429010
   Scenario: Validate Auditor should not be able to  Create/Edit Announcement
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Announcements" tab
@@ -15,6 +15,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Directed Announcements"
+    #Bug429010
     Then I softly cannot see top right button "New" in flex table with id "ActiveFundingOpportunities"
 
   @wip @69160 @otherUsersCanCreateAnnouncement
@@ -44,6 +45,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I pause execution for "3" seconds
     And I click toggle button to select "Published Competitive Announcements"
     And I perform quick search for "<Announcement>" in "ActiveFundingOpportunitiesCompitive" panel
     Then I see the following rows under the following headers in table with id "ActiveFundingOpportunitiesCompitive" :

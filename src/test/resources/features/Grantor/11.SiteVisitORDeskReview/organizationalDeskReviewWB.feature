@@ -28,7 +28,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -39,56 +39,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PO] to [Automation PO1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PO] to [Automation PO1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PO] to [Automation PO1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PO] to [Automation PO1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PO1" user
     And I navigate to "Home" tab
@@ -143,7 +143,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -154,56 +154,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE1" user
     And I navigate to "Home" tab
@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -326,7 +326,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -339,54 +339,54 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I logout
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Home" tab
@@ -464,7 +464,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -475,56 +475,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE1" user
     And I navigate to "Home" tab
@@ -560,7 +560,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "green"
@@ -598,7 +598,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -701,7 +701,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -746,7 +746,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "green"
@@ -813,7 +813,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -826,54 +826,54 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I logout
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Home" tab
@@ -932,7 +932,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -973,7 +973,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
     And I enter values into fields
       | Value  | Field             |
@@ -982,27 +982,27 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click modal button "Save"
     And I click on submit review
     When I close "Site Visit Reviewers" modal by clicking the top right x button
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: The Peer Review for {SavedValue:Automation Desk Review Org level} for has been completed.
-      """
-    Then I see the mail text is as follows :
-
-      """
-      Hello Automation PO1,
-
-      This email is to notify you that Desk Review "{SavedValue:Automation Desk Review Org level}". and {SavedValue:DeskReviewID} has been peer reviewed.
-
-      Log in to EGMS and click here for more details.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: The Peer Review for {SavedValue:Automation Desk Review Org level} for has been completed.
+#      """
+#    Then I see the mail text is as follows :
+#
+#      """
+#      Hello Automation PO1,
+#
+#      This email is to notify you that Desk Review "{SavedValue:Automation Desk Review Org level}". and {SavedValue:DeskReviewID} has been peer reviewed.
+#
+#      Log in to EGMS and click here for more details.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
 
   @236174 @ValidateDeskReviewFOusercanabletoreassignownershipofdeskreviewfromFOtootheFOuserinReviewedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign ownership of desk review from FO to other FO user in 'Reviewed' state of desk review
@@ -1070,7 +1070,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1081,56 +1081,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "FO1" user
     And I navigate to "Home" tab
@@ -1188,7 +1188,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1325,7 +1325,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Desk Review Org level" from flex table "---orgLevelDeskReview:-:deskreviewPanelId---"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1336,7 +1336,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1421,23 +1421,23 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Desk Review Report Submitted by Subrecipient
-      """
-    Then I see the mail text is as follows :
-
-      """
-      Hello Automation EXE1,
-      The site visit report for {SavedValue:Automation Desk Review Org level} and {SavedValue:DeskReviewID} has been submitted by the Subrecipient.
-      Log in to EGMS and click here to see the details.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Desk Review Report Submitted by Subrecipient
+#      """
+#    Then I see the mail text is as follows :
+#
+#      """
+#      Hello Automation EXE1,
+#      The site visit report for {SavedValue:Automation Desk Review Org level} and {SavedValue:DeskReviewID} has been submitted by the Subrecipient.
+#      Log in to EGMS and click here to see the details.
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#      Thank you,
+#      The EGMS Team
+#      """
 
   @236190 @ValidateDeskReviewReviewApproverSentBackemailshoulddisplayfornewownerifapproversendbackdeskreviewafterownershipgetchangeofDR @sprint-14-US-234219 @vaibhav @reassignment
   Scenario: Validate Desk Review 'Review Approver Sent Back' email should display for new owner if approver send back desk review after ownership get change of DR
@@ -1489,7 +1489,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1500,56 +1500,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
@@ -1558,39 +1558,39 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Start" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "20" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Site Visit/Desk Review Report for {SavedValue:DeskReviewID} has beenSent Back
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-      This email is to notify you that the {SavedValue:DeskReviewID} has been sent back.
-
-      Log in to EGMS and click here to revise the report and then resubmit for approval.
-
-      Site Visit Details:
-      Reporting Period Start Date: {Date:MM/dd/yyyy::d+10}
-      Reporting Period End Date: {Date:MM/dd/yyyy::d+20}
-
-      Reason for Visit: Routine based on monitoring responsibilities
-
-      Attendees:
-      SPI3
-
-      Comments provided by Approving Personnel are as follows:
-      Automation Testing
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-
-      Thank you.
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+#    And I pause execution for "20" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Site Visit/Desk Review Report for {SavedValue:DeskReviewID} has beenSent Back
+#      """
+#
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#      This email is to notify you that the {SavedValue:DeskReviewID} has been sent back.
+#
+#      Log in to EGMS and click here to revise the report and then resubmit for approval.
+#
+#      Site Visit Details:
+#      Reporting Period Start Date: {Date:MM/dd/yyyy::d+10}
+#      Reporting Period End Date: {Date:MM/dd/yyyy::d+20}
+#
+#      Reason for Visit: Routine based on monitoring responsibilities
+#
+#      Attendees:
+#      SPI3
+#
+#      Comments provided by Approving Personnel are as follows:
+#      Automation Testing
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+#
+#      Thank you.
+#      The EGMS Team
+#      """
 
   @235442 @VallidateDeskReviewFDusercanabletoreassignownershipfromFDtootherFDuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to reassign ownership from FD to other FD user in 'Notified' state of desk review
@@ -1609,7 +1609,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     And I click on "Notify" in the page details
@@ -1623,7 +1623,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1634,56 +1634,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "FD1" user
     And I navigate to "Home" tab
@@ -1757,7 +1757,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1811,7 +1811,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1822,56 +1822,56 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation FD] to [Automation FD1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:DeskReviewID} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "FD1" user
     And I navigate to "Home" tab

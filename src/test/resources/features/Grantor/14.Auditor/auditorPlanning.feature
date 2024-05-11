@@ -1,4 +1,4 @@
-@auditorPlanning @auditor @parallel-regression @regression
+@auditorPlanning @auditor @checknow3 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Planning Module
 
   @wip @67762 @auditorCannotCreateEditFocusArea @smoke
@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | EXE   |
       | ADMIN |
 
-  @67766 @auditorProfileCannotCReateEditReviewApproveProgram @smoke
+  @wip @67766 @auditorProfileCannotCReateEditReviewApproveProgram @smoke
   Scenario Outline: Validate Auditor user should not be able to Create/Edit/ Review/Approve internal program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | AUDITOR | Automation Permanent Funding Source |
 
 
-  @67847 @auditorCannotCreateKPI @deepika
+  @wip @67847 @auditorCannotCreateKPI @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
