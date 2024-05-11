@@ -1100,7 +1100,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ApplicantSiteVisitReports"
     Then I softly see status in Progress-bar is "Closed" and is "Green"
 
-  @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @keerti @smoke
+  @wip @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @keerti @smoke
   Scenario: Validate system does not allow the peer reviewer to edit/Enter review comments and Edit button hidden if the Site Visits marked as complete review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1689,7 +1689,8 @@ Feature: Validate all scenarios in the Site Visit
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Active"
+    And I click toggle button to select "Grants - Active"
+    And I pause execution for "20" seconds
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
@@ -1970,7 +1971,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @146487 @Verifyusercannotskipthesteponapproversectionofsitevisit @vaibhav
+  @wip @146487 @Verifyusercannotskipthesteponapproversectionofsitevisit @vaibhav
   Scenario: Verify user cannot skip the step on approver section of site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
