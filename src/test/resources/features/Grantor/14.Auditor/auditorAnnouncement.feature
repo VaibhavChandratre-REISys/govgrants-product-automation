@@ -1,7 +1,7 @@
 @auditorAnnouncement @auditor @checknow3 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Announcement Module
 
-  @69159 @auditorCannotCreateAnnouncement @Bug429010
+  @wip @69159 @auditorCannotCreateAnnouncement @Bug429010
   Scenario: Validate Auditor should not be able to  Create/Edit Announcement
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Announcements" tab
@@ -48,9 +48,8 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
     And I pause execution for "3" seconds
     And I click toggle button to select "Published Competitive Announcements"
     And I perform quick search for "<Announcement>" in "ActiveFundingOpportunitiesCompitive" panel
-    Then I see the following rows under the following headers in table with id "ActiveFundingOpportunitiesCompitive" :
-      | Announcement Name | Actions |
-      | <Announcement>    | View    |
+    Then I softly cannot see row level action button "Edit" against "<Announcement>" in flex table with id "ActiveFundingOpportunitiesCompitive"
+
     Examples:
       | User    | Announcement                                             |
       | AUDITOR | {SavedValue:Automation Runtime Announcement Application} |

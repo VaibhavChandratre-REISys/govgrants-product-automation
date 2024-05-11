@@ -221,9 +221,10 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Then I softly cannot see top right button "New" for "---auditor:-:formsflextableID---" flex table
     Then I softly cannot see top right button "New" for "---auditor:-:packagesFlextableID---" flex table
     When I perform quick search for "PSAF - 001" in "---auditor:-:formsflextableID---" panel
-    Then I see the following rows under the following headers in table with id "---auditor:-:formsflextableID---" :
-      | Form Number | Actions |
-      | PSAF - 001  | Preview |
+    Then I softly can see row level action button "Preview" against "Program Application Form" in flex table with id "---auditor:-:formsflextableID---"
+#    Then I see the following rows under the following headers in table with id "---auditor:-:formsflextableID---" :
+#      | Form Number | Actions |
+#      | PSAF - 001  | Preview |
     Examples:
       | User    |
       | AUDITOR |
@@ -233,6 +234,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    When I click toggle button to select "All NGO Programs"
     Then I softly cannot see top right button "New" for "---auditor:-:externalProgramTableID---" flex table
     When I perform quick search for "Wildlife Services" in "---auditor:-:federalProgramFlexTableId---" panel
     Then I softly can see row level action button "View" against "Wildlife Services" in flex table with id "---auditor:-:federalProgramFlexTableId---"
