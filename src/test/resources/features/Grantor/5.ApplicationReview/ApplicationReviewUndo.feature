@@ -1,4 +1,4 @@
-@applicationReviewUndo @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
+@AppReview @applicationReviewUndo @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review with Undo Feature
 
   @286702 @286706 @284504 @286701  @Sprint-1-US-235657 @vaibhav @Undo
