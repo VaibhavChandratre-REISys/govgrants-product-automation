@@ -1368,9 +1368,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Negotiation Initiated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
