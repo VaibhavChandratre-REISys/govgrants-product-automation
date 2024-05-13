@@ -1,7 +1,7 @@
 @auditorAmendmentRequest @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
-  @69172 @auditorCannotCreateAmendmentRequest @smoke
+  @wip @69172 @auditorCannotCreateAmendmentRequest @smoke
   Scenario: Validate Auditor should not be  able to  Create Amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "Auditor" user

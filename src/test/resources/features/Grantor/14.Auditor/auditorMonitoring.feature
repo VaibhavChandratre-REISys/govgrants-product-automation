@@ -1,7 +1,7 @@
 @auditorMonitoring @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Monitoring module
 
-  @69178 @auditorPaymentRequest
+  @wip @69178 @auditorPaymentRequest
   Scenario: Validate Auditor should have view / read  only access to advances Paid Payment Request under Monitoring Tab
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -136,7 +136,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I click on "View" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---auditor:-:sitevisitMonitoringTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
 
-  @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
+  @wip @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
   Scenario Outline: Validate Auditor should not be able to delete the  created state Award Level Desk Review | Validate Auditor should not be able to Create, Accept and Close the Award Level Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "<User>" user

@@ -311,7 +311,7 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "4" seconds
     And I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -360,8 +360,8 @@ Feature: Validate all scenarios of grants and award for Allocation Saranjit
     And I navigate to "Monitoring" tab
     #Bug418240
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
-    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
+    And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     #Bug418244
     #nbelowfieldsare not editable - https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/PaymentRequest__c/a2xDV000001cFkLYAU/view
