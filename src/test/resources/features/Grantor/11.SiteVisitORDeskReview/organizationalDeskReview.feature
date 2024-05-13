@@ -832,7 +832,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridSiteVisitReviewerRoles"
     And I enter values into fields
@@ -995,7 +995,7 @@ Feature: Validate all scenarios in Organizational Desk Review
 
   @65069 @deleteCreatedOrgDeskReview @deepika @organizationalDeskReviewSecond
   Scenario: Validate whether user will be able to delete the created Org Desk Review
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1009,7 +1009,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    When I navigate to "Related log" sub tab
+    When I navigate to "Related Log" sub tab
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime Desk Review Org level}" in flex table with id "DeskReview"
     When I click on "Delete" icon for "{SavedValue:Automation Runtime Desk Review Org level}" inside flex table with id "DeskReview"
     And I perform quick search for "{SavedValue:Automation Runtime Desk Review Org level}" in "DeskReview" panel
@@ -1166,7 +1166,7 @@ Feature: Validate all scenarios in Organizational Desk Review
 
   @65072 @foUserCannotDeleteCreatedOrgDesskReview @deepika @organizationalDeskReviewSecond
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and other than record onwer Fo user can delete the created Org Level Desk Review
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -1182,7 +1182,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
-    When I navigate to "Related log" sub tab
+    When I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
 
