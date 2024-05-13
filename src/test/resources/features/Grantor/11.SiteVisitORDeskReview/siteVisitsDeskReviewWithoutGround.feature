@@ -6967,7 +6967,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
     Then I softly cannot see top right button "Accept and Close" in page detail
 
-  @hitRun @197359 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewowneofSiteVisitafterownershipofSiteVisitischangedin'Notified'state @sprint-12-US-226646 @vaibhav @reassignment
+  @197359 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewowneofSiteVisitafterownershipofSiteVisitischangedin'Notified'state @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM (SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Notified' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -7021,7 +7021,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7047,7 +7047,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7072,7 +7072,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7232,7 +7232,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @197373 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtos/rstate @sprint-12-US-226646 @vaibhav @reassignment
+  @197373 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtos/rstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Submitted to s/r' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -7322,7 +7322,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7347,7 +7347,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7372,7 +7372,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7393,7 +7393,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @197363 @ValidateFOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtoReviewstate @sprint-12-US-226646 @vaibhav @reassignment
+   @197363 @ValidateFOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtoReviewstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: VAlidate FO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Submitted to Review' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -7692,7 +7692,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @198015 @ValidatenewSVownerPOuserEmailshouldbegeneratedfortaskownershipofsitevisitfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @sprint-12-US-226646 @vaibhav @reassignment
+   @198015 @ValidatenewSVownerPOuserEmailshouldbegeneratedfortaskownershipofsitevisitfindingswhenoldPOuserreassigntheownershiprelatedtasktonewPOuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate new SV owner(PO user) Email should be generated for task ownership of site visit findings when old PO user reassign the ownership related task to new PO user
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -7810,7 +7810,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7831,7 +7831,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @198066 @ValidateEmailshouldgeneratedinyopmailforDRsubmittedtoGrantortonewDRownerasFOuserwhenonceownershiprelatedtaskisreassigntonewuserofDR @sprint-12-US-226646 @vaibhav @reassignment
+   @198066 @ValidateEmailshouldgeneratedinyopmailforDRsubmittedtoGrantortonewDRownerasFOuserwhenonceownershiprelatedtaskisreassigntonewuserofDR @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Email should generated in yopmail for DR submitted to Grantor to new DR owner as FO user when once ownership related task is reassign to new user of DR
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -7942,7 +7942,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -7963,7 +7963,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @197369 @ValidatePO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
+   @197369 @ValidatePO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8043,7 +8043,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8068,7 +8068,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8093,7 +8093,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8155,6 +8155,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | {SavedValue:FO Username} | Program Reviewer | Review Financial details | 10       | Yes                  |
     And I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    And I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -8221,7 +8222,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team.
       """
 
-  @hitRun @162139 @ValidateDeskReviewFOusercanreassignDeskReviewPeerreviewtasktootherFOuser @sprint-11-US-224734 @vaibhav @reassignment
+   @162139 @ValidateDeskReviewFOusercanreassignDeskReviewPeerreviewtasktootherFOuser @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Desk Review FO user can reassign Desk Review Peer review task to other FO user
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -8261,6 +8262,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Reviewer Name | Responsibility   | Description              | Due Date | Allow Record Editing |
       | Automation FO | Program Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "Automation FO" inside table
+     And I wait for "2" seconds
     Then I softly see value "Sent for Review" for title "Status" inside table "---deskreview:-:reviewersFlexTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -8274,7 +8276,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @hitRun @197361 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipSiteVisitischangedinInProgressstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197361 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipSiteVisitischangedinInProgressstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate  PM (SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'In Progress' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8333,7 +8335,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8358,7 +8360,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8383,7 +8385,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8404,7 +8406,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @197367 @ValidateFO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinReviewstate @sprint-4-US-196236 @vaibhav @reassignment @TBE
+  @197367 @ValidateFO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinReviewstate @sprint-4-US-196236 @vaibhav @reassignment @TBE
   Scenario: Validate FO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Review' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8446,7 +8448,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
@@ -8532,7 +8534,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @197371 @ValidatePOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinsendbackstate @sprint-4-US-196236 @vaibhav @reassignment
+   @197371 @ValidatePOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinsendbackstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate PO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'send back' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8616,7 +8618,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8641,7 +8643,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8666,7 +8668,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8687,7 +8689,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @197372 @ValidatePOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinApprovedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197372 @ValidatePOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinApprovedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate PO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Approved' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8842,7 +8844,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @197374 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtoGrantorstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197374 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinSubmittedtoGrantorstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate PM(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Submitted to Grantor' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8956,7 +8958,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -8981,7 +8983,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9006,7 +9008,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9161,7 +9163,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @198029 @ValidateDRownerPOuserEmailshouldbegeneratedfortaskownershipofdeskreviewfindingswhenoldPOusereassigntheownershirelatedtasktonewPOuser @sprint-4-US-196236 @vaibhav @reassignment
+  @198029 @ValidateDRownerPOuserEmailshouldbegeneratedfortaskownershipofdeskreviewfindingswhenoldPOusereassigntheownershirelatedtasktonewPOuser @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate new DR owner(PO user) Email should be generated for task ownership of desk review findings when old PO user reassign the ownership related task to new PO user
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -9260,7 +9262,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+     Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9281,7 +9283,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @197356 @ValidateEXESVowneremailshouldbegeneratedforystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197356 @ValidateEXESVowneremailshouldbegeneratedforystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinCreatedstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate EXE (SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Created' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -9328,7 +9330,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9353,7 +9355,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9378,7 +9380,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Owner Reassignment Report
+      Sandbox: Notification: Owner Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9495,7 +9497,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
-    And I click on "Accept And Close" in the page details
+    And I click on "Accept a  nd Close" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -9590,7 +9592,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun1 @234011 @ValidateDeskReviewfailureemailshouldgeneratedforpeerreviewerandsuccessemailgeneratedforApproval @sprint-13-US-231194 @vaibhav @reassignment
+  @234011 @ValidateDeskReviewfailureemailshouldgeneratedforpeerreviewerandsuccessemailgeneratedforApproval @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate Desk Review failure email should generated for peer reviewer and success email generated for Approval
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -9706,7 +9708,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
@@ -9739,7 +9741,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """
