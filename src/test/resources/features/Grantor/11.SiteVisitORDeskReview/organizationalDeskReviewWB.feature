@@ -952,7 +952,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
-    And I navigate to "Related log" sub tab
+    And I navigate to "Related Log" sub tab
     And I save the value from row "1" for column name "Title" as "Automation Desk Review Org level" from flex table "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     Then I softly see field "Status" as "Submitted for Review"
@@ -982,7 +982,6 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
 #    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
@@ -1049,7 +1048,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
+#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -1463,6 +1462,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                      | Desk Review |
@@ -1685,8 +1685,9 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD1" user
+    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1731,6 +1732,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
@@ -1873,8 +1875,9 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD1" user
+    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

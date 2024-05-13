@@ -269,7 +269,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I refresh the page
     Then I see that "100.00%" has been added in flextable with Id "---orgLevelSiteVisits:-:reportsTableId---"
 
-  @54569 @54457 @addingOutcomeAndpprovalSiteVisitOrgLevel @deepika
+  @wip @54569 @54457 @addingOutcomeAndpprovalSiteVisitOrgLevel @deepika
   Scenario: Validate Adding outcomes and Submitting Site Visit for approval Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -512,7 +512,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    And I collapse nested table containing column value "Automation Finding"
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Sent to Subrecipient" status
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
 
   @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @deepika @skipOnJenkins
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
@@ -627,7 +627,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I download the file
     Then I see "Closed" on page "1" of "govgrants" pdf file
 
-  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @deepika
+  @wip @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @deepika
   Scenario:  Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -976,7 +976,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude
+  @wip @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1040,9 +1040,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I softly see value "Created" for title "Old Value" inside table "History"
+    Then I softly see value "Created" for title "Original Value" inside table "History"
 
-  @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude
+  @wip @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude
   Scenario: To Validate field history update for Org Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1748,8 +1748,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---deskreview:-:deskReviewCorrectiveTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
+    And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I click on "Accept And Close" in the page details
     Then I softly see field "Status" as "Closed"
 

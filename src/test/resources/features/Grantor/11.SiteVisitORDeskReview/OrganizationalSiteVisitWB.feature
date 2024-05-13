@@ -42,7 +42,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -93,8 +93,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE1" user
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -157,7 +158,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -208,8 +209,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FO1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FO1" user
+    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1351,7 +1353,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---orgLevelSiteVisits:-:orgPeerReviewTableId---"
     And I enter values into fields
       | Value  | Field             |
@@ -1473,7 +1475,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -1524,8 +1526,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+#    Given I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1657,8 +1660,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD1" user
+    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1973,7 +1977,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "automationfd@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -2024,8 +2028,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD1" user
+    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -2146,7 +2151,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "automationfd@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -2197,8 +2202,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD1" user
+#    Given I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD1" user
+    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
