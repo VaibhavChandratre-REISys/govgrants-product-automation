@@ -87,7 +87,8 @@ Feature: Payment Request scenarios without background
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I navigate to "Financials" sub tab
-    Then I cannot see page block "Program Income Tracking"
+    Then I softly cannot see page block "Program Income Tracking"
+
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
@@ -137,7 +138,7 @@ Feature: Payment Request scenarios without background
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     When I navigate to "Financials" sub tab
-    Then I cannot see page block "Program Income Tracking"
+    Then I softly cannot see page block "Program Income Tracking"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
