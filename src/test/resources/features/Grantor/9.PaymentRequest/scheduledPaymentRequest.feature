@@ -311,6 +311,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I wait for "7" seconds
     And I navigate to "Monitoring" tab
