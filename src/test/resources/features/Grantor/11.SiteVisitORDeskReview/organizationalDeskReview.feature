@@ -832,6 +832,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridSiteVisitReviewerRoles"
     And I enter values into fields
