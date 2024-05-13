@@ -310,7 +310,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Extra Salary | The narrative | 10         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
