@@ -1228,7 +1228,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "flexGridSiteVisitReviewerRoles" by clicking "New" :
+    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
       | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
