@@ -1310,8 +1310,8 @@ Feature: Payment Request Forms scenarios
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
     When I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :

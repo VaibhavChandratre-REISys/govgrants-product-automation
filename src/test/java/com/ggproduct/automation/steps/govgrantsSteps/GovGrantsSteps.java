@@ -233,7 +233,7 @@ public final class GovGrantsSteps {
         } else if (null != isExcludeRegx && isExcludeRegx.contains("with excluding regx")) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
         } else {
-            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues.split(","));
+            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
         }
     }
 
