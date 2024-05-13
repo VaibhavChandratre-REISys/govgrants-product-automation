@@ -111,7 +111,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -221,7 +221,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FO1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
@@ -229,7 +229,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -483,7 +483,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -719,7 +719,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     And I click on "Accept and Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -801,7 +801,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
     And I navigate to "History" sub tab
@@ -975,7 +975,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FO1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
     And I navigate to "History" sub tab
@@ -1103,7 +1103,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -1212,14 +1212,14 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation EXE1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
     And I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -1286,7 +1286,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     And I click on "Accept And Close" in the page details
-    Then I see status in Progress-bar is "Closed" and is "Green"
+    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
   @236135 @ValidateSiteVisitReviewOwnerNotifyPeerReviewCompletionemailshoulddisplayfornewownerifreviewersubmitreviewofsitevisitafterownershipgetchange @sprint-14-US-234219 @vaibhav @reassignment
   Scenario: Validate Site Visit 'Review Owner Notify Peer Review Completion' email should display for new owner if reviewer submit review of site visit after ownership get change
@@ -1718,7 +1718,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "automationpo@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -1787,7 +1787,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation PO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
@@ -2317,7 +2317,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I can see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---sitevisits:-:siteVisitNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"

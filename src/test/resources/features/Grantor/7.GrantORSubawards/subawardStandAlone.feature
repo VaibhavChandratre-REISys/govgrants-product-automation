@@ -2229,11 +2229,16 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
+    And I navigate to "Budget" sub tab
+    And I click on "Edit" in the page details
+    And I enter value "4000" into field "BudgetPeriodEndDate__c"
+    And I click on "Save" in the page details
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "ScheduledEndDateAfterStartDate" values from "Award_Field_Values.xlsx"
     And I enter in modal value "0" into field "CalReportingStartDate__c"
     And I enter in modal value "5660" into field "CalReportingEndDate__c"
+    And I pause execution for "5" seconds
     And I click modal button "Save"
     #Bug422373
     Then I see the following messages in the page details contains:
