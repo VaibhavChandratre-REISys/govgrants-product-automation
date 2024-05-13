@@ -695,7 +695,7 @@ Feature: Validate all scenarios in Organizational Desk Review
 
   @55798 @organizationalDeskReviewSource @deepika @organizationalDeskReviewFirst
   Scenario: Validate the Source of Desk Review Org level
-    Given I navigate to "Related log" sub tab
+    Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
     When I click modal button "Save and Continue"
