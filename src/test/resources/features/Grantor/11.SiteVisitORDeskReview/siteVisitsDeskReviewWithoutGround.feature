@@ -8115,7 +8115,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @hitRun @223684 @ValidateSiteVisitpeerreviewershouldgetupdateinreviewertableandemailshouldgeneratedforbothreviewerafterpeerreviewtaskreassignment @sprint-12-US-226646 @vaibhav @reassignment
+   @223684 @ValidateSiteVisitpeerreviewershouldgetupdateinreviewertableandemailshouldgeneratedforbothreviewerafterpeerreviewtaskreassignment @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Site Visit peer reviewer should get update in reviewer table and email should generated for both reviewer after peer review task reassignment
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8195,7 +8195,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Task Reassignment Report
+      Sandbox: Task Reassignment Report
       """
     Then I see the mail text is as follows :
       """

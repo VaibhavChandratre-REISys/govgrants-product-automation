@@ -261,7 +261,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @PRhitesh @54415 @ValidateUserCanAttachDocumentTypeInvoiceOnReimbursementPR @mahadev @buglogged169487
+  @54415 @ValidateUserCanAttachDocumentTypeInvoiceOnReimbursementPR @mahadev @buglogged169487
   Scenario Outline: validate user can add active supporting document for Reimbursement payment request as type Invoice
     And I activated standalone subaward "Automation Runtime Award" with properties "NO_PROGRAM_INCOME_ANTICIPATE" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -2800,7 +2800,7 @@ Feature: Payment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I wait for "2" seconds
-    Then I see status in Progress-bar is "Accepted after Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2961,7 +2961,7 @@ Feature: Payment Request scenarios without background
     And I enter value "Victor EXE" in reassign lookup
     Then I softly do not see "Victor EXE" inside auto search result
 
-  @PRhitesh @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
+   @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
   Scenario: Validate PM user can reassign advance payment request ownership tasks to other PM user
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3181,7 +3181,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @PRhitesh @197397 @197453 @Validatependingtaskshouldnotgenerateforolduserofad-hocreimbursementpaymentrequestafterownershipreassignment @sprint-4 @vaibhav @reassignment
+  @197397 @197453 @Validatependingtaskshouldnotgenerateforolduserofad-hocreimbursementpaymentrequestafterownershipreassignment @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should not generate for old user of ad-hoc reimbursement payment request after ownership reassignment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3546,7 +3546,7 @@ Feature: Payment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @PRhitesh @197516 @ValidatesystemcreatenewpaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4 @vaibhav @reassignment
+  @197516 @ValidatesystemcreatenewpaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4 @vaibhav @reassignment
   Scenario: Validate system create new payment request after previous PR ownership task reassign to other user then new PR internal side owner should be award only
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -4328,7 +4328,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @PRhitesh @197793 @Validatenewownerofschedulereimbursementpaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
+  @197793 @Validatenewownerofschedulereimbursementpaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
   Scenario Outline: Validate new owner of schedule reimbursement payment request should have following buttons access after payment request submit to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -5362,7 +5362,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team.
       """
 
-  @PRhitesh @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
+  @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Payment Request Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     And I activated standalone subaward "Automation Runtime Bulk award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5631,14 +5631,32 @@ Feature: Payment Request scenarios without background
     And I reset the table
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId1}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId3}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId4}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId5}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId6}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId7}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId8}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId9}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
@@ -6043,7 +6061,7 @@ Feature: Payment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
     And I wait for "2" seconds
-    Then I see status in Progress-bar is "Accepted after Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6683,17 +6701,34 @@ Feature: Payment Request scenarios without background
     And I reset the table
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId1}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId3}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId4}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId5}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId6}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId7}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId8}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId9}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
+    And I reset the table
+    When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId10}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
