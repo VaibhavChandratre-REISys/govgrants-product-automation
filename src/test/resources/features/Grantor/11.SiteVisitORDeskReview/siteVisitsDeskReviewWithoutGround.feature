@@ -8277,7 +8277,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @hitRun @197361 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipSiteVisitischangedinInProgressstate @sprint-4-US-196236 @vaibhav @reassignment
+  @197361 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipSiteVisitischangedinInProgressstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate  PM (SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'In Progress' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
