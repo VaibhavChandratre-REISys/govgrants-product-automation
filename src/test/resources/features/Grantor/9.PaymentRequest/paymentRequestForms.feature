@@ -60,6 +60,7 @@ Feature: Payment Request Forms scenarios
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
+    And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
