@@ -1,4 +1,4 @@
-@applicationReviewWBTest @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
+@AppReview @applicationReviewWBTest @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review without background
 
   @202616 @ValidatenewassignedreviewerEXEcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-12-US-226646 @vaibhav @reassignment

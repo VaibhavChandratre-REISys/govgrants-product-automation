@@ -866,6 +866,40 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
+    public void assertCanOrCannotSeeRowLevelButtonInGlobalSearchByIdForLWC(String tableId, String uniqueColumnValue,
+                                                                        String buttonName, boolean shouldBeVisible, boolean isSoftly) {
+        String columnValueUpdated = uniqueColumnValue;
+        if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+
+        I.amPerforming().click().withJavaScript(ClickSelector);
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
+        if (shouldBeVisible) {
+            for (Elements element : elements) {
+                if (element.isDisplayed()) {
+                    return;
+                }
+            }
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat("Button is present").isEqualTo("Button was not present, or not displayed");
+            } else {
+                Assert.fail("Button was not present, or not displayed");
+            }
+        } else {
+            for (Elements element : elements) {
+                if (element.isDisplayed()) {
+                    if (isSoftly) {
+                        I.amPerforming().assertionsTo().assertThat("Button is not present").isEqualTo("Button was present and displayed");
+                    } else {
+                        Assert.fail("Button was present and displayed");
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * get sub tab inside detail each main detail page like overview etc.
      *

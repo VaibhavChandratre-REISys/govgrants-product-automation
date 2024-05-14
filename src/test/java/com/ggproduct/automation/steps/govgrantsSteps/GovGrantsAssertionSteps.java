@@ -216,6 +216,19 @@ public final class GovGrantsAssertionSteps {
         }
     }
 
+
+    @Then("^I (softly can see|softly cannot see|can see|cannot see) row level action button \"([^\"]*)\" against \"([^\"]*)\" in global search with id \"([^\"]*)\"$")
+    public void iSoftlyCannotSeeRowLevelActionButtonAgainstInGlobalSearchWithId(String usage, String buttonName, String uniqueColumnValue, String tableId) {
+                ggAssertionObjects.assertCanOrCannotSeeRowLevelButtonInGlobalSearchByIdForLWC(
+                        tableId,
+                        uniqueColumnValue,
+                        buttonName,
+                        ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                        usage.contains("softly")
+                );
+                I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+    }
+
     @Then("^I (softly can see|softly cannot see|can see|cannot see) \"([^\"]*)\" sub tab at view detail page$")
     public void assertSubTabInsidePageDetails(String usage, String subTabName) {
         ggAssertionObjects.getSubTabsInsideMainDetailPage(

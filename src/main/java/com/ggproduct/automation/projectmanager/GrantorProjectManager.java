@@ -710,7 +710,7 @@ public class GrantorProjectManager extends ProjectManager {
     private boolean isTextPresentInsideHistoryTable(String colName, String rowNo, String tData, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th[text()='" + colName + "']//ancestor::tbody/following-sibling::tbody[" + rowNo + "]/tr[" + tData + "]//td//*[text()='" + text + "']  | //th//div[text()='Date']/ancestor::table//tbody//tr[5]//td[1][text()='" + text + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th[text()='" + colName + "']//ancestor::tbody/following-sibling::tbody[" + rowNo + "]/tr[" + tData + "]//td//*[text()='" + text + "']  | //th//div[text()='" + colName + "']/ancestor::table//tbody//tr[" + rowNo + "]//td[" + tData + "][text()='" + text + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -721,7 +721,7 @@ public class GrantorProjectManager extends ProjectManager {
     private boolean isTextPresentInsideHistoryTableForLWC(String colName, String tData, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//div[text()='" + text + "'] | //table//tr[2]//td[@data-label='" + colName + "']//div[text()='" + text + "'] ")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//div[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td[contains(text(),'" + text + "')] | //table//tr[2]//td[@data-label='" + colName + "']//div[text()='" + text + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {

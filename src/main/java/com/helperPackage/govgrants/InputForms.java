@@ -153,7 +153,8 @@ public final class InputForms {
         }
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         I.amPerforming().waitFor().makeThreadSleep(2000);
-        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+        I.amPerforming().scroll().withMouseToElement(fieldWrapperLocator);
+//        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
         if ("".equalsIgnoreCase(fieldValue)) {
             handleClearingFormDataInputs(fieldWrapper);
         } else {
@@ -209,6 +210,17 @@ public final class InputForms {
         }
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
         handleClearingFormDataInputs(fieldWrapper);
+    }
+
+    public void clearFormDataByTableFieldApiName(String fieldApiName, boolean isModal) {
+        By fieldWrapperLocator;
+        if (isModal) {
+            fieldWrapperLocator = By.xpath("//div[contains(@class,'modal__container')]//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']");
+        } else {
+            fieldWrapperLocator = By.xpath("//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']");
+        }
+        WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+        handleClearingFormDataInputsForTable(fieldWrapper);
     }
 
     /**
@@ -647,6 +659,33 @@ public final class InputForms {
         }
     }
 
+    private void handleClearingFormDataInputsForTable(WebElement fieldWrapper) {
+        if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
+            handleClearingTextInputForTable(fieldWrapper);
+
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//iframe")).size() > 0) {
+            handleClearingRichTextInput(fieldWrapper);
+
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
+            handleClearingRichTextAreaInput(fieldWrapper);
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
+            handleCheckBoxInput(fieldWrapper, "Unchecked");
+
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//select")).size() > 0) {
+            Select select = new Select(I.amPerforming().getElementReference().ofNested(fieldWrapper, By.xpath(".//select")));
+            if (select.isMultiple()) {
+                handleClearingMultiSelectInput(fieldWrapper);
+            } else {
+                handleClearingDropdownInput(fieldWrapper);
+            }
+
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
+            handleClearingMultiSelectInputForLWC(fieldWrapper);
+        } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
+            handleClearingDropdownInputForLWC(fieldWrapper);
+        }
+    }
+
     /**
      * @param fieldWrapper
      * @param value
@@ -800,6 +839,13 @@ public final class InputForms {
 //        }
 
         }
+    }
+
+    private void handleClearingTextInputForTable(WebElement fieldWrapper) {
+        By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
+        WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
+                    I.amPerforming().click().withJavaScript(inputBox);
+                    I.amPerforming().textInput().toClear(inputBox);
     }
 
     /**
