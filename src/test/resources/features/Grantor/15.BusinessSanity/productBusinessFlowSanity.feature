@@ -2729,7 +2729,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3337,7 +3336,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "budRedKPCSOWId"
     And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role |
       | {SavedValue:SPI3 Username} | Other        |
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
