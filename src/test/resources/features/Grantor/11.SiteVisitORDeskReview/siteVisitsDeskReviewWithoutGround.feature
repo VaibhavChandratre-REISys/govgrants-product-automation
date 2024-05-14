@@ -482,8 +482,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
     And I navigate to "Management" sub tab
-#    When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
-    Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---"
+    When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
+    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -491,11 +491,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     When I navigate to "Subawards" sub tab
-    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    When I perform quick search for "Amended" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     Given I navigate to "Management" sub tab
     When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
-    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---"
 
   @66716 @approvedStatusDeskReviewCannotCarriedForwardToNewAward @deepika
   Scenario: Validate if desk review is in Approved status and amendment is done for base award, final state desk review should not be moved to newly created subaward after amendment.

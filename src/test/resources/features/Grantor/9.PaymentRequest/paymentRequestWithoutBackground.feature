@@ -3497,7 +3497,7 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
 
-  @PRhitesh @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
+  @197513 @Validateownerofawardshouldnotchangeevenit'srelatedpaymentrequestownershiptaskisreassigntootheruser @sprint-4 @vaibhav @reassignment
   Scenario: Validate  owner of award should not change even if it's related payment request ownership task is reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3542,7 +3542,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     When I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
