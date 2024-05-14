@@ -3339,6 +3339,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role |
       | {SavedValue:SPI3 Username} | Other        |
+    And I wait for "2" seconds
+    And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
