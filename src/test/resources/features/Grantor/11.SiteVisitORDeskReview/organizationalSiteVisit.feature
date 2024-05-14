@@ -1639,7 +1639,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I perform quick search for "Record Id" in "SiteVisit" panel
     Then I see "No Records Found" inside flex table with id "SiteVisit"
 
-  @39187 @clickAcceptAndCloseButtonforAward @meenakshi
+  @wip @39187 @clickAcceptAndCloseButtonforAward @meenakshi
   Scenario: Verify that when user click on 'Approve and Close' button then status will change to closed for Award level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

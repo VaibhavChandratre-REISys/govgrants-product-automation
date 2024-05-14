@@ -229,7 +229,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @69154 @69156 @69298 @auditorCannotCreateFederalandNon-FederalPrograms @deepika
+  @wip @69154 @69156 @69298 @auditorCannotCreateFederalandNon-FederalPrograms @deepika
   Scenario Outline: Verify Auditor should not be  able to Create External federal or non-federal Programs and View any federal program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab

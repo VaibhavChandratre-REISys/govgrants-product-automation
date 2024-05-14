@@ -390,8 +390,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "PM1" user
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM1" user
+#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -529,8 +529,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "EXE1" user
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "EXE1" user
+#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1142,8 +1142,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FO1" user
-    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FO1" user
+#    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1563,8 +1563,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "EXE" user
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "EXE" user
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
@@ -1698,8 +1698,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FD1" user
-    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FD1" user
+#    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1888,8 +1888,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FD1" user
-    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FD1" user
+#    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

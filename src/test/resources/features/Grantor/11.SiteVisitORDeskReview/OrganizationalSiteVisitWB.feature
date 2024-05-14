@@ -1661,8 +1661,8 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FD1" user
-    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FD1" user
+#    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -2042,6 +2042,27 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "History" sub tab
     Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
+
+  @TestCredentials
+  Scenario Outline: Test Credentials
+    When I login to "As a Grantor" app as "<usertype>" user
+    And I navigate to "Home" tab
+    And I logout
+#    Given I am on "SUBPORTAL" portal
+#    When I login as "<usertype1>" user
+#    And I navigate to "Home" tab
+#    And I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+#    When I navigate to "Assurances" sub tab
+#    Then I softly see value "2023" for title "Fiscal Year" inside table "---Subrecipient:-:GeneralAssurancesTableId---"
+
+    Examples:
+      | usertype | usertype1 |
+      | FD1      | SPI3      |
+      | PO1      | SPI3      |
+      | EXE1     | SPI3      |
+      | FO1      | SPI3      |
+      | EXE      | SPI3      |
+      | FD1      | SPI3      |
 
   @235428 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmittoGrantorstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FD user can able to reassign site visit ownership from FD to other FD user in 'Submit to Grantor' state of site visit
