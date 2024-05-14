@@ -311,6 +311,7 @@ Feature: Validate all scenarios in Desk Review
     And I collapse nested table containing column value "Automation Finding"
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I click on "Submit to Grantor" in the page details
+    And I wait for "4" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 #    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
 #    And I pause execution for "180" seconds
@@ -1126,6 +1127,8 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Management" sub tab
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime Award Desk}" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
     When I click on "Delete" icon for "Record Id" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
+    And I refresh the page
+    Given I navigate to "Management" sub tab
     And I perform quick search for "Record Id" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 
