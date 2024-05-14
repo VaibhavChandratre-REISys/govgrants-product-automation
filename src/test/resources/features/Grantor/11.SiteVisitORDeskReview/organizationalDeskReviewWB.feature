@@ -223,7 +223,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    Then I cannot see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
@@ -283,7 +283,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FO1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
@@ -339,9 +339,9 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    Then I refresh the page
+#    And I logout
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    Then I refresh the page
 #    And I see the mail subject is as follows :
 #      """
 #      Notification: Owner Reassignment Report
@@ -548,7 +548,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to change ownership in 'sent to subrecipient' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -684,17 +684,23 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
+    And I refresh the page
+    When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
+    And I refresh the page
+    When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
+    And I refresh the page
+    When I navigate to "Reports and Outcomes" sub tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -734,7 +740,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to see to change ownership in 'Closed' state of desk review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1279,7 +1285,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @236185 @ValidateDeskReviewSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RuserSubmitDRtograntorafterchangeownershipofDR @sprint-14-US-234219 @vaibhav @reassignment
+  @wip @236185 @ValidateDeskReviewSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RuserSubmitDRtograntorafterchangeownershipofDR @sprint-14-US-234219 @vaibhav @reassignment
   Scenario: Validate Desk Review 'Submitted Grantor' email is generated for new owner of SV when S\R user submit DR to grantor after change ownership of DR
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab

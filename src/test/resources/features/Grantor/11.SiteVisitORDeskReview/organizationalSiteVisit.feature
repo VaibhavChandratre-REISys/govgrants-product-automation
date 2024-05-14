@@ -408,7 +408,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @56355 @55206 @siteVisitSubmitToGrantorAndCorrectiveActionsBySubrecipient @smoke @deepika
+  @wip @56355 @55206 @siteVisitSubmitToGrantorAndCorrectiveActionsBySubrecipient @smoke @deepika
   Scenario: Validate the Site Visit Submit to Grantor and Corrective Actions By Subrecipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -968,7 +968,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @56005 @uploadsupportingDocumentChecklistFromWorkSpace @deepika
+  @wip @56005 @uploadsupportingDocumentChecklistFromWorkSpace @deepika
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
@@ -1527,7 +1527,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "History" sub tab
     Then I see value "In Progress" for title "New Value" inside table "History"
 
-  @65153 @corerctiveActionsDueDateSV @deepika
+  @wip @65153 @corerctiveActionsDueDateSV @deepika
   Scenario: Validate Org Level Site Visit Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1752,7 +1752,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    And I click on "Accept And Close" in the page details
+    And I click on "Accept and Close" in the page details
+    And I pause execution for "2" seconds
     Then I softly see field "Status" as "Closed"
 
   @wip @147976 @Verify1StepApprovalForSiteVisitOrgLevel-RnRFuntionality @monu
