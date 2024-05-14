@@ -2025,7 +2025,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-    Given I am on "INTERNAL" portal
+#    Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "FD1" user
 #    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
