@@ -3387,16 +3387,16 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
