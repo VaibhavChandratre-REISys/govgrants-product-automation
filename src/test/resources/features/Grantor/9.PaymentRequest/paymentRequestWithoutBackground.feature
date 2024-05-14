@@ -2926,7 +2926,7 @@ Feature: Payment Request scenarios without background
     And I enter value "Automation EXE" in reassign lookup
     Then I softly do not see "Automation EXE" inside auto search result
 
-  @PRhitesh @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
+  @197364 @ValidateusercannotreassignownershiptasktothenewuserwithSameprofileanddifferentorganization @sprint-4 @vaibhav @reassignment
   Scenario: Validate user can not reassign ownership task to the new user with Same profile and different organization
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2959,6 +2959,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     And I enter value "Victor EXE" in reassign lookup
+    And I pause execution for "4" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
    @197366 @ValidatePMusercanreassignadvancepaymentrequestownershiptaskstootherPMuser @sprin-4 @vaibhav @reassignment
@@ -3543,6 +3544,7 @@ Feature: Payment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I wait for "5" seconds
     When I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
