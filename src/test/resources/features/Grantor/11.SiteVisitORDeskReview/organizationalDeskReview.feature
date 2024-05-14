@@ -834,7 +834,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridSiteVisitReviewerRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "SiteVisitReviewerRoles"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
@@ -1239,7 +1239,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "Record id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridSiteVisitReviewerRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "SiteVisitReviewerRoles"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
