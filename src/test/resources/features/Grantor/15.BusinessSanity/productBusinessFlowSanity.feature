@@ -2695,7 +2695,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
-    And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Requests" sub tab
     When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     When I navigate to "Responsibilities" sub tab
@@ -2710,6 +2709,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "closeoutID"
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
