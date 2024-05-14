@@ -3485,7 +3485,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "700" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "700" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
