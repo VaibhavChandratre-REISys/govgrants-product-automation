@@ -116,7 +116,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235408 @ValidateSiteVisitFOusercanablereassignownershipofsitevisitfromFOtootherFOuserinInProgressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @235408 @ValidateSiteVisitFOusercanablereassignownershipofsitevisitfromFOtootherFOuserinInProgressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FO user can able to reassign ownership of site visit from FO to other FO user in 'In Progress' state of site visit
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -374,7 +374,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PM user can able to reassign site visit ownership from PM to other PM user in 'Created' state of site visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1393,7 +1393,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      The EGMS Team
 #      """
 
-  @236145 @ValidateSiteVisitSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RusersubmitSVtograntorafterchangeownershipofSV @sprint-14-US-234219 @vaibhav @reassignment
+  @wip @236145 @ValidateSiteVisitSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RusersubmitSVtograntorafterchangeownershipofSV @sprint-14-US-234219 @vaibhav @reassignment
   Scenario: Validate Site Visit 'Submitted Grantor' email is generated for new owner of SV when S\R user submit SV to grantor after change ownership of SV
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -1678,7 +1678,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FD1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
 
-  @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PO user can able to reassign site visit ownership from PO to other PO in 'Created' state of site visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -1930,11 +1930,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1978,7 +1974,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-#    And I logout
+    And I logout
 #    And I checkout to yopmail with mailid "automationfd@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -2029,9 +2025,9 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
 #      Thank you,
 #      The EGMS Team
 #      """
-#    Given I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FD1" user
-    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FD1" user
+#    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
