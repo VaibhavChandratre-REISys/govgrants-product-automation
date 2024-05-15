@@ -28,7 +28,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the value from row "1" for column name "Current Obligation" as "CurrentObligationFA1" from flex table "---amendment:-:subrecipientProjectAreasTableId---"
@@ -67,7 +67,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
@@ -138,7 +138,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation PO | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -227,7 +227,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -254,7 +254,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
@@ -284,7 +284,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
@@ -323,7 +323,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     #257872
     Then I softly see "Budget Summary by Focus Area" page block displayed
@@ -424,7 +424,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -479,7 +479,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -566,7 +566,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I click on "Edit" in the page details
     #257871
@@ -603,7 +603,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -711,7 +711,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
@@ -857,7 +857,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
@@ -905,7 +905,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -2647,7 +2647,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
@@ -2696,7 +2696,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -2899,7 +2899,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     #256639
     Then I softly see "Budget Summary by Focus Area" page block displayed
@@ -2976,7 +2976,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I softly see "Budget Summary" page block displayed
     Then I softly do not see "Funding Change" page block displayed
@@ -3072,7 +3072,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     When I click on "Submit to Grantor" in the page details
@@ -3150,7 +3150,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     #256955
     Then I softly see "Budget Summary by Focus Area" page block displayed
@@ -3265,7 +3265,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     Then I softly see that "Spent" rendered in view mode only
     Then I softly see value "$300.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I softly see value "$200.00" for title "Spent" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:subrecipientProjectAreasTableId---"
@@ -3411,7 +3411,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     #256921
@@ -3490,7 +3490,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see "Budget Summary by Focus Area" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---amendment:-:subrecipientProjectAreasTableId---"
@@ -3514,7 +3514,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -3544,7 +3544,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -3791,7 +3791,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -3981,7 +3981,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see field "Current Commitment" as "$2,000.00"
     And I save the field labeled "Current Commitment" as "CurrentCommitment"
@@ -4070,7 +4070,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -4216,7 +4216,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -4489,7 +4489,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -4635,7 +4635,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -4743,7 +4743,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -4828,7 +4828,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation EXE | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -4980,7 +4980,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -5101,7 +5101,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Overview" sub tab
@@ -5166,7 +5166,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation EXE | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -5299,7 +5299,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -5393,7 +5393,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #263788
@@ -5508,7 +5508,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -5598,7 +5598,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation EXE | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -5743,7 +5743,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -5927,7 +5927,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -6183,7 +6183,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -6340,7 +6340,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
@@ -6443,7 +6443,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -10485,7 +10485,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -11943,7 +11943,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "fieldJustification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -12083,7 +12083,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -12698,7 +12698,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -13539,7 +13539,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I pause execution for "5" seconds
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -13576,7 +13576,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -13779,7 +13779,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
@@ -13827,7 +13827,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
@@ -13870,7 +13870,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -14004,7 +14004,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
@@ -14159,7 +14159,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
@@ -14232,7 +14232,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
@@ -14389,7 +14389,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     And I click on "Submit to Grantor" in the page details
@@ -14842,7 +14842,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
 
-  @hitRun @313825 @313814 @VerifySPIusershouldseeTotalCommitmentamountunderBudgetSummarysectiononClosedGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisClosedpostFCARFAYES @Sprint-8-US-30117 @hitesh @Allocation
+  @hitRun1 @313825 @313814 @VerifySPIusershouldseeTotalCommitmentamountunderBudgetSummarysectiononClosedGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisClosedpostFCARFAYES @Sprint-8-US-30117 @hitesh @Allocation
   Scenario: Verify SPI user should see Total Commitment amount under Budget Summary section on Closed Grant & value copied from Total commitment field from the version 2 award which is Closed post FC AR(FA=YES)
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation PM user" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -14931,7 +14931,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -15062,7 +15062,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -15116,7 +15116,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -15700,7 +15700,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -16355,7 +16355,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -16747,7 +16747,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -17422,7 +17422,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -19025,7 +19025,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -19821,7 +19821,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -19917,7 +19917,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -20011,7 +20011,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I wait for "3" seconds
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -20064,7 +20064,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -20836,7 +20836,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -20894,7 +20894,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
