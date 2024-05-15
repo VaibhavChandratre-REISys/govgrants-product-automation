@@ -1535,7 +1535,9 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Monitoring" tab
     And I wait for "5" seconds
-    When I click on hyperlink containing value "AD-1234-2728"
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award Bulk Record for Site Visit}" in "---deskreview:-:internalActiveGrants---" panel
