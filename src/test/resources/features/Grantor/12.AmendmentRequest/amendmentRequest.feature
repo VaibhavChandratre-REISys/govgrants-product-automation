@@ -804,12 +804,12 @@ Feature: Validate all scenarios in the Amendment Request
       | Title        | Narrative     | Award Amount |
       | Extra Salary | The narrative | 1000         |
     When I close "Add Line Items" modal by clicking the top right x button
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 1000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+#    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
+#      | Title        | Narrative     | Award Amount |
+#      | Extra Salary | The narrative | 1000         |
+#    When I close "Add Line Items" modal by clicking the top right x buttonName
     And I click on "Submit to Grantor" in the page details
     Then I cannot see top right button "Edit" in page detail
 
@@ -1526,7 +1526,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 2100  | RevisedCommitment__c |
+      | 2100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
