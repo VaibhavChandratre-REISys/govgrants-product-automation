@@ -10216,23 +10216,30 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId1}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId1}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId2}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId2}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId3}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId4}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId5}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId5}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:SitevVisitId6}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId6}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview1}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview1}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview2}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview2}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview3}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview3}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I reset the table
     When I perform quick search for "{SavedValue:DeskReview4}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:DeskReview4}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
