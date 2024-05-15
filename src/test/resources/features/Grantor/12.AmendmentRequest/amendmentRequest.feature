@@ -767,7 +767,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see the text containing :
       | You have a requested a change of $0.0, but the required change is $1000.00. |
 
-  @56973 @validateSubRecipientCanNotEditAmendmentRequestAfterSubmittingToGrantor @mahadev @poojaAmendmnet  @Debug
+  @56973 @validateSubRecipientCanNotEditAmendmentRequestAfterSubmittingToGrantor @mahadev @poojaAmendmnet
   Scenario: Verify Sub-Recipient Can not edit funding type amendment request after submitting to Grantor
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
