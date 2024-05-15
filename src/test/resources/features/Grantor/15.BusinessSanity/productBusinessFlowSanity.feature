@@ -52,6 +52,61 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
+  @StrategicPlanCreation
+  Scenario: Creation of Strategic plan
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Strategic Plans - Draft"
+    And I click on top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
+    And I enter in modal "StrategicPlanCreation" values from "StrategicPlan_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    And I click on "Save" in the page details
+    And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
+    When I enter in modal value "Automation Strategic Goal" into field "fieldStrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    And I click on "Save" in the page details
+    When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
+    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "fieldStrategyDescription__c"
+    And I click on "Save" in the page details
+    When I navigate to "Related Log" sub tab
+    And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
+    When I click "Add" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
+    Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
+    Then I softly see field "Status" as "Draft"
+    And I click on "Back To Strategic Goal" in the page details
+    Then I softly see field "Status" as "Draft"
+    When I click on "Back To Strategic Plan" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+
+  @SubrecipientContactCreation
+    Scenario: Subrecipient Contact Creation
+    Given I login to "As a Grantor" app as "PM" user
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    And I pause execution for "3" seconds
+    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+    And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I click modal button "Save"
+    #And I close "Create Subrecipient Contact" modal by clicking the top right x button
+    And I save the contact name as "Automation Runtime Contact"
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---" without waiting for record
+    Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I click modal button "Edit"
+    And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I close "View Subrecipient Contacts" modal by clicking the top right x button
+    Then I softly see value "New" for title "Status" inside table "---home:-:internalContactTableId---"
+
   @72341 @programActivation
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
