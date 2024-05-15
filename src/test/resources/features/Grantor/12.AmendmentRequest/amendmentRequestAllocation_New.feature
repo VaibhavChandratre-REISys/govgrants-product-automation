@@ -10542,9 +10542,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     And I refresh the page
@@ -10577,8 +10578,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
