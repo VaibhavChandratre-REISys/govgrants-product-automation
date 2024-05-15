@@ -1,7 +1,7 @@
-@auditorPlanning @auditor @checknow3 @parallel-regression @regression
+@auditorPlanning @auditor @checknow @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Planning Module
 
-  @wip @67762 @auditorCannotCreateEditFocusArea @smoke
+  @67762 @auditorCannotCreateEditFocusArea @smoke
   Scenario Outline: Validate Auditor should not be able to  Create/Edit Focus area
     Given I login to "As a Grantor" app as "AUDITOR" user
     When I navigate to "Planning" tab
@@ -14,7 +14,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    | FocusArea                       |
       | AUDITOR | Automation Permanent Focus Area |
 
-  @wip @67763 @otherUsersCanCreateFocusArea
+  @67763 @otherUsersCanCreateFocusArea
   Scenario Outline: Verify that other than Auditor user all other users can create a Focus Area
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -26,7 +26,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | EXE   |
       | ADMIN |
 
-  @wip @67761 @auditorCannotCreatefocusArea @deepika
+  @67761 @auditorCannotCreatefocusArea @deepika
   Scenario Outline: Verify that Auditor user cannot create a Focus Area
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Planning" tab
@@ -36,7 +36,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @67764 @auditorCannotCreateProgram @deepika
+  @67764 @auditorCannotCreateProgram @deepika
   Scenario Outline: Verify that Auditor user cannot create a new Program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -47,7 +47,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @67765 @otherUsersCanCreateProgram
+  @67765 @otherUsersCanCreateProgram
   Scenario Outline: Verify that other than Auditor user all other users can create a new Program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | EXE   |
       | ADMIN |
 
-  @wip @67766 @auditorProfileCannotCReateEditReviewApproveProgram @smoke
+  @67766 @auditorProfileCannotCReateEditReviewApproveProgram @smoke
   Scenario Outline: Validate Auditor user should not be able to Create/Edit/ Review/Approve internal program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -83,7 +83,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    | Program                               |
       | AUDITOR | Automation Permanent Internal Program |
 
-  @wip @67845 @69297 @auditorCannotCreateFundingSource @deepika
+  @67845 @69297 @auditorCannotCreateFundingSource @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new external/ internal Funding Source
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -94,7 +94,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @67846 @auditorProfileCannotCReateEditReviewFundingSource
+  @67846 @auditorProfileCannotCReateEditReviewFundingSource
   Scenario Outline: Validate Auditor user should not be able to Create/Edit Funding Source and Funding Account
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -110,7 +110,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    | FundingSource                       |
       | AUDITOR | Automation Permanent Funding Source |
 
-  @wip @67846 @auditorCanViewActiveFundingSource
+  @67846 @auditorCanViewActiveFundingSource
   Scenario Outline: Validate Auditor should have view / read  only access to Active Funding Source
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | AUDITOR | Automation Permanent Funding Source |
 
 
-  @wip @67847 @auditorCannotCreateKPI @deepika
+  @67847 @auditorCannotCreateKPI @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new KPI
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -133,7 +133,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @67848 @auditorProfileCannotCReateEditKPI
+  @67848 @auditorProfileCannotCReateEditKPI
   Scenario Outline: Validate Auditor user should not be able to Create/Edit KPI's
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -147,7 +147,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    | KPI                      |
       | AUDITOR | Automation Permanent KPI |
 
-  @wip @67849 @otherUsersCanCreateKPI
+  @67849 @otherUsersCanCreateKPI
   Scenario Outline: Verify that other than Auditor user other users EXE and ADMIN can create a KPI's
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -159,7 +159,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | EXE   |
       | ADMIN |
 
-  @wip @67850 @auditorCannotCreateEditActivateOrDeactivateStrategicPlan
+  @67850 @auditorCannotCreateEditActivateOrDeactivateStrategicPlan
   Scenario Outline: Validate Auditor should not be  able to  Create/Edit/Activate/Deactivate Strategic plan
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -180,7 +180,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    | StrategicPlan                       |
       | Auditor | Automation Permanent Strategic Plan |
 
-  @wip @67851 @auditorCannotCreateStrategicPlan @deepika
+  @67851 @auditorCannotCreateStrategicPlan @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new Strategic Plan
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -191,7 +191,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @69149 @auditorCannotCreateTermsAndConditions @deepika
+  @69149 @auditorCannotCreateTermsAndConditions @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new Terms and Conditions
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -201,7 +201,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @69150 @auditorViewTermsAndConditions @deepika
+  @69150 @auditorViewTermsAndConditions @deepika
   Scenario Outline: Auditor should have view / read  only access to Active Terms and Conditions
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -213,7 +213,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @69151 @69153 @auditorViewCannotCreateEditFormsandPackages  @deepika
+  @69151 @69153 @auditorViewCannotCreateEditFormsandPackages  @deepika
   Scenario Outline: Verify Auditor profile user cannot create a new Forms and Packages |Validate Auditor should have view / read  only access to Forms and Packages|
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -229,7 +229,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
       | User    |
       | AUDITOR |
 
-  @wip @69154 @69156 @69298 @auditorCannotCreateFederalandNon-FederalPrograms @deepika
+  @69154 @69156 @69298 @auditorCannotCreateFederalandNon-FederalPrograms @deepika
   Scenario Outline: Verify Auditor should not be  able to Create External federal or non-federal Programs and View any federal program
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab

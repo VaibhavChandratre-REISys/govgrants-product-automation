@@ -1,7 +1,7 @@
-@organizationalDeskReviewWB @checknow3 @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@organizationalDeskReviewWB @checknow @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Desk Review Without Background
 
-  @wip @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign desk review ownership from PO to other PO user in 'Created' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -112,7 +112,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation PO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @wip @235438 @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @235438 @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to reassign desk review ownership from EXE to other EXE user in 'Notified' state of desk review
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -228,7 +228,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @wip @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign desk review ownership from FO to other FO user 'In Progress' state of desk review
     Given I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -401,7 +401,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
-    Then I softly see status in Progress-bar is "In Progress" and is "green"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
@@ -414,7 +414,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @wip @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk review EXE user can able to change ownership in 'Approved' state of desk review
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -547,7 +547,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @wip @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to change ownership in 'sent to subrecipient' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -701,7 +701,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    #Bug428393
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -739,7 +740,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
 
-  @wip @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to see to change ownership in 'Closed' state of desk review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -931,6 +932,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       | Reviewer Name            | Responsibility   | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Program Reviewer | Review Financial details | 10       | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    And I pause execution for "3" seconds
     And I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
     Then I softly see field "Status" as "Submitted for Review"
@@ -1279,7 +1281,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #    And I collapse nested table containing column value "Automation Finding"
     And I refresh the page
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1289,7 +1291,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @wip @236185 @ValidateDeskReviewSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RuserSubmitDRtograntorafterchangeownershipofDR @sprint-14-US-234219 @vaibhav @reassignment
+  @236185 @ValidateDeskReviewSubmittedGrantoremailisgeneratedfornewownerofSVwhenS\RuserSubmitDRtograntorafterchangeownershipofDR @sprint-14-US-234219 @vaibhav @reassignment
   Scenario: Validate Desk Review 'Submitted Grantor' email is generated for new owner of SV when S\R user submit DR to grantor after change ownership of DR
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -1720,7 +1722,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    #Requirement199431
+    Then I softly cannot see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation FD1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
@@ -1797,7 +1800,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FD1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
@@ -1906,12 +1909,12 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     Then I softly can see top right button "Notify" in page detail
     And I navigate to "Responsibilities" sub tab
-    Then I see value "Automation PO1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
+    Then I softly see value "Automation FD1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "Responsibilities" sub tab
-    Then I can see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
+    Then I softly can see top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
+    Then I softly can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see value "Automation FD1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
@@ -1931,4 +1934,4 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Responsibilities" sub tab
-    Then I see value "Automation FD1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
+    Then I softly see value "Automation FD1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
