@@ -5959,9 +5959,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "10" seconds
     When I click on "Send to Subrecipient" in the page details
     And I navigate to "Negotiations" sub tab
+    And I wait for "3" seconds
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I navigate to "Announcements" tab
