@@ -268,7 +268,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @wip @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
@@ -1688,7 +1688,9 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+    And I pause execution for "3" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I pause execution for "3" seconds
     And I click toggle button to select "Grants - All"
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
     When I navigate to "Subawards" sub tab

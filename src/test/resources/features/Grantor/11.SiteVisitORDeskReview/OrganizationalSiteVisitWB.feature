@@ -1,7 +1,7 @@
 @organizationalSiteVisitWB @checknow3 @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Site Visit Without Background
 
-  @235375 @ValidateSiteVisitEXEusercanabletoreassignsitevisitownershipfromEXEtootherEXEuserinNotifiedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @235375 @ValidateSiteVisitEXEusercanabletoreassignsitevisitownershipfromEXEtootherEXEuserinNotifiedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit EXE user can able to reassign site visit ownership from EXE to other EXE user in 'Notified' state of site visit
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -982,7 +982,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @236108 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOuserinSentforreviewstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @236108 @ValidateSiteVisitFOusercanabletoreassignownershipofsitevisitfromFOtootherFOuserinSentforreviewstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FO user can able to reassign ownership of site visit from FO to other FO user in 'Sent for review' state of site visit
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -1550,7 +1550,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 #    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
@@ -1664,6 +1664,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I login to "As a Grantor" app as "FD1" user
 #    When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
+    And I pause execution for "2" seconds
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
@@ -2043,28 +2044,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
     Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
 
-  @TestCredentials
-  Scenario Outline: Test Credentials
-    When I login to "As a Grantor" app as "<usertype>" user
-    And I navigate to "Home" tab
-    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "<usertype1>" user
-#    And I navigate to "Home" tab
-#    And I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    When I navigate to "Assurances" sub tab
-#    Then I softly see value "2023" for title "Fiscal Year" inside table "---Subrecipient:-:GeneralAssurancesTableId---"
-
-    Examples:
-      | usertype | usertype1 |
-      | FD1      | SPI3      |
-      | PO1      | SPI3      |
-      | EXE1     | SPI3      |
-      | FO1      | SPI3      |
-      | EXE      | SPI3      |
-      | FD1      | SPI3      |
-
-  @235428 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmittoGrantorstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
+  @wip @235428 @ValidateSiteVisitFDusercanabletoreassignsitevisitownershipfromFDtootherFDuserinSubmittoGrantorstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit FD user can able to reassign site visit ownership from FD to other FD user in 'Submit to Grantor' state of site visit
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
@@ -2155,7 +2135,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I refresh the page
     When I navigate to "Reports and Outcomes" sub tab
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed

@@ -512,7 +512,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    And I collapse nested table containing column value "Automation Finding"
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Sent to Subrecipient" status
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @deepika @skipOnJenkins
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
