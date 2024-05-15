@@ -6112,7 +6112,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000                        | RequestedChangeInBudget__c    |
       | 3000                        | RevisedCommitment__c          |
     And I click on "Save" in the page details
+    And I wait for "1" seconds
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "New Obligation" as "$2,000.00"
     #253774
     Then I softly see field "Revised Commitment" as "$3,000.00"
@@ -6348,6 +6350,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see the following rows under the following headers in table with id "---amendment:-:budgetChangeTableId---" :
       | Revised Award Amount |
       | $3,000.00            |
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "Budgeted Amount" as "$3,000.00"
     #254295
     Then I softly see field "Current Commitment" as "$1,000.00"
@@ -6950,7 +6954,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | -2000                       | RequestedChangeInBudget__c    |
+    And I wait for "2" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "FundingID"
     Then I softly see field "Status" as "Created"
     And I refresh the page
@@ -6962,6 +6968,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000  | RequestedChangeInBudget__c |
       | 3000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I refresh the page
     Then I softly see field "New Obligation" as "$2,000.00"
     #254830
@@ -7065,3 +7072,5 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+
+    
