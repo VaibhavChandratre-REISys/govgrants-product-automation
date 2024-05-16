@@ -1978,10 +1978,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
@@ -2000,6 +2002,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Acknowledge" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2041,6 +2044,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     Then I see field "Payment Period End Date" as "{SavedValue:updatedBudgetPeriodDate}"
     Examples:
