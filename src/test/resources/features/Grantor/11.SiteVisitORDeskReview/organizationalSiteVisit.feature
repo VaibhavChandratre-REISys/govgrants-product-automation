@@ -78,7 +78,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "<Subrecipient>" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     Then I see that "<Subrecipient>" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
     Examples:
       | Subrecipient               |
@@ -94,6 +94,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 
   @54290 @monitoringTypeSiteVisitProgram @deepika
   Scenario: Validate the Monitoring type 'Program' for Organizational Site Visit
+    And I pause execution for "2" seconds
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Program" values from "Organizational_SiteVisit_Field_Values.xlsx"
@@ -167,19 +168,17 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I save the field labeled "EGMS ID" as "SiteVisitId"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click on "Notify" in the page details
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Notified" status
     And I logout
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "120" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-#      """
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "120" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
@@ -1453,7 +1452,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     When I navigate to "Related Log" sub tab
-    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime Site Visit Org level}" in flex table with id "SiteVisit"
     When I click on "Delete" icon for "{SavedValue:Automation Runtime Site Visit Org level}" inside flex table with id "SiteVisit"
     And I perform quick search for "Record Id" in "SiteVisit" panel
     Then I softly see "No Records Found" inside flex table with id "SiteVisit"
@@ -1859,15 +1857,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
+    And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |

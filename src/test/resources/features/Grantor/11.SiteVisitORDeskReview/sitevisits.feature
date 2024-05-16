@@ -59,13 +59,13 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see field "Status" as "Notified"
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     And I logout
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "3" seconds
-#    And I refresh the page
-#    Then I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-#      """
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+      """
     And I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -857,13 +857,13 @@ Feature: Validate all scenarios in the Site Visit
     And I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "200" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "200" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
+      """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user

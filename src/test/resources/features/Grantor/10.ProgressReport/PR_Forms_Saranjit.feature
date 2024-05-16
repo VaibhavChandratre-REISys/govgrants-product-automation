@@ -3215,7 +3215,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Save" in the page details
     #Fill SF428-C Form
     When I navigate to "Forms and Files" sub tab
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428C_Wrong_Data" values from "ProgressReport_Field_Values.xlsx"
@@ -3224,7 +3224,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-    #Bug425556
+    #Bug425556 / 430557
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "(i) Request Federal Agency disposition instructions" option in "Federally-owned Property" is checked. |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
@@ -3234,12 +3234,12 @@ Feature: Validate scenarios in Progress Report Forms
       | "Percentage of Federal participation" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                               |
       | "Federal Share" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                     |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                        |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
     #Fill SF428-B Form
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -3258,7 +3258,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter value "1234" into field "FederalGrantSF428A__c"
@@ -3280,7 +3280,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428S_Form" values from "ProgressReport_Field_Values.xlsx"
