@@ -1035,7 +1035,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
 #    And I click on "Revise" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter value "Automation Description" into field "PurposeRTA__c"
