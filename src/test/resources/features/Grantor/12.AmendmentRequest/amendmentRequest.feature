@@ -987,7 +987,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond
+  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond @Bug-LWC-429508
   Scenario: Verify once grantor click on Revise button Amendment request Status changes to Created | Verify Sub-recipient can check revise amendment request in pending task
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1767,10 +1767,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "3700" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NBPED"
     Then I softly see field "New Budget Period End Date" as "{SavedValue:NBPED}"
 
@@ -1782,8 +1784,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c |
-      | 2000                        | RequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c      |
+      | 2000                        | RequestedChangeInBudget__c         |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
