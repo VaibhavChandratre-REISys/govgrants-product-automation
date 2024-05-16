@@ -901,6 +901,7 @@ Feature: Validate all scenarios in the Amendment Request
       | 3100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
