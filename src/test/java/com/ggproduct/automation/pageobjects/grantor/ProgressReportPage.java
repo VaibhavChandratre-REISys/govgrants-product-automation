@@ -176,9 +176,9 @@ public class ProgressReportPage extends GrantorProjectManager {
      */
     public void assertReportedDateField(boolean isSoftly) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("MM/dd/yyyy"))).isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ReportedDate"));
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("M/d/yyyy"))).isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ReportedDate"));
         } else {
-            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("ReportedDate"), I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("ReportedDate"), I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("M/d/yyyy")));
         }
     }
 

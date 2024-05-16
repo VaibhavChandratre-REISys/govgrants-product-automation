@@ -1,4 +1,4 @@
-@organizationalSiteVisitWB @checknow @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@organizationalSiteVisitWB @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Site Visit Without Background
 
   @235375 @ValidateSiteVisitEXEusercanabletoreassignsitevisitownershipfromEXEtootherEXEuserinNotifiedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude

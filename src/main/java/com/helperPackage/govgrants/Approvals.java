@@ -41,6 +41,7 @@ public final class Approvals {
      */
     public void selectRadioButton(String radioButtonOption) {
         try {
+            I.amPerforming().waitFor().ElementToBeVisible(radioButtonLocator(radioButtonOption));
             I.amPerforming().click().withJavaScript(radioButtonLocator(radioButtonOption));
         } catch (Exception e) {
             String error = e.getMessage();
