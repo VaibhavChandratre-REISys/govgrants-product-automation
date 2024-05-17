@@ -1384,7 +1384,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Current Obligation" as "$2,000.00"
     Then I softly see field "Revised Obligation" as "$3,000.00"
     When I click on "Edit" in the page details
-    And I enter value "0" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "0" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Under Revision"
