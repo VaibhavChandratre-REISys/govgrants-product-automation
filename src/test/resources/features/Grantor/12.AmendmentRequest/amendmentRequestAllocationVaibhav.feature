@@ -10194,7 +10194,24 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @253745 @ValidateFormulaPMusercanseecorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-18-US-246081 @vaibhav @Allocation 
   Scenario: Validate Formula PM user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
+    And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "Title" as "Automation Test Funding Account"
+    And I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -10216,7 +10233,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account3" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date | New Obligation |
@@ -10346,7 +10363,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "4" seconds
     When I "Approve" in the approval decision
     When I click on "Mark As Paid" in the page details
@@ -10436,12 +10453,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent1"
     And I save the field labeled "Total Obligation" as "TotalObligation1"
     And I save the field labeled "Available Balance" as "AvailableBalance1"
-    Then I softly see value "{SavedValue:AppropriationAmount}" is "Less Than" the value "{SavedValue:AppropriationAmount1}"
-    Then I softly see value "{SavedValue:PreEncumbrance}" is "Less Than" the value "{SavedValue:PreEncumbrance1}"
+    Then I softly see value "{SavedValue:AppropriationAmount}" is "Equals to" the value "{SavedValue:AppropriationAmount1}"
+    Then I softly see value "{SavedValue:PreEncumbrance}" is "Equals to" the value "{SavedValue:PreEncumbrance1}"
     Then I softly see value "{SavedValue:Encumbrance}" is "Less Than" the value "{SavedValue:Encumbrance1}"
     Then I softly see value "{SavedValue:Spent}" is "Less Than" the value "{SavedValue:Spent1}"
     Then I softly see value "{SavedValue:TotalObligation}" is "Less Than" the value "{SavedValue:TotalObligation1}"
-    Then I softly see value "{SavedValue:AvailableBalance}" is "Less Than" the value "{SavedValue:AvailableBalance1}"
+    Then I softly see value "{SavedValue:AvailableBalance}" is "Greater Than" the value "{SavedValue:AvailableBalance1}"
 
   @273893 @ValidateFundingchangeusercandecreaseCumulativeObligationacrossFAonBudgetSummarybyFAsectionundebudgetTabonActiveGrantpostFundingChangeARonsameactiveawardwhenIselectDetailbudgetasYESFAisYES @sprint-18-US-229266 @vaibhav @Allocation 
   Scenario: Validate Funding change user can decrease Cumulative Obligation across FA on Budget Summary by FA section under budget Tab on Active Grant post Funding Change AR on same active award when I select Detail budget as YES FA is YES
