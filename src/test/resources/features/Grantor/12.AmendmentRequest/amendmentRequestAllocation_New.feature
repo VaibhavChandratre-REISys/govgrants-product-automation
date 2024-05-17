@@ -16183,7 +16183,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @hitRun1 @276332 @ValidateDirectGrantCompetitiveFAYesBalanceisnotdeductedfromFundingaccountwhenFundingchangeamendmentisrejectedfromapproval @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Direct Grant Competitive FA Yes Balance is not deducted from Funding account when Funding change amendment is rejected from approval
-#    And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
