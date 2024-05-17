@@ -10778,6 +10778,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value | Field                |
       | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
