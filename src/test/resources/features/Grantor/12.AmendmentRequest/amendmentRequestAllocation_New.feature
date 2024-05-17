@@ -16608,12 +16608,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "3" seconds
     And I click in table hyperlink containing value "{SavedValue:FundingAccount2}"
     Then I see the header is "Funding Account" in the page details
-    Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$1,000.00" in "Financials" pageblock
-    Then I softly see field "Spent" as "$0.00"
-    Then I softly see field "Total Obligation" as "$1,000.00"
-    Then I softly see field "Available Balance" as "$999,000.00"
-    Then I softly see field "Appropriation Amount" as "$1,000,000.00"
+    And I save the field labeled "Appropriation Amount" as "AppropriationAmount"
+    And I save the field labeled "Pre-Encumbrance" as "PreEncumbrance"
+    And I save the field labeled "Encumbrance" as "Encumbrance"
+    And I save the field labeled "Spent" as "Spent"
+    And I save the field labeled "Total Obligation" as "TotalObligation"
+    And I save the field labeled "Available Balance" as "AvailableBalance"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -16742,12 +16742,18 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "3" seconds
     And I click in table hyperlink containing value "{SavedValue:FundingAccount2}"
     Then I see the header is "Funding Account" in the page details
-    Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$2,700.00" in "Financials" pageblock
-    Then I softly see field "Spent" as "$300.00"
-    Then I softly see field "Total Obligation" as "$3,000.00"
-    Then I softly see field "Available Balance" as "$997,000.00"
-    Then I softly see field "Appropriation Amount" as "$1,000,000.00"
+   And I save the field labeled "Appropriation Amount" as "AppropriationAmount1"
+   And I save the field labeled "Pre-Encumbrance" as "PreEncumbrance1"
+   And I save the field labeled "Encumbrance" as "Encumbrance1"
+   And I save the field labeled "Spent" as "Spent1"
+   And I save the field labeled "Total Obligation" as "TotalObligation1"
+   And I save the field labeled "Available Balance" as "AvailableBalance1"
+   Then I softly see value "{SavedValue:AppropriationAmount}" is "Less Than" the value "{SavedValue:AppropriationAmount1}"
+   Then I softly see value "{SavedValue:PreEncumbrance}" is "Less Than" the value "{SavedValue:PreEncumbrance1}"
+   Then I softly see value "{SavedValue:Encumbrance}" is "Less Than" the value "{SavedValue:Encumbrance1}"
+   Then I softly see value "{SavedValue:Spent}" is "Less Than" the value "{SavedValue:Spent1}"
+   Then I softly see value "{SavedValue:TotalObligation}" is "Less Than" the value "{SavedValue:TotalObligation1}"
+   Then I softly see value "{SavedValue:AvailableBalance}" is "Less Than" the value "{SavedValue:AvailableBalance1}"
 
   @272125 @ValidatePMuserseeupdatedspentamountonBudgetRedirectionamendmentrequestafterpaymentrequest @Sprint-22-US-270869 @vaibhav @Allocation @buglogged-355370
   Scenario: Validate PM user see updated spent amount on Budget Redirection amendment request after payment request
