@@ -1,4 +1,4 @@
-@grantor-regression @grantor-parallel-regression @progressReportFormsSaranjit @checknow1 @progressReportForms @regression
+@grantor-regression @grantor-parallel-regression @progressReportFormsSaranjit @progressReportForms @regression
 Feature: Validate scenarios in Progress Report Forms
 
   @284145 @ValidateSF428CINDusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @vaibhav @Forms
@@ -736,8 +736,8 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @vaibhav @Forms @Bug_Logged-326500   Scenario: Validate SF428-S IND user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-S form
-   Scenario: Validate SF428S IND user can able to save all field but validation
+  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @vaibhav @Forms @Bug_Logged-326500
+  Scenario: Validate SF428-S IND user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-S form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
@@ -3223,7 +3223,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-    #Bug425556
+    #Bug425556 / 430557
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "(i) Request Federal Agency disposition instructions" option in "Federally-owned Property" is checked. |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
@@ -3233,7 +3233,7 @@ Feature: Validate scenarios in Progress Report Forms
       | "Percentage of Federal participation" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                               |
       | "Federal Share" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                     |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                        |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
     #Fill SF428-B Form
     And I close the tab
     And I refresh the page

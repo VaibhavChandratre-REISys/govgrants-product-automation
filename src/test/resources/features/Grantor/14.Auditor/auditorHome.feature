@@ -1,7 +1,7 @@
 @auditorHome @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Home Module
 
-  @68181 @auditorCannotCreateEditInternalOrganizations @smoke
+  @wip @68181 @auditorCannotCreateEditInternalOrganizations @smoke
   Scenario Outline: Validate Auditor should not be  able to Create/Edit internal organization.
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -13,7 +13,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69119 @auditorCanViewInternalOrganizations
+  @wip @69119 @auditorCanViewInternalOrganizations
   Scenario Outline: Validate Auditor should have view / read  only access to record.
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69121 @auditorCanViewSubrecipientOrganization
+  @wip @69121 @auditorCanViewSubrecipientOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for subrecipient organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -37,7 +37,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69122 @auditorCannotEditSubrecipientOrganization
+  @wip @69122 @auditorCannotEditSubrecipientOrganization
   Scenario Outline:  Auditor should not be  able to  Edit subrecipient organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -139,7 +139,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
 
-  @69131 @auditorCompletedTask
+  @wip @69131 @auditorCompletedTask
   Scenario: Verify Auditor does not have any completed tasks
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Home" tab

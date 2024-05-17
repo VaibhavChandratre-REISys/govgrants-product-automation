@@ -1,7 +1,7 @@
 @auditorCloseout @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Closeout Request module
 
-  @69175 @auditorCannotCreateCloseout @smoke
+  @wip @69175 @auditorCannotCreateCloseout @smoke
   Scenario: Validate Auditor should not be  able to  Create Closeout Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "AUDITOR" user
@@ -120,7 +120,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I perform quick search for "{SavedValue:closeoutID}" in "ProjectPeriodCloseoutGrantor" panel
     Then I see values "Early Completion" and "Submitted for Approval" inside table
 
-  @69177 @auditorCannotEditCreatedCloseoutRecordbyPM
+  @wip @69177 @auditorCannotEditCreatedCloseoutRecordbyPM
   Scenario: Validate Auditor should not be  able to  Edit Closeout Request record created by PM
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user

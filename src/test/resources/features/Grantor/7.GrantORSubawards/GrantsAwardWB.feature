@@ -7733,7 +7733,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
