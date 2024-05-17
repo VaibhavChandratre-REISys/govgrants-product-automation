@@ -9871,7 +9871,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10037,7 +10037,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10182,6 +10182,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:RecipientpaymentrequestReimbursementTableId---" panel
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:RecipientpaymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Financials" sub tab
+    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
     Then I softly see value "$1,500.00" for title "Awarded Budget" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
     Then I softly see value "$1,500.00" for title "Subaward Balance" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
@@ -10211,7 +10212,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Amendment Award"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -10548,9 +10549,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I enter value "2000" into field "NewObligation__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
+    And I save the field labeled "Project Period End Date" as "BudgetPeriodDate"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button

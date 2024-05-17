@@ -777,7 +777,7 @@ public final class PageDetails {
             if (!checkTable) {
                 I.amPerforming().click().withJavaScript(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
             } else {
-                I.amPerforming().click().on(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
+                I.amPerforming().click().withJavaScript(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
             }
         } else if (usage.equalsIgnoreCase("subaward dashboard")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));
