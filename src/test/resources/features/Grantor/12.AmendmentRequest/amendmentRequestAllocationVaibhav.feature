@@ -1,4 +1,4 @@
-@amendmentRequestsAllocationVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @PayReqExecution
+@amendmentRequestsAllocationVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression
 Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @57288 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
