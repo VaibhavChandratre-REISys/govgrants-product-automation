@@ -197,13 +197,16 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation Permanent KPI | 10     |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I see field "Status" as "Submitted to Grantor"
@@ -239,7 +242,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
-  @257920 @VerifySPIuserseevalidationmessageifuserentermoreamountthanthebudgetFAisNo @sprint-19-US-249863 @hitesh @Allocation
+  @hitRun @257920 @VerifySPIuserseevalidationmessageifuserentermoreamountthanthebudgetFAisNo @sprint-19-US-249863 @hitesh @Allocation
   Scenario: Verify SPI user see validation message if user enter more amount than the budget FA is No
     And I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     And I am on "SUBPORTAL" portal
@@ -412,7 +415,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -498,7 +501,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see field "'Revise Commitment" inside page block
     Then I softly do not see "New Obligation" in flex table header "---amendment:-:subrecipientProjectAreasTableId---"
 
-  @257871 @FormulaVerifySPIuserseeSpentfieldwithspentamountonpaymentrequestonawardFAisNo @sprint-19-US-249863 @hitesh @Allocation
+  @hitRun @257871 @FormulaVerifySPIuserseeSpentfieldwithspentamountonpaymentrequestonawardFAisNo @sprint-19-US-249863 @hitesh @Allocation
   Scenario: Verify SPI user see Spent field with spent amount on payment request on award (FA is No)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -554,7 +557,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -573,7 +576,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Spent" rendered in view mode only
     Then I softly see field "Spent" as "$110.00"
 
-  @257397 @257427 @257666 @257450 @257447 @VerifyPOusercanseeanewsectionofBudgetSummaryinsteadofFundingchangeontheamendmentrequestwhichiscreatedfromdirectawardFAisNo @sprint-21-US-228100 @hitesh @Allocation
+  @hitRun @257397 @257427 @257666 @257450 @257447 @VerifyPOusercanseeanewsectionofBudgetSummaryinsteadofFundingchangeontheamendmentrequestwhichiscreatedfromdirectawardFAisNo @sprint-21-US-228100 @hitesh @Allocation
   Scenario: Verify PO user can see a new section of "Budget Summary" instead of "Funding Change " on the amendment request which is created from direct award (FA is No)
     And I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "PO" user
@@ -842,7 +845,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -953,9 +956,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -1044,7 +1047,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1059,8 +1062,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "500" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -1092,7 +1095,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264963
       | Overview Tab - The Budgeted Amount must be equal to the Revised Obligation in the Budget Summary Section                                  |
     When I click on "Edit" in the page details
-    And I enter value "900" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "900" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     #264952
@@ -1101,7 +1104,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264964
       | Overview Tab - The Budgeted Amount must be equal to the Revised Obligation in the Budget Summary Section                                  |
     When I click on "Edit" in the page details
-    And I enter value "700" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "700" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     #264965
     Then I softly see field "Budgeted Amount" as "$2,700.00"
@@ -1117,8 +1120,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 500   | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 500   | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -1132,8 +1135,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264085
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 1500  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 1500  | RequestedChangeInBudget__c |
     #263945
     Then I softly see that "Budgeted Amount" rendered in view mode only
     And I click on "Save" in the page details
@@ -1154,8 +1157,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264083
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 700   | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 700   | RequestedChangeInBudget__c |
     #264080
     Then I softly see that "Revised Obligation" rendered in view mode only
     And I click on "Save" in the page details
@@ -1227,7 +1230,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$500.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @264616 @264638 @264613 @264611 @264635 @264651 @264616 @265056 @265111 @265112 @265113 @265114 @ValidateAdminusercanseeCarryForwardiseditablefield&canacceptonlyzerodollarvalueonSubmittoGrantorstateofAmendmentRequestFAisNO @sprint-20-US-249450 @vaibhav @Allocation
+  @hitRun @264616 @264638 @264613 @264611 @264635 @264651 @264616 @265056 @265111 @265112 @265113 @265114 @ValidateAdminusercanseeCarryForwardiseditablefield&canacceptonlyzerodollarvalueonSubmittoGrantorstateofAmendmentRequestFAisNO @sprint-20-US-249450 @vaibhav @Allocation
   Scenario: Validate Admin user can see 'Carry Forward' is editable field & can accept only zero dollar value on Submit to Grantor state of Amendment Request FA is NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation ADMIN user" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -1246,9 +1249,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -1302,8 +1305,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "1500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "1500" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     And I refresh the page
@@ -1325,7 +1328,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #265114
       | Overview Tab - The Budgeted Amount must be equal to the Revised Obligation in the Budget Summary Section                                  |
     When I click on "Edit" in the page details
-    And I enter value "500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "500" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     #265112
@@ -1334,7 +1337,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #265113
       | Overview Tab - The Budgeted Amount must be equal to the Revised Obligation in the Budget Summary Section                                  |
     When I click on "Edit" in the page details
-    And I enter value "1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "1000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -1358,12 +1361,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264638
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
     #264613
     Then I softly see that "Revised Obligation" rendered in view mode only
     When I enter values into fields
-      | Value | Field                     |
-      | 5000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 5000  | RevisedCommitment__c |
     #264611
     Then I softly see that "Budgeted Amount" rendered in view mode only
     When I click on "Save" in the page details
@@ -1444,9 +1447,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 500   | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 500   | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -1536,7 +1539,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1548,8 +1551,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "200" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "200" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -1590,7 +1593,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Obligation must be greater than or equal to the Spent amount. |
 
-  @264608 @265844 @265014 @265015 @265043 @265105 @265009 @265010 @ValidateAdminusercanseeSpentasreadonlyfieldanditsvaluewhichisTotalSpentontheawardversion1onBP01FAisNO @sprint-20-US-249450 @vaibhav @Allocation
+  @hitRun @264608 @265844 @265014 @265015 @265043 @265105 @265009 @265010 @ValidateAdminusercanseeSpentasreadonlyfieldanditsvaluewhichisTotalSpentontheawardversion1onBP01FAisNO @sprint-20-US-249450 @vaibhav @Allocation
   Scenario: Validate Admin user can see 'Spent' as read only field and it's value which is Total Spent on the award version 1 on BP01 FA is NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation ADMIN user" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -1609,9 +1612,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -1701,7 +1704,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1717,7 +1720,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "1000" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -1830,7 +1833,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2101,7 +2104,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2632,7 +2635,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3060,7 +3063,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3253,7 +3256,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4204,7 +4207,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4477,7 +4480,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4623,7 +4626,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4714,7 +4717,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4964,7 +4967,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5089,7 +5092,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5286,7 +5289,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5381,7 +5384,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5477,7 +5480,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -5730,7 +5733,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -5894,7 +5897,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6171,7 +6174,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6431,7 +6434,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -6632,7 +6635,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7156,7 +7159,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7488,7 +7491,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -7746,7 +7749,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -8149,7 +8152,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -8378,7 +8381,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -8579,7 +8582,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -8952,7 +8955,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -9254,7 +9257,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -9450,7 +9453,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -9806,7 +9809,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -10198,7 +10201,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -10898,7 +10901,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11202,7 +11205,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11593,7 +11596,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent"
     Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent}"
 
-  @hitRun @274126 @ValidateusercandecreaseCumulativeObligationvalueunderbudgetTabonActiveGrantpostFundingChangeARonsameactiveawardwhenIselectDetailbudgetasNoFAisNo @Sprint-23-US-273843 @vaibhav @Allocation
+  @274126 @ValidateusercandecreaseCumulativeObligationvalueunderbudgetTabonActiveGrantpostFundingChangeARonsameactiveawardwhenIselectDetailbudgetasNoFAisNo @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate user can decrease Cumulative Obligation value under budget Tab on Active Grant post Funding Change AR on same active award when I select Detail budget as No & FA is No
     And I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -12199,7 +12202,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269793
     And I save the field labeled "Subaward" as "SubawardId"
@@ -12454,7 +12457,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -12806,7 +12809,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269233
     And I save the field labeled "Subaward" as "SubawardId"
@@ -13173,7 +13176,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -13614,7 +13617,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Total Commitment" rendered in view mode only
     Then I softly see that "Estimated Funding" rendered in view mode only
 
-  @hitRun @254218 @VerifyuserseecorrectvaluesinFocusareaStartDateEndDateCurrentobligationSpentNewObligationRevisedObligationBudgetedAmountcolumnsareonamendmentwhicharecopiedoverfromlatestawardFANo @sprint-18-US-242373 @hitesh
+  @254218 @VerifyuserseecorrectvaluesinFocusareaStartDateEndDateCurrentobligationSpentNewObligationRevisedObligationBudgetedAmountcolumnsareonamendmentwhicharecopiedoverfromlatestawardFANo @sprint-18-US-242373 @hitesh
   Scenario: Verify user see correct values in Focus area,Start Date,End Date,Current obligation,Spent,New Obligation, Revised Obligation,Budgeted Amount columns are on amendment which are copied over from latest award(FA No)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -13976,7 +13979,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -15043,7 +15046,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -15302,7 +15305,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -16169,7 +16172,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -16181,7 +16184,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see "Spent" inside page block detail
     Then I softly do not see "Spent" in flex table header "---amendment:-:projectAreasTableId---"
 
-  @hitRun1 @276332 @ValidateDirectGrantCompetitiveFAYesBalanceisnotdeductedfromFundingaccountwhenFundingchangeamendmentisrejectedfromapproval @Sprint-24-US-275864 @vaibhav @Allocation
+  @276332 @ValidateDirectGrantCompetitiveFAYesBalanceisnotdeductedfromFundingaccountwhenFundingchangeamendmentisrejectedfromapproval @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Direct Grant Competitive FA Yes Balance is not deducted from Funding account when Funding change amendment is rejected from approval
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -16409,7 +16412,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see value "{SavedValue:CumulativeObligationAwd1}" is "Equals to" the value "{SavedValue:CumulativeObligationClosedGrant}"
 
-  @hitRun1 @276452 @276453 @ValidateFormulaByApplicantFocusAreFAYesusercansee$valueonAwardafterFundingChangeamendmentrequestisapprovedonActiveaward @Sprint-24-US-275864 @vaibhav @Allocation
+  @276452 @276453 @ValidateFormulaByApplicantFocusAreFAYesusercansee$valueonAwardafterFundingChangeamendmentrequestisapprovedonActiveaward @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By Applicant & Focus Area FA Yes user can see $ value on Award after Funding Change amendment request is approved on Active award
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -16511,7 +16514,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
- @hitRun1 @274252 @ValidateFormulaFANOPMusercanseecorrect$amountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @Sprint-23-US-273843 @vaibhav @Allocation
+  @274252 @ValidateFormulaFANOPMusercanseecorrect$amountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula FA NO PM user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -16668,7 +16671,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Save"
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
-    And I wait for "3" seconds 
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -16742,18 +16745,18 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "3" seconds
     And I click in table hyperlink containing value "{SavedValue:FundingAccount2}"
     Then I see the header is "Funding Account" in the page details
-   And I save the field labeled "Appropriation Amount" as "AppropriationAmount1"
-   And I save the field labeled "Pre-Encumbrance" as "PreEncumbrance1"
-   And I save the field labeled "Encumbrance" as "Encumbrance1"
-   And I save the field labeled "Spent" as "Spent1"
-   And I save the field labeled "Total Obligation" as "TotalObligation1"
-   And I save the field labeled "Available Balance" as "AvailableBalance1"
-   Then I softly see value "{SavedValue:AppropriationAmount}" is "Less Than" the value "{SavedValue:AppropriationAmount1}"
-   Then I softly see value "{SavedValue:PreEncumbrance}" is "Less Than" the value "{SavedValue:PreEncumbrance1}"
-   Then I softly see value "{SavedValue:Encumbrance}" is "Less Than" the value "{SavedValue:Encumbrance1}"
-   Then I softly see value "{SavedValue:Spent}" is "Less Than" the value "{SavedValue:Spent1}"
-   Then I softly see value "{SavedValue:TotalObligation}" is "Less Than" the value "{SavedValue:TotalObligation1}"
-   Then I softly see value "{SavedValue:AvailableBalance}" is "Less Than" the value "{SavedValue:AvailableBalance1}"
+    And I save the field labeled "Appropriation Amount" as "AppropriationAmount1"
+    And I save the field labeled "Pre-Encumbrance" as "PreEncumbrance1"
+    And I save the field labeled "Encumbrance" as "Encumbrance1"
+    And I save the field labeled "Spent" as "Spent1"
+    And I save the field labeled "Total Obligation" as "TotalObligation1"
+    And I save the field labeled "Available Balance" as "AvailableBalance1"
+    Then I softly see value "{SavedValue:AppropriationAmount}" is "Less Than" the value "{SavedValue:AppropriationAmount1}"
+    Then I softly see value "{SavedValue:PreEncumbrance}" is "Less Than" the value "{SavedValue:PreEncumbrance1}"
+    Then I softly see value "{SavedValue:Encumbrance}" is "Less Than" the value "{SavedValue:Encumbrance1}"
+    Then I softly see value "{SavedValue:Spent}" is "Less Than" the value "{SavedValue:Spent1}"
+    Then I softly see value "{SavedValue:TotalObligation}" is "Less Than" the value "{SavedValue:TotalObligation1}"
+    Then I softly see value "{SavedValue:AvailableBalance}" is "Less Than" the value "{SavedValue:AvailableBalance1}"
 
   @272125 @ValidatePMuserseeupdatedspentamountonBudgetRedirectionamendmentrequestafterpaymentrequest @Sprint-22-US-270869 @vaibhav @Allocation @buglogged-355370
   Scenario: Validate PM user see updated spent amount on Budget Redirection amendment request after payment request
@@ -16831,7 +16834,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -17009,7 +17012,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -18814,7 +18817,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -19013,7 +19016,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
@@ -19440,7 +19443,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -19833,7 +19836,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -19929,7 +19932,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -20017,7 +20020,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
@@ -20288,7 +20291,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -20589,7 +20592,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -21278,7 +21281,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-   When I click modal button "Close"
+    When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
