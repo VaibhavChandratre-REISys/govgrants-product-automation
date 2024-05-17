@@ -1,4 +1,4 @@
-@SiteVisitExecution @checknow2 @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in the Site Visit
 
   Background: Data setup for Site Visit
@@ -59,13 +59,13 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see field "Status" as "Notified"
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     And I logout
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "3" seconds
-#    And I refresh the page
-#    Then I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
-#      """
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit for {SavedValue:SiteVisitId} has been scheduled
+      """
     And I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -268,7 +268,7 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted To Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @wip @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
@@ -857,13 +857,13 @@ Feature: Validate all scenarios in the Site Visit
     And I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "200" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "200" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Report for {SavedValue:svID} has been SentBack
+      """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1688,9 +1688,12 @@ Feature: Validate all scenarios in the Site Visit
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I pause execution for "3" seconds
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I pause execution for "3" seconds
     And I click toggle button to select "Grants - All"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrantsgrid"
+    And I pause execution for "15" seconds
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab

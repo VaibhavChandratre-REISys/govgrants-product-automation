@@ -3223,7 +3223,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-    #Bug425556
+    #Bug425556 / 430557
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "(i) Request Federal Agency disposition instructions" option in "Federally-owned Property" is checked. |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
@@ -3233,7 +3233,7 @@ Feature: Validate scenarios in Progress Report Forms
       | "Percentage of Federal participation" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                               |
       | "Federal Share" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                     |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                        |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
     #Fill SF428-B Form
     And I close the tab
     And I refresh the page

@@ -563,7 +563,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
@@ -662,7 +662,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     #When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Funding Opportunity Announcement"
     #Then I softly see "Funding Opportunity Announcement" has been added in "Attachments" flex table
     Then I softly cannot see top right button "Edit" in page detail
-    When I navigate to "Responsibilities" tab
+    When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"

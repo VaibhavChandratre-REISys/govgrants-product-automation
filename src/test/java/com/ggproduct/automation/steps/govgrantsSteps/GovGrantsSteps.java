@@ -726,7 +726,6 @@ public final class GovGrantsSteps {
         govgrants.perform().inputForms().clearFormDataByFieldApiName(fieldApiName, usage.contains("modal"));
     }
 
-
     @And("^I (clear|clear in modal) the value from table field \"([^\"]*)\"$")
     public void iClearTheValueFromTableField(String usage, String fieldApiName) {
         govgrants.perform().inputForms().clearFormDataByTableFieldApiName(fieldApiName, usage.contains("modal"));
