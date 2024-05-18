@@ -15,7 +15,7 @@ public class QuickSearch {
             searchInput = By.cssSelector("div>div.quick-search>div>input"),
             quickSearchButton = By.cssSelector("div.input-group-btn>a>i.fa.fa-search"),
             globalSearchInput = By.cssSelector("div.input-group>input#isTypeNotAhead"),
-            globalSearchInputLwc=By.xpath("//div[contains(@class,'hasEntitySelector')]//input"),
+            globalSearchInputLwc=By.xpath("//div[contains(@class,'hasEntitySelector')]//input | //div[@class='body-search']//input"),
             globalSearchButtonLwc=By.xpath("//div[contains(@class,'hasEntitySelector')]//input"),
             globalSearchButton = By.cssSelector("div.input-group>a>i.fa.fa-search");
 

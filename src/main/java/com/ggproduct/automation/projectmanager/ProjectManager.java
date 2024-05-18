@@ -120,10 +120,29 @@ public class ProjectManager extends ProjectWebServices {
         }
     }
 
+    public void assertFieldIsNotInEditModeForTable(String fieldAPIName, boolean isSoftly) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFieldNotInEditModeForTable(fieldAPIName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldNotInEditModeForTable(fieldAPIName));
+        }
+    }
+
     private boolean isFieldNotInEditMode(String fieldAPIName) {
         boolean flag = true;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//field[@field-name='" + fieldAPIName + "']/input | //div[@data-field_api_name='" + fieldAPIName + "']//input")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    private boolean isFieldNotInEditModeForTable(String fieldAPIName) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-fieldlwc[@data-fieldapiname='" + fieldAPIName + "']//input")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
