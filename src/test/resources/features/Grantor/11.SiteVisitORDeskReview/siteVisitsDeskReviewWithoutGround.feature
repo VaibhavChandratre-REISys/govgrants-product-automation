@@ -1,4 +1,4 @@
-@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run
 Feature: Validate all scenarios in the Site Visit and Desk Review without background
 
   @51089 @56010 @formFillingSiteVisitUploadAttachment
