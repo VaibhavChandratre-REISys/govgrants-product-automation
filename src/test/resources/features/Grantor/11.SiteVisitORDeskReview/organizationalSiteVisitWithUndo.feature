@@ -357,7 +357,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #289801
     Then I cannot see top right button "Undo" in page detail
 
-  @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo @TBExecution
+  @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in Closed state of Organizational Site Visit
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1094,7 +1094,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #    #342548
 #    Then I cannot see top right button "Undo" in page detail
 
-  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345 @TBExecution
+  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1150,7 +1150,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I navigate to "Responsibilities" tab
+    And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "---sitevisits:-:reviewersFlexTableId---"
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
@@ -1745,7 +1745,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @308929 @ValidateIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo @TBExecution
+  @308929 @ValidateIfOwnerandlaststepapproverofOrgSiteVisitaresameandSiteVisitisApprovedtheOwnershipReassignmentofDeskReviewischangedinthisstatewillnewOwnerSeeUNDObutton @Undo
   Scenario: Validate If Owner and last step approver of Org Site Visit are same and Site Visit is Approved and the Ownership Reassignment of Desk Review is changed in this state will new Owner See UNDO button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
