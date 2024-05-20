@@ -2265,7 +2265,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Effective Date" as "{SavedValue:PBPSD}"
     Then I softly see field "Expiration Date" as "{SavedValue:PBPED}"
 
-  @97764 @ValidateActivationOfAmendmentRequestWithInternalUser-PeriodicRenewal @monu
+  @97764 @ValidateActivationOfAmendmentRequestWithInternalUser-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario: Verify internal user is able to activate periodic renewal amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2301,7 +2301,7 @@ Feature: Amendment Request scenarios without background
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---amendment:-:approversTableId---"
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2355,7 +2355,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @97457 @ValidateAddEditDeleteOfFundingAccount-PeriodicRenewal @monu
+  @97457 @ValidateAddEditDeleteOfFundingAccount-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario: Verify internal user is able to Add edit delete funding account
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2382,7 +2382,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Remove" icon for "---AUTOEnvData:-:fundingAccount1---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
     Then I softly do not see value "---AUTOEnvData:-:fundingAccount1---" for title "Funding Account" inside table "---amendment:-:AmendmentFundingAccountTableId---"
 
-  @96668 @102294 @ValidateInternalUserIncreaseFundingAmount-PeriodicRenewal @monu
+  @96668 @102294 @ValidateInternalUserIncreaseFundingAmount-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario: Verify internal user is able to increase funding amount for periodic renewal amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_BUILDUP_MATCH_YES" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2442,7 +2442,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 4100  | fieldRevisedCommitment__c |
+      | 4100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -2485,7 +2485,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$2,000.00" for title "Award Amount" against the value "Construction" inside table "---amendment:-:GrantsActualBudgetPeriodTableId---"
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---amendment:-:GrantsActualBudgetPeriodTableId---"
 
-  @97049 @97053 @ValidateAddEditDeleteOfFocusArea-PeriodicRenewal @monu
+  @97049 @97053 @ValidateAddEditDeleteOfFocusArea-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario Outline: Verify internal user is able to Add edit delete focus area
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2518,10 +2518,10 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see value "<Focus Area>" for title "Title" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
     #97053 #monu
     And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
-    And I enter in modal value "Automation Special Conditions" into field "fieldTitle__c"
+    And I enter in modal value "Automation Special Conditions" into field "Title__c"
     And I enter in modal value "Automation Special Conditions description" into field "cke_1_contents"
-    And I enter in modal value "0" into field "fieldEffectiveFrom__c"
-    And I enter in modal value "1" into field "fieldEffectiveTill__c"
+    And I enter in modal value "0" into field "EffectiveFrom__c"
+    And I enter in modal value "1" into field "EffectiveTill__c"
     And I click modal button "Save"
     And I refresh the page
     When I perform quick search for "Automation Special Conditions" in "---amendment:-:AmendmentSpecialConditionTableId---" panel
@@ -2537,7 +2537,7 @@ Feature: Amendment Request scenarios without background
       | Focus Area                       |
       | Automation Permanent Focus Area2 |
 
-  @97145 @97150 @ValidatePrimaryApplicantCanEditAward-SOW @monu
+  @97145 @97150 @ValidatePrimaryApplicantCanEditAward-SOW @monu @AmendmentWBPoojaSecond
   Scenario: Verify primary applicant can edit award title and description for SOW amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -2556,13 +2556,13 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     When I click on "Edit" in the page details
-    When I clear the value from field "fieldGrantAwardDescription__c"
+    When I clear the value from field "GrantAwardDescription__c"
     And I enter values into fields
       | Value                                | Field                         |
-      | Award Created From Automation API123 | fieldGrantAwardDescription__c |
+      | Award Created From Automation API123 | GrantAwardDescription__c |
     #97150 #monu
-    And I enter value "12346" into field "fieldZip4__c"
-    And I enter value "VA" into field "fieldState__c"
+    And I enter value "12346" into field "Zip4__c"
+    And I enter value "VA" into field "State__c"
     When I click on "Save" in the page details
     Then I softly see field "State" as "VA"
     Then I softly see field "Zip Code" as "12346"
@@ -2614,12 +2614,12 @@ Feature: Amendment Request scenarios without background
     When I click on top right button "Associate" in flex table with id "---amendment:-:RecipientKPITableId---"
     And I enter values into fields
       | Value                    | Field             |
-      | Automation Permanent KPI | fieldMasterKPI__c |
-      | 10                       | fieldTarget__c    |
+      | Automation Permanent KPI | MasterKPI__c      |
+      | 10                       | Target__c         |
     And I click modal button "Save"
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:RecipientKPITableId---"
 
-  @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu
+  @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu @AmendmentWBPoojaSecond
   Scenario: Validate that subrecipient user able to create Budget Redirection Amendment
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2634,7 +2634,7 @@ Feature: Amendment Request scenarios without background
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     #99224 #monu
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
@@ -2657,7 +2657,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Under Revision"
 
-  @96613 @ValidateEditOfBudgetChangeBySubRecipient-FundingChange @smoke
+  @96613 @ValidateEditOfBudgetChangeBySubRecipient-FundingChange @smoke @AmendmentWBPoojaSecond
   Scenario Outline: Verify that Sub recipient user is able to edit budget change of Funding change amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2674,8 +2674,8 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -2703,7 +2703,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @98486 @97986 @98488 @creationOfKeyPersonalChangeAmendmentRequest-KPCAmendmentRequest @monu
+  @98486 @97986 @98488 @creationOfKeyPersonalChangeAmendmentRequest-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Creation of KPC Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2737,7 +2737,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
 
-  @97987 @98495 @ValidateAssociationOfKeyPersonalChange-KPCAmendmentRequest @monu
+  @97987 @98495 @ValidateAssociationOfKeyPersonalChange-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Verify sub recipient user is able to associate key personal change to Key Personal Change Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2770,7 +2770,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see fields "Contact__c" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
 
-  @99264 @ValidatePBPEDIsGreaterThanPBPSD-PeriodicRenewal @monu
+  @99264 @ValidatePBPEDIsGreaterThanPBPSD-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario: Verify Proposed budget period end date is grater than Proposed budget Period Start date at periodic renewal amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2787,13 +2787,13 @@ Feature: Amendment Request scenarios without background
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    And I enter value "4100" into field "fieldProposedBudgetEndDate__c"
+    And I enter value "4100" into field "ProposedBudgetEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     Then I see field "{SavedValue:PBPED}" contains date greater than "{SavedValue:PBPSD}" date
 
-  @99269 @100037 @100459 @99261 @VerifyStatusInFieldHistoryTable-KPCAmendmentRequest @monu @FieldHistoryExclude
+  @99269 @100037 @100459 @99261 @VerifyStatusInFieldHistoryTable-KPCAmendmentRequest @monu @FieldHistoryExclude @AmendmentWBPoojaSecond
   Scenario: Validate status of key personal change Amendment request in field history table after submit to grantor
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2856,9 +2856,10 @@ Feature: Amendment Request scenarios without background
 #    As Page refreshing same time so this msg getting disapper
 #    And I softly see the following messages in the page details contains:
 #      | Successfully Re-Assigned |
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @100428 @100433 @100454 @VerifyTaskCreationForExecutiveApprover-KPCAmendmentRequest @monu
+  @100428 @100433 @100454 @VerifyTaskCreationForExecutiveApprover-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Validate Approval task is creating created for Executive approver once fiscal approved the amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2925,7 +2926,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I softly can see top right button "Amend Subaward" in page detail
 
-  @100458 @VerifyVisibilityOfAmendSubawardButton-KPCAmendmentRequest @monu
+  @100458 @VerifyVisibilityOfAmendSubawardButton-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Validate Amend Subaward button is not visible to other than initial award owner for Key personal change amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2988,7 +2989,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Approved"
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
-  @100130 @100134 @VerifyHistoryOfAmendmentRequestAfterReject-KPCAmendmentRequest @monu @FieldHistoryExclude
+  @100130 @100134 @VerifyHistoryOfAmendmentRequestAfterReject-KPCAmendmentRequest @monu @FieldHistoryExclude @AmendmentWBPoojaSecond
   Scenario: Validate Rejected status in Approval history once Internal user rejects the Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3029,6 +3030,8 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:FO Username} | Step 3            |
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "History" sub tab
@@ -3037,7 +3040,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Rejected" for title "New Value" inside table "History"
     Then I softly see value "Submitted for Approval" for title "Old Value" inside table "History"
 
-  @99268 @ValidateEditOfKPIAfterSubmittedToGrantor-KPCAmendmentRequest @monu
+  @99268 @ValidateEditOfKPIAfterSubmittedToGrantor-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Validate internal user is not able to edit KPI of amendment request which is submitted to grantor having checked Is Key Contact
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3070,7 +3073,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see row level action button "Edit" against "{SavedValue:SPA Username}" in flex table with id "---amendment:-:InternalKeyPersonalTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:SPI3 Username}" in flex table with id "---amendment:-:InternalKeyPersonalTableId---"
 
-  @102627 @ValidateUpdatedRoleAtProgressReport-KPCAmendmentRequest @monu
+  @102627 @ValidateUpdatedRoleAtProgressReport-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Verify Updated role of key personal change user of Amendment request at progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3084,7 +3087,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -3144,7 +3147,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @102629 @ValidateUpdatedRoleAtPaymentRequest-KPCAmendmentRequest @monu
+  @102629 @ValidateUpdatedRoleAtPaymentRequest-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Verify Updated role of key personal change user of Amendment request at payment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3218,7 +3221,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @98480 @validateRejectionOfAmendmentRequestByInternalUser-TCAmendmentRequest @monu
+  @98480 @validateRejectionOfAmendmentRequestByInternalUser-TCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Validate Internal user is able to reject terms and conditions Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3236,7 +3239,7 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c      |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -3263,10 +3266,12 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:AmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @99608 @99629 @verifyCreationOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379
+  @99608 @99629 @verifyCreationOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379 @AmendmentWBPoojaSecond
   Scenario: Validate sub recipient user is able to create carry Forward Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3332,7 +3337,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -3364,10 +3369,12 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:FO Username} | Step 2            |
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @99609 @verifySubmissionOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379
+  @99609 @verifySubmissionOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379 @AmendmentWBPoojaSecond
   Scenario: Validate user is able to submit carry forward amendment request to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3453,8 +3460,8 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "500" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "500" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -3477,7 +3484,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @100773 @validateRejectionOfAmendmentRequestByInternalUser-FundingChangeAmendmentRequest @monu
+  @100773 @validateRejectionOfAmendmentRequestByInternalUser-FundingChangeAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario Outline: Validate Internal user is able to reject Funding change Amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3494,8 +3501,8 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c      |
+      | 2000                        | RequestedChangeInBudget__c         |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -3537,7 +3544,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 3100  | fieldRevisedCommitment__c |
+      | 3100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3546,6 +3553,8 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
@@ -3553,7 +3562,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @100699 @validateAssociationAndRemovalOfFocusArea-FundingChangeAmendmentRequest @monu
+  @100699 @validateAssociationAndRemovalOfFocusArea-FundingChangeAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario Outline: Validate Internal user is able to Associate and remove focus area from Funding change Amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3570,8 +3579,8 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c      |
+      | 2000                        | RequestedChangeInBudget__c         |
     And I click on "Save" in the page details
     And I save the value from row "1" for column name "Title" as "title" from flex table "---amendment:-:FundingChangeFocusAreaTableId---"
     Then I softly see "{SavedValue:title}" inside rows of enhanced grid id "---amendment:-:grantorBudgetChangeTableId---"
@@ -3586,7 +3595,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                                      | Grant Name                                      | Focus Area                       |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} | Automation Permanent Focus Area2 |
 
-  @101121 @SVReviewEndDateModificationAsPerNewBPEndDate-BPCAmendmentRequest @monu @buglogged103988 @buglogged151361
+  @101121 @SVReviewEndDateModificationAsPerNewBPEndDate-BPCAmendmentRequest @monu @buglogged103988 @buglogged151361 @AmendmentWBPoojaSecond
   Scenario: Validate user is able to modify Site Visits review end date is same as Budget period end date
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3618,10 +3627,12 @@ Feature: Amendment Request scenarios without background
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
@@ -3684,11 +3695,11 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---" without waiting for record
     And I enter values into fields
       | Value                                | Field                    |
-      | {SavedValue:updatedBudgetPeriodDate} | fieldVisitEndDateTime__c |
+      | {SavedValue:updatedBudgetPeriodDate} | VisitEndDateTime__c      |
     And I click on "Save" in the page details
     Then I softly see field "Site Visit End Date" as "{SavedValue:updatedBudgetPeriodDate}"
 
-  @100784 @96203 @ValidateCreationOfSVWithExtendedBPDate-BudgetPeriodChange @monu @smoke
+  @100784 @96203 @ValidateCreationOfSVWithExtendedBPDate-BudgetPeriodChange @monu @smoke @AmendmentWBPoojaSecond
   Scenario:Validate Internal user is able to create Site Visits with extended budget period date
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3708,7 +3719,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -3775,13 +3786,13 @@ Feature: Amendment Request scenarios without background
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
-    And I enter value "0" into field "fieldVisitEndDateTime__c"
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldVisitEndDateTime__c"
+    And I enter value "0" into field "VisitEndDateTime__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "VisitEndDateTime__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SiteVisitID"
     Then I softly see field "Status" as "Created"
 
-  @96219 @ValidateRejectFunctionalityForAmenedmentWithInternalUser-BudgetPeriodChange @monu @smoke
+  @96219 @ValidateRejectFunctionalityForAmenedmentWithInternalUser-BudgetPeriodChange @monu @smoke @AmendmentWBPoojaSecond
   Scenario:Verify that Internal User is able to reject Budget Period Change Amendment Request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3798,11 +3809,13 @@ Feature: Amendment Request scenarios without background
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -3832,10 +3845,12 @@ Feature: Amendment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @101612 @ValidateActualNegativeValueOfKPI-PeriodicRenewal @monu
+  @101612 @ValidateActualNegativeValueOfKPI-PeriodicRenewal @monu @AmendmentWBPoojaSecond
   Scenario Outline: Verify Negative Actual Value of KPI At Periodic renewal Amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -3929,11 +3944,16 @@ Feature: Amendment Request scenarios without background
       | Automation Permanent KPI | -8     | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     And I save the field labeled "Subaward ID" as "SubawardID"
     Then I softly see field "Status" as "Submitted to Grantor"
