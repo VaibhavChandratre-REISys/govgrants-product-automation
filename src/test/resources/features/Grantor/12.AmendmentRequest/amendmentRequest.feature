@@ -2834,10 +2834,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter Revised Encumbrance for award "{SavedValue:Automation Runtime Award}"
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "Name__c"
-    And I enter value "Step 1" into field "AmendmentRequestRole__c"
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
+    And I wait for "3" seconds
     And I click on "Remove record" icon for "Step 1" inside table
+    And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
   @148945 @149237 @ValidateUserCanAddOneStepApproverForTermsAndConditionAmendmentAndApproveIt @vaibhav @poojaAmendmnetThird
