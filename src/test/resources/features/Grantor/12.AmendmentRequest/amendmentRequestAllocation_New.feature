@@ -3690,7 +3690,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation1"
     Then I softly see value "{SavedValue:CumulativeObligation}" is "Equals to" the value "{SavedValue:CumulativeObligation1}"
 
-  @hitRun @258330 @258233 @258299 @258305 @VerifyvalueswillgetupdatedongrantonlyonceanewAwardwillgetactiveFAisNo @sprint-19-US-255644 @hitesh @Allocation
+  @258330 @258233 @258299 @258305 @VerifyvalueswillgetupdatedongrantonlyonceanewAwardwillgetactiveFAisNo @sprint-19-US-255644 @hitesh @Allocation
   Scenario: Verify values will get updated on grant only once a new Award will get active  (FA is No)
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5339,6 +5339,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
@@ -6128,6 +6129,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
@@ -7284,7 +7286,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264312
     Then I softly see that "Carry Forward Amount" rendered in view mode only
 
-  @264315 @264430 @ValidateusershouldnotabletoeditthecarryforwardamountinsendbacktothesrstateFANo @sprint-20-US-263305 @vaibhav @Allocation
+  @hitRun @264315 @264430 @ValidateusershouldnotabletoeditthecarryforwardamountinsendbacktothesrstateFANo @sprint-20-US-263305 @vaibhav @Allocation
   Scenario: Validate user should not able to edit the carry forward amount in send back to the s/r state FA No
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Directed"
     When I login to "As a Grantor" app as "PO" user
