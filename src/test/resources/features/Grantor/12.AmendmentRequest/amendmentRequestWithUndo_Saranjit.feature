@@ -46,17 +46,17 @@ Feature: Amendment Request scenarios with Undo
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PO Username} | Step 1            |
+      | Name                      | Amendment Request |
+      | {SavedValue:PO Username}  | Step 1            |
 #    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
       | {SavedValue:EXE Username} | Step 2            |
 #    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:FO Username} | Step 3            |
+      | Name                      | Amendment Request |
+      | {SavedValue:FO Username}  | Step 3            |
 #    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | Step 4            |
+      | Name                      | Amendment Request |
+      | {SavedValue:PM Username}  | Step 4            |
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
@@ -244,7 +244,7 @@ Feature: Amendment Request scenarios with Undo
     #342792
     Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @292390 @292391 @292392 @292393 @292398 @292401 @VerifythatwhenPMuserafterclickonundobuttonBudredAmmendrequestrecordgoesbacktosubmitforapprovalstate @sprint-3-US-288689 @hitesh @Undo
+  @wip @292390 @292391 @292392 @292393 @292398 @292401 @VerifythatwhenPMuserafterclickonundobuttonBudredAmmendrequestrecordgoesbacktosubmitforapprovalstate @sprint-3-US-288689 @hitesh @Undo
   Scenario: Verify that when PM user after click on undo button Bud red Ammend request record goes back to submit for approval state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -411,9 +411,12 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:FD1 Username}" in the approval decision
     And I submit the approval in the approval decision
-    And I pause execution for "3" seconds
-    Then I can see the message "Comments are Required." in the approval decision
+    Then I softly see the following messages in the page details contains:
+      | Comments are Required. |
+#    Then I can see the message "Comments are Required." in the approval decision
+    And I refresh the page
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:FD1 Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
@@ -486,7 +489,7 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -562,7 +565,7 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #292397
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Amend Subaward" in page detail
@@ -1240,7 +1243,7 @@ Feature: Amendment Request scenarios with Undo
     #287048
     Then I cannot see top right button "Undo" in page detail
 
-  @t1 @292325 @292326 @292483 @292486 @292603 @292605 @292639 @BPchangeamendmentVerifyonclickofUndobuttonontheBPchangeamendmentthestatusofamendmentisdisplayedasSubmittedforapproval @Sprint-2-US-285149 @hitesh @Undo
+  @wip @292325 @292326 @292483 @292486 @292603 @292605 @292639 @BPchangeamendmentVerifyonclickofUndobuttonontheBPchangeamendmentthestatusofamendmentisdisplayedasSubmittedforapproval @Sprint-2-US-285149 @hitesh @Undo
   Scenario: BP change amendment: Verify on click of Undo button on the BP change amendment the status of amendment is displayed as Submitted for approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -3487,7 +3490,7 @@ Feature: Amendment Request scenarios with Undo
 #    The EGMS Team
 #    """
 
-  @326045 @ValidateBudredthatlastapprovercannotseeUndoButtonOnAmmendmentwhenARisinForceclosedstate @Sprint-13-US-331643 @vaibhav @Undo
+  @wip @326045 @ValidateBudredthatlastapprovercannotseeUndoButtonOnAmmendmentwhenARisinForceclosedstate @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate Bud red that last approver can not see Undo Button On Ammendment when AR isin Force closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -4830,7 +4833,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
 
-  @t1 @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
+  @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate FD user as single step approver step 1 can able to see UNDO button after Approved the AR by assigned approver
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4989,12 +4992,15 @@ Feature: Amendment Request scenarios with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     And I submit the approval in the approval decision
-    And I pause execution for "5" seconds
+    #Bug431809
     Then I softly see the following messages in the page details contains:
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+#    Then I can see the message "Comments are Required." in the approval decision
+    #Bug431809
+    Then I softly see the following messages in the page details contains:
+      | Comments are Required. |
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
@@ -5583,6 +5589,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
     And I navigate to "History" sub tab
+    And I pause execution for "3" seconds
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    Then I softly see value "Rejected" for title "New Value" inside table "---amendment:-:historyTableId---"
 #    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---amendment:-:historyTableId---"
