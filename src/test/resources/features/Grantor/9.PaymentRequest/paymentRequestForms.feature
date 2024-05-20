@@ -60,7 +60,9 @@ Feature: Payment Request Forms scenarios
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
+    And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "2" seconds
@@ -80,7 +82,7 @@ Feature: Payment Request Forms scenarios
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

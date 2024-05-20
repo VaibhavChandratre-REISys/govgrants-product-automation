@@ -1,7 +1,7 @@
-@auditorAnnouncement @auditor @checknow3 @parallel-regression @regression
+@auditorAnnouncement @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Announcement Module
 
-  @wip @69159 @auditorCannotCreateAnnouncement @Bug429010
+  @69159 @auditorCannotCreateAnnouncement @Bug429010
   Scenario: Validate Auditor should not be able to  Create/Edit Announcement
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Announcements" tab
@@ -18,7 +18,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
     #Bug429010
     Then I softly cannot see top right button "New" in flex table with id "ActiveFundingOpportunities"
 
-  @wip @69160 @otherUsersCanCreateAnnouncement
+  @69160 @otherUsersCanCreateAnnouncement
   Scenario Outline: Verify that other than Auditor user all other users can create a Announcement
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Announcements" tab
@@ -39,7 +39,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
       | EXE   |
       | ADMIN |
 
-  @wip @69161 @auditorProfileCannotEditAnnouncement @buglogged151660
+  @69161 @auditorProfileCannotEditAnnouncement @buglogged151660
   Scenario Outline: Validate Auditor user should not be able to Edit Announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     When I login to "As a Grantor" app as "<User>" user
@@ -54,7 +54,7 @@ Feature: Validate all scenarios for Auditor Profile in Announcement Module
       | User    | Announcement                                             |
       | AUDITOR | {SavedValue:Automation Runtime Announcement Application} |
 
-  @wip @69162 @auditorCompetitiveAnnouncement @buglogged151660
+  @69162 @auditorCompetitiveAnnouncement @buglogged151660
   Scenario: Validate Auditor should not be able to Create/Edit/Review/Approve announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     When I login to "As a Grantor" app as "Auditor" user
