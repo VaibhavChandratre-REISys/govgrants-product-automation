@@ -775,7 +775,7 @@ public final class PageDetails {
     public void clickOnLink(boolean checkTable, String usage, String linkName) {
         if (usage.equalsIgnoreCase("hyperlink")) {
             if (!checkTable) {
-                I.amPerforming().click().withJavaScript(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
+                I.amPerforming().click().on(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
             } else {
                 I.amPerforming().click().withJavaScript(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
             }
