@@ -2556,13 +2556,13 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | TncComments__c |
+      | Automation Justification | TncComments__c      |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    And I navigate to "Responsibilities" sub tab
+    And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "Name__c"
+    And I select value "{SavedValue:PM Username}" into field "name__r.name"
     And I enter value "Step 1" into field "AmendmentRequestRole__c"
     And I click on "Remove record" icon for "Step 1" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
@@ -2645,6 +2645,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2834,12 +2835,10 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter Revised Encumbrance for award "{SavedValue:Automation Runtime Award}"
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | Step 1            |
-    And I wait for "3" seconds
+    And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
+    And I select value "{SavedValue:PM Username}" into field "name__r.name"
+    And I enter value "Step 1" into field "AmendmentRequestRole__c"
     And I click on "Remove record" icon for "Step 1" inside table
-    And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
   @148945 @149237 @ValidateUserCanAddOneStepApproverForTermsAndConditionAmendmentAndApproveIt @vaibhav @poojaAmendmnetThird
@@ -2935,10 +2934,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
