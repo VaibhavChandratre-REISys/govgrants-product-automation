@@ -1756,7 +1756,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @100690 @ValidateExtendOfBudgetPeriodOfAmendmentRequest-BPCAmendmentRequest @monu @smoke @poojaAmendmnetThird
+  @100690 @ValidateExtendOfBudgetPeriodOfAmendmentRequest-BPCAmendmentRequest @monu @smoke
   Scenario:Validate Internal user is able to extend the budget period
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1889,7 +1889,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57365 @verifySubmissionOfReimbursmentPaymentRequest @jitendra @buglogged142465 @poojaAmendmnetThird
+  @57365 @verifySubmissionOfReimbursmentPaymentRequest @jitendra @buglogged142465
   Scenario: Verify user can submit Reimbursement Payment request to grantor after Budget Period Change Amendment is done on Subaward
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1967,7 +1967,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev @buglogged138281 @poojaAmendmnetThird
+  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev @buglogged138281
   Scenario Outline: Verify Sub-recipient user can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2051,7 +2051,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev @buglogged138281 @poojaAmendmnetThird
+  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @mahadev @buglogged138281
   Scenario Outline: Verify grantor can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2244,6 +2244,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
@@ -2983,4 +2984,5 @@ Feature: Validate all scenarios in the Amendment Request
     And I select user "{SavedValue:PM Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
