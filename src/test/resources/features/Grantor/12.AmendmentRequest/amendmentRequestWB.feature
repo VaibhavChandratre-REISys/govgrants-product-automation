@@ -2362,7 +2362,7 @@ Feature: Amendment Request scenarios without background
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
+    And I click toggle button to select " Subawards  - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I navigate to "Management" sub tab
@@ -2657,7 +2657,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Under Revision"
 
-  @96613 @ValidateEditOfBudgetChangeBySubRecipient-FundingChange @smoke @AmendmentWBPoojaSecond
+  @96613 @ValidateEditOfBudgetChangeBySubRecipient-FundingChange @smoke
   Scenario Outline: Verify that Sub recipient user is able to edit budget change of Funding change amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2751,7 +2751,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
@@ -2807,7 +2807,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -2873,7 +2873,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -2940,7 +2940,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -3003,7 +3003,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -3054,7 +3054,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -3073,7 +3073,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see row level action button "Edit" against "{SavedValue:SPA Username}" in flex table with id "---amendment:-:InternalKeyPersonalTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:SPI3 Username}" in flex table with id "---amendment:-:InternalKeyPersonalTableId---"
 
-  @102627 @ValidateUpdatedRoleAtProgressReport-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
+  @102627 @ValidateUpdatedRoleAtProgressReport-KPCAmendmentRequest @monu
   Scenario: Verify Updated role of key personal change user of Amendment request at progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3161,7 +3161,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -3792,7 +3792,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "SiteVisitID"
     Then I softly see field "Status" as "Created"
 
-  @96219 @ValidateRejectFunctionalityForAmenedmentWithInternalUser-BudgetPeriodChange @monu @smoke @AmendmentWBPoojaSecond
+  @96219 @ValidateRejectFunctionalityForAmenedmentWithInternalUser-BudgetPeriodChange @monu @smoke
   Scenario:Verify that Internal User is able to reject Budget Period Change Amendment Request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -4893,7 +4893,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -5371,7 +5371,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -5719,7 +5719,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -5893,7 +5893,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -5931,7 +5931,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -6003,7 +6003,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -8969,7 +8969,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
@@ -9011,7 +9011,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
@@ -9103,7 +9103,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
@@ -9212,7 +9212,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
