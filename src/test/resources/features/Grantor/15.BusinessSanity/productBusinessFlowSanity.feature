@@ -3110,8 +3110,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward
-  Scenario: Validate Detail Budget Yes Scenario In Award
+  @ValidatedDetailBudgetYesInAward
+  Scenario: Validate Detail Budget Yes In Award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
