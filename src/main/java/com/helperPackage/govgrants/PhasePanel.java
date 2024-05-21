@@ -420,6 +420,9 @@ public final class PhasePanel {
         } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
             String toggleName1 = anyItemContainedInDropDown.split(" ")[1];
             return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
+        }else if(anyItemContainedInDropDown.contains("Subawards")){
+            String toggleName1 = anyItemContainedInDropDown.split(" -")[0];
+            return By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else {
             String toggleName = anyItemContainedInDropDown.split("-")[0];
             return By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");

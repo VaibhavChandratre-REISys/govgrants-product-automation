@@ -45,18 +45,19 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Responsibilities" sub tab
+    And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
-      | {SavedValue:PO Username}  | Step 1            |
-#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
       | {SavedValue:EXE Username} | Step 2            |
-#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:FO Username}  | Step 3            |
-#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:PM Username}  | Step 4            |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 3            |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Amendment Request | Name                     |
+      | Step 4            | {SavedValue:PM Username} |
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
@@ -4925,7 +4926,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "automationfd@yopmail.com"
 #    And I pause execution for "220" seconds
 #    Then I refresh the page
@@ -4983,8 +4984,9 @@ Feature: Amendment Request scenarios with Undo
 #
 #    The EGMS Team
 #    """
-    And I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "FD" user
+#    And I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "FD" user
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:pendingTaskTableId---" panel
