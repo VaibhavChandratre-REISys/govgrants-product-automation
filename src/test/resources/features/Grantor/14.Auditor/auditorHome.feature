@@ -1,4 +1,4 @@
-@auditorHome @auditor @parallel-regression @regression
+@auditorHome @auditor @t3 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @wip @68181 @auditorCannotCreateEditInternalOrganizations @smoke
