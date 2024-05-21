@@ -9728,7 +9728,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $2,700.00    |
 
-  @hitRun @265602 @265603 @ValidateAdminusercanseeTotalCommitmentamountunderBudgetSummarysectiononActiveGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFANO @sprint-20-US-263392 @vaibhav @Allocation
+  @265602 @265603 @ValidateAdminusercanseeTotalCommitmentamountunderBudgetSummarysectiononActiveGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFANO @sprint-20-US-263392 @vaibhav @Allocation
   Scenario: Validate Admin user can see Total Commitment amount under Budget Summary section on Active Grant & value copied from Total commitment field from the version 2 award which is active FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation ADMIN user" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -10296,7 +10296,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$700.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @265366 @ValidatePMusercanseeFocusareaonNewAwardisinActivatedstatewhentheinitialAwardisnotfromFDMFAisYES @sprint-20-US-263392 @vaibhav @Allocation
+  @hitRun @265366 @ValidatePMusercanseeFocusareaonNewAwardisinActivatedstatewhentheinitialAwardisnotfromFDMFAisYES @sprint-20-US-263392 @vaibhav @Allocation
   Scenario: Validate PM user can see Focus area on New Award is in Activated state when the initial Award is not from FDM (FA is YES)
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA-Automation PM user" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -10353,6 +10353,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
@@ -10452,8 +10453,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -10554,7 +10555,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationClosedGrant"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligationAwd}" and "{SavedValue:CumulativeObligationAwd1}" is equal to "{SavedValue:CumulativeObligationClosedGrant}"
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
 
@@ -21486,7 +21486,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "Created" for title "Old Value" inside table "History"
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
-
   @116919 @ValidateUsershouldbeabletoextendorreducetheBudgetperiodforactivesubaward @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate User should be able to extend or reduce the Budget period for active subaward
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
