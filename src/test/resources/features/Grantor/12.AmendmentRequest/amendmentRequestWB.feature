@@ -189,6 +189,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -285,6 +286,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1160,6 +1162,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1253,6 +1256,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2868,9 +2872,13 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+#    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
+#    And I enter value "Other" into field "ProjectRole__c"
+#    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | 
+      | {SavedValue:SPI3 Username} | Other                    | 
+    And I wait for "3" seconds
     Then I softly see value "Other" for title "Project Role" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2907,7 +2915,7 @@ Feature: Amendment Request scenarios without background
     And I "Approve" in the approval decision
     And I navigate to "History" sub tab
     And I see "{SavedValue:EXE Username}" against "Step 2" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Approved"
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     #100454 #monu
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3534,7 +3542,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 3100  | RevisedCommitment__c |
+      | 3100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -10778,7 +10786,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -10868,7 +10876,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -10954,7 +10962,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -11111,7 +11119,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -11537,7 +11545,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -12002,7 +12010,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -13148,7 +13156,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -17840,7 +17848,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -17905,7 +17913,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -18027,7 +18035,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -18195,7 +18203,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -18320,7 +18328,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -18423,7 +18431,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -18511,7 +18519,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -18589,7 +18597,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -19554,7 +19562,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -19695,7 +19703,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -19763,7 +19771,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -21844,7 +21852,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -21911,7 +21919,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -22445,7 +22453,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -22539,7 +22547,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
@@ -22666,7 +22674,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -23552,7 +23560,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -23886,7 +23894,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -23976,7 +23984,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24066,7 +24074,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24157,7 +24165,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24286,7 +24294,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24413,7 +24421,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24543,7 +24551,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24667,7 +24675,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24791,7 +24799,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24910,7 +24918,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -24998,7 +25006,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
