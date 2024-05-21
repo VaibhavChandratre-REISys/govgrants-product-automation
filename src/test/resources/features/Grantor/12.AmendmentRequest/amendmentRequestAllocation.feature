@@ -1082,7 +1082,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Balance" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Balance" against the value "Total" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
 
-  @268291 @ValidatespentvalueiscopiedtothePaymentsummarysectionofActivatedAwardfromCarryforwardamendmentafterPaymentrequestisapprovedwhenFANO @sprint-21-US-265880 @vaibhav @Allocation @TBExecution1
+  @268291 @ValidatespentvalueiscopiedtothePaymentsummarysectionofActivatedAwardfromCarryforwardamendmentafterPaymentrequestisapprovedwhenFANO @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate spent value is copied to the Payment summary section of Activated Award from Carry forward amendment after Payment request is approved when FA NO
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "PO" user
@@ -1239,7 +1239,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2269,6 +2269,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                |
@@ -2351,6 +2352,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     When I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                |
@@ -2485,11 +2487,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
       | Value | Field                |
       | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2769,6 +2772,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
@@ -2832,14 +2836,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
     When I click modal button "Close"
     And I wait for "2" seconds
     And I navigate to "Grants" tab
@@ -2945,7 +2948,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2985,7 +2988,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
       | Value | Field                |
       | 4000  | RevisedCommitment__c |
