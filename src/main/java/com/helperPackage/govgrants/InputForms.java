@@ -137,7 +137,7 @@ public final class InputForms {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         By fieldWrapperLocator;
         if (isModal) {
-            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "']");
+            fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input");
             I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
         } else {
             fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
@@ -574,7 +574,7 @@ public final class InputForms {
                 handleRichTextAreaInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
-                    By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                            By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
                 /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
                     handleDatePickerInput(fieldWrapper, fieldValue);
@@ -844,8 +844,8 @@ public final class InputForms {
     private void handleClearingTextInputForTable(WebElement fieldWrapper) {
         By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
         WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-                    I.amPerforming().click().withJavaScript(inputBox);
-                    I.amPerforming().textInput().toClear(inputBox);
+        I.amPerforming().click().withJavaScript(inputBox);
+        I.amPerforming().textInput().toClear(inputBox);
     }
 
     /**
