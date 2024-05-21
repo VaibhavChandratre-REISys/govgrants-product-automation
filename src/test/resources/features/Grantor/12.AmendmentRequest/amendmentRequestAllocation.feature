@@ -83,7 +83,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
+    And I click toggle button to select "Subawards - My Records"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     When I navigate to "Management" sub tab
@@ -985,7 +985,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @273888 @ValidateBudgetSummarybyFAshouldnotdisplayonARlayoutwhenIselectCombinationofARFundingChangeAR&T&CARwhilecreatingARonactiveAwardFANO @sprint-18-US-229266 @vaibhav @Allocation @TBExecution1
+  @273888 @ValidateBudgetSummarybyFAshouldnotdisplayonARlayoutwhenIselectCombinationofARFundingChangeAR&T&CARwhilecreatingARonactiveAwardFANO @sprint-18-US-229266 @vaibhav @Allocation
   Scenario: Validate Budget Summary by FA should not display on AR layout when I select Combination of AR (Funding Change AR & T & C AR) while creating AR on active Award(FA=NO)
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -1785,7 +1785,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Awarded Budget" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
     Then I softly see value "$500.00" for title "Subaward Balance" against the value "Construction" inside table "---paymentRequest:-:paymentRequestBudgetTableId---"
 
-  @268301 @ValidateImpactonSpentvalueswhenPaymentrequestisinflightandAmendmentrequestisprocessedandnewawardisactivatedafterbudgetredirectionAmendment @sprint-21-US-265880 @vaibhav @Allocation @TBExecution1
+  @268301 @ValidateImpactonSpentvalueswhenPaymentrequestisinflightandAmendmentrequestisprocessedandnewawardisactivatedafterbudgetredirectionAmendment @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate Impact on Spent values when Payment request is inflight and Amendment request is processed and new award is activated after budget redirection Amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     And I am on "SUBPORTAL" portal
@@ -2129,7 +2129,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 1000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
@@ -2139,7 +2139,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256629
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
@@ -2212,14 +2212,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 3000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @256877 @ValidatePMusercaneditRevisedCommitmentfieldwhenperiodicrenewalamendmentrequestiscreatedstateafterapproversenttoowner @sprint-19-US-241142 @vaibhav @Allocation
+  @256877 @ValidatePMusercaneditRevisedCommitmentfieldwhenperiodicrenewalamendmentrequestiscreatedstateafterapproversenttoowner @sprint-19-US-241142 @vaibhav @Allocation @TBExecution1
   Scenario: Validate PM user can edit Revised Commitment field when periodic renewal amendment request is created state after approver sent to owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -2234,8 +2234,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -2259,6 +2260,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
+    And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2268,8 +2270,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 3000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
@@ -2287,9 +2289,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     When I click on "Edit" in the page details
-    Then I softly see fields "fieldRevisedCommitment__c" is in edit mode
+    Then I softly see fields "RevisedCommitment__c" is in edit mode
 
-  @257088 @ValidateSPIuserseeupdatedvaluesinbudgetsummarysectionafterperiodicrenewalamendmentSubmittograntor @sprint-19-US-241581 @vaibhav @Allocation
+  @257088 @ValidateSPIuserseeupdatedvaluesinbudgetsummarysectionafterperiodicrenewalamendmentSubmittograntor @sprint-19-US-241581 @vaibhav @Allocation @TBExecution1
   Scenario: Validte SPI user see updated values in budget summary section after periodic renewal amendment submit to grantor
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -2304,8 +2306,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -2315,6 +2318,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                            | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
+    And I wait for "2" seconds
     And I refresh the page
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -2336,6 +2340,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 100            |
+    And I wait for "2" seconds
     And I refresh the page
     Then I softly see field "New Obligation" as "$2,000.00"
     Then I softly see field "Revised Commitment" as "$2,000.00"
@@ -2347,8 +2352,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 8000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 8000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
@@ -2356,6 +2361,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                            | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} | 2500           |
+    And I wait for "2" seconds
     And I refresh the page
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2367,7 +2373,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "New Obligation" as "$5,000.00"
     Then I softly see field "Revised Commitment" as "$8,000.00"
 
-  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser
+  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser @TBExecution1
   Scenario: Validate all the fields with Old values should remain the same on old award and should not get updated for PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2387,7 +2393,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime Amendment Award"
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    When I enter "Edition_ByAppFocusYes" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -2411,6 +2417,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 500          | 100        | 100            |
+    And I wait for "2" seconds
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -2418,11 +2425,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation Permanent KPI | 10     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
@@ -2473,6 +2478,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2480,8 +2486,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -2563,6 +2569,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     #257233
     When I navigate to "Budget" sub tab
@@ -2625,11 +2632,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2676,6 +2684,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
@@ -2695,7 +2704,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Total Commitment" rendered in view mode only
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text for label "Total Commitment"
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     #257287
@@ -2703,7 +2711,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$4,000.00"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment1}"
 
-  @257248 @257251 @ValidatePMusercanseeFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisnotfromFDM @sprint-19-US-249880 @vaibhav @Allocation
+  @257248 @257251 @ValidatePMusercanseeFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisnotfromFDM @sprint-19-US-249880 @vaibhav @Allocation @TBExecution1
   Scenario: Validate PM user can see a Focus area with zero value for New Obligation and Cumulative Obligation column on the new award If the inital Award is not from FDM
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -2721,11 +2729,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -2771,6 +2780,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
     When I navigate to "Budget" sub tab
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
@@ -2779,7 +2789,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$2,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$2,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @257257 @ValidatePMuserseeupdatedspendamountontneactiveawardafterperiodicamendment @sprint-19-US-249880 @vaibhav @Allocation
+  @257257 @ValidatePMuserseeupdatedspendamountontneactiveawardafterperiodicamendment @sprint-19-US-249880 @vaibhav @Allocation @TBExecution1
   Scenario: Validate PM user see updated spend amount on tne active award after periodic amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -2829,7 +2839,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
-    Then I see status in Progress-bar is "Paid" and is "dark blue"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -2841,11 +2852,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -2888,7 +2900,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "5" seconds
     When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I navigate to "Actuals" sub tab
@@ -2943,7 +2955,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId1}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2953,7 +2966,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$200.00"
 
-  @257266 @257321 @257275 @257284 @257281 @ValidatePMusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectionontheactiveGrant @sprint-19-US-249880 @vaibhav @Allocation
+  @257266 @257321 @257275 @257284 @257281 @ValidatePMusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectionontheactiveGrant @sprint-19-US-249880 @vaibhav @Allocation @TBExecution1
   Scenario: Validate PM user can see Cumulative Obligation and Total Commitment fields as read only fields in Budget summary section on the active Grant
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -2973,9 +2986,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                     |
-      | 4000  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -3067,7 +3081,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Total Commitment" rendered in view mode only
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     #257275
@@ -3082,12 +3095,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I enter value "Automation Test justification" into field "Justification__c"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
-    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name          | Closeout |
@@ -3107,9 +3118,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
     And I navigate to "Grants" tab
