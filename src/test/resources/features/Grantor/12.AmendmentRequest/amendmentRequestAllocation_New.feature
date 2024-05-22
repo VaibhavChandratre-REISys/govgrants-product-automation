@@ -11289,6 +11289,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
@@ -11818,6 +11819,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
