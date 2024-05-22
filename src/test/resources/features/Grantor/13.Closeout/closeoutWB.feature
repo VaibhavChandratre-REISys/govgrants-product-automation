@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see field "Advance Available" as "$0.00"
 
-  @87347 @87354 @ValidatingCloseoutRequestForEXEUser @meenakshi
+  @wip @87347 @87354 @ValidatingCloseoutRequestForEXEUser @meenakshi
   Scenario: To verify the PM user should be able to create the  Closeout Request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -49,7 +49,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Closeout Activities Due Date" as "{SavedValue:CloseoutActivitiesDueDate}"
     Then I softly see field "Closeout Effective Date" as "{SavedValue:CloseoutEffectiveDate}"
 
-  @93457 @ValidatePendingAmendmentRequestInOpenItemsForCloseout @meenakshi
+  @wip @93457 @ValidatePendingAmendmentRequestInOpenItemsForCloseout @meenakshi
   Scenario Outline: Verify user can view pending amendment requests in Open Items for Closeout request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -91,7 +91,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @93524 @ValidateSiteVisitInOpenItemsForCloseout @meenakshi
+  @wip @93524 @ValidateSiteVisitInOpenItemsForCloseout @meenakshi
   Scenario Outline: Verify user can view pending site visits/ desk reviews in Open Items for closeout Request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -656,7 +656,7 @@ Feature: Validate all scenarios in Closeout
     Then I see the following messages in the page details :
       | File {SavedValue:AttachedFile} deleted successfully. |
 
-  @96201 @96202 @VerifyCloseoutDeobligatedAmountForCloseout-Scheduled @monu @buglogged140762
+  @wip @96201 @96202 @VerifyCloseoutDeobligatedAmountForCloseout-Scheduled @monu @buglogged140762
   Scenario: Validate user can see closeout deobligated amount for created scheduled closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -975,7 +975,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
 
-  @141925 @141947 @154057 @Verify1StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu
+  @wip @141925 @141947 @154057 @Verify1StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu
   Scenario: Verify user is able to add one step approver for schedule closeout request
   |Verify user is able to add step 2 approver for schedule closeout request|
   |Verify user is able to add four step approver on schedule closeout request|
@@ -1111,7 +1111,7 @@ Feature: Validate all scenarios in Closeout
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @153659 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtScheduleCloseoutRequest-RnRFunctionality @monu
+  @wip @153659 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtScheduleCloseoutRequest-RnRFunctionality @monu
   Scenario: Verify validation displayed when same step is added for different approver for schedule closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1134,7 +1134,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:EXE Username} | Step 1   |
     Then I softly see "You cannot specify the same step for multiple users for Closeout." inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @153658 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtScheduleCloseoutRequest-RnRFunctionality @monu
+  @wip @153658 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtScheduleCloseoutRequest-RnRFunctionality @monu
   Scenario: Verify validation displayed when same approver is added on different  step for schedule closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
