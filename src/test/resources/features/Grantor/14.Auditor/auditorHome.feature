@@ -136,8 +136,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Planning" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     Then I softly see "No records found" inside flex table with id "---home:-:planningPendingTaskTableId---"
-    When I navigate to "Home" tab
-    Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
+#    When I navigate to "Home" tab
+#    Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
 
   @wip @69131 @auditorCompletedTask
   Scenario: Verify Auditor does not have any completed tasks

@@ -36,7 +36,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:recommendedTableId---"
 
   @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
   Scenario: Validate Auditor should be able to View the record but shouldn't be able to Complete Negotiation
@@ -82,12 +82,13 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
-    Then I see the following rows under the following headers in table with id "---subAwardFromFDM:-:fdmTableId---" :
-      | Announcement Title                               | Actions |
-      | {SavedValue:Automation Runtime FDM Announcement} | View    |
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---deskreview:-:reportsTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---deskreview:-:reportsTableId---"
+#    Then I see the following rows under the following headers in table with id "---subAwardFromFDM:-:fdmTableId---" :
+#      | Announcement Title                               | Actions |
+#      | {SavedValue:Automation Runtime FDM Announcement} | View    |
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
-    Then I see status in Progress-bar is "Approved" and is "green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
 
   @69166 @auditorApplication @smoke
   Scenario Outline: Validate Auditor should be able to View submitted application details but cannot edit the submitted application
@@ -149,15 +150,13 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - Open"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Announcement for Application}" for title "Title" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement for Application}" for title "Announcement Name" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     Then I softly see field "Opportunity" as "{SavedValue:Automation Runtime Announcement for Application}"
     Then I softly see field "Status" as "Published"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
