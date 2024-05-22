@@ -11305,8 +11305,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title                            | End Date                             |
       | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} |
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title           | End Date                             |
-      | Test Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+      | Title            |  End Date                             |
+      | Test Focus Area1 | {SavedValue:updatedBudgetPeriodDate} |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -11746,7 +11746,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationNew"
     Then I softly see value "{SavedValue:CumulativeObligationNew}" is "Less Than" the value "{SavedValue:CumulativeObligation}"
 
-  @hitRun1 @276344 @ValidateFormulaByApplicantFAYesusercanseefocusareaswith0obligationonPeriodicrenewalamendmentwhenawardiscreatedfromdirectgrant @Sprint-24-US-275864 @vaibhav @Allocation
+  @276344 @ValidateFormulaByApplicantFAYesusercanseefocusareaswith0obligationonPeriodicrenewalamendmentwhenawardiscreatedfromdirectgrant @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By Applicant FA Yes user can see focus areas with 0 obligation on Periodic renewal amendment when award is created from direct grant
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA-Automation PM user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PM" user
@@ -11779,7 +11779,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
 
-  @hitRun1 @276461 @ValidatetestValidationsForCombinationofARforCarryFwdBudRedAR @Sprint-24-US-275864 @vaibhav @Allocation
+  @276461 @ValidatetestValidationsForCombinationofARforCarryFwdBudRedAR @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate test Validations For Combination of AR for Carry Fwd Bud Red AR
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA" of type "Formula_By_Applicant"
     Given I am on "SUBPORTAL" portal
@@ -11836,6 +11836,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1            |
     When I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11940,7 +11941,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #270111
     Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
 
-  @hitRun1 @269869 @ValidateKPCSRsidePMSPIusercanseeBudgetacrosseachFAunderBudgetcategorysectionofBudgettabonGrantlayoutinClosedstatepostKPCARvaluecopiedfromBudgetacrosseachFAonAwardonwhichARrequestiscreatedFAYES @Sprint-21-US-266911 @vaibhav @Allocation
+  @269869 @ValidateKPCSRsidePMSPIusercanseeBudgetacrosseachFAunderBudgetcategorysectionofBudgettabonGrantlayoutinClosedstatepostKPCARvaluecopiedfromBudgetacrosseachFAonAwardonwhichARrequestiscreatedFAYES @Sprint-21-US-266911 @vaibhav @Allocation
   Scenario: Validate KPC SR side PM SPI user can see Budget across each FA under Budget category section of Budget tab on Grant layout in Closed state post KPC AR & value copied from Budget across each FA on v1 Award on which AR request is created FA YES
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -11992,11 +11993,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 500               |
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                            | Allocation Amount |
       | Automation Permanent Focus Area2 | 500               |
@@ -12027,7 +12028,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 500          | 50         | 50             |
     And I click modal button "Close"
-    When I expand nested table containing column value "BP01"
+#    When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
     When I enter the following values into flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "New" :
