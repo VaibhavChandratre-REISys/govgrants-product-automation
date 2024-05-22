@@ -10864,14 +10864,18 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I pause execution for "3" seconds
+    And I close the tab
+    And I refresh the page
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I see field "Status" as "Submitted to Grantor"
@@ -10976,7 +10980,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
@@ -11181,9 +11185,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation7"
     Then I softly see value "{SavedValue:CumulativeObligationAward2}" is "Equals to" the value "{SavedValue:CumulativeObligation7}"
 
-  @hitRun @270091 @270092 @270093 @270095 @270096 @270098 @270099 @270100 @270101 @270102 @270103 @270104 @270105 @270120 @270121 @270122 @270123 @270124 @270125 @270126 @270128 @270129 @270115 @270116 @270117 @270118 @270108 @270109 @270110 @270112 @270113 @BPCSRsideVerifyPOSPIusercanseeNewObligationfieldunderBudgetSummarysectiononv1AwardonBP02isinPendingActivationstatepostBPCAR&shouldbezeroifFAYES @sprint-21-US-266911 @hitesh @Allocation
+  @hitRun1 @270091 @270092 @270093 @270095 @270096 @270098 @270099 @270100 @270101 @270102 @270103 @270104 @270105 @270120 @270121 @270122 @270123 @270124 @270125 @270126 @270128 @270129 @270115 @270116 @270117 @270118 @270108 @270109 @270110 @270112 @270113 @BPCSRsideVerifyPOSPIusercanseeNewObligationfieldunderBudgetSummarysectiononv1AwardonBP02isinPendingActivationstatepostBPCAR&shouldbezeroifFAYES @sprint-21-US-266911 @hitesh @Allocation
   Scenario: BPC(S/R side)Veri@270091fy PO/SPI user can see New Obligation field under Budget Summary section on v1 Award on BP02 is in Pending Activation state post BPC AR & should be zero if(FA=YES)
-    And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS_BuildUpYes-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -11936,7 +11940,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #270111
     Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
 
-  @269869 @ValidateKPCSRsidePMSPIusercanseeBudgetacrosseachFAunderBudgetcategorysectionofBudgettabonGrantlayoutinClosedstatepostKPCARvaluecopiedfromBudgetacrosseachFAonAwardonwhichARrequestiscreatedFAYES @Sprint-21-US-266911 @vaibhav @Allocation
+  @hitRun1 @269869 @ValidateKPCSRsidePMSPIusercanseeBudgetacrosseachFAunderBudgetcategorysectionofBudgettabonGrantlayoutinClosedstatepostKPCARvaluecopiedfromBudgetacrosseachFAonAwardonwhichARrequestiscreatedFAYES @Sprint-21-US-266911 @vaibhav @Allocation
   Scenario: Validate KPC SR side PM SPI user can see Budget across each FA under Budget category section of Budget tab on Grant layout in Closed state post KPC AR & value copied from Budget across each FA on v1 Award on which AR request is created FA YES
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -12039,14 +12043,19 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I pause execution for "3" seconds
+    And I close the tab
+    And I refresh the page
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I pause execution for "3" seconds
+    And I close the tab
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     Then I see field "Status" as "Submitted to Grantor"
@@ -12073,7 +12082,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
@@ -12278,7 +12287,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldContactChangeDescription__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
@@ -12519,8 +12528,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
