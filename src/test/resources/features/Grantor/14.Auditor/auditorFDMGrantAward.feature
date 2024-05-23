@@ -13,7 +13,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I navigate to "Subawards" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @69169 @auditorCannotEDitActiveGrantAward
+  @done @69169 @auditorCannotEDitActiveGrantAward
   Scenario: Validate Auditor do not have Edit permission for Grant/Subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user

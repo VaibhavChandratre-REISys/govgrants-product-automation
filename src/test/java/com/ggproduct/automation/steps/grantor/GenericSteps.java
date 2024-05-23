@@ -617,8 +617,8 @@ public class GenericSteps {
 
     private static boolean isvalueDisplayinsearchicon(String arg0, String arg1) {
         try {
-            By textbox = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//input[@type='search' or @placeholder='Search User...']");
-            By opt = ByUsing.xpath("//td[@data-label='Automation PM']");
+            By textbox = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//input[@type='search' or @placeholder='Search User...'] | //div[@part='input-text']//input[contains(@id,'input') and @placeholder='Search User...']");
+            By opt = ByUsing.xpath("//td[@data-label='" + arg0 + "']");
             I.amPerforming().click().on(textbox);
             I.amPerforming().checkToSee().isElementDisplayed(textbox);
             I.amPerforming().textInput().in(textbox, arg0);

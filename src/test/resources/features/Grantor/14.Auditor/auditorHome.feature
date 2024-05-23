@@ -115,10 +115,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    Then I softly cannot see top right button "New" in flex table with id "---home:-:reviewersTableId---"
-    When I perform quick search for "Test User A" in "---home:-:reviewersTableId---" panel
-    Then I softly can see row level action button "View" against "Test User A" in flex table with id "---home:-:reviewersTableId---"
-    Then I softly cannot see row level action button "Send Invitation" against "Test User A" in flex table with id "---home:-:reviewersTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "ActiveAccountReviewer"
+    When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
+    Then I softly can see row level action button "View" against "Automation SME" in flex table with id "ActiveAccountReviewer"
+    Then I softly cannot see row level action button "Send Invitation" against "Automation SME" in flex table with id "ActiveAccountReviewer"
     Examples:
       | User    |
       | AUDITOR |
@@ -128,9 +128,9 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly cannot see user "AUDITOR" in the reassign box
+    Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"
 
-  @69120 @69130 @auditorPendingTaskSummaryPhase
+  @done @69120 @69130 @auditorPendingTaskSummaryPhase
   Scenario: Validate Auditor should have no pending task in any of the filter.| Verify Auditor do not have any pending tasks by any phase and by any due date filter.
     Given I login to "As a Grantor" app as "AUDITOR" user
     When I navigate to "Planning" tab
@@ -208,4 +208,4 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly cannot see user "AUDITOR" in the reassign box
+    Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"

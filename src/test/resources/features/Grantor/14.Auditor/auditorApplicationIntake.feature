@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I perform quick search for "Record Id" in "---preApplication:-:preApplicationsGrantorTableId---" panel
     Then I softly see "No records found" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
 
-  @69163 @auditorCannotCreateNegotiation @buglogged151669
+  @done @69163 @auditorCannotCreateNegotiation @buglogged151669
   Scenario: Validate Auditor should not be  able to  Create Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
