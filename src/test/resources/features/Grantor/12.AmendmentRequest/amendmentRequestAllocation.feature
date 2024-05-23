@@ -3816,7 +3816,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     Then I cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
 
-  @258236 @258277 @258316 @258367 @258395 @ValidateNewObligationValueshouldgetpopulatesfromtheNewobligationvaluesfromtheparticularFocusAreasfromtheamendmentrequest @sprint-19-US-250549 @vaibhav @Allocation @TBExecution
+  @258236 @258277 @258316 @258367 @258395 @ValidateNewObligationValueshouldgetpopulatesfromtheNewobligationvaluesfromtheparticularFocusAreasfromtheamendmentrequest @sprint-19-US-250549 @vaibhav @Allocation
   Scenario: Validate New Obligation Value should get populates from the New obligation values from the particular Focus Areas from the amendment request
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -5421,7 +5421,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
@@ -5551,7 +5550,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
