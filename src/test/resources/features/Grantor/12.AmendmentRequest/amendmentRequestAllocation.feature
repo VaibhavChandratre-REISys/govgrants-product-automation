@@ -162,6 +162,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
@@ -6021,7 +6022,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PO Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "5" seconds
     When I "Approve" in the approval decision
     When I click on "Mark As Paid" in the page details
