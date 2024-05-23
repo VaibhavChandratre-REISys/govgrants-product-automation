@@ -73,7 +73,7 @@ public final class PageDetails {
         } catch (ElementClickInterceptedException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
-            I.amPerforming().click().on(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
         }
     }
