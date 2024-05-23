@@ -11335,7 +11335,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #270095
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I softly see value "{SavedValue:TotalCommitmentPA}" is "Equals to" the value "{SavedValue:TotalCommitmentAward}"
+    Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentAward}"
     #270096
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationPA1" from flex table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
