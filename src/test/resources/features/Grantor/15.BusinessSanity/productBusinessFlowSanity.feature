@@ -54,6 +54,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @StrategicPlanCreation
   Scenario: Creation of Strategic plan
+    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
