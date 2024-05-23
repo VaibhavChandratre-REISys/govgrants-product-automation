@@ -160,9 +160,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
-    When I click modal button "Close"
     And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "3" seconds
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
