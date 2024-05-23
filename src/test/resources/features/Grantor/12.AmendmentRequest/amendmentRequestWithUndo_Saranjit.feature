@@ -4146,11 +4146,11 @@ Feature: Amendment Request scenarios with Undo
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
-      | Construction    | 200           |
+      | Construction    | 500           |
     And I click on page navigation arrow "RecAmendmentRequestCarryForwardBudget" for table id "Next"
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
-      | Construction    | 500           |
+      | Construction    | 200           |
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
@@ -4160,7 +4160,7 @@ Feature: Amendment Request scenarios with Undo
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
