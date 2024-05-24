@@ -8112,7 +8112,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @308953 @VerifyFOusercannotseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisfromFDM @sprint-19-US-250550 @hitesh @Allocation @TBExecution
+  @308953 @VerifyFOusercannotseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisfromFDM @sprint-19-US-250550 @hitesh @Allocation
   Scenario: Verify FO user cannot see a Focus area with zero value for New Obligation and Cumulative Obligation column on the new award If the inital Award is  from FDM
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8299,7 +8299,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @257441 @258214 @257349 @257440 @258222 @258075 @VerifyAdminuserwillseeCumulativeObligationfieldontheBudgetSummarysectionOnNewAwardActivationStateandFieldwillpopulatevaluefromtotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-19-US-255648 @hitesh @Allocation @TBExecution
+  @257441 @258214 @257349 @257440 @258222 @258075 @VerifyAdminuserwillseeCumulativeObligationfieldontheBudgetSummarysectionOnNewAwardActivationStateandFieldwillpopulatevaluefromtotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-19-US-255648 @hitesh @Allocation
   Scenario: Verify Admin user will see Cumulative Obligation field on the Budget Summary section On New Award Activation State and Field will populate value from  total of the 'Encumbrance' column from the Award Funding Account information.
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_BUD_CAT_TOTAL_COMM-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -8389,7 +8389,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalCommitment3}" is "Equals to" the value "{SavedValue:TotalCommitment4}"
     #258214
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
-    Then I softly see "Total Awarded amount across budget periods." shown as help text
+    Then I softly see "Total Awarded amount across budget periods" shown as help text
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -8481,7 +8481,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $1,000.00    |
 
-  @248500 @248800 @ValidateDirectAnnPMusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
+  @248500 @248800 @ValidateDirectAnnPMusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @sprint-21-US-263183 @vaibhav @Allocation
   Scenario: Validate Direct Ann PM user should see Awarded Amount field renamed as Cumulative Obligation field with value populated under Actual summary section of Actual tab on Grant layout when Grant is in Closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
