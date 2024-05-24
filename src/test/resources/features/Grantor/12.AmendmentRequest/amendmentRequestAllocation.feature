@@ -8226,6 +8226,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
@@ -8286,8 +8287,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     When I navigate to "Budget" sub tab
     #258219
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
