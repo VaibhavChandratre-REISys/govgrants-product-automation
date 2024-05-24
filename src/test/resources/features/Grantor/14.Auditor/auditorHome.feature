@@ -66,9 +66,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    Then I see the following rows under the following headers in table with id "---home:-:indActiveAccountId---" :
-      | Full Name       | Actions |
-      | {user:fullName} | View    |
+    Then I can see row level action button "View" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+#    Then I see the following rows under the following headers in table with id "---home:-:indActiveAccountId---" :
+#      | Full Name       | Actions |
+#      | {user:fullName} | View    |
     Examples:
       | User    |
       | AUDITOR |
@@ -77,6 +78,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
+    #Bug432799
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---home:-:internalContactTableId---"
     When I perform quick search for "Automation FO" in "---home:-:internalContactTableId---" panel
@@ -99,7 +101,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
     And I enter "Creation" values from "InternalContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal

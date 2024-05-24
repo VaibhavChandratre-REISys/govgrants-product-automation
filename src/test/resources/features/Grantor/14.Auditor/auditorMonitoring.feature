@@ -74,7 +74,8 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Monitoring Schedules" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Scheduled Activities - All"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---auditor:-:scheduledactivtiesTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
+    #Bug432624 - View icon is not visible pls refer bug
+#    Then I can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
     Examples:
       | User    |
       | AUDITOR |

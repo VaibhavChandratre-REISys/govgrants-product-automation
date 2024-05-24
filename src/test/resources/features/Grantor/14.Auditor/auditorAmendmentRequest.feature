@@ -39,7 +39,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
     And I navigate to "Grants" tab
