@@ -1617,6 +1617,29 @@ public class GrantorPayloads {
         awardFundingAccount.addProperty("PreEncumbranceAmount", "2000");
         awardFundingAccountArray.add(awardFundingAccount);
         json.add("AwardFundingAccount", awardFundingAccountArray);
+
+        JsonArray buildUpItemsA = new JsonArray();
+        JsonObject buildUpItems = new JsonObject();
+        buildUpItems.addProperty("BudgetCategory", "Construction");
+        buildUpItems.addProperty("Title", "Construction");
+        buildUpItems.addProperty("Narrative", "Test Build-up");
+        buildUpItems.addProperty("AwardedBudget", 500);
+        buildUpItems.addProperty("CashMatch", 100);
+        buildUpItems.addProperty("NonCashMatch", 100);
+        buildUpItems.add("OtherLeverageOptional", JsonNull.INSTANCE);
+        buildUpItems.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItemsA.add(buildUpItems);
+        JsonObject buildUpItems2 = new JsonObject();
+        buildUpItems2.addProperty("BudgetCategory", "Construction");
+        buildUpItems2.addProperty("Title", "Construction");
+        buildUpItems2.addProperty("Narrative", "Test Build-up");
+        buildUpItems2.addProperty("AwardedBudget", 500);
+        buildUpItems2.addProperty("CashMatch", 100);
+        buildUpItems2.addProperty("NonCashMatch", 100);
+        buildUpItems2.add("OtherLeverageOptional", JsonNull.INSTANCE);
+        buildUpItems2.addProperty("ServiceAreaName", "Automation Permanent Focus Area2");
+        buildUpItemsA.add(buildUpItems2);
+        json.add("BuildUpItems", buildUpItemsA);
         return json;
     }
 

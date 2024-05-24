@@ -7312,17 +7312,18 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @257350 @257436 @257439 @257466 @257473 @257564 @257565 @257567 @257571 @257573 @257486 @257478 @257494 @257497 @257511 @VerifyFOusershouldseeNewObligation&CumulativeObligationreadonlycolumnandshouldnotseeBudgetedAmountreadonlycolumninPendingActivationandActivatedstateofAward @sprint-19-US-250550 @hitesh @Allocation @TBExecution1
   Scenario: Verify FO user should see 'New Obligation & Cumulative Obligation' read only column and should not see 'Budgeted Amount' read only column  in  Pending Activation and Activated state of Award
-    Given I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    When I navigate to "Subawards" sub tab
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationAwd1" from flex table "---subAwardStandAlone:-:focusAreaTableId---"
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -7427,8 +7428,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
@@ -7449,8 +7450,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
@@ -7459,8 +7460,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---amendment:-:recipientActiveGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientActiveGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---" without waiting for record
     #257578
     And I navigate to "Budget" sub tab
     And I save the field labeled "Total Commitment" as "TotalCommitment3"
@@ -7485,8 +7486,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Budget" sub tab
     #257575
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligation1" from flex table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
@@ -7594,15 +7595,17 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @257493 @257579 @VerifyFOusercanseeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononsubawardwhichisinactivatedstateFAYes @sprint-19-US-250550 @hitesh @Allocation @TBExecution1
   Scenario: Verify FO user can see Cumulative Obligation column in Budget summary by focus area section on subaward which is in activated state FA Yes
-    Given I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Budget" sub tab
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAwd1"
     When I navigate to "Management" sub tab
@@ -7679,8 +7682,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
@@ -7690,8 +7693,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---closeout:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---closeout:-:grantsTableId---"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -7729,8 +7732,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---closeout:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---closeout:-:grantsTableId---"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
@@ -7740,8 +7743,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I perform quick search for "{SavedValue:Automation Runtime Award}}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     Then I softly see field "Status" as "Closed/Completed"
     When I navigate to "Budget" sub tab
     #257579
@@ -8108,7 +8111,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @308953 @VerifyFOusercannotseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisfromFDM @sprint-19-US-250550 @hitesh @Allocation
+  @308953 @VerifyFOusercannotseeaFocusareawithzerovalueforNewObligationandCumulativeObligationcolumnonthenewawardIftheinitalAwardisfromFDM @sprint-19-US-250550 @hitesh @Allocation @TBExecution
   Scenario: Verify FO user cannot see a Focus area with zero value for New Obligation and Cumulative Obligation column on the new award If the inital Award is  from FDM
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8212,7 +8215,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @257433 @257432 @258219 @VerifySarahPmuserwillseeTotalCommitmentfieldontheBudgetSummarysectionOnNewAwardInPendingActivationStateandFieldwillpopulatevaluefromAwardonwhichamendmentisdone @sprint-19-US-255648 @hitesh @Allocation
+  @257433 @257432 @258219 @VerifySarahPmuserwillseeTotalCommitmentfieldontheBudgetSummarysectionOnNewAwardInPendingActivationStateandFieldwillpopulatevaluefromAwardonwhichamendmentisdone @sprint-19-US-255648 @hitesh @Allocation @TBExecution
   Scenario: Verify Sarah Pm user will see Total Commitment field on the Budget Summary section On New Award In Pending Activation State and Field will populate value from Award on which amendment is done
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "Grants Portal" app as "SPI3" user
@@ -8295,7 +8298,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @257441 @258214 @257349 @257440 @258222 @258075 @VerifyAdminuserwillseeCumulativeObligationfieldontheBudgetSummarysectionOnNewAwardActivationStateandFieldwillpopulatevaluefromtotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-19-US-255648 @hitesh @Allocation
+  @257441 @258214 @257349 @257440 @258222 @258075 @VerifyAdminuserwillseeCumulativeObligationfieldontheBudgetSummarysectionOnNewAwardActivationStateandFieldwillpopulatevaluefromtotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformation @sprint-19-US-255648 @hitesh @Allocation @TBExecution
   Scenario: Verify Admin user will see Cumulative Obligation field on the Budget Summary section On New Award Activation State and Field will populate value from  total of the 'Encumbrance' column from the Award Funding Account information.
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_BUD_CAT_TOTAL_COMM-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -8402,7 +8405,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment2"
     Then I softly see value "{SavedValue:TotalCommitment4}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
 
-  @257985 @257982 @VerifyAdminuserwillseeCumilativeObligationfieldontheBudgetSummarybyFocusAreasectionOnNewAwardInActiveStateandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-255648 @hitesh @Allocation
+  @257985 @257982 @VerifyAdminuserwillseeCumilativeObligationfieldontheBudgetSummarybyFocusAreasectionOnNewAwardInActiveStateandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-255648 @hitesh @Allocation @TBExecution
   Scenario: Verify Admin user will see Cumilative Obligation field on the Budget Summary by Focus Area section On New Award In Active State and Roll up the Award Amount for each focus area from the award budget grid.
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8477,7 +8480,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $1,000.00    |
 
-  @248500 @248800 @ValidateDirectAnnPMusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @sprint-21-US-263183 @vaibhav @Allocation
+  @248500 @248800 @ValidateDirectAnnPMusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate Direct Ann PM user should see Awarded Amount field renamed as Cumulative Obligation field with value populated under Actual summary section of Actual tab on Grant layout when Grant is in Closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -8542,7 +8545,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Cumulative Obligation" inside page block detail
     Then I softly do not see "Awarded Amount" inside page block detail
 
-  @248798 @ValidateDirectedSPIusershouldseeupdatevaluesinCumulativeObligationTotalCommitmentfieldsunderBudgetSummarysectionofBudgettabisinClosestateonGrantlayout @sprint-21-US-263183 @vaibhav @Allocation
+  @248798 @ValidateDirectedSPIusershouldseeupdatevaluesinCumulativeObligationTotalCommitmentfieldsunderBudgetSummarysectionofBudgettabisinClosestateonGrantlayout @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed SPI user should see update values in Cumulative Obligation & Total Commitment fields under Budget Summary section of Budget tab is in Close state on Grant layout
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8693,7 +8696,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @265600 @265601 @ValidatePMusercanseeTotalCommitmentamountunderBudgetSummarysectiononClosedGrantvaluecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFAYES @sprint-21-US-263183 @vaibhav @Allocation
+  @265600 @265601 @ValidatePMusercanseeTotalCommitmentamountunderBudgetSummarysectiononClosedGrantvaluecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFAYES @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user can see Total Commitment amount under Budget Summary section on Closed Grant & value copied from Total commitment field from the version 2 award which is active FA YES
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8831,7 +8834,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment2"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
 
-  @257410 @258310 @258320 @ValidateusershouldseeCumulativeObligationcolumninbudgetsummarybyfocusareasectionvalueswillrollupfromtheawardsCumulativeObligationforthatfocusareaacrossallBPsoflatestaward @sprint-21-US-263183 @vaibhav @Allocation
+  @257410 @258310 @258320 @ValidateusershouldseeCumulativeObligationcolumninbudgetsummarybyfocusareasectionvalueswillrollupfromtheawardsCumulativeObligationforthatfocusareaacrossallBPsoflatestaward @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate user should see Cumulative Obligation column in budget summary by focus area section & values will roll up from the award's Cumulative Obligation for that focus area across all BPs of latest award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8985,7 +8988,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:CumulativeObligation2}" is "Equals to" the value "{SavedValue:CumulativeObligationGrantcsr2}"
     Then I softly see value "{SavedValue:CumulativeObligation3}" is "Equals to" the value "{SavedValue:CumulativeObligationGrantcsr3}"
 
-  @268477 @268495 @ValidatePMuserseevalueofanydollarfieldmustnotchangeandshouldremainthesameafterandbeforecloseoutiscompletedonnewversion2award @sprint-21-US-263183 @vaibhav @Allocation
+  @268477 @268495 @ValidatePMuserseevalueofanydollarfieldmustnotchangeandshouldremainthesameafterandbeforecloseoutiscompletedonnewversion2award @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see value of any dollar field must not change and should remain the same after and before closeout is completed on new version 2 award
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9109,7 +9112,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant2"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant2}"
 
-  @263818 @263872 @263898 @263949 @264244 @264373 @263903 @ValidatePMusercanseeanewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichissubmittograntorstateFAisYes @sprint-20-US-248355 @vaibhav @Allocation
+  @263818 @263872 @263898 @263949 @264244 @264373 @263903 @ValidatePMusercanseeanewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichissubmittograntorstateFAisYes @sprint-20-US-248355 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user can see a new section of "Budget Summary" after overview section on the carry forward amendment request which is submit to grantor state (FA is Yes)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
