@@ -635,7 +635,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "Amend Subaward" in the page details
     And I wait for "2" seconds
     When I click on "Activate" in the page details
-    And I navigate to "Management" tab
+    And I navigate to "Management" sub tab
 #    When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
     And I wait for "5" seconds
